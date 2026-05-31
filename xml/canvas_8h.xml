@@ -2,16 +2,16 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="canvas_8h" kind="file" language="C++">
     <compoundname>canvas.h</compoundname>
-    <includes refid="rect_8h" local="yes">base/rect.h</includes>
-    <includes refid="vec2_8h" local="yes">base/vec2.h</includes>
-    <includes refid="vec3_8h" local="yes">base/vec3.h</includes>
-    <includes refid="vec4_8h" local="yes">base/vec4.h</includes>
-    <includes refid="shader_8h" local="yes">render/shader.h</includes>
-    <includes refid="texture_8h" local="yes">render/texture.h</includes>
-    <includes refid="colors_8h" local="yes">base/colors.h</includes>
+    <includes refid="rect_8h" local="yes">eu/base/rect.h</includes>
+    <includes refid="vec2_8h" local="yes">eu/base/vec2.h</includes>
+    <includes refid="vec3_8h" local="yes">eu/base/vec3.h</includes>
+    <includes refid="vec4_8h" local="yes">eu/base/vec4.h</includes>
+    <includes refid="shader_8h" local="yes">eu/render/shader.h</includes>
+    <includes refid="texture_8h" local="yes">eu/render/texture.h</includes>
+    <includes refid="colors_8h" local="yes">eu/base/colors.h</includes>
     <incdepgraph>
       <node id="3">
-        <label>assert/assert.h</label>
+        <label>eu/assert/assert.h</label>
         <link refid="assert_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
@@ -21,13 +21,13 @@
         </childnode>
       </node>
       <node id="8">
-        <label>base/angle.h</label>
+        <label>eu/base/angle.h</label>
         <link refid="angle_8h"/>
         <childnode refid="9" relation="include">
         </childnode>
       </node>
-      <node id="27">
-        <label>base/colors.h</label>
+      <node id="28">
+        <label>eu/base/colors.h</label>
         <link refid="colors_8h"/>
         <childnode refid="8" relation="include">
         </childnode>
@@ -35,19 +35,19 @@
         </childnode>
       </node>
       <node id="10">
-        <label>base/ints.h</label>
+        <label>eu/base/ints.h</label>
         <link refid="ints_8h"/>
         <childnode refid="11" relation="include">
         </childnode>
       </node>
       <node id="9">
-        <label>base/numeric.h</label>
+        <label>eu/base/numeric.h</label>
         <link refid="numeric_8h"/>
         <childnode refid="10" relation="include">
         </childnode>
       </node>
       <node id="12">
-        <label>base/range.h</label>
+        <label>eu/base/range.h</label>
         <link refid="range_8h"/>
         <childnode refid="13" relation="include">
         </childnode>
@@ -57,7 +57,7 @@
         </childnode>
       </node>
       <node id="2">
-        <label>base/rect.h</label>
+        <label>eu/base/rect.h</label>
         <link refid="rect_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
@@ -67,17 +67,17 @@
         </childnode>
       </node>
       <node id="26">
-        <label>base/size.h</label>
+        <label>eu/base/size.h</label>
         <link refid="size_8h"/>
       </node>
       <node id="7">
-        <label>base/vec2.h</label>
+        <label>eu/base/vec2.h</label>
         <link refid="vec2_8h"/>
         <childnode refid="8" relation="include">
         </childnode>
       </node>
       <node id="14">
-        <label>base/vec3.h</label>
+        <label>eu/base/vec3.h</label>
         <link refid="vec3_8h"/>
         <childnode refid="15" relation="include">
         </childnode>
@@ -87,7 +87,7 @@
         </childnode>
       </node>
       <node id="16">
-        <label>base/vec4.h</label>
+        <label>eu/base/vec4.h</label>
         <link refid="vec4_8h"/>
         <childnode refid="14" relation="include">
         </childnode>
@@ -96,8 +96,22 @@
         <childnode refid="9" relation="include">
         </childnode>
       </node>
+      <node id="27">
+        <label>eu/core/color.h</label>
+        <link refid="color_8h"/>
+      </node>
+      <node id="21">
+        <label>eu/core/vertex_layout.h</label>
+        <link refid="vertex__layout_8h"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
       <node id="1">
-        <label>libs/render/src/render/canvas.h</label>
+        <label>libs/render/src/eu/render/canvas.h</label>
         <link refid="canvas_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
@@ -111,15 +125,15 @@
         </childnode>
         <childnode refid="25" relation="include">
         </childnode>
-        <childnode refid="27" relation="include">
+        <childnode refid="28" relation="include">
         </childnode>
       </node>
       <node id="19">
-        <label>render/opengl_labels.h</label>
+        <label>eu/render/opengl_labels.h</label>
         <link refid="opengl__labels_8h"/>
       </node>
       <node id="17">
-        <label>render/shader.h</label>
+        <label>eu/render/shader.h</label>
         <link refid="shader_8h"/>
         <childnode refid="18" relation="include">
         </childnode>
@@ -131,28 +145,18 @@
         </childnode>
       </node>
       <node id="25">
-        <label>render/texture.h</label>
+        <label>eu/render/texture.h</label>
         <link refid="texture_8h"/>
         <childnode refid="26" relation="include">
         </childnode>
         <childnode refid="19" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="27" relation="include">
         </childnode>
       </node>
       <node id="20">
-        <label>render/uniform.h</label>
+        <label>eu/render/uniform.h</label>
         <link refid="uniform_8h"/>
-      </node>
-      <node id="21">
-        <label>render/vertex_layout.h</label>
-        <link refid="vertex__layout_8h"/>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
-        <childnode refid="24" relation="include">
-        </childnode>
       </node>
       <node id="11">
         <label>cstdint</label>
@@ -203,6 +207,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/render/src/render/canvas.h"/>
+    <location file="libs/render/src/eu/render/canvas.h"/>
   </compounddef>
 </doxygen>

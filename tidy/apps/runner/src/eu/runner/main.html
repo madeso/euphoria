@@ -1,0 +1,162 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>apps/runner/src/eu/runner/main.cc</title>
+</head>
+<body>
+<h1>apps/runner/src/eu/runner/main.cc</h1>
+<span id='bugprone-exception-escape'>&nbsp;</span>
+<hr>
+<h3>warning: an exception may be thrown in function &#39;main&#39; which should not throw exceptions</h3>
+<code>[bugprone-exception-escape]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 166 : 5</i></p>
+<pre>
+  166 | int main(int, char**)
+      |     ^
+</pre>
+<span id='readability-implicit-bool-conversion'>&nbsp;</span>
+<hr>
+<h3>warning: implicit conversion &#39;SDL_Window *&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 206 : 10</i></p>
+<pre>
+  206 |     if (!window) {
+      |         ~^     
+      |                 == nullptr
+</pre>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for local pointer &#39;glContext&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 211 : 11</i></p>
+<pre>
+  211 |     auto* glContext = SDL_GL_CreateContext(window);
+      |           ^~~~~~~~~
+      |           gl_context
+  212 |     SDL_GetWindowSize(window, &amp;window_width, &amp;window_height);
+  213 |     if (!glContext) {
+      |          ~~~~~~~~~
+      |          gl_context
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;void *&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 213 : 10</i></p>
+<pre>
+  213 |     if (!glContext) {
+      |         ~^        
+      |                    == nullptr
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;int&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 227 : 13</i></p>
+<pre>
+  227 |         if (GLAD_GL_VERSION_1_0) {
+      |             ^                  
+      |                                 != 0
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;int&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 236 : 13</i></p>
+<pre>
+  236 |         if (GLAD_GL_VERSION_2_0) {
+      |             ^                  
+      |                                 != 0
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;int&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 242 : 10</i></p>
+<pre>
+  242 |     if (!GLAD_GL_VERSION_4_3)
+      |         ~^                  
+      |                              == 0
+</pre>
+<span id='misc-const-correctness'>&nbsp;</span>
+<hr>
+<h3>warning: variable &#39;io&#39; of type &#39;ImGuiIO &amp;&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 251 : 5</i></p>
+<pre>
+  251 |     ImGuiIO&amp; io = ImGui::GetIO(); (void)io;
+      |     ^      
+      |             const
+</pre>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;PLANE_SIZE&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 310 : 24</i></p>
+<pre>
+  310 |         constexpr auto PLANE_SIZE = 100.0f;
+      |                        ^~~~~~~~~~
+      |                        plane_size
+  311 |         auto plane_geom = eu::render::compile_geom(
+  312 |             USE_DEBUG_LABEL_MANY(&quot;plane&quot;)
+  313 |             eu::core::geom::create_xz_plane(PLANE_SIZE, PLANE_SIZE, false).to_geom(),
+      |                                             ~~~~~~~~~~  ~~~~~~~~~~
+      |                                             plane_size  plane_size
+</pre>
+<hr>
+<h3>warning: variable &#39;cmd&#39; of type &#39;eu::render:: RenderCommand&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 422 : 9</i></p>
+<pre>
+  422 |         eu::render::RenderCommand cmd{ .states = &amp;states, .render = &amp;render, .size = {.width = window_width, .height = window_height} };
+      |         ^
+      |                                   const 
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:166:5: warning: an exception may be thrown in function 'main' which should not throw exceptions [bugprone-exception-escape]
+  166 | int main(int, char**)
+      |     ^
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:206:10: warning: implicit conversion 'SDL_Window *' -> 'bool' [readability-implicit-bool-conversion]
+  206 |     if (!window) {
+      |         ~^     
+      |                 == nullptr
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:211:11: warning: invalid case style for local pointer 'glContext' [readability-identifier-naming]
+  211 |     auto* glContext = SDL_GL_CreateContext(window);
+      |           ^~~~~~~~~
+      |           gl_context
+  212 |     SDL_GetWindowSize(window, &window_width, &window_height);
+  213 |     if (!glContext) {
+      |          ~~~~~~~~~
+      |          gl_context
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:213:10: warning: implicit conversion 'void *' -> 'bool' [readability-implicit-bool-conversion]
+  213 |     if (!glContext) {
+      |         ~^        
+      |                    == nullptr
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:227:13: warning: implicit conversion 'int' -> 'bool' [readability-implicit-bool-conversion]
+  227 |         if (GLAD_GL_VERSION_1_0) {
+      |             ^                  
+      |                                 != 0
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:236:13: warning: implicit conversion 'int' -> 'bool' [readability-implicit-bool-conversion]
+  236 |         if (GLAD_GL_VERSION_2_0) {
+      |             ^                  
+      |                                 != 0
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:242:10: warning: implicit conversion 'int' -> 'bool' [readability-implicit-bool-conversion]
+  242 |     if (!GLAD_GL_VERSION_4_3)
+      |         ~^                  
+      |                              == 0
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:251:5: warning: variable 'io' of type 'ImGuiIO &' can be declared 'const' [misc-const-correctness]
+  251 |     ImGuiIO& io = ImGui::GetIO(); (void)io;
+      |     ^      
+      |             const
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:310:24: warning: invalid case style for constexpr variable 'PLANE_SIZE' [readability-identifier-naming]
+  310 |         constexpr auto PLANE_SIZE = 100.0f;
+      |                        ^~~~~~~~~~
+      |                        plane_size
+  311 |         auto plane_geom = eu::render::compile_geom(
+  312 |             USE_DEBUG_LABEL_MANY("plane")
+  313 |             eu::core::geom::create_xz_plane(PLANE_SIZE, PLANE_SIZE, false).to_geom(),
+      |                                             ~~~~~~~~~~  ~~~~~~~~~~
+      |                                             plane_size  plane_size
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:422:9: warning: variable 'cmd' of type 'eu::render::RenderCommand' can be declared 'const' [misc-const-correctness]
+  422 |         eu::render::RenderCommand cmd{ .states = &states, .render = &render, .size = {.width = window_width, .height = window_height} };
+      |         ^
+      |                                   const 
+-->
+</body>
+</html>

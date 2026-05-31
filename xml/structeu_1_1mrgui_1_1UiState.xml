@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1mrgui_1_1UiState" kind="struct" language="C++" prot="public">
+    <compoundname>eu::mrgui::UiState</compoundname>
+    <includes refid="widgets_8h" local="no">widgets.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1mrgui_1_1UiState_1a3d058d4eccfb9a1eff4bcf418e89f08c" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
+        <definition>v2 eu::mrgui::UiState::mouse</definition>
+        <argsstring></argsstring>
+        <name>mouse</name>
+        <qualifiedname>eu::mrgui::UiState::mouse</qualifiedname>
+        <initializer>= { 0,0 }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/mrgui/src/eu/mrgui/widgets.h" line="41" column="12" bodyfile="libs/mrgui/src/eu/mrgui/widgets.h" bodystart="41" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1mrgui_1_1UiState_1a07754fcb09f87680de83848de8e4a454" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::mrgui::UiState::mousedown</definition>
+        <argsstring></argsstring>
+        <name>mousedown</name>
+        <qualifiedname>eu::mrgui::UiState::mousedown</qualifiedname>
+        <initializer>= <ref refid="structeu_1_1R" kindref="compound">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/mrgui/src/eu/mrgui/widgets.h" line="42" column="14" bodyfile="libs/mrgui/src/eu/mrgui/widgets.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1mrgui_1_1UiState_1aaa3bebdd0f78b87b57b1eabd5704179b" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref> &gt;</type>
+        <definition>std::optional&lt;u32&gt; eu::mrgui::UiState::hot_item</definition>
+        <argsstring></argsstring>
+        <name>hot_item</name>
+        <qualifiedname>eu::mrgui::UiState::hot_item</qualifiedname>
+        <initializer>= std::nullopt</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/mrgui/src/eu/mrgui/widgets.h" line="43" column="23" bodyfile="libs/mrgui/src/eu/mrgui/widgets.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1mrgui_1_1UiState_1a4a6170df9fe7174f4d5e0307b9085815" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref> &gt;</type>
+        <definition>std::optional&lt;u32&gt; eu::mrgui::UiState::active_item</definition>
+        <argsstring></argsstring>
+        <name>active_item</name>
+        <qualifiedname>eu::mrgui::UiState::active_item</qualifiedname>
+        <initializer>= std::nullopt</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/mrgui/src/eu/mrgui/widgets.h" line="44" column="23" bodyfile="libs/mrgui/src/eu/mrgui/widgets.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1mrgui_1_1UiState_1abf3271f0dbcc338ae57b3df31638656a" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::mrgui::UiState::active_item_locked</definition>
+        <argsstring></argsstring>
+        <name>active_item_locked</name>
+        <qualifiedname>eu::mrgui::UiState::active_item_locked</qualifiedname>
+        <initializer>= <ref refid="structeu_1_1R" kindref="compound">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/mrgui/src/eu/mrgui/widgets.h" line="45" column="14" bodyfile="libs/mrgui/src/eu/mrgui/widgets.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1mrgui_1_1UiState_1a9cc710f26ecae58911232d289e1a67ce" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref> &gt;</type>
+        <definition>std::optional&lt;u32&gt; eu::mrgui::UiState::kbd_item</definition>
+        <argsstring></argsstring>
+        <name>kbd_item</name>
+        <qualifiedname>eu::mrgui::UiState::kbd_item</qualifiedname>
+        <initializer>= std::nullopt</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/mrgui/src/eu/mrgui/widgets.h" line="47" column="23" bodyfile="libs/mrgui/src/eu/mrgui/widgets.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1mrgui_1_1UiState_1af3209bd583150a38bd7d5ca89fd436b6" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref> &gt;</type>
+        <definition>std::optional&lt;u32&gt; eu::mrgui::UiState::last_widget</definition>
+        <argsstring></argsstring>
+        <name>last_widget</name>
+        <qualifiedname>eu::mrgui::UiState::last_widget</qualifiedname>
+        <initializer>= std::nullopt</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/mrgui/src/eu/mrgui/widgets.h" line="48" column="23" bodyfile="libs/mrgui/src/eu/mrgui/widgets.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1mrgui_1_1UiState_1a1b18fa13b878e4161cb0a1e55cbbb016" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1mrgui_1_1KeyboardInput" kindref="compound">KeyboardInput</ref> &gt;</type>
+        <definition>std::optional&lt;KeyboardInput&gt; eu::mrgui::UiState::key</definition>
+        <argsstring></argsstring>
+        <name>key</name>
+        <qualifiedname>eu::mrgui::UiState::key</qualifiedname>
+        <initializer>= std::nullopt</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/mrgui/src/eu/mrgui/widgets.h" line="49" column="23" bodyfile="libs/mrgui/src/eu/mrgui/widgets.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1mrgui_1_1UiState_1ab3fde39713fe4a3a3ce28defc2e47401" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1R" kindref="compound">char</ref> &gt;</type>
+        <definition>std::optional&lt;char&gt; eu::mrgui::UiState::keychar</definition>
+        <argsstring></argsstring>
+        <name>keychar</name>
+        <qualifiedname>eu::mrgui::UiState::keychar</qualifiedname>
+        <initializer>= std::nullopt</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/mrgui/src/eu/mrgui/widgets.h" line="50" column="23" bodyfile="libs/mrgui/src/eu/mrgui/widgets.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1mrgui_1_1UiState_1a7a18cbc9a613e950ac2527f2a72c8a94" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">TextEditState</ref></type>
+        <definition>TextEditState eu::mrgui::UiState::text_state</definition>
+        <argsstring></argsstring>
+        <name>text_state</name>
+        <qualifiedname>eu::mrgui::UiState::text_state</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/mrgui/src/eu/mrgui/widgets.h" line="52" column="23" bodyfile="libs/mrgui/src/eu/mrgui/widgets.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1mrgui_1_1UiState_1aefc2de69a40eae39e3d7e91f4ebab657" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::mrgui::UiState::begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <qualifiedname>eu::mrgui::UiState::begin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/mrgui/src/eu/mrgui/widgets.h" line="54" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mrgui_1_1UiState_1a092271936a35c24764db9c43a5e6938c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::mrgui::UiState::end</definition>
+        <argsstring>()</argsstring>
+        <name>end</name>
+        <qualifiedname>eu::mrgui::UiState::end</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/mrgui/src/eu/mrgui/widgets.h" line="56" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mrgui_1_1UiState_1a5c43d376de786b4ec47468aa8acffa8f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::mrgui::UiState::is_active_free</definition>
+        <argsstring>() const</argsstring>
+        <name>is_active_free</name>
+        <qualifiedname>eu::mrgui::UiState::is_active_free</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/mrgui/src/eu/mrgui/widgets.h" line="58" column="15"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::mrgui::UiState</label>
+        <link refid="structeu_1_1mrgui_1_1UiState"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>mouse</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::v2</label>
+        <link refid="structeu_1_1v2"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/mrgui/src/eu/mrgui/widgets.h" line="39" column="5" bodyfile="libs/mrgui/src/eu/mrgui/widgets.h" bodystart="40" bodyend="59"/>
+    <listofallmembers>
+      <member refid="structeu_1_1mrgui_1_1UiState_1a4a6170df9fe7174f4d5e0307b9085815" prot="public" virt="non-virtual"><scope>eu::mrgui::UiState</scope><name>active_item</name></member>
+      <member refid="structeu_1_1mrgui_1_1UiState_1abf3271f0dbcc338ae57b3df31638656a" prot="public" virt="non-virtual"><scope>eu::mrgui::UiState</scope><name>active_item_locked</name></member>
+      <member refid="structeu_1_1mrgui_1_1UiState_1aefc2de69a40eae39e3d7e91f4ebab657" prot="public" virt="non-virtual"><scope>eu::mrgui::UiState</scope><name>begin</name></member>
+      <member refid="structeu_1_1mrgui_1_1UiState_1a092271936a35c24764db9c43a5e6938c" prot="public" virt="non-virtual"><scope>eu::mrgui::UiState</scope><name>end</name></member>
+      <member refid="structeu_1_1mrgui_1_1UiState_1aaa3bebdd0f78b87b57b1eabd5704179b" prot="public" virt="non-virtual"><scope>eu::mrgui::UiState</scope><name>hot_item</name></member>
+      <member refid="structeu_1_1mrgui_1_1UiState_1a5c43d376de786b4ec47468aa8acffa8f" prot="public" virt="non-virtual"><scope>eu::mrgui::UiState</scope><name>is_active_free</name></member>
+      <member refid="structeu_1_1mrgui_1_1UiState_1a9cc710f26ecae58911232d289e1a67ce" prot="public" virt="non-virtual"><scope>eu::mrgui::UiState</scope><name>kbd_item</name></member>
+      <member refid="structeu_1_1mrgui_1_1UiState_1a1b18fa13b878e4161cb0a1e55cbbb016" prot="public" virt="non-virtual"><scope>eu::mrgui::UiState</scope><name>key</name></member>
+      <member refid="structeu_1_1mrgui_1_1UiState_1ab3fde39713fe4a3a3ce28defc2e47401" prot="public" virt="non-virtual"><scope>eu::mrgui::UiState</scope><name>keychar</name></member>
+      <member refid="structeu_1_1mrgui_1_1UiState_1af3209bd583150a38bd7d5ca89fd436b6" prot="public" virt="non-virtual"><scope>eu::mrgui::UiState</scope><name>last_widget</name></member>
+      <member refid="structeu_1_1mrgui_1_1UiState_1a3d058d4eccfb9a1eff4bcf418e89f08c" prot="public" virt="non-virtual"><scope>eu::mrgui::UiState</scope><name>mouse</name></member>
+      <member refid="structeu_1_1mrgui_1_1UiState_1a07754fcb09f87680de83848de8e4a454" prot="public" virt="non-virtual"><scope>eu::mrgui::UiState</scope><name>mousedown</name></member>
+      <member refid="structeu_1_1mrgui_1_1UiState_1a7a18cbc9a613e950ac2527f2a72c8a94" prot="public" virt="non-virtual"><scope>eu::mrgui::UiState</scope><name>text_state</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

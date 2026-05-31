@@ -5,16 +5,18 @@
     <includes local="no">string</includes>
     <includes local="no">vector</includes>
     <includes local="yes">fmt/format.h</includes>
-    <includedby refid="guid_8h" local="yes">libs/base/src/base/guid.h</includedby>
-    <includedby refid="base_2src_2base_2pch_8public_8h" local="yes">libs/base/src/base/pch.public.h</includedby>
-    <includedby refid="range_8h" local="yes">libs/base/src/base/range.h</includedby>
-    <includedby refid="rect_8h" local="yes">libs/base/src/base/rect.h</includedby>
-    <includedby refid="vec3_8h" local="yes">libs/base/src/base/vec3.h</includedby>
-    <includedby refid="vec4_8h" local="yes">libs/base/src/base/vec4.h</includedby>
-    <includedby refid="utf8_8h" local="yes">libs/core/src/core/utf8.h</includedby>
+    <includedby refid="guid_8h" local="yes">libs/base/src/eu/base/guid.h</includedby>
+    <includedby refid="base_2src_2eu_2base_2pch_8private_8h" local="yes">libs/base/src/eu/base/pch.private.h</includedby>
+    <includedby refid="base_2src_2eu_2base_2pch_8public_8h" local="yes">libs/base/src/eu/base/pch.public.h</includedby>
+    <includedby refid="range_8h" local="yes">libs/base/src/eu/base/range.h</includedby>
+    <includedby refid="rect_8h" local="yes">libs/base/src/eu/base/rect.h</includedby>
+    <includedby refid="vec3_8h" local="yes">libs/base/src/eu/base/vec3.h</includedby>
+    <includedby refid="vec4_8h" local="yes">libs/base/src/eu/base/vec4.h</includedby>
+    <includedby refid="tablelayout_8h" local="yes">libs/core/src/eu/core/tablelayout.h</includedby>
+    <includedby refid="utf8_8h" local="yes">libs/core/src/eu/core/utf8.h</includedby>
     <incdepgraph>
       <node id="1">
-        <label>libs/assert/src/assert/assert.h</label>
+        <label>libs/assert/src/eu/assert/assert.h</label>
         <link refid="assert_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
@@ -35,108 +37,186 @@
     </incdepgraph>
     <invincdepgraph>
       <node id="1">
-        <label>libs/assert/src/assert/assert.h</label>
+        <label>libs/assert/src/eu/assert/assert.h</label>
         <link refid="assert_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="3" relation="include">
+        <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
+        <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>libs/base/src/eu/base/axisangle.h</label>
+        <link refid="axisangle_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>libs/base/src/eu/base/base.h</label>
+        <link refid="base_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>libs/base/src/eu/base/colors.h</label>
+        <link refid="colors_8h"/>
+        <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
         <childnode refid="14" relation="include">
         </childnode>
-      </node>
-      <node id="9">
-        <label>libs/base/src/base/axisangle.h</label>
-        <link refid="axisangle_8h"/>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-      </node>
-      <node id="12">
-        <label>libs/base/src/base/colors.h</label>
-        <link refid="colors_8h"/>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
       <node id="2">
-        <label>libs/base/src/base/guid.h</label>
+        <label>libs/base/src/eu/base/guid.h</label>
         <link refid="guid_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>libs/base/src/eu/base/mat4.h</label>
+        <link refid="mat4_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
       </node>
       <node id="10">
-        <label>libs/base/src/base/mat4.h</label>
-        <link refid="mat4_8h"/>
-        <childnode refid="11" relation="include">
+        <label>libs/base/src/eu/base/pch.private.h</label>
+        <link refid="base_2src_2eu_2base_2pch_8private_8h"/>
+        <childnode refid="3" relation="include">
         </childnode>
-      </node>
-      <node id="3">
-        <label>libs/base/src/base/pch.public.h</label>
-        <link refid="base_2src_2base_2pch_8public_8h"/>
-      </node>
-      <node id="11">
-        <label>libs/base/src/base/quat.h</label>
-        <link refid="quat_8h"/>
       </node>
       <node id="4">
-        <label>libs/base/src/base/range.h</label>
-        <link refid="range_8h"/>
+        <label>libs/base/src/eu/base/pch.public.h</label>
+        <link refid="base_2src_2eu_2base_2pch_8public_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-      </node>
-      <node id="5">
-        <label>libs/base/src/base/rect.h</label>
-        <link refid="rect_8h"/>
         <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
-      </node>
-      <node id="8">
-        <label>libs/base/src/base/vec3.h</label>
-        <link refid="vec3_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
         <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>libs/base/src/eu/base/quat.h</label>
+        <link refid="quat_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>libs/base/src/eu/base/range.h</label>
+        <link refid="range_8h"/>
+        <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="12" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
+      </node>
+      <node id="12">
+        <label>libs/base/src/eu/base/rect.h</label>
+        <link refid="rect_8h"/>
+        <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
-      <node id="13">
-        <label>libs/base/src/base/vec4.h</label>
+      <node id="16">
+        <label>libs/base/src/eu/base/vec3.h</label>
+        <link refid="vec3_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>libs/base/src/eu/base/vec4.h</label>
         <link refid="vec4_8h"/>
-        <childnode refid="10" relation="include">
+        <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
         </childnode>
       </node>
-      <node id="14">
-        <label>libs/core/src/core/utf8.h</label>
+      <node id="5">
+        <label>libs/core/src/eu/core/pch.private.h</label>
+        <link refid="core_2src_2eu_2core_2pch_8private_8h"/>
+      </node>
+      <node id="22">
+        <label>libs/core/src/eu/core/tablelayout.h</label>
+        <link refid="tablelayout_8h"/>
+      </node>
+      <node id="23">
+        <label>libs/core/src/eu/core/utf8.h</label>
         <link refid="utf8_8h"/>
       </node>
       <node id="6">
-        <label>libs/render/src/render/canvas.h</label>
-        <link refid="canvas_8h"/>
+        <label>libs/imgui/src/eu/imgui/pch.private.h</label>
+        <link refid="imgui_2src_2eu_2imgui_2pch_8private_8h"/>
       </node>
       <node id="7">
-        <label>libs/render/src/render/font.h</label>
+        <label>libs/io/src/eu/io/pch.private.h</label>
+        <link refid="io_2src_2eu_2io_2pch_8private_8h"/>
+      </node>
+      <node id="8">
+        <label>libs/mrgui/src/eu/mrgui/pch.private.h</label>
+        <link refid="mrgui_2src_2eu_2mrgui_2pch_8private_8h"/>
+      </node>
+      <node id="13">
+        <label>libs/mrgui/src/eu/mrgui/widgets.h</label>
+        <link refid="widgets_8h"/>
+      </node>
+      <node id="14">
+        <label>libs/render/src/eu/render/canvas.h</label>
+        <link refid="canvas_8h"/>
+      </node>
+      <node id="15">
+        <label>libs/render/src/eu/render/font.h</label>
         <link refid="font_8h"/>
+      </node>
+      <node id="9">
+        <label>libs/render/src/eu/render/pch.private.h</label>
+        <link refid="render_2src_2eu_2render_2pch_8private_8h"/>
       </node>
     </invincdepgraph>
     <innerclass refid="structeu_1_1assertlib_1_1AssertArgumentValue" prot="private">eu::assertlib::AssertArgumentValue</innerclass>
@@ -153,7 +233,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/assert/src/assert/assert.h" line="10" column="9" bodyfile="libs/assert/src/assert/assert.h" bodystart="10" bodyend="13"/>
+        <location file="libs/assert/src/eu/assert/assert.h" line="17" column="10" bodyfile="libs/assert/src/eu/assert/assert.h" bodystart="17" bodyend="20"/>
       </memberdef>
       <memberdef kind="define" id="assert_8h_1a9c15fe1e91b07ea3280f5239f9841b67" prot="public" static="no">
         <name>__PRETTY_FUNCTION__</name>
@@ -164,7 +244,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/assert/src/assert/assert.h" line="27" column="13" bodyfile="libs/assert/src/assert/assert.h" bodystart="27" bodyend="-1"/>
+        <location file="libs/assert/src/eu/assert/assert.h" line="34" column="13" bodyfile="libs/assert/src/eu/assert/assert.h" bodystart="34" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="assert_8h_1aa904224faf8979f062517894af990c6a" prot="public" static="no">
         <name>IMPLEMENT_ASSERT_LIB</name>
@@ -177,7 +257,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/assert/src/assert/assert.h" line="32" column="9" bodyfile="libs/assert/src/assert/assert.h" bodystart="32" bodyend="-1"/>
+        <location file="libs/assert/src/eu/assert/assert.h" line="39" column="9" bodyfile="libs/assert/src/eu/assert/assert.h" bodystart="39" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="assert_8h_1aca68c0d4ac8df0838e209fb5300f7be3" prot="public" static="no">
         <name>ASSERT</name>
@@ -199,7 +279,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/assert/src/assert/assert.h" line="38" column="9" bodyfile="libs/assert/src/assert/assert.h" bodystart="38" bodyend="55"/>
+        <location file="libs/assert/src/eu/assert/assert.h" line="45" column="9" bodyfile="libs/assert/src/eu/assert/assert.h" bodystart="45" bodyend="62"/>
       </memberdef>
       <memberdef kind="define" id="assert_8h_1a20d93230446fc0009184336e984ab6b2" prot="public" static="no">
         <name>ASSERTX</name>
@@ -230,7 +310,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/assert/src/assert/assert.h" line="61" column="9" bodyfile="libs/assert/src/assert/assert.h" bodystart="61" bodyend="78"/>
+        <location file="libs/assert/src/eu/assert/assert.h" line="68" column="9" bodyfile="libs/assert/src/eu/assert/assert.h" bodystart="68" bodyend="85"/>
       </memberdef>
       <memberdef kind="define" id="assert_8h_1ae9328389a3cf2705a8a3f35a4a9ceca2" prot="public" static="no">
         <name>DIE</name>
@@ -252,7 +332,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/assert/src/assert/assert.h" line="83" column="9" bodyfile="libs/assert/src/assert/assert.h" bodystart="83" bodyend="90"/>
+        <location file="libs/assert/src/eu/assert/assert.h" line="90" column="9" bodyfile="libs/assert/src/eu/assert/assert.h" bodystart="90" bodyend="97"/>
       </memberdef>
       <memberdef kind="define" id="assert_8h_1ab2792c0e49bcb5df802ae03ffbf859cf" prot="public" static="no">
         <name>DIEX</name>
@@ -283,13 +363,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/assert/src/assert/assert.h" line="96" column="9" bodyfile="libs/assert/src/assert/assert.h" bodystart="96" bodyend="103"/>
+        <location file="libs/assert/src/eu/assert/assert.h" line="103" column="9" bodyfile="libs/assert/src/eu/assert/assert.h" bodystart="103" bodyend="110"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/assert/src/assert/assert.h"/>
+    <location file="libs/assert/src/eu/assert/assert.h"/>
   </compounddef>
 </doxygen>

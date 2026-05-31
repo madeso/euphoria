@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Euphoria: libs/render/src/render/texture.h File Reference</title>
+<title>Euphoria: libs/render/src/eu/render/texture.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -34,6 +34,7 @@
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="topics.html"><span>Topics</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="concepts.html"><span>Concepts</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
     </ul>
@@ -46,7 +47,7 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_5ff146e0f6e8e07917ded14199fb1c6f.html">render</a></li><li class="navelem"><a class="el" href="dir_95dc3cc0a7a420dd18aa45b0124daefa.html">src</a></li><li class="navelem"><a class="el" href="dir_146da238a240638cdf54363209817292.html">render</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_5ff146e0f6e8e07917ded14199fb1c6f.html">render</a></li><li class="navelem"><a class="el" href="dir_95dc3cc0a7a420dd18aa45b0124daefa.html">src</a></li><li class="navelem"><a class="el" href="dir_4a397dec2969df4abbcca5d03a5f9fcc.html">eu</a></li><li class="navelem"><a class="el" href="dir_8918f96d97aaedf6564d1fc8e382975f.html">render</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -59,9 +60,9 @@
   <div class="headertitle"><div class="title">texture.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="size_8h_source.html">base/size.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="opengl__labels_8h_source.html">render/opengl_labels.h</a>&quot;</code><br />
-<code>#include &lt;cstdint&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="size_8h_source.html">eu/base/size.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="opengl__labels_8h_source.html">eu/render/opengl_labels.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="color_8h_source.html">eu/core/color.h</a>&quot;</code><br />
 </div>
 <p><a href="texture_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -110,9 +111,6 @@ Enumerations</h2></td></tr>
 , <a class="el" href="group__texture.html#gga4c49cf44c6f0f36c25cc3fd17be1dda5abe7bbe0cf3947e795861f1fa966bab58">eu::render::ColorData::dont_care</a>
  }</td></tr>
 <tr class="separator:ga4c49cf44c6f0f36c25cc3fd17be1dda5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9478b29b3d621e6b511b12507935040d" id="r_ga9478b29b3d621e6b511b12507935040d"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__texture.html#ga9478b29b3d621e6b511b12507935040d">eu::render::SingleColor</a> : std::uint32_t </td></tr>
-<tr class="memdesc:ga9478b29b3d621e6b511b12507935040d"><td class="mdescLeft">&#160;</td><td class="mdescRight">A single color in a format to load directly into open gl texture(ABGR on little endian).  <a href="group__texture.html#ga9478b29b3d621e6b511b12507935040d">More...</a><br /></td></tr>
-<tr class="separator:ga9478b29b3d621e6b511b12507935040d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac052096755747d49a7e0954123286623" id="r_gac052096755747d49a7e0954123286623"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__texture.html#gac052096755747d49a7e0954123286623">eu::render::DepthBits</a> { <a class="el" href="group__texture.html#ggac052096755747d49a7e0954123286623a6ad0a3981fb0e65854a9ef656e3beac4">eu::render::DepthBits::use_none</a>
 , <a class="el" href="group__texture.html#ggac052096755747d49a7e0954123286623a2b8128f893f047b799dcef08274808e4">eu::render::DepthBits::use_16</a>
 , <a class="el" href="group__texture.html#ggac052096755747d49a7e0954123286623ab33abfcb724dd7b2af41c9c87c2a947e">eu::render::DepthBits::use_24</a>
@@ -130,13 +128,10 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gafc11dff76d8c8dfa670191949ab8495d" id="r_gafc11dff76d8c8dfa670191949ab8495d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1R.html">constexpr</a> <a class="el" href="group__texture.html#ga9478b29b3d621e6b511b12507935040d">SingleColor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__texture.html#gafc11dff76d8c8dfa670191949ab8495d">eu::render::color_from_rgba</a> (<a class="el" href="structeu_1_1R.html">uint8_t</a> r, <a class="el" href="structeu_1_1R.html">uint8_t</a> g, <a class="el" href="structeu_1_1R.html">uint8_t</a> b, <a class="el" href="structeu_1_1R.html">uint8_t</a> a)</td></tr>
-<tr class="memdesc:gafc11dff76d8c8dfa670191949ab8495d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="group__texture.html#ga9478b29b3d621e6b511b12507935040d">SingleColor</a> value from individual red, green, blue, and alpha components.  <br /></td></tr>
-<tr class="separator:gafc11dff76d8c8dfa670191949ab8495d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaff22666806e24a26d00fc230d473513a" id="r_gaff22666806e24a26d00fc230d473513a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1render_1_1Texture2d.html">Texture2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__texture.html#gaff22666806e24a26d00fc230d473513a">eu::render::load_image_from_color</a> (<a class="el" href="group__debug.html#gabd34c805e47ae972bc6f5b1e406e921d">DEBUG_LABEL_ARG_MANY</a> <a class="el" href="group__texture.html#ga9478b29b3d621e6b511b12507935040d">SingleColor</a> <a class="el" href="group__texture.html#ggad077a05d0224820dd5e1c6ffb797fa79aab4086ecd47c568d5ba5739d4078988f">pixel</a>, <a class="el" href="group__texture.html#gabe62780d98ba206d6fabc6fe5233d1a3">TextureEdge</a> <a class="el" href="structeu_1_1R.html">te</a>, <a class="el" href="group__texture.html#gad077a05d0224820dd5e1c6ffb797fa79">TextureRenderStyle</a> <a class="el" href="structeu_1_1R.html">trs</a>, <a class="el" href="group__texture.html#ga5b945431a3e7a9568374b883c85565d7">Transparency</a> t, <a class="el" href="group__texture.html#ga4c49cf44c6f0f36c25cc3fd17be1dda5">ColorData</a> <a class="el" href="structeu_1_1R.html">cd</a>)</td></tr>
-<tr class="separator:gaff22666806e24a26d00fc230d473513a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabcbbd9e458cbc63ae88183ab0ab51c6c" id="r_gabcbbd9e458cbc63ae88183ab0ab51c6c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1render_1_1TextureCubemap.html">TextureCubemap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__texture.html#gabcbbd9e458cbc63ae88183ab0ab51c6c">eu::render::load_cubemap_from_color</a> (<a class="el" href="group__debug.html#gabd34c805e47ae972bc6f5b1e406e921d">DEBUG_LABEL_ARG_MANY</a> <a class="el" href="group__texture.html#ga9478b29b3d621e6b511b12507935040d">SingleColor</a> <a class="el" href="group__texture.html#ggad077a05d0224820dd5e1c6ffb797fa79aab4086ecd47c568d5ba5739d4078988f">pixel</a>, <a class="el" href="group__texture.html#ga4c49cf44c6f0f36c25cc3fd17be1dda5">ColorData</a> <a class="el" href="structeu_1_1R.html">cd</a>)</td></tr>
-<tr class="separator:gabcbbd9e458cbc63ae88183ab0ab51c6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf1a9eb9174786be8ec712aa7d8891200" id="r_gaf1a9eb9174786be8ec712aa7d8891200"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1render_1_1Texture2d.html">Texture2d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__texture.html#gaf1a9eb9174786be8ec712aa7d8891200">eu::render::load_image_from_color</a> (<a class="el" href="group__debug.html#gabd34c805e47ae972bc6f5b1e406e921d">DEBUG_LABEL_ARG_MANY</a> <a class="el" href="namespaceeu_1_1core.html#a5297201f8de20ca7645efa968ae59df6">core::SingleColor</a> <a class="el" href="group__texture.html#ggad077a05d0224820dd5e1c6ffb797fa79aab4086ecd47c568d5ba5739d4078988f">pixel</a>, <a class="el" href="group__texture.html#gabe62780d98ba206d6fabc6fe5233d1a3">TextureEdge</a> <a class="el" href="structeu_1_1R.html">te</a>, <a class="el" href="group__texture.html#gad077a05d0224820dd5e1c6ffb797fa79">TextureRenderStyle</a> <a class="el" href="structeu_1_1R.html">trs</a>, <a class="el" href="group__texture.html#ga5b945431a3e7a9568374b883c85565d7">Transparency</a> t, <a class="el" href="group__texture.html#ga4c49cf44c6f0f36c25cc3fd17be1dda5">ColorData</a> <a class="el" href="structeu_1_1R.html">cd</a>)</td></tr>
+<tr class="separator:gaf1a9eb9174786be8ec712aa7d8891200"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga458cbe8a21306ccd47b408340440c60d" id="r_ga458cbe8a21306ccd47b408340440c60d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1render_1_1TextureCubemap.html">TextureCubemap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__texture.html#ga458cbe8a21306ccd47b408340440c60d">eu::render::load_cubemap_from_color</a> (<a class="el" href="group__debug.html#gabd34c805e47ae972bc6f5b1e406e921d">DEBUG_LABEL_ARG_MANY</a> <a class="el" href="namespaceeu_1_1core.html#a5297201f8de20ca7645efa968ae59df6">core::SingleColor</a> <a class="el" href="group__texture.html#ggad077a05d0224820dd5e1c6ffb797fa79aab4086ecd47c568d5ba5739d4078988f">pixel</a>, <a class="el" href="group__texture.html#ga4c49cf44c6f0f36c25cc3fd17be1dda5">ColorData</a> <a class="el" href="structeu_1_1R.html">cd</a>)</td></tr>
+<tr class="separator:ga458cbe8a21306ccd47b408340440c60d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1e6e831737209f381f2f34fd68b360d8" id="r_ga1e6e831737209f381f2f34fd68b360d8"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structeu_1_1render_1_1FrameBuffer.html">FrameBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__texture.html#ga1e6e831737209f381f2f34fd68b360d8">eu::render::build_simple_framebuffer</a> (<a class="el" href="group__debug.html#gabd34c805e47ae972bc6f5b1e406e921d">DEBUG_LABEL_ARG_MANY</a> <a class="el" href="structeu_1_1R.html">const</a> <a class="el" href="structeu_1_1Size.html">Size</a> &amp;size)</td></tr>
 <tr class="memdesc:ga1e6e831737209f381f2f34fd68b360d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a simple LDR frame buffer.  <br /></td></tr>
 <tr class="separator:ga1e6e831737209f381f2f34fd68b360d8"><td class="memSeparator" colspan="2">&#160;</td></tr>

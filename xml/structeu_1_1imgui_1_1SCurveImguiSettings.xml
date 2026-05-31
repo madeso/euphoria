@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1imgui_1_1SCurveImguiSettings" kind="struct" language="C++" prot="public">
+    <compoundname>eu::imgui::SCurveImguiSettings</compoundname>
+    <includes refid="imgui_2src_2eu_2imgui_2scurve_8h" local="no">scurve.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1imgui_1_1SCurveImguiSettings_1ae6de24e6404ace98652f778bc6c5a228" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::imgui::SCurveImguiSettings::widget_border</definition>
+        <argsstring></argsstring>
+        <name>widget_border</name>
+        <qualifiedname>eu::imgui::SCurveImguiSettings::widget_border</qualifiedname>
+        <initializer>= <ref refid="structeu_1_1R" kindref="compound">false</ref></initializer>
+        <briefdescription>
+<para>draw a border around the widget </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/scurve.h" line="29" column="6" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1imgui_1_1SCurveImguiSettings_1a27cb5788aa1fb267434757e054e2360a" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">ImVec2</ref></type>
+        <definition>ImVec2 eu::imgui::SCurveImguiSettings::widget_size</definition>
+        <argsstring></argsstring>
+        <name>widget_size</name>
+        <qualifiedname>eu::imgui::SCurveImguiSettings::widget_size</qualifiedname>
+        <initializer>= <ref refid="structeu_1_1R" kindref="compound">ImVec2</ref>{100, 100}</initializer>
+        <briefdescription>
+<para>size of the widget </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/scurve.h" line="30" column="8" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="30" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1imgui_1_1SCurveImguiSettings_1ac36eecc9ab4c8ba8680ca253966008a9" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::imgui::SCurveImguiSettings::drag_radius</definition>
+        <argsstring></argsstring>
+        <name>drag_radius</name>
+        <qualifiedname>eu::imgui::SCurveImguiSettings::drag_radius</qualifiedname>
+        <initializer>= 10.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/scurve.h" line="32" column="7" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1imgui_1_1SCurveImguiSettings_1a0b7c6d01db7de09ebea6ecaa666c19dc" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">ImU32</ref></type>
+        <definition>ImU32 eu::imgui::SCurveImguiSettings::drag_color</definition>
+        <argsstring></argsstring>
+        <name>drag_color</name>
+        <qualifiedname>eu::imgui::SCurveImguiSettings::drag_color</qualifiedname>
+        <initializer>= <ref refid="structeu_1_1R" kindref="compound">IM_COL32</ref>(100, 0, 0, 255)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/scurve.h" line="33" column="7" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1imgui_1_1SCurveImguiSettings_1af2117d7cdd56c8f188f5fab625741066" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::imgui::SCurveImguiSettings::point_radius</definition>
+        <argsstring></argsstring>
+        <name>point_radius</name>
+        <qualifiedname>eu::imgui::SCurveImguiSettings::point_radius</qualifiedname>
+        <initializer>= 3.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/scurve.h" line="35" column="7" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1imgui_1_1SCurveImguiSettings_1a49ad198cf656dbc68ab065c84016f696" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">ImU32</ref></type>
+        <definition>ImU32 eu::imgui::SCurveImguiSettings::point_color</definition>
+        <argsstring></argsstring>
+        <name>point_color</name>
+        <qualifiedname>eu::imgui::SCurveImguiSettings::point_color</qualifiedname>
+        <initializer>= <ref refid="structeu_1_1R" kindref="compound">IM_COL32</ref>(0, 100, 0, 255)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/scurve.h" line="36" column="7" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1imgui_1_1SCurveImguiSettings_1a090f7311c3d0648ad904e9348608be77" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::imgui::SCurveImguiSettings::draw_points</definition>
+        <argsstring></argsstring>
+        <name>draw_points</name>
+        <qualifiedname>eu::imgui::SCurveImguiSettings::draw_points</qualifiedname>
+        <initializer>= <ref refid="structeu_1_1R" kindref="compound">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/scurve.h" line="37" column="6" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1imgui_1_1SCurveImguiSettings_1a2937eb420a9f35b7ec6ec254cb4bdd05" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">ImGuiMouseButton_</ref></type>
+        <definition>ImGuiMouseButton_ eu::imgui::SCurveImguiSettings::button</definition>
+        <argsstring></argsstring>
+        <name>button</name>
+        <qualifiedname>eu::imgui::SCurveImguiSettings::button</qualifiedname>
+        <initializer>= <ref refid="structeu_1_1R" kindref="compound">ImGuiMouseButton_Left</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/scurve.h" line="39" column="19" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1imgui_1_1SCurveImguiSettings_1a880e21325183a351155608834639ae1d" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">ImU32</ref></type>
+        <definition>ImU32 eu::imgui::SCurveImguiSettings::background_color</definition>
+        <argsstring></argsstring>
+        <name>background_color</name>
+        <qualifiedname>eu::imgui::SCurveImguiSettings::background_color</qualifiedname>
+        <initializer>= <ref refid="structeu_1_1R" kindref="compound">IM_COL32</ref>(50, 50, 50, 255)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/scurve.h" line="41" column="7" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1imgui_1_1SCurveImguiSettings_1a6b771c37d5696df7af23db99400ac06d" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">ImU32</ref></type>
+        <definition>ImU32 eu::imgui::SCurveImguiSettings::line_color</definition>
+        <argsstring></argsstring>
+        <name>line_color</name>
+        <qualifiedname>eu::imgui::SCurveImguiSettings::line_color</qualifiedname>
+        <initializer>= <ref refid="structeu_1_1R" kindref="compound">IM_COL32</ref>(100, 100, 100, 255)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/scurve.h" line="42" column="7" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1imgui_1_1SCurveImguiSettings_1a2edab6149e363b7a511eac100f7644b7" prot="public" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t eu::imgui::SCurveImguiSettings::num_points</definition>
+        <argsstring></argsstring>
+        <name>num_points</name>
+        <qualifiedname>eu::imgui::SCurveImguiSettings::num_points</qualifiedname>
+        <initializer>= 21</initializer>
+        <briefdescription>
+<para>number of points to draw, more points means smoother curve, but more expensive </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/scurve.h" line="44" column="13" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Configuration settings for displaying and interacting with an S-curve widget. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/imgui/src/eu/imgui/scurve.h" line="27" column="1" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="28" bodyend="45"/>
+    <listofallmembers>
+      <member refid="structeu_1_1imgui_1_1SCurveImguiSettings_1a880e21325183a351155608834639ae1d" prot="public" virt="non-virtual"><scope>eu::imgui::SCurveImguiSettings</scope><name>background_color</name></member>
+      <member refid="structeu_1_1imgui_1_1SCurveImguiSettings_1a2937eb420a9f35b7ec6ec254cb4bdd05" prot="public" virt="non-virtual"><scope>eu::imgui::SCurveImguiSettings</scope><name>button</name></member>
+      <member refid="structeu_1_1imgui_1_1SCurveImguiSettings_1a0b7c6d01db7de09ebea6ecaa666c19dc" prot="public" virt="non-virtual"><scope>eu::imgui::SCurveImguiSettings</scope><name>drag_color</name></member>
+      <member refid="structeu_1_1imgui_1_1SCurveImguiSettings_1ac36eecc9ab4c8ba8680ca253966008a9" prot="public" virt="non-virtual"><scope>eu::imgui::SCurveImguiSettings</scope><name>drag_radius</name></member>
+      <member refid="structeu_1_1imgui_1_1SCurveImguiSettings_1a090f7311c3d0648ad904e9348608be77" prot="public" virt="non-virtual"><scope>eu::imgui::SCurveImguiSettings</scope><name>draw_points</name></member>
+      <member refid="structeu_1_1imgui_1_1SCurveImguiSettings_1a6b771c37d5696df7af23db99400ac06d" prot="public" virt="non-virtual"><scope>eu::imgui::SCurveImguiSettings</scope><name>line_color</name></member>
+      <member refid="structeu_1_1imgui_1_1SCurveImguiSettings_1a2edab6149e363b7a511eac100f7644b7" prot="public" virt="non-virtual"><scope>eu::imgui::SCurveImguiSettings</scope><name>num_points</name></member>
+      <member refid="structeu_1_1imgui_1_1SCurveImguiSettings_1a49ad198cf656dbc68ab065c84016f696" prot="public" virt="non-virtual"><scope>eu::imgui::SCurveImguiSettings</scope><name>point_color</name></member>
+      <member refid="structeu_1_1imgui_1_1SCurveImguiSettings_1af2117d7cdd56c8f188f5fab625741066" prot="public" virt="non-virtual"><scope>eu::imgui::SCurveImguiSettings</scope><name>point_radius</name></member>
+      <member refid="structeu_1_1imgui_1_1SCurveImguiSettings_1ae6de24e6404ace98652f778bc6c5a228" prot="public" virt="non-virtual"><scope>eu::imgui::SCurveImguiSettings</scope><name>widget_border</name></member>
+      <member refid="structeu_1_1imgui_1_1SCurveImguiSettings_1a27cb5788aa1fb267434757e054e2360a" prot="public" virt="non-virtual"><scope>eu::imgui::SCurveImguiSettings</scope><name>widget_size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

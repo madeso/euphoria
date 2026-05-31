@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="core_2src_2eu_2core_2scurve_8h" kind="file" language="C++">
+    <compoundname>scurve.h</compoundname>
+    <includedby refid="world_8h" local="yes">libs/render/src/eu/render/world.h</includedby>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/core/src/eu/core/scurve.h</label>
+        <link refid="core_2src_2eu_2core_2scurve_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>libs/render/src/eu/render/fullscreen.h</label>
+        <link refid="fullscreen_8h"/>
+      </node>
+      <node id="5">
+        <label>libs/render/src/eu/render/postproc.internal.h</label>
+        <link refid="postproc_8internal_8h"/>
+      </node>
+      <node id="4">
+        <label>libs/render/src/eu/render/renderer.h</label>
+        <link refid="renderer_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>libs/render/src/eu/render/renderer.pimpl.h</label>
+        <link refid="renderer_8pimpl_8h"/>
+      </node>
+      <node id="2">
+        <label>libs/render/src/eu/render/world.h</label>
+        <link refid="world_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structeu_1_1core_1_1SCurve" prot="public">eu::core::SCurve</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/eu/core/scurve.h"/>
+  </compounddef>
+</doxygen>

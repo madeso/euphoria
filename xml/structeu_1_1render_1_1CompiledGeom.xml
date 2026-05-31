@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1CompiledGeom" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::CompiledGeom</compoundname>
+    <includes refid="world_8h" local="no">world.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledGeom_1af3ea6b0bba6865b848192d263584855c" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref></type>
+        <definition>u32 eu::render::CompiledGeom::vbo</definition>
+        <argsstring></argsstring>
+        <name>vbo</name>
+        <qualifiedname>eu::render::CompiledGeom::vbo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/world.h" line="26" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledGeom_1a33e5869b4d1053dce4a2d9215b73a953" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref></type>
+        <definition>u32 eu::render::CompiledGeom::vao</definition>
+        <argsstring></argsstring>
+        <name>vao</name>
+        <qualifiedname>eu::render::CompiledGeom::vao</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/world.h" line="27" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledGeom_1a263d4434507de1ef71c7b0de65b61763" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref></type>
+        <definition>u32 eu::render::CompiledGeom::ebo</definition>
+        <argsstring></argsstring>
+        <name>ebo</name>
+        <qualifiedname>eu::render::CompiledGeom::ebo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/world.h" line="28" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledGeom_1a48aa325da13e0ae9c11c92348918072f" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeu_1a15538981e8dad713d329dfddba4b8ae8" kindref="member">i32</ref></type>
+        <definition>i32 eu::render::CompiledGeom::number_of_triangles</definition>
+        <argsstring></argsstring>
+        <name>number_of_triangles</name>
+        <qualifiedname>eu::render::CompiledGeom::number_of_triangles</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/world.h" line="29" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledGeom_1ae58bbdbd55fa336ff172ae41e6ca4817" prot="public" static="no" mutable="no">
+        <type>std::unordered_set&lt; <ref refid="group__vertex-layout_1ga5f0685f8f017fd2ba9d143646266b46e" kindref="member">core::VertexType</ref> &gt;</type>
+        <definition>std::unordered_set&lt;core::VertexType&gt; eu::render::CompiledGeom::debug_types</definition>
+        <argsstring></argsstring>
+        <name>debug_types</name>
+        <qualifiedname>eu::render::CompiledGeom::debug_types</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/world.h" line="30" column="20" bodyfile="libs/render/src/eu/render/world.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1CompiledGeom_1ad16898d0c3baa61abc07dc5ceb2cc2a1" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::CompiledGeom::CompiledGeom</definition>
+        <argsstring>(u32, u32, u32, const core::CompiledGeomVertexAttributes &amp;, i32)</argsstring>
+        <name>CompiledGeom</name>
+        <qualifiedname>eu::render::CompiledGeom::CompiledGeom</qualifiedname>
+        <param>
+          <type><ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref></type>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref></type>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref></type>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1core_1_1CompiledGeomVertexAttributes" kindref="compound">core::CompiledGeomVertexAttributes</ref> &amp;</type>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1a15538981e8dad713d329dfddba4b8ae8" kindref="member">i32</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/world.h" line="32" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1CompiledGeom_1a2c890ce5083292f9fd7a6a5b9edd8017" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::CompiledGeom::~CompiledGeom</definition>
+        <argsstring>()</argsstring>
+        <name>~CompiledGeom</name>
+        <qualifiedname>eu::render::CompiledGeom::~CompiledGeom</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/world.h" line="33" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1CompiledGeom_1a4eab8f71a736f53a9aedb69cfc34607d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::CompiledGeom::CompiledGeom</definition>
+        <argsstring>(const CompiledGeom &amp;)=delete</argsstring>
+        <name>CompiledGeom</name>
+        <qualifiedname>eu::render::CompiledGeom::CompiledGeom</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1CompiledGeom" kindref="compound">CompiledGeom</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/world.h" line="35" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1CompiledGeom_1a87c63ef3bd31200d9e11dd2f82d41cc7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::CompiledGeom::CompiledGeom</definition>
+        <argsstring>(CompiledGeom &amp;&amp;)=delete</argsstring>
+        <name>CompiledGeom</name>
+        <qualifiedname>eu::render::CompiledGeom::CompiledGeom</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1CompiledGeom" kindref="compound">CompiledGeom</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/world.h" line="36" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1CompiledGeom_1ac77584e2aea1510fd6c698fbb59ee142" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::CompiledGeom::operator=</definition>
+        <argsstring>(const CompiledGeom &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>eu::render::CompiledGeom::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1CompiledGeom" kindref="compound">CompiledGeom</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/world.h" line="37" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1CompiledGeom_1a2fd2e6815ebfde7318580101cd4347b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::CompiledGeom::operator=</definition>
+        <argsstring>(CompiledGeom &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>eu::render::CompiledGeom::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1CompiledGeom" kindref="compound">CompiledGeom</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/world.h" line="38" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Represents a Geom on the GPU. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/eu/render/world.h" line="24" column="1" bodyfile="libs/render/src/eu/render/world.h" bodystart="25" bodyend="39"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1CompiledGeom_1ad16898d0c3baa61abc07dc5ceb2cc2a1" prot="public" virt="non-virtual"><scope>eu::render::CompiledGeom</scope><name>CompiledGeom</name></member>
+      <member refid="structeu_1_1render_1_1CompiledGeom_1a4eab8f71a736f53a9aedb69cfc34607d" prot="public" virt="non-virtual"><scope>eu::render::CompiledGeom</scope><name>CompiledGeom</name></member>
+      <member refid="structeu_1_1render_1_1CompiledGeom_1a87c63ef3bd31200d9e11dd2f82d41cc7" prot="public" virt="non-virtual"><scope>eu::render::CompiledGeom</scope><name>CompiledGeom</name></member>
+      <member refid="structeu_1_1render_1_1CompiledGeom_1ae58bbdbd55fa336ff172ae41e6ca4817" prot="public" virt="non-virtual"><scope>eu::render::CompiledGeom</scope><name>debug_types</name></member>
+      <member refid="structeu_1_1render_1_1CompiledGeom_1a263d4434507de1ef71c7b0de65b61763" prot="public" virt="non-virtual"><scope>eu::render::CompiledGeom</scope><name>ebo</name></member>
+      <member refid="structeu_1_1render_1_1CompiledGeom_1a48aa325da13e0ae9c11c92348918072f" prot="public" virt="non-virtual"><scope>eu::render::CompiledGeom</scope><name>number_of_triangles</name></member>
+      <member refid="structeu_1_1render_1_1CompiledGeom_1ac77584e2aea1510fd6c698fbb59ee142" prot="public" virt="non-virtual"><scope>eu::render::CompiledGeom</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1CompiledGeom_1a2fd2e6815ebfde7318580101cd4347b6" prot="public" virt="non-virtual"><scope>eu::render::CompiledGeom</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1CompiledGeom_1a33e5869b4d1053dce4a2d9215b73a953" prot="public" virt="non-virtual"><scope>eu::render::CompiledGeom</scope><name>vao</name></member>
+      <member refid="structeu_1_1render_1_1CompiledGeom_1af3ea6b0bba6865b848192d263584855c" prot="public" virt="non-virtual"><scope>eu::render::CompiledGeom</scope><name>vbo</name></member>
+      <member refid="structeu_1_1render_1_1CompiledGeom_1a2c890ce5083292f9fd7a6a5b9edd8017" prot="public" virt="non-virtual"><scope>eu::render::CompiledGeom</scope><name>~CompiledGeom</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

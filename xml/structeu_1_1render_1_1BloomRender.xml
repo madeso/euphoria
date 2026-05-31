@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1BloomRender" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::BloomRender</compoundname>
+    <includes refid="postproc_8internal_8h" local="no">postproc.internal.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1BloomRender_1a0f2207a61e286382ba2d3e7514b95f68" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1ExtractShader" kindref="compound">ExtractShader</ref> *</type>
+        <definition>ExtractShader* eu::render::BloomRender::extract_shader</definition>
+        <argsstring></argsstring>
+        <name>extract_shader</name>
+        <qualifiedname>eu::render::BloomRender::extract_shader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="24" column="15" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1BloomRender_1a8024327e78edb7028c0a344ad2c41af1" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">FrameBuffer</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;FrameBuffer&gt; eu::render::BloomRender::bloom_buffer</definition>
+        <argsstring></argsstring>
+        <name>bloom_buffer</name>
+        <qualifiedname>eu::render::BloomRender::bloom_buffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="25" column="17" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1BloomRender_1ad40f8c8d7bb14dbf232737d5e6876c7b" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1PingPongBlurShader" kindref="compound">PingPongBlurShader</ref> *</type>
+        <definition>PingPongBlurShader* eu::render::BloomRender::ping_pong_shader</definition>
+        <argsstring></argsstring>
+        <name>ping_pong_shader</name>
+        <qualifiedname>eu::render::BloomRender::ping_pong_shader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="27" column="20" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1BloomRender_1abe84ecc9afa17ddef2bf8748f382200c" prot="public" static="no" mutable="no">
+        <type>std::array&lt; std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">FrameBuffer</ref> &gt;, 2 &gt;</type>
+        <definition>std::array&lt;std::shared_ptr&lt;FrameBuffer&gt;, 2&gt; eu::render::BloomRender::ping_pong_buffer</definition>
+        <argsstring></argsstring>
+        <name>ping_pong_buffer</name>
+        <qualifiedname>eu::render::BloomRender::ping_pong_buffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="28" column="12" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::render::BloomRender</label>
+        <link refid="structeu_1_1render_1_1BloomRender"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>extract_shader</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>ping_pong_shader</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::render::ExtractShader</label>
+        <link refid="structeu_1_1render_1_1ExtractShader"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>cutoff_uniform</edgelabel>
+          <edgelabel>softness_uniform</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>eu::render::PingPongBlurShader</label>
+        <link refid="structeu_1_1render_1_1PingPongBlurShader"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>is_horizontal_uniform</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::render::Uniform</label>
+        <link refid="structeu_1_1render_1_1Uniform"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/eu/render/postproc.internal.h" line="22" column="1" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="23" bodyend="29"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1BloomRender_1a8024327e78edb7028c0a344ad2c41af1" prot="public" virt="non-virtual"><scope>eu::render::BloomRender</scope><name>bloom_buffer</name></member>
+      <member refid="structeu_1_1render_1_1BloomRender_1a0f2207a61e286382ba2d3e7514b95f68" prot="public" virt="non-virtual"><scope>eu::render::BloomRender</scope><name>extract_shader</name></member>
+      <member refid="structeu_1_1render_1_1BloomRender_1abe84ecc9afa17ddef2bf8748f382200c" prot="public" virt="non-virtual"><scope>eu::render::BloomRender</scope><name>ping_pong_buffer</name></member>
+      <member refid="structeu_1_1render_1_1BloomRender_1ad40f8c8d7bb14dbf232737d5e6876c7b" prot="public" virt="non-virtual"><scope>eu::render::BloomRender</scope><name>ping_pong_shader</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

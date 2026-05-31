@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1CameraUniformBuffer" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::CameraUniformBuffer</compoundname>
+    <includes refid="shader__resource_8h" local="no">shader_resource.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1CameraUniformBuffer_1a15c8ef6c8c0d5fa84ff510878da48438" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1UniformBufferSetup" kindref="compound">core::UniformBufferSetup</ref></type>
+        <definition>core::UniformBufferSetup eu::render::CameraUniformBuffer::setup</definition>
+        <argsstring></argsstring>
+        <name>setup</name>
+        <qualifiedname>eu::render::CameraUniformBuffer::setup</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="38" column="30" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1CameraUniformBuffer_1aae7410a80cc610d8cec45e5cfd937b62" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1CompiledUniformProp" kindref="compound">core::CompiledUniformProp</ref></type>
+        <definition>core::CompiledUniformProp eu::render::CameraUniformBuffer::clip_from_view_uni</definition>
+        <argsstring></argsstring>
+        <name>clip_from_view_uni</name>
+        <qualifiedname>eu::render::CameraUniformBuffer::clip_from_view_uni</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="40" column="31" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1CameraUniformBuffer_1aade14b2755d9c86bec08e7bb73186d8b" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1CompiledUniformProp" kindref="compound">core::CompiledUniformProp</ref></type>
+        <definition>core::CompiledUniformProp eu::render::CameraUniformBuffer::view_from_world_uni</definition>
+        <argsstring></argsstring>
+        <name>view_from_world_uni</name>
+        <qualifiedname>eu::render::CameraUniformBuffer::view_from_world_uni</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="41" column="31" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1CameraUniformBuffer_1a4b72239dfa619d2c1c81aee3d88cf2aa" prot="public" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="structeu_1_1render_1_1UniformBuffer" kindref="compound">UniformBuffer</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;UniformBuffer&gt; eu::render::CameraUniformBuffer::buffer</definition>
+        <argsstring></argsstring>
+        <name>buffer</name>
+        <qualifiedname>eu::render::CameraUniformBuffer::buffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="43" column="17" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1CameraUniformBuffer_1ae99f0cd6ddffb36a958e7a1ce1ac960a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::CameraUniformBuffer::set_props</definition>
+        <argsstring>(const CompiledCamera &amp;cc)</argsstring>
+        <name>set_props</name>
+        <qualifiedname>eu::render::CameraUniformBuffer::set_props</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1CompiledCamera" kindref="compound">CompiledCamera</ref> &amp;</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="45" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>&quot;Global state&quot; for the shaders describing the state of the camera. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>eu::core::CompiledUniformProp</label>
+        <link refid="structeu_1_1core_1_1CompiledUniformProp"/>
+      </node>
+      <node id="2">
+        <label>eu::core::UniformBufferSetup</label>
+        <link refid="structeu_1_1core_1_1UniformBufferSetup"/>
+      </node>
+      <node id="1">
+        <label>eu::render::CameraUniformBuffer</label>
+        <link refid="structeu_1_1render_1_1CameraUniformBuffer"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>setup</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>clip_from_view_uni</edgelabel>
+          <edgelabel>view_from_world_uni</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/eu/render/shader_resource.h" line="36" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="37" bodyend="46"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1CameraUniformBuffer_1a4b72239dfa619d2c1c81aee3d88cf2aa" prot="public" virt="non-virtual"><scope>eu::render::CameraUniformBuffer</scope><name>buffer</name></member>
+      <member refid="structeu_1_1render_1_1CameraUniformBuffer_1aae7410a80cc610d8cec45e5cfd937b62" prot="public" virt="non-virtual"><scope>eu::render::CameraUniformBuffer</scope><name>clip_from_view_uni</name></member>
+      <member refid="structeu_1_1render_1_1CameraUniformBuffer_1ae99f0cd6ddffb36a958e7a1ce1ac960a" prot="public" virt="non-virtual"><scope>eu::render::CameraUniformBuffer</scope><name>set_props</name></member>
+      <member refid="structeu_1_1render_1_1CameraUniformBuffer_1a15c8ef6c8c0d5fa84ff510878da48438" prot="public" virt="non-virtual"><scope>eu::render::CameraUniformBuffer</scope><name>setup</name></member>
+      <member refid="structeu_1_1render_1_1CameraUniformBuffer_1aade14b2755d9c86bec08e7bb73186d8b" prot="public" virt="non-virtual"><scope>eu::render::CameraUniformBuffer</scope><name>view_from_world_uni</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

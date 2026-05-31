@@ -7,7 +7,7 @@
     </briefdescription>
     <detaileddescription>
 <para><variablelist>
-<varlistentry><term>Member <ref refid="group__vertex-layout_1gac45dc005a83f6afdda19dbb70f82945b" kindref="member">eu::render::VertexType</ref>  </term></varlistentry>
+<varlistentry><term>Member <ref refid="group__vertex-layout_1ga5f0685f8f017fd2ba9d143646266b46e" kindref="member">eu::core::VertexType</ref>  </term></varlistentry>
 <listitem><para><anchor id="todo_1_todo000002"/>change to include other texture coordinates and custom types that are created from scripts  </para>
 </listitem>
 <varlistentry><term>Member <ref refid="assert_8h_1aa904224faf8979f062517894af990c6a" kindref="member">IMPLEMENT_ASSERT_LIB</ref>  </term></varlistentry>

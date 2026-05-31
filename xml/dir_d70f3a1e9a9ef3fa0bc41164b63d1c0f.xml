@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_d70f3a1e9a9ef3fa0bc41164b63d1c0f" kind="dir">
+    <compoundname>libs/mrgui/src/eu/mrgui</compoundname>
+    <innerfile refid="mrgui_2src_2eu_2mrgui_2pch_8private_8h">pch.private.h</innerfile>
+    <innerfile refid="widgets_8h">widgets.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/mrgui/src/eu/mrgui/"/>
+  </compounddef>
+</doxygen>

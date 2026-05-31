@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1LoadedPostProcShader" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::LoadedPostProcShader</compoundname>
+    <includes refid="shader__resource_8h" local="no">shader_resource.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1LoadedPostProcShader_1a5758fd6a5644e60c6a8aad389afe2939" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;ShaderProgram&gt; eu::render::LoadedPostProcShader::program</definition>
+        <argsstring></argsstring>
+        <name>program</name>
+        <qualifiedname>eu::render::LoadedPostProcShader::program</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="153" column="17" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1LoadedPostProcShader_1a41a62dd3f1d5b5951bfa5309e678574a" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
+        <definition>Uniform eu::render::LoadedPostProcShader::tex_input_uniform</definition>
+        <argsstring></argsstring>
+        <name>tex_input_uniform</name>
+        <qualifiedname>eu::render::LoadedPostProcShader::tex_input_uniform</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="154" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1LoadedPostProcShader_1abe6a019f382165b11f8d833dba5c5690" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &gt;</type>
+        <definition>std::optional&lt;Uniform&gt; eu::render::LoadedPostProcShader::factor_uni</definition>
+        <argsstring></argsstring>
+        <name>factor_uni</name>
+        <qualifiedname>eu::render::LoadedPostProcShader::factor_uni</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="155" column="15" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1LoadedPostProcShader_1a1eebfe0cbb410979379568e63960c7be" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &gt;</type>
+        <definition>std::optional&lt;Uniform&gt; eu::render::LoadedPostProcShader::resolution_uni</definition>
+        <argsstring></argsstring>
+        <name>resolution_uni</name>
+        <qualifiedname>eu::render::LoadedPostProcShader::resolution_uni</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="156" column="15" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1LoadedPostProcShader_1ac0cd5f383e487c44e5387daf93330931" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &gt;</type>
+        <definition>std::optional&lt;Uniform&gt; eu::render::LoadedPostProcShader::time_uni</definition>
+        <argsstring></argsstring>
+        <name>time_uni</name>
+        <qualifiedname>eu::render::LoadedPostProcShader::time_uni</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="157" column="15" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1LoadedPostProcShader_1ae476b6bea40c716a6ceee2b61a251b17" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::LoadedPostProcShader::LoadedPostProcShader</definition>
+        <argsstring>(std::shared_ptr&lt; ShaderProgram &gt; s, PostProcSetup setup)</argsstring>
+        <name>LoadedPostProcShader</name>
+        <qualifiedname>eu::render::LoadedPostProcShader::LoadedPostProcShader</qualifiedname>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> &gt;</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type><ref refid="group__render_1ga0259d27836d6b0923021ed4759c2494f" kindref="member">PostProcSetup</ref></type>
+          <declname>setup</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="159" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>The &quot;base class&quot; for a loaded postproc shader. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::render::LoadedPostProcShader</label>
+        <link refid="structeu_1_1render_1_1LoadedPostProcShader"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>tex_input_uniform</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::render::Uniform</label>
+        <link refid="structeu_1_1render_1_1Uniform"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/eu/render/shader_resource.h" line="151" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="152" bodyend="160"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1LoadedPostProcShader_1abe6a019f382165b11f8d833dba5c5690" prot="public" virt="non-virtual"><scope>eu::render::LoadedPostProcShader</scope><name>factor_uni</name></member>
+      <member refid="structeu_1_1render_1_1LoadedPostProcShader_1ae476b6bea40c716a6ceee2b61a251b17" prot="public" virt="non-virtual"><scope>eu::render::LoadedPostProcShader</scope><name>LoadedPostProcShader</name></member>
+      <member refid="structeu_1_1render_1_1LoadedPostProcShader_1a5758fd6a5644e60c6a8aad389afe2939" prot="public" virt="non-virtual"><scope>eu::render::LoadedPostProcShader</scope><name>program</name></member>
+      <member refid="structeu_1_1render_1_1LoadedPostProcShader_1a1eebfe0cbb410979379568e63960c7be" prot="public" virt="non-virtual"><scope>eu::render::LoadedPostProcShader</scope><name>resolution_uni</name></member>
+      <member refid="structeu_1_1render_1_1LoadedPostProcShader_1a41a62dd3f1d5b5951bfa5309e678574a" prot="public" virt="non-virtual"><scope>eu::render::LoadedPostProcShader</scope><name>tex_input_uniform</name></member>
+      <member refid="structeu_1_1render_1_1LoadedPostProcShader_1ac0cd5f383e487c44e5387daf93330931" prot="public" virt="non-virtual"><scope>eu::render::LoadedPostProcShader</scope><name>time_uni</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -19,7 +19,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="72" column="14" bodyfile="libs/render/src/render/texture.h" bodystart="72" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/texture.h" line="55" column="14" bodyfile="libs/render/src/eu/render/texture.h" bodystart="55" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -35,7 +35,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="74" column="1"/>
+        <location file="libs/render/src/eu/render/texture.h" line="57" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1BaseTexture_1a7f422024d5ac229c2dbebf4f17f2dd86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -49,7 +49,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="75" column="1"/>
+        <location file="libs/render/src/eu/render/texture.h" line="58" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1BaseTexture_1a08ea1db1ea08e6d38f9b9f85fc228f9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="77" column="1"/>
+        <location file="libs/render/src/eu/render/texture.h" line="60" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1BaseTexture_1a80d0ca15ad4e96b0e1903be4f37b3450" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -83,7 +83,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="78" column="6"/>
+        <location file="libs/render/src/eu/render/texture.h" line="61" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1BaseTexture_1a7888eaf78c11d8bf441fca0a5113530b" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -100,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="80" column="1"/>
+        <location file="libs/render/src/eu/render/texture.h" line="63" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1BaseTexture_1aeb794f4887900ce084b91d8a0305cdbd" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1BaseTexture" kindref="compound">BaseTexture</ref> &amp;</type>
@@ -117,7 +117,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="81" column="13"/>
+        <location file="libs/render/src/eu/render/texture.h" line="64" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1BaseTexture_1abe95020af353f26dfc963ac6a8d1cc75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -132,7 +132,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="84" column="6"/>
+        <location file="libs/render/src/eu/render/texture.h" line="67" column="6"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -164,7 +164,7 @@
         </childnode>
       </node>
     </inheritancegraph>
-    <location file="libs/render/src/render/texture.h" line="70" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="71" bodyend="85"/>
+    <location file="libs/render/src/eu/render/texture.h" line="53" column="1" bodyfile="libs/render/src/eu/render/texture.h" bodystart="54" bodyend="68"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1BaseTexture_1a4f8bf634470e48be913dac919fd688c7" prot="public" virt="non-virtual"><scope>eu::render::BaseTexture</scope><name>BaseTexture</name></member>
       <member refid="structeu_1_1render_1_1BaseTexture_1a08ea1db1ea08e6d38f9b9f85fc228f9e" prot="public" virt="non-virtual"><scope>eu::render::BaseTexture</scope><name>BaseTexture</name></member>

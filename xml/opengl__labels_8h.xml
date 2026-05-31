@@ -2,51 +2,134 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="opengl__labels_8h" kind="file" language="C++">
     <compoundname>opengl_labels.h</compoundname>
-    <includedby refid="shader_8h" local="yes">libs/render/src/render/shader.h</includedby>
-    <includedby refid="texture_8h" local="yes">libs/render/src/render/texture.h</includedby>
-    <includedby refid="uniform__buffer_8h" local="yes">libs/render/src/render/uniform_buffer.h</includedby>
+    <includedby refid="compiledmesh_8h" local="yes">libs/render/src/eu/render/compiledmesh.h</includedby>
+    <includedby refid="shader_8h" local="yes">libs/render/src/eu/render/shader.h</includedby>
+    <includedby refid="texture_8h" local="yes">libs/render/src/eu/render/texture.h</includedby>
+    <includedby refid="render_2src_2eu_2render_2uniform__buffer_8h" local="yes">libs/render/src/eu/render/uniform_buffer.h</includedby>
     <invincdepgraph>
-      <node id="3">
-        <label>libs/render/src/render/canvas.h</label>
+      <node id="9">
+        <label>libs/render/src/eu/render/assets.h</label>
+        <link refid="assets_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>libs/render/src/eu/render/canvas.h</label>
         <link refid="canvas_8h"/>
       </node>
-      <node id="5">
-        <label>libs/render/src/render/font.h</label>
+      <node id="2">
+        <label>libs/render/src/eu/render/compiledmesh.h</label>
+        <link refid="compiledmesh_8h"/>
+      </node>
+      <node id="14">
+        <label>libs/render/src/eu/render/font.h</label>
         <link refid="font_8h"/>
       </node>
+      <node id="13">
+        <label>libs/render/src/eu/render/fullscreen.h</label>
+        <link refid="fullscreen_8h"/>
+      </node>
+      <node id="5">
+        <label>libs/render/src/eu/render/linebatch.h</label>
+        <link refid="linebatch_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>libs/render/src/eu/render/material.h</label>
+        <link refid="material_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
       <node id="1">
-        <label>libs/render/src/render/opengl_labels.h</label>
+        <label>libs/render/src/eu/render/opengl_labels.h</label>
         <link refid="opengl__labels_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>libs/render/src/eu/render/postproc.h</label>
+        <link refid="postproc_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>libs/render/src/eu/render/postproc.internal.h</label>
+        <link refid="postproc_8internal_8h"/>
+      </node>
+      <node id="11">
+        <label>libs/render/src/eu/render/renderer.h</label>
+        <link refid="renderer_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>libs/render/src/eu/render/renderer.pimpl.h</label>
+        <link refid="renderer_8pimpl_8h"/>
+      </node>
+      <node id="3">
+        <label>libs/render/src/eu/render/shader.h</label>
+        <link refid="shader_8h"/>
         <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
       </node>
-      <node id="2">
-        <label>libs/render/src/render/shader.h</label>
-        <link refid="shader_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
-      <node id="4">
-        <label>libs/render/src/render/texture.h</label>
-        <link refid="texture_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
+      <node id="18">
+        <label>libs/render/src/eu/render/shader_resource.h</label>
+        <link refid="shader__resource_8h"/>
+        <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
       </node>
-      <node id="6">
-        <label>libs/render/src/render/texture.io.h</label>
+      <node id="8">
+        <label>libs/render/src/eu/render/texture.h</label>
+        <link refid="texture_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>libs/render/src/eu/render/texture.io.h</label>
         <link refid="texture_8io_8h"/>
       </node>
-      <node id="7">
-        <label>libs/render/src/render/uniform_buffer.h</label>
-        <link refid="uniform__buffer_8h"/>
+      <node id="17">
+        <label>libs/render/src/eu/render/uniform_buffer.h</label>
+        <link refid="render_2src_2eu_2render_2uniform__buffer_8h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>libs/render/src/eu/render/world.h</label>
+        <link refid="world_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
       </node>
     </invincdepgraph>
     <sectiondef kind="define">
@@ -61,6 +144,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/render/src/render/opengl_labels.h"/>
+    <location file="libs/render/src/eu/render/opengl_labels.h"/>
   </compounddef>
 </doxygen>

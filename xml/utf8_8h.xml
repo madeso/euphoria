@@ -3,10 +3,10 @@
   <compounddef id="utf8_8h" kind="file" language="C++">
     <compoundname>utf8.h</compoundname>
     <includes local="no">cstddef</includes>
-    <includes refid="assert_8h" local="yes">assert/assert.h</includes>
+    <includes refid="assert_8h" local="yes">eu/assert/assert.h</includes>
     <incdepgraph>
       <node id="3">
-        <label>assert/assert.h</label>
+        <label>eu/assert/assert.h</label>
         <link refid="assert_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
@@ -16,7 +16,7 @@
         </childnode>
       </node>
       <node id="1">
-        <label>libs/core/src/core/utf8.h</label>
+        <label>libs/core/src/eu/core/utf8.h</label>
         <link refid="utf8_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
@@ -42,6 +42,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/utf8.h"/>
+    <location file="libs/core/src/eu/core/utf8.h"/>
   </compounddef>
 </doxygen>

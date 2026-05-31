@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1SCurve" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::SCurve</compoundname>
+    <includes refid="core_2src_2eu_2core_2scurve_8h" local="no">scurve.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1SCurve_1a5a398ee69035c0d81271221e007d2f11" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::core::SCurve::slope</definition>
+        <argsstring></argsstring>
+        <name>slope</name>
+        <qualifiedname>eu::core::SCurve::slope</qualifiedname>
+        <initializer>= 1.0f</initializer>
+        <briefdescription>
+<para>&gt;=0 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/scurve.h" line="16" column="7" bodyfile="libs/core/src/eu/core/scurve.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1SCurve_1ad30eba46655fbd5d56f787f0280f2729" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::core::SCurve::threshold</definition>
+        <argsstring></argsstring>
+        <name>threshold</name>
+        <qualifiedname>eu::core::SCurve::threshold</qualifiedname>
+        <initializer>= 0.75<ref refid="structeu_1_1R" kindref="compound">f</ref></initializer>
+        <briefdescription>
+<para>[0,1] </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/scurve.h" line="17" column="7" bodyfile="libs/core/src/eu/core/scurve.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1SCurve_1ab47545d6792fbefd9456bdf12e0ad36b" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref></type>
+        <definition>constexpr eu::core::SCurve::SCurve</definition>
+        <argsstring>()=default</argsstring>
+        <name>SCurve</name>
+        <qualifiedname>eu::core::SCurve::SCurve</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/scurve.h" line="19" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1core_1_1SCurve_1a9c73decf2170584cef4884fdc7ecbecc" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref></type>
+        <definition>constexpr eu::core::SCurve::SCurve</definition>
+        <argsstring>(float s, float t)</argsstring>
+        <name>SCurve</name>
+        <qualifiedname>eu::core::SCurve::SCurve</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/scurve.h" line="21" column="11" bodyfile="libs/core/src/eu/core/scurve.h" bodystart="21" bodyend="24"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1SCurve_1a19eee5149440ec64c8e76bf4262aa5cd" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1core_1_1SCurve" kindref="compound">SCurve</ref></type>
+        <definition>static constexpr SCurve eu::core::SCurve::light_curve</definition>
+        <argsstring>()</argsstring>
+        <name>light_curve</name>
+        <qualifiedname>eu::core::SCurve::light_curve</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/scurve.h" line="27" column="25" bodyfile="libs/core/src/eu/core/scurve.h" bodystart="27" bodyend="30"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Contains the parameters for an S-Curve. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/eu/core/scurve.h" line="14" column="1" bodyfile="libs/core/src/eu/core/scurve.h" bodystart="15" bodyend="31"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1SCurve_1a19eee5149440ec64c8e76bf4262aa5cd" prot="public" virt="non-virtual"><scope>eu::core::SCurve</scope><name>light_curve</name></member>
+      <member refid="structeu_1_1core_1_1SCurve_1ab47545d6792fbefd9456bdf12e0ad36b" prot="public" virt="non-virtual"><scope>eu::core::SCurve</scope><name>SCurve</name></member>
+      <member refid="structeu_1_1core_1_1SCurve_1a9c73decf2170584cef4884fdc7ecbecc" prot="public" virt="non-virtual"><scope>eu::core::SCurve</scope><name>SCurve</name></member>
+      <member refid="structeu_1_1core_1_1SCurve_1a5a398ee69035c0d81271221e007d2f11" prot="public" virt="non-virtual"><scope>eu::core::SCurve</scope><name>slope</name></member>
+      <member refid="structeu_1_1core_1_1SCurve_1ad30eba46655fbd5d56f787f0280f2729" prot="public" virt="non-virtual"><scope>eu::core::SCurve</scope><name>threshold</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

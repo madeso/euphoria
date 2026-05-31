@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/guid.h" line="15" column="20" bodyfile="libs/base/src/base/guid.h" bodystart="15" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/guid.h" line="15" column="20" bodyfile="libs/base/src/eu/base/guid.h" bodystart="15" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -36,7 +36,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/guid.h" line="20" column="9"/>
+        <location file="libs/base/src/eu/base/guid.h" line="20" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1Guid_1ad0a6db57ed177d9ca1cc00a7901856b8" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref></type>
@@ -55,7 +55,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/guid.h" line="23" column="28" bodyfile="libs/base/src/base/guid.h" bodystart="23" bodyend="26"/>
+        <location file="libs/base/src/eu/base/guid.h" line="23" column="28" bodyfile="libs/base/src/eu/base/guid.h" bodystart="23" bodyend="26"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1Guid_1ace14985038971c105d7e99afc29a060e" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref></type>
@@ -89,7 +89,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/guid.h" line="28" column="28" bodyfile="libs/base/src/base/guid.h" bodystart="28" bodyend="54"/>
+        <location file="libs/base/src/eu/base/guid.h" line="28" column="28" bodyfile="libs/base/src/eu/base/guid.h" bodystart="28" bodyend="54"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-static-func">
@@ -105,7 +105,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/guid.h" line="56" column="31"/>
+        <location file="libs/base/src/eu/base/guid.h" line="56" column="31"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -113,7 +113,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/base/src/base/guid.h" line="13" column="5" bodyfile="libs/base/src/base/guid.h" bodystart="14" bodyend="57"/>
+    <location file="libs/base/src/eu/base/guid.h" line="13" column="5" bodyfile="libs/base/src/eu/base/guid.h" bodystart="14" bodyend="57"/>
     <listofallmembers>
       <member refid="structeu_1_1Guid_1ac9c5c042647a79b26ba31966a708f3fc" prot="public" virt="non-virtual"><scope>eu::Guid</scope><name>data</name></member>
       <member refid="structeu_1_1Guid_1a8ef712e40958a0c96ee7bf46140ec0e8" prot="public" virt="non-virtual"><scope>eu::Guid</scope><name>generate</name></member>

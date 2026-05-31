@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1EffectStack" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::EffectStack</compoundname>
+    <includes refid="postproc_8h" local="no">postproc.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1EffectStack_1a2eadfe359bfa3494d8b3d1d53f054259" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <definition>int eu::render::EffectStack::current_msaa_setting</definition>
+        <argsstring></argsstring>
+        <name>current_msaa_setting</name>
+        <qualifiedname>eu::render::EffectStack::current_msaa_setting</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="154" column="5" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1EffectStack_1ad951e90e8f7559a1b60e18c16e7c0122" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::render::EffectStack::dirty</definition>
+        <argsstring></argsstring>
+        <name>dirty</name>
+        <qualifiedname>eu::render::EffectStack::dirty</qualifiedname>
+        <initializer>= <ref refid="structeu_1_1R" kindref="compound">true</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="155" column="6" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1EffectStack_1afebb6cbe04fce569426cfc7edc90ae44" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1Size" kindref="compound">Size</ref> &gt;</type>
+        <definition>std::optional&lt;Size&gt; eu::render::EffectStack::window_size</definition>
+        <argsstring></argsstring>
+        <name>window_size</name>
+        <qualifiedname>eu::render::EffectStack::window_size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="156" column="15" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1EffectStack_1aee61ceb7f1e51c392449c9c285a22eed" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1Effect" kindref="compound">Effect</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;Effect&gt; &gt; eu::render::EffectStack::effects</definition>
+        <argsstring></argsstring>
+        <name>effects</name>
+        <qualifiedname>eu::render::EffectStack::effects</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="157" column="13" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1EffectStack_1a8b227c3d308375ef9ed142aeff87a60f" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1CompiledStack" kindref="compound">CompiledStack</ref></type>
+        <definition>CompiledStack eu::render::EffectStack::compiled</definition>
+        <argsstring></argsstring>
+        <name>compiled</name>
+        <qualifiedname>eu::render::EffectStack::compiled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="158" column="15" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1EffectStack_1a5c265fd9c208bc039f17367f11fc097d" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::render::EffectStack::use_hdr</definition>
+        <argsstring></argsstring>
+        <name>use_hdr</name>
+        <qualifiedname>eu::render::EffectStack::use_hdr</qualifiedname>
+        <initializer>= <ref refid="structeu_1_1R" kindref="compound">true</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="163" column="6" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1EffectStack_1a91089ad1c671ff53a0e64767733bfbf4" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::render::EffectStack::exposure</definition>
+        <argsstring></argsstring>
+        <name>exposure</name>
+        <qualifiedname>eu::render::EffectStack::exposure</qualifiedname>
+        <initializer>= 1.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="164" column="7" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1EffectStack_1acafbedc23d801c735398fe4ad3b50847" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1RenderWorld" kindref="compound">RenderWorld</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;RenderWorld&gt; eu::render::EffectStack::render_world</definition>
+        <argsstring></argsstring>
+        <name>render_world</name>
+        <qualifiedname>eu::render::EffectStack::render_world</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="166" column="17" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1EffectStack_1a117abdb61270a222fdfe9da5a0c684c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::EffectStack::render</definition>
+        <argsstring>(const PostProcArg &amp;arg)</argsstring>
+        <name>render</name>
+        <qualifiedname>eu::render::EffectStack::render</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1PostProcArg" kindref="compound">PostProcArg</ref> &amp;</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+<para>rebuilds stack if dirty, update all targets, then render the last_source </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="169" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1EffectStack_1aae5ff2d6e21d076e821f0a0b5aa4b238" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::EffectStack::update</definition>
+        <argsstring>(float dt) const</argsstring>
+        <name>update</name>
+        <qualifiedname>eu::render::EffectStack::update</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="170" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1EffectStack_1a408f46356d692e944e8d3d27f1f695b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::EffectStack::gui</definition>
+        <argsstring>(imgui::ImguiShaderCache *cache)</argsstring>
+        <name>gui</name>
+        <qualifiedname>eu::render::EffectStack::gui</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1imgui_1_1ImguiShaderCache" kindref="compound">imgui::ImguiShaderCache</ref> *</type>
+          <declname>cache</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="171" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>The facade of the post-proc framework. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::render::CompiledStack</label>
+        <link refid="structeu_1_1render_1_1CompiledStack"/>
+      </node>
+      <node id="1">
+        <label>eu::render::EffectStack</label>
+        <link refid="structeu_1_1render_1_1EffectStack"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>compiled</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/eu/render/postproc.h" line="152" column="1" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="153" bodyend="172"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1EffectStack_1a8b227c3d308375ef9ed142aeff87a60f" prot="public" virt="non-virtual"><scope>eu::render::EffectStack</scope><name>compiled</name></member>
+      <member refid="structeu_1_1render_1_1EffectStack_1a2eadfe359bfa3494d8b3d1d53f054259" prot="public" virt="non-virtual"><scope>eu::render::EffectStack</scope><name>current_msaa_setting</name></member>
+      <member refid="structeu_1_1render_1_1EffectStack_1ad951e90e8f7559a1b60e18c16e7c0122" prot="public" virt="non-virtual"><scope>eu::render::EffectStack</scope><name>dirty</name></member>
+      <member refid="structeu_1_1render_1_1EffectStack_1aee61ceb7f1e51c392449c9c285a22eed" prot="public" virt="non-virtual"><scope>eu::render::EffectStack</scope><name>effects</name></member>
+      <member refid="structeu_1_1render_1_1EffectStack_1a91089ad1c671ff53a0e64767733bfbf4" prot="public" virt="non-virtual"><scope>eu::render::EffectStack</scope><name>exposure</name></member>
+      <member refid="structeu_1_1render_1_1EffectStack_1a408f46356d692e944e8d3d27f1f695b4" prot="public" virt="non-virtual"><scope>eu::render::EffectStack</scope><name>gui</name></member>
+      <member refid="structeu_1_1render_1_1EffectStack_1a117abdb61270a222fdfe9da5a0c684c2" prot="public" virt="non-virtual"><scope>eu::render::EffectStack</scope><name>render</name></member>
+      <member refid="structeu_1_1render_1_1EffectStack_1acafbedc23d801c735398fe4ad3b50847" prot="public" virt="non-virtual"><scope>eu::render::EffectStack</scope><name>render_world</name></member>
+      <member refid="structeu_1_1render_1_1EffectStack_1aae5ff2d6e21d076e821f0a0b5aa4b238" prot="public" virt="non-virtual"><scope>eu::render::EffectStack</scope><name>update</name></member>
+      <member refid="structeu_1_1render_1_1EffectStack_1a5c265fd9c208bc039f17367f11fc097d" prot="public" virt="non-virtual"><scope>eu::render::EffectStack</scope><name>use_hdr</name></member>
+      <member refid="structeu_1_1render_1_1EffectStack_1afebb6cbe04fce569426cfc7edc90ae44" prot="public" virt="non-virtual"><scope>eu::render::EffectStack</scope><name>window_size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

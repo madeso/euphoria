@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/rect.h" line="20" column="15" bodyfile="libs/base/src/base/rect.h" bodystart="20" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/rect.h" line="20" column="15" bodyfile="libs/base/src/eu/base/rect.h" bodystart="20" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1Lrtb_1aef04419b479e447f0f4cfd9815824d7b" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/rect.h" line="20" column="26" bodyfile="libs/base/src/base/rect.h" bodystart="20" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/rect.h" line="20" column="26" bodyfile="libs/base/src/eu/base/rect.h" bodystart="20" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1Lrtb_1ab88ec0dd63985c9596880f4f05bea69f" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/rect.h" line="20" column="38" bodyfile="libs/base/src/base/rect.h" bodystart="20" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/rect.h" line="20" column="38" bodyfile="libs/base/src/eu/base/rect.h" bodystart="20" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1Lrtb_1a944c7bd1600d8b0d376cc57a941d0988" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/rect.h" line="20" column="48" bodyfile="libs/base/src/base/rect.h" bodystart="20" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/rect.h" line="20" column="48" bodyfile="libs/base/src/eu/base/rect.h" bodystart="20" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -78,7 +78,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/rect.h" line="21" column="28" bodyfile="libs/base/src/base/rect.h" bodystart="21" bodyend="21"/>
+        <location file="libs/base/src/eu/base/rect.h" line="21" column="28" bodyfile="libs/base/src/eu/base/rect.h" bodystart="21" bodyend="21"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1Lrtb_1a37c884dc89633382308dd104c8eb0fc5" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref></type>
@@ -100,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/rect.h" line="22" column="19" bodyfile="libs/base/src/base/rect.h" bodystart="22" bodyend="22"/>
+        <location file="libs/base/src/eu/base/rect.h" line="22" column="19" bodyfile="libs/base/src/eu/base/rect.h" bodystart="22" bodyend="22"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1Lrtb_1a9afe51e000f48071401a3dc31b926d62" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref></type>
@@ -130,7 +130,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/rect.h" line="23" column="19" bodyfile="libs/base/src/base/rect.h" bodystart="23" bodyend="23"/>
+        <location file="libs/base/src/eu/base/rect.h" line="23" column="19" bodyfile="libs/base/src/eu/base/rect.h" bodystart="23" bodyend="23"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -141,7 +141,7 @@
 </simplesect>
 </para>
     </detaileddescription>
-    <location file="libs/base/src/base/rect.h" line="18" column="5" bodyfile="libs/base/src/base/rect.h" bodystart="19" bodyend="24"/>
+    <location file="libs/base/src/eu/base/rect.h" line="18" column="5" bodyfile="libs/base/src/eu/base/rect.h" bodystart="19" bodyend="24"/>
     <listofallmembers>
       <member refid="structeu_1_1Lrtb_1a944c7bd1600d8b0d376cc57a941d0988" prot="public" virt="non-virtual"><scope>eu::Lrtb</scope><name>bottom</name></member>
       <member refid="structeu_1_1Lrtb_1a74a0d5ec1cb36c429ee8c45ce8f29083" prot="public" virt="non-virtual"><scope>eu::Lrtb</scope><name>left</name></member>

@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.h" line="52" column="18" bodyfile="libs/core/src/core/loadedfont.h" bodystart="52" bodyend="-1"/>
+        <location file="libs/core/src/eu/core/loadedfont.h" line="52" column="18" bodyfile="libs/core/src/eu/core/loadedfont.h" bodystart="52" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1LoadedFont_1ae87886c86e970983a5fb518f109ed1b8" prot="public" static="no" mutable="no">
         <type><ref refid="namespaceeu_1_1core_1a6a77bbc36ff85d2391bee78c34b1b2c4" kindref="member">KerningMap</ref></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.h" line="53" column="20" bodyfile="libs/core/src/core/loadedfont.h" bodystart="53" bodyend="-1"/>
+        <location file="libs/core/src/eu/core/loadedfont.h" line="53" column="20" bodyfile="libs/core/src/eu/core/loadedfont.h" bodystart="53" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1LoadedFont_1afc6ee55974f6501aef55a46ac2e8ef1f" prot="public" static="no" mutable="no">
         <type>std::map&lt; std::string, <ref refid="structeu_1_1R" kindref="compound">int</ref> &gt;</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.h" line="54" column="18" bodyfile="libs/core/src/core/loadedfont.h" bodystart="54" bodyend="-1"/>
+        <location file="libs/core/src/eu/core/loadedfont.h" line="54" column="18" bodyfile="libs/core/src/eu/core/loadedfont.h" bodystart="54" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1LoadedFont_1ab6cd56019b8da043e7eb84505d132f89" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
@@ -59,22 +59,52 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.h" line="55" column="13" bodyfile="libs/core/src/core/loadedfont.h" bodystart="55" bodyend="-1"/>
+        <location file="libs/core/src/eu/core/loadedfont.h" line="55" column="13" bodyfile="libs/core/src/eu/core/loadedfont.h" bodystart="55" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1core_1_1LoadedFont_1ae08e58c99205c0cfb70bf4716314ff71" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
-        <definition>int eu::core::LoadedFont::line_height</definition>
+      <memberdef kind="variable" id="structeu_1_1core_1_1LoadedFont_1ab6627156725756589cf0ede962ba57b8" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::core::LoadedFont::ascent</definition>
         <argsstring></argsstring>
-        <name>line_height</name>
-        <qualifiedname>eu::core::LoadedFont::line_height</qualifiedname>
-        <initializer>= -1</initializer>
+        <name>ascent</name>
+        <qualifiedname>eu::core::LoadedFont::ascent</qualifiedname>
+        <initializer>= 0.0f</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.h" line="56" column="13" bodyfile="libs/core/src/core/loadedfont.h" bodystart="56" bodyend="-1"/>
+        <location file="libs/core/src/eu/core/loadedfont.h" line="56" column="15" bodyfile="libs/core/src/eu/core/loadedfont.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1LoadedFont_1a72fc0989941dc1d606d844bd44ccf248" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::core::LoadedFont::descent</definition>
+        <argsstring></argsstring>
+        <name>descent</name>
+        <qualifiedname>eu::core::LoadedFont::descent</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/loadedfont.h" line="57" column="15" bodyfile="libs/core/src/eu/core/loadedfont.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1LoadedFont_1a1276d557edfa3643596f07523bbc3fb2" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::core::LoadedFont::line_gap</definition>
+        <argsstring></argsstring>
+        <name>line_gap</name>
+        <qualifiedname>eu::core::LoadedFont::line_gap</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/loadedfont.h" line="58" column="15" bodyfile="libs/core/src/eu/core/loadedfont.h" bodystart="58" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -94,17 +124,25 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.h" line="59" column="9"/>
+        <location file="libs/core/src/eu/core/loadedfont.h" line="61" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1core_1_1LoadedFont_1a8c4e9621982ef1488b7e0f43d306159f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
-        <definition>void eu::core::LoadedFont::combine_with</definition>
-        <argsstring>(const LoadedFont &amp;fc)</argsstring>
-        <name>combine_with</name>
-        <qualifiedname>eu::core::LoadedFont::combine_with</qualifiedname>
+      <memberdef kind="function" id="structeu_1_1core_1_1LoadedFont_1aae1eff14f1a7984f18084bf72b49ee5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::core::LoadedFont::load_characters_from_font</definition>
+        <argsstring>(const MemoryChunk &amp;file_memory, int font_size, const std::string &amp;chars)</argsstring>
+        <name>load_characters_from_font</name>
+        <qualifiedname>eu::core::LoadedFont::load_characters_from_font</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1core_1_1LoadedFont" kindref="compound">LoadedFont</ref> &amp;</type>
-          <declname>fc</declname>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &amp;</type>
+          <declname>file_memory</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>font_size</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>chars</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -112,20 +150,22 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.h" line="62" column="9"/>
+        <location file="libs/core/src/eu/core/loadedfont.h" line="64" column="9"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/loadedfont.h" line="50" column="5" bodyfile="libs/core/src/core/loadedfont.h" bodystart="51" bodyend="63"/>
+    <location file="libs/core/src/eu/core/loadedfont.h" line="50" column="5" bodyfile="libs/core/src/eu/core/loadedfont.h" bodystart="51" bodyend="70"/>
     <listofallmembers>
+      <member refid="structeu_1_1core_1_1LoadedFont_1ab6627156725756589cf0ede962ba57b8" prot="public" virt="non-virtual"><scope>eu::core::LoadedFont</scope><name>ascent</name></member>
       <member refid="structeu_1_1core_1_1LoadedFont_1a924f4187f4aedeb92d1e2263a2cdcfe4" prot="public" virt="non-virtual"><scope>eu::core::LoadedFont</scope><name>codepoint_to_glyph</name></member>
-      <member refid="structeu_1_1core_1_1LoadedFont_1a8c4e9621982ef1488b7e0f43d306159f" prot="public" virt="non-virtual"><scope>eu::core::LoadedFont</scope><name>combine_with</name></member>
+      <member refid="structeu_1_1core_1_1LoadedFont_1a72fc0989941dc1d606d844bd44ccf248" prot="public" virt="non-virtual"><scope>eu::core::LoadedFont</scope><name>descent</name></member>
       <member refid="structeu_1_1core_1_1LoadedFont_1a76a96d1b7ddb95bb02e6d2f8f628a579" prot="public" virt="non-virtual"><scope>eu::core::LoadedFont</scope><name>generate_new_index_from_private_use</name></member>
       <member refid="structeu_1_1core_1_1LoadedFont_1ae87886c86e970983a5fb518f109ed1b8" prot="public" virt="non-virtual"><scope>eu::core::LoadedFont</scope><name>kerning</name></member>
-      <member refid="structeu_1_1core_1_1LoadedFont_1ae08e58c99205c0cfb70bf4716314ff71" prot="public" virt="non-virtual"><scope>eu::core::LoadedFont</scope><name>line_height</name></member>
+      <member refid="structeu_1_1core_1_1LoadedFont_1a1276d557edfa3643596f07523bbc3fb2" prot="public" virt="non-virtual"><scope>eu::core::LoadedFont</scope><name>line_gap</name></member>
+      <member refid="structeu_1_1core_1_1LoadedFont_1aae1eff14f1a7984f18084bf72b49ee5e" prot="public" virt="non-virtual"><scope>eu::core::LoadedFont</scope><name>load_characters_from_font</name></member>
       <member refid="structeu_1_1core_1_1LoadedFont_1ab6cd56019b8da043e7eb84505d132f89" prot="public" virt="non-virtual"><scope>eu::core::LoadedFont</scope><name>next_private_use</name></member>
       <member refid="structeu_1_1core_1_1LoadedFont_1afc6ee55974f6501aef55a46ac2e8ef1f" prot="public" virt="non-virtual"><scope>eu::core::LoadedFont</scope><name>private_use_aliases</name></member>
     </listofallmembers>

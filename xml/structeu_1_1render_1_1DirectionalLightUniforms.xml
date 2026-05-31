@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1DirectionalLightUniforms" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::DirectionalLightUniforms</compoundname>
+    <includes refid="shader__resource_8h" local="no">shader_resource.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1DirectionalLightUniforms_1a845e6bba89995e7387f25266da58f146" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
+        <definition>Uniform eu::render::DirectionalLightUniforms::light_diffuse_color_uni</definition>
+        <argsstring></argsstring>
+        <name>light_diffuse_color_uni</name>
+        <qualifiedname>eu::render::DirectionalLightUniforms::light_diffuse_color_uni</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="109" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1DirectionalLightUniforms_1a40dc04f91f042f9e4e3af936126b04b4" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
+        <definition>Uniform eu::render::DirectionalLightUniforms::light_specular_color_uni</definition>
+        <argsstring></argsstring>
+        <name>light_specular_color_uni</name>
+        <qualifiedname>eu::render::DirectionalLightUniforms::light_specular_color_uni</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="110" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1DirectionalLightUniforms_1a85fce17f96e0d36949e11d8a9484600e" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
+        <definition>Uniform eu::render::DirectionalLightUniforms::dir_uni</definition>
+        <argsstring></argsstring>
+        <name>dir_uni</name>
+        <qualifiedname>eu::render::DirectionalLightUniforms::dir_uni</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="111" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1DirectionalLightUniforms_1afe4b0835ab0cc4324a86d7b1514473e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::DirectionalLightUniforms::DirectionalLightUniforms</definition>
+        <argsstring>(const ShaderProgram *program, const std::string &amp;base)</argsstring>
+        <name>DirectionalLightUniforms</name>
+        <qualifiedname>eu::render::DirectionalLightUniforms::DirectionalLightUniforms</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> *</type>
+          <declname>program</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>base</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="107" column="1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Uniform for a directional light. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="structeu_1_1render_1_1DirectionalLight" kindref="compound">DirectionalLight</ref> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::render::DirectionalLightUniforms</label>
+        <link refid="structeu_1_1render_1_1DirectionalLightUniforms"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>dir_uni</edgelabel>
+          <edgelabel>light_diffuse_color_uni</edgelabel>
+          <edgelabel>light_specular_color_uni</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::render::Uniform</label>
+        <link refid="structeu_1_1render_1_1Uniform"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/eu/render/shader_resource.h" line="105" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="106" bodyend="112"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1DirectionalLightUniforms_1a85fce17f96e0d36949e11d8a9484600e" prot="public" virt="non-virtual"><scope>eu::render::DirectionalLightUniforms</scope><name>dir_uni</name></member>
+      <member refid="structeu_1_1render_1_1DirectionalLightUniforms_1afe4b0835ab0cc4324a86d7b1514473e5" prot="public" virt="non-virtual"><scope>eu::render::DirectionalLightUniforms</scope><name>DirectionalLightUniforms</name></member>
+      <member refid="structeu_1_1render_1_1DirectionalLightUniforms_1a845e6bba89995e7387f25266da58f146" prot="public" virt="non-virtual"><scope>eu::render::DirectionalLightUniforms</scope><name>light_diffuse_color_uni</name></member>
+      <member refid="structeu_1_1render_1_1DirectionalLightUniforms_1a40dc04f91f042f9e4e3af936126b04b4" prot="public" virt="non-virtual"><scope>eu::render::DirectionalLightUniforms</scope><name>light_specular_color_uni</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

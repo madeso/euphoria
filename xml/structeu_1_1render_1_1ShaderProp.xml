@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1ShaderProp" kind="struct" language="C++" prot="public" abstract="yes">
+    <compoundname>eu::render::ShaderProp</compoundname>
+    <derivedcompoundref refid="structeu_1_1render_1_1FloatDragShaderProp" prot="public" virt="non-virtual">eu::render::FloatDragShaderProp</derivedcompoundref>
+    <derivedcompoundref refid="structeu_1_1render_1_1FloatSliderShaderProp" prot="public" virt="non-virtual">eu::render::FloatSliderShaderProp</derivedcompoundref>
+    <includes refid="postproc_8internal_8h" local="no">postproc.internal.h</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProp_1adb50236699f10ceb8e8da9d4a8e9b262" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::ShaderProp::ShaderProp</definition>
+        <argsstring>()=default</argsstring>
+        <name>ShaderProp</name>
+        <qualifiedname>eu::render::ShaderProp::ShaderProp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="59" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProp_1a03c6d3a65f7eb47b08075435d8805f5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::ShaderProp::ShaderProp</definition>
+        <argsstring>(const ShaderProp &amp;)=delete</argsstring>
+        <name>ShaderProp</name>
+        <qualifiedname>eu::render::ShaderProp::ShaderProp</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1ShaderProp" kindref="compound">ShaderProp</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="60" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProp_1a16b3731090d09eea25f4b39278f0cf8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::ShaderProp::ShaderProp</definition>
+        <argsstring>(ShaderProp &amp;&amp;)=delete</argsstring>
+        <name>ShaderProp</name>
+        <qualifiedname>eu::render::ShaderProp::ShaderProp</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1ShaderProp" kindref="compound">ShaderProp</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="61" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProp_1ad5887ea7df968f0cde3239db166a50a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::ShaderProp::operator=</definition>
+        <argsstring>(const ShaderProp &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>eu::render::ShaderProp::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1ShaderProp" kindref="compound">ShaderProp</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="62" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProp_1a2aad6e450e170d4ca43fc62e7c9fa8b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::ShaderProp::operator=</definition>
+        <argsstring>(ShaderProp &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>eu::render::ShaderProp::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1ShaderProp" kindref="compound">ShaderProp</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="63" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProp_1a01f7854e2d58ca2933cb20e667b8ba9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual eu::render::ShaderProp::~ShaderProp</definition>
+        <argsstring>()=default</argsstring>
+        <name>~ShaderProp</name>
+        <qualifiedname>eu::render::ShaderProp::~ShaderProp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="65" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProp_1ab2ce18385f2de642e426d0bd33aefc3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>virtual void eu::render::ShaderProp::use</definition>
+        <argsstring>(const PostProcArg &amp;a, ShaderProgram &amp;shader)=0</argsstring>
+        <name>use</name>
+        <qualifiedname>eu::render::ShaderProp::use</qualifiedname>
+        <reimplementedby refid="structeu_1_1render_1_1FloatDragShaderProp_1a2b2643ed042b87d2d55277acb4a64c86">use</reimplementedby>
+        <reimplementedby refid="structeu_1_1render_1_1FloatSliderShaderProp_1a917136553a660a39021001b3c39fb9dc">use</reimplementedby>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1PostProcArg" kindref="compound">PostProcArg</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> &amp;</type>
+          <declname>shader</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="67" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProp_1ab7847971300744772f77dd41db42286d" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>virtual void eu::render::ShaderProp::gui</definition>
+        <argsstring>()=0</argsstring>
+        <name>gui</name>
+        <qualifiedname>eu::render::ShaderProp::gui</qualifiedname>
+        <reimplementedby refid="structeu_1_1render_1_1FloatDragShaderProp_1ac33058166ad1f6fb7f43c77f63b56e87">gui</reimplementedby>
+        <reimplementedby refid="structeu_1_1render_1_1FloatSliderShaderProp_1a295e7936dce2b6597d767ac56e193b21">gui</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="68" column="14"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A tweakable shader property. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eu::render::FloatDragShaderProp</label>
+        <link refid="structeu_1_1render_1_1FloatDragShaderProp"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::render::FloatSliderShaderProp</label>
+        <link refid="structeu_1_1render_1_1FloatSliderShaderProp"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>eu::render::ShaderProp</label>
+        <link refid="structeu_1_1render_1_1ShaderProp"/>
+      </node>
+    </inheritancegraph>
+    <location file="libs/render/src/eu/render/postproc.internal.h" line="57" column="1" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="58" bodyend="69"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1ShaderProp_1ab7847971300744772f77dd41db42286d" prot="public" virt="pure-virtual"><scope>eu::render::ShaderProp</scope><name>gui</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProp_1ad5887ea7df968f0cde3239db166a50a0" prot="public" virt="non-virtual"><scope>eu::render::ShaderProp</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProp_1a2aad6e450e170d4ca43fc62e7c9fa8b8" prot="public" virt="non-virtual"><scope>eu::render::ShaderProp</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProp_1adb50236699f10ceb8e8da9d4a8e9b262" prot="public" virt="non-virtual"><scope>eu::render::ShaderProp</scope><name>ShaderProp</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProp_1a03c6d3a65f7eb47b08075435d8805f5a" prot="public" virt="non-virtual"><scope>eu::render::ShaderProp</scope><name>ShaderProp</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProp_1a16b3731090d09eea25f4b39278f0cf8d" prot="public" virt="non-virtual"><scope>eu::render::ShaderProp</scope><name>ShaderProp</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProp_1ab2ce18385f2de642e426d0bd33aefc3e" prot="public" virt="pure-virtual"><scope>eu::render::ShaderProp</scope><name>use</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProp_1a01f7854e2d58ca2933cb20e667b8ba9c" prot="public" virt="virtual"><scope>eu::render::ShaderProp</scope><name>~ShaderProp</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

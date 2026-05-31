@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Euphoria: libs/base/src/base/guid.h Source File</title>
+<title>Euphoria: libs/base/src/eu/base/guid.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -34,6 +34,7 @@
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="topics.html"><span>Topics</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="concepts.html"><span>Concepts</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
     </ul>
@@ -51,7 +52,7 @@ $(document).ready(function() { init_codefold(0); });
 </script>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_06498c378442102d76a793fbea770c00.html">base</a></li><li class="navelem"><a class="el" href="dir_1434489f875b8806781a8ab0a150cad2.html">src</a></li><li class="navelem"><a class="el" href="dir_9335635e0e9dc5833ab0cd315fbf7edd.html">base</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_06498c378442102d76a793fbea770c00.html">base</a></li><li class="navelem"><a class="el" href="dir_1434489f875b8806781a8ab0a150cad2.html">src</a></li><li class="navelem"><a class="el" href="dir_aa6c0f5ef1a7959ce272fd1a782d429b.html">eu</a></li><li class="navelem"><a class="el" href="dir_dd20c9f5445bb90c823db094b077dfbf.html">base</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -64,8 +65,8 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;array&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="ints_8h.html">base/ints.h</a>&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="assert_8h.html">assert/assert.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="ints_8h.html">eu/base/ints.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="assert_8h.html">eu/assert/assert.h</a>&quot;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceeu.html">eu</a></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
@@ -141,16 +142,16 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="comment">// todo(Gustav): add std::map and std::unoredered map support</span></div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <a class="code hl_define" href="fmt_2src_2pch_8public_8h.html#a2a9ccd1834c8052d71fbee493127ef67">ADD_CATCH_FORMATTER_DEF</a>(Guid)</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <a class="code hl_define" href="fmt_2src_2eu_2fmt_2pch_8public_8h.html#a2a9ccd1834c8052d71fbee493127ef67">ADD_CATCH_FORMATTER_DEF</a>(Guid)</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>}</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>ADD_DEFAULT_FORMATTER(<a class="code hl_struct" href="structeu_1_1Guid.html">eu::Guid</a>, std::string, <a class="code hl_function" href="group__math.html#gafa7f170a2c4415e5c9f4d517b138a489">eu::string_from</a>);</div>
 <div class="ttc" id="aassert_8h_html"><div class="ttname"><a href="assert_8h.html">assert.h</a></div></div>
-<div class="ttc" id="aassert_8h_html_aca68c0d4ac8df0838e209fb5300f7be3"><div class="ttname"><a href="assert_8h.html#aca68c0d4ac8df0838e209fb5300f7be3">ASSERT</a></div><div class="ttdeci">#define ASSERT(x)</div><div class="ttdoc">Assert that a value is true.</div><div class="ttdef"><b>Definition</b> <a href="assert_8h_source.html#l00038">assert.h:38</a></div></div>
-<div class="ttc" id="afmt_2src_2pch_8public_8h_html_a2a9ccd1834c8052d71fbee493127ef67"><div class="ttname"><a href="fmt_2src_2pch_8public_8h.html#a2a9ccd1834c8052d71fbee493127ef67">ADD_CATCH_FORMATTER_DEF</a></div><div class="ttdeci">#define ADD_CATCH_FORMATTER_DEF(TYPE)</div><div class="ttdef"><b>Definition</b> <a href="fmt_2src_2pch_8public_8h_source.html#l00022">pch.public.h:22</a></div></div>
+<div class="ttc" id="aassert_8h_html_aca68c0d4ac8df0838e209fb5300f7be3"><div class="ttname"><a href="assert_8h.html#aca68c0d4ac8df0838e209fb5300f7be3">ASSERT</a></div><div class="ttdeci">#define ASSERT(x)</div><div class="ttdoc">Assert that a value is true.</div><div class="ttdef"><b>Definition</b> <a href="assert_8h_source.html#l00045">assert.h:45</a></div></div>
+<div class="ttc" id="afmt_2src_2eu_2fmt_2pch_8public_8h_html_a2a9ccd1834c8052d71fbee493127ef67"><div class="ttname"><a href="fmt_2src_2eu_2fmt_2pch_8public_8h.html#a2a9ccd1834c8052d71fbee493127ef67">ADD_CATCH_FORMATTER_DEF</a></div><div class="ttdeci">#define ADD_CATCH_FORMATTER_DEF(TYPE)</div><div class="ttdef"><b>Definition</b> <a href="fmt_2src_2eu_2fmt_2pch_8public_8h_source.html#l00022">pch.public.h:22</a></div></div>
 <div class="ttc" id="agroup__math_html_gafa7f170a2c4415e5c9f4d517b138a489"><div class="ttname"><a href="group__math.html#gafa7f170a2c4415e5c9f4d517b138a489">eu::string_from</a></div><div class="ttdeci">std::string string_from(const An &amp;a)</div></div>
 <div class="ttc" id="aints_8h_html"><div class="ttname"><a href="ints_8h.html">ints.h</a></div></div>
-<div class="ttc" id="anamespaceeu_html"><div class="ttname"><a href="namespaceeu.html">eu</a></div><div class="ttdef"><b>Definition</b> <a href="assert_8h_source.html#l00110">assert.h:111</a></div></div>
+<div class="ttc" id="anamespaceeu_html"><div class="ttname"><a href="namespaceeu.html">eu</a></div><div class="ttdef"><b>Definition</b> <a href="assert_8h_source.html#l00117">assert.h:118</a></div></div>
 <div class="ttc" id="anamespaceeu_html_a19661e9cf09bb33310545fe2b4c4f90c"><div class="ttname"><a href="namespaceeu.html#a19661e9cf09bb33310545fe2b4c4f90c">eu::u32</a></div><div class="ttdeci">std::uint32_t u32</div><div class="ttdef"><b>Definition</b> <a href="ints_8h_source.html#l00014">ints.h:14</a></div></div>
 <div class="ttc" id="anamespaceeu_html_a27cc2976c1bd562b82eebdc857c05f50"><div class="ttname"><a href="namespaceeu.html#a27cc2976c1bd562b82eebdc857c05f50">eu::operator!=</a></div><div class="ttdeci">bool operator!=(const Guid &amp;lhs, const Guid &amp;rhs)</div></div>
 <div class="ttc" id="anamespaceeu_html_a52c8bd230b49dafc68274e81ecfd9ee0"><div class="ttname"><a href="namespaceeu.html#a52c8bd230b49dafc68274e81ecfd9ee0">eu::u16</a></div><div class="ttdeci">std::uint16_t u16</div><div class="ttdef"><b>Definition</b> <a href="ints_8h_source.html#l00013">ints.h:13</a></div></div>

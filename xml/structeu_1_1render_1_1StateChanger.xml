@@ -2,11 +2,11 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1StateChanger" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::StateChanger</compoundname>
-    <includes refid="statechanger_8h" local="no">statechanger.h</includes>
+    <includes refid="state_8h" local="no">state.h</includes>
     <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeu_1_1render_1_1StateChanger_1ad3c8afcb42a514825139b30ba0b1289a" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1render_1_1OpenglStates" kindref="compound">OpenglStates</ref> *</type>
-        <definition>OpenglStates* eu::render::StateChanger::states</definition>
+      <memberdef kind="variable" id="structeu_1_1render_1_1StateChanger_1a97c47d93b2e6df6d7bc556d8d8b23e62" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1State" kindref="compound">State</ref> *</type>
+        <definition>State* eu::render::StateChanger::states</definition>
         <argsstring></argsstring>
         <name>states</name>
         <qualifiedname>eu::render::StateChanger::states</qualifiedname>
@@ -16,18 +16,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/statechanger.h" line="24" column="14" bodyfile="libs/render/src/render/statechanger.h" bodystart="24" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/state.h" line="149" column="7" bodyfile="libs/render/src/eu/render/state.h" bodystart="149" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeu_1_1render_1_1StateChanger_1a2099575c5021236894d334f1adef6c52" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1StateChanger_1ad12348a6156396b8592ab5f579c59b9d" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type></type>
         <definition>eu::render::StateChanger::StateChanger</definition>
-        <argsstring>(OpenglStates *s)</argsstring>
+        <argsstring>(State *s)</argsstring>
         <name>StateChanger</name>
         <qualifiedname>eu::render::StateChanger::StateChanger</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1render_1_1OpenglStates" kindref="compound">OpenglStates</ref> *</type>
+          <type><ref refid="structeu_1_1render_1_1State" kindref="compound">State</ref> *</type>
           <declname>s</declname>
         </param>
         <briefdescription>
@@ -36,7 +36,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/statechanger.h" line="26" column="10"/>
+        <location file="libs/render/src/eu/render/state.h" line="151" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1StateChanger_1a6542066239ff108e5e78628641fe650a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1StateChanger" kindref="compound">StateChanger</ref> &amp;</type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/statechanger.h" line="28" column="14"/>
+        <location file="libs/render/src/eu/render/state.h" line="153" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1StateChanger_1a5f9d3d780a59b3576cdf2672c4a660f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1StateChanger" kindref="compound">StateChanger</ref> &amp;</type>
@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/statechanger.h" line="29" column="14"/>
+        <location file="libs/render/src/eu/render/state.h" line="154" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1StateChanger_1aee07324a1a575b409045e977e2ec5e39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1StateChanger" kindref="compound">StateChanger</ref> &amp;</type>
@@ -90,7 +90,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/statechanger.h" line="30" column="14"/>
+        <location file="libs/render/src/eu/render/state.h" line="155" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1StateChanger_1a8cbbcc36787da208522dece312d5554d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1StateChanger" kindref="compound">StateChanger</ref> &amp;</type>
@@ -108,7 +108,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/statechanger.h" line="31" column="14"/>
+        <location file="libs/render/src/eu/render/state.h" line="156" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1StateChanger_1a2ba740a4320471280f88033b5b4bdd46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1StateChanger" kindref="compound">StateChanger</ref> &amp;</type>
@@ -126,7 +126,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/statechanger.h" line="32" column="14"/>
+        <location file="libs/render/src/eu/render/state.h" line="157" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1StateChanger_1ad5961474517572422be656b50f7d6963" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1StateChanger" kindref="compound">StateChanger</ref> &amp;</type>
@@ -144,7 +144,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/statechanger.h" line="33" column="14"/>
+        <location file="libs/render/src/eu/render/state.h" line="158" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1StateChanger_1adb032357786955bb45894c918b1f2330" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1StateChanger" kindref="compound">StateChanger</ref> &amp;</type>
@@ -163,7 +163,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/statechanger.h" line="36" column="14"/>
+        <location file="libs/render/src/eu/render/state.h" line="161" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1StateChanger_1a85fab734d9b123838197ccaa338bab9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1StateChanger" kindref="compound">StateChanger</ref> &amp;</type>
@@ -215,7 +215,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/statechanger.h" line="44" column="14"/>
+        <location file="libs/render/src/eu/render/state.h" line="169" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1StateChanger_1a84bd0723d3485ddec351542ff8f5057d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1StateChanger" kindref="compound">StateChanger</ref> &amp;</type>
@@ -233,7 +233,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/statechanger.h" line="45" column="14"/>
+        <location file="libs/render/src/eu/render/state.h" line="170" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1StateChanger_1a990da76a5244660dfb3008f260a8616e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1StateChanger" kindref="compound">StateChanger</ref> &amp;</type>
@@ -285,7 +285,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/statechanger.h" line="52" column="14"/>
+        <location file="libs/render/src/eu/render/state.h" line="177" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1StateChanger_1a7493b5ddf9afc85d67e10dd114435401" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1StateChanger" kindref="compound">StateChanger</ref> &amp;</type>
@@ -303,7 +303,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/statechanger.h" line="53" column="14"/>
+        <location file="libs/render/src/eu/render/state.h" line="178" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1StateChanger_1ae67fd9768a873770286ae29f10160456" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1StateChanger" kindref="compound">StateChanger</ref> &amp;</type>
@@ -325,7 +325,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/statechanger.h" line="54" column="14"/>
+        <location file="libs/render/src/eu/render/state.h" line="179" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1StateChanger_1a9021babcb7b693bb14baec8ede8ec3d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1StateChanger" kindref="compound">StateChanger</ref> &amp;</type>
@@ -343,7 +343,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/statechanger.h" line="55" column="14"/>
+        <location file="libs/render/src/eu/render/state.h" line="180" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1StateChanger_1ab104d0f899090ba4cf8b3d408fa6c708" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1StateChanger" kindref="compound">StateChanger</ref> &amp;</type>
@@ -365,7 +365,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/statechanger.h" line="56" column="14"/>
+        <location file="libs/render/src/eu/render/state.h" line="181" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1StateChanger_1aa0dd3efa031953abc18d62e3fbb997f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1StateChanger" kindref="compound">StateChanger</ref> &amp;</type>
@@ -387,7 +387,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/statechanger.h" line="57" column="14"/>
+        <location file="libs/render/src/eu/render/state.h" line="182" column="14"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -397,8 +397,8 @@
     </detaileddescription>
     <collaborationgraph>
       <node id="2">
-        <label>eu::render::OpenglStates</label>
-        <link refid="structeu_1_1render_1_1OpenglStates"/>
+        <label>eu::render::State</label>
+        <link refid="structeu_1_1render_1_1State"/>
       </node>
       <node id="1">
         <label>eu::render::StateChanger</label>
@@ -408,7 +408,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/statechanger.h" line="22" column="1" bodyfile="libs/render/src/render/statechanger.h" bodystart="23" bodyend="58"/>
+    <location file="libs/render/src/eu/render/state.h" line="147" column="1" bodyfile="libs/render/src/eu/render/state.h" bodystart="148" bodyend="183"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1StateChanger_1a9021babcb7b693bb14baec8ede8ec3d3" prot="public" virt="non-virtual"><scope>eu::render::StateChanger</scope><name>activate_texture</name></member>
       <member refid="structeu_1_1render_1_1StateChanger_1ab104d0f899090ba4cf8b3d408fa6c708" prot="public" virt="non-virtual"><scope>eu::render::StateChanger</scope><name>bind_texture_2d</name></member>
@@ -421,8 +421,8 @@
       <member refid="structeu_1_1render_1_1StateChanger_1a8cbbcc36787da208522dece312d5554d" prot="public" virt="non-virtual"><scope>eu::render::StateChanger</scope><name>depth_mask</name></member>
       <member refid="structeu_1_1render_1_1StateChanger_1aee07324a1a575b409045e977e2ec5e39" prot="public" virt="non-virtual"><scope>eu::render::StateChanger</scope><name>depth_test</name></member>
       <member refid="structeu_1_1render_1_1StateChanger_1a84bd0723d3485ddec351542ff8f5057d" prot="public" virt="non-virtual"><scope>eu::render::StateChanger</scope><name>render_mode</name></member>
-      <member refid="structeu_1_1render_1_1StateChanger_1a2099575c5021236894d334f1adef6c52" prot="public" virt="non-virtual"><scope>eu::render::StateChanger</scope><name>StateChanger</name></member>
-      <member refid="structeu_1_1render_1_1StateChanger_1ad3c8afcb42a514825139b30ba0b1289a" prot="public" virt="non-virtual"><scope>eu::render::StateChanger</scope><name>states</name></member>
+      <member refid="structeu_1_1render_1_1StateChanger_1ad12348a6156396b8592ab5f579c59b9d" prot="public" virt="non-virtual"><scope>eu::render::StateChanger</scope><name>StateChanger</name></member>
+      <member refid="structeu_1_1render_1_1StateChanger_1a97c47d93b2e6df6d7bc556d8d8b23e62" prot="public" virt="non-virtual"><scope>eu::render::StateChanger</scope><name>states</name></member>
       <member refid="structeu_1_1render_1_1StateChanger_1a85fab734d9b123838197ccaa338bab9a" prot="public" virt="non-virtual"><scope>eu::render::StateChanger</scope><name>stencil_func</name></member>
       <member refid="structeu_1_1render_1_1StateChanger_1adb032357786955bb45894c918b1f2330" prot="public" virt="non-virtual"><scope>eu::render::StateChanger</scope><name>stencil_mask</name></member>
       <member refid="structeu_1_1render_1_1StateChanger_1a990da76a5244660dfb3008f260a8616e" prot="public" virt="non-virtual"><scope>eu::render::StateChanger</scope><name>stencil_op</name></member>

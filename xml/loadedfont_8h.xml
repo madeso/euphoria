@@ -3,15 +3,15 @@
   <compounddef id="loadedfont_8h" kind="file" language="C++">
     <compoundname>loadedfont.h</compoundname>
     <includes local="no">map</includes>
-    <includes refid="image_8h" local="yes">core/image.h</includes>
-    <includedby refid="font_8h" local="yes">libs/render/src/render/font.h</includedby>
+    <includes refid="image_8h" local="yes">eu/core/image.h</includes>
+    <includedby refid="font_8h" local="yes">libs/render/src/eu/render/font.h</includedby>
     <incdepgraph>
       <node id="3">
-        <label>core/image.h</label>
+        <label>eu/core/image.h</label>
         <link refid="image_8h"/>
       </node>
       <node id="1">
-        <label>libs/core/src/core/loadedfont.h</label>
+        <label>libs/core/src/eu/core/loadedfont.h</label>
         <link refid="loadedfont_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
@@ -24,13 +24,13 @@
     </incdepgraph>
     <invincdepgraph>
       <node id="1">
-        <label>libs/core/src/core/loadedfont.h</label>
+        <label>libs/core/src/eu/core/loadedfont.h</label>
         <link refid="loadedfont_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
       </node>
       <node id="2">
-        <label>libs/render/src/render/font.h</label>
+        <label>libs/render/src/eu/render/font.h</label>
         <link refid="font_8h"/>
       </node>
     </invincdepgraph>
@@ -42,6 +42,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/loadedfont.h"/>
+    <location file="libs/core/src/eu/core/loadedfont.h"/>
   </compounddef>
 </doxygen>

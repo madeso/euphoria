@@ -2,10 +2,53 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="namespaceeu_1_1core" kind="namespace" language="C++">
     <compoundname>eu::core</compoundname>
+    <innerclass refid="structeu_1_1core_1_1CompiledGeomVertexAttributes" prot="public">eu::core::CompiledGeomVertexAttributes</innerclass>
+    <innerclass refid="structeu_1_1core_1_1CompiledShaderVertexAttributes" prot="public">eu::core::CompiledShaderVertexAttributes</innerclass>
+    <innerclass refid="structeu_1_1core_1_1CompiledUniformProp" prot="public">eu::core::CompiledUniformProp</innerclass>
+    <innerclass refid="structeu_1_1core_1_1CompiledVertexElement" prot="public">eu::core::CompiledVertexElement</innerclass>
+    <innerclass refid="structeu_1_1core_1_1CompiledVertexElementNoName" prot="public">eu::core::CompiledVertexElementNoName</innerclass>
+    <innerclass refid="structeu_1_1core_1_1CompiledVertexTypeList" prot="public">eu::core::CompiledVertexTypeList</innerclass>
+    <innerclass refid="structeu_1_1core_1_1ExtractedAttribute" prot="public">eu::core::ExtractedAttribute</innerclass>
+    <innerclass refid="structeu_1_1core_1_1ExtractedGeom" prot="public">eu::core::ExtractedGeom</innerclass>
+    <innerclass refid="structeu_1_1core_1_1Face" prot="public">eu::core::Face</innerclass>
+    <innerclass refid="structeu_1_1core_1_1Geom" prot="public">eu::core::Geom</innerclass>
+    <innerclass refid="structeu_1_1core_1_1HashCombiner" prot="public">eu::core::HashCombiner</innerclass>
     <innerclass refid="structeu_1_1core_1_1Image" prot="public">eu::core::Image</innerclass>
+    <innerclass refid="structeu_1_1core_1_1InstanceProp" prot="public">eu::core::InstanceProp</innerclass>
     <innerclass refid="structeu_1_1core_1_1LoadedFont" prot="public">eu::core::LoadedFont</innerclass>
     <innerclass refid="structeu_1_1core_1_1LoadedGlyph" prot="public">eu::core::LoadedGlyph</innerclass>
+    <innerclass refid="structeu_1_1core_1_1Mesh" prot="public">eu::core::Mesh</innerclass>
+    <innerclass refid="structeu_1_1core_1_1MeshGeom" prot="public">eu::core::MeshGeom</innerclass>
     <innerclass refid="structeu_1_1core_1_1PixelColor" prot="public">eu::core::PixelColor</innerclass>
+    <innerclass refid="structeu_1_1core_1_1SCurve" prot="public">eu::core::SCurve</innerclass>
+    <innerclass refid="structeu_1_1core_1_1TransformedMesh" prot="public">eu::core::TransformedMesh</innerclass>
+    <innerclass refid="structeu_1_1core_1_1UniformBufferCompiler" prot="public">eu::core::UniformBufferCompiler</innerclass>
+    <innerclass refid="structeu_1_1core_1_1UniformBufferSetup" prot="public">eu::core::UniformBufferSetup</innerclass>
+    <innerclass refid="structeu_1_1core_1_1UniformProp" prot="public">eu::core::UniformProp</innerclass>
+    <innerclass refid="structeu_1_1core_1_1Vertex" prot="public">eu::core::Vertex</innerclass>
+    <innerclass refid="structeu_1_1core_1_1VertexElementDescription" prot="public">eu::core::VertexElementDescription</innerclass>
+    <innernamespace refid="namespaceeu_1_1core_1_1geom">eu::core::geom</innernamespace>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespaceeu_1_1core_1a5297201f8de20ca7645efa968ae59df6" prot="public" static="no" strong="yes">
+        <type>std::uint32_t</type>
+        <name>SingleColor</name>
+        <qualifiedname>eu::core::SingleColor</qualifiedname>
+        <briefdescription>
+<para>A single color in a format to load directly into open gl texture(ABGR on little endian). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="namespaceeu_1_1core_1a4f9d9d19b866d718c4f83c0d467064a9" kindref="member">color_from_rgba</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/color.h" line="9" column="1" bodyfile="libs/core/src/eu/core/color.h" bodystart="9" bodyend="9"/>
+      </memberdef>
+      <member refid="group__geom-builder_1ga5e464d0d67d6ed4c57fed1a834e23741" kind="enum"><name>ExtractedAttributeType</name></member>
+      <member refid="group__render_1ga6ebb0c1fbb5227cfb8bbd4fea1a9cb86" kind="enum"><name>UniformType</name></member>
+      <member refid="group__vertex-layout_1ga5f0685f8f017fd2ba9d143646266b46e" kind="enum"><name>VertexType</name></member>
+    </sectiondef>
     <sectiondef kind="typedef">
       <memberdef kind="typedef" id="namespaceeu_1_1core_1a6a77bbc36ff85d2391bee78c34b1b2c4" prot="public" static="no">
         <type>std::map&lt; std::pair&lt; <ref refid="structeu_1_1R" kindref="compound">int</ref>, <ref refid="structeu_1_1R" kindref="compound">int</ref> &gt;, <ref refid="structeu_1_1R" kindref="compound">float</ref> &gt;</type>
@@ -19,10 +62,80 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.h" line="45" column="5" bodyfile="libs/core/src/core/loadedfont.h" bodystart="45" bodyend="-1"/>
+        <location file="libs/core/src/eu/core/loadedfont.h" line="45" column="5" bodyfile="libs/core/src/eu/core/loadedfont.h" bodystart="45" bodyend="-1"/>
       </memberdef>
+      <member refid="group__vertex-layout_1ga40a08dae458002da001fab3a190780a9" kind="typedef"><name>ShaderVertexAttributes</name></member>
+      <member refid="group__vertex-layout_1ga3e578f2648d7f1003720795dc8826011" kind="typedef"><name>VertexTypes</name></member>
     </sectiondef>
     <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeu_1_1core_1a4f9d9d19b866d718c4f83c0d467064a9" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="namespaceeu_1_1core_1a5297201f8de20ca7645efa968ae59df6" kindref="member">SingleColor</ref></type>
+        <definition>constexpr SingleColor eu::core::color_from_rgba</definition>
+        <argsstring>(uint8_t r, uint8_t g, uint8_t b, uint8_t a)</argsstring>
+        <name>color_from_rgba</name>
+        <qualifiedname>eu::core::color_from_rgba</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">uint8_t</ref></type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">uint8_t</ref></type>
+          <declname>g</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">uint8_t</ref></type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">uint8_t</ref></type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+<para>Constructs a <ref refid="namespaceeu_1_1core_1a5297201f8de20ca7645efa968ae59df6" kindref="member">SingleColor</ref> value from individual red, green, blue, and alpha components. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>r</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The red component of the color (0x00 - 0xFF). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>g</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The green component of the color (0x00 - 0xFF). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The blue component of the color (0x00 - 0xFF). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The alpha (opacity) component of the color (0x00 - 0xFF). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A <ref refid="namespaceeu_1_1core_1a5297201f8de20ca7645efa968ae59df6" kindref="member">SingleColor</ref> value representing the color composed of the specified RGBA components. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/color.h" line="17" column="23" bodyfile="libs/core/src/eu/core/color.h" bodystart="17" bodyend="22"/>
+      </memberdef>
+      <member refid="group__geom-builder_1gace7a5ef0ddf784784e402eca80626dd8" kind="function"><name>extract_geom</name></member>
       <memberdef kind="function" id="namespaceeu_1_1core_1ab5a041b170ca16c0ddda499e604b2f32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
         <definition>void eu::core::paste_image</definition>
@@ -86,33 +199,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/image.h" line="62" column="6" declfile="libs/core/src/core/image.h" declline="62" declcolumn="6"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1core_1a020137b9a835454d87ceef8650f76e72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1core_1_1LoadedFont" kindref="compound">LoadedFont</ref></type>
-        <definition>LoadedFont eu::core::get_characters_from_font</definition>
-        <argsstring>(const MemoryChunk &amp;file_memory, int font_size, const std::string &amp;chars)</argsstring>
-        <name>get_characters_from_font</name>
-        <qualifiedname>eu::core::get_characters_from_font</qualifiedname>
-        <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &amp;</type>
-          <declname>file_memory</declname>
-        </param>
-        <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
-          <declname>font_size</declname>
-        </param>
-        <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
-          <declname>chars</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.h" line="66" column="5" declfile="libs/core/src/core/loadedfont.h" declline="66" declcolumn="5"/>
+        <location file="libs/core/src/eu/core/image.h" line="62" column="6" declfile="libs/core/src/eu/core/image.h" declline="62" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1aa3fd6f79a15211ba7648e232eefd0e7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1LoadedFont" kindref="compound">LoadedFont</ref></type>
@@ -150,7 +237,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.h" line="74" column="5" declfile="libs/core/src/core/loadedfont.h" declline="74" declcolumn="5"/>
+        <location file="libs/core/src/eu/core/loadedfont.h" line="73" column="5" declfile="libs/core/src/eu/core/loadedfont.h" declline="73" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1a231fd032185cf76f955c5941bcfe0414" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1LoadedFont" kindref="compound">LoadedFont</ref></type>
@@ -188,7 +275,79 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.h" line="85" column="5" declfile="libs/core/src/core/loadedfont.h" declline="85" declcolumn="5"/>
+        <location file="libs/core/src/eu/core/loadedfont.h" line="84" column="5" declfile="libs/core/src/eu/core/loadedfont.h" declline="84" declcolumn="5"/>
+      </memberdef>
+      <member refid="group__scurcve_1ga0cdb84f66f339894b8af5d17cb395f65" kind="function"><name>s_curve_from_input</name></member>
+      <member refid="group__scurcve_1ga7b67c48a7749ea27a30bcf466601f027" kind="function"><name>calculate_s_curve</name></member>
+      <memberdef kind="function" id="namespaceeu_1_1core_1a2c5a8d8e2753204968e487f1de59e8a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; <ref refid="structeu_1_1R" kindref="compound">T</ref> &gt;</type>
+        <definition>std::vector&lt; T &gt; eu::core::perform_table_layout</definition>
+        <argsstring>(const std::vector&lt; T &gt; &amp;pieces, T total_size, T zero=0)</argsstring>
+        <name>perform_table_layout</name>
+        <qualifiedname>eu::core::perform_table_layout</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::vector&lt; <ref refid="structeu_1_1R" kindref="compound">T</ref> &gt; &amp;</type>
+          <declname>pieces</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">T</ref></type>
+          <declname>total_size</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">T</ref></type>
+          <declname>zero</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Calculates a table layout based on the input layout. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Since rows and columns are handled the same, this functions only handled 1d tables.</para>
+<para>Positive values in the array mean absolute pixel size Zero values are invalid. Negative values indicate the scaling size and the exact ration will be proportional to the rest of the scaling values.</para>
+<para>If available size &lt; min_size scaling areas will have &quot;zero&quot; and absolute areas will be resized. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/tablelayout.h" line="22" column="5" bodyfile="libs/core/src/eu/core/tablelayout.h" bodystart="22" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1core_1a1d7eb72b255d2d02eb73214a05c4073a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
+        <definition>v2 eu::core::calculate_region</definition>
+        <argsstring>(const v2 &amp;mouse_pos, const v2 &amp;pos, const v2 &amp;my_tex, const v2 &amp;widget_size, float region_sz)</argsstring>
+        <name>calculate_region</name>
+        <qualifiedname>eu::core::calculate_region</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
+          <declname>mouse_pos</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
+          <declname>my_tex</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
+          <declname>widget_size</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>region_sz</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/ui.h" line="7" column="4" declfile="libs/core/src/eu/core/ui.h" declline="7" declcolumn="4"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1core_1a41ad1633e55b198e905a26b9dd2493d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -218,13 +377,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/utf8.h" line="11" column="10" bodyfile="libs/core/src/core/utf8.h" bodystart="11" bodyend="111"/>
+        <location file="libs/core/src/eu/core/utf8.h" line="11" column="10" bodyfile="libs/core/src/eu/core/utf8.h" bodystart="11" bodyend="111"/>
       </memberdef>
+      <member refid="group__vertex-layout_1gaf1da25791cb234dee579d9a1f5ac341d" kind="function"><name>is_instance_based</name></member>
+      <member refid="group__vertex-layout_1ga9d840fc9659abc25984af301a538cf07" kind="function"><name>find_duplicates</name></member>
+      <member refid="group__vertex-layout_1ga457db7dffcd3e57bde0c17e6cb57b4ed" kind="function"><name>compile_shader_layout</name></member>
+      <member refid="group__vertex-layout_1ga28c0b3611483fde81d624a4e28ad9236" kind="function"><name>get_geom_layout</name></member>
+      <member refid="group__vertex-layout_1ga3e7cf0e49fc8c90bc561aaf118ca520a" kind="function"><name>compile_attribute_layouts</name></member>
+      <member refid="group__vertex-layout_1gaf95b1439b3e174adb1aa11e9820e8780" kind="function"><name>compile_attribute_layouts</name></member>
     </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/image.h" line="3" column="1"/>
+    <location file="libs/core/src/eu/core/color.h" line="3" column="1"/>
   </compounddef>
 </doxygen>

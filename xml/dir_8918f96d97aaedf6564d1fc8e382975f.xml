@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_8918f96d97aaedf6564d1fc8e382975f" kind="dir">
+    <compoundname>libs/render/src/eu/render</compoundname>
+    <innerfile refid="assets_8h">assets.h</innerfile>
+    <innerfile refid="camera_8h">camera.h</innerfile>
+    <innerfile refid="canvas_8h">canvas.h</innerfile>
+    <innerfile refid="compiledmesh_8h">compiledmesh.h</innerfile>
+    <innerfile refid="constants_8h">constants.h</innerfile>
+    <innerfile refid="debug_8h">debug.h</innerfile>
+    <innerfile refid="dependency__glad_8h">dependency_glad.h</innerfile>
+    <innerfile refid="enable__high__performance__graphics_8h">enable_high_performance_graphics.h</innerfile>
+    <innerfile refid="font_8h">font.h</innerfile>
+    <innerfile refid="fullscreen_8h">fullscreen.h</innerfile>
+    <innerfile refid="linebatch_8h">linebatch.h</innerfile>
+    <innerfile refid="material_8h">material.h</innerfile>
+    <innerfile refid="opengl__labels_8h">opengl_labels.h</innerfile>
+    <innerfile refid="opengl__utils_8h">opengl_utils.h</innerfile>
+    <innerfile refid="render_2src_2eu_2render_2pch_8private_8h">pch.private.h</innerfile>
+    <innerfile refid="postproc_8h">postproc.h</innerfile>
+    <innerfile refid="postproc_8internal_8h">postproc.internal.h</innerfile>
+    <innerfile refid="render__settings_8h">render_settings.h</innerfile>
+    <innerfile refid="renderer_8h">renderer.h</innerfile>
+    <innerfile refid="renderer_8pimpl_8h">renderer.pimpl.h</innerfile>
+    <innerfile refid="shader_8h">shader.h</innerfile>
+    <innerfile refid="shader_8source_8h">shader.source.h</innerfile>
+    <innerfile refid="shader__resource_8h">shader_resource.h</innerfile>
+    <innerfile refid="shadow_8h">shadow.h</innerfile>
+    <innerfile refid="space_8h">space.h</innerfile>
+    <innerfile refid="state_8h">state.h</innerfile>
+    <innerfile refid="texture_8h">texture.h</innerfile>
+    <innerfile refid="texture_8io_8h">texture.io.h</innerfile>
+    <innerfile refid="uniform_8h">uniform.h</innerfile>
+    <innerfile refid="render_2src_2eu_2render_2uniform__buffer_8h">uniform_buffer.h</innerfile>
+    <innerfile refid="world_8h">world.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/eu/render/"/>
+  </compounddef>
+</doxygen>

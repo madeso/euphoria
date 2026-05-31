@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="104" column="17" bodyfile="libs/render/src/render/canvas.h" bodystart="104" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/canvas.h" line="104" column="17" bodyfile="libs/render/src/eu/render/canvas.h" bodystart="104" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="106" column="5"/>
+        <location file="libs/render/src/eu/render/canvas.h" line="106" column="5"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1RenderLayer2_1aed677563090903c6dce3e7590eba3aee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -55,7 +55,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="108" column="5"/>
+        <location file="libs/render/src/eu/render/canvas.h" line="108" column="5"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -79,13 +79,13 @@
         <label>eu::Rect</label>
         <link refid="structeu_1_1Rect"/>
       </node>
+      <node id="9">
+        <label>eu::core::CompiledShaderVertexAttributes</label>
+        <link refid="structeu_1_1core_1_1CompiledShaderVertexAttributes"/>
+      </node>
       <node id="7">
         <label>eu::render::BaseTexture</label>
         <link refid="structeu_1_1render_1_1BaseTexture"/>
-      </node>
-      <node id="9">
-        <label>eu::render::CompiledShaderVertexAttributes</label>
-        <link refid="structeu_1_1render_1_1CompiledShaderVertexAttributes"/>
       </node>
       <node id="2">
         <label>eu::render::Layer</label>
@@ -94,10 +94,6 @@
           <edgelabel>screen</edgelabel>
           <edgelabel>viewport_aabb_in_worldspace</edgelabel>
         </childnode>
-      </node>
-      <node id="5">
-        <label>eu::render::OpenglStates</label>
-        <link refid="structeu_1_1render_1_1OpenglStates"/>
       </node>
       <node id="8">
         <label>eu::render::Render2</label>
@@ -144,6 +140,10 @@
           <edgelabel>render</edgelabel>
         </childnode>
       </node>
+      <node id="5">
+        <label>eu::render::State</label>
+        <link refid="structeu_1_1render_1_1State"/>
+      </node>
       <node id="6">
         <label>eu::render::Texture2d</label>
         <link refid="structeu_1_1render_1_1Texture2d"/>
@@ -155,7 +155,7 @@
         <link refid="structeu_1_1render_1_1Uniform"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/canvas.h" line="102" column="1" bodyfile="libs/render/src/render/canvas.h" bodystart="103" bodyend="109"/>
+    <location file="libs/render/src/eu/render/canvas.h" line="102" column="1" bodyfile="libs/render/src/eu/render/canvas.h" bodystart="103" bodyend="109"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1RenderLayer2_1a24e23416081e947b84ce62063c85879d" prot="public" virt="non-virtual"><scope>eu::render::RenderLayer2</scope><name>batch</name></member>
       <member refid="structeu_1_1render_1_1Layer_1aeb8b243abd94f3b72e4fbc8169bf52b2" prot="public" virt="non-virtual"><scope>eu::render::RenderLayer2</scope><name>mouse_to_world</name></member>

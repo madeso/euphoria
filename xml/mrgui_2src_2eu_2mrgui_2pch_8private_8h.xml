@@ -1,0 +1,335 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="mrgui_2src_2eu_2mrgui_2pch_8private_8h" kind="file" language="C++">
+    <compoundname>pch.private.h</compoundname>
+    <includes refid="base_2src_2eu_2base_2pch_8public_8h" local="yes">eu/base/pch.public.h</includes>
+    <incdepgraph>
+      <node id="9">
+        <label>eu/assert/assert.h</label>
+        <link refid="assert_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>eu/base/angle.h</label>
+        <link refid="angle_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>eu/base/axisangle.h</label>
+        <link refid="axisangle_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>eu/base/base.h</label>
+        <link refid="base_8h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>eu/base/cint.h</label>
+        <link refid="cint_8h"/>
+      </node>
+      <node id="27">
+        <label>eu/base/colors.h</label>
+        <link refid="colors_8h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>eu/base/cpp.h</label>
+        <link refid="cpp_8h"/>
+      </node>
+      <node id="28">
+        <label>eu/base/feature_flags.h</label>
+        <link refid="feature__flags_8h"/>
+      </node>
+      <node id="29">
+        <label>eu/base/guid.h</label>
+        <link refid="guid_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>eu/base/hash.string.h</label>
+        <link refid="hash_8string_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>eu/base/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>eu/base/mat4.h</label>
+        <link refid="mat4_8h"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>eu/base/memorychunk.h</label>
+        <link refid="memorychunk_8h"/>
+      </node>
+      <node id="19">
+        <label>eu/base/numeric.h</label>
+        <link refid="numeric_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>eu/base/pch.private.h</label>
+        <link refid="base_2src_2eu_2base_2pch_8private_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu/base/pch.public.h</label>
+        <link refid="base_2src_2eu_2base_2pch_8public_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>eu/base/quat.h</label>
+        <link refid="quat_8h"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>eu/base/range.h</label>
+        <link refid="range_8h"/>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>eu/base/rect.h</label>
+        <link refid="rect_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>eu/base/size.h</label>
+        <link refid="size_8h"/>
+      </node>
+      <node id="11">
+        <label>eu/base/std.h</label>
+        <link refid="std_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>eu/base/vec2.h</label>
+        <link refid="vec2_8h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>eu/base/vec3.h</label>
+        <link refid="vec3_8h"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>eu/base/vec4.h</label>
+        <link refid="vec4_8h"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu/fmt/pch.public.h</label>
+        <link refid="fmt_2src_2eu_2fmt_2pch_8public_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>eu/log/log.h</label>
+        <link refid="log_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libs/mrgui/src/eu/mrgui/pch.private.h</label>
+        <link refid="mrgui_2src_2eu_2mrgui_2pch_8private_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>array</label>
+      </node>
+      <node id="21">
+        <label>cstdint</label>
+      </node>
+      <node id="4">
+        <label>fmt/core.h</label>
+      </node>
+      <node id="5">
+        <label>fmt/format.h</label>
+      </node>
+      <node id="6">
+        <label>fmt/ranges.h</label>
+      </node>
+      <node id="23">
+        <label>iostream</label>
+      </node>
+      <node id="16">
+        <label>optional</label>
+      </node>
+      <node id="12">
+        <label>ostream</label>
+      </node>
+      <node id="13">
+        <label>sstream</label>
+      </node>
+      <node id="8">
+        <label>string</label>
+      </node>
+      <node id="14">
+        <label>string_view</label>
+      </node>
+      <node id="25">
+        <label>tuple</label>
+      </node>
+      <node id="38">
+        <label>type_traits</label>
+      </node>
+      <node id="31">
+        <label>unordered_map</label>
+      </node>
+      <node id="10">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/mrgui/src/eu/mrgui/pch.private.h"/>
+  </compounddef>
+</doxygen>

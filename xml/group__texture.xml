@@ -33,7 +33,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="16" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="17" bodyend="20"/>
+        <location file="libs/render/src/eu/render/texture.h" line="16" column="1" bodyfile="libs/render/src/eu/render/texture.h" bodystart="17" bodyend="20"/>
       </memberdef>
       <memberdef kind="enum" id="group__texture_1gad077a05d0224820dd5e1c6ffb797fa79" prot="public" static="no" strong="yes">
         <type></type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="23" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="24" bodyend="28"/>
+        <location file="libs/render/src/eu/render/texture.h" line="23" column="1" bodyfile="libs/render/src/eu/render/texture.h" bodystart="24" bodyend="28"/>
       </memberdef>
       <memberdef kind="enum" id="group__texture_1ga5b945431a3e7a9568374b883c85565d7" prot="public" static="no" strong="yes">
         <type></type>
@@ -92,7 +92,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="31" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="32" bodyend="35"/>
+        <location file="libs/render/src/eu/render/texture.h" line="31" column="1" bodyfile="libs/render/src/eu/render/texture.h" bodystart="32" bodyend="35"/>
       </memberdef>
       <memberdef kind="enum" id="group__texture_1ga4c49cf44c6f0f36c25cc3fd17be1dda5" prot="public" static="no" strong="yes">
         <type></type>
@@ -128,23 +128,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="37" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="38" bodyend="48"/>
-      </memberdef>
-      <memberdef kind="enum" id="group__texture_1ga9478b29b3d621e6b511b12507935040d" prot="public" static="no" strong="yes">
-        <type>std::uint32_t</type>
-        <name>SingleColor</name>
-        <qualifiedname>eu::render::SingleColor</qualifiedname>
-        <briefdescription>
-<para>A single color in a format to load directly into open gl texture(ABGR on little endian). </para>
-        </briefdescription>
-        <detaileddescription>
-<para><simplesect kind="see"><para><ref refid="group__texture_1gafc11dff76d8c8dfa670191949ab8495d" kindref="member">color_from_rgba</ref> </para>
-</simplesect>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="53" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="53" bodyend="53"/>
+        <location file="libs/render/src/eu/render/texture.h" line="37" column="1" bodyfile="libs/render/src/eu/render/texture.h" bodystart="38" bodyend="48"/>
       </memberdef>
       <memberdef kind="enum" id="group__texture_1gac052096755747d49a7e0954123286623" prot="public" static="no" strong="yes">
         <type></type>
@@ -185,7 +169,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="138" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="139" bodyend="142"/>
+        <location file="libs/render/src/eu/render/texture.h" line="121" column="1" bodyfile="libs/render/src/eu/render/texture.h" bodystart="122" bodyend="125"/>
       </memberdef>
       <memberdef kind="enum" id="group__texture_1gaa48ab79573cf3af6eae3ba0201a0c6a5" prot="public" static="no" strong="yes">
         <type></type>
@@ -226,7 +210,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="145" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="146" bodyend="149"/>
+        <location file="libs/render/src/eu/render/texture.h" line="128" column="1" bodyfile="libs/render/src/eu/render/texture.h" bodystart="129" bodyend="132"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="var">
@@ -244,85 +228,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="100" column="23" bodyfile="libs/render/src/render/texture.h" bodystart="100" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/texture.h" line="83" column="23" bodyfile="libs/render/src/eu/render/texture.h" bodystart="83" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="func">
-      <memberdef kind="function" id="group__texture_1gafc11dff76d8c8dfa670191949ab8495d" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr SingleColor</type>
-        <definition>constexpr SingleColor eu::render::color_from_rgba</definition>
-        <argsstring>(uint8_t r, uint8_t g, uint8_t b, uint8_t a)</argsstring>
-        <name>color_from_rgba</name>
-        <qualifiedname>eu::render::color_from_rgba</qualifiedname>
-        <param>
-          <type>uint8_t</type>
-          <declname>r</declname>
-        </param>
-        <param>
-          <type>uint8_t</type>
-          <declname>g</declname>
-        </param>
-        <param>
-          <type>uint8_t</type>
-          <declname>b</declname>
-        </param>
-        <param>
-          <type>uint8_t</type>
-          <declname>a</declname>
-        </param>
-        <briefdescription>
-<para>Constructs a <ref refid="group__texture_1ga9478b29b3d621e6b511b12507935040d" kindref="member">SingleColor</ref> value from individual red, green, blue, and alpha components. </para>
-        </briefdescription>
-        <detaileddescription>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>r</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>The red component of the color (0x00 - 0xFF). </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>g</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>The green component of the color (0x00 - 0xFF). </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>b</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>The blue component of the color (0x00 - 0xFF). </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>a</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>The alpha (opacity) component of the color (0x00 - 0xFF). </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>A <ref refid="group__texture_1ga9478b29b3d621e6b511b12507935040d" kindref="member">SingleColor</ref> value representing the color composed of the specified RGBA components. </para>
-</simplesect>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="61" column="23" bodyfile="libs/render/src/render/texture.h" bodystart="61" bodyend="66"/>
-      </memberdef>
-      <memberdef kind="function" id="group__texture_1gaff22666806e24a26d00fc230d473513a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__texture_1gaf1a9eb9174786be8ec712aa7d8891200" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Texture2d</type>
         <definition>Texture2d eu::render::load_image_from_color</definition>
-        <argsstring>(DEBUG_LABEL_ARG_MANY SingleColor pixel, TextureEdge te, TextureRenderStyle trs, Transparency t, ColorData cd)</argsstring>
+        <argsstring>(DEBUG_LABEL_ARG_MANY core::SingleColor pixel, TextureEdge te, TextureRenderStyle trs, Transparency t, ColorData cd)</argsstring>
         <name>load_image_from_color</name>
         <qualifiedname>eu::render::load_image_from_color</qualifiedname>
         <param>
-          <type><ref refid="group__debug_1gabd34c805e47ae972bc6f5b1e406e921d" kindref="member">DEBUG_LABEL_ARG_MANY</ref> SingleColor</type>
+          <type><ref refid="group__debug_1gabd34c805e47ae972bc6f5b1e406e921d" kindref="member">DEBUG_LABEL_ARG_MANY</ref> core::SingleColor</type>
           <declname>pixel</declname>
         </param>
         <param>
@@ -347,16 +264,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="96" column="11" declfile="libs/render/src/render/texture.h" declline="96" declcolumn="11"/>
+        <location file="libs/render/src/eu/render/texture.h" line="79" column="11" declfile="libs/render/src/eu/render/texture.h" declline="79" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="group__texture_1gabcbbd9e458cbc63ae88183ab0ab51c6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__texture_1ga458cbe8a21306ccd47b408340440c60d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>TextureCubemap</type>
         <definition>TextureCubemap eu::render::load_cubemap_from_color</definition>
-        <argsstring>(DEBUG_LABEL_ARG_MANY SingleColor pixel, ColorData cd)</argsstring>
+        <argsstring>(DEBUG_LABEL_ARG_MANY core::SingleColor pixel, ColorData cd)</argsstring>
         <name>load_cubemap_from_color</name>
         <qualifiedname>eu::render::load_cubemap_from_color</qualifiedname>
         <param>
-          <type><ref refid="group__debug_1gabd34c805e47ae972bc6f5b1e406e921d" kindref="member">DEBUG_LABEL_ARG_MANY</ref> SingleColor</type>
+          <type><ref refid="group__debug_1gabd34c805e47ae972bc6f5b1e406e921d" kindref="member">DEBUG_LABEL_ARG_MANY</ref> core::SingleColor</type>
           <declname>pixel</declname>
         </param>
         <param>
@@ -369,7 +286,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="111" column="16" declfile="libs/render/src/render/texture.h" declline="111" declcolumn="16"/>
+        <location file="libs/render/src/eu/render/texture.h" line="94" column="16" declfile="libs/render/src/eu/render/texture.h" declline="94" declcolumn="16"/>
       </memberdef>
       <memberdef kind="function" id="group__texture_1ga1e6e831737209f381f2f34fd68b360d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; FrameBuffer &gt;</type>
@@ -401,7 +318,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="161" column="17" declfile="libs/render/src/render/texture.h" declline="161" declcolumn="17"/>
+        <location file="libs/render/src/eu/render/texture.h" line="144" column="17" declfile="libs/render/src/eu/render/texture.h" declline="144" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="group__texture_1ga0e72b05730d7520b132ee620dcb86679" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; FrameBuffer &gt;</type>
@@ -457,7 +374,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="175" column="17" declfile="libs/render/src/render/texture.h" declline="175" declcolumn="17"/>
+        <location file="libs/render/src/eu/render/texture.h" line="158" column="17" declfile="libs/render/src/eu/render/texture.h" declline="158" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="group__texture_1ga9efcced06a1a5e0309b34e1a40fcc1b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; FrameBuffer &gt;</type>
@@ -500,7 +417,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="186" column="17" declfile="libs/render/src/render/texture.h" declline="186" declcolumn="17"/>
+        <location file="libs/render/src/eu/render/texture.h" line="169" column="17" declfile="libs/render/src/eu/render/texture.h" declline="169" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="group__texture_1gaa85e9db1b15d0ec62079995fc80cda5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; FrameBuffer &gt;</type>
@@ -531,7 +448,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="196" column="17" declfile="libs/render/src/render/texture.h" declline="196" declcolumn="17"/>
+        <location file="libs/render/src/eu/render/texture.h" line="179" column="17" declfile="libs/render/src/eu/render/texture.h" declline="179" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="group__texture_1ga7a077b1e09486b602076085519b63003" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -553,7 +470,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="213" column="6" declfile="libs/render/src/render/texture.h" declline="213" declcolumn="6"/>
+        <location file="libs/render/src/eu/render/texture.h" line="196" column="6" declfile="libs/render/src/eu/render/texture.h" declline="196" declcolumn="6"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

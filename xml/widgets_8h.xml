@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="widgets_8h" kind="file" language="C++">
+    <compoundname>widgets.h</compoundname>
+    <includes local="no">SDL_keycode.h</includes>
+    <includes local="yes">eustb_textedit_string.h</includes>
+    <includes refid="colors_8h" local="yes">eu/base/colors.h</includes>
+    <includes refid="rect_8h" local="yes">eu/base/rect.h</includes>
+    <includes refid="vec2_8h" local="yes">eu/base/vec2.h</includes>
+    <incdepgraph>
+      <node id="11">
+        <label>eu/assert/assert.h</label>
+        <link refid="assert_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>eu/base/angle.h</label>
+        <link refid="angle_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>eu/base/colors.h</label>
+        <link refid="colors_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>eu/base/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>eu/base/numeric.h</label>
+        <link refid="numeric_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>eu/base/range.h</label>
+        <link refid="range_8h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>eu/base/rect.h</label>
+        <link refid="rect_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>eu/base/vec2.h</label>
+        <link refid="vec2_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>eu/base/vec3.h</label>
+        <link refid="vec3_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libs/mrgui/src/eu/mrgui/widgets.h</label>
+        <link refid="widgets_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>SDL_keycode.h</label>
+      </node>
+      <node id="8">
+        <label>cstdint</label>
+      </node>
+      <node id="3">
+        <label>eustb_textedit_string.h</label>
+      </node>
+      <node id="14">
+        <label>fmt/format.h</label>
+      </node>
+      <node id="12">
+        <label>string</label>
+      </node>
+      <node id="10">
+        <label>tuple</label>
+      </node>
+      <node id="18">
+        <label>type_traits</label>
+      </node>
+      <node id="13">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structeu_1_1mrgui_1_1IdStack" prot="public">eu::mrgui::IdStack</innerclass>
+    <innerclass refid="structeu_1_1mrgui_1_1KeyboardInput" prot="public">eu::mrgui::KeyboardInput</innerclass>
+    <innerclass refid="structeu_1_1mrgui_1_1UiState" prot="public">eu::mrgui::UiState</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
+    <innernamespace refid="namespaceeu_1_1mrgui">eu::mrgui</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/mrgui/src/eu/mrgui/widgets.h"/>
+  </compounddef>
+</doxygen>

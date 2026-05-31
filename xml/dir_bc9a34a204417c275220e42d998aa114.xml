@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_bc9a34a204417c275220e42d998aa114" kind="dir">
+    <compoundname>libs/core/src/eu/core</compoundname>
+    <innerfile refid="color_8h">color.h</innerfile>
+    <innerfile refid="geom_8builder_8h">geom.builder.h</innerfile>
+    <innerfile refid="geom_8extract_8h">geom.extract.h</innerfile>
+    <innerfile refid="geom_8h">geom.h</innerfile>
+    <innerfile refid="hash_8h">hash.h</innerfile>
+    <innerfile refid="image_8h">image.h</innerfile>
+    <innerfile refid="loadedfont_8h">loadedfont.h</innerfile>
+    <innerfile refid="core_2src_2eu_2core_2mesh_8h">mesh.h</innerfile>
+    <innerfile refid="core_2src_2eu_2core_2pch_8private_8h">pch.private.h</innerfile>
+    <innerfile refid="core_2src_2eu_2core_2scurve_8h">scurve.h</innerfile>
+    <innerfile refid="tablelayout_8h">tablelayout.h</innerfile>
+    <innerfile refid="core_2src_2eu_2core_2ui_8h">ui.h</innerfile>
+    <innerfile refid="core_2src_2eu_2core_2uniform__buffer_8h">uniform_buffer.h</innerfile>
+    <innerfile refid="utf8_8h">utf8.h</innerfile>
+    <innerfile refid="vertex__layout_8h">vertex_layout.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/eu/core/"/>
+  </compounddef>
+</doxygen>

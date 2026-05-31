@@ -2,17 +2,23 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="constants_8h" kind="file" language="C++">
     <compoundname>constants.h</compoundname>
-    <includedby refid="opengl__states_8h" local="yes">libs/render/src/render/opengl_states.h</includedby>
+    <includedby refid="state_8h" local="yes">libs/render/src/eu/render/state.h</includedby>
     <invincdepgraph>
       <node id="1">
-        <label>libs/render/src/render/constants.h</label>
+        <label>libs/render/src/eu/render/constants.h</label>
         <link refid="constants_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
       </node>
+      <node id="3">
+        <label>libs/render/src/eu/render/renderer.pimpl.h</label>
+        <link refid="renderer_8pimpl_8h"/>
+      </node>
       <node id="2">
-        <label>libs/render/src/render/opengl_states.h</label>
-        <link refid="opengl__states_8h"/>
+        <label>libs/render/src/eu/render/state.h</label>
+        <link refid="state_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
       </node>
     </invincdepgraph>
     <innernamespace refid="namespaceeu">eu</innernamespace>
@@ -21,6 +27,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/render/src/render/constants.h"/>
+    <location file="libs/render/src/eu/render/constants.h"/>
   </compounddef>
 </doxygen>

@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/image.h" line="19" column="9" bodyfile="libs/core/src/core/image.h" bodystart="19" bodyend="-1"/>
+        <location file="libs/core/src/eu/core/image.h" line="19" column="9" bodyfile="libs/core/src/eu/core/image.h" bodystart="19" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1Image_1afc6653cf3aa6acf8a78f71786cf9b89b" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/image.h" line="20" column="9" bodyfile="libs/core/src/core/image.h" bodystart="20" bodyend="-1"/>
+        <location file="libs/core/src/eu/core/image.h" line="20" column="9" bodyfile="libs/core/src/eu/core/image.h" bodystart="20" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1Image_1a266ae0846c7c5cedf6686ddda5246327" prot="public" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="structeu_1_1R" kindref="compound">unsigned</ref> <ref refid="structeu_1_1R" kindref="compound">char</ref> &gt;</type>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/image.h" line="21" column="17" bodyfile="libs/core/src/core/image.h" bodystart="21" bodyend="-1"/>
+        <location file="libs/core/src/eu/core/image.h" line="21" column="17" bodyfile="libs/core/src/eu/core/image.h" bodystart="21" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -64,7 +64,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/image.h" line="24" column="5"/>
+        <location file="libs/core/src/eu/core/image.h" line="24" column="5"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1Image_1a6144fe013dbe81adc6d71622a4baf21f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
@@ -79,7 +79,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/image.h" line="27" column="10"/>
+        <location file="libs/core/src/eu/core/image.h" line="27" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1Image_1a5e47e29c4c120109e84b7db26cba0e48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -120,7 +120,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/image.h" line="32" column="10"/>
+        <location file="libs/core/src/eu/core/image.h" line="32" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1Image_1adda383d7383d74975b1424f69dc74199" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -135,7 +135,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/image.h" line="35" column="10"/>
+        <location file="libs/core/src/eu/core/image.h" line="35" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1Image_1a0e6c3305f1979346e3fe03d1464b2394" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -224,7 +224,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/image.h" line="44" column="10"/>
+        <location file="libs/core/src/eu/core/image.h" line="44" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1Image_1aa9b33a4fc7457638e78d501515cfc0d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -251,7 +251,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/image.h" line="47" column="10"/>
+        <location file="libs/core/src/eu/core/image.h" line="47" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1Image_1a1932a15141a0e3fbd3dcb3595a75b8d4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1PixelColor" kindref="compound">PixelColor</ref></type>
@@ -294,7 +294,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/image.h" line="53" column="16"/>
+        <location file="libs/core/src/eu/core/image.h" line="53" column="16"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -302,7 +302,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/image.h" line="17" column="1" bodyfile="libs/core/src/core/image.h" bodystart="18" bodyend="54"/>
+    <location file="libs/core/src/eu/core/image.h" line="17" column="1" bodyfile="libs/core/src/eu/core/image.h" bodystart="18" bodyend="54"/>
     <listofallmembers>
       <member refid="structeu_1_1core_1_1Image_1a266ae0846c7c5cedf6686ddda5246327" prot="public" virt="non-virtual"><scope>eu::core::Image</scope><name>data</name></member>
       <member refid="structeu_1_1core_1_1Image_1a1932a15141a0e3fbd3dcb3595a75b8d4" prot="public" virt="non-virtual"><scope>eu::core::Image</scope><name>get_pixel</name></member>

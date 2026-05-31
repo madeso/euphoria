@@ -55,6 +55,7 @@
 <para><image type="html" name="./docs/euphoria.excalidraw.svg" alt="project layout" inline="yes"></image>
 </para>
 <para>All names should follow <computeroutput>snake_case</computeroutput>, both for variables, members, functions and files. The only exception are C++ macros that should follow <computeroutput>SHOUTING_SNAKE_CASE</computeroutput> and structs &amp; template arguments that should follow <computeroutput>PascalCase</computeroutput>.</para>
+<para>Don&apos;t use <computeroutput>REUSE_FROM</computeroutput> in pch, it seems to result in lot of rebuilds due to &quot;error C2859: file.idb is not the idb file that was used when this precompiled header was created, recreate the precompiled header.&quot;</para>
 </sect2>
 <sect2 id="index_1autotoc_md5">
 <title>Naming guidelines</title>

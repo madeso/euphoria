@@ -34,6 +34,7 @@
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="topics.html"><span>Topics</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="concepts.html"><span>Concepts</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
     </ul>
@@ -72,6 +73,7 @@ About the code</h2>
 <p>The folder structure should follow the <a href="https://github.com/vector-of-bool/pitchfork">pitchfork layout</a>. <code>graveyard</code> contains old code that could be brought back to life but should more or less be considered deleted.</p>
 <p><img src="./docs/euphoria.excalidraw.svg" alt="project layout" style="pointer-events: none;" class="inline"/></p>
 <p>All names should follow <code>snake_case</code>, both for variables, members, functions and files. The only exception are C++ macros that should follow <code>SHOUTING_SNAKE_CASE</code> and structs &amp; template arguments that should follow <code>PascalCase</code>.</p>
+<p>Don't use <code>REUSE_FROM</code> in pch, it seems to result in lot of rebuilds due to "error C2859: file.idb is not the idb file that was used when this precompiled header was created, recreate the precompiled header."</p>
 <h2><a class="anchor" id="autotoc_md5"></a>
 Naming guidelines</h2>
 <ul>

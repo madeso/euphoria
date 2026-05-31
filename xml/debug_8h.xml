@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="debug_8h" kind="file" language="C++">
+    <compoundname>debug.h</compoundname>
+    <includedby refid="renderer_8h" local="yes">libs/render/src/eu/render/renderer.h</includedby>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/render/src/eu/render/debug.h</label>
+        <link refid="debug_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>libs/render/src/eu/render/postproc.internal.h</label>
+        <link refid="postproc_8internal_8h"/>
+      </node>
+      <node id="2">
+        <label>libs/render/src/eu/render/renderer.h</label>
+        <link refid="renderer_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structeu_1_1render_1_1DebugLine" prot="public">eu::render::DebugLine</innerclass>
+    <innerclass refid="structeu_1_1render_1_1DebugRender" prot="public">eu::render::DebugRender</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/eu/render/debug.h"/>
+  </compounddef>
+</doxygen>

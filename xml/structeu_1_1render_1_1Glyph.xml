@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="26" column="14" bodyfile="libs/render/src/render/font.h" bodystart="26" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/font.h" line="26" column="14" bodyfile="libs/render/src/eu/render/font.h" bodystart="26" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Glyph_1a9a329ccf73ad451b62bdf18fdd349dfc" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="27" column="14" bodyfile="libs/render/src/render/font.h" bodystart="27" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/font.h" line="27" column="14" bodyfile="libs/render/src/eu/render/font.h" bodystart="27" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Glyph_1ade8dc7c2f9d754f3101a6abbb5dba068" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="28" column="13" bodyfile="libs/render/src/render/font.h" bodystart="28" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/font.h" line="28" column="13" bodyfile="libs/render/src/eu/render/font.h" bodystart="28" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Glyph_1a80efefa93e462fae34af5c7c3f3efefb" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="29" column="15" bodyfile="libs/render/src/render/font.h" bodystart="29" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/font.h" line="29" column="15" bodyfile="libs/render/src/eu/render/font.h" bodystart="29" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -90,7 +90,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="31" column="9"/>
+        <location file="libs/render/src/eu/render/font.h" line="31" column="9"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -111,7 +111,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/font.h" line="24" column="5" bodyfile="libs/render/src/render/font.h" bodystart="25" bodyend="38"/>
+    <location file="libs/render/src/eu/render/font.h" line="24" column="5" bodyfile="libs/render/src/eu/render/font.h" bodystart="25" bodyend="38"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1Glyph_1a80efefa93e462fae34af5c7c3f3efefb" prot="public" virt="non-virtual"><scope>eu::render::Glyph</scope><name>advance</name></member>
       <member refid="structeu_1_1render_1_1Glyph_1ade8dc7c2f9d754f3101a6abbb5dba068" prot="public" virt="non-virtual"><scope>eu::render::Glyph</scope><name>code_point</name></member>

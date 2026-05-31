@@ -17,11 +17,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="169" column="14" bodyfile="libs/render/src/render/shader.h" bodystart="169" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader.h" line="172" column="14" bodyfile="libs/render/src/eu/render/shader.h" bodystart="172" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1render_1_1ShaderProgram_1ab319b25ac809d2e6a6ff2b808047c334" prot="public" static="no" mutable="no">
-        <type><ref refid="group__vertex-layout_1gac4a839089284fbf22fb44e23c621c658" kindref="member">VertexTypes</ref></type>
-        <definition>VertexTypes eu::render::ShaderProgram::debug_vertex_types</definition>
+      <memberdef kind="variable" id="structeu_1_1render_1_1ShaderProgram_1a9d7b100b636e717229e03c1351076a32" prot="public" static="no" mutable="no">
+        <type><ref refid="group__vertex-layout_1ga3e578f2648d7f1003720795dc8826011" kindref="member">core::VertexTypes</ref></type>
+        <definition>core::VertexTypes eu::render::ShaderProgram::debug_vertex_types</definition>
         <argsstring></argsstring>
         <name>debug_vertex_types</name>
         <qualifiedname>eu::render::ShaderProgram::debug_vertex_types</qualifiedname>
@@ -32,14 +32,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="170" column="13" bodyfile="libs/render/src/render/shader.h" bodystart="170" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader.h" line="173" column="23" bodyfile="libs/render/src/eu/render/shader.h" bodystart="173" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1a8a336b3be1963e2b3d54708f6eab27b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1aabde88b146985bb4c88bd42a5cb4ac46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>eu::render::ShaderProgram::ShaderProgram</definition>
-        <argsstring>(DEBUG_LABEL_ARG_MANY const std::string &amp;vertex_source, const std::string &amp;fragment_source, const CompiledShaderVertexAttributes &amp;layout)</argsstring>
+        <argsstring>(DEBUG_LABEL_ARG_MANY const std::string &amp;vertex_source, const std::string &amp;fragment_source, const core::CompiledShaderVertexAttributes &amp;layout)</argsstring>
         <name>ShaderProgram</name>
         <qualifiedname>eu::render::ShaderProgram::ShaderProgram</qualifiedname>
         <param>
@@ -51,7 +51,7 @@
           <declname>fragment_source</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1CompiledShaderVertexAttributes" kindref="compound">CompiledShaderVertexAttributes</ref> &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1core_1_1CompiledShaderVertexAttributes" kindref="compound">core::CompiledShaderVertexAttributes</ref> &amp;</type>
           <declname>layout</declname>
         </param>
         <briefdescription>
@@ -87,7 +87,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="32" column="1"/>
+        <location file="libs/render/src/eu/render/shader.h" line="35" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1a87ed631f5bcb44706628bc6c8dc0af33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -105,7 +105,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="42" column="1"/>
+        <location file="libs/render/src/eu/render/shader.h" line="45" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1a16643894fcccfacadf2be12ae5b89c40" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -123,7 +123,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="45" column="1"/>
+        <location file="libs/render/src/eu/render/shader.h" line="48" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1af51d53d47ad66306d9d46c44497fcc1c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -141,7 +141,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="48" column="6"/>
+        <location file="libs/render/src/eu/render/shader.h" line="51" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1ae45ef6c1815f0603c41622f05b0d61eb" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -170,7 +170,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="53" column="1"/>
+        <location file="libs/render/src/eu/render/shader.h" line="56" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1ad8eb5528cf51d4b0254822861fe0cd63" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> &amp;</type>
@@ -199,7 +199,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="58" column="15"/>
+        <location file="libs/render/src/eu/render/shader.h" line="61" column="15"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1a784dde4259806a8cc0f9a50a8b551643" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -217,7 +217,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="63" column="6"/>
+        <location file="libs/render/src/eu/render/shader.h" line="66" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1ada1e5517af13916bf529baa1d77f58b2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
@@ -235,7 +235,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="68" column="7"/>
+        <location file="libs/render/src/eu/render/shader.h" line="71" column="7"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1a9ff1aff950f23ae3f24f431e8d114bd4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -250,7 +250,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="72" column="6"/>
+        <location file="libs/render/src/eu/render/shader.h" line="75" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1acf8c26b90d4ce65f4ccd225e904f93af" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -281,7 +281,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="78" column="10"/>
+        <location file="libs/render/src/eu/render/shader.h" line="81" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1a7d3bfb7c2f9b1c5c4444eea2046dacd1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -324,7 +324,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="86" column="6"/>
+        <location file="libs/render/src/eu/render/shader.h" line="89" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1ac4fbb5c5948a8b4518e4d31372038421" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -367,7 +367,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="94" column="6"/>
+        <location file="libs/render/src/eu/render/shader.h" line="97" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1aae0219a80c03b90f67c61a5450642d50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -422,7 +422,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="103" column="6"/>
+        <location file="libs/render/src/eu/render/shader.h" line="106" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1aa2d508ecd20a1111478063b568905e25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -465,7 +465,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="111" column="6"/>
+        <location file="libs/render/src/eu/render/shader.h" line="114" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1a5a0610b8c5a24272e375d9e3e055220c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -532,7 +532,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="121" column="6"/>
+        <location file="libs/render/src/eu/render/shader.h" line="124" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1a0cf9ad0795eb3bdce899ac65acf8062e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -575,7 +575,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="129" column="6"/>
+        <location file="libs/render/src/eu/render/shader.h" line="132" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1ad739e87b5a45af182d5e2d8d1ef86c36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -654,7 +654,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="140" column="6"/>
+        <location file="libs/render/src/eu/render/shader.h" line="143" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1a4de44a44468269b57ac8d7462c4d7b3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -697,7 +697,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="148" column="6"/>
+        <location file="libs/render/src/eu/render/shader.h" line="151" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1aa2f95cf1e8246179c689220b473a8c7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -728,7 +728,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="155" column="6"/>
+        <location file="libs/render/src/eu/render/shader.h" line="158" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1ab5b5bfe65481e8b67003bea40885c5c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -771,16 +771,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="162" column="6"/>
+        <location file="libs/render/src/eu/render/shader.h" line="165" column="6"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1a98fd2d0e91b008f3ab2d7232c926d99d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1aab192a5ac3c0b8f6d7f02e379cb8580b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
         <definition>void eu::render::ShaderProgram::setup_uniform_block</definition>
-        <argsstring>(const UniformBufferSetup &amp;setup)</argsstring>
+        <argsstring>(const core::UniformBufferSetup &amp;setup)</argsstring>
         <name>setup_uniform_block</name>
         <qualifiedname>eu::render::ShaderProgram::setup_uniform_block</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1UniformBufferSetup" kindref="compound">UniformBufferSetup</ref> &amp;</type>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1core_1_1UniformBufferSetup" kindref="compound">core::UniformBufferSetup</ref> &amp;</type>
           <declname>setup</declname>
         </param>
         <briefdescription>
@@ -800,7 +800,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="167" column="6"/>
+        <location file="libs/render/src/eu/render/shader.h" line="170" column="6"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -808,10 +808,10 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/render/src/render/shader.h" line="24" column="1" bodyfile="libs/render/src/render/shader.h" bodystart="25" bodyend="171"/>
+    <location file="libs/render/src/eu/render/shader.h" line="27" column="1" bodyfile="libs/render/src/eu/render/shader.h" bodystart="28" bodyend="174"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1ShaderProgram_1a784dde4259806a8cc0f9a50a8b551643" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>clear</name></member>
-      <member refid="structeu_1_1render_1_1ShaderProgram_1ab319b25ac809d2e6a6ff2b808047c334" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>debug_vertex_types</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProgram_1a9d7b100b636e717229e03c1351076a32" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>debug_vertex_types</name></member>
       <member refid="structeu_1_1render_1_1ShaderProgram_1acf8c26b90d4ce65f4ccd225e904f93af" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>get_uniform</name></member>
       <member refid="structeu_1_1render_1_1ShaderProgram_1ada1e5517af13916bf529baa1d77f58b2" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>is_loaded</name></member>
       <member refid="structeu_1_1render_1_1ShaderProgram_1af51d53d47ad66306d9d46c44497fcc1c" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>operator=</name></member>
@@ -826,9 +826,9 @@
       <member refid="structeu_1_1render_1_1ShaderProgram_1a0cf9ad0795eb3bdce899ac65acf8062e" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>set_vec3</name></member>
       <member refid="structeu_1_1render_1_1ShaderProgram_1ad739e87b5a45af182d5e2d8d1ef86c36" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>set_vec4</name></member>
       <member refid="structeu_1_1render_1_1ShaderProgram_1a4de44a44468269b57ac8d7462c4d7b3a" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>set_vec4</name></member>
-      <member refid="structeu_1_1render_1_1ShaderProgram_1a98fd2d0e91b008f3ab2d7232c926d99d" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>setup_uniform_block</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProgram_1aab192a5ac3c0b8f6d7f02e379cb8580b" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>setup_uniform_block</name></member>
       <member refid="structeu_1_1render_1_1ShaderProgram_1adb3f8720b56841120d321445fa3bc470" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>shader_program</name></member>
-      <member refid="structeu_1_1render_1_1ShaderProgram_1a8a336b3be1963e2b3d54708f6eab27b8" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>ShaderProgram</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProgram_1aabde88b146985bb4c88bd42a5cb4ac46" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>ShaderProgram</name></member>
       <member refid="structeu_1_1render_1_1ShaderProgram_1a16643894fcccfacadf2be12ae5b89c40" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>ShaderProgram</name></member>
       <member refid="structeu_1_1render_1_1ShaderProgram_1ae45ef6c1815f0603c41622f05b0d61eb" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>ShaderProgram</name></member>
       <member refid="structeu_1_1render_1_1ShaderProgram_1a9ff1aff950f23ae3f24f431e8d114bd4" prot="public" virt="non-virtual"><scope>eu::render::ShaderProgram</scope><name>use</name></member>

@@ -12,12 +12,13 @@
         <qualifiedname>eu::Ypr::yaw</qualifiedname>
         <initializer>= <ref refid="group__math_1ga22905decd86a4bf45c79c109119f2b6f" kindref="member">no_rotation</ref></initializer>
         <briefdescription>
+<para>left and right rotation, positive right </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/axisangle.h" line="34" column="12" bodyfile="libs/base/src/base/axisangle.h" bodystart="34" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/axisangle.h" line="35" column="12" bodyfile="libs/base/src/eu/base/axisangle.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1Ypr_1a19ba5b756baa3ae5baa58d281e791ea2" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1An" kindref="compound">An</ref></type>
@@ -27,12 +28,13 @@
         <qualifiedname>eu::Ypr::pitch</qualifiedname>
         <initializer>= <ref refid="group__math_1ga22905decd86a4bf45c79c109119f2b6f" kindref="member">no_rotation</ref></initializer>
         <briefdescription>
+<para>up and down rotation, positive up </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/axisangle.h" line="35" column="12" bodyfile="libs/base/src/base/axisangle.h" bodystart="35" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/axisangle.h" line="38" column="12" bodyfile="libs/base/src/eu/base/axisangle.h" bodystart="38" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1Ypr_1ac60be98970716f36245071ef9ef088ac" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1An" kindref="compound">An</ref></type>
@@ -42,12 +44,13 @@
         <qualifiedname>eu::Ypr::roll</qualifiedname>
         <initializer>= <ref refid="group__math_1ga22905decd86a4bf45c79c109119f2b6f" kindref="member">no_rotation</ref></initializer>
         <briefdescription>
+<para>tilting rotation, positive tilting right/clockwise/right hand rule </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/axisangle.h" line="36" column="12" bodyfile="libs/base/src/base/axisangle.h" bodystart="36" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/axisangle.h" line="41" column="12" bodyfile="libs/base/src/eu/base/axisangle.h" bodystart="41" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -70,7 +73,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/base/src/base/axisangle.h" line="32" column="5" bodyfile="libs/base/src/base/axisangle.h" bodystart="33" bodyend="37"/>
+    <location file="libs/base/src/eu/base/axisangle.h" line="32" column="5" bodyfile="libs/base/src/eu/base/axisangle.h" bodystart="33" bodyend="42"/>
     <listofallmembers>
       <member refid="structeu_1_1Ypr_1a19ba5b756baa3ae5baa58d281e791ea2" prot="public" virt="non-virtual"><scope>eu::Ypr</scope><name>pitch</name></member>
       <member refid="structeu_1_1Ypr_1ac60be98970716f36245071ef9ef088ac" prot="public" virt="non-virtual"><scope>eu::Ypr</scope><name>roll</name></member>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_aa6c0f5ef1a7959ce272fd1a782d429b" kind="dir">
+    <compoundname>libs/base/src/eu</compoundname>
+    <innerdir refid="dir_dd20c9f5445bb90c823db094b077dfbf">libs/base/src/eu/base</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/base/src/eu/"/>
+  </compounddef>
+</doxygen>

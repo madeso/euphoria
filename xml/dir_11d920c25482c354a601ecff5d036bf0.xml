@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_11d920c25482c354a601ecff5d036bf0" kind="dir">
+    <compoundname>libs/imgui/src/eu/imgui</compoundname>
+    <innerfile refid="imgui_2src_2eu_2imgui_2pch_8private_8h">pch.private.h</innerfile>
+    <innerfile refid="imgui_2src_2eu_2imgui_2scurve_8h">scurve.h</innerfile>
+    <innerfile refid="imgui_2src_2eu_2imgui_2ui_8h">ui.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/imgui/src/eu/imgui/"/>
+  </compounddef>
+</doxygen>

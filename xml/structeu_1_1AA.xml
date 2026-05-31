@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/axisangle.h" line="21" column="12" bodyfile="libs/base/src/base/axisangle.h" bodystart="21" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/axisangle.h" line="21" column="12" bodyfile="libs/base/src/eu/base/axisangle.h" bodystart="21" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1AA_1a0ef36e1500a96f32d75602e9a53596da" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1An" kindref="compound">An</ref></type>
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/axisangle.h" line="24" column="12" bodyfile="libs/base/src/base/axisangle.h" bodystart="24" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/axisangle.h" line="24" column="12" bodyfile="libs/base/src/eu/base/axisangle.h" bodystart="24" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -56,7 +56,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/axisangle.h" line="26" column="9"/>
+        <location file="libs/base/src/eu/base/axisangle.h" line="26" column="9"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-static-func">
@@ -76,7 +76,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/axisangle.h" line="28" column="31"/>
+        <location file="libs/base/src/eu/base/axisangle.h" line="28" column="31"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -110,7 +110,7 @@
         <link refid="structeu_1_1v3"/>
       </node>
     </collaborationgraph>
-    <location file="libs/base/src/base/axisangle.h" line="18" column="5" bodyfile="libs/base/src/base/axisangle.h" bodystart="19" bodyend="29"/>
+    <location file="libs/base/src/eu/base/axisangle.h" line="18" column="5" bodyfile="libs/base/src/eu/base/axisangle.h" bodystart="19" bodyend="29"/>
     <listofallmembers>
       <member refid="structeu_1_1AA_1af1690aab94c15e9db117c61ea3265e8a" prot="public" virt="non-virtual"><scope>eu::AA</scope><name>AA</name></member>
       <member refid="structeu_1_1AA_1a0ef36e1500a96f32d75602e9a53596da" prot="public" virt="non-virtual"><scope>eu::AA</scope><name>angle</name></member>

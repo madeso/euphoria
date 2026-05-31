@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="90" column="1"/>
+        <location file="libs/render/src/eu/render/texture.h" line="73" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1Texture2d_1a4a4ffcc7b908c12fe6fc4c8ebb7b1ab9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -64,7 +64,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="93" column="1"/>
+        <location file="libs/render/src/eu/render/texture.h" line="76" column="1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -96,7 +96,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/texture.h" line="88" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="89" bodyend="94"/>
+    <location file="libs/render/src/eu/render/texture.h" line="71" column="1" bodyfile="libs/render/src/eu/render/texture.h" bodystart="72" bodyend="77"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1BaseTexture_1a4f8bf634470e48be913dac919fd688c7" prot="public" virt="non-virtual"><scope>eu::render::Texture2d</scope><name>BaseTexture</name></member>
       <member refid="structeu_1_1render_1_1BaseTexture_1a08ea1db1ea08e6d38f9b9f85fc228f9e" prot="public" virt="non-virtual"><scope>eu::render::Texture2d</scope><name>BaseTexture</name></member>

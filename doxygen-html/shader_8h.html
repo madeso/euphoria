@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Euphoria: libs/render/src/render/shader.h File Reference</title>
+<title>Euphoria: libs/render/src/eu/render/shader.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -34,6 +34,7 @@
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="topics.html"><span>Topics</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="concepts.html"><span>Concepts</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
     </ul>
@@ -46,7 +47,7 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_5ff146e0f6e8e07917ded14199fb1c6f.html">render</a></li><li class="navelem"><a class="el" href="dir_95dc3cc0a7a420dd18aa45b0124daefa.html">src</a></li><li class="navelem"><a class="el" href="dir_146da238a240638cdf54363209817292.html">render</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_5ff146e0f6e8e07917ded14199fb1c6f.html">render</a></li><li class="navelem"><a class="el" href="dir_95dc3cc0a7a420dd18aa45b0124daefa.html">src</a></li><li class="navelem"><a class="el" href="dir_4a397dec2969df4abbcca5d03a5f9fcc.html">eu</a></li><li class="navelem"><a class="el" href="dir_8918f96d97aaedf6564d1fc8e382975f.html">render</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -58,9 +59,9 @@
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;unordered_set&gt;</code><br />
-<code>#include &quot;<a class="el" href="opengl__labels_8h_source.html">render/opengl_labels.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="uniform_8h_source.html">render/uniform.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="vertex__layout_8h_source.html">render/vertex_layout.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="opengl__labels_8h_source.html">eu/render/opengl_labels.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="uniform_8h_source.html">eu/render/uniform.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="vertex__layout_8h_source.html">eu/core/vertex_layout.h</a>&quot;</code><br />
 </div>
 <p><a href="shader_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -74,18 +75,20 @@ Classes</h2></td></tr>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceeu" id="r_namespaceeu"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu.html">eu</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespaceeu_1_1core" id="r_namespaceeu_1_1core"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1core.html">eu::core</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceeu_1_1render" id="r_namespaceeu_1_1render"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1render.html">eu::render</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa326a1bc3f0a3a85564b5954e00d1cc9" id="r_aa326a1bc3f0a3a85564b5954e00d1cc9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1R.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1render.html#aa326a1bc3f0a3a85564b5954e00d1cc9">eu::render::setup_textures</a> (<a class="el" href="structeu_1_1render_1_1ShaderProgram.html">ShaderProgram</a> *<a class="el" href="structeu_1_1R.html">shader</a>, <a class="el" href="structeu_1_1R.html">const</a> std::vector&lt; <a class="el" href="structeu_1_1render_1_1Uniform.html">Uniform</a> * &gt; &amp;<a class="el" href="structeu_1_1R.html">uniform_list</a>)</td></tr>
+<tr class="memitem:aa326a1bc3f0a3a85564b5954e00d1cc9" id="r_aa326a1bc3f0a3a85564b5954e00d1cc9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1R.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1render.html#aa326a1bc3f0a3a85564b5954e00d1cc9">eu::render::setup_textures</a> (<a class="el" href="structeu_1_1render_1_1ShaderProgram.html">ShaderProgram</a> *shader, <a class="el" href="structeu_1_1R.html">const</a> std::vector&lt; <a class="el" href="structeu_1_1render_1_1Uniform.html">Uniform</a> * &gt; &amp;<a class="el" href="structeu_1_1R.html">uniform_list</a>)</td></tr>
 <tr class="memdesc:aa326a1bc3f0a3a85564b5954e00d1cc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up textures for a shader program.  <br /></td></tr>
 <tr class="separator:aa326a1bc3f0a3a85564b5954e00d1cc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a593ff3408c3a9a7a485e71835e0e2978" id="r_a593ff3408c3a9a7a485e71835e0e2978"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1R.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1render.html#a593ff3408c3a9a7a485e71835e0e2978">eu::render::is_bound_for_shader</a> (<a class="el" href="structeu_1_1R.html">const</a> std::unordered_set&lt; <a class="el" href="group__vertex-layout.html#gac45dc005a83f6afdda19dbb70f82945b">VertexType</a> &gt; &amp;<a class="el" href="structeu_1_1R.html">debug_geom_shader_types</a>)</td></tr>
-<tr class="memdesc:a593ff3408c3a9a7a485e71835e0e2978"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies if the current shader matches the required vertex types.  <br /></td></tr>
-<tr class="separator:a593ff3408c3a9a7a485e71835e0e2978"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab380e7a18ed48ab702d7d0ad993c4798" id="r_ab380e7a18ed48ab702d7d0ad993c4798"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1R.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1render.html#ab380e7a18ed48ab702d7d0ad993c4798">eu::render::is_shader_bound</a> (<a class="el" href="structeu_1_1R.html">unsigned</a> <a class="el" href="structeu_1_1R.html">int</a> <a class="el" href="structeu_1_1R.html">program</a>)</td></tr>
+<tr class="memitem:a0dd4dc819ad4382daa30f118a47634a5" id="r_a0dd4dc819ad4382daa30f118a47634a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1R.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1render.html#a0dd4dc819ad4382daa30f118a47634a5">eu::render::is_bound_for_shader</a> (<a class="el" href="structeu_1_1R.html">const</a> std::unordered_set&lt; <a class="el" href="group__vertex-layout.html#ga5f0685f8f017fd2ba9d143646266b46e">core::VertexType</a> &gt; &amp;<a class="el" href="structeu_1_1R.html">debug_geom_shader_types</a>)</td></tr>
+<tr class="memdesc:a0dd4dc819ad4382daa30f118a47634a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies if the current shader matches the required vertex types.  <br /></td></tr>
+<tr class="separator:a0dd4dc819ad4382daa30f118a47634a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab380e7a18ed48ab702d7d0ad993c4798" id="r_ab380e7a18ed48ab702d7d0ad993c4798"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1R.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1render.html#ab380e7a18ed48ab702d7d0ad993c4798">eu::render::is_shader_bound</a> (<a class="el" href="structeu_1_1R.html">unsigned</a> <a class="el" href="structeu_1_1R.html">int</a> program)</td></tr>
 <tr class="memdesc:ab380e7a18ed48ab702d7d0ad993c4798"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a specific shader program is currently active.  <br /></td></tr>
 <tr class="separator:ab380e7a18ed48ab702d7d0ad993c4798"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e782eecefa90980ac1d7ca2c82237b3" id="r_a2e782eecefa90980ac1d7ca2c82237b3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1R.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeu_1_1render.html#a2e782eecefa90980ac1d7ca2c82237b3">eu::render::clear_shader_program</a> ()</td></tr>

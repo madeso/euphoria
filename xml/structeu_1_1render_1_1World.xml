@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1World" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::World</compoundname>
+    <includes refid="world_8h" local="no">world.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1World_1a4a46cf1c04ce5f98f4fee5def12b9750" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1MeshInstance" kindref="compound">MeshInstance</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;MeshInstance&gt; &gt; eu::render::World::meshes</definition>
+        <argsstring></argsstring>
+        <name>meshes</name>
+        <qualifiedname>eu::render::World::meshes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/world.h" line="195" column="13" bodyfile="libs/render/src/eu/render/world.h" bodystart="195" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1World_1a7ce9a2e2cd97c7880349e1b902564385" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1MeshInstance__TransformInstanced" kindref="compound">MeshInstance_TransformInstanced</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;MeshInstance_TransformInstanced&gt; &gt; eu::render::World::instances</definition>
+        <argsstring></argsstring>
+        <name>instances</name>
+        <qualifiedname>eu::render::World::instances</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/world.h" line="196" column="13" bodyfile="libs/render/src/eu/render/world.h" bodystart="196" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1World_1aa6c02408b9e4224d9f230528457fe748" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1Lights" kindref="compound">Lights</ref></type>
+        <definition>Lights eu::render::World::lights</definition>
+        <argsstring></argsstring>
+        <name>lights</name>
+        <qualifiedname>eu::render::World::lights</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/world.h" line="197" column="8" bodyfile="libs/render/src/eu/render/world.h" bodystart="197" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1World_1a7678a5ea436297680e5cfd41f6ba1530" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <definition>Rgb eu::render::World::clear_color</definition>
+        <argsstring></argsstring>
+        <name>clear_color</name>
+        <qualifiedname>eu::render::World::clear_color</qualifiedname>
+        <initializer>= <ref refid="namespaceeu_1_1colors_1ad95d234c8c92dd943bb14befc3ee0952" kindref="member">colors::black</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/world.h" line="199" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="199" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1World_1a253e1ae17cea4cb37ff7575a38e33b9b" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1render_1_1Skybox" kindref="compound">Skybox</ref> &gt;</type>
+        <definition>std::optional&lt;Skybox&gt; eu::render::World::skybox</definition>
+        <argsstring></argsstring>
+        <name>skybox</name>
+        <qualifiedname>eu::render::World::skybox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/world.h" line="200" column="15" bodyfile="libs/render/src/eu/render/world.h" bodystart="200" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A list of objects to render. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This is also sometimes known as a scene. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>eu::Rgb</label>
+        <link refid="structeu_1_1Rgb"/>
+      </node>
+      <node id="2">
+        <label>eu::render::Lights</label>
+        <link refid="structeu_1_1render_1_1Lights"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>ambient_color</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>eu::render::World</label>
+        <link refid="structeu_1_1render_1_1World"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>lights</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>clear_color</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/eu/render/world.h" line="193" column="1" bodyfile="libs/render/src/eu/render/world.h" bodystart="194" bodyend="201"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1World_1a7678a5ea436297680e5cfd41f6ba1530" prot="public" virt="non-virtual"><scope>eu::render::World</scope><name>clear_color</name></member>
+      <member refid="structeu_1_1render_1_1World_1a7ce9a2e2cd97c7880349e1b902564385" prot="public" virt="non-virtual"><scope>eu::render::World</scope><name>instances</name></member>
+      <member refid="structeu_1_1render_1_1World_1aa6c02408b9e4224d9f230528457fe748" prot="public" virt="non-virtual"><scope>eu::render::World</scope><name>lights</name></member>
+      <member refid="structeu_1_1render_1_1World_1a4a46cf1c04ce5f98f4fee5def12b9750" prot="public" virt="non-virtual"><scope>eu::render::World</scope><name>meshes</name></member>
+      <member refid="structeu_1_1render_1_1World_1a253e1ae17cea4cb37ff7575a38e33b9b" prot="public" virt="non-virtual"><scope>eu::render::World</scope><name>skybox</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

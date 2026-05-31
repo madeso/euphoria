@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="kdl_8h" kind="file" language="C++">
+    <compoundname>kdl.h</compoundname>
+    <includes local="no">functional</includes>
+    <includes local="no">map</includes>
+    <includes local="no">optional</includes>
+    <includes local="no">stdexcept</includes>
+    <includes local="no">string</includes>
+    <includes local="no">string_view</includes>
+    <includes local="no">type_traits</includes>
+    <includes local="no">variant</includes>
+    <includes local="no">vector</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>libs/kdl/src/eu/kdl/kdl.h</label>
+        <link refid="kdl_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>functional</label>
+      </node>
+      <node id="3">
+        <label>map</label>
+      </node>
+      <node id="4">
+        <label>optional</label>
+      </node>
+      <node id="5">
+        <label>stdexcept</label>
+      </node>
+      <node id="6">
+        <label>string</label>
+      </node>
+      <node id="7">
+        <label>string_view</label>
+      </node>
+      <node id="8">
+        <label>type_traits</label>
+      </node>
+      <node id="9">
+        <label>variant</label>
+      </node>
+      <node id="10">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classeu_1_1kdl_1_1TypeError" prot="public">eu::kdl::TypeError</innerclass>
+    <innerclass refid="classeu_1_1kdl_1_1ParseError" prot="public">eu::kdl::ParseError</innerclass>
+    <innerclass refid="classeu_1_1kdl_1_1EmitterError" prot="public">eu::kdl::EmitterError</innerclass>
+    <innerclass refid="classeu_1_1kdl_1_1Number" prot="public">eu::kdl::Number</innerclass>
+    <innerclass refid="classeu_1_1kdl_1_1HasTypeAnnotation" prot="public">eu::kdl::HasTypeAnnotation</innerclass>
+    <innerclass refid="classeu_1_1kdl_1_1Value" prot="public">eu::kdl::Value</innerclass>
+    <innerclass refid="classeu_1_1kdl_1_1Node" prot="public">eu::kdl::Node</innerclass>
+    <innerclass refid="classeu_1_1kdl_1_1Document" prot="public">eu::kdl::Document</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1kdl">eu::kdl</innernamespace>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="kdl_8h_1a0871194d96ef3fe9606594bd45be95e0" prot="public" static="no">
+        <type>struct <ref refid="kdl_8h_1a0871194d96ef3fe9606594bd45be95e0" kindref="member">kdl_str</ref></type>
+        <definition>typedef struct kdl_str kdl_str</definition>
+        <argsstring></argsstring>
+        <name>kdl_str</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="14" column="22" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="kdl_8h_1a1a934f41d9745206bbc6580e0f263300" prot="public" static="no">
+        <type>struct <ref refid="kdl_8h_1a1a934f41d9745206bbc6580e0f263300" kindref="member">kdl_number</ref></type>
+        <definition>typedef struct kdl_number kdl_number</definition>
+        <argsstring></argsstring>
+        <name>kdl_number</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="15" column="25" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="kdl_8h_1a982363ef22a3f53759eabab98d08b3d4" prot="public" static="no">
+        <type>struct <ref refid="kdl_8h_1a982363ef22a3f53759eabab98d08b3d4" kindref="member">kdl_value</ref></type>
+        <definition>typedef struct kdl_value kdl_value</definition>
+        <argsstring></argsstring>
+        <name>kdl_value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="16" column="24" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="kdl_8h_1a841c3dd40c7c18c5d6476bf272df9cab" prot="public" static="no">
+        <type>struct _kdl_parser</type>
+        <definition>typedef struct _kdl_parser kdl_parser</definition>
+        <argsstring></argsstring>
+        <name>kdl_parser</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="17" column="26" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/kdl/src/eu/kdl/kdl.h"/>
+  </compounddef>
+</doxygen>

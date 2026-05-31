@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1UniformProp" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::UniformProp</compoundname>
+    <includes refid="core_2src_2eu_2core_2uniform__buffer_8h" local="no">uniform_buffer.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1UniformProp_1a2c9b5393d15303923bac34b2cab44617" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1CompiledUniformProp" kindref="compound">CompiledUniformProp</ref> *</type>
+        <definition>CompiledUniformProp* eu::core::UniformProp::target</definition>
+        <argsstring></argsstring>
+        <name>target</name>
+        <qualifiedname>eu::core::UniformProp::target</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/uniform_buffer.h" line="43" column="21" bodyfile="libs/core/src/eu/core/uniform_buffer.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1UniformProp_1a895c321c866373b5c0536095816864a0" prot="public" static="no" mutable="no">
+        <type><ref refid="group__render_1ga6ebb0c1fbb5227cfb8bbd4fea1a9cb86" kindref="member">UniformType</ref></type>
+        <definition>UniformType eu::core::UniformProp::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>eu::core::UniformProp::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/uniform_buffer.h" line="44" column="13" bodyfile="libs/core/src/eu/core/uniform_buffer.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1UniformProp_1a26e26fd4043ce2e2524d2f7c19956498" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::core::UniformProp::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>eu::core::UniformProp::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/uniform_buffer.h" line="45" column="13" bodyfile="libs/core/src/eu/core/uniform_buffer.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1UniformProp_1af5634f781cc01c4cb2aeb5b6bc2844db" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <definition>int eu::core::UniformProp::array_count</definition>
+        <argsstring></argsstring>
+        <name>array_count</name>
+        <qualifiedname>eu::core::UniformProp::array_count</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/uniform_buffer.h" line="46" column="5" bodyfile="libs/core/src/eu/core/uniform_buffer.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>internal </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="structeu_1_1core_1_1UniformBufferCompiler" kindref="compound">UniformBufferCompiler</ref> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::core::CompiledUniformProp</label>
+        <link refid="structeu_1_1core_1_1CompiledUniformProp"/>
+      </node>
+      <node id="1">
+        <label>eu::core::UniformProp</label>
+        <link refid="structeu_1_1core_1_1UniformProp"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>target</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/eu/core/uniform_buffer.h" line="41" column="1" bodyfile="libs/core/src/eu/core/uniform_buffer.h" bodystart="42" bodyend="47"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1UniformProp_1af5634f781cc01c4cb2aeb5b6bc2844db" prot="public" virt="non-virtual"><scope>eu::core::UniformProp</scope><name>array_count</name></member>
+      <member refid="structeu_1_1core_1_1UniformProp_1a26e26fd4043ce2e2524d2f7c19956498" prot="public" virt="non-virtual"><scope>eu::core::UniformProp</scope><name>name</name></member>
+      <member refid="structeu_1_1core_1_1UniformProp_1a2c9b5393d15303923bac34b2cab44617" prot="public" virt="non-virtual"><scope>eu::core::UniformProp</scope><name>target</name></member>
+      <member refid="structeu_1_1core_1_1UniformProp_1a895c321c866373b5c0536095816864a0" prot="public" virt="non-virtual"><scope>eu::core::UniformProp</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

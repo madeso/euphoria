@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1LoadedShader__SingleColor" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::LoadedShader_SingleColor</compoundname>
+    <includes refid="shader__resource_8h" local="no">shader_resource.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__SingleColor_1ac38388add9096e859cd62501c85b4930" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;ShaderProgram&gt; eu::render::LoadedShader_SingleColor::program</definition>
+        <argsstring></argsstring>
+        <name>program</name>
+        <qualifiedname>eu::render::LoadedShader_SingleColor::program</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="56" column="17" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__SingleColor_1af2869d58bdd608e3c08ea52ba547ae70" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1CompiledGeomVertexAttributes" kindref="compound">core::CompiledGeomVertexAttributes</ref></type>
+        <definition>core::CompiledGeomVertexAttributes eu::render::LoadedShader_SingleColor::geom_layout</definition>
+        <argsstring></argsstring>
+        <name>geom_layout</name>
+        <qualifiedname>eu::render::LoadedShader_SingleColor::geom_layout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="57" column="40" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__SingleColor_1ad2e8586a56714895be5a3d1f819930a6" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
+        <definition>Uniform eu::render::LoadedShader_SingleColor::tint_color_uni</definition>
+        <argsstring></argsstring>
+        <name>tint_color_uni</name>
+        <qualifiedname>eu::render::LoadedShader_SingleColor::tint_color_uni</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="58" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__SingleColor_1aa8eaeffbdbbb03c7c2a42f67552e2d2a" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
+        <definition>Uniform eu::render::LoadedShader_SingleColor::world_from_local_uni</definition>
+        <argsstring></argsstring>
+        <name>world_from_local_uni</name>
+        <qualifiedname>eu::render::LoadedShader_SingleColor::world_from_local_uni</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="59" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1LoadedShader__SingleColor_1aafa8c37615d74764ff84ff1f20c83cc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::LoadedShader_SingleColor::LoadedShader_SingleColor</definition>
+        <argsstring>(std::shared_ptr&lt; ShaderProgram &gt; p, core::CompiledGeomVertexAttributes l, const CameraUniformBuffer &amp;desc)</argsstring>
+        <name>LoadedShader_SingleColor</name>
+        <qualifiedname>eu::render::LoadedShader_SingleColor::LoadedShader_SingleColor</qualifiedname>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> &gt;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1CompiledGeomVertexAttributes" kindref="compound">core::CompiledGeomVertexAttributes</ref></type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1CameraUniformBuffer" kindref="compound">CameraUniformBuffer</ref> &amp;</type>
+          <declname>desc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="52" column="1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A single color shader. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::core::CompiledGeomVertexAttributes</label>
+        <link refid="structeu_1_1core_1_1CompiledGeomVertexAttributes"/>
+      </node>
+      <node id="1">
+        <label>eu::render::LoadedShader_SingleColor</label>
+        <link refid="structeu_1_1render_1_1LoadedShader__SingleColor"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>geom_layout</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>tint_color_uni</edgelabel>
+          <edgelabel>world_from_local_uni</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::render::Uniform</label>
+        <link refid="structeu_1_1render_1_1Uniform"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/eu/render/shader_resource.h" line="50" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="51" bodyend="60"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1LoadedShader__SingleColor_1af2869d58bdd608e3c08ea52ba547ae70" prot="public" virt="non-virtual"><scope>eu::render::LoadedShader_SingleColor</scope><name>geom_layout</name></member>
+      <member refid="structeu_1_1render_1_1LoadedShader__SingleColor_1aafa8c37615d74764ff84ff1f20c83cc6" prot="public" virt="non-virtual"><scope>eu::render::LoadedShader_SingleColor</scope><name>LoadedShader_SingleColor</name></member>
+      <member refid="structeu_1_1render_1_1LoadedShader__SingleColor_1ac38388add9096e859cd62501c85b4930" prot="public" virt="non-virtual"><scope>eu::render::LoadedShader_SingleColor</scope><name>program</name></member>
+      <member refid="structeu_1_1render_1_1LoadedShader__SingleColor_1ad2e8586a56714895be5a3d1f819930a6" prot="public" virt="non-virtual"><scope>eu::render::LoadedShader_SingleColor</scope><name>tint_color_uni</name></member>
+      <member refid="structeu_1_1render_1_1LoadedShader__SingleColor_1aa8eaeffbdbbb03c7c2a42f67552e2d2a" prot="public" virt="non-virtual"><scope>eu::render::LoadedShader_SingleColor</scope><name>world_from_local_uni</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

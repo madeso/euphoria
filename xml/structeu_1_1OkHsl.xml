@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="44" column="4" bodyfile="libs/base/src/base/colors.h" bodystart="44" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/colors.h" line="44" column="4" bodyfile="libs/base/src/eu/base/colors.h" bodystart="44" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1OkHsl_1ac143700a31daff6f863d771bc8bae46e" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="45" column="7" bodyfile="libs/base/src/base/colors.h" bodystart="45" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/colors.h" line="45" column="7" bodyfile="libs/base/src/eu/base/colors.h" bodystart="45" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1OkHsl_1a0cf98f937c9930061855cbd4dd5dc5a1" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="46" column="7" bodyfile="libs/base/src/base/colors.h" bodystart="46" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/colors.h" line="46" column="7" bodyfile="libs/base/src/eu/base/colors.h" bodystart="46" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -65,7 +65,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/base/src/base/colors.h" line="42" column="1" bodyfile="libs/base/src/base/colors.h" bodystart="43" bodyend="47"/>
+    <location file="libs/base/src/eu/base/colors.h" line="42" column="1" bodyfile="libs/base/src/eu/base/colors.h" bodystart="43" bodyend="47"/>
     <listofallmembers>
       <member refid="structeu_1_1OkHsl_1af877e47f5a0e5ea91eed245f3c015b97" prot="public" virt="non-virtual"><scope>eu::OkHsl</scope><name>hue</name></member>
       <member refid="structeu_1_1OkHsl_1a0cf98f937c9930061855cbd4dd5dc5a1" prot="public" virt="non-virtual"><scope>eu::OkHsl</scope><name>lightness</name></member>

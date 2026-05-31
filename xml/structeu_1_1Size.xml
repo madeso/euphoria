@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/size.h" line="12" column="13" bodyfile="libs/base/src/base/size.h" bodystart="12" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/size.h" line="12" column="13" bodyfile="libs/base/src/eu/base/size.h" bodystart="12" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1Size_1aad3679e70c764692239fe9d17246979e" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/size.h" line="13" column="13" bodyfile="libs/base/src/base/size.h" bodystart="13" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/size.h" line="13" column="13" bodyfile="libs/base/src/eu/base/size.h" bodystart="13" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -38,7 +38,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/base/src/base/size.h" line="10" column="5" bodyfile="libs/base/src/base/size.h" bodystart="11" bodyend="14"/>
+    <location file="libs/base/src/eu/base/size.h" line="10" column="5" bodyfile="libs/base/src/eu/base/size.h" bodystart="11" bodyend="14"/>
     <listofallmembers>
       <member refid="structeu_1_1Size_1aad3679e70c764692239fe9d17246979e" prot="public" virt="non-virtual"><scope>eu::Size</scope><name>height</name></member>
       <member refid="structeu_1_1Size_1a58a0659240feac3df855fac40188b3f7" prot="public" virt="non-virtual"><scope>eu::Size</scope><name>width</name></member>

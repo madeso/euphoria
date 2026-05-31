@@ -4,9 +4,9 @@
     <compoundname>eu::render::Render2</compoundname>
     <includes refid="canvas_8h" local="no">canvas.h</includes>
     <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeu_1_1render_1_1Render2_1a9dbed6b0ad40579fba3f0ed8e80d3a04" prot="public" static="no" mutable="no">
-        <type><ref refid="group__vertex-layout_1gaef85979686acf31b66be407fb4f7966e" kindref="member">ShaderVertexAttributes</ref></type>
-        <definition>ShaderVertexAttributes eu::render::Render2::quad_description</definition>
+      <memberdef kind="variable" id="structeu_1_1render_1_1Render2_1adc95314f9eed7b395c91b12421c3ca01" prot="public" static="no" mutable="no">
+        <type><ref refid="group__vertex-layout_1ga40a08dae458002da001fab3a190780a9" kindref="member">core::ShaderVertexAttributes</ref></type>
+        <definition>core::ShaderVertexAttributes eu::render::Render2::quad_description</definition>
         <argsstring></argsstring>
         <name>quad_description</name>
         <qualifiedname>eu::render::Render2::quad_description</qualifiedname>
@@ -16,11 +16,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="84" column="28" bodyfile="libs/render/src/render/canvas.h" bodystart="84" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/canvas.h" line="84" column="34" bodyfile="libs/render/src/eu/render/canvas.h" bodystart="84" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1render_1_1Render2_1a67acbd217d4fbb73a1aee95da16ae4a7" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1render_1_1CompiledShaderVertexAttributes" kindref="compound">CompiledShaderVertexAttributes</ref></type>
-        <definition>CompiledShaderVertexAttributes eu::render::Render2::quad_layout</definition>
+      <memberdef kind="variable" id="structeu_1_1render_1_1Render2_1a8d82c876f6857257330e05704a9acd53" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1CompiledShaderVertexAttributes" kindref="compound">core::CompiledShaderVertexAttributes</ref></type>
+        <definition>core::CompiledShaderVertexAttributes eu::render::Render2::quad_layout</definition>
         <argsstring></argsstring>
         <name>quad_layout</name>
         <qualifiedname>eu::render::Render2::quad_layout</qualifiedname>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="85" column="36" bodyfile="libs/render/src/render/canvas.h" bodystart="85" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/canvas.h" line="85" column="42" bodyfile="libs/render/src/eu/render/canvas.h" bodystart="85" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Render2_1a95a09ddccf72df1ba21473516b7254c8" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref></type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="86" column="19" bodyfile="libs/render/src/render/canvas.h" bodystart="86" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/canvas.h" line="86" column="19" bodyfile="libs/render/src/eu/render/canvas.h" bodystart="86" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Render2_1a7d4ae1d90484c6a3de17dc45aa36c5e1" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="87" column="13" bodyfile="libs/render/src/render/canvas.h" bodystart="87" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/canvas.h" line="87" column="13" bodyfile="libs/render/src/eu/render/canvas.h" bodystart="87" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Render2_1af47de40a6e3014c3dfe932386e0d1436" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="88" column="13" bodyfile="libs/render/src/render/canvas.h" bodystart="88" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/canvas.h" line="88" column="13" bodyfile="libs/render/src/eu/render/canvas.h" bodystart="88" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Render2_1ab42b3880fbe9f90b83806f93a76efbfb" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -86,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="89" column="13" bodyfile="libs/render/src/render/canvas.h" bodystart="89" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/canvas.h" line="89" column="13" bodyfile="libs/render/src/eu/render/canvas.h" bodystart="89" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Render2_1af8b62e45e4ceb44757e07466aa32e3df" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1SpriteBatch" kindref="compound">SpriteBatch</ref></type>
@@ -100,18 +100,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="91" column="17" bodyfile="libs/render/src/render/canvas.h" bodystart="91" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/canvas.h" line="91" column="17" bodyfile="libs/render/src/eu/render/canvas.h" bodystart="91" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeu_1_1render_1_1Render2_1ac2b6249fc428c80ecd50042846b19ded" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1Render2_1a05c7686540e78f7fdef79cf9b0f4bf09" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type></type>
         <definition>eu::render::Render2::Render2</definition>
-        <argsstring>(OpenglStates *states)</argsstring>
+        <argsstring>(State *states)</argsstring>
         <name>Render2</name>
         <qualifiedname>eu::render::Render2::Render2</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1render_1_1OpenglStates" kindref="compound">OpenglStates</ref> *</type>
+          <type><ref refid="structeu_1_1render_1_1State" kindref="compound">State</ref> *</type>
           <declname>states</declname>
         </param>
         <briefdescription>
@@ -120,7 +120,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/canvas.h" line="82" column="14"/>
+        <location file="libs/render/src/eu/render/canvas.h" line="82" column="14"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -128,17 +128,13 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
+      <node id="2">
+        <label>eu::core::CompiledShaderVertexAttributes</label>
+        <link refid="structeu_1_1core_1_1CompiledShaderVertexAttributes"/>
+      </node>
       <node id="8">
         <label>eu::render::BaseTexture</label>
         <link refid="structeu_1_1render_1_1BaseTexture"/>
-      </node>
-      <node id="2">
-        <label>eu::render::CompiledShaderVertexAttributes</label>
-        <link refid="structeu_1_1render_1_1CompiledShaderVertexAttributes"/>
-      </node>
-      <node id="6">
-        <label>eu::render::OpenglStates</label>
-        <link refid="structeu_1_1render_1_1OpenglStates"/>
       </node>
       <node id="1">
         <label>eu::render::Render2</label>
@@ -176,6 +172,10 @@
           <edgelabel>render</edgelabel>
         </childnode>
       </node>
+      <node id="6">
+        <label>eu::render::State</label>
+        <link refid="structeu_1_1render_1_1State"/>
+      </node>
       <node id="7">
         <label>eu::render::Texture2d</label>
         <link refid="structeu_1_1render_1_1Texture2d"/>
@@ -187,13 +187,13 @@
         <link refid="structeu_1_1render_1_1Uniform"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/canvas.h" line="80" column="1" bodyfile="libs/render/src/render/canvas.h" bodystart="81" bodyend="92"/>
+    <location file="libs/render/src/eu/render/canvas.h" line="80" column="1" bodyfile="libs/render/src/eu/render/canvas.h" bodystart="81" bodyend="92"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1Render2_1af8b62e45e4ceb44757e07466aa32e3df" prot="public" virt="non-virtual"><scope>eu::render::Render2</scope><name>batch</name></member>
-      <member refid="structeu_1_1render_1_1Render2_1a9dbed6b0ad40579fba3f0ed8e80d3a04" prot="public" virt="non-virtual"><scope>eu::render::Render2</scope><name>quad_description</name></member>
-      <member refid="structeu_1_1render_1_1Render2_1a67acbd217d4fbb73a1aee95da16ae4a7" prot="public" virt="non-virtual"><scope>eu::render::Render2</scope><name>quad_layout</name></member>
+      <member refid="structeu_1_1render_1_1Render2_1adc95314f9eed7b395c91b12421c3ca01" prot="public" virt="non-virtual"><scope>eu::render::Render2</scope><name>quad_description</name></member>
+      <member refid="structeu_1_1render_1_1Render2_1a8d82c876f6857257330e05704a9acd53" prot="public" virt="non-virtual"><scope>eu::render::Render2</scope><name>quad_layout</name></member>
       <member refid="structeu_1_1render_1_1Render2_1a95a09ddccf72df1ba21473516b7254c8" prot="public" virt="non-virtual"><scope>eu::render::Render2</scope><name>quad_shader</name></member>
-      <member refid="structeu_1_1render_1_1Render2_1ac2b6249fc428c80ecd50042846b19ded" prot="public" virt="non-virtual"><scope>eu::render::Render2</scope><name>Render2</name></member>
+      <member refid="structeu_1_1render_1_1Render2_1a05c7686540e78f7fdef79cf9b0f4bf09" prot="public" virt="non-virtual"><scope>eu::render::Render2</scope><name>Render2</name></member>
       <member refid="structeu_1_1render_1_1Render2_1ab42b3880fbe9f90b83806f93a76efbfb" prot="public" virt="non-virtual"><scope>eu::render::Render2</scope><name>texture_uniform</name></member>
       <member refid="structeu_1_1render_1_1Render2_1af47de40a6e3014c3dfe932386e0d1436" prot="public" virt="non-virtual"><scope>eu::render::Render2</scope><name>transform_uniform</name></member>
       <member refid="structeu_1_1render_1_1Render2_1a7d4ae1d90484c6a3de17dc45aa36c5e1" prot="public" virt="non-virtual"><scope>eu::render::Render2</scope><name>view_projection_uniform</name></member>

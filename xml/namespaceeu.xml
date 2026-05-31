@@ -31,11 +31,14 @@
     <innerclass refid="structeu_1_1Ypr" prot="public">eu::Ypr</innerclass>
     <innernamespace refid="namespaceeu_1_1assertlib">eu::assertlib</innernamespace>
     <innernamespace refid="namespaceeu_1_1colors">eu::colors</innernamespace>
-    <innernamespace refid="namespaceeu_1_1convert">eu::convert</innernamespace>
     <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
     <innernamespace refid="namespaceeu_1_1hues">eu::hues</innernamespace>
+    <innernamespace refid="namespaceeu_1_1imgui">eu::imgui</innernamespace>
+    <innernamespace refid="namespaceeu_1_1io">eu::io</innernamespace>
+    <innernamespace refid="namespaceeu_1_1kdl">eu::kdl</innernamespace>
     <innernamespace refid="namespaceeu_1_1kk">eu::kk</innernamespace>
     <innernamespace refid="namespaceeu_1_1log">eu::log</innernamespace>
+    <innernamespace refid="namespaceeu_1_1mrgui">eu::mrgui</innernamespace>
     <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
     <sectiondef kind="enum">
       <memberdef kind="enum" id="namespaceeu_1a85307e96edc76ca2a8fdbb1624211c68" prot="public" static="no" strong="yes">
@@ -76,7 +79,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/rect.h" line="14" column="5" bodyfile="libs/base/src/base/rect.h" bodystart="14" bodyend="14"/>
+        <location file="libs/base/src/eu/base/rect.h" line="14" column="5" bodyfile="libs/base/src/eu/base/rect.h" bodystart="14" bodyend="14"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="typedef">
@@ -92,7 +95,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/ints.h" line="7" column="5" bodyfile="libs/base/src/base/ints.h" bodystart="7" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/ints.h" line="7" column="5" bodyfile="libs/base/src/eu/base/ints.h" bodystart="7" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespaceeu_1afecf894b7eeb1b4f81f1cb5a8a0067c4" prot="public" static="no">
         <type>std::int16_t</type>
@@ -106,7 +109,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/ints.h" line="8" column="5" bodyfile="libs/base/src/base/ints.h" bodystart="8" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/ints.h" line="8" column="5" bodyfile="libs/base/src/eu/base/ints.h" bodystart="8" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespaceeu_1a15538981e8dad713d329dfddba4b8ae8" prot="public" static="no">
         <type>std::int32_t</type>
@@ -120,7 +123,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/ints.h" line="9" column="5" bodyfile="libs/base/src/base/ints.h" bodystart="9" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/ints.h" line="9" column="5" bodyfile="libs/base/src/eu/base/ints.h" bodystart="9" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespaceeu_1ac8b00c8f6edc5aa17943b7d8574bdeb4" prot="public" static="no">
         <type>std::int64_t</type>
@@ -134,7 +137,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/ints.h" line="10" column="5" bodyfile="libs/base/src/base/ints.h" bodystart="10" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/ints.h" line="10" column="5" bodyfile="libs/base/src/eu/base/ints.h" bodystart="10" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespaceeu_1ad34c2d1a742c5f58543366875dc21649" prot="public" static="no">
         <type>std::uint8_t</type>
@@ -148,7 +151,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/ints.h" line="12" column="5" bodyfile="libs/base/src/base/ints.h" bodystart="12" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/ints.h" line="12" column="5" bodyfile="libs/base/src/eu/base/ints.h" bodystart="12" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespaceeu_1a52c8bd230b49dafc68274e81ecfd9ee0" prot="public" static="no">
         <type>std::uint16_t</type>
@@ -162,7 +165,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/ints.h" line="13" column="5" bodyfile="libs/base/src/base/ints.h" bodystart="13" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/ints.h" line="13" column="5" bodyfile="libs/base/src/eu/base/ints.h" bodystart="13" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" prot="public" static="no">
         <type>std::uint32_t</type>
@@ -176,7 +179,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/ints.h" line="14" column="5" bodyfile="libs/base/src/base/ints.h" bodystart="14" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/ints.h" line="14" column="5" bodyfile="libs/base/src/eu/base/ints.h" bodystart="14" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespaceeu_1ac0b6d77da47da3ce6bb55d66abc897f5" prot="public" static="no">
         <type>std::uint64_t</type>
@@ -190,7 +193,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/ints.h" line="15" column="5" bodyfile="libs/base/src/base/ints.h" bodystart="15" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/ints.h" line="15" column="5" bodyfile="libs/base/src/eu/base/ints.h" bodystart="15" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="var">
@@ -222,7 +225,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/guid.h" line="69" column="20" bodyfile="libs/base/src/base/guid.h" bodystart="69" bodyend="79"/>
+        <location file="libs/base/src/eu/base/guid.h" line="69" column="20" bodyfile="libs/base/src/eu/base/guid.h" bodystart="69" bodyend="79"/>
       </memberdef>
       <member refid="group__math_1ga5957f0b19a66d6e1123f22d681e726e0" kind="variable"><name>m4_identity</name></member>
       <memberdef kind="variable" id="namespaceeu_1a25eb222abfe7c9e7f34d6f19ed40c1a0" prot="public" static="no" constexpr="yes" mutable="no">
@@ -238,7 +241,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/numeric.h" line="13" column="21" bodyfile="libs/base/src/base/numeric.h" bodystart="13" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/numeric.h" line="13" column="21" bodyfile="libs/base/src/eu/base/numeric.h" bodystart="13" bodyend="-1"/>
       </memberdef>
       <member refid="group__math_1ga074a5f400069f641ce3857da18d65d93" kind="variable"><name>q_identity</name></member>
       <member refid="group__math_1ga1762260135f2b7b538f1b8be43146481" kind="variable"><name>r01</name></member>
@@ -265,6 +268,60 @@
       <member refid="group__math_1gaa3e88f63b802a9db740a821f312e6556" kind="function"><name>operator&gt;</name></member>
       <member refid="group__math_1gaf8448b714bf16cc794b4a29bfac33e6a" kind="function"><name>operator&gt;=</name></member>
       <member refid="group__math_1ga0bade92aadaac348c9d69c311012401c" kind="function"><name>lerp_angle</name></member>
+      <memberdef kind="function" id="namespaceeu_1ae5c200f096fbdba113bc48c6e7eb3c37" prot="private" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <definition>constexpr An eu::operator&quot;&quot;_deg</definition>
+        <argsstring>(unsigned long long d)</argsstring>
+        <name>operator&quot;&quot;_deg</name>
+        <qualifiedname>eu::operator&quot;&quot;_deg</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">unsigned</ref> <ref refid="structeu_1_1R" kindref="compound">long</ref> <ref refid="structeu_1_1R" kindref="compound">long</ref></type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/angle.h" line="123" column="18" bodyfile="libs/base/src/eu/base/angle.h" bodystart="123" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a6f405a1d20ba38a084adf47b536ccb08" prot="private" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <definition>constexpr An eu::operator&quot;&quot;_deg</definition>
+        <argsstring>(long double d)</argsstring>
+        <name>operator&quot;&quot;_deg</name>
+        <qualifiedname>eu::operator&quot;&quot;_deg</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">long</ref> <ref refid="structeu_1_1R" kindref="compound">double</ref></type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/angle.h" line="128" column="18" bodyfile="libs/base/src/eu/base/angle.h" bodystart="128" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a3abd15344887686dec8f63c16c48664e" prot="private" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref></type>
+        <definition>constexpr An eu::operator&quot;&quot;_rad</definition>
+        <argsstring>(long double r)</argsstring>
+        <name>operator&quot;&quot;_rad</name>
+        <qualifiedname>eu::operator&quot;&quot;_rad</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">long</ref> <ref refid="structeu_1_1R" kindref="compound">double</ref></type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/angle.h" line="134" column="18" bodyfile="libs/base/src/eu/base/angle.h" bodystart="134" bodyend="137"/>
+      </memberdef>
       <member refid="group__math_1ga1a4ab59cbac3b18a87a0d490dff83143" kind="function"><name>rha</name></member>
       <member refid="group__math_1gaa507848ead7e3929ac34a5631d051638" kind="function"><name>string_from</name></member>
       <member refid="group__math_1gad902ccc075018be926b6d34aa5eb7d92" kind="function"><name>string_from</name></member>
@@ -284,7 +341,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/cint.h" line="6" column="17" bodyfile="libs/base/src/base/cint.h" bodystart="6" bodyend="9"/>
+        <location file="libs/base/src/eu/base/cint.h" line="6" column="17" bodyfile="libs/base/src/eu/base/cint.h" bodystart="6" bodyend="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1aa982d6d2e8ddce879f086624e659a09d" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1R" kindref="compound">int</ref></type>
@@ -302,7 +359,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/cint.h" line="11" column="15" bodyfile="libs/base/src/base/cint.h" bodystart="11" bodyend="14"/>
+        <location file="libs/base/src/eu/base/cint.h" line="11" column="15" bodyfile="libs/base/src/eu/base/cint.h" bodystart="11" bodyend="14"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a23371305a5bce139ec5ce2dc7fc71dc2" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> std::size_t</type>
@@ -320,7 +377,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/cint.h" line="16" column="23" bodyfile="libs/base/src/base/cint.h" bodystart="16" bodyend="19"/>
+        <location file="libs/base/src/eu/base/cint.h" line="16" column="23" bodyfile="libs/base/src/eu/base/cint.h" bodystart="16" bodyend="19"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a1601a5b817cb769a5a619671987fa7cc" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref></type>
@@ -338,7 +395,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/cint.h" line="21" column="15" bodyfile="libs/base/src/base/cint.h" bodystart="21" bodyend="24"/>
+        <location file="libs/base/src/eu/base/cint.h" line="21" column="15" bodyfile="libs/base/src/eu/base/cint.h" bodystart="21" bodyend="24"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a0cb59309596f905787702bd22a439fb2" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1R" kindref="compound">int</ref></type>
@@ -356,7 +413,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/cint.h" line="26" column="15" bodyfile="libs/base/src/base/cint.h" bodystart="26" bodyend="29"/>
+        <location file="libs/base/src/eu/base/cint.h" line="26" column="15" bodyfile="libs/base/src/eu/base/cint.h" bodystart="26" bodyend="29"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a94f7c0656e770b67769111f7e26762b4" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1R" kindref="compound">int</ref></type>
@@ -374,7 +431,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/cint.h" line="31" column="15" bodyfile="libs/base/src/base/cint.h" bodystart="31" bodyend="34"/>
+        <location file="libs/base/src/eu/base/cint.h" line="31" column="15" bodyfile="libs/base/src/eu/base/cint.h" bodystart="31" bodyend="34"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1ae9f14fa6a157c82b0b3093bab0b826d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
@@ -396,7 +453,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="88" column="7" declfile="libs/base/src/base/colors.h" declline="88" declcolumn="7"/>
+        <location file="libs/base/src/eu/base/colors.h" line="88" column="7" declfile="libs/base/src/eu/base/colors.h" declline="88" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a2605ab3ff129f9ee5dbf5836fdd1396d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Lin__rgb" kindref="compound">Lin_rgb</ref></type>
@@ -418,7 +475,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="89" column="9" declfile="libs/base/src/base/colors.h" declline="89" declcolumn="9"/>
+        <location file="libs/base/src/eu/base/colors.h" line="89" column="9" declfile="libs/base/src/eu/base/colors.h" declline="89" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a907eebbc98a54ba45bebc69ab3091033" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
@@ -436,7 +493,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="91" column="7" declfile="libs/base/src/base/colors.h" declline="91" declcolumn="7"/>
+        <location file="libs/base/src/eu/base/colors.h" line="91" column="7" declfile="libs/base/src/eu/base/colors.h" declline="91" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1aa0e9729b5b9db311445a7e0a494e33a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Lin__rgb" kindref="compound">Lin_rgb</ref></type>
@@ -454,7 +511,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="92" column="9" declfile="libs/base/src/base/colors.h" declline="92" declcolumn="9"/>
+        <location file="libs/base/src/eu/base/colors.h" line="92" column="9" declfile="libs/base/src/eu/base/colors.h" declline="92" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a3b9f9dd3d5bf8576df0674acf1a329ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
@@ -472,7 +529,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="94" column="7" declfile="libs/base/src/base/colors.h" declline="94" declcolumn="7"/>
+        <location file="libs/base/src/eu/base/colors.h" line="94" column="7" declfile="libs/base/src/eu/base/colors.h" declline="94" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a29444e11a47a7a3f0dd028dbe9d5f384" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
@@ -490,7 +547,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="95" column="5" declfile="libs/base/src/base/colors.h" declline="95" declcolumn="5"/>
+        <location file="libs/base/src/eu/base/colors.h" line="95" column="5" declfile="libs/base/src/eu/base/colors.h" declline="95" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a84e32fcb95accf80495931d7600cc9ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1OkLab" kindref="compound">OkLab</ref></type>
@@ -508,7 +565,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="100" column="7" declfile="libs/base/src/base/colors.h" declline="100" declcolumn="7"/>
+        <location file="libs/base/src/eu/base/colors.h" line="100" column="7" declfile="libs/base/src/eu/base/colors.h" declline="100" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a7e51242eba6ac8ecb126e7dd7dd332a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Lin__rgb" kindref="compound">Lin_rgb</ref></type>
@@ -526,7 +583,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="101" column="9" declfile="libs/base/src/base/colors.h" declline="101" declcolumn="9"/>
+        <location file="libs/base/src/eu/base/colors.h" line="101" column="9" declfile="libs/base/src/eu/base/colors.h" declline="101" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a63dba3f988b84f8ef1bf601d7fcd4eab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1OkLch" kindref="compound">OkLch</ref></type>
@@ -544,7 +601,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="102" column="7" declfile="libs/base/src/base/colors.h" declline="102" declcolumn="7"/>
+        <location file="libs/base/src/eu/base/colors.h" line="102" column="7" declfile="libs/base/src/eu/base/colors.h" declline="102" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1aead185f0c9ba0933cebe1fd867ebc9fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1OkLab" kindref="compound">OkLab</ref></type>
@@ -562,7 +619,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="103" column="7" declfile="libs/base/src/base/colors.h" declline="103" declcolumn="7"/>
+        <location file="libs/base/src/eu/base/colors.h" line="103" column="7" declfile="libs/base/src/eu/base/colors.h" declline="103" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a8d6cdbd18794e2cd97ec34c12c240478" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Lin__rgb" kindref="compound">Lin_rgb</ref></type>
@@ -580,7 +637,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="107" column="9" declfile="libs/base/src/base/colors.h" declline="107" declcolumn="9"/>
+        <location file="libs/base/src/eu/base/colors.h" line="107" column="9" declfile="libs/base/src/eu/base/colors.h" declline="107" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1abdcfba2a48039578217f2b963b90825b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Lin__rgb" kindref="compound">Lin_rgb</ref></type>
@@ -598,7 +655,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="108" column="9" declfile="libs/base/src/base/colors.h" declline="108" declcolumn="9"/>
+        <location file="libs/base/src/eu/base/colors.h" line="108" column="9" declfile="libs/base/src/eu/base/colors.h" declline="108" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1acaf1c38abc7de32afeceea053b3c0447" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Lin__rgb" kindref="compound">Lin_rgb</ref></type>
@@ -616,7 +673,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="109" column="9" declfile="libs/base/src/base/colors.h" declline="109" declcolumn="9"/>
+        <location file="libs/base/src/eu/base/colors.h" line="109" column="9" declfile="libs/base/src/eu/base/colors.h" declline="109" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1afe08c4e62d23186e400cdb07c5f435c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Lin__rgb" kindref="compound">Lin_rgb</ref></type>
@@ -639,7 +696,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="110" column="9" declfile="libs/base/src/base/colors.h" declline="110" declcolumn="9"/>
+        <location file="libs/base/src/eu/base/colors.h" line="110" column="9" declfile="libs/base/src/eu/base/colors.h" declline="110" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a75d44af5584b46c6409c2185f936acba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Lin__rgb" kindref="compound">Lin_rgb</ref></type>
@@ -662,7 +719,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="111" column="9" declfile="libs/base/src/base/colors.h" declline="111" declcolumn="9"/>
+        <location file="libs/base/src/eu/base/colors.h" line="111" column="9" declfile="libs/base/src/eu/base/colors.h" declline="111" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a63babf486a08b24dd41e1b58bbe8db21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
@@ -680,7 +737,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="116" column="5" declfile="libs/base/src/base/colors.h" declline="116" declcolumn="5"/>
+        <location file="libs/base/src/eu/base/colors.h" line="116" column="5" declfile="libs/base/src/eu/base/colors.h" declline="116" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a6e5f403b34cdd24b76e974131e0178f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1OkHsv" kindref="compound">OkHsv</ref></type>
@@ -698,7 +755,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="117" column="7" declfile="libs/base/src/base/colors.h" declline="117" declcolumn="7"/>
+        <location file="libs/base/src/eu/base/colors.h" line="117" column="7" declfile="libs/base/src/eu/base/colors.h" declline="117" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1adad40338483f239e6e84c2f5c69aedc9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
@@ -716,7 +773,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="119" column="5" declfile="libs/base/src/base/colors.h" declline="119" declcolumn="5"/>
+        <location file="libs/base/src/eu/base/colors.h" line="119" column="5" declfile="libs/base/src/eu/base/colors.h" declline="119" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1aa455bfa1f27cd698b426d462433db07f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1OkHsl" kindref="compound">OkHsl</ref></type>
@@ -734,7 +791,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="120" column="7" declfile="libs/base/src/base/colors.h" declline="120" declcolumn="7"/>
+        <location file="libs/base/src/eu/base/colors.h" line="120" column="7" declfile="libs/base/src/eu/base/colors.h" declline="120" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a2c14f520ea364ee2188f38d4823a4dce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
@@ -752,7 +809,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="123" column="5" declfile="libs/base/src/base/colors.h" declline="123" declcolumn="5"/>
+        <location file="libs/base/src/eu/base/colors.h" line="123" column="5" declfile="libs/base/src/eu/base/colors.h" declline="123" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1aaa5ca9cf5a449b1ae7088a8a62bbe79a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Lin__rgb" kindref="compound">Lin_rgb</ref></type>
@@ -770,7 +827,57 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="125" column="9" declfile="libs/base/src/base/colors.h" declline="125" declcolumn="9"/>
+        <location file="libs/base/src/eu/base/colors.h" line="125" column="9" declfile="libs/base/src/eu/base/colors.h" declline="125" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1ad429090bc92597fbd727c028fbe5c8fe" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename E</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> std::underlying_type_t&lt; <ref refid="structeu_1_1R" kindref="compound">E</ref> &gt;</type>
+        <definition>constexpr std::underlying_type_t&lt; E &gt; eu::base_cast</definition>
+        <argsstring>(E e) noexcept</argsstring>
+        <name>base_cast</name>
+        <qualifiedname>eu::base_cast</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">E</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/cpp.h" line="12" column="43" bodyfile="libs/base/src/eu/base/cpp.h" bodystart="12" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a432be2148455d281d90525deb1766594" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename E</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>constexpr bool eu::is_flag_set</definition>
+        <argsstring>(E var, E flag)</argsstring>
+        <name>is_flag_set</name>
+        <qualifiedname>eu::is_flag_set</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">E</ref></type>
+          <declname>var</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">E</ref></type>
+          <declname>flag</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/cpp.h" line="18" column="16" bodyfile="libs/base/src/eu/base/cpp.h" bodystart="18" bodyend="21"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1ae1e3eca9a4e909a32f2c16281b5ebfbe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
@@ -792,7 +899,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/guid.h" line="59" column="10" declfile="libs/base/src/base/guid.h" declline="59" declcolumn="10"/>
+        <location file="libs/base/src/eu/base/guid.h" line="59" column="10" declfile="libs/base/src/eu/base/guid.h" declline="59" declcolumn="10"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a27cc2976c1bd562b82eebdc857c05f50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
@@ -814,7 +921,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/guid.h" line="60" column="10" declfile="libs/base/src/base/guid.h" declline="60" declcolumn="10"/>
+        <location file="libs/base/src/eu/base/guid.h" line="60" column="10" declfile="libs/base/src/eu/base/guid.h" declline="60" declcolumn="10"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1ac922ddcef9eb3a0f85486c218a8cab69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::optional&lt; <ref refid="structeu_1_1Guid" kindref="compound">Guid</ref> &gt;</type>
@@ -833,7 +940,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/guid.h" line="63" column="20" declfile="libs/base/src/base/guid.h" declline="63" declcolumn="20"/>
+        <location file="libs/base/src/eu/base/guid.h" line="63" column="20" declfile="libs/base/src/eu/base/guid.h" declline="63" declcolumn="20"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a6200e130947527c643d6a88a406fd9c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -852,7 +959,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/guid.h" line="66" column="18" declfile="libs/base/src/base/guid.h" declline="66" declcolumn="18"/>
+        <location file="libs/base/src/eu/base/guid.h" line="66" column="18" declfile="libs/base/src/eu/base/guid.h" declline="66" declcolumn="18"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a1314a884697b4470c9c443ec00890b63" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="namespaceeu_1ac0b6d77da47da3ce6bb55d66abc897f5" kindref="member">u64</ref></type>
@@ -877,7 +984,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/hash.string.h" line="18" column="15" bodyfile="libs/base/src/base/hash.string.h" bodystart="18" bodyend="19"/>
+        <location file="libs/base/src/eu/base/hash.string.h" line="18" column="15" bodyfile="libs/base/src/eu/base/hash.string.h" bodystart="18" bodyend="19"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1acf596ba635e414898f3c5c60260f2faf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -891,7 +998,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/hash.string.h" line="98" column="5" declfile="libs/base/src/base/hash.string.h" declline="98" declcolumn="5"/>
+        <location file="libs/base/src/eu/base/hash.string.h" line="98" column="5" declfile="libs/base/src/eu/base/hash.string.h" declline="98" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a34d2ec62d422fd2938f602143108b9aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -909,7 +1016,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/hash.string.h" line="103" column="13" declfile="libs/base/src/base/hash.string.h" declline="103" declcolumn="13"/>
+        <location file="libs/base/src/eu/base/hash.string.h" line="103" column="13" declfile="libs/base/src/eu/base/hash.string.h" declline="103" declcolumn="13"/>
       </memberdef>
       <member refid="group__math_1ga66e1820c967a20b5f47444560e472077" kind="function"><name>string_from</name></member>
       <member refid="group__math_1gac6df9508643c5fd4c3492e047e9a932c" kind="function"><name>operator+</name></member>
@@ -932,7 +1039,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/memorychunk.h" line="17" column="17" declfile="libs/base/src/base/memorychunk.h" declline="17" declcolumn="17"/>
+        <location file="libs/base/src/eu/base/memorychunk.h" line="19" column="17" declfile="libs/base/src/eu/base/memorychunk.h" declline="19" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a5dc38f1d91e9e50b90ec3277c1b8d05d" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1R" kindref="compound">float</ref></type>
@@ -950,7 +1057,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/numeric.h" line="16" column="21" bodyfile="libs/base/src/base/numeric.h" bodystart="16" bodyend="22"/>
+        <location file="libs/base/src/eu/base/numeric.h" line="16" column="21" bodyfile="libs/base/src/eu/base/numeric.h" bodystart="16" bodyend="22"/>
       </memberdef>
       <member refid="group__math_1gafb6a0b321ce809096583aff23695f879" kind="function"><name>is_zero</name></member>
       <member refid="group__math_1gab10cc1349e8e191360ba5959098d6653" kind="function"><name>is_equal</name></member>
@@ -1000,7 +1107,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/rect.h" line="114" column="9" declfile="libs/base/src/base/rect.h" declline="114" declcolumn="9"/>
+        <location file="libs/base/src/eu/base/rect.h" line="126" column="9" declfile="libs/base/src/eu/base/rect.h" declline="126" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1acb210d1032e61e11e5e61867d9ed312a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
@@ -1022,7 +1129,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/rect.h" line="115" column="9" declfile="libs/base/src/base/rect.h" declline="115" declcolumn="9"/>
+        <location file="libs/base/src/eu/base/rect.h" line="127" column="9" declfile="libs/base/src/eu/base/rect.h" declline="127" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1af54af29fc16c78c2f22a35e792ffcc45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
@@ -1048,7 +1155,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/rect.h" line="119" column="10" declfile="libs/base/src/base/rect.h" declline="119" declcolumn="10"/>
+        <location file="libs/base/src/eu/base/rect.h" line="131" column="10" declfile="libs/base/src/eu/base/rect.h" declline="131" declcolumn="10"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a65535dd0a324349c9f66700b87e90332" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -1066,7 +1173,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/rect.h" line="121" column="17" declfile="libs/base/src/base/rect.h" declline="121" declcolumn="17"/>
+        <location file="libs/base/src/eu/base/rect.h" line="133" column="17" declfile="libs/base/src/eu/base/rect.h" declline="133" declcolumn="17"/>
       </memberdef>
       <member refid="group__math_1gabe7b085e3c3eb168ed9243e478c37b3e" kind="function"><name>operator==</name></member>
       <member refid="group__math_1ga4a188c23078bb9c5b45f442d2b2d8e37" kind="function"><name>string_from</name></member>
@@ -1099,6 +1206,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/assert/src/assert/assert.h" line="110" column="1"/>
+    <location file="libs/assert/src/eu/assert/assert.h" line="117" column="1"/>
   </compounddef>
 </doxygen>

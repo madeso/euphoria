@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1HashCombiner" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::HashCombiner</compoundname>
+    <includes refid="hash_8h" local="no">hash.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1HashCombiner_1a846256cc7801958984aa3bf9513879eb" prot="public" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t eu::core::HashCombiner::result</definition>
+        <argsstring></argsstring>
+        <name>result</name>
+        <qualifiedname>eu::core::HashCombiner::result</qualifiedname>
+        <initializer>= 17</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/hash.h" line="27" column="13" bodyfile="libs/core/src/eu/core/hash.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1core_1_1HashCombiner_1ae993dbf457a68d2b4ea6b201d9612c42" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type><ref refid="structeu_1_1R" kindref="compound">typename</ref> <ref refid="structeu_1_1R" kindref="compound">T</ref></type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="structeu_1_1core_1_1HashCombiner" kindref="compound">HashCombiner</ref> &amp;</type>
+        <definition>HashCombiner &amp; eu::core::HashCombiner::combine</definition>
+        <argsstring>(const T &amp;t)</argsstring>
+        <name>combine</name>
+        <qualifiedname>eu::core::HashCombiner::combine</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">T</ref> &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>Combines the hash of the given object with the current result. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>src: <ulink url="https://stackoverflow.com/a/17017281/180307">https://stackoverflow.com/a/17017281/180307</ulink> numbers from: <ulink url="https://stackoverflow.com/a/1646913/180307">https://stackoverflow.com/a/1646913/180307</ulink> <simplesect kind="note"><para>A word of warning, this is (a variation of) the Berstein hash, and because nobody knows why it does well in tests it is not advisable when hashing is critical. See <ulink url="https://github.com/mignon-p/jsw-libs/blob/master/Tutorials/jsw_tut_hashing.md">https://github.com/mignon-p/jsw-libs/blob/master/Tutorials/jsw_tut_hashing.md</ulink> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/hash.h" line="38" column="14" bodyfile="libs/core/src/eu/core/hash.h" bodystart="38" bodyend="42"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A utility for combining hash values of multiple objects into a single hash value. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="note"><para>Do not use when hashing is critical. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="libs/core/src/eu/core/hash.h" line="25" column="1" bodyfile="libs/core/src/eu/core/hash.h" bodystart="26" bodyend="43"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1HashCombiner_1ae993dbf457a68d2b4ea6b201d9612c42" prot="public" virt="non-virtual"><scope>eu::core::HashCombiner</scope><name>combine</name></member>
+      <member refid="structeu_1_1core_1_1HashCombiner_1a846256cc7801958984aa3bf9513879eb" prot="public" virt="non-virtual"><scope>eu::core::HashCombiner</scope><name>result</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

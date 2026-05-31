@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1FrustumLightUniforms" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::FrustumLightUniforms</compoundname>
+    <includes refid="shader__resource_8h" local="no">shader_resource.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1FrustumLightUniforms_1a8736a823f617cb1f24d2c2620de96290" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
+        <definition>Uniform eu::render::FrustumLightUniforms::diffuse_uni</definition>
+        <argsstring></argsstring>
+        <name>diffuse_uni</name>
+        <qualifiedname>eu::render::FrustumLightUniforms::diffuse_uni</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="132" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1FrustumLightUniforms_1aaef9c481355141995acb147c7c9aa171" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
+        <definition>Uniform eu::render::FrustumLightUniforms::specular_uni</definition>
+        <argsstring></argsstring>
+        <name>specular_uni</name>
+        <qualifiedname>eu::render::FrustumLightUniforms::specular_uni</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="133" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1FrustumLightUniforms_1ace3f1f3f79e23e8be89d643f558f57f4" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
+        <definition>Uniform eu::render::FrustumLightUniforms::attenuation_uni</definition>
+        <argsstring></argsstring>
+        <name>attenuation_uni</name>
+        <qualifiedname>eu::render::FrustumLightUniforms::attenuation_uni</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="134" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1FrustumLightUniforms_1ae30ad666990fb61e8d9e75d2819a65a4" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
+        <definition>Uniform eu::render::FrustumLightUniforms::clip_from_world_uni</definition>
+        <argsstring></argsstring>
+        <name>clip_from_world_uni</name>
+        <qualifiedname>eu::render::FrustumLightUniforms::clip_from_world_uni</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="135" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1FrustumLightUniforms_1ad3bb8643fa904b3e4f6f675f81a1ba11" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
+        <definition>Uniform eu::render::FrustumLightUniforms::world_pos_uni</definition>
+        <argsstring></argsstring>
+        <name>world_pos_uni</name>
+        <qualifiedname>eu::render::FrustumLightUniforms::world_pos_uni</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="136" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1FrustumLightUniforms_1aaee735649cd681286e991878af9904f2" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
+        <definition>Uniform eu::render::FrustumLightUniforms::tex_cookie_uniform</definition>
+        <argsstring></argsstring>
+        <name>tex_cookie_uniform</name>
+        <qualifiedname>eu::render::FrustumLightUniforms::tex_cookie_uniform</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="137" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1FrustumLightUniforms_1ab9f2abd80800836f917ef29f1bfab9d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::FrustumLightUniforms::FrustumLightUniforms</definition>
+        <argsstring>(const ShaderProgram *program, const std::string &amp;base)</argsstring>
+        <name>FrustumLightUniforms</name>
+        <qualifiedname>eu::render::FrustumLightUniforms::FrustumLightUniforms</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> *</type>
+          <declname>program</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>base</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="130" column="1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Uniforms for a frustum light. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="structeu_1_1render_1_1FrustumLight" kindref="compound">FrustumLight</ref> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::render::FrustumLightUniforms</label>
+        <link refid="structeu_1_1render_1_1FrustumLightUniforms"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>attenuation_uni</edgelabel>
+          <edgelabel>clip_from_world_uni</edgelabel>
+          <edgelabel>diffuse_uni</edgelabel>
+          <edgelabel>specular_uni</edgelabel>
+          <edgelabel>tex_cookie_uniform</edgelabel>
+          <edgelabel>world_pos_uni</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::render::Uniform</label>
+        <link refid="structeu_1_1render_1_1Uniform"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/eu/render/shader_resource.h" line="128" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="129" bodyend="138"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1FrustumLightUniforms_1ace3f1f3f79e23e8be89d643f558f57f4" prot="public" virt="non-virtual"><scope>eu::render::FrustumLightUniforms</scope><name>attenuation_uni</name></member>
+      <member refid="structeu_1_1render_1_1FrustumLightUniforms_1ae30ad666990fb61e8d9e75d2819a65a4" prot="public" virt="non-virtual"><scope>eu::render::FrustumLightUniforms</scope><name>clip_from_world_uni</name></member>
+      <member refid="structeu_1_1render_1_1FrustumLightUniforms_1a8736a823f617cb1f24d2c2620de96290" prot="public" virt="non-virtual"><scope>eu::render::FrustumLightUniforms</scope><name>diffuse_uni</name></member>
+      <member refid="structeu_1_1render_1_1FrustumLightUniforms_1ab9f2abd80800836f917ef29f1bfab9d3" prot="public" virt="non-virtual"><scope>eu::render::FrustumLightUniforms</scope><name>FrustumLightUniforms</name></member>
+      <member refid="structeu_1_1render_1_1FrustumLightUniforms_1aaef9c481355141995acb147c7c9aa171" prot="public" virt="non-virtual"><scope>eu::render::FrustumLightUniforms</scope><name>specular_uni</name></member>
+      <member refid="structeu_1_1render_1_1FrustumLightUniforms_1aaee735649cd681286e991878af9904f2" prot="public" virt="non-virtual"><scope>eu::render::FrustumLightUniforms</scope><name>tex_cookie_uniform</name></member>
+      <member refid="structeu_1_1render_1_1FrustumLightUniforms_1ad3bb8643fa904b3e4f6f675f81a1ba11" prot="public" virt="non-virtual"><scope>eu::render::FrustumLightUniforms</scope><name>world_pos_uni</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1UniformBufferSetup" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::UniformBufferSetup</compoundname>
+    <includes refid="core_2src_2eu_2core_2uniform__buffer_8h" local="no">uniform_buffer.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1UniformBufferSetup_1a1d0d4dc5f519444a83b1c9004fa9ef33" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <definition>int eu::core::UniformBufferSetup::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <qualifiedname>eu::core::UniformBufferSetup::size</qualifiedname>
+        <initializer>= 512</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/uniform_buffer.h" line="25" column="5" bodyfile="libs/core/src/eu/core/uniform_buffer.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1UniformBufferSetup_1a279a699a0dd0932a7bd314321cbebf60" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <definition>int eu::core::UniformBufferSetup::binding_point</definition>
+        <argsstring></argsstring>
+        <name>binding_point</name>
+        <qualifiedname>eu::core::UniformBufferSetup::binding_point</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/uniform_buffer.h" line="26" column="5" bodyfile="libs/core/src/eu/core/uniform_buffer.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1UniformBufferSetup_1a32b8921419b7e3376df6aaeea8fd18ae" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::core::UniformBufferSetup::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>eu::core::UniformBufferSetup::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/uniform_buffer.h" line="27" column="13" bodyfile="libs/core/src/eu/core/uniform_buffer.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1UniformBufferSetup_1a81f7435351ac2e2f1e6342ab45aa4dd8" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::core::UniformBufferSetup::source</definition>
+        <argsstring></argsstring>
+        <name>source</name>
+        <qualifiedname>eu::core::UniformBufferSetup::source</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/uniform_buffer.h" line="28" column="13" bodyfile="libs/core/src/eu/core/uniform_buffer.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/eu/core/uniform_buffer.h" line="23" column="1" bodyfile="libs/core/src/eu/core/uniform_buffer.h" bodystart="24" bodyend="29"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1UniformBufferSetup_1a279a699a0dd0932a7bd314321cbebf60" prot="public" virt="non-virtual"><scope>eu::core::UniformBufferSetup</scope><name>binding_point</name></member>
+      <member refid="structeu_1_1core_1_1UniformBufferSetup_1a32b8921419b7e3376df6aaeea8fd18ae" prot="public" virt="non-virtual"><scope>eu::core::UniformBufferSetup</scope><name>name</name></member>
+      <member refid="structeu_1_1core_1_1UniformBufferSetup_1a1d0d4dc5f519444a83b1c9004fa9ef33" prot="public" virt="non-virtual"><scope>eu::core::UniformBufferSetup</scope><name>size</name></member>
+      <member refid="structeu_1_1core_1_1UniformBufferSetup_1a81f7435351ac2e2f1e6342ab45aa4dd8" prot="public" virt="non-virtual"><scope>eu::core::UniformBufferSetup</scope><name>source</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

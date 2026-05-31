@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1RealizeShader" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::RealizeShader</compoundname>
+    <includes refid="shader__resource_8h" local="no">shader_resource.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1RealizeShader_1acd5134ad8f5c48f7f42d2179aeaa0e14" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;ShaderProgram&gt; eu::render::RealizeShader::program</definition>
+        <argsstring></argsstring>
+        <name>program</name>
+        <qualifiedname>eu::render::RealizeShader::program</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="251" column="17" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="251" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1RealizeShader_1a752c995d5d2085ebe6147e00695021ac" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
+        <definition>Uniform eu::render::RealizeShader::tex_input_uniform</definition>
+        <argsstring></argsstring>
+        <name>tex_input_uniform</name>
+        <qualifiedname>eu::render::RealizeShader::tex_input_uniform</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="252" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="252" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1RealizeShader_1a9e39cbe59d91ca4694ba5a26134ee600" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
+        <definition>Uniform eu::render::RealizeShader::tex_blurred_bloom_uniform</definition>
+        <argsstring></argsstring>
+        <name>tex_blurred_bloom_uniform</name>
+        <qualifiedname>eu::render::RealizeShader::tex_blurred_bloom_uniform</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="253" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="253" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1RealizeShader_1a31801cbe72bc3270912b308648ec0746" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
+        <definition>Uniform eu::render::RealizeShader::use_blur_uniform</definition>
+        <argsstring></argsstring>
+        <name>use_blur_uniform</name>
+        <qualifiedname>eu::render::RealizeShader::use_blur_uniform</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="255" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="255" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1RealizeShader_1a0b43880977ee8e760fc385f90f0b0b31" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
+        <definition>Uniform eu::render::RealizeShader::gamma_uniform</definition>
+        <argsstring></argsstring>
+        <name>gamma_uniform</name>
+        <qualifiedname>eu::render::RealizeShader::gamma_uniform</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="256" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="256" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1RealizeShader_1a8da2cfa577f52c9959b72d69efd21d05" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
+        <definition>Uniform eu::render::RealizeShader::exposure_uniform</definition>
+        <argsstring></argsstring>
+        <name>exposure_uniform</name>
+        <qualifiedname>eu::render::RealizeShader::exposure_uniform</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="257" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="257" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1RealizeShader_1a78d72e96b0b4b2f45a88e5a8e82b7686" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::RealizeShader::RealizeShader</definition>
+        <argsstring>(std::shared_ptr&lt; ShaderProgram &gt; s)</argsstring>
+        <name>RealizeShader</name>
+        <qualifiedname>eu::render::RealizeShader::RealizeShader</qualifiedname>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> &gt;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="249" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>The shader data for composing a rendered image. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::render::RealizeShader</label>
+        <link refid="structeu_1_1render_1_1RealizeShader"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>exposure_uniform</edgelabel>
+          <edgelabel>gamma_uniform</edgelabel>
+          <edgelabel>tex_blurred_bloom_uniform</edgelabel>
+          <edgelabel>tex_input_uniform</edgelabel>
+          <edgelabel>use_blur_uniform</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::render::Uniform</label>
+        <link refid="structeu_1_1render_1_1Uniform"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/eu/render/shader_resource.h" line="247" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="248" bodyend="258"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1RealizeShader_1a8da2cfa577f52c9959b72d69efd21d05" prot="public" virt="non-virtual"><scope>eu::render::RealizeShader</scope><name>exposure_uniform</name></member>
+      <member refid="structeu_1_1render_1_1RealizeShader_1a0b43880977ee8e760fc385f90f0b0b31" prot="public" virt="non-virtual"><scope>eu::render::RealizeShader</scope><name>gamma_uniform</name></member>
+      <member refid="structeu_1_1render_1_1RealizeShader_1acd5134ad8f5c48f7f42d2179aeaa0e14" prot="public" virt="non-virtual"><scope>eu::render::RealizeShader</scope><name>program</name></member>
+      <member refid="structeu_1_1render_1_1RealizeShader_1a78d72e96b0b4b2f45a88e5a8e82b7686" prot="public" virt="non-virtual"><scope>eu::render::RealizeShader</scope><name>RealizeShader</name></member>
+      <member refid="structeu_1_1render_1_1RealizeShader_1a9e39cbe59d91ca4694ba5a26134ee600" prot="public" virt="non-virtual"><scope>eu::render::RealizeShader</scope><name>tex_blurred_bloom_uniform</name></member>
+      <member refid="structeu_1_1render_1_1RealizeShader_1a752c995d5d2085ebe6147e00695021ac" prot="public" virt="non-virtual"><scope>eu::render::RealizeShader</scope><name>tex_input_uniform</name></member>
+      <member refid="structeu_1_1render_1_1RealizeShader_1a31801cbe72bc3270912b308648ec0746" prot="public" virt="non-virtual"><scope>eu::render::RealizeShader</scope><name>use_blur_uniform</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

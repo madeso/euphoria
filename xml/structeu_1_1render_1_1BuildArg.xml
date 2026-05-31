@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1BuildArg" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::BuildArg</compoundname>
+    <includes refid="postproc_8h" local="no">postproc.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1BuildArg_1af410f54ca771143c53a8931b4408d83a" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1CompiledStack" kindref="compound">CompiledStack</ref> *</type>
+        <definition>CompiledStack* eu::render::BuildArg::builder</definition>
+        <argsstring></argsstring>
+        <name>builder</name>
+        <qualifiedname>eu::render::BuildArg::builder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="100" column="15" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1BuildArg_1af6c6807d577e531e06f3c280ae648283" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Size" kindref="compound">Size</ref></type>
+        <definition>Size eu::render::BuildArg::window_size</definition>
+        <argsstring></argsstring>
+        <name>window_size</name>
+        <qualifiedname>eu::render::BuildArg::window_size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="101" column="6" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Arguments for when building a effect stack. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="structeu_1_1render_1_1Effect_1ab9c96c9b468942c7bf4ea7c6573280d1" kindref="member">Effect::build</ref> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>eu::Size</label>
+        <link refid="structeu_1_1Size"/>
+      </node>
+      <node id="1">
+        <label>eu::render::BuildArg</label>
+        <link refid="structeu_1_1render_1_1BuildArg"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>builder</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>window_size</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::render::CompiledStack</label>
+        <link refid="structeu_1_1render_1_1CompiledStack"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/eu/render/postproc.h" line="98" column="1" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="99" bodyend="102"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1BuildArg_1af410f54ca771143c53a8931b4408d83a" prot="public" virt="non-virtual"><scope>eu::render::BuildArg</scope><name>builder</name></member>
+      <member refid="structeu_1_1render_1_1BuildArg_1af6c6807d577e531e06f3c280ae648283" prot="public" virt="non-virtual"><scope>eu::render::BuildArg</scope><name>window_size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

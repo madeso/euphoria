@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="69" column="15" bodyfile="libs/base/src/base/angle.h" bodystart="69" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/angle.h" line="69" column="15" bodyfile="libs/base/src/eu/base/angle.h" bodystart="69" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-static-func">
@@ -36,7 +36,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="15" column="9" bodyfile="libs/base/src/base/angle.h" bodystart="15" bodyend="18"/>
+        <location file="libs/base/src/eu/base/angle.h" line="15" column="9" bodyfile="libs/base/src/eu/base/angle.h" bodystart="15" bodyend="18"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1An_1a978cd7edfef73d6cac1eff7862c04472" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref></type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="21" column="9" bodyfile="libs/base/src/base/angle.h" bodystart="21" bodyend="24"/>
+        <location file="libs/base/src/eu/base/angle.h" line="21" column="9" bodyfile="libs/base/src/eu/base/angle.h" bodystart="21" bodyend="24"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1An_1aabb5ca978d8508406638caa7dc5cebb0" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref></type>
@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="27" column="9" bodyfile="libs/base/src/base/angle.h" bodystart="27" bodyend="30"/>
+        <location file="libs/base/src/eu/base/angle.h" line="27" column="9" bodyfile="libs/base/src/eu/base/angle.h" bodystart="27" bodyend="30"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1An_1a99e8358a9c8133c608609960e502ebb9" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref></type>
@@ -90,7 +90,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="33" column="9" bodyfile="libs/base/src/base/angle.h" bodystart="33" bodyend="36"/>
+        <location file="libs/base/src/eu/base/angle.h" line="33" column="9" bodyfile="libs/base/src/eu/base/angle.h" bodystart="33" bodyend="36"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -106,7 +106,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="39" column="14"/>
+        <location file="libs/base/src/eu/base/angle.h" line="39" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1An_1a47e5b55ff5c57793171905b223b41f7b" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1R" kindref="compound">float</ref></type>
@@ -120,7 +120,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="43" column="9" bodyfile="libs/base/src/base/angle.h" bodystart="43" bodyend="46"/>
+        <location file="libs/base/src/eu/base/angle.h" line="43" column="9" bodyfile="libs/base/src/eu/base/angle.h" bodystart="43" bodyend="46"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1An_1aca132e3f67eac75b6b3ae43fb86cdaf7" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1R" kindref="compound">float</ref></type>
@@ -134,7 +134,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="49" column="9" bodyfile="libs/base/src/base/angle.h" bodystart="49" bodyend="52"/>
+        <location file="libs/base/src/eu/base/angle.h" line="49" column="9" bodyfile="libs/base/src/eu/base/angle.h" bodystart="49" bodyend="52"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1An_1a58d93c1d35b119d20b0d5afc5f5c8754" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1R" kindref="compound">float</ref></type>
@@ -148,7 +148,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="55" column="9" bodyfile="libs/base/src/base/angle.h" bodystart="55" bodyend="58"/>
+        <location file="libs/base/src/eu/base/angle.h" line="55" column="9" bodyfile="libs/base/src/eu/base/angle.h" bodystart="55" bodyend="58"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1An_1a3e2584802a461d128cfeb3a796e92378" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1An" kindref="compound">An</ref></type>
@@ -162,7 +162,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="60" column="13"/>
+        <location file="libs/base/src/eu/base/angle.h" line="60" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1An_1a58d4d4f85fa7b09eb4a8b8a93f678302" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -180,7 +180,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="62" column="14"/>
+        <location file="libs/base/src/eu/base/angle.h" line="62" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1An_1a0eebae921af5791148398584ef492fb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -198,7 +198,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="63" column="14"/>
+        <location file="libs/base/src/eu/base/angle.h" line="63" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1An_1afe7f8f5d46e92c8a95b3804da2dfc830" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -216,7 +216,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="64" column="14"/>
+        <location file="libs/base/src/eu/base/angle.h" line="64" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1An_1a846e605eceee57167b2d6176fc70922e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -234,7 +234,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="65" column="14"/>
+        <location file="libs/base/src/eu/base/angle.h" line="65" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1An_1a7e47861aabeddc5b13d4cc8ccf14b0c4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1An" kindref="compound">An</ref></type>
@@ -248,7 +248,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="66" column="12"/>
+        <location file="libs/base/src/eu/base/angle.h" line="66" column="12"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="private-func">
@@ -268,7 +268,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="71" column="28" bodyfile="libs/base/src/base/angle.h" bodystart="71" bodyend="71"/>
+        <location file="libs/base/src/eu/base/angle.h" line="71" column="28" bodyfile="libs/base/src/eu/base/angle.h" bodystart="71" bodyend="71"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="private-static-func">
@@ -288,7 +288,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="74" column="9" bodyfile="libs/base/src/base/angle.h" bodystart="74" bodyend="77"/>
+        <location file="libs/base/src/eu/base/angle.h" line="74" column="9" bodyfile="libs/base/src/eu/base/angle.h" bodystart="74" bodyend="77"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1An_1a23f9a38776c55638004c7b4095b8242d" prot="private" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1R" kindref="compound">float</ref></type>
@@ -306,7 +306,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/angle.h" line="80" column="9" bodyfile="libs/base/src/base/angle.h" bodystart="80" bodyend="83"/>
+        <location file="libs/base/src/eu/base/angle.h" line="80" column="9" bodyfile="libs/base/src/eu/base/angle.h" bodystart="80" bodyend="83"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -314,7 +314,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/base/src/base/angle.h" line="12" column="5" bodyfile="libs/base/src/base/angle.h" bodystart="13" bodyend="84"/>
+    <location file="libs/base/src/eu/base/angle.h" line="12" column="5" bodyfile="libs/base/src/eu/base/angle.h" bodystart="13" bodyend="84"/>
     <listofallmembers>
       <member refid="structeu_1_1An_1a6a9285ceb5dacb9237b2df1b8b525985" prot="private" virt="non-virtual"><scope>eu::An</scope><name>An</name></member>
       <member refid="structeu_1_1An_1a47e5b55ff5c57793171905b223b41f7b" prot="public" virt="non-virtual"><scope>eu::An</scope><name>as_degrees</name></member>

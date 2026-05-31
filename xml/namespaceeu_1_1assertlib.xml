@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/assert/src/assert/assert.h" line="125" column="5" declfile="libs/assert/src/assert/assert.h" declline="125" declcolumn="5"/>
+        <location file="libs/assert/src/eu/assert/assert.h" line="132" column="5" declfile="libs/assert/src/eu/assert/assert.h" declline="132" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1assertlib_1a0edb7b21ba4d86e980bd40b0f63a0c2e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/assert/src/assert/assert.h" line="129" column="5" declfile="libs/assert/src/assert/assert.h" declline="129" declcolumn="5"/>
+        <location file="libs/assert/src/eu/assert/assert.h" line="136" column="5" declfile="libs/assert/src/eu/assert/assert.h" declline="136" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1assertlib_1adc0b8ea0bf3e97d51c38156ad5484a67" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -68,13 +68,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/assert/src/assert/assert.h" line="133" column="5" declfile="libs/assert/src/assert/assert.h" declline="133" declcolumn="5"/>
+        <location file="libs/assert/src/eu/assert/assert.h" line="140" column="5" declfile="libs/assert/src/eu/assert/assert.h" declline="140" declcolumn="5"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/assert/src/assert/assert.h" line="110" column="1"/>
+    <location file="libs/assert/src/eu/assert/assert.h" line="117" column="1"/>
   </compounddef>
 </doxygen>

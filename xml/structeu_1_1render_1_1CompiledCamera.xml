@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1CompiledCamera" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::CompiledCamera</compoundname>
+    <includes refid="camera_8h" local="no">camera.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledCamera_1a8c1cd7ed96b49790112ab7ccce705aed" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
+        <definition>m4 eu::render::CompiledCamera::clip_from_view</definition>
+        <argsstring></argsstring>
+        <name>clip_from_view</name>
+        <qualifiedname>eu::render::CompiledCamera::clip_from_view</qualifiedname>
+        <briefdescription>
+<para>also known as projection matrix </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/camera.h" line="43" column="4" bodyfile="libs/render/src/eu/render/camera.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledCamera_1ad9db74f17eb4fc7d59ab4f7f079bc76e" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
+        <definition>m4 eu::render::CompiledCamera::view_from_world</definition>
+        <argsstring></argsstring>
+        <name>view_from_world</name>
+        <qualifiedname>eu::render::CompiledCamera::view_from_world</qualifiedname>
+        <briefdescription>
+<para>also known as view matrix </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/camera.h" line="46" column="4" bodyfile="libs/render/src/eu/render/camera.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledCamera_1a677e20bd80a1015e7a41c8be6808d2cf" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
+        <definition>v3 eu::render::CompiledCamera::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <qualifiedname>eu::render::CompiledCamera::position</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/camera.h" line="47" column="4" bodyfile="libs/render/src/eu/render/camera.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledCamera_1aa48b5f22991d392533dc06eb72ea2ee2" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
+        <definition>n3 eu::render::CompiledCamera::in</definition>
+        <argsstring></argsstring>
+        <name>in</name>
+        <qualifiedname>eu::render::CompiledCamera::in</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/camera.h" line="48" column="4" bodyfile="libs/render/src/eu/render/camera.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A &quot;compiled&quot; camera for use in rendering. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="see"><para>compile_camera </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::m4</label>
+        <link refid="structeu_1_1m4"/>
+      </node>
+      <node id="4">
+        <label>eu::n3</label>
+        <link refid="structeu_1_1n3"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>eu::render::CompiledCamera</label>
+        <link refid="structeu_1_1render_1_1CompiledCamera"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>clip_from_view</edgelabel>
+          <edgelabel>view_from_world</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>position</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>in</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::v3</label>
+        <link refid="structeu_1_1v3"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/eu/render/camera.h" line="40" column="1" bodyfile="libs/render/src/eu/render/camera.h" bodystart="41" bodyend="49"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1CompiledCamera_1a8c1cd7ed96b49790112ab7ccce705aed" prot="public" virt="non-virtual"><scope>eu::render::CompiledCamera</scope><name>clip_from_view</name></member>
+      <member refid="structeu_1_1render_1_1CompiledCamera_1aa48b5f22991d392533dc06eb72ea2ee2" prot="public" virt="non-virtual"><scope>eu::render::CompiledCamera</scope><name>in</name></member>
+      <member refid="structeu_1_1render_1_1CompiledCamera_1a677e20bd80a1015e7a41c8be6808d2cf" prot="public" virt="non-virtual"><scope>eu::render::CompiledCamera</scope><name>position</name></member>
+      <member refid="structeu_1_1render_1_1CompiledCamera_1ad9db74f17eb4fc7d59ab4f7f079bc76e" prot="public" virt="non-virtual"><scope>eu::render::CompiledCamera</scope><name>view_from_world</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

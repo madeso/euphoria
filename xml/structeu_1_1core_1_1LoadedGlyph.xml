@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.h" line="35" column="14" bodyfile="libs/core/src/core/loadedfont.h" bodystart="35" bodyend="-1"/>
+        <location file="libs/core/src/eu/core/loadedfont.h" line="35" column="14" bodyfile="libs/core/src/eu/core/loadedfont.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1LoadedGlyph_1a0dff45138520f6cc4ed057ccab0383e8" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.h" line="36" column="13" bodyfile="libs/core/src/core/loadedfont.h" bodystart="36" bodyend="-1"/>
+        <location file="libs/core/src/eu/core/loadedfont.h" line="36" column="13" bodyfile="libs/core/src/eu/core/loadedfont.h" bodystart="36" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1LoadedGlyph_1a1ac17e6a9a623c2fa02ef75219183faf" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.h" line="37" column="13" bodyfile="libs/core/src/core/loadedfont.h" bodystart="37" bodyend="-1"/>
+        <location file="libs/core/src/eu/core/loadedfont.h" line="37" column="13" bodyfile="libs/core/src/eu/core/loadedfont.h" bodystart="37" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1LoadedGlyph_1a468f194d45f98f770e541177458fd6b3" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
@@ -62,7 +62,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.h" line="38" column="13" bodyfile="libs/core/src/core/loadedfont.h" bodystart="38" bodyend="-1"/>
+        <location file="libs/core/src/eu/core/loadedfont.h" line="38" column="13" bodyfile="libs/core/src/eu/core/loadedfont.h" bodystart="38" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1LoadedGlyph_1ae1cbca0f5ba3df89b023a42afa0f9d7f" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
@@ -77,7 +77,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.h" line="39" column="13" bodyfile="libs/core/src/core/loadedfont.h" bodystart="39" bodyend="-1"/>
+        <location file="libs/core/src/eu/core/loadedfont.h" line="39" column="13" bodyfile="libs/core/src/eu/core/loadedfont.h" bodystart="39" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1LoadedGlyph_1a51132f90297b713232f8bedc2f884835" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1core_1_1Image" kindref="compound">Image</ref></type>
@@ -91,7 +91,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.h" line="40" column="15" bodyfile="libs/core/src/core/loadedfont.h" bodystart="40" bodyend="-1"/>
+        <location file="libs/core/src/eu/core/loadedfont.h" line="40" column="15" bodyfile="libs/core/src/eu/core/loadedfont.h" bodystart="40" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1LoadedGlyph_1a3cc4ffff821671262c0bd7534868ea99" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
@@ -106,7 +106,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.h" line="41" column="15" bodyfile="libs/core/src/core/loadedfont.h" bodystart="41" bodyend="-1"/>
+        <location file="libs/core/src/eu/core/loadedfont.h" line="41" column="15" bodyfile="libs/core/src/eu/core/loadedfont.h" bodystart="41" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -126,7 +126,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/loadedfont.h" line="18" column="5" bodyfile="libs/core/src/core/loadedfont.h" bodystart="19" bodyend="42"/>
+    <location file="libs/core/src/eu/core/loadedfont.h" line="18" column="5" bodyfile="libs/core/src/eu/core/loadedfont.h" bodystart="19" bodyend="42"/>
     <listofallmembers>
       <member refid="structeu_1_1core_1_1LoadedGlyph_1ae1cbca0f5ba3df89b023a42afa0f9d7f" prot="public" virt="non-virtual"><scope>eu::core::LoadedGlyph</scope><name>advance</name></member>
       <member refid="structeu_1_1core_1_1LoadedGlyph_1a1ac17e6a9a623c2fa02ef75219183faf" prot="public" virt="non-virtual"><scope>eu::core::LoadedGlyph</scope><name>bearing_x</name></member>

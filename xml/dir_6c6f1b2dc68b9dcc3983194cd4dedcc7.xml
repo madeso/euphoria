@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_6c6f1b2dc68b9dcc3983194cd4dedcc7" kind="dir">
+    <compoundname>libs/imgui</compoundname>
+    <innerdir refid="dir_def1fb38ad6b1f12ff1e86be3eafca4b">libs/imgui/src</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/imgui/"/>
+  </compounddef>
+</doxygen>

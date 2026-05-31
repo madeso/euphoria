@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="geom_8h" kind="file" language="C++">
+    <compoundname>geom.h</compoundname>
+    <includedby refid="core_2src_2eu_2core_2mesh_8h" local="yes">libs/core/src/eu/core/mesh.h</includedby>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/core/src/eu/core/geom.h</label>
+        <link refid="geom_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/core/src/eu/core/mesh.h</label>
+        <link refid="core_2src_2eu_2core_2mesh_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>libs/io/src/eu/io/mesh.h</label>
+        <link refid="io_2src_2eu_2io_2mesh_8h"/>
+      </node>
+      <node id="4">
+        <label>libs/render/src/eu/render/compiledmesh.h</label>
+        <link refid="compiledmesh_8h"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structeu_1_1core_1_1Vertex" prot="public">eu::core::Vertex</innerclass>
+    <innerclass refid="structeu_1_1core_1_1Face" prot="public">eu::core::Face</innerclass>
+    <innerclass refid="structeu_1_1core_1_1Geom" prot="public">eu::core::Geom</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/eu/core/geom.h"/>
+  </compounddef>
+</doxygen>

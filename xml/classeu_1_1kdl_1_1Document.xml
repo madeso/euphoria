@@ -1,0 +1,303 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classeu_1_1kdl_1_1Document" kind="class" language="C++" prot="public">
+    <compoundname>eu::kdl::Document</compoundname>
+    <includes refid="kdl_8h" local="no">kdl.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classeu_1_1kdl_1_1Document_1a54f27bf0bbf438ba2ed4dbde32516215" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classeu_1_1kdl_1_1Node" kindref="compound">Node</ref> &gt;</type>
+        <definition>std::vector&lt;Node&gt; eu::kdl::Document::m_nodes</definition>
+        <argsstring></argsstring>
+        <name>m_nodes</name>
+        <qualifiedname>eu::kdl::Document::m_nodes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="325" column="17" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="325" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Document_1acb80319e81d387dd79fcae652ecc9f9c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classeu_1_1kdl_1_1Document" kindref="compound">Document</ref></type>
+        <definition>static Document eu::kdl::Document::read_from</definition>
+        <argsstring>(kdl_parser *parser)</argsstring>
+        <name>read_from</name>
+        <qualifiedname>eu::kdl::Document::read_from</qualifiedname>
+        <param>
+          <type><ref refid="kdl_8h_1a841c3dd40c7c18c5d6476bf272df9cab" kindref="member">kdl_parser</ref> *</type>
+          <declname>parser</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="328" column="21"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Document_1a71ce07bd34f69cc137b2d8fbf429ceac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::kdl::Document::Document</definition>
+        <argsstring>()=default</argsstring>
+        <name>Document</name>
+        <qualifiedname>eu::kdl::Document::Document</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="330" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Document_1aa4ec71d910857eb76b15601235a951bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::kdl::Document::Document</definition>
+        <argsstring>(Document const &amp;)=default</argsstring>
+        <name>Document</name>
+        <qualifiedname>eu::kdl::Document::Document</qualifiedname>
+        <param>
+          <type><ref refid="classeu_1_1kdl_1_1Document" kindref="compound">Document</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="331" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Document_1a3359d812daf7401690d9c7352f00fcdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::kdl::Document::Document</definition>
+        <argsstring>(Document &amp;&amp;)=default</argsstring>
+        <name>Document</name>
+        <qualifiedname>eu::kdl::Document::Document</qualifiedname>
+        <param>
+          <type><ref refid="classeu_1_1kdl_1_1Document" kindref="compound">Document</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="332" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Document_1ab5525ff9678a1fddfa55792c7f4b948f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::kdl::Document::Document</definition>
+        <argsstring>(std::vector&lt; Node &gt; nodes)</argsstring>
+        <name>Document</name>
+        <qualifiedname>eu::kdl::Document::Document</qualifiedname>
+        <param>
+          <type>std::vector&lt; <ref refid="classeu_1_1kdl_1_1Node" kindref="compound">Node</ref> &gt;</type>
+          <declname>nodes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="333" column="5" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="333" bodyend="333"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Document_1af3c280e636443f17e98abd01b418a5db" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::kdl::Document::Document</definition>
+        <argsstring>(std::initializer_list&lt; Node &gt; nodes)</argsstring>
+        <name>Document</name>
+        <qualifiedname>eu::kdl::Document::Document</qualifiedname>
+        <param>
+          <type>std::initializer_list&lt; <ref refid="classeu_1_1kdl_1_1Node" kindref="compound">Node</ref> &gt;</type>
+          <declname>nodes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="334" column="5" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="334" bodyend="334"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Document_1aaddb05de7fa4ceb4ef6444160df4c668" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classeu_1_1kdl_1_1Document" kindref="compound">Document</ref> &amp;</type>
+        <definition>Document &amp; eu::kdl::Document::operator=</definition>
+        <argsstring>(Document const &amp;)=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>eu::kdl::Document::operator=</qualifiedname>
+        <param>
+          <type><ref refid="classeu_1_1kdl_1_1Document" kindref="compound">Document</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="336" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Document_1a96d87e7af7184fc65f5fd236a7acc040" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classeu_1_1kdl_1_1Document" kindref="compound">Document</ref> &amp;</type>
+        <definition>Document &amp; eu::kdl::Document::operator=</definition>
+        <argsstring>(Document &amp;&amp;)=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>eu::kdl::Document::operator=</qualifiedname>
+        <param>
+          <type><ref refid="classeu_1_1kdl_1_1Document" kindref="compound">Document</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="337" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Document_1a37d4a7ba897e9048db95c96109025dc8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::vector&lt; <ref refid="classeu_1_1kdl_1_1Node" kindref="compound">Node</ref> &gt; &amp;</type>
+        <definition>const std::vector&lt; Node &gt; &amp; eu::kdl::Document::nodes</definition>
+        <argsstring>() const</argsstring>
+        <name>nodes</name>
+        <qualifiedname>eu::kdl::Document::nodes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="339" column="23" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="339" bodyend="339"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Document_1a3f30911929ba8498a7a609408e2a1a38" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="classeu_1_1kdl_1_1Node" kindref="compound">Node</ref> &gt; &amp;</type>
+        <definition>std::vector&lt; Node &gt; &amp; eu::kdl::Document::nodes</definition>
+        <argsstring>()</argsstring>
+        <name>nodes</name>
+        <qualifiedname>eu::kdl::Document::nodes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="340" column="17" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="340" bodyend="340"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Document_1ac47d3d822838e22fcf9c680c859ecd3f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">auto</ref></type>
+        <definition>auto eu::kdl::Document::begin</definition>
+        <argsstring>() const</argsstring>
+        <name>begin</name>
+        <qualifiedname>eu::kdl::Document::begin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="342" column="10" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="342" bodyend="342"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Document_1a4659552ee8048a0dd07cf166dadda499" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">auto</ref></type>
+        <definition>auto eu::kdl::Document::begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <qualifiedname>eu::kdl::Document::begin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="343" column="10" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="343" bodyend="343"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Document_1a770d76b3e6a63fbdb7277e63dc681ace" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">auto</ref></type>
+        <definition>auto eu::kdl::Document::end</definition>
+        <argsstring>() const</argsstring>
+        <name>end</name>
+        <qualifiedname>eu::kdl::Document::end</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="344" column="10" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="344" bodyend="344"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Document_1a2f9b563db4fee3ad08be7df63a113ee4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">auto</ref></type>
+        <definition>auto eu::kdl::Document::end</definition>
+        <argsstring>()</argsstring>
+        <name>end</name>
+        <qualifiedname>eu::kdl::Document::end</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="345" column="10" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="345" bodyend="345"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Document_1a87010d4114b1e09b9ca504171c590c25" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::kdl::Document::to_string</definition>
+        <argsstring>() const</argsstring>
+        <name>to_string</name>
+        <qualifiedname>eu::kdl::Document::to_string</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="347" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Document_1ae921943ce4c4db06d6bd33e6bc199fe8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string eu::kdl::Document::to_string</definition>
+        <argsstring>(KdlVersion version) const</argsstring>
+        <name>to_string</name>
+        <qualifiedname>eu::kdl::Document::to_string</qualifiedname>
+        <param>
+          <type><ref refid="namespaceeu_1_1kdl_1a8a35bda2e74362d12aec8484f3675dcf" kindref="member">KdlVersion</ref></type>
+          <declname>version</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="348" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/kdl/src/eu/kdl/kdl.h" line="324" column="1" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="324" bodyend="349"/>
+    <listofallmembers>
+      <member refid="classeu_1_1kdl_1_1Document_1ac47d3d822838e22fcf9c680c859ecd3f" prot="public" virt="non-virtual"><scope>eu::kdl::Document</scope><name>begin</name></member>
+      <member refid="classeu_1_1kdl_1_1Document_1a4659552ee8048a0dd07cf166dadda499" prot="public" virt="non-virtual"><scope>eu::kdl::Document</scope><name>begin</name></member>
+      <member refid="classeu_1_1kdl_1_1Document_1a71ce07bd34f69cc137b2d8fbf429ceac" prot="public" virt="non-virtual"><scope>eu::kdl::Document</scope><name>Document</name></member>
+      <member refid="classeu_1_1kdl_1_1Document_1aa4ec71d910857eb76b15601235a951bb" prot="public" virt="non-virtual"><scope>eu::kdl::Document</scope><name>Document</name></member>
+      <member refid="classeu_1_1kdl_1_1Document_1a3359d812daf7401690d9c7352f00fcdf" prot="public" virt="non-virtual"><scope>eu::kdl::Document</scope><name>Document</name></member>
+      <member refid="classeu_1_1kdl_1_1Document_1ab5525ff9678a1fddfa55792c7f4b948f" prot="public" virt="non-virtual"><scope>eu::kdl::Document</scope><name>Document</name></member>
+      <member refid="classeu_1_1kdl_1_1Document_1af3c280e636443f17e98abd01b418a5db" prot="public" virt="non-virtual"><scope>eu::kdl::Document</scope><name>Document</name></member>
+      <member refid="classeu_1_1kdl_1_1Document_1a770d76b3e6a63fbdb7277e63dc681ace" prot="public" virt="non-virtual"><scope>eu::kdl::Document</scope><name>end</name></member>
+      <member refid="classeu_1_1kdl_1_1Document_1a2f9b563db4fee3ad08be7df63a113ee4" prot="public" virt="non-virtual"><scope>eu::kdl::Document</scope><name>end</name></member>
+      <member refid="classeu_1_1kdl_1_1Document_1a54f27bf0bbf438ba2ed4dbde32516215" prot="private" virt="non-virtual"><scope>eu::kdl::Document</scope><name>m_nodes</name></member>
+      <member refid="classeu_1_1kdl_1_1Document_1a37d4a7ba897e9048db95c96109025dc8" prot="public" virt="non-virtual"><scope>eu::kdl::Document</scope><name>nodes</name></member>
+      <member refid="classeu_1_1kdl_1_1Document_1a3f30911929ba8498a7a609408e2a1a38" prot="public" virt="non-virtual"><scope>eu::kdl::Document</scope><name>nodes</name></member>
+      <member refid="classeu_1_1kdl_1_1Document_1aaddb05de7fa4ceb4ef6444160df4c668" prot="public" virt="non-virtual"><scope>eu::kdl::Document</scope><name>operator=</name></member>
+      <member refid="classeu_1_1kdl_1_1Document_1a96d87e7af7184fc65f5fd236a7acc040" prot="public" virt="non-virtual"><scope>eu::kdl::Document</scope><name>operator=</name></member>
+      <member refid="classeu_1_1kdl_1_1Document_1acb80319e81d387dd79fcae652ecc9f9c" prot="public" virt="non-virtual"><scope>eu::kdl::Document</scope><name>read_from</name></member>
+      <member refid="classeu_1_1kdl_1_1Document_1a87010d4114b1e09b9ca504171c590c25" prot="public" virt="non-virtual"><scope>eu::kdl::Document</scope><name>to_string</name></member>
+      <member refid="classeu_1_1kdl_1_1Document_1ae921943ce4c4db06d6bd33e6bc199fe8" prot="public" virt="non-virtual"><scope>eu::kdl::Document</scope><name>to_string</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

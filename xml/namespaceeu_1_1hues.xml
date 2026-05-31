@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="132" column="18" bodyfile="libs/base/src/base/colors.h" bodystart="132" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/colors.h" line="132" column="18" bodyfile="libs/base/src/eu/base/colors.h" bodystart="132" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeu_1_1hues_1a15fdef68652c8baaa22e28742b5a0c56" prot="public" static="no" constexpr="yes" mutable="no">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1An" kindref="compound">eu::An</ref></type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="133" column="18" bodyfile="libs/base/src/base/colors.h" bodystart="133" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/colors.h" line="133" column="18" bodyfile="libs/base/src/eu/base/colors.h" bodystart="133" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeu_1_1hues_1aac106145ba903e76e2f77e2936e6f0ce" prot="public" static="no" constexpr="yes" mutable="no">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1An" kindref="compound">eu::An</ref></type>
@@ -46,7 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="134" column="18" bodyfile="libs/base/src/base/colors.h" bodystart="134" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/colors.h" line="134" column="18" bodyfile="libs/base/src/eu/base/colors.h" bodystart="134" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeu_1_1hues_1aabfef05413ac976184ba9d3214a85103" prot="public" static="no" constexpr="yes" mutable="no">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1An" kindref="compound">eu::An</ref></type>
@@ -61,7 +61,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="135" column="18" bodyfile="libs/base/src/base/colors.h" bodystart="135" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/colors.h" line="135" column="18" bodyfile="libs/base/src/eu/base/colors.h" bodystart="135" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeu_1_1hues_1a061b66be197e520c58bd743221ac4330" prot="public" static="no" constexpr="yes" mutable="no">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1An" kindref="compound">eu::An</ref></type>
@@ -76,7 +76,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="136" column="18" bodyfile="libs/base/src/base/colors.h" bodystart="136" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/colors.h" line="136" column="18" bodyfile="libs/base/src/eu/base/colors.h" bodystart="136" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeu_1_1hues_1a718254e96fc7cc3a1275d299a338db67" prot="public" static="no" constexpr="yes" mutable="no">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1An" kindref="compound">eu::An</ref></type>
@@ -91,7 +91,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="137" column="18" bodyfile="libs/base/src/base/colors.h" bodystart="137" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/colors.h" line="137" column="18" bodyfile="libs/base/src/eu/base/colors.h" bodystart="137" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeu_1_1hues_1a45336303e895685212d45466b79be76a" prot="public" static="no" constexpr="yes" mutable="no">
         <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1An" kindref="compound">eu::An</ref></type>
@@ -106,13 +106,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/colors.h" line="138" column="18" bodyfile="libs/base/src/base/colors.h" bodystart="138" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/colors.h" line="138" column="18" bodyfile="libs/base/src/eu/base/colors.h" bodystart="138" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/base/src/base/colors.h" line="129" column="1"/>
+    <location file="libs/base/src/eu/base/colors.h" line="129" column="1"/>
   </compounddef>
 </doxygen>

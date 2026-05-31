@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/hash.string.h" line="30" column="9" bodyfile="libs/base/src/base/hash.string.h" bodystart="30" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/hash.string.h" line="30" column="9" bodyfile="libs/base/src/eu/base/hash.string.h" bodystart="30" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1Hsh_1aef678c516a853527edb5719fa8ef805c" prot="public" static="no" mutable="no">
         <type>std::string_view</type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/hash.string.h" line="35" column="22" bodyfile="libs/base/src/base/hash.string.h" bodystart="35" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/hash.string.h" line="35" column="22" bodyfile="libs/base/src/eu/base/hash.string.h" bodystart="35" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -55,7 +55,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/hash.string.h" line="39" column="15" bodyfile="libs/base/src/base/hash.string.h" bodystart="39" bodyend="44"/>
+        <location file="libs/base/src/eu/base/hash.string.h" line="39" column="15" bodyfile="libs/base/src/eu/base/hash.string.h" bodystart="39" bodyend="44"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -68,7 +68,7 @@
 </simplesect>
 </para>
     </detaileddescription>
-    <location file="libs/base/src/base/hash.string.h" line="26" column="1" bodyfile="libs/base/src/base/hash.string.h" bodystart="27" bodyend="45"/>
+    <location file="libs/base/src/eu/base/hash.string.h" line="26" column="1" bodyfile="libs/base/src/eu/base/hash.string.h" bodystart="27" bodyend="45"/>
     <listofallmembers>
       <member refid="structeu_1_1Hsh_1aeb79fcb4cd0e4dd8fc62360d2ff6a219" prot="public" virt="non-virtual"><scope>eu::Hsh</scope><name>hash</name></member>
       <member refid="structeu_1_1Hsh_1a7c658893d059b01ff9bcc490efaab3bf" prot="public" virt="non-virtual"><scope>eu::Hsh</scope><name>Hsh</name></member>

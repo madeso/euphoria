@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1PointLightUniforms" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::PointLightUniforms</compoundname>
+    <includes refid="shader__resource_8h" local="no">shader_resource.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1PointLightUniforms_1a5913158ea2d4ab98a4dddc1e9375b956" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
+        <definition>Uniform eu::render::PointLightUniforms::light_diffuse_color_uni</definition>
+        <argsstring></argsstring>
+        <name>light_diffuse_color_uni</name>
+        <qualifiedname>eu::render::PointLightUniforms::light_diffuse_color_uni</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="120" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1PointLightUniforms_1a03d4222570a66bf026089fb414e281b8" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
+        <definition>Uniform eu::render::PointLightUniforms::light_specular_color_uni</definition>
+        <argsstring></argsstring>
+        <name>light_specular_color_uni</name>
+        <qualifiedname>eu::render::PointLightUniforms::light_specular_color_uni</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="121" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1PointLightUniforms_1a05f1222425a305260968f57c32a3adce" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
+        <definition>Uniform eu::render::PointLightUniforms::light_attenuation_uni</definition>
+        <argsstring></argsstring>
+        <name>light_attenuation_uni</name>
+        <qualifiedname>eu::render::PointLightUniforms::light_attenuation_uni</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="122" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1PointLightUniforms_1a1e1711d2631fa18462a7a31ef43f5e4c" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
+        <definition>Uniform eu::render::PointLightUniforms::light_world_uni</definition>
+        <argsstring></argsstring>
+        <name>light_world_uni</name>
+        <qualifiedname>eu::render::PointLightUniforms::light_world_uni</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="123" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1PointLightUniforms_1aee262b69f88f7376c3566dc9692261e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::PointLightUniforms::PointLightUniforms</definition>
+        <argsstring>(const ShaderProgram *program, const std::string &amp;base)</argsstring>
+        <name>PointLightUniforms</name>
+        <qualifiedname>eu::render::PointLightUniforms::PointLightUniforms</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> *</type>
+          <declname>program</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>base</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="118" column="1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Uniforms for a point light. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="structeu_1_1render_1_1PointLight" kindref="compound">PointLight</ref> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::render::PointLightUniforms</label>
+        <link refid="structeu_1_1render_1_1PointLightUniforms"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>light_attenuation_uni</edgelabel>
+          <edgelabel>light_diffuse_color_uni</edgelabel>
+          <edgelabel>light_specular_color_uni</edgelabel>
+          <edgelabel>light_world_uni</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::render::Uniform</label>
+        <link refid="structeu_1_1render_1_1Uniform"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/eu/render/shader_resource.h" line="116" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="117" bodyend="124"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1PointLightUniforms_1a05f1222425a305260968f57c32a3adce" prot="public" virt="non-virtual"><scope>eu::render::PointLightUniforms</scope><name>light_attenuation_uni</name></member>
+      <member refid="structeu_1_1render_1_1PointLightUniforms_1a5913158ea2d4ab98a4dddc1e9375b956" prot="public" virt="non-virtual"><scope>eu::render::PointLightUniforms</scope><name>light_diffuse_color_uni</name></member>
+      <member refid="structeu_1_1render_1_1PointLightUniforms_1a03d4222570a66bf026089fb414e281b8" prot="public" virt="non-virtual"><scope>eu::render::PointLightUniforms</scope><name>light_specular_color_uni</name></member>
+      <member refid="structeu_1_1render_1_1PointLightUniforms_1a1e1711d2631fa18462a7a31ef43f5e4c" prot="public" virt="non-virtual"><scope>eu::render::PointLightUniforms</scope><name>light_world_uni</name></member>
+      <member refid="structeu_1_1render_1_1PointLightUniforms_1aee262b69f88f7376c3566dc9692261e4" prot="public" virt="non-virtual"><scope>eu::render::PointLightUniforms</scope><name>PointLightUniforms</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

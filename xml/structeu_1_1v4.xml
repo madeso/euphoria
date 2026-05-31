@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec4.h" line="18" column="15" bodyfile="libs/base/src/base/vec4.h" bodystart="18" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/vec4.h" line="18" column="15" bodyfile="libs/base/src/eu/base/vec4.h" bodystart="18" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1v4_1a30907e6bb1d05a46e391bb8c39639fb1" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec4.h" line="19" column="15" bodyfile="libs/base/src/base/vec4.h" bodystart="19" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/vec4.h" line="19" column="15" bodyfile="libs/base/src/eu/base/vec4.h" bodystart="19" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1v4_1a1e65634bfde42428b374bc2a23ceb17e" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec4.h" line="20" column="15" bodyfile="libs/base/src/base/vec4.h" bodystart="20" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/vec4.h" line="20" column="15" bodyfile="libs/base/src/eu/base/vec4.h" bodystart="20" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1v4_1a6d0cdd4957f218fb117b0a4d587b0fd4" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec4.h" line="21" column="15" bodyfile="libs/base/src/base/vec4.h" bodystart="21" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/vec4.h" line="21" column="15" bodyfile="libs/base/src/eu/base/vec4.h" bodystart="21" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -90,7 +90,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec4.h" line="23" column="9"/>
+        <location file="libs/base/src/eu/base/vec4.h" line="23" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1v4_1a6effff88eb81631daa99a597909e16de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -130,7 +130,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec4.h" line="27" column="9"/>
+        <location file="libs/base/src/eu/base/vec4.h" line="27" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1v4_1a79c137d713fadc4d1e0a5c27483bb414" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type></type>
@@ -150,7 +150,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec4.h" line="31" column="18"/>
+        <location file="libs/base/src/eu/base/vec4.h" line="31" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1v4_1ab810292d5f619656e5b177983fac5a97" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
@@ -169,7 +169,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec4.h" line="34" column="13"/>
+        <location file="libs/base/src/eu/base/vec4.h" line="34" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1v4_1a58e6882ee137f99c3376c628ef974df4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
@@ -184,7 +184,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec4.h" line="37" column="13"/>
+        <location file="libs/base/src/eu/base/vec4.h" line="37" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1v4_1a0b06732d5ff02420219fd54b7ab4d034" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">float</ref> *</type>
@@ -199,7 +199,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec4.h" line="40" column="15"/>
+        <location file="libs/base/src/eu/base/vec4.h" line="40" column="15"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1v4_1a2fb019e0a58055d149904a5bd8401902" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">float</ref> *</type>
@@ -214,7 +214,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec4.h" line="43" column="22"/>
+        <location file="libs/base/src/eu/base/vec4.h" line="43" column="22"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1v4_1aee396ce1c57c13ff3c82fba8ff89c80e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
@@ -232,7 +232,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/base/vec4.h" line="45" column="14"/>
+        <location file="libs/base/src/eu/base/vec4.h" line="45" column="14"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -241,7 +241,7 @@
     <detaileddescription>
 <para>It represents a homogeneous coordinate/projective coordinate. </para>
     </detaileddescription>
-    <location file="libs/base/src/base/vec4.h" line="16" column="5" bodyfile="libs/base/src/base/vec4.h" bodystart="17" bodyend="46"/>
+    <location file="libs/base/src/eu/base/vec4.h" line="16" column="5" bodyfile="libs/base/src/eu/base/vec4.h" bodystart="17" bodyend="46"/>
     <listofallmembers>
       <member refid="structeu_1_1v4_1a0b06732d5ff02420219fd54b7ab4d034" prot="public" virt="non-virtual"><scope>eu::v4</scope><name>get_data_ptr</name></member>
       <member refid="structeu_1_1v4_1a2fb019e0a58055d149904a5bd8401902" prot="public" virt="non-virtual"><scope>eu::v4</scope><name>get_data_ptr</name></member>

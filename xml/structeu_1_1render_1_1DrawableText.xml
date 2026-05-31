@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="149" column="28" bodyfile="libs/render/src/render/font.h" bodystart="149" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/font.h" line="149" column="28" bodyfile="libs/render/src/eu/render/font.h" bodystart="149" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1DrawableText_1a50df9d37bb41932782b281f2858da05b" prot="private" static="no" mutable="no">
         <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="150" column="15" bodyfile="libs/render/src/render/font.h" bodystart="150" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/font.h" line="150" column="15" bodyfile="libs/render/src/eu/render/font.h" bodystart="150" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1DrawableText_1a7259760abf2daa188dee1bb05e46cca5" prot="private" static="no" mutable="no">
         <type>std::string</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="151" column="21" bodyfile="libs/render/src/render/font.h" bodystart="151" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/font.h" line="151" column="21" bodyfile="libs/render/src/eu/render/font.h" bodystart="151" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1DrawableText_1a125d6ba1e228fb8a22e7fce758a60fc6" prot="private" static="no" mutable="no">
         <type><ref refid="namespaceeu_1_1render_1aaf6adcd14a4e060d8a9b6433438be51c" kindref="member">Align</ref></type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="152" column="15" bodyfile="libs/render/src/render/font.h" bodystart="152" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/font.h" line="152" column="15" bodyfile="libs/render/src/eu/render/font.h" bodystart="152" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1DrawableText_1a3bbe127f522b3aaf4a8c6645fe7bab8d" prot="private" static="no" mutable="no">
         <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="154" column="14" bodyfile="libs/render/src/render/font.h" bodystart="154" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/font.h" line="154" column="14" bodyfile="libs/render/src/eu/render/font.h" bodystart="154" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1DrawableText_1a5900c9f2d47c0bf83e4d9906884fca1e" prot="private" static="no" mutable="no">
         <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
@@ -86,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="155" column="15" bodyfile="libs/render/src/render/font.h" bodystart="155" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/font.h" line="155" column="15" bodyfile="libs/render/src/eu/render/font.h" bodystart="155" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1DrawableText_1ad648eb3b3b5f4948c5ed692d37b76d98" prot="private" static="no" mutable="yes">
         <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
@@ -100,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="158" column="22" bodyfile="libs/render/src/render/font.h" bodystart="158" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/font.h" line="158" column="22" bodyfile="libs/render/src/eu/render/font.h" bodystart="158" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1DrawableText_1acc50196572375142164922848c8b0928" prot="private" static="no" mutable="yes">
         <type><ref refid="structeu_1_1render_1_1ListOfTextDrawCommands" kindref="compound">ListOfTextDrawCommands</ref></type>
@@ -114,7 +114,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="159" column="40" bodyfile="libs/render/src/render/font.h" bodystart="159" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/font.h" line="159" column="40" bodyfile="libs/render/src/eu/render/font.h" bodystart="159" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -134,7 +134,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="105" column="18"/>
+        <location file="libs/render/src/eu/render/font.h" line="105" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1DrawableText_1a55cb7ab5580b641bbe41c52c0f88d2fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -148,7 +148,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="106" column="9"/>
+        <location file="libs/render/src/eu/render/font.h" line="106" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1DrawableText_1ad489d856cdb04103796b1a20fc7de2bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -166,7 +166,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="108" column="9"/>
+        <location file="libs/render/src/eu/render/font.h" line="108" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1DrawableText_1ab01b5d824d781eff0b671e3806fd3cd7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -183,7 +183,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="109" column="14"/>
+        <location file="libs/render/src/eu/render/font.h" line="109" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1DrawableText_1a6b638d48eb0a725b8e44334a787ef861" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -201,7 +201,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="110" column="9"/>
+        <location file="libs/render/src/eu/render/font.h" line="110" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1DrawableText_1a44178d9ca89d53e98e69bab8d16f0ae1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -218,7 +218,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="111" column="14"/>
+        <location file="libs/render/src/eu/render/font.h" line="111" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1DrawableText_1a0004733522d1962dedb2d0530012947c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -236,7 +236,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="114" column="9"/>
+        <location file="libs/render/src/eu/render/font.h" line="114" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1DrawableText_1ab8ec15a3e5206c805fddc1729b322206" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -259,7 +259,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="117" column="9"/>
+        <location file="libs/render/src/eu/render/font.h" line="117" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1DrawableText_1af5a1761bf35bc9f11b86eef8adba83ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -277,7 +277,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="120" column="9"/>
+        <location file="libs/render/src/eu/render/font.h" line="120" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1DrawableText_1a87ca52c88131090b94e456ee59c9ef60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -295,7 +295,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="123" column="9"/>
+        <location file="libs/render/src/eu/render/font.h" line="123" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1DrawableText_1abf84b01d9375cf7c19859a6a9dd09f44" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -321,7 +321,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="126" column="9"/>
+        <location file="libs/render/src/eu/render/font.h" line="126" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1DrawableText_1afbcf2a124b4b7bb9d91bc4af181b8390" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -351,7 +351,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="134" column="9"/>
+        <location file="libs/render/src/eu/render/font.h" line="134" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1DrawableText_1a282f3140f1bb8f119df4d1abe6ca3288" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
@@ -365,7 +365,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="143" column="9"/>
+        <location file="libs/render/src/eu/render/font.h" line="143" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1DrawableText_1af79f4bad6a049db2e0acb5f23df1ddb0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
@@ -379,14 +379,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="146" column="9"/>
+        <location file="libs/render/src/eu/render/font.h" line="146" column="9"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/render/src/render/font.h" line="102" column="5" bodyfile="libs/render/src/render/font.h" bodystart="103" bodyend="160"/>
+    <location file="libs/render/src/eu/render/font.h" line="102" column="5" bodyfile="libs/render/src/eu/render/font.h" bodystart="103" bodyend="160"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1DrawableText_1a125d6ba1e228fb8a22e7fce758a60fc6" prot="private" virt="non-virtual"><scope>eu::render::DrawableText</scope><name>alignment</name></member>
       <member refid="structeu_1_1render_1_1DrawableText_1a5900c9f2d47c0bf83e4d9906884fca1e" prot="private" virt="non-virtual"><scope>eu::render::DrawableText</scope><name>background_alpha</name></member>

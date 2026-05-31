@@ -17,13 +17,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/log/src/log/log.h" line="72" column="12" declfile="libs/log/src/log/log.h" declline="72" declcolumn="12"/>
+        <location file="libs/log/src/eu/log/log.h" line="74" column="12" declfile="libs/log/src/eu/log/log.h" declline="74" declcolumn="12"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/log/src/log/log.h" line="5" column="1"/>
+    <location file="libs/log/src/eu/log/log.h" line="7" column="1"/>
   </compounddef>
 </doxygen>

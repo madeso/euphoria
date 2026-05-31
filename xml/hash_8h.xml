@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="hash_8h" kind="file" language="C++">
+    <compoundname>hash.h</compoundname>
+    <innerclass refid="structeu_1_1core_1_1HashCombiner" prot="public">eu::core::HashCombiner</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <sectiondef kind="define">
+      <member refid="group__hash_1ga9038dc1dac99b31ae58ae04bee68d416" kind="define"><name>HASH_DEF_BEGIN</name></member>
+      <member refid="group__hash_1ga102a60c28b17bc852589bbb26135173b" kind="define"><name>HASH_DEF</name></member>
+      <member refid="group__hash_1gadea525dabdf353ba96abce59e6a5dadd" kind="define"><name>HASH_DEF_END</name></member>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/eu/core/hash.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1mrgui_1_1IdStack" kind="struct" language="C++" prot="public">
+    <compoundname>eu::mrgui::IdStack</compoundname>
+    <includes refid="widgets_8h" local="no">widgets.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1mrgui_1_1IdStack_1aa871ecb45756d6afa35a19fcd9045fa3" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref> &gt;</type>
+        <definition>std::vector&lt;u32&gt; eu::mrgui::IdStack::stack</definition>
+        <argsstring></argsstring>
+        <name>stack</name>
+        <qualifiedname>eu::mrgui::IdStack::stack</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/mrgui/src/eu/mrgui/widgets.h" line="30" column="21" bodyfile="libs/mrgui/src/eu/mrgui/widgets.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1mrgui_1_1IdStack_1a82b913de8bd71ac10006fecc5978d2df" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref></type>
+        <definition>u32 eu::mrgui::IdStack::get</definition>
+        <argsstring>(const std::string &amp;str) const</argsstring>
+        <name>get</name>
+        <qualifiedname>eu::mrgui::IdStack::get</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/mrgui/src/eu/mrgui/widgets.h" line="20" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mrgui_1_1IdStack_1a34791cf7883d758e4c886e6a0cf8415e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref></type>
+        <definition>u32 eu::mrgui::IdStack::get</definition>
+        <argsstring>(int id) const</argsstring>
+        <name>get</name>
+        <qualifiedname>eu::mrgui::IdStack::get</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/mrgui/src/eu/mrgui/widgets.h" line="21" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mrgui_1_1IdStack_1aaf8f459c52161ac94e7933f476b2fb28" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::mrgui::IdStack::push</definition>
+        <argsstring>(const std::string &amp;str)</argsstring>
+        <name>push</name>
+        <qualifiedname>eu::mrgui::IdStack::push</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/mrgui/src/eu/mrgui/widgets.h" line="23" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mrgui_1_1IdStack_1a4e96a042cd868c4e7a6dba22fa2c2b35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::mrgui::IdStack::push</definition>
+        <argsstring>(int id)</argsstring>
+        <name>push</name>
+        <qualifiedname>eu::mrgui::IdStack::push</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/mrgui/src/eu/mrgui/widgets.h" line="24" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mrgui_1_1IdStack_1a5ff15026ce71210c1382e59f29776a90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::mrgui::IdStack::pop</definition>
+        <argsstring>()</argsstring>
+        <name>pop</name>
+        <qualifiedname>eu::mrgui::IdStack::pop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/mrgui/src/eu/mrgui/widgets.h" line="26" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1mrgui_1_1IdStack_1abc0e17e65e9fd264926ba2f52c276200" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref></type>
+        <definition>u32 eu::mrgui::IdStack::last_id</definition>
+        <argsstring>() const</argsstring>
+        <name>last_id</name>
+        <qualifiedname>eu::mrgui::IdStack::last_id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/mrgui/src/eu/mrgui/widgets.h" line="28" column="14"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/mrgui/src/eu/mrgui/widgets.h" line="18" column="5" bodyfile="libs/mrgui/src/eu/mrgui/widgets.h" bodystart="19" bodyend="31"/>
+    <listofallmembers>
+      <member refid="structeu_1_1mrgui_1_1IdStack_1a82b913de8bd71ac10006fecc5978d2df" prot="public" virt="non-virtual"><scope>eu::mrgui::IdStack</scope><name>get</name></member>
+      <member refid="structeu_1_1mrgui_1_1IdStack_1a34791cf7883d758e4c886e6a0cf8415e" prot="public" virt="non-virtual"><scope>eu::mrgui::IdStack</scope><name>get</name></member>
+      <member refid="structeu_1_1mrgui_1_1IdStack_1abc0e17e65e9fd264926ba2f52c276200" prot="public" virt="non-virtual"><scope>eu::mrgui::IdStack</scope><name>last_id</name></member>
+      <member refid="structeu_1_1mrgui_1_1IdStack_1a5ff15026ce71210c1382e59f29776a90" prot="public" virt="non-virtual"><scope>eu::mrgui::IdStack</scope><name>pop</name></member>
+      <member refid="structeu_1_1mrgui_1_1IdStack_1aaf8f459c52161ac94e7933f476b2fb28" prot="public" virt="non-virtual"><scope>eu::mrgui::IdStack</scope><name>push</name></member>
+      <member refid="structeu_1_1mrgui_1_1IdStack_1a4e96a042cd868c4e7a6dba22fa2c2b35" prot="public" virt="non-virtual"><scope>eu::mrgui::IdStack</scope><name>push</name></member>
+      <member refid="structeu_1_1mrgui_1_1IdStack_1aa871ecb45756d6afa35a19fcd9045fa3" prot="public" virt="non-virtual"><scope>eu::mrgui::IdStack</scope><name>stack</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
