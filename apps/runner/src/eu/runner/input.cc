@@ -12,7 +12,7 @@ std::string lower(const std::string& str)
 {
     std::string result;
     result.reserve(str.size());
-    for (char c : str)
+    for (const char c : str)
     {
         result.push_back(static_cast<char>(std::tolower(c)));
     }
