@@ -482,27 +482,22 @@ ShaderResource load_shaders(const Assets& assets, const CameraUniformBuffer& des
 	);
 #endif
 
-    const auto& PP_VERT_GLSL = assets.pp_vert_glsl;
-    const auto& PP_REALIZE_FRAG_GLSL = assets.pp_realize_frag_glsl;
-    const auto& PP_EXTRACT_FRAG_GLSL = assets.pp_extract_frag_glsl;
-    const auto& PP_PING_PONG_BLUR_FRAG_GLSL = assets.pp_ping_pong_blur_frag_glsl;
-
-	auto pp_realize = RealizeShader{std::make_shared<ShaderProgram>(
+    auto pp_realize = RealizeShader{std::make_shared<ShaderProgram>(
 			USE_DEBUG_LABEL_MANY("pp realize")
-			std::string{PP_VERT_GLSL}, std::string{PP_REALIZE_FRAG_GLSL}, full_screen.layout
+			assets.pp_vert_glsl, assets.pp_realize_frag_glsl, full_screen.layout
 		)};
 	auto pp_extract = ExtractShader{std::make_shared<LoadedPostProcShader>(
 		std::make_shared<ShaderProgram>(
-			USE_DEBUG_LABEL_MANY("pp extract") std::string{PP_VERT_GLSL},
-			std::string{PP_EXTRACT_FRAG_GLSL},
+			USE_DEBUG_LABEL_MANY("pp extract") assets.pp_vert_glsl,
+			assets.pp_extract_frag_glsl,
 			full_screen.layout
 		),
 		PostProcSetup::none
 	)};
 	auto pp_ping = PingPongBlurShader{std::make_shared<LoadedPostProcShader>(
 		std::make_shared<ShaderProgram>(
-			USE_DEBUG_LABEL_MANY("pp ping-pong") std::string{PP_VERT_GLSL},
-			std::string{PP_PING_PONG_BLUR_FRAG_GLSL},
+			USE_DEBUG_LABEL_MANY("pp ping-pong") assets.pp_vert_glsl,
+			assets.pp_ping_pong_blur_frag_glsl,
 			full_screen.layout
 		),
 		PostProcSetup::none
