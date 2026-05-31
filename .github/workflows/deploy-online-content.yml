@@ -150,7 +150,7 @@ jobs:
 
 
         - name: Generate coverage badges
-          if: github.ref == 'refs/heads/master' && (success() || failure())
+          if: github.ref == 'refs/heads/main' && (success() || failure())
           run: |
                 dotnet run --project ./tools/buildtools/Workbench/ -- ls .
                 dotnet run --project ./tools/buildtools/Workbench/ -- badge gcovr json_summary.json docs/generated/
@@ -158,7 +158,7 @@ jobs:
 
         - name: Deploy
           uses: peaceiris/actions-gh-pages@v3
-          if: github.ref == 'refs/heads/master' && (success() || failure())
+          if: github.ref == 'refs/heads/main' && (success() || failure())
           with:
                 github_token: ${{ secrets.GITHUB_TOKEN }}
                 publish_dir: ./docs/generated/
