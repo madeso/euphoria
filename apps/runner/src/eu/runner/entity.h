@@ -151,10 +151,15 @@ struct Alive
 private:
     int health = 0;
 };
-
-
-/// assumes there's a Alive called alive on T
 template<typename T>
+concept HasAlive = requires(T a)
+{
+    { a.alive } -> std::same_as<Alive&>;
+};
+
+
+/// assumes there's an Alive called alive on T
+template<HasAlive T>
 void update_and_remove_alives
 (
     std::vector<std::unique_ptr<T>>* alives,
@@ -245,11 +250,11 @@ struct Entity
     void activate()
     {
         // thread safe?:
-        //   register each componet with all local systems
+        //   register each component with all local systems
         //   create per-stage local system update lists
         //   creates entity attachment (if required)
         // not thread safe:
-        //   registers each componet with all global systems
+        //   registers each component with all global systems
     }
 
     /// Turn the entity off, remove entity from all systems
@@ -361,15 +366,15 @@ private:
 struct SpatialComponent : Component
 {
 private:
-    core::mat4f _local_transform;
-    core::mat4f _global_transform;
+    core::mat4f local_transform;
+    core::mat4f global_transform;
 
 public:
-    void set_local_transform(const core::mat4f& m) { _local_transform = m; update_world_transform(); }
+    void set_local_transform(const core::mat4f& m) { local_transform = m; update_world_transform(); }
     
 
-    const core::mat4f& get_local_transform() { return _local_transform; };
-    const core::mat4f& get_global_transform() { return _global_transform; };
+    const core::mat4f& get_local_transform() const { return local_transform; };
+    const core::mat4f& get_global_transform() const { return global_transform; };
 
     void update_world_transform()
     {
@@ -400,7 +405,7 @@ private:
 
 
 /** Required and optional components for EntitySystem and WorldSystem.
-Contains requireed and optional components for a system to work.
+Contains required and optional components for a system to work.
 With tooling a user can see if the added system is missing components.
 
 Example: Character animation system requires Animation and Skeletal Mesh and has a optional Cloth.
@@ -429,7 +434,7 @@ struct EntitySystem
     virtual ~EntitySystem() = default;
 
     /// get requested components
-    /// @todo move to a entity sytem type
+    /// @todo move to a entity system type
     virtual RequestedComponents get_component_requests() = 0;
 
     /**
@@ -484,7 +489,7 @@ private:
  * Only one system of a specified type is allowed per world
  * 
  * Primary role is to handle global world state.
- * Secondary role is to do data transfer between entitites.
+ * Secondary role is to do data transfer between entities.
  * 
  * 
  * Examples:
