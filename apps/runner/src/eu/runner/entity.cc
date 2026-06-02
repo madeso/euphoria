@@ -76,6 +76,44 @@ namespace eu::runner
 
 
     // ------------------------------------------------------------------------
+    // Entity
+    bool Entity::is_spatial_entity() const { return root_component != nullptr; }
+
+    void Entity::activate()
+    {
+        // thread safe?:
+        //   register each component with all local systems
+        //   create per-stage local system update lists
+        //   creates entity attachment (if required)
+        // not thread safe:
+        //   registers each component with all global systems
+    }
+
+    void Entity::update(UpdateStage stage)
+    {
+        systems.update(stage);
+
+        if (stage == UpdateStage::end_frame)
+        {
+            alive.update_for_frame();
+            update_and_remove_alives(&components, &dead_components);
+        }
+    }
+
+    void Entity::deactivate()
+    {
+    }
+
+    void Entity::load()
+    {
+    }
+
+    void Entity::unload()
+    {
+    }
+
+
+    // ------------------------------------------------------------------------
     // EntitySystemUpdate
 
     void EntitySystemUpdate::update(UpdateStage stage)
@@ -104,12 +142,34 @@ namespace eu::runner
         types.insert({ty->name, ty});
     }
     
-    const ComponentType* ComponentFactory::from_name_or_null(core::HashedStringView name) const
+    const ComponentType* ComponentFactory::from_name_or_null(Hsh name) const
     {
         auto found = types.find(name);
         if(found != types.end()) { return found->second; }
         else { return nullptr; }
     }
+
+    // ------------------------------------------------------------------------
+    // SpatialComponent
+
+    void SpatialComponent::set_local_transform(const m4& m)
+    {
+        local_transform = m;
+        update_world_transform();
+    }
+
+    void SpatialComponent::update_world_transform()
+    {
+        // calculate world transform based on world
+        // update world bounds
+
+        // update world transforms on children
+        for(SpatialComponent* child: children)
+        {
+            child->update_world_transform();
+        }
+    }
+
 
     // ------------------------------------------------------------------------
     // EntitySystemType
@@ -121,7 +181,7 @@ namespace eu::runner
         types.insert({ty->name, ty});
     }
 
-    const EntitySystemType* EntitySystemFactory::from_name_or_null(core::HashedStringView name)
+    const EntitySystemType* EntitySystemFactory::from_name_or_null(Hsh name)
     {
         auto found = types.find(name);
         if(found != types.end()) { return found->second; }
@@ -138,26 +198,11 @@ namespace eu::runner
         types.insert({ty->name, ty});
     }
 
-    const WorldSystemType* WorldSystemFactory::from_name_or_null(core::HashedStringView name)
+    const WorldSystemType* WorldSystemFactory::from_name_or_null(Hsh name)
     {
         auto found = types.find(name);
         if(found != types.end()) { return found->second; }
         else { return nullptr; }
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Entity
-
-    void Entity::update(UpdateStage stage)
-    {
-        systems.update(stage);
-
-        if(stage == UpdateStage::end_frame)
-        {
-            alive.update_for_frame();
-            update_and_remove_alives(&components, &dead_components);
-        }
     }
 
     // ------------------------------------------------------------------------
@@ -238,7 +283,7 @@ namespace eu::runner
     {
         // todo(Gustav): implement threading for entity
         // todo(Gustav): take care of updating parent before child
-        // parallelized, spatial parent is updated before child (worker threads: nuber of cores - 1)
+        // parallelized, spatial parent is updated before child (worker threads: number of cores - 1)
         // place attached entities on the same thread as parent, schedule parent to update before the child
         for(auto& ent: entities)
         {

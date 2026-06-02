@@ -2,10 +2,6 @@
 
 namespace core
 {
-    using Guid = eu::Guid;
-    using mat4f = eu::m4;
-    using HashedStringView = eu::Hsh;
-    
     /// external type
     struct Obb {};
 
@@ -229,7 +225,7 @@ struct EntitySystemUpdate
 */
 struct Entity
 {
-    core::Guid guid;
+    Guid guid;
     std::vector<std::unique_ptr<Component>> components;
     std::vector<std::unique_ptr<Component>> dead_components;
     EntitySystemUpdate systems;
@@ -237,28 +233,20 @@ struct Entity
     // dynamically add/remove components
 
     Component* root_component = nullptr;
-    bool is_spatial_entity() const { return root_component != nullptr; }
+    bool is_spatial_entity() const;
 
-    /** Turn the enity on in the world.
+    /** Turn the entity on in the world.
      * * register entity for all systems
      * * create update list
      * * create entity attachment
      * 
-     * activate components/local systems paralellized with one enity per thread
+     * activate components/local systems parallelized with one entity per thread
      * activate world systems with one system per thread
     */ 
-    void activate()
-    {
-        // thread safe?:
-        //   register each component with all local systems
-        //   create per-stage local system update lists
-        //   creates entity attachment (if required)
-        // not thread safe:
-        //   registers each component with all global systems
-    }
+    void activate();
 
     /// Turn the entity off, remove entity from all systems
-    void deactive();
+    void deactivate();
 
     void update(UpdateStage stage);
 
@@ -306,7 +294,7 @@ struct Component
 {
     virtual ~Component() = default;
 
-    core::Guid guid;
+    Guid guid;
 
     /// for debug and tools
     std::string name;
@@ -316,8 +304,11 @@ struct Component
     // settings that are serialized
     // resources that are loaded
 
-    virtual void on_load(); virtual void on_unload();
-    virtual void on_initialize(); virtual void on_shutdown();
+    virtual void on_load();
+    virtual void on_unload();
+    
+    virtual void on_initialize();
+    virtual void on_shutdown();
 };
 
 
@@ -325,7 +316,7 @@ struct ComponentType
 {
     virtual ~ComponentType() = default;
 
-    core::HashedStringView name;
+    Hsh name;
     
     /// can the entity have many components of this type
     bool max_one_per_entity;
@@ -333,7 +324,7 @@ struct ComponentType
     virtual Component* create() = 0;
 };
 
-/** Creates a new componet type for built-in components.
+/** Creates a new component type for built-in components.
  * 
  * ```
  * CUSTOM_COMPONENT(CustomComponent, custom, "custom-name");
@@ -352,9 +343,9 @@ constexpr TYPE NAME;
 struct ComponentFactory
 {
     void add(const ComponentType* name);
-    const ComponentType* from_name_or_null(core::HashedStringView name) const;
+    const ComponentType* from_name_or_null(Hsh name) const;
 private:
-    std::unordered_map<core::HashedStringView, const ComponentType*> types;
+    std::unordered_map<Hsh, const ComponentType*> types;
 };
 
 
@@ -365,28 +356,13 @@ private:
 */
 struct SpatialComponent : Component
 {
-private:
-    core::mat4f local_transform;
-    core::mat4f global_transform;
-
-public:
-    void set_local_transform(const core::mat4f& m) { local_transform = m; update_world_transform(); }
+    // prefer to use set_local_transform
+    m4 local_transform;
+    m4 global_transform;
     
+    void set_local_transform(const m4& m);
 
-    const core::mat4f& get_local_transform() const { return local_transform; };
-    const core::mat4f& get_global_transform() const { return global_transform; };
-
-    void update_world_transform()
-    {
-        // calculate world transform based on world
-        // update world bounds
-
-        // update world transforms on children
-        for(SpatialComponent* child: children)
-        {
-            child->update_world_transform();
-        }
-    }
+    void update_world_transform();
 
 private:
     /// non-inclusive bounds in local space
@@ -467,9 +443,9 @@ struct EntitySystem
 
 struct EntitySystemType
 {
-    core::HashedStringView name;
+    Hsh name;
 
-    EntitySystemType(core::HashedStringView);
+    EntitySystemType(Hsh);
     virtual ~EntitySystemType() = default;
 
     virtual std::unique_ptr<EntitySystem> create() = 0;
@@ -478,10 +454,10 @@ struct EntitySystemType
 struct EntitySystemFactory
 {
     void add(const EntitySystemType* ny);
-    const EntitySystemType* from_name_or_null(core::HashedStringView name);
+    const EntitySystemType* from_name_or_null(Hsh name);
 
 private:
-    std::unordered_map<core::HashedStringView, const EntitySystemType*> types;
+    std::unordered_map<Hsh, const EntitySystemType*> types;
 };
 
 /** A global system for the world.
@@ -525,9 +501,9 @@ struct WorldSystem
 
 struct WorldSystemType
 {
-    core::HashedStringView name;
+    Hsh name;
 
-    WorldSystemType(core::HashedStringView);
+    WorldSystemType(Hsh);
     virtual ~WorldSystemType() = default;
 
     virtual std::unique_ptr<WorldSystem> create() = 0;
@@ -536,10 +512,10 @@ struct WorldSystemType
 struct WorldSystemFactory
 {
     void add(const WorldSystemType* ty);
-    const WorldSystemType* from_name_or_null(core::HashedStringView name);
+    const WorldSystemType* from_name_or_null(Hsh name);
 
 private:
-    std::unordered_map<core::HashedStringView, const WorldSystemType*> types;
+    std::unordered_map<Hsh, const WorldSystemType*> types;
 };
 
 struct WorldSystemWithPrio
