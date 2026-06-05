@@ -6,7 +6,39 @@
 </head>
 <body>
 <h1>apps/runner/src/eu/runner/entity.cc</h1>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for constexpr function &#39;C&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>apps/runner/src/eu/runner/entity.cc 17 : 27</i></p>
+<pre>
+   17 |     constexpr std::size_t C(UpdateStage s)
+      |                           ^
+      |                           c
+   18 |     {
+   19 |         return static_cast&lt;std::size_t&gt;(s);
+   20 |     }
+   21 | 
+   22 |     void UpdateHandler::add(UpdateStage stage, EntitySystem* system, int prio)
+   23 |     {
+   24 |         auto&amp; systems = stages[C(stage)];
+      |                                ~
+      |                                c
+</pre>
 <!--
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/entity.cc:17:27: warning: invalid case style for constexpr function 'C' [readability-identifier-naming]
+   17 |     constexpr std::size_t C(UpdateStage s)
+      |                           ^
+      |                           c
+   18 |     {
+   19 |         return static_cast<std::size_t>(s);
+   20 |     }
+   21 | 
+   22 |     void UpdateHandler::add(UpdateStage stage, EntitySystem* system, int prio)
+   23 |     {
+   24 |         auto& systems = stages[C(stage)];
+      |                                ~
+      |                                c
 -->
 </body>
 </html>

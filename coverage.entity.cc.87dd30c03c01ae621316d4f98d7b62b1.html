@@ -38,17 +38,17 @@
     <div class="col-sm-12 col-lg-3 float-left d-flex flex-column text-right flex-justify-end p-3">
       <div class="d-flex">
         <div class="mr-2">Lines:</div>
-        <div class="mr-2" style="margin: auto;">0 of 116, 0 excluded</div>
+        <div class="mr-2" style="margin: auto;">0 of 32, 0 excluded</div>
         <div class="Label--minw"><span class="coverage-none IssueLabel color-fg-on-emphasis mr-1">0.0%</span></div>
       </div>
       <div class="d-flex">
         <div class="mr-2">Functions:</div>
-        <div class="mr-2" style="margin: auto;">0 of 38, 0 excluded</div>
+        <div class="mr-2" style="margin: auto;">0 of 8, 0 excluded</div>
         <div class="Label--minw"><span class="coverage-none IssueLabel color-fg-on-emphasis mr-1">0.0%</span></div>
       </div>
       <div class="d-flex">
         <div class="mr-2">Branches:</div>
-        <div class="mr-2" style="margin: auto;">0 of 44, 0 excluded</div>
+        <div class="mr-2" style="margin: auto;">0 of 18, 0 excluded</div>
         <div class="Label--minw"><span class="coverage-none IssueLabel color-fg-on-emphasis mr-1">0.0%</span></div>
       </div>
     </div>
@@ -69,266 +69,56 @@
     <div role="rowheader" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2 sortable">Blocks</div>
   </div>
   <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l63">auto eu::runner::EntitySystemUpdateStageList::add(eu::runner::EntitySystem*, int)::{lambda(auto:1 const&amp;, auto:2 const&amp;)#1}::operator()&lt;eu::runner::EntitySystemWithPrio, eu::runner::EntitySystemWithPrio&gt;(eu::runner::EntitySystemWithPrio const&amp;, eu::runner::EntitySystemWithPrio const&amp;) const (apps/runner/src/eu/runner/entity.cc:63)</a>    </div>
+    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l27">auto eu::runner::UpdateHandler::add(eu::runner::UpdateStage, eu::runner::EntitySystem*, int)::{lambda(auto:1 const&amp;, auto:2 const&amp;)#1}::operator()&lt;eu::runner::EntitySystemWithPrio, eu::runner::EntitySystemWithPrio&gt;(eu::runner::EntitySystemWithPrio const&amp;, eu::runner::EntitySystemWithPrio const&amp;) const (apps/runner/src/eu/runner/entity.cc:27)</a>    </div>
     <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">-%</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
   </div>
   <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l250">auto eu::runner::WorldSystemUpdateStageList::add(eu::runner::WorldSystem*, int)::{lambda(auto:1 const&amp;, auto:2 const&amp;)#1}::operator()&lt;eu::runner::WorldSystemWithPrio, eu::runner::WorldSystemWithPrio&gt;(eu::runner::WorldSystemWithPrio const&amp;, eu::runner::WorldSystemWithPrio const&amp;) const (apps/runner/src/eu/runner/entity.cc:250)</a>    </div>
+    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l17">eu::runner::C(eu::runner::UpdateStage) (apps/runner/src/eu/runner/entity.cc:17)</a>    </div>
     <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">-%</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
   </div>
   <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l33">eu::runner::Alive::delete_owner() const (apps/runner/src/eu/runner/entity.cc:33)</a>    </div>
+    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l45">eu::runner::Entity::add_component(std::unique_ptr&lt;eu::runner::Component, std::default_delete&lt;eu::runner::Component&gt; &gt;) (apps/runner/src/eu/runner/entity.cc:45)</a>    </div>
+    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
+    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
+    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
+    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
+  </div>
+  <div class="Box-row Box-row--focus-gray py-2 d-flex">
+    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l54">eu::runner::Entity::add_system(std::unique_ptr&lt;eu::runner::EntitySystem, std::default_delete&lt;eu::runner::EntitySystem&gt; &gt;) (apps/runner/src/eu/runner/entity.cc:54)</a>    </div>
+    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
+    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
+    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
+    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
+  </div>
+  <div class="Box-row Box-row--focus-gray py-2 d-flex">
+    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l76">eu::runner::SpatialComponent::get_transform() const (apps/runner/src/eu/runner/entity.cc:76)</a>    </div>
     <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">-%</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
   </div>
   <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l28">eu::runner::Alive::is_pending_removal() const (apps/runner/src/eu/runner/entity.cc:28)</a>    </div>
+    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l72">eu::runner::SpatialComponent::set_transform(eu::m4 const&amp;) (apps/runner/src/eu/runner/entity.cc:72)</a>    </div>
     <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">-%</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
   </div>
   <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l12">eu::runner::Alive::kill() (apps/runner/src/eu/runner/entity.cc:12)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l20">eu::runner::Alive::update_for_frame() (apps/runner/src/eu/runner/entity.cc:20)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l140">eu::runner::ComponentFactory::add(eu::runner::ComponentType const*) (apps/runner/src/eu/runner/entity.cc:140)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l145">eu::runner::ComponentFactory::from_name_or_null(eu::Hsh) const (apps/runner/src/eu/runner/entity.cc:145)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l82">eu::runner::Entity::activate() (apps/runner/src/eu/runner/entity.cc:82)</a>    </div>
+    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l22">eu::runner::UpdateHandler::add(eu::runner::UpdateStage, eu::runner::EntitySystem*, int) (apps/runner/src/eu/runner/entity.cc:22)</a>    </div>
     <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">-%</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
   </div>
   <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l103">eu::runner::Entity::deactivate() (apps/runner/src/eu/runner/entity.cc:103)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">-%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l80">eu::runner::Entity::is_spatial_entity() const (apps/runner/src/eu/runner/entity.cc:80)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">-%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l107">eu::runner::Entity::load() (apps/runner/src/eu/runner/entity.cc:107)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">-%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l111">eu::runner::Entity::unload() (apps/runner/src/eu/runner/entity.cc:111)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">-%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l92">eu::runner::Entity::update(eu::runner::UpdateStage) (apps/runner/src/eu/runner/entity.cc:92)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l179">eu::runner::EntitySystemFactory::add(eu::runner::EntitySystemType const*) (apps/runner/src/eu/runner/entity.cc:179)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l184">eu::runner::EntitySystemFactory::from_name_or_null(eu::Hsh) (apps/runner/src/eu/runner/entity.cc:184)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l124">eu::runner::EntitySystemUpdate::add(eu::runner::EntitySystem*, eu::runner::UpdateStage, int) (apps/runner/src/eu/runner/entity.cc:124)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">-%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l129">eu::runner::EntitySystemUpdate::remove(eu::runner::EntitySystem*, eu::runner::UpdateStage) (apps/runner/src/eu/runner/entity.cc:129)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">-%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l119">eu::runner::EntitySystemUpdate::update(eu::runner::UpdateStage) (apps/runner/src/eu/runner/entity.cc:119)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">-%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l60">eu::runner::EntitySystemUpdateStageList::add(eu::runner::EntitySystem*, int) (apps/runner/src/eu/runner/entity.cc:60)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">-%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l69">eu::runner::EntitySystemUpdateStageList::remove(eu::runner::EntitySystem*) (apps/runner/src/eu/runner/entity.cc:69)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">-%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l72">eu::runner::EntitySystemUpdateStageList::remove(eu::runner::EntitySystem*)::{lambda(eu::runner::EntitySystemWithPrio const&amp;)#1}::operator()(eu::runner::EntitySystemWithPrio const&amp;) const (apps/runner/src/eu/runner/entity.cc:72)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">-%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l52">eu::runner::EntitySystemUpdateStageList::update(eu::runner::UpdateStage) (apps/runner/src/eu/runner/entity.cc:52)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l42">eu::runner::EntitySystemWithPrio::EntitySystemWithPrio(eu::runner::EntitySystem*, int) (apps/runner/src/eu/runner/entity.cc:42)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">-%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l155">eu::runner::SpatialComponent::set_local_transform(eu::m4 const&amp;) (apps/runner/src/eu/runner/entity.cc:155)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">-%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l161">eu::runner::SpatialComponent::update_world_transform() (apps/runner/src/eu/runner/entity.cc:161)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l282">eu::runner::World::update(eu::runner::UpdateStage) (apps/runner/src/eu/runner/entity.cc:282)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l196">eu::runner::WorldSystemFactory::add(eu::runner::WorldSystemType const*) (apps/runner/src/eu/runner/entity.cc:196)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l201">eu::runner::WorldSystemFactory::from_name_or_null(eu::Hsh) (apps/runner/src/eu/runner/entity.cc:201)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l269">eu::runner::WorldSystemUpdate::add(eu::runner::WorldSystem*, eu::runner::UpdateStage, int) (apps/runner/src/eu/runner/entity.cc:269)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">-%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l274">eu::runner::WorldSystemUpdate::remove(eu::runner::WorldSystem*, eu::runner::UpdateStage) (apps/runner/src/eu/runner/entity.cc:274)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">-%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l264">eu::runner::WorldSystemUpdate::update(eu::runner::UpdateStage) (apps/runner/src/eu/runner/entity.cc:264)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">-%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l247">eu::runner::WorldSystemUpdateStageList::add(eu::runner::WorldSystem*, int) (apps/runner/src/eu/runner/entity.cc:247)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">-%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l256">eu::runner::WorldSystemUpdateStageList::remove(eu::runner::WorldSystem*) (apps/runner/src/eu/runner/entity.cc:256)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">-%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l258">eu::runner::WorldSystemUpdateStageList::remove(eu::runner::WorldSystem*)::{lambda(eu::runner::WorldSystemWithPrio const&amp;)#1}::operator()(eu::runner::WorldSystemWithPrio const&amp;) const (apps/runner/src/eu/runner/entity.cc:258)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">-%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l239">eu::runner::WorldSystemUpdateStageList::update(eu::runner::UpdateStage) (apps/runner/src/eu/runner/entity.cc:239)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l231">eu::runner::WorldSystemWithPrio::WorldSystemWithPrio(eu::runner::WorldSystem*, int) (apps/runner/src/eu/runner/entity.cc:231)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">-%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
-  </div>
-  <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l214">eu::runner::attach(eu::runner::World*, eu::runner::Entity*, eu::runner::Entity*) (apps/runner/src/eu/runner/entity.cc:214)</a>    </div>
+    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l33">eu::runner::UpdateHandler::update(eu::runner::UpdateStage, float) (apps/runner/src/eu/runner/entity.cc:33)</a>    </div>
     <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
@@ -344,14 +134,14 @@
     apps/runner/src/eu/runner/entity.cc
     <div class="toggle-buttons">
       <button type="button" class="button_toggle_coveredLine show_coveredLine" value="coveredLine" title="Toggle covered lines">0 covered</button>
-      <button type="button" class="button_toggle_uncoveredLine show_uncoveredLine" value="uncoveredLine" title="Toggle uncovered lines">116 uncovered</button>
+      <button type="button" class="button_toggle_uncoveredLine show_uncoveredLine" value="uncoveredLine" title="Toggle uncovered lines">32 uncovered</button>
       <button type="button" class="button_toggle_partialCoveredLine show_partialCoveredLine" value="partialCoveredLine" title="Toggle partial covered lines">0 partial covered</button>
       <button type="button" class="button_toggle_excludedLine show_excludedLine" value="excludedLine" title="Toggle excluded lines">0 excluded</button>
     </div>
     <div class="nav">
       <a class="nav prev" href="coverage.main.cc.72a359fbe6499a399bc279b232586ab8.html"></a>
       <a class="nav index" href="coverage.html"></a>
-      <a class="nav next" href="coverage.entity.h.ddd01c881767173966dbf4a0b34baccf.html"></a>
+      <a class="nav next" href="coverage.input.cc.572760e9a870a7aedae7626cc5d41366.html"></a>
     </div>
   </div>
   <div class="source-table-container">
@@ -416,168 +206,168 @@
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
+        <td class="src"><span class="w">    </span><span class="c1">// ------------------------------------------------------------------------</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l9" href="#l9">9</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">///////////////////////////////////////////////////////////////////////////////////////////////</span></td>
+        <td class="src"><span class="w">	</span><span class="c1">//  UpdateStageAndPrio</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l10" href="#l10">10</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// Implementations</span></td>
+        <td class="src"></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l11" href="#l11">11</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
+        <td class="src"><span class="w">    </span><span class="c1">// ------------------------------------------------------------------------</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l12" href="#l12">12</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">Alive::kill</span><span class="p">()</span></td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="c1">//  EntitySystemWithPrio</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l13" href="#l13">13</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
+        <td class="src"></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l14" href="#l14">14</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">health</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span></td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">    </span><span class="c1">// ------------------------------------------------------------------------</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l15" href="#l15">15</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="p">{</span></td>
+        <td class="src"><span class="w">	</span><span class="c1">//  UpdateHandler</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l16" href="#l16">16</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="n">health</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l17" href="#l17">17</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l18" href="#l18">18</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l19" href="#l19">19</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l20" href="#l20">20</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l17" href="#l17">17</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">Alive::update_for_frame</span><span class="p">()</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="nf">C</span><span class="p">(</span><span class="n">UpdateStage</span><span class="w"> </span><span class="n">s</span><span class="p">)</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l18" href="#l18">18</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">    </span><span class="p">{</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l19" href="#l19">19</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">s</span><span class="p">);</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l20" href="#l20">20</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">    </span><span class="p">}</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l21" href="#l21">21</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
+        <td class="src"></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l22" href="#l22">22</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">health</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">UpdateHandler::add</span><span class="p">(</span><span class="n">UpdateStage</span><span class="w"> </span><span class="n">stage</span><span class="p">,</span><span class="w"> </span><span class="n">EntitySystem</span><span class="o">*</span><span class="w"> </span><span class="n">system</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">prio</span><span class="p">)</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l23" href="#l23">23</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="p">{</span></td>
+        <td class="src"><span class="w">    </span><span class="p">{</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l24" href="#l24">24</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="n">health</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">systems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stages</span><span class="p">[</span><span class="n">C</span><span class="p">(</span><span class="n">stage</span><span class="p">)];</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l25" href="#l25">25</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="p">}</span></td>
+        <td class="src"></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l26" href="#l26">26</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">systems</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">system</span><span class="p">,</span><span class="w"> </span><span class="n">prio</span><span class="p">);</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l27" href="#l27">27</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">systems</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">systems</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="p">[](</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l28" href="#l28">28</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">Alive::is_pending_removal</span><span class="p">()</span><span class="w"> </span><span class="k">const</span></td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">        </span><span class="p">{</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l29" href="#l29">29</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">lhs</span><span class="p">.</span><span class="n">prio</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">prio</span><span class="p">;</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l30" href="#l30">30</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">health</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span></td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">        </span><span class="p">});</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l31" href="#l31">31</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">}</span></td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l32" href="#l32">32</a></td>
@@ -591,7 +381,7 @@
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">Alive::delete_owner</span><span class="p">()</span><span class="w"> </span><span class="k">const</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">UpdateHandler::update</span><span class="p">(</span><span class="n">UpdateStage</span><span class="w"> </span><span class="n">stage</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">dt</span><span class="p">)</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l34" href="#l34">34</a></td>
@@ -605,42 +395,42 @@
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">health</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">systems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stages</span><span class="p">[</span><span class="n">C</span><span class="p">(</span><span class="n">stage</span><span class="p">)];</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l36" href="#l36">36</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">}</span></td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">sys</span><span class="o">:</span><span class="w"> </span><span class="n">systems</span><span class="p">)</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l37" href="#l37">37</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
+        <td class="src"><span class="w">        </span><span class="p">{</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l38" href="#l38">38</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="n">sys</span><span class="p">.</span><span class="n">system</span><span class="o">-&gt;</span><span class="n">update</span><span class="p">(</span><span class="n">dt</span><span class="p">);</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l39" href="#l39">39</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// ------------------------------------------------------------------------</span></td>
+        <td class="src"><span class="w">        </span><span class="p">}</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l40" href="#l40">40</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// EntitySystemWithPrio</span></td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l41" href="#l41">41</a></td>
@@ -653,183 +443,183 @@
         <td class="text-right src linenos"><a class="normal" id="l42" href="#l42">42</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="n">EntitySystemWithPrio</span><span class="o">::</span><span class="n">EntitySystemWithPrio</span><span class="p">(</span><span class="n">EntitySystem</span><span class="o">*</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">)</span></td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">    </span><span class="c1">// ------------------------------------------------------------------------</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l43" href="#l43">43</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">system</span><span class="p">(</span><span class="n">s</span><span class="p">)</span></td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="c1">//  Entity</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l44" href="#l44">44</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="p">,</span><span class="w"> </span><span class="n">prio</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l45" href="#l45">45</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">Entity::add_component</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Component</span><span class="o">&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">)</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l46" href="#l46">46</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">    </span><span class="p">{</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l46" href="#l46">46</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
         <td class="text-right src linenos"><a class="normal" id="l47" href="#l47">47</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">components</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">c</span><span class="p">));</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l48" href="#l48">48</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">Component</span><span class="o">*</span><span class="w"> </span><span class="n">nc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">components</span><span class="p">.</span><span class="n">back</span><span class="p">().</span><span class="n">get</span><span class="p">();</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l49" href="#l49">49</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// ------------------------------------------------------------------------</span></td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">sys</span><span class="o">:</span><span class="w"> </span><span class="n">systems</span><span class="p">)</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l50" href="#l50">50</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// EntitySystemUpdateStageList</span></td>
+        <td class="src"><span class="w">        </span><span class="p">{</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l51" href="#l51">51</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="n">sys</span><span class="o">-&gt;</span><span class="n">add_component</span><span class="p">(</span><span class="n">nc</span><span class="p">);</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l52" href="#l52">52</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">EntitySystemUpdateStageList</span><span class="o">::</span><span class="n">update</span><span class="p">(</span><span class="n">UpdateStage</span><span class="w"> </span><span class="n">stage</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l53" href="#l53">53</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l54" href="#l54">54</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">es</span><span class="o">:</span><span class="w"> </span><span class="n">systems</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l55" href="#l55">55</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l56" href="#l56">56</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="n">es</span><span class="p">.</span><span class="n">system</span><span class="o">-&gt;</span><span class="n">update</span><span class="p">(</span><span class="n">stage</span><span class="p">);</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l57" href="#l57">57</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">        </span><span class="p">}</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l58" href="#l58">58</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l53" href="#l53">53</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l59" href="#l59">59</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l60" href="#l60">60</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l54" href="#l54">54</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">EntitySystemUpdateStageList</span><span class="o">::</span><span class="n">add</span><span class="p">(</span><span class="n">EntitySystem</span><span class="o">*</span><span class="w"> </span><span class="n">sys</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">prio</span><span class="p">)</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">Entity::add_system</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">EntitySystem</span><span class="o">&gt;</span><span class="w"> </span><span class="n">system</span><span class="p">)</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l61" href="#l61">61</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l55" href="#l55">55</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">    </span><span class="p">{</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l62" href="#l62">62</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l56" href="#l56">56</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">systems</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span><span class="w"> </span><span class="n">prio</span><span class="p">);</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">systems</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">system</span><span class="p">));</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l63" href="#l63">63</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l57" href="#l57">57</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">systems</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">systems</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="p">[](</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">EntitySystem</span><span class="o">*</span><span class="w"> </span><span class="n">ne</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">systems</span><span class="p">.</span><span class="n">back</span><span class="p">().</span><span class="n">get</span><span class="p">();</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l64" href="#l64">64</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l58" href="#l58">58</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ne</span><span class="o">-&gt;</span><span class="n">get_stage</span><span class="p">();</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l59" href="#l59">59</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">updates</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">stage</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">prio</span><span class="p">);</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l60" href="#l60">60</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">c</span><span class="o">:</span><span class="w"> </span><span class="n">components</span><span class="p">)</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l61" href="#l61">61</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">        </span><span class="p">{</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l65" href="#l65">65</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l62" href="#l62">62</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">lhs</span><span class="p">.</span><span class="n">prio</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">prio</span><span class="p">;</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="n">ne</span><span class="o">-&gt;</span><span class="n">add_component</span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="n">get</span><span class="p">());</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l63" href="#l63">63</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">        </span><span class="p">}</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l64" href="#l64">64</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l65" href="#l65">65</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l66" href="#l66">66</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="p">});</span></td>
+        <td class="src"><span class="w">    </span><span class="c1">// ------------------------------------------------------------------------</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l67" href="#l67">67</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="c1">//  Component</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l68" href="#l68">68</a></td>
@@ -842,43 +632,43 @@
         <td class="text-right src linenos"><a class="normal" id="l69" href="#l69">69</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">EntitySystemUpdateStageList</span><span class="o">::</span><span class="n">remove</span><span class="p">(</span><span class="n">EntitySystem</span><span class="o">*</span><span class="w"> </span><span class="n">sys</span><span class="p">)</span></td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">    </span><span class="c1">// ------------------------------------------------------------------------</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l70" href="#l70">70</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
+        <td class="src"><span class="w">	</span><span class="c1">//  SpatialComponent</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l71" href="#l71">71</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">core</span><span class="o">::</span><span class="n">update_and_erase</span><span class="p">(</span><span class="o">&amp;</span><span class="n">systems</span><span class="p">,</span></td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l72" href="#l72">72</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="p">[</span><span class="n">sys</span><span class="p">](</span><span class="k">const</span><span class="w"> </span><span class="n">EntitySystemWithPrio</span><span class="o">&amp;</span><span class="w"> </span><span class="n">es</span><span class="p">)</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">SpatialComponent::set_transform</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">m4</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l73" href="#l73">73</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">es</span><span class="p">.</span><span class="n">system</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">sys</span><span class="p">;}</span></td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">    </span><span class="p">{</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l74" href="#l74">74</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="p">);</span></td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">transform</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">;</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l75" href="#l75">75</a></td>
@@ -891,1565 +681,102 @@
         <td class="text-right src linenos"><a class="normal" id="l76" href="#l76">76</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">m4</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">SpatialComponent::get_transform</span><span class="p">()</span><span class="w"> </span><span class="k">const</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l77" href="#l77">77</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
+        <td class="src"><span class="w">    </span><span class="p">{</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l78" href="#l78">78</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// ------------------------------------------------------------------------</span></td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">transform</span><span class="p">;</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l79" href="#l79">79</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// Entity</span></td>
+        <td class="src"><span class="w">    </span><span class="p">}</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l80" href="#l80">80</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">Entity</span><span class="o">::</span><span class="n">is_spatial_entity</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">root_component</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w"> </span><span class="p">}</span></td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l81" href="#l81">81</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
+        <td class="src"><span class="w">    </span><span class="c1">// ------------------------------------------------------------------------</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l82" href="#l82">82</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">Entity</span><span class="o">::</span><span class="n">activate</span><span class="p">()</span></td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="c1">//  EntitySystem</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l83" href="#l83">83</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
+        <td class="src"></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l84" href="#l84">84</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="c1">// thread safe?:</span></td>
+        <td class="src"></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l85" href="#l85">85</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="c1">//   register each component with all local systems</span></td>
+        <td class="src"><span class="w">    </span><span class="c1">// ------------------------------------------------------------------------</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l86" href="#l86">86</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="c1">//   create per-stage local system update lists</span></td>
+        <td class="src"><span class="w">    </span><span class="c1">// EntitySystemUpdateStageList</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l87" href="#l87">87</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="c1">//   creates entity attachment (if required)</span></td>
+        <td class="src"></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l88" href="#l88">88</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="c1">// not thread safe:</span></td>
+        <td class="src"></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l89" href="#l89">89</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="c1">//   registers each component with all global systems</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l90" href="#l90">90</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l91" href="#l91">91</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l92" href="#l92">92</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">Entity</span><span class="o">::</span><span class="n">update</span><span class="p">(</span><span class="n">UpdateStage</span><span class="w"> </span><span class="n">stage</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l93" href="#l93">93</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l94" href="#l94">94</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">systems</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">stage</span><span class="p">);</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l95" href="#l95">95</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l96" href="#l96">96</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">stage</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">UpdateStage</span><span class="o">::</span><span class="n">end_frame</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l97" href="#l97">97</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l98" href="#l98">98</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="n">alive</span><span class="p">.</span><span class="n">update_for_frame</span><span class="p">();</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l99" href="#l99">99</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="n">update_and_remove_alives</span><span class="p">(</span><span class="o">&amp;</span><span class="n">components</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">dead_components</span><span class="p">);</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l100" href="#l100">100</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l101" href="#l101">101</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l102" href="#l102">102</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l103" href="#l103">103</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">Entity</span><span class="o">::</span><span class="n">deactivate</span><span class="p">()</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l104" href="#l104">104</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l105" href="#l105">105</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l106" href="#l106">106</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l107" href="#l107">107</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">Entity</span><span class="o">::</span><span class="n">load</span><span class="p">()</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l108" href="#l108">108</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l109" href="#l109">109</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l110" href="#l110">110</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l111" href="#l111">111</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">Entity</span><span class="o">::</span><span class="n">unload</span><span class="p">()</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l112" href="#l112">112</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l113" href="#l113">113</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l114" href="#l114">114</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l115" href="#l115">115</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l116" href="#l116">116</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// ------------------------------------------------------------------------</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l117" href="#l117">117</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// EntitySystemUpdate</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l118" href="#l118">118</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l119" href="#l119">119</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">EntitySystemUpdate</span><span class="o">::</span><span class="n">update</span><span class="p">(</span><span class="n">UpdateStage</span><span class="w"> </span><span class="n">stage</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l120" href="#l120">120</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l121" href="#l121">121</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">systems</span><span class="p">[</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">stage</span><span class="p">)].</span><span class="n">update</span><span class="p">(</span><span class="n">stage</span><span class="p">);</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l122" href="#l122">122</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l123" href="#l123">123</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l124" href="#l124">124</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">EntitySystemUpdate</span><span class="o">::</span><span class="n">add</span><span class="p">(</span><span class="n">EntitySystem</span><span class="o">*</span><span class="w"> </span><span class="n">sys</span><span class="p">,</span><span class="w"> </span><span class="n">UpdateStage</span><span class="w"> </span><span class="n">stage</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">prio</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l125" href="#l125">125</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l126" href="#l126">126</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">systems</span><span class="p">[</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">stage</span><span class="p">)].</span><span class="n">add</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span><span class="w"> </span><span class="n">prio</span><span class="p">);</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l127" href="#l127">127</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l128" href="#l128">128</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l129" href="#l129">129</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">EntitySystemUpdate</span><span class="o">::</span><span class="n">remove</span><span class="p">(</span><span class="n">EntitySystem</span><span class="o">*</span><span class="w"> </span><span class="n">sys</span><span class="p">,</span><span class="w"> </span><span class="n">UpdateStage</span><span class="w"> </span><span class="n">stage</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l130" href="#l130">130</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l131" href="#l131">131</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">systems</span><span class="p">[</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">stage</span><span class="p">)].</span><span class="n">remove</span><span class="p">(</span><span class="n">sys</span><span class="p">);</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l132" href="#l132">132</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l133" href="#l133">133</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l134" href="#l134">134</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l135" href="#l135">135</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// ------------------------------------------------------------------------</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l136" href="#l136">136</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// ComponentType</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l137" href="#l137">137</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l138" href="#l138">138</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// ------------------------------------------------------------------------</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l139" href="#l139">139</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// ComponentFactory</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l140" href="#l140">140</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">ComponentFactory</span><span class="o">::</span><span class="n">add</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">ComponentType</span><span class="o">*</span><span class="w"> </span><span class="n">ty</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l141" href="#l141">141</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l142" href="#l142">142</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">types</span><span class="p">.</span><span class="n">insert</span><span class="p">({</span><span class="n">ty</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">ty</span><span class="p">});</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l143" href="#l143">143</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l144" href="#l144">144</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l145" href="#l145">145</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">ComponentType</span><span class="o">*</span><span class="w"> </span><span class="n">ComponentFactory</span><span class="o">::</span><span class="n">from_name_or_null</span><span class="p">(</span><span class="n">Hsh</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="k">const</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l146" href="#l146">146</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l147" href="#l147">147</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">types</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">name</span><span class="p">);</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l148" href="#l148">148</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">found</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">types</span><span class="p">.</span><span class="n">end</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">found</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">;</span><span class="w"> </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l149" href="#l149">149</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w"> </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l150" href="#l150">150</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l151" href="#l151">151</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l152" href="#l152">152</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// ------------------------------------------------------------------------</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l153" href="#l153">153</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// SpatialComponent</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l154" href="#l154">154</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l155" href="#l155">155</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">SpatialComponent</span><span class="o">::</span><span class="n">set_local_transform</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">m4</span><span class="o">&amp;</span><span class="w"> </span><span class="n">m</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l156" href="#l156">156</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l157" href="#l157">157</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">local_transform</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">;</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l158" href="#l158">158</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">update_world_transform</span><span class="p">();</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l159" href="#l159">159</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l160" href="#l160">160</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l161" href="#l161">161</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">SpatialComponent</span><span class="o">::</span><span class="n">update_world_transform</span><span class="p">()</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l162" href="#l162">162</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l163" href="#l163">163</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="c1">// calculate world transform based on world</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l164" href="#l164">164</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="c1">// update world bounds</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l165" href="#l165">165</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l166" href="#l166">166</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="c1">// update world transforms on children</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l167" href="#l167">167</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">SpatialComponent</span><span class="o">*</span><span class="w"> </span><span class="n">child</span><span class="o">:</span><span class="w"> </span><span class="n">children</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l168" href="#l168">168</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l169" href="#l169">169</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="n">child</span><span class="o">-&gt;</span><span class="n">update_world_transform</span><span class="p">();</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l170" href="#l170">170</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l171" href="#l171">171</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l172" href="#l172">172</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l173" href="#l173">173</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l174" href="#l174">174</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// ------------------------------------------------------------------------</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l175" href="#l175">175</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// EntitySystemType</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l176" href="#l176">176</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l177" href="#l177">177</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// ------------------------------------------------------------------------</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l178" href="#l178">178</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// EntitySystemFactory</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l179" href="#l179">179</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">EntitySystemFactory</span><span class="o">::</span><span class="n">add</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">EntitySystemType</span><span class="o">*</span><span class="w"> </span><span class="n">ty</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l180" href="#l180">180</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l181" href="#l181">181</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">types</span><span class="p">.</span><span class="n">insert</span><span class="p">({</span><span class="n">ty</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">ty</span><span class="p">});</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l182" href="#l182">182</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l183" href="#l183">183</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l184" href="#l184">184</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">EntitySystemType</span><span class="o">*</span><span class="w"> </span><span class="n">EntitySystemFactory</span><span class="o">::</span><span class="n">from_name_or_null</span><span class="p">(</span><span class="n">Hsh</span><span class="w"> </span><span class="n">name</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l185" href="#l185">185</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l186" href="#l186">186</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">types</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">name</span><span class="p">);</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l187" href="#l187">187</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">found</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">types</span><span class="p">.</span><span class="n">end</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">found</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">;</span><span class="w"> </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l188" href="#l188">188</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w"> </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l189" href="#l189">189</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l190" href="#l190">190</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l191" href="#l191">191</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// ------------------------------------------------------------------------</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l192" href="#l192">192</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// WorldSystemType</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l193" href="#l193">193</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l194" href="#l194">194</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// ------------------------------------------------------------------------</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l195" href="#l195">195</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// WorldSystemFactory</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l196" href="#l196">196</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">WorldSystemFactory</span><span class="o">::</span><span class="n">add</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">WorldSystemType</span><span class="o">*</span><span class="w"> </span><span class="n">ty</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l197" href="#l197">197</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l198" href="#l198">198</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">types</span><span class="p">.</span><span class="n">insert</span><span class="p">({</span><span class="n">ty</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">ty</span><span class="p">});</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l199" href="#l199">199</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l200" href="#l200">200</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l201" href="#l201">201</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">WorldSystemType</span><span class="o">*</span><span class="w"> </span><span class="n">WorldSystemFactory</span><span class="o">::</span><span class="n">from_name_or_null</span><span class="p">(</span><span class="n">Hsh</span><span class="w"> </span><span class="n">name</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l202" href="#l202">202</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l203" href="#l203">203</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">types</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">name</span><span class="p">);</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l204" href="#l204">204</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">found</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">types</span><span class="p">.</span><span class="n">end</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">found</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">;</span><span class="w"> </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l205" href="#l205">205</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w"> </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l206" href="#l206">206</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l207" href="#l207">207</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l208" href="#l208">208</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// ------------------------------------------------------------------------</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l209" href="#l209">209</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// Component</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l210" href="#l210">210</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l211" href="#l211">211</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// ------------------------------------------------------------------------</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l212" href="#l212">212</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// SpatialComponent</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l213" href="#l213">213</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l214" href="#l214">214</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">attach</span><span class="p">(</span><span class="n">World</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">Entity</span><span class="o">*</span><span class="w"> </span><span class="n">parent</span><span class="p">,</span><span class="w"> </span><span class="n">Entity</span><span class="o">*</span><span class="w"> </span><span class="n">child</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l215" href="#l215">215</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l216" href="#l216">216</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">assert</span><span class="p">(</span><span class="n">parent</span><span class="o">-&gt;</span><span class="n">is_spatial_entity</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">child</span><span class="o">-&gt;</span><span class="n">is_spatial_entity</span><span class="p">());</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l217" href="#l217">217</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="c1">// todo(Gustav): implement attachments</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l218" href="#l218">218</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l219" href="#l219">219</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l220" href="#l220">220</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// ------------------------------------------------------------------------</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l221" href="#l221">221</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// RequestedComponents</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l222" href="#l222">222</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l223" href="#l223">223</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// ------------------------------------------------------------------------</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l224" href="#l224">224</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// EntitySystem</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l225" href="#l225">225</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l226" href="#l226">226</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// ------------------------------------------------------------------------</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l227" href="#l227">227</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// WorldSystem</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l228" href="#l228">228</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l229" href="#l229">229</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// ------------------------------------------------------------------------</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l230" href="#l230">230</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// WorldSystemWithPrio</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l231" href="#l231">231</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="n">WorldSystemWithPrio</span><span class="o">::</span><span class="n">WorldSystemWithPrio</span><span class="p">(</span><span class="n">WorldSystem</span><span class="o">*</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l232" href="#l232">232</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">system</span><span class="p">(</span><span class="n">s</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l233" href="#l233">233</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="p">,</span><span class="w"> </span><span class="n">prio</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l234" href="#l234">234</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l235" href="#l235">235</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l236" href="#l236">236</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l237" href="#l237">237</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// ------------------------------------------------------------------------</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l238" href="#l238">238</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// WorldSystemUpdateStageList</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l239" href="#l239">239</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">WorldSystemUpdateStageList</span><span class="o">::</span><span class="n">update</span><span class="p">(</span><span class="n">UpdateStage</span><span class="w"> </span><span class="n">stage</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l240" href="#l240">240</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l241" href="#l241">241</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">es</span><span class="o">:</span><span class="w"> </span><span class="n">systems</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l242" href="#l242">242</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l243" href="#l243">243</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="n">es</span><span class="p">.</span><span class="n">system</span><span class="o">-&gt;</span><span class="n">update</span><span class="p">(</span><span class="n">stage</span><span class="p">);</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l244" href="#l244">244</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l245" href="#l245">245</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l246" href="#l246">246</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l247" href="#l247">247</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">WorldSystemUpdateStageList</span><span class="o">::</span><span class="n">add</span><span class="p">(</span><span class="n">WorldSystem</span><span class="o">*</span><span class="w"> </span><span class="n">sys</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">prio</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l248" href="#l248">248</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l249" href="#l249">249</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">systems</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span><span class="w"> </span><span class="n">prio</span><span class="p">);</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l250" href="#l250">250</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">systems</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">systems</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="p">[](</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l251" href="#l251">251</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l252" href="#l252">252</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">lhs</span><span class="p">.</span><span class="n">prio</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">prio</span><span class="p">;</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l253" href="#l253">253</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="p">});</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l254" href="#l254">254</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l255" href="#l255">255</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l256" href="#l256">256</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">WorldSystemUpdateStageList</span><span class="o">::</span><span class="n">remove</span><span class="p">(</span><span class="n">WorldSystem</span><span class="o">*</span><span class="w"> </span><span class="n">sys</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l257" href="#l257">257</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l258" href="#l258">258</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">erase_if</span><span class="p">(</span><span class="n">systems</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">sys</span><span class="p">](</span><span class="k">const</span><span class="w"> </span><span class="n">WorldSystemWithPrio</span><span class="o">&amp;</span><span class="w"> </span><span class="n">es</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">es</span><span class="p">.</span><span class="n">system</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">sys</span><span class="p">;});</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l259" href="#l259">259</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l260" href="#l260">260</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l261" href="#l261">261</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// ------------------------------------------------------------------------</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l262" href="#l262">262</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// WorldSystemUpdate</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l263" href="#l263">263</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l264" href="#l264">264</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">WorldSystemUpdate</span><span class="o">::</span><span class="n">update</span><span class="p">(</span><span class="n">UpdateStage</span><span class="w"> </span><span class="n">stage</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l265" href="#l265">265</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l266" href="#l266">266</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">systems</span><span class="p">[</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">stage</span><span class="p">)].</span><span class="n">update</span><span class="p">(</span><span class="n">stage</span><span class="p">);</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l267" href="#l267">267</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l268" href="#l268">268</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l269" href="#l269">269</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">WorldSystemUpdate</span><span class="o">::</span><span class="n">add</span><span class="p">(</span><span class="n">WorldSystem</span><span class="o">*</span><span class="w"> </span><span class="n">system</span><span class="p">,</span><span class="w"> </span><span class="n">UpdateStage</span><span class="w"> </span><span class="n">stage</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">prio</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l270" href="#l270">270</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l271" href="#l271">271</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">systems</span><span class="p">[</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">stage</span><span class="p">)].</span><span class="n">add</span><span class="p">(</span><span class="n">system</span><span class="p">,</span><span class="w"> </span><span class="n">prio</span><span class="p">);</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l272" href="#l272">272</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l273" href="#l273">273</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l274" href="#l274">274</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">WorldSystemUpdate</span><span class="o">::</span><span class="n">remove</span><span class="p">(</span><span class="n">WorldSystem</span><span class="o">*</span><span class="w"> </span><span class="n">system</span><span class="p">,</span><span class="w"> </span><span class="n">UpdateStage</span><span class="w"> </span><span class="n">stage</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l275" href="#l275">275</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l276" href="#l276">276</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">systems</span><span class="p">[</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">stage</span><span class="p">)].</span><span class="n">remove</span><span class="p">(</span><span class="n">system</span><span class="p">);</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l277" href="#l277">277</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l278" href="#l278">278</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l279" href="#l279">279</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// ------------------------------------------------------------------------</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l280" href="#l280">280</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="c1">// World</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l281" href="#l281">281</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l282" href="#l282">282</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">World</span><span class="o">::</span><span class="n">update</span><span class="p">(</span><span class="n">UpdateStage</span><span class="w"> </span><span class="n">stage</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l283" href="#l283">283</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l284" href="#l284">284</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="c1">// todo(Gustav): implement threading for entity</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l285" href="#l285">285</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="c1">// todo(Gustav): take care of updating parent before child</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l286" href="#l286">286</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="c1">// parallelized, spatial parent is updated before child (worker threads: number of cores - 1)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l287" href="#l287">287</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="c1">// place attached entities on the same thread as parent, schedule parent to update before the child</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l288" href="#l288">288</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ent</span><span class="o">:</span><span class="w"> </span><span class="n">entities</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l289" href="#l289">289</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l290" href="#l290">290</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="n">ent</span><span class="o">-&gt;</span><span class="n">update</span><span class="p">(</span><span class="n">stage</span><span class="p">);</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l291" href="#l291">291</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l292" href="#l292">292</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l293" href="#l293">293</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="c1">// todo(Gustav): implement threading for world</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l294" href="#l294">294</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="c1">// sequential, can use worker threads if needed</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l295" href="#l295">295</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">system_update</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">stage</span><span class="p">);</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l296" href="#l296">296</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l297" href="#l297">297</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l298" href="#l298">298</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="p">}</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l299" href="#l299">299</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l90" href="#l90">90</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
@@ -2462,7 +789,7 @@
         <hr class="block-separator"/>
         <footer class="text-center">
           Created using <a href="http://gcovr.com/en/8.6">GCOVR (Version 8.6)</a>
-          at 2026-06-02 14:59:08
+          at 2026-06-05 20:22:38
         </footer>
       </div>
     </div>
