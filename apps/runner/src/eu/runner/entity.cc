@@ -85,5 +85,20 @@ namespace eu::runner
     // ------------------------------------------------------------------------
     // EntitySystemUpdateStageList
 
+    // ---------------------------------------------------
+    // World
 
+    Entity* World::add_entity()
+    {
+        entities.emplace_back(std::make_unique<Entity>());
+        return entities.back().get();
+    }
+
+    void World::update(UpdateStage stage, float dt)
+    {
+        for (auto& ent: entities)
+        {
+            ent->updates.update(stage, dt);
+        }
+    }
 }

@@ -95,6 +95,14 @@ namespace eu::runner
         virtual void update(float dt) = 0;
     };
 
+    struct World
+    {
+        std::vector<std::unique_ptr<Entity>> entities;
+        Entity* add_entity();
+
+        void update(UpdateStage stage, float dt);
+    };
+
 }
 
 
