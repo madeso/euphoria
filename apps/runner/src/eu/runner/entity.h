@@ -1,4 +1,5 @@
 #pragma once
+#include <algorithm>
 
 namespace eu::runner
 {
@@ -6,6 +7,7 @@ namespace eu::runner
     struct Component;
     struct SpatialComponent;
     struct EntitySystem;
+    struct World;
 
     enum class UpdateStage
     {
@@ -23,26 +25,53 @@ namespace eu::runner
         int prio;
     };
 
-    struct EntitySystemWithPrio
+    template<typename TSystem>
+    struct SystemWithPrio
     {
-        EntitySystem* system;
+        TSystem* system;
         int prio;
     };
 
+    constexpr std::size_t C(UpdateStage s)
+    {
+        return static_cast<std::size_t>(s);
+    }
+
+    template<typename TSystem>
     struct UpdateHandler
     {
-        std::array<std::vector<EntitySystemWithPrio>, update_stage_count> stages;
+        std::array<std::vector<SystemWithPrio<TSystem>>, update_stage_count> stages;
 
-        void add(UpdateStage stage, EntitySystem* system, int prio);
-        void update(UpdateStage stage, float dt);
+        void add(TSystem* system)
+        {
+            const UpdateStageAndPrio s = system->get_stage();
+
+            auto& systems = stages[C(s.stage)];
+
+            systems.emplace_back(system, s.prio);
+            std::sort(systems.begin(), systems.end(), [](const auto& lhs, const auto& rhs)
+                {
+                    return lhs.prio < rhs.prio;
+                });
+        }
+
+        void update(UpdateStage stage, float dt)
+        {
+            auto& systems = stages[C(stage)];
+            for (auto& sys : systems)
+            {
+                sys.system->update(dt);
+            }
+        }
     };
 
     struct Entity
     {
+        World* world = nullptr;
         std::vector<std::unique_ptr<Component>> components;
         std::vector<std::unique_ptr<EntitySystem>> systems;
-        UpdateHandler updates;
-        SpatialComponent* root;
+        UpdateHandler<EntitySystem> updates;
+        SpatialComponent* root = nullptr;
 
         void add_component(std::unique_ptr<Component> c);
         void add_system(std::unique_ptr<EntitySystem> system);
@@ -59,11 +88,6 @@ namespace eu::runner
         void operator=(Component&&) = delete;
 
         virtual Hsh get_type() = 0;
-
-        virtual void load() = 0;
-        virtual void unload() = 0;
-        virtual void was_added_to_world() = 0;
-        virtual void was_removed_from_world() = 0;
     };
 
     struct SpatialComponent : Component
@@ -83,14 +107,30 @@ namespace eu::runner
         virtual ~EntitySystem() = default;
 
         EntitySystem(const EntitySystem& rhs) = delete;
-        EntitySystem(Component&&) = delete;
+        explicit EntitySystem(Component&&) = delete;
         void operator=(const EntitySystem& rhs) = delete;
         void operator=(EntitySystem&&) = delete;
 
         virtual UpdateStageAndPrio get_stage() = 0;
 
         virtual void* add_component(Component* component) = 0;
-        virtual void* remove_component(Component* component);
+
+        virtual void update(float dt) = 0;
+    };
+
+    struct WorldSystem
+    {
+        WorldSystem() = default;
+        virtual ~WorldSystem() = default;
+
+        WorldSystem(const WorldSystem& rhs) = delete;
+        explicit WorldSystem(Component&&) = delete;
+        void operator=(const WorldSystem& rhs) = delete;
+        void operator=(WorldSystem&&) = delete;
+
+        virtual UpdateStageAndPrio get_stage() = 0;
+
+        virtual void* add_component(Entity* entity, Component* component) = 0;
 
         virtual void update(float dt) = 0;
     };
@@ -98,7 +138,13 @@ namespace eu::runner
     struct World
     {
         std::vector<std::unique_ptr<Entity>> entities;
+        std::vector<std::unique_ptr<WorldSystem>> systems;
+        UpdateHandler<WorldSystem> updates;
+
         Entity* add_entity();
+        
+        void add_system(std::unique_ptr<WorldSystem> sys);
+        void on_add_component(Entity* entity, Component* component);
 
         void update(UpdateStage stage, float dt);
     };

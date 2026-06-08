@@ -9,36 +9,11 @@ namespace eu::runner
 	//  UpdateStageAndPrio
 
     // ------------------------------------------------------------------------
-	//  EntitySystemWithPrio
+	//  SystemWithPrio
 
     // ------------------------------------------------------------------------
 	//  UpdateHandler
-
-    constexpr std::size_t C(UpdateStage s)
-    {
-        return static_cast<std::size_t>(s);
-    }
-
-    void UpdateHandler::add(UpdateStage stage, EntitySystem* system, int prio)
-    {
-        auto& systems = stages[C(stage)];
-
-        systems.emplace_back(system, prio);
-        std::sort(systems.begin(), systems.end(), [](const auto& lhs, const auto& rhs)
-        {
-            return lhs.prio < rhs.prio;
-        });
-    }
-
-    void UpdateHandler::update(UpdateStage stage, float dt)
-    {
-        auto& systems = stages[C(stage)];
-        for (auto& sys: systems)
-        {
-            sys.system->update(dt);
-        }
-    }
-
+    
     // ------------------------------------------------------------------------
 	//  Entity
 
@@ -55,8 +30,7 @@ namespace eu::runner
     {
         systems.emplace_back(std::move(system));
         EntitySystem* ne = systems.back().get();
-        const auto s = ne->get_stage();
-        updates.add(s.stage, ne, s.prio);
+        updates.add(ne);
         for (auto& c: components)
         {
             ne->add_component(c.get());
@@ -92,6 +66,28 @@ namespace eu::runner
     {
         entities.emplace_back(std::make_unique<Entity>());
         return entities.back().get();
+    }
+
+    void World::on_add_component(Entity* entity, Component* component)
+    {
+        for (auto& sys: systems)
+        {
+            sys->add_component(entity, component);
+        }
+    }
+
+    void World::add_system(std::unique_ptr<WorldSystem> system)
+    {
+        systems.emplace_back(std::move(system));
+        WorldSystem* sys = systems.back().get();
+
+        updates.add(sys);
+        for (auto& ent: entities)
+        {
+            for (auto& comp: ent->components) {
+                sys->add_component(ent.get(), comp.get());
+            }
+        }
     }
 
     void World::update(UpdateStage stage, float dt)
