@@ -113,7 +113,7 @@ namespace eu::runner
 
         virtual UpdateStageAndPrio get_stage() = 0;
 
-        virtual void* add_component(Component* component) = 0;
+        virtual void add_component(Component* component) = 0;
 
         virtual void update(float dt) = 0;
     };

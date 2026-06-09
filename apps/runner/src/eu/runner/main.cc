@@ -1,3 +1,5 @@
+#include <utility>
+
 #include "SDL.h"
 
 // #include <string>
@@ -25,6 +27,7 @@
 
 #include "eu/runner/script.h"
 #include "eu/runner/input.h"
+#include "eu/runner/entity.h"
 
 #include "eu/kdl/kdl.h"
 
@@ -46,6 +49,7 @@ static void imgui_color(const char* const label, eu::Rgb* color)
 ENABLE_HIGH_PERFORMANCE_GRAPHICS
 
 using namespace eu;
+using namespace std::string_view_literals;
 
 // todo(Gustav): move to io
 eu::render::ShaderSource load_shader(const std::string& name)
@@ -159,7 +163,73 @@ struct Time
         const auto pfc = static_cast<float>(SDL_GetPerformanceFrequency());
         return diff / pfc;
     }
+};
 
+
+struct MeshComponent : runner::Component
+{
+    render::MeshInWorld car;
+
+    eu::v3 position = { 0.0f, -1.8f, -10.0f };
+    eu::Ypr rotation = { .yaw = 30.0_deg, .pitch = 30.0_deg, .roll = 30.0_deg };
+
+    MeshComponent(render::CompiledMesh* mesh, render::World* render_world, std::shared_ptr<render::Material> material)
+    {
+        car.add_to_world(mesh, render_world, std::move(material));
+        car.set_transform(eu::render::transform_from_rotation(position, rotation));
+    }
+
+    static constexpr Hsh Type = "mesh_component"sv;
+
+    Hsh get_type() override
+    {
+        return Type;
+    }
+
+    void update_state()
+    {
+        car.set_transform(eu::render::transform_from_rotation(position, rotation));
+    }
+};
+
+struct InputSystem : runner::EntitySystem
+{
+    runner::Input* input;
+    MeshComponent* mesh = nullptr;
+
+    explicit InputSystem(runner::Input* in) : input(in)
+    {
+    }
+
+    runner::UpdateStageAndPrio get_stage() override
+    {
+        return
+        {
+        .stage = runner::UpdateStage::before_physics,
+        .prio = 100
+        };
+    }
+
+    void add_component(runner::Component* component) override
+    {
+        if (component && component->get_type() == MeshComponent::Type)
+        {
+            mesh = static_cast<MeshComponent*>(component);
+        }
+    }
+
+    void update(float dt) override
+    {
+        if (mesh && input && input->get_current_frame().binds[0].current > 0.5f)
+        {
+            mesh->position += kk::in * dt;
+        }
+
+        if (mesh)
+        {
+            mesh->update_state();
+        }
+    }
 };
 
 
@@ -298,7 +368,7 @@ int main(int, char**)
         return -1;
     }
 
-    eu::render::World world;
+    eu::render::World render_world;
     eu::render::EffectStack effects;
 
 #if FF_HAS(EU_DEBUG_RUNNER)
@@ -319,31 +389,64 @@ int main(int, char**)
         material->specular = assets.white;
 
         auto plane = make_mesh_instance(plane_geom, material);
-        world.meshes.emplace_back(plane);
+        render_world.meshes.emplace_back(plane);
         plane->transform = eu::m4::from_translation({ 0.0f, -3.0f, 0.0f });
 
-        world.lights.point_lights.emplace_back();
+        render_world.lights.point_lights.emplace_back();
     }
 
     // add demo mesh
-    render::CompiledMesh carmesh;
-    render::MeshInWorld car;
-    eu::v3 position = { 0.0f, -1.8f, -10.0f };
-    eu::Ypr rotation = { .yaw = 30.0_deg, .pitch = 30.0_deg, .roll = 30.0_deg };
+    eu::runner::World runner_world;
+    std::unordered_map<std::string, std::unique_ptr<render::CompiledMesh>> meshes;
+    std::unordered_map<std::string, std::shared_ptr<eu::render::Texture2d>> textures;
+
+    const auto load_mesh = [&](const std::string& f) -> render::CompiledMesh*
+        {
+            const auto found = meshes.find(f);
+            if (found != meshes.end())
+            {
+                return found->second.get();
+            }
+            const auto mesh = eu::io::mesh_from_file(f);
+            const auto compiled = eu::render::compile_mesh(USE_DEBUG_LABEL_MANY(f) mesh, renderer.default_geom_layout());
+            auto data = std::make_unique<render::CompiledMesh>(compiled);
+            auto* ret = data.get();
+            meshes.insert_or_assign(f, std::move(data));
+            return ret;
+        };
+
+    const auto load_color_texture = [&](const std::string& f) -> std::shared_ptr<render::Texture2d>
+        {
+            const auto found = textures.find(f);
+            if (found != textures.end())
+            {
+                return found->second;
+            }
+            const auto loaded = load_texture(f, eu::render::ColorData::color_data);
+            textures.insert_or_assign(f, loaded);
+            return loaded;
+        };
+
     {
-        const auto mesh = eu::io::mesh_from_file("debug/axis.glb");
-        // const auto mesh = eu::io::mesh_from_file("models/vehicle-truck-purple.glb");
-        carmesh = eu::render::compile_mesh(USE_DEBUG_LABEL_MANY("truck") mesh, renderer.default_geom_layout());
+        auto* car = runner_world.add_entity();
 
+        // mesh component
+        // debug/axis.glb"
+        // "models/vehicle-truck-purple.glb"
+        // "models/textures/colormap.png"
+        // render::CompiledMesh* mesh, render::World* render_world, std::shared_ptr<render::Material> material
+        auto* mesh = load_mesh("models/vehicle-truck-purple.glb");
         auto material = renderer.make_default_material();
-        material->diffuse = load_texture("models/textures/colormap.png", eu::render::ColorData::color_data);
+        material->diffuse = load_color_texture("models/textures/colormap.png");
         material->specular = assets.white;
+        auto comp = std::make_unique<MeshComponent>(mesh, &render_world, material);
+        car->add_component(std::move(comp));
 
-        car.add_to_world(&carmesh, &world, material);
-        car.set_transform(eu::render::transform_from_rotation(position, rotation));
+        // input component
+        car->add_system(std::make_unique<InputSystem>(&input));
 
         Level level;
-        level.load("level.kdl", &world, material, renderer.default_geom_layout());
+        level.load("level.kdl", &render_world, material, renderer.default_geom_layout());
     }
 
     LOG_INFO("Runner started");
@@ -353,8 +456,10 @@ int main(int, char**)
     while (running)
     {
         const auto dt = time.calculate();
+        
+        runner_world.update(runner::UpdateStage::start_frame, dt);
+        
         SDL_Event e;
-
         input.update();
         while (SDL_PollEvent(&e) != 0)
         {
@@ -382,10 +487,10 @@ int main(int, char**)
             }
         }
 
-        if (input.get_current_frame().binds[0].current > 0.5f)
-        {
-            position += kk::in * dt;
-        }
+        // todo(Gustav): lookup unity frame, when updates are called and update stages
+        runner_world.update(runner::UpdateStage::before_physics, dt);
+        runner_world.update(runner::UpdateStage::physics, dt);
+        runner_world.update(runner::UpdateStage::after_physics, dt);
 
 #if FF_HAS(EU_DEBUG_RUNNER)
         ImGui_ImplOpenGL3_NewFrame();
@@ -399,7 +504,7 @@ int main(int, char**)
 
         if (ImGui::Begin("Renderer"))
         {
-            imgui_color("Clear color", &world.clear_color);
+            imgui_color("Clear color", &render_world.clear_color);
             eu::imgui::simple_gamma_slider("Gamma/Brightness", &renderer.settings.gamma, -1.0f);
             ImGui::Checkbox("Use bloom", &renderer.settings.use_bloom);
             ImGui::DragFloat("Bloom cutoff", &renderer.settings.bloom_cutoff, 0.001f);
@@ -409,15 +514,14 @@ int main(int, char**)
         }
         ImGui::End();
 
-        if (ImGui::Begin("Demo"))
-        {
-            imgui::drag("Position", &position);
-            imgui::drag("Rotation", &rotation);
-        }
-        ImGui::End();
+        // todo(Gustav): add introspection ui
+        // if (ImGui::Begin("Demo"))
+        // {
+        //     imgui::drag("Position", &position);
+        //     imgui::drag("Rotation", &rotation);
+        // }
+        // ImGui::End();
 #endif
-
-        car.set_transform(eu::render::transform_from_rotation(position, rotation));
 
         eu::render::RenderCommand cmd{ .states = &states, .render = &render, .size = {.width = window_width, .height = window_height} };
 
@@ -436,10 +540,11 @@ int main(int, char**)
                                     .requested_width = 800, .requested_height = 600 };
             cmd.clear(eu::colors::blue_sky, screen);
             auto layer = eu::render::with_layer3(cmd, screen);
-            camera.position = position + kk::out * 3;
+            // todo(Gustav): add camera entity
+            // camera.position = position + kk::out * 3;
             effects.update(dt);
             effects.render(eu::render::PostProcArg{
-                .world = &world,
+                .world = &render_world,
                 .window_size = size_from_v2(layer.screen.get_size()),
                 .final_rect = layer.screen,
                 .camera = &camera,
@@ -462,6 +567,8 @@ int main(int, char**)
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 #endif
         SDL_GL_SwapWindow(window);
+
+        runner_world.update(runner::UpdateStage::end_frame, dt);
     }
 
 #if FF_HAS(EU_DEBUG_RUNNER)
