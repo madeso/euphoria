@@ -14,6 +14,7 @@ set(app_src
     src/eu/base/vec3.cc src/eu/base/vec3.h
     src/eu/base/vec4.cc src/eu/base/vec4.h
     src/eu/base/hash.string.cc src/eu/base/hash.string.h
+    src/eu/base/hash.set.cc src/eu/base/hash.set.h
     src/eu/base/guid.cc src/eu/base/guid.h
     src/eu/base/rect.cc src/eu/base/rect.h
     src/eu/base/size.cc src/eu/base/size.h

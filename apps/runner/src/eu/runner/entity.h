@@ -1,5 +1,6 @@
 #pragma once
 #include <algorithm>
+#include <set>
 
 namespace eu::runner
 {
@@ -87,14 +88,38 @@ namespace eu::runner
         void operator=(const Component& rhs) = delete;
         void operator=(Component&&) = delete;
 
-        virtual Hsh get_type() = 0;
+        static const HshSt& type();
+        virtual const HshSt& get_type();
     };
+#define EU_DEC_COMPONENT_TYPE() static const HshSt& type(); const HshSt& get_type() override
+#define EU_IMP_COMPONENT_TYPE(COMP, PAREN) \
+    const eu::HshSt& COMP::type() { const static auto s = PAREN::type().combine(Hsh{#COMP}); return s; }\
+    const eu::HshSt& COMP::get_type() { return type(); }
+
+    template<typename T>
+    concept ComponentLike = std::is_base_of_v<Component, T> && requires
+    {
+        { T::type() } -> std::same_as<const HshSt&>;
+    };
+
+    template<ComponentLike TComp> TComp* component_cast(Component* c)
+    {
+        if (c && c->get_type().is(TComp::type()))
+        {
+            return static_cast<TComp*>(c);
+        }
+        else
+        {
+            return nullptr;
+        }
+    }
 
     struct SpatialComponent : Component
     {
         void set_transform(const m4& t);
         const m4& get_transform() const;
 
+        EU_DEC_COMPONENT_TYPE();
     private:
         m4 transform = m4_identity;
         // todo(gustav): add hierarchy

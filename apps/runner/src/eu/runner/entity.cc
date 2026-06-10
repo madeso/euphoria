@@ -39,9 +39,21 @@ namespace eu::runner
 
     // ------------------------------------------------------------------------
 	//  Component
+    const HshSt& Component::type()
+    {
+        static const auto r = HshSt{ .data = {}, .primary = "<Component>"sv};
+        return r;
+    }
+
+    const HshSt& Component::get_type()
+    {
+        return type();
+    }
 
     // ------------------------------------------------------------------------
 	//  SpatialComponent
+
+    EU_IMP_COMPONENT_TYPE(SpatialComponent, Component)
 
     void SpatialComponent::set_transform(const m4& t)
     {

@@ -21,3 +21,4 @@
 #include "eu/base/vec3.h"
 #include "eu/base/vec4.h"
 #include "eu/base/cpp.h"
+#include "eu/base/hash.set.h"

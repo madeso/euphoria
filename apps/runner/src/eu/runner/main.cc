@@ -179,18 +179,15 @@ struct MeshComponent : runner::Component
         car.set_transform(eu::render::transform_from_rotation(position, rotation));
     }
 
-    static constexpr Hsh Type = "mesh_component"sv;
-
-    Hsh get_type() override
-    {
-        return Type;
-    }
+    EU_DEC_COMPONENT_TYPE();
 
     void update_state()
     {
         car.set_transform(eu::render::transform_from_rotation(position, rotation));
     }
 };
+
+EU_IMP_COMPONENT_TYPE(MeshComponent, runner::Component)
 
 struct InputSystem : runner::EntitySystem
 {
@@ -212,9 +209,11 @@ struct InputSystem : runner::EntitySystem
 
     void add_component(runner::Component* component) override
     {
-        if (component && component->get_type() == MeshComponent::Type)
+        if (MeshComponent* mc = runner::component_cast<MeshComponent>(component); mc)
+        // if (component && component->get_type().is(MeshComponent::type()))
         {
-            mesh = static_cast<MeshComponent*>(component);
+            // mesh = static_cast<MeshComponent*>(component);
+            mesh = mc;
         }
     }
 
