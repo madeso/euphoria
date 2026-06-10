@@ -7,6 +7,7 @@
     <includes local="no">string</includes>
     <includes local="no">unordered_map</includes>
     <includedby refid="base_8h" local="yes">libs/base/src/eu/base/base.h</includedby>
+    <includedby refid="hash_8set_8h" local="yes">libs/base/src/eu/base/hash.set.h</includedby>
     <incdepgraph>
       <node id="1">
         <label>libs/base/src/eu/base/hash.string.h</label>
@@ -46,10 +47,18 @@
         <childnode refid="3" relation="include">
         </childnode>
       </node>
+      <node id="9">
+        <label>libs/base/src/eu/base/hash.set.h</label>
+        <link refid="hash_8set_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
       <node id="1">
         <label>libs/base/src/eu/base/hash.string.h</label>
         <link refid="hash_8string_8h"/>
         <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
         </childnode>
       </node>
       <node id="3">

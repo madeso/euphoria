@@ -10,6 +10,7 @@
     <innerfile refid="cpp_8h">cpp.h</innerfile>
     <innerfile refid="feature__flags_8h">feature_flags.h</innerfile>
     <innerfile refid="guid_8h">guid.h</innerfile>
+    <innerfile refid="hash_8set_8h">hash.set.h</innerfile>
     <innerfile refid="hash_8string_8h">hash.string.h</innerfile>
     <innerfile refid="ints_8h">ints.h</innerfile>
     <innerfile refid="mat4_8h">mat4.h</innerfile>

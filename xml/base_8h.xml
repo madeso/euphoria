@@ -23,6 +23,7 @@
     <includes refid="vec3_8h" local="yes">eu/base/vec3.h</includes>
     <includes refid="vec4_8h" local="yes">eu/base/vec4.h</includes>
     <includes refid="cpp_8h" local="yes">eu/base/cpp.h</includes>
+    <includes refid="hash_8set_8h" local="yes">eu/base/hash.set.h</includes>
     <includedby refid="base_2src_2eu_2base_2pch_8public_8h" local="yes">libs/base/src/eu/base/pch.public.h</includedby>
     <incdepgraph>
       <node id="10">
@@ -96,6 +97,8 @@
         </childnode>
         <childnode refid="41" relation="include">
         </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
       </node>
       <node id="14">
         <label>eu/base/cint.h</label>
@@ -129,6 +132,14 @@
         <childnode refid="4" relation="include">
         </childnode>
         <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>eu/base/hash.set.h</label>
+        <link refid="hash_8set_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
         </childnode>
       </node>
       <node id="20">
@@ -318,6 +329,9 @@
       </node>
       <node id="32">
         <label>ostream</label>
+      </node>
+      <node id="43">
+        <label>set</label>
       </node>
       <node id="33">
         <label>sstream</label>

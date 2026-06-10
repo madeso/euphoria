@@ -8,6 +8,7 @@
     <innerclass refid="structeu_1_1Guid" prot="public">eu::Guid</innerclass>
     <innerclass refid="structeu_1_1Hsh" prot="public">eu::Hsh</innerclass>
     <innerclass refid="structeu_1_1HshO" prot="public">eu::HshO</innerclass>
+    <innerclass refid="structeu_1_1HshSt" prot="public">eu::HshSt</innerclass>
     <innerclass refid="structeu_1_1Hsl" prot="public">eu::Hsl</innerclass>
     <innerclass refid="structeu_1_1Lin__rgb" prot="public">eu::Lin_rgb</innerclass>
     <innerclass refid="structeu_1_1Lrtb" prot="public">eu::Lrtb</innerclass>

@@ -503,6 +503,13 @@
     <member refid="structeu_1_1HshO_1abc710ee7c6b775cb779572038188fe2a" kind="function"><name>HshO</name></member>
     <member refid="structeu_1_1HshO_1a80972476266aa1a936728c0eae2784b1" kind="function"><name>HshO</name></member>
   </compound>
+  <compound refid="structeu_1_1HshSt" kind="struct"><name>eu::HshSt</name>
+    <member refid="structeu_1_1HshSt_1a791a8667f3daa643da23af6af5763fb3" kind="variable"><name>data</name></member>
+    <member refid="structeu_1_1HshSt_1a1495d6b57c53b2a81c0a978cf5247213" kind="variable"><name>primary</name></member>
+    <member refid="structeu_1_1HshSt_1aba3fa8c83b9f71ae67f3f784829553a9" kind="function"><name>combine</name></member>
+    <member refid="structeu_1_1HshSt_1a7610bbb384f0ee7eaa2f5f5fd4de6040" kind="function"><name>contains</name></member>
+    <member refid="structeu_1_1HshSt_1adc7d730067e99f29fa27a4f970002d63" kind="function"><name>is</name></member>
+  </compound>
   <compound refid="structeu_1_1Hsl" kind="struct"><name>eu::Hsl</name>
     <member refid="structeu_1_1Hsl_1a59cbd70ce1780e883edf830c63ae8459" kind="variable"><name>hue</name></member>
     <member refid="structeu_1_1Hsl_1ac54998ecee51afe36db2917b6226296f" kind="variable"><name>saturation</name></member>
@@ -2021,6 +2028,8 @@
     <member refid="feature__flags_8h_1a3aff7fe2c32285f262b9184ac9fcf6e2" kind="define"><name>FF_HAS</name></member>
   </compound>
   <compound refid="guid_8h" kind="file"><name>guid.h</name>
+  </compound>
+  <compound refid="hash_8set_8h" kind="file"><name>hash.set.h</name>
   </compound>
   <compound refid="hash_8string_8h" kind="file"><name>hash.string.h</name>
     <member refid="hash_8string_8h_1a61b49dfb5004bf7c525e7f0ab68818c2" kind="define"><name>USE_HASH_TEXT</name></member>
