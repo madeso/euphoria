@@ -37,6 +37,16 @@ namespace eu::runner
         }
     }
 
+    void Entity::add_tag(const Hsh& h)
+    {
+        tags.add(h);
+    }
+
+    bool Entity::has_tag(const Hsh& h) const
+    {
+        return tags.contains(h);
+    }
+
     // ------------------------------------------------------------------------
 	//  Component
     const HshSt& Component::type()

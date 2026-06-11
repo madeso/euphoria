@@ -166,25 +166,26 @@ struct Time
 };
 
 
-struct MeshComponent : runner::Component
+struct MeshComponent : runner::SpatialComponent
 {
     render::MeshInWorld car;
 
     eu::v3 position = { 0.0f, -1.8f, -10.0f };
     eu::Ypr rotation = { .yaw = 30.0_deg, .pitch = 30.0_deg, .roll = 30.0_deg };
 
+    void update_transform()
+    {
+        set_transform(eu::render::transform_from_rotation(position, rotation));
+        car.set_transform(get_transform());
+    }
+
     MeshComponent(render::CompiledMesh* mesh, render::World* render_world, std::shared_ptr<render::Material> material)
     {
         car.add_to_world(mesh, render_world, std::move(material));
-        car.set_transform(eu::render::transform_from_rotation(position, rotation));
+        update_transform();
     }
 
     EU_DEC_COMPONENT_TYPE();
-
-    void update_state()
-    {
-        car.set_transform(eu::render::transform_from_rotation(position, rotation));
-    }
 };
 
 EU_IMP_COMPONENT_TYPE(MeshComponent, runner::Component)
@@ -210,9 +211,7 @@ struct InputSystem : runner::EntitySystem
     void add_component(runner::Component* component) override
     {
         if (MeshComponent* mc = runner::component_cast<MeshComponent>(component); mc)
-        // if (component && component->get_type().is(MeshComponent::type()))
         {
-            // mesh = static_cast<MeshComponent*>(component);
             mesh = mc;
         }
     }
@@ -226,11 +225,115 @@ struct InputSystem : runner::EntitySystem
 
         if (mesh)
         {
-            mesh->update_state();
+            mesh->update_transform();
         }
     }
 };
 
+struct TargetComponent : runner::Component
+{
+    m4 target = m4_identity;
+
+    EU_DEC_COMPONENT_TYPE();
+};
+EU_IMP_COMPONENT_TYPE(TargetComponent, runner::Component)
+
+struct CameraComponent : runner::SpatialComponent
+{
+    // todo(Gustav): add extra camera settings...
+    EU_DEC_COMPONENT_TYPE();
+};
+EU_IMP_COMPONENT_TYPE(CameraComponent, runner::SpatialComponent);
+
+struct FollowCameraSystem : runner::EntitySystem
+{
+    runner::UpdateStageAndPrio get_stage() override
+    {
+        return
+        {
+            .stage = runner::UpdateStage::after_physics,
+            .prio = 100
+        };
+    }
+
+    TargetComponent* target = nullptr;
+    CameraComponent* camera = nullptr;
+    void add_component(runner::Component* component) override
+    {
+        if (auto* tar = runner::component_cast<TargetComponent>(component))
+        {
+            target = tar;
+        }
+        else if (auto* cam = runner::component_cast<CameraComponent>(component))
+        {
+            camera = cam;
+        }
+    }
+    void update(float dt) override
+    {
+        if (!target) { return; }
+        if (!camera) { return; }
+
+        const auto nt = target->target.get_translated(kk::out * 3);
+        camera->set_transform(nt);
+    }
+};
+
+namespace tag
+{
+constexpr Hsh CameraSpatialSource = "camera_spatial_src_tag"sv;
+constexpr Hsh CameraDestination = "camera_dst_tag"sv;
+}
+
+struct UpdateCameraTarget : runner::WorldSystem
+{
+    runner::SpatialComponent* src_entity = nullptr;
+    TargetComponent* dst_entity = nullptr;
+
+    runner::UpdateStageAndPrio get_stage() override
+    {
+        return {
+            .stage = runner::UpdateStage::after_physics,
+            .prio = 100
+        };
+    }
+    
+    void add_component(runner::Entity* entity, runner::Component* component) override
+    {
+        if (entity->has_tag(tag::CameraSpatialSource))
+        {
+            if (auto* spatial = entity->root; spatial)
+            {
+                LOG_INFO("Found spatial source");
+                src_entity = spatial;
+            }
+            else
+            {
+                LOG_WARN("Entity with tag {} is missing spatial component", tag::CameraSpatialSource);
+            }
+        }
+        else if (entity->has_tag(tag::CameraDestination))
+        {
+            if (auto* target = runner::component_cast<TargetComponent>(component))
+            {
+                dst_entity = target;
+            }
+            else
+            {
+                // todo(Gustav): make HashSt printable TargetComponent::type()
+                LOG_WARN("Entity with tag {} is missing target component", tag::CameraDestination);
+            }
+        }
+    }
+
+    void update(float dt) override
+    {
+        if (!src_entity) { return; }
+        if (!dst_entity) { return; }
+
+        dst_entity->target = src_entity->get_transform();
+    }
+};
 
 int main(int, char**)
 {
@@ -426,8 +529,11 @@ int main(int, char**)
             return loaded;
         };
 
+    runner_world.add_system(std::make_unique<UpdateCameraTarget>());
+
     {
         auto* car = runner_world.add_entity();
+        car->add_tag(tag::CameraSpatialSource);
 
         // mesh component
         // debug/axis.glb"
@@ -443,8 +549,19 @@ int main(int, char**)
 
         // input component
         car->add_system(std::make_unique<InputSystem>(&input));
-
+    }
+    {
+        auto* cam = runner_world.add_entity();
+        cam->add_component(std::make_unique<TargetComponent>());
+        cam->add_component(std::make_unique<CameraComponent>());
+        cam->add_system(std::make_unique<FollowCameraSystem>());
+        cam->add_tag(tag::CameraDestination);
+    }
+    {
         Level level;
+        auto material = renderer.make_default_material();
+        material->diffuse = load_color_texture("models/textures/colormap.png");
+        material->specular = assets.white;
         level.load("level.kdl", &render_world, material, renderer.default_geom_layout());
     }
 
@@ -539,8 +656,7 @@ int main(int, char**)
                                     .requested_width = 800, .requested_height = 600 };
             cmd.clear(eu::colors::blue_sky, screen);
             auto layer = eu::render::with_layer3(cmd, screen);
-            // todo(Gustav): add camera entity
-            // camera.position = position + kk::out * 3;
+            // todo(Gustav): get transform from camera entity
             effects.update(dt);
             effects.render(eu::render::PostProcArg{
                 .world = &render_world,

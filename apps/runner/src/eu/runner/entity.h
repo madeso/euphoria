@@ -68,6 +68,8 @@ namespace eu::runner
 
     struct Entity
     {
+        // todo(Gustav): split HshSt into 2, one with a primary hash and one without
+        HshSt tags{{}, "useless_tag_label_remove_me"sv};
         World* world = nullptr;
         std::vector<std::unique_ptr<Component>> components;
         std::vector<std::unique_ptr<EntitySystem>> systems;
@@ -76,6 +78,8 @@ namespace eu::runner
 
         void add_component(std::unique_ptr<Component> c);
         void add_system(std::unique_ptr<EntitySystem> system);
+        void add_tag(const Hsh& h);
+        bool has_tag(const Hsh& h) const;
     };
 
     struct Component
@@ -155,7 +159,7 @@ namespace eu::runner
 
         virtual UpdateStageAndPrio get_stage() = 0;
 
-        virtual void* add_component(Entity* entity, Component* component) = 0;
+        virtual void add_component(Entity* entity, Component* component) = 0;
 
         virtual void update(float dt) = 0;
     };

@@ -2,12 +2,16 @@
 
 namespace eu
 {
+void HshSt::add(const Hsh& h)
+{
+    data.emplace(h);
+}
 
 HshSt HshSt::combine(const Hsh& h) const
 {
     auto clone = data;
     clone.emplace(h);
-    return HshSt{ clone, h };
+    return HshSt{.data = clone, .primary = h };
 }
 
 bool HshSt::contains(const Hsh& h) const
