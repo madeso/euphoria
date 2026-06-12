@@ -335,6 +335,41 @@ struct UpdateCameraTarget : runner::WorldSystem
     }
 };
 
+struct CameraFetcherSystem : runner::WorldSystem
+{
+    runner::UpdateStageAndPrio get_stage() override
+    {
+        return {
+            .stage = runner::UpdateStage::end_frame,
+            .prio = 100
+        };
+    }
+
+    CameraComponent* camera = nullptr;
+    m4 transform = m4_identity;
+
+    void add_component(runner::Entity* entity, runner::Component* component) override
+    {
+        if (auto cam = runner::component_cast<CameraComponent>(component))
+        {
+            camera = cam;
+        }
+    }
+
+    void update(float dt) override
+    {
+        if (!camera) return;
+        transform = camera->get_transform();
+    }
+
+    render::Camera fetch() const
+    {
+        render::Camera r;
+        r.position = transform.get_translation();
+        return r;
+    }
+};
+
 int main(int, char**)
 {
     int window_width = 1280;
@@ -530,6 +565,13 @@ int main(int, char**)
         };
 
     runner_world.add_system(std::make_unique<UpdateCameraTarget>());
+    
+    CameraFetcherSystem* camera_fetcher;
+    {
+        auto fetch = std::make_unique<CameraFetcherSystem>();
+        camera_fetcher = fetch.get();
+        runner_world.add_system(std::move(fetch));
+    }
 
     {
         auto* car = runner_world.add_entity();
@@ -568,7 +610,6 @@ int main(int, char**)
     LOG_INFO("Runner started");
     bool running = true;
     Time time;
-    eu::render::Camera camera;
     while (running)
     {
         const auto dt = time.calculate();
@@ -658,6 +699,7 @@ int main(int, char**)
             auto layer = eu::render::with_layer3(cmd, screen);
             // todo(Gustav): get transform from camera entity
             effects.update(dt);
+            eu::render::Camera camera = camera_fetcher->fetch();
             effects.render(eu::render::PostProcArg{
                 .world = &render_world,
                 .window_size = size_from_v2(layer.screen.get_size()),
