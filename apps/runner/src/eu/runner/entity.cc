@@ -25,6 +25,11 @@ namespace eu::runner
         {
             sys->add_component(nc);
         }
+
+        if (world)
+        {
+            world->on_add_component(this, nc);
+        }
     }
     void Entity::add_system(std::unique_ptr<EntitySystem> system)
     {
@@ -87,7 +92,9 @@ namespace eu::runner
     Entity* World::add_entity()
     {
         entities.emplace_back(std::make_unique<Entity>());
-        return entities.back().get();
+        Entity* ent = entities.back().get();
+        ent->world = this;
+        return ent;
     }
 
     void World::on_add_component(Entity* entity, Component* component)
@@ -118,5 +125,7 @@ namespace eu::runner
         {
             ent->updates.update(stage, dt);
         }
+
+        updates.update(stage, dt);
     }
 }
