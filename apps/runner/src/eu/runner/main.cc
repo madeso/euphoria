@@ -263,10 +263,12 @@ struct FollowCameraSystem : runner::EntitySystem
         if (auto* tar = runner::component_cast<TargetComponent>(component))
         {
             target = tar;
+            LOG_INFO("Follow camera found target");
         }
         else if (auto* cam = runner::component_cast<CameraComponent>(component))
         {
             camera = cam;
+            LOG_INFO("Follow camera found camera");
         }
     }
     void update(float dt) override
@@ -309,19 +311,20 @@ struct UpdateCameraTarget : runner::WorldSystem
             }
             else
             {
-                LOG_WARN("Entity with tag {} is missing spatial component", tag::CameraSpatialSource);
+                LOG_WARN("WARN: Entity with tag {} is missing spatial component", tag::CameraSpatialSource);
             }
         }
         else if (entity->has_tag(tag::CameraDestination))
         {
             if (auto* target = runner::component_cast<TargetComponent>(component))
             {
+                LOG_INFO("Found camera destination");
                 dst_entity = target;
             }
             else
             {
                 // todo(Gustav): make HashSt printable TargetComponent::type()
-                LOG_WARN("Entity with tag {} is missing target component", tag::CameraDestination);
+                LOG_WARN("WARN: Entity with tag {} is missing target component", tag::CameraDestination);
             }
         }
     }
@@ -352,6 +355,7 @@ struct CameraFetcherSystem : runner::WorldSystem
     {
         if (auto cam = runner::component_cast<CameraComponent>(component))
         {
+            LOG_INFO("Fetcher found camera");
             camera = cam;
         }
     }
@@ -587,6 +591,7 @@ int main(int, char**)
         material->diffuse = load_color_texture("models/textures/colormap.png");
         material->specular = assets.white;
         auto comp = std::make_unique<MeshComponent>(mesh, &render_world, material);
+        car->root = comp.get();
         car->add_component(std::move(comp));
 
         // input component
