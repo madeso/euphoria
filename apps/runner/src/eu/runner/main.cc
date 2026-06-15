@@ -166,7 +166,7 @@ struct Time
 };
 
 
-struct MeshComponent : runner::SpatialComponent
+struct MeshSpatialComponent : runner::SpatialComponent
 {
     render::MeshInWorld car;
 
@@ -179,7 +179,7 @@ struct MeshComponent : runner::SpatialComponent
         car.set_transform(get_transform());
     }
 
-    MeshComponent(render::CompiledMesh* mesh, render::World* render_world, std::shared_ptr<render::Material> material)
+    MeshSpatialComponent(render::CompiledMesh* mesh, render::World* render_world, std::shared_ptr<render::Material> material)
     {
         car.add_to_world(mesh, render_world, std::move(material));
         update_transform();
@@ -188,12 +188,12 @@ struct MeshComponent : runner::SpatialComponent
     EU_DEC_COMPONENT_TYPE();
 };
 
-EU_IMP_COMPONENT_TYPE(MeshComponent, runner::Component)
+EU_IMP_COMPONENT_TYPE(MeshSpatialComponent, runner::Component)
 
 struct InputSystem : runner::EntitySystem
 {
     runner::Input* input;
-    MeshComponent* mesh = nullptr;
+    MeshSpatialComponent* mesh = nullptr;
 
     explicit InputSystem(runner::Input* in) : input(in)
     {
@@ -208,9 +208,13 @@ struct InputSystem : runner::EntitySystem
         };
     }
 
+    void on_root_changed(runner::SpatialComponent* root) override
+    {
+    }
+
     void add_component(runner::Component* component) override
     {
-        if (MeshComponent* mc = runner::component_cast<MeshComponent>(component); mc)
+        if (MeshSpatialComponent* mc = runner::component_cast<MeshSpatialComponent>(component); mc)
         {
             mesh = mc;
         }
@@ -238,12 +242,12 @@ struct TargetComponent : runner::Component
 };
 EU_IMP_COMPONENT_TYPE(TargetComponent, runner::Component)
 
-struct CameraComponent : runner::SpatialComponent
+struct CameraSpatialComponent : runner::SpatialComponent
 {
     // todo(Gustav): add extra camera settings...
     EU_DEC_COMPONENT_TYPE();
 };
-EU_IMP_COMPONENT_TYPE(CameraComponent, runner::SpatialComponent);
+EU_IMP_COMPONENT_TYPE(CameraSpatialComponent, runner::SpatialComponent);
 
 struct FollowCameraSystem : runner::EntitySystem
 {
@@ -257,7 +261,12 @@ struct FollowCameraSystem : runner::EntitySystem
     }
 
     TargetComponent* target = nullptr;
-    CameraComponent* camera = nullptr;
+    CameraSpatialComponent* camera = nullptr;
+
+    void on_root_changed(runner::SpatialComponent* root) override
+    {
+    }
+
     void add_component(runner::Component* component) override
     {
         if (auto* tar = runner::component_cast<TargetComponent>(component))
@@ -265,7 +274,7 @@ struct FollowCameraSystem : runner::EntitySystem
             target = tar;
             LOG_INFO("Follow camera found target");
         }
-        else if (auto* cam = runner::component_cast<CameraComponent>(component))
+        else if (auto* cam = runner::component_cast<CameraSpatialComponent>(component))
         {
             camera = cam;
             LOG_INFO("Follow camera found camera");
@@ -299,22 +308,19 @@ struct UpdateCameraTarget : runner::WorldSystem
             .prio = 100
         };
     }
-    
-    void add_component(runner::Entity* entity, runner::Component* component) override
+
+    void on_root_changed(runner::Entity* entity, runner::SpatialComponent* component) override
     {
         if (entity->has_tag(tag::CameraSpatialSource))
         {
-            if (auto* spatial = entity->root; spatial)
-            {
-                LOG_INFO("Found spatial source");
-                src_entity = spatial;
-            }
-            else
-            {
-                LOG_WARN("WARN: Entity with tag {} is missing spatial component", tag::CameraSpatialSource);
-            }
+            LOG_INFO("Found spatial source");
+            src_entity = component;
         }
-        else if (entity->has_tag(tag::CameraDestination))
+    }
+    
+    void add_component(runner::Entity* entity, runner::Component* component) override
+    {
+        if (entity->has_tag(tag::CameraDestination))
         {
             if (auto* target = runner::component_cast<TargetComponent>(component))
             {
@@ -348,16 +354,20 @@ struct CameraFetcherSystem : runner::WorldSystem
         };
     }
 
-    CameraComponent* camera = nullptr;
+    CameraSpatialComponent* camera = nullptr;
     m4 transform = m4_identity;
 
     void add_component(runner::Entity* entity, runner::Component* component) override
     {
-        if (auto cam = runner::component_cast<CameraComponent>(component))
+        if (auto cam = runner::component_cast<CameraSpatialComponent>(component))
         {
             LOG_INFO("Fetcher found camera");
             camera = cam;
         }
+    }
+
+    void on_root_changed(runner::Entity* entity, runner::SpatialComponent* component) override
+    {
     }
 
     void update(float dt) override
@@ -582,7 +592,7 @@ int main(int, char**)
         car->add_tag(tag::CameraSpatialSource);
 
         // mesh component
-        // debug/axis.glb"
+        // debug/axis.glb
         // "models/vehicle-truck-purple.glb"
         // "models/textures/colormap.png"
         // render::CompiledMesh* mesh, render::World* render_world, std::shared_ptr<render::Material> material
@@ -590,8 +600,8 @@ int main(int, char**)
         auto material = renderer.make_default_material();
         material->diffuse = load_color_texture("models/textures/colormap.png");
         material->specular = assets.white;
-        auto comp = std::make_unique<MeshComponent>(mesh, &render_world, material);
-        car->root = comp.get();
+        auto comp = std::make_unique<MeshSpatialComponent>(mesh, &render_world, material);
+        car->set_root(comp.get());
         car->add_component(std::move(comp));
 
         // input component
@@ -599,10 +609,13 @@ int main(int, char**)
     }
     {
         auto* cam = runner_world.add_entity();
-        cam->add_component(std::make_unique<TargetComponent>());
-        cam->add_component(std::make_unique<CameraComponent>());
-        cam->add_system(std::make_unique<FollowCameraSystem>());
         cam->add_tag(tag::CameraDestination);
+
+        cam->add_component(std::make_unique<TargetComponent>());
+        auto spat = std::make_unique<CameraSpatialComponent>();
+        cam->set_root(spat.get());
+        cam->add_component(std::move(spat));
+        cam->add_system(std::make_unique<FollowCameraSystem>());
     }
     {
         Level level;
