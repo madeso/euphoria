@@ -40,6 +40,10 @@ namespace eu::runner
         {
             ne->add_component(c.get());
         }
+        if (root)
+        {
+            ne->on_root_changed(root);
+        }
     }
 
     void Entity::add_tag(const Hsh& h)
@@ -50,6 +54,26 @@ namespace eu::runner
     bool Entity::has_tag(const Hsh& h) const
     {
         return tags.contains(h);
+    }
+
+    SpatialComponent* Entity::get_root() const
+    {
+        return root;
+    }
+
+    void Entity::set_root(SpatialComponent* c)
+    {
+        root = c;
+
+        for (auto& sys : systems)
+        {
+            sys->on_root_changed(c);
+        }
+
+        if (world)
+        {
+            world->on_root_changed(this, c);
+        }
     }
 
     // ------------------------------------------------------------------------
@@ -105,6 +129,14 @@ namespace eu::runner
         }
     }
 
+    void World::on_root_changed(Entity* entity, SpatialComponent* component)
+    {
+        for (auto& sys : systems)
+        {
+            sys->on_root_changed(entity, component);
+        }
+    }
+
     void World::add_system(std::unique_ptr<WorldSystem> system)
     {
         systems.emplace_back(std::move(system));
@@ -115,6 +147,10 @@ namespace eu::runner
         {
             for (auto& comp: ent->components) {
                 sys->add_component(ent.get(), comp.get());
+            }
+            if (ent->get_root())
+            {
+                sys->on_root_changed(ent.get(), ent->get_root());
             }
         }
     }

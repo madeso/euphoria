@@ -74,12 +74,17 @@ namespace eu::runner
         std::vector<std::unique_ptr<Component>> components;
         std::vector<std::unique_ptr<EntitySystem>> systems;
         UpdateHandler<EntitySystem> updates;
+    private:
         SpatialComponent* root = nullptr;
+    public:
 
         void add_component(std::unique_ptr<Component> c);
         void add_system(std::unique_ptr<EntitySystem> system);
         void add_tag(const Hsh& h);
         bool has_tag(const Hsh& h) const;
+
+        SpatialComponent* get_root() const;
+        void set_root(SpatialComponent* c);
     };
 
     struct Component
@@ -143,6 +148,7 @@ namespace eu::runner
         virtual UpdateStageAndPrio get_stage() = 0;
 
         virtual void add_component(Component* component) = 0;
+        virtual void on_root_changed(SpatialComponent* root) = 0;
 
         virtual void update(float dt) = 0;
     };
@@ -160,6 +166,7 @@ namespace eu::runner
         virtual UpdateStageAndPrio get_stage() = 0;
 
         virtual void add_component(Entity* entity, Component* component) = 0;
+        virtual void on_root_changed(Entity* entity, SpatialComponent* component) = 0;
 
         virtual void update(float dt) = 0;
     };
@@ -174,6 +181,7 @@ namespace eu::runner
         
         void add_system(std::unique_ptr<WorldSystem> sys);
         void on_add_component(Entity* entity, Component* component);
+        void on_root_changed(Entity* entity, SpatialComponent* component);
 
         void update(UpdateStage stage, float dt);
     };
