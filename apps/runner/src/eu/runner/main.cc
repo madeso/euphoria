@@ -173,6 +173,18 @@ struct MeshSpatialComponent : runner::SpatialComponent
     eu::v3 position = { 0.0f, -1.8f, -10.0f };
     eu::Ypr rotation = { .yaw = 30.0_deg, .pitch = 30.0_deg, .roll = 30.0_deg };
 
+    const char* display() override
+    {
+        return "MeshSpatialComponent";
+    }
+
+    void imgui() override
+    {
+        runner::SpatialComponent::imgui();
+        imgui::drag("Position", &position);
+        imgui::drag("Rotation", &rotation);
+    }
+
     void update_transform()
     {
         set_transform(eu::render::transform_from_rotation(position, rotation));
@@ -190,10 +202,27 @@ struct MeshSpatialComponent : runner::SpatialComponent
 
 EU_IMP_COMPONENT_TYPE(MeshSpatialComponent, runner::Component)
 
+void boolean(const char* label, bool b)
+{
+    ImGui::TextUnformatted(label);
+    ImGui::SameLine();
+    ImGui::TextUnformatted(b ? "TRUE" : "false");
+}
+
 struct InputSystem : runner::EntitySystem
 {
     runner::Input* input;
     MeshSpatialComponent* mesh = nullptr;
+
+    const char* display() override
+    {
+        return "Input";
+    }
+
+    void imgui() override
+    {
+        boolean("has mesh", mesh != nullptr);
+    }
 
     explicit InputSystem(runner::Input* in) : input(in)
     {
@@ -238,12 +267,31 @@ struct TargetComponent : runner::Component
 {
     m4 target = m4_identity;
 
+    const char* display() override
+    {
+        return "target";
+    }
+
+    void imgui() override
+    {
+        // todo(Gustav): display matrix
+    }
+
     EU_DEC_COMPONENT_TYPE();
 };
 EU_IMP_COMPONENT_TYPE(TargetComponent, runner::Component)
 
 struct CameraSpatialComponent : runner::SpatialComponent
 {
+    const char* display() override
+    {
+        return "camera spatial";
+    }
+
+    void imgui() override
+    {
+        runner::SpatialComponent::imgui();
+    }
     // todo(Gustav): add extra camera settings...
     EU_DEC_COMPONENT_TYPE();
 };
@@ -262,6 +310,17 @@ struct FollowCameraSystem : runner::EntitySystem
 
     TargetComponent* target = nullptr;
     CameraSpatialComponent* camera = nullptr;
+
+    const char* display() override
+    {
+        return "Follow camera";
+    }
+
+    void imgui() override
+    {
+        boolean("Target", target != nullptr);
+        boolean("camera", camera != nullptr);
+    }
 
     void on_root_changed(runner::SpatialComponent* root) override
     {
@@ -301,6 +360,17 @@ struct UpdateCameraTarget : runner::WorldSystem
     runner::SpatialComponent* src_entity = nullptr;
     TargetComponent* dst_entity = nullptr;
 
+    const char* display() override
+    {
+        return "Update camera target";
+    }
+
+    void imgui() override
+    {
+        boolean("src entity", src_entity != nullptr);
+        boolean("dst entity", dst_entity != nullptr);
+    }
+
     runner::UpdateStageAndPrio get_stage() override
     {
         return {
@@ -324,13 +394,8 @@ struct UpdateCameraTarget : runner::WorldSystem
         {
             if (auto* target = runner::component_cast<TargetComponent>(component))
             {
-                LOG_INFO("Found camera destination");
+                LOG_INFO("Found camera destination on {}", entity->name);
                 dst_entity = target;
-            }
-            else
-            {
-                // todo(Gustav): make HashSt printable TargetComponent::type()
-                LOG_WARN("WARN: Entity with tag {} is missing target component", tag::CameraDestination);
             }
         }
     }
@@ -356,6 +421,17 @@ struct CameraFetcherSystem : runner::WorldSystem
 
     CameraSpatialComponent* camera = nullptr;
     m4 transform = m4_identity;
+
+    const char* display() override
+    {
+        return "Camera fetcher";
+    }
+
+    void imgui() override
+    {
+        boolean("camera", camera != nullptr);
+        //todo(Gustav): display transform
+    }
 
     void add_component(runner::Entity* entity, runner::Component* component) override
     {
@@ -588,7 +664,7 @@ int main(int, char**)
     }
 
     {
-        auto* car = runner_world.add_entity();
+        auto* car = runner_world.add_entity("car");
         car->add_tag(tag::CameraSpatialSource);
 
         // mesh component
@@ -608,7 +684,7 @@ int main(int, char**)
         car->add_system(std::make_unique<InputSystem>(&input));
     }
     {
-        auto* cam = runner_world.add_entity();
+        auto* cam = runner_world.add_entity("camera");
         cam->add_tag(tag::CameraDestination);
 
         cam->add_component(std::make_unique<TargetComponent>());
@@ -690,12 +766,13 @@ int main(int, char**)
         ImGui::End();
 
         // todo(Gustav): add introspection ui
-        // if (ImGui::Begin("Demo"))
-        // {
+        if (ImGui::Begin("Demo"))
+        {
+            runner_world.gui();
         //     imgui::drag("Position", &position);
         //     imgui::drag("Rotation", &rotation);
-        // }
-        // ImGui::End();
+        }
+        ImGui::End();
 #endif
 
         eu::render::RenderCommand cmd{ .states = &states, .render = &render, .size = {.width = window_width, .height = window_height} };

@@ -68,6 +68,8 @@ namespace eu::runner
 
     struct Entity
     {
+        explicit Entity(const std::string& n);
+        std::string name;
         // todo(Gustav): split HshSt into 2, one with a primary hash and one without
         HshSt tags{{}, "useless_tag_label_remove_me"sv};
         World* world = nullptr;
@@ -85,6 +87,8 @@ namespace eu::runner
 
         SpatialComponent* get_root() const;
         void set_root(SpatialComponent* c);
+
+        void imgui();
     };
 
     struct Component
@@ -99,6 +103,9 @@ namespace eu::runner
 
         static const HshSt& type();
         virtual const HshSt& get_type();
+
+        virtual const char* display() = 0;
+        virtual void imgui() = 0;
     };
 #define EU_DEC_COMPONENT_TYPE() static const HshSt& type(); const HshSt& get_type() override
 #define EU_IMP_COMPONENT_TYPE(COMP, PAREN) \
@@ -129,6 +136,8 @@ namespace eu::runner
         const m4& get_transform() const;
 
         EU_DEC_COMPONENT_TYPE();
+
+        void imgui() override;
     private:
         m4 transform = m4_identity;
         // todo(gustav): add hierarchy
@@ -151,6 +160,9 @@ namespace eu::runner
         virtual void on_root_changed(SpatialComponent* root) = 0;
 
         virtual void update(float dt) = 0;
+
+        virtual const char* display() = 0;
+        virtual void imgui() = 0;
     };
 
     struct WorldSystem
@@ -168,7 +180,9 @@ namespace eu::runner
         virtual void add_component(Entity* entity, Component* component) = 0;
         virtual void on_root_changed(Entity* entity, SpatialComponent* component) = 0;
 
+        virtual const char* display() = 0;
         virtual void update(float dt) = 0;
+        virtual void imgui() = 0;
     };
 
     struct World
@@ -177,13 +191,14 @@ namespace eu::runner
         std::vector<std::unique_ptr<WorldSystem>> systems;
         UpdateHandler<WorldSystem> updates;
 
-        Entity* add_entity();
+        Entity* add_entity(const std::string& name);
         
         void add_system(std::unique_ptr<WorldSystem> sys);
         void on_add_component(Entity* entity, Component* component);
         void on_root_changed(Entity* entity, SpatialComponent* component);
 
         void update(UpdateStage stage, float dt);
+        void gui();
     };
 
 }

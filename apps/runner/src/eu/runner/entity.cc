@@ -2,6 +2,8 @@
 
 #include <algorithm>
 
+#include "dear_imgui/imgui.h"
+
 namespace eu::runner
 {
 
@@ -16,6 +18,11 @@ namespace eu::runner
     
     // ------------------------------------------------------------------------
 	//  Entity
+
+    Entity::Entity(const std::string& n)
+        : name(n)
+    {
+    }
 
     void Entity::add_component(std::unique_ptr<Component> c)
     {
@@ -76,6 +83,45 @@ namespace eu::runner
         }
     }
 
+    void Entity::imgui()
+    {
+        for (const auto& tag: tags.data)
+        {
+            const auto f = fmt::format("{}", tag.text);
+            ImGui::Bullet();
+            ImGui::TextUnformatted(f.c_str());
+        }
+        if (ImGui::TreeNodeEx("Components"))
+        {
+            for (auto& comp : components)
+            {
+                ImGui::PushID(comp.get());
+                if (ImGui::TreeNodeEx(comp->display()))
+                {
+                    comp->imgui();
+                    ImGui::TreePop();
+                }
+                ImGui::PopID();
+            }
+            ImGui::TreePop();
+        }
+
+        if (ImGui::TreeNodeEx("Systems"))
+        {
+            for (auto& sys : systems)
+            {
+                ImGui::PushID(sys.get());
+                if (ImGui::TreeNodeEx(sys->display()))
+                {
+                    sys->imgui();
+                    ImGui::TreePop();
+                }
+                ImGui::PopID();
+            }
+            ImGui::TreePop();
+        }
+    }
+
     // ------------------------------------------------------------------------
 	//  Component
     const HshSt& Component::type()
@@ -103,6 +149,11 @@ namespace eu::runner
         return transform;
     }
 
+    void SpatialComponent::imgui()
+    {
+        // todo(Gustav): render transform
+    }
+
     // ------------------------------------------------------------------------
 	//  EntitySystem
 
@@ -113,9 +164,9 @@ namespace eu::runner
     // ---------------------------------------------------
     // World
 
-    Entity* World::add_entity()
+    Entity* World::add_entity(const std::string& name)
     {
-        entities.emplace_back(std::make_unique<Entity>());
+        entities.emplace_back(std::make_unique<Entity>(name));
         Entity* ent = entities.back().get();
         ent->world = this;
         return ent;
@@ -163,5 +214,30 @@ namespace eu::runner
         }
 
         updates.update(stage, dt);
+    }
+
+    void World::gui()
+    {
+        for (auto& ent: entities)
+        {
+            ImGui::PushID(ent.get());
+            if (ImGui::TreeNodeEx(ent->name.c_str()))
+            {
+                ent->imgui();
+                ImGui::TreePop();
+            }
+            ImGui::PopID();
+        }
+
+        for (auto& sys : systems)
+        {
+            if (ImGui::TreeNodeEx(sys->display()))
+            {
+                ImGui::PushID(sys.get());
+                sys->imgui();
+                ImGui::PopID();
+                ImGui::TreePop();
+            }
+        }
     }
 }
