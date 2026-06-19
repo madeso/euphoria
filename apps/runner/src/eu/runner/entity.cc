@@ -19,8 +19,9 @@ namespace eu::runner
     // ------------------------------------------------------------------------
 	//  Entity
 
-    Entity::Entity(const std::string& n)
+    Entity::Entity(const std::string& n, std::set<Hsh>&& t)
         : name(n)
+        , tags(std::move(t))
     {
     }
 
@@ -53,11 +54,6 @@ namespace eu::runner
         }
     }
 
-    void Entity::add_tag(const Hsh& h)
-    {
-        tags.add(h);
-    }
-
     bool Entity::has_tag(const Hsh& h) const
     {
         return tags.contains(h);
@@ -85,7 +81,7 @@ namespace eu::runner
 
     void Entity::imgui()
     {
-        for (const auto& tag: tags.data)
+        for (const auto& tag: tags)
         {
             const auto f = fmt::format("{}", tag.text);
             ImGui::Bullet();
@@ -164,9 +160,9 @@ namespace eu::runner
     // ---------------------------------------------------
     // World
 
-    Entity* World::add_entity(const std::string& name)
+    Entity* World::add_entity(const std::string& name, std::set<Hsh>&& tags)
     {
-        entities.emplace_back(std::make_unique<Entity>(name));
+        entities.emplace_back(std::make_unique<Entity>(name, std::move(tags)));
         Entity* ent = entities.back().get();
         ent->world = this;
         return ent;

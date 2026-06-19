@@ -68,27 +68,33 @@ namespace eu::runner
 
     struct Entity
     {
-        explicit Entity(const std::string& n);
-        std::string name;
+        Entity(const std::string& n, std::set<Hsh>&& t);
+
+        Entity(const Entity&) = delete;
+        Entity(Entity&&) = delete;
+        void operator=(const Entity&) = delete;
+        void operator=(Entity&&) = delete;
+
+        const std::string name;
+
         // todo(Gustav): split HshSt into 2, one with a primary hash and one without
-        HshSt tags{{}, "useless_tag_label_remove_me"sv};
         World* world = nullptr;
         std::vector<std::unique_ptr<Component>> components;
         std::vector<std::unique_ptr<EntitySystem>> systems;
         UpdateHandler<EntitySystem> updates;
-    private:
-        SpatialComponent* root = nullptr;
-    public:
 
         void add_component(std::unique_ptr<Component> c);
         void add_system(std::unique_ptr<EntitySystem> system);
-        void add_tag(const Hsh& h);
         bool has_tag(const Hsh& h) const;
 
         SpatialComponent* get_root() const;
         void set_root(SpatialComponent* c);
 
         void imgui();
+
+    private:
+        SpatialComponent* root = nullptr;
+        std::set<Hsh> tags;
     };
 
     struct Component
@@ -191,7 +197,7 @@ namespace eu::runner
         std::vector<std::unique_ptr<WorldSystem>> systems;
         UpdateHandler<WorldSystem> updates;
 
-        Entity* add_entity(const std::string& name);
+        Entity* add_entity(const std::string& name, std::set<Hsh>&& tags);
         
         void add_system(std::unique_ptr<WorldSystem> sys);
         void on_add_component(Entity* entity, Component* component);

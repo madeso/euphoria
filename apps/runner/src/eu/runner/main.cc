@@ -664,8 +664,7 @@ int main(int, char**)
     }
 
     {
-        auto* car = runner_world.add_entity("car");
-        car->add_tag(tag::CameraSpatialSource);
+        auto* car = runner_world.add_entity("car", { tag::CameraSpatialSource });
 
         // mesh component
         // debug/axis.glb
@@ -684,8 +683,7 @@ int main(int, char**)
         car->add_system(std::make_unique<InputSystem>(&input));
     }
     {
-        auto* cam = runner_world.add_entity("camera");
-        cam->add_tag(tag::CameraDestination);
+        auto* cam = runner_world.add_entity("camera", { tag::CameraDestination });
 
         cam->add_component(std::make_unique<TargetComponent>());
         auto spat = std::make_unique<CameraSpatialComponent>();
