@@ -316,10 +316,12 @@ struct FollowCameraSystem : runner::EntitySystem
         return "Follow camera";
     }
 
+    v3 offset = kk::out * 3;
     void imgui() override
     {
         boolean("Target", target != nullptr);
         boolean("camera", camera != nullptr);
+        imgui::drag("offset", &offset);
     }
 
     void on_root_changed(runner::SpatialComponent* root) override
@@ -344,7 +346,7 @@ struct FollowCameraSystem : runner::EntitySystem
         if (!target) { return; }
         if (!camera) { return; }
 
-        const auto nt = target->target.get_translated(kk::out * 3);
+        const auto nt = target->target.get_translated(offset);
         camera->set_transform(nt);
     }
 };
