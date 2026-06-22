@@ -322,6 +322,7 @@ struct FollowCameraSystem : runner::EntitySystem
         boolean("Target", target != nullptr);
         boolean("camera", camera != nullptr);
         imgui::drag("offset", &offset);
+        imgui::gear("gear", &offset.x);
     }
 
     void on_root_changed(runner::SpatialComponent* root) override

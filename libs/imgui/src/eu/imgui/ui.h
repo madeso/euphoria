@@ -44,4 +44,6 @@ bool simple_gamma_slider(const char* label, float* gamma, float curve = 1.5f, fl
 bool drag(const char* const label, v3* drag);
 bool drag(const char* const label, Ypr* drag);
 
+bool gear(const char* const label, float* drag);
+
 }

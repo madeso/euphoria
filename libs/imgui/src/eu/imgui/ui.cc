@@ -7,6 +7,7 @@
 #include "eu/render/dependency_glad.h"
 
 #include <iostream>
+#include <numbers>
 
 #include "dear_imgui/imgui.h"
 
@@ -389,6 +390,127 @@ bool drag(const char* const label, Ypr* drag)
     }
 
     return changed;
+}
+
+float length2(const ImVec2& v)
+{
+    return v.x* v.x + v.y * v.y;
+}
+
+float length(const ImVec2& v)
+{
+    return std::sqrt(v.x * v.x + v.y * v.y);
+}
+
+ImVec2 normalize(const ImVec2& v, float len)
+{
+    return v / len;
+}
+ImVec2 normalize(const ImVec2& v)
+{
+    return normalize(v, length(v));
+}
+
+float dot(const ImVec2& lhs, const ImVec2& rhs)
+{
+    return lhs.x * rhs.x + lhs.y * rhs.y;
+}
+bool is_positive(float f)
+{
+    return f >= 0.0f;
+}
+
+struct GearState
+{
+    ImVec2 pos;
+    int turns;
+    float orig;
+};
+
+// https://anttweakbar.sourceforge.io/doc/tools_anttweakbar_rotoslider.html
+bool gear(const char* const label, float* drag)
+{
+    static std::optional<GearState> state = std::nullopt;
+
+    const ImGuiButtonFlags flags = 0;
+    const float min_radius = 20.0f;
+    const float radius = min_radius;
+    const float one_turn = 10.0f;
+
+    const auto orig = state ? state->orig : *drag;
+
+    const auto& style = ImGui::GetStyle();
+
+    const float w = ImGui::CalcItemWidth();
+
+    const auto label_size = ImGui::CalcTextSize(label, nullptr, true);
+    const auto frame = ImVec2(w, label_size.y + style.FramePadding.y * 2.0f);
+    const auto extra = ImVec2(label_size.x > 0.0f ? style.ItemInnerSpacing.x + label_size.x : 0.0f, 0.0f);
+
+    
+    const auto size = frame + extra;
+    const auto pos = ImGui::GetWindowPos() + ImGui::GetCursorPos();
+    const auto mp = ImGui::GetMousePos();
+    const auto center = mp - ImGui::GetMouseDragDelta();
+    const auto clicked = ImGui::InvisibleButton(label, size, flags);
+    const auto active = ImGui::IsItemActive();
+
+    auto* draw = ImGui::GetForegroundDrawList();
+
+    const auto bg_col = ImColor(100, 100, 100); // ImColor(style.Colors[ImGuiCol_ChildBg]);
+    const auto tx_col = ImColor(0, 0, 0); // ImColor(style.Colors[ImGuiCol_Text]);
+    const auto circle_col = ImColor(0, 0, 255);
+
+    draw->AddRectFilled(pos, pos + label_size, bg_col);
+    draw->AddText(pos, tx_col, label);
+
+    if (active)
+    {
+        const auto input = mp - center;
+        if (length2(input) > (min_radius * min_radius)) {
+            const auto dir_cur = normalize(input);
+            const auto ang_right = std::acos(dot(dir_cur, {1, 0})) * (180.0f/std::numbers::pi_v<float>);
+            const auto ang = dir_cur.y < 0 ? ang_right : 360 - ang_right;
+
+            int turns = -1;
+            if (state.has_value())
+            {
+                turns = state->turns;
+
+                const auto changed_y = is_positive(input.y) != is_positive(state->pos.y);
+                const auto on_right_side = input.x > 0 && state->pos.x > 0;
+                const auto changed_dir = changed_y && on_right_side;
+                if (changed_dir)
+                {
+                    turns += is_positive(input.y) ? -1 : 1;
+                }
+            }
+            state = GearState
+            {
+                .pos = input,
+                .turns = turns,
+                .orig = orig
+            };
+
+            const auto new_ang = ang + static_cast<float>(turns) * 360.0f;
+            const auto val = orig + (new_ang / 360.0f) * one_turn;
+            
+            if (drag)
+            {
+                *drag = val;
+            }
+        }
+        else
+        {
+            state = std::nullopt;
+        }
+
+        auto* fg = ImGui::GetForegroundDrawList();
+        fg->AddCircle(center, radius, circle_col, 8);
+        fg->AddLine(center, mp, circle_col);
+    }
+
+    return clicked;
 }
 
 
