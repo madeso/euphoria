@@ -103,12 +103,14 @@ jobs:
 
 
         - name: Build doxygen
+          if: always()
           run: doxygen docs/doxygen.ini
 
 
 
 
         - name: Generate code city
+          if: always()
           run: dotnet run --project ./tools/buildtools/Workbench/ -- code-city docs/generated/xml docs/generated/code-city.html
 
 
@@ -150,7 +152,7 @@ jobs:
 
 
         - name: Generate coverage badges
-          if: github.ref == 'refs/heads/main' && (success() || failure())
+          if: always()
           run: |
                 dotnet run --project ./tools/buildtools/Workbench/ -- ls .
                 dotnet run --project ./tools/buildtools/Workbench/ -- badge gcovr json_summary.json docs/generated/
