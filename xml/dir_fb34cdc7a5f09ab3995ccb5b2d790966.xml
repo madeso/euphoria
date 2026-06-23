@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_fb34cdc7a5f09ab3995ccb5b2d790966" kind="dir">
+    <compoundname>libs/kdl</compoundname>
+    <innerdir refid="dir_64f37f3f5795eb95687ec0b7bb6de8cc">libs/kdl/src</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/kdl/"/>
+  </compounddef>
+</doxygen>

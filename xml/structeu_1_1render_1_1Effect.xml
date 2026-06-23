@@ -1,0 +1,294 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1Effect" kind="struct" language="C++" prot="public" abstract="yes">
+    <compoundname>eu::render::Effect</compoundname>
+    <derivedcompoundref refid="structeu_1_1render_1_1FactorEffect" prot="public" virt="non-virtual">eu::render::FactorEffect</derivedcompoundref>
+    <includes refid="postproc_8h" local="no">postproc.h</includes>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="structeu_1_1render_1_1Effect_1a9baaf22c08590fd87da53ccb29ff2dcd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">struct</ref></type>
+        <definition>friend struct EffectStack</definition>
+        <argsstring></argsstring>
+        <name>EffectStack</name>
+        <qualifiedname>eu::render::Effect::EffectStack</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1EffectStack" kindref="compound">EffectStack</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="132" column="15" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1Effect_1a3a08e2bfa589c5df80c6709a6a07c630" prot="private" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::render::Effect::is_enabled</definition>
+        <argsstring></argsstring>
+        <name>is_enabled</name>
+        <qualifiedname>eu::render::Effect::is_enabled</qualifiedname>
+        <initializer>= <ref refid="structeu_1_1R" kindref="compound">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="134" column="6" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1Effect_1acd8a18ac6aa4773dbe0ddd22dce9d9d5" prot="private" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1EffectStack" kindref="compound">EffectStack</ref> *</type>
+        <definition>EffectStack* eu::render::Effect::owner</definition>
+        <argsstring></argsstring>
+        <name>owner</name>
+        <qualifiedname>eu::render::Effect::owner</qualifiedname>
+        <initializer>= <ref refid="structeu_1_1R" kindref="compound">nullptr</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="135" column="13" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1Effect_1ac8c7d832bbcdfb590adf74d90ca9e7bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::Effect::Effect</definition>
+        <argsstring>()=default</argsstring>
+        <name>Effect</name>
+        <qualifiedname>eu::render::Effect::Effect</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="112" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1Effect_1ad7beedc2aa924f22074a6b391fe77d3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual eu::render::Effect::~Effect</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Effect</name>
+        <qualifiedname>eu::render::Effect::~Effect</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="113" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1Effect_1ad7da38e828880753632d466714d98218" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::Effect::Effect</definition>
+        <argsstring>(const Effect &amp;)=delete</argsstring>
+        <name>Effect</name>
+        <qualifiedname>eu::render::Effect::Effect</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Effect" kindref="compound">Effect</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="115" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1Effect_1a8ecb965a238b356f4fa9c4b05e628290" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::Effect::Effect</definition>
+        <argsstring>(Effect &amp;&amp;)=delete</argsstring>
+        <name>Effect</name>
+        <qualifiedname>eu::render::Effect::Effect</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1Effect" kindref="compound">Effect</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="116" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1Effect_1a19403c68df73b19524a0d2f78bf423f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::Effect::operator=</definition>
+        <argsstring>(const Effect &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>eu::render::Effect::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Effect" kindref="compound">Effect</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="117" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1Effect_1ad7b2ac5759ec0cb159db84b571dcbdaf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::Effect::operator=</definition>
+        <argsstring>(Effect &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>eu::render::Effect::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1Effect" kindref="compound">Effect</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="118" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1Effect_1ab9c96c9b468942c7bf4ea7c6573280d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>virtual void eu::render::Effect::build</definition>
+        <argsstring>(const BuildArg &amp;arg)=0</argsstring>
+        <name>build</name>
+        <qualifiedname>eu::render::Effect::build</qualifiedname>
+        <reimplementedby refid="structeu_1_1render_1_1SimpleEffect_1ac4bd0a9ba85b2da7303a4f136d6b27b1">build</reimplementedby>
+        <reimplementedby refid="structeu_1_1render_1_1BlurEffect_1a063dbf2a3d6063a4d5a8d64822ae5512">build</reimplementedby>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1BuildArg" kindref="compound">BuildArg</ref> &amp;</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="120" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1Effect_1a0d7ba9e2f2ee5b6f8ae1e85cf7b62825" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>virtual void eu::render::Effect::update</definition>
+        <argsstring>(float dt)=0</argsstring>
+        <name>update</name>
+        <qualifiedname>eu::render::Effect::update</qualifiedname>
+        <reimplementedby refid="structeu_1_1render_1_1SimpleEffect_1ae7d0fe4e0a1ed79a7d04950ac9a59eae">update</reimplementedby>
+        <reimplementedby refid="structeu_1_1render_1_1BlurEffect_1a677bca16202c03d8125d07301cc0d6d2">update</reimplementedby>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="121" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1Effect_1aca98d4b6e86f9f1d27c04619659d29c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>virtual void eu::render::Effect::gui</definition>
+        <argsstring>()=0</argsstring>
+        <name>gui</name>
+        <qualifiedname>eu::render::Effect::gui</qualifiedname>
+        <reimplementedby refid="structeu_1_1render_1_1SimpleEffect_1a71d7a2c711c843adc5280dc52666a4c3">gui</reimplementedby>
+        <reimplementedby refid="structeu_1_1render_1_1BlurEffect_1af8b6d218ec937f709acfb551bdada138">gui</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="122" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1Effect_1ac1990be1463727f5e9a19a2d67a2f99f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::render::Effect::enabled</definition>
+        <argsstring>() const</argsstring>
+        <name>enabled</name>
+        <qualifiedname>eu::render::Effect::enabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="124" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1Effect_1aa5ca1731e368484bc9ef23768f8a9ce5" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::Effect::set_enabled</definition>
+        <argsstring>(bool n)</argsstring>
+        <name>set_enabled</name>
+        <qualifiedname>eu::render::Effect::set_enabled</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="128" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A effect that can be toggled. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Common effects are: blur, bloom, color grading, etc. Most effects from <ulink url="https://lettier.github.io/3d-game-shaders-for-beginners/index.html">https://lettier.github.io/3d-game-shaders-for-beginners/index.html</ulink> would be implemented as effects. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>eu::render::BlurEffect</label>
+        <link refid="structeu_1_1render_1_1BlurEffect"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>eu::render::Effect</label>
+        <link refid="structeu_1_1render_1_1Effect"/>
+      </node>
+      <node id="2">
+        <label>eu::render::FactorEffect</label>
+        <link refid="structeu_1_1render_1_1FactorEffect"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>eu::render::SimpleEffect</label>
+        <link refid="structeu_1_1render_1_1SimpleEffect"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="libs/render/src/eu/render/postproc.h" line="110" column="1" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="111" bodyend="136"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1Effect_1ab9c96c9b468942c7bf4ea7c6573280d1" prot="public" virt="pure-virtual"><scope>eu::render::Effect</scope><name>build</name></member>
+      <member refid="structeu_1_1render_1_1Effect_1ac8c7d832bbcdfb590adf74d90ca9e7bb" prot="public" virt="non-virtual"><scope>eu::render::Effect</scope><name>Effect</name></member>
+      <member refid="structeu_1_1render_1_1Effect_1ad7da38e828880753632d466714d98218" prot="public" virt="non-virtual"><scope>eu::render::Effect</scope><name>Effect</name></member>
+      <member refid="structeu_1_1render_1_1Effect_1a8ecb965a238b356f4fa9c4b05e628290" prot="public" virt="non-virtual"><scope>eu::render::Effect</scope><name>Effect</name></member>
+      <member refid="structeu_1_1render_1_1Effect_1a9baaf22c08590fd87da53ccb29ff2dcd" prot="private" virt="non-virtual"><scope>eu::render::Effect</scope><name>EffectStack</name></member>
+      <member refid="structeu_1_1render_1_1Effect_1ac1990be1463727f5e9a19a2d67a2f99f" prot="public" virt="non-virtual"><scope>eu::render::Effect</scope><name>enabled</name></member>
+      <member refid="structeu_1_1render_1_1Effect_1aca98d4b6e86f9f1d27c04619659d29c6" prot="public" virt="pure-virtual"><scope>eu::render::Effect</scope><name>gui</name></member>
+      <member refid="structeu_1_1render_1_1Effect_1a3a08e2bfa589c5df80c6709a6a07c630" prot="private" virt="non-virtual"><scope>eu::render::Effect</scope><name>is_enabled</name></member>
+      <member refid="structeu_1_1render_1_1Effect_1a19403c68df73b19524a0d2f78bf423f4" prot="public" virt="non-virtual"><scope>eu::render::Effect</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1Effect_1ad7b2ac5759ec0cb159db84b571dcbdaf" prot="public" virt="non-virtual"><scope>eu::render::Effect</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1Effect_1acd8a18ac6aa4773dbe0ddd22dce9d9d5" prot="private" virt="non-virtual"><scope>eu::render::Effect</scope><name>owner</name></member>
+      <member refid="structeu_1_1render_1_1Effect_1aa5ca1731e368484bc9ef23768f8a9ce5" prot="protected" virt="non-virtual"><scope>eu::render::Effect</scope><name>set_enabled</name></member>
+      <member refid="structeu_1_1render_1_1Effect_1a0d7ba9e2f2ee5b6f8ae1e85cf7b62825" prot="public" virt="pure-virtual"><scope>eu::render::Effect</scope><name>update</name></member>
+      <member refid="structeu_1_1render_1_1Effect_1ad7beedc2aa924f22074a6b391fe77d3c" prot="public" virt="virtual"><scope>eu::render::Effect</scope><name>~Effect</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

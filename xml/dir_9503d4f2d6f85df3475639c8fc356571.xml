@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_9503d4f2d6f85df3475639c8fc356571" kind="dir">
+    <compoundname>libs/fmt/src/eu/fmt</compoundname>
+    <innerfile refid="fmt_2src_2eu_2fmt_2pch_8public_8h">pch.public.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/fmt/src/eu/fmt/"/>
+  </compounddef>
+</doxygen>

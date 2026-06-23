@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1CompiledTransformedMesh" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::CompiledTransformedMesh</compoundname>
+    <includes refid="compiledmesh_8h" local="no">compiledmesh.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledTransformedMesh_1aedcfeffa1221daf91927c42f085d3e3a" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::render::CompiledTransformedMesh::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>eu::render::CompiledTransformedMesh::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/compiledmesh.h" line="26" column="17" bodyfile="libs/render/src/eu/render/compiledmesh.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledTransformedMesh_1a9234f70b793b3d0b317f719320eae452" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
+        <definition>m4 eu::render::CompiledTransformedMesh::transform</definition>
+        <argsstring></argsstring>
+        <name>transform</name>
+        <qualifiedname>eu::render::CompiledTransformedMesh::transform</qualifiedname>
+        <initializer>= <ref refid="group__math_1ga5957f0b19a66d6e1123f22d681e726e0" kindref="member">m4_identity</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/compiledmesh.h" line="27" column="8" bodyfile="libs/render/src/eu/render/compiledmesh.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledTransformedMesh_1a75edebdcf044648044d148cb680a7044" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeu_1_1render_1_1CompiledMeshGeom" kindref="compound">CompiledMeshGeom</ref> &gt;</type>
+        <definition>std::vector&lt;CompiledMeshGeom&gt; eu::render::CompiledTransformedMesh::geoms</definition>
+        <argsstring></argsstring>
+        <name>geoms</name>
+        <qualifiedname>eu::render::CompiledTransformedMesh::geoms</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/compiledmesh.h" line="28" column="17" bodyfile="libs/render/src/eu/render/compiledmesh.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::m4</label>
+        <link refid="structeu_1_1m4"/>
+      </node>
+      <node id="1">
+        <label>eu::render::CompiledTransformedMesh</label>
+        <link refid="structeu_1_1render_1_1CompiledTransformedMesh"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>transform</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/eu/render/compiledmesh.h" line="24" column="1" bodyfile="libs/render/src/eu/render/compiledmesh.h" bodystart="25" bodyend="29"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1CompiledTransformedMesh_1a75edebdcf044648044d148cb680a7044" prot="public" virt="non-virtual"><scope>eu::render::CompiledTransformedMesh</scope><name>geoms</name></member>
+      <member refid="structeu_1_1render_1_1CompiledTransformedMesh_1aedcfeffa1221daf91927c42f085d3e3a" prot="public" virt="non-virtual"><scope>eu::render::CompiledTransformedMesh</scope><name>name</name></member>
+      <member refid="structeu_1_1render_1_1CompiledTransformedMesh_1a9234f70b793b3d0b317f719320eae452" prot="public" virt="non-virtual"><scope>eu::render::CompiledTransformedMesh</scope><name>transform</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

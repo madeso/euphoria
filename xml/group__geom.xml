@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="group__geom" kind="group">
+    <compoundname>geom</compoundname>
+    <title>Geom</title>
+    <innerclass refid="structeu_1_1core_1_1Vertex" prot="public">eu::core::Vertex</innerclass>
+    <innerclass refid="structeu_1_1core_1_1Face" prot="public">eu::core::Face</innerclass>
+    <innerclass refid="structeu_1_1core_1_1Geom" prot="public">eu::core::Geom</innerclass>
+    <briefdescription>
+<para>Vertices and triangles without a material. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

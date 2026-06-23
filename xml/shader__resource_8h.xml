@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="shader__resource_8h" kind="file" language="C++">
+    <compoundname>shader_resource.h</compoundname>
+    <includes refid="uniform_8h" local="yes">eu/render/uniform.h</includes>
+    <includes refid="render_2src_2eu_2render_2uniform__buffer_8h" local="yes">eu/render/uniform_buffer.h</includes>
+    <includes refid="vertex__layout_8h" local="yes">eu/core/vertex_layout.h</includes>
+    <includedby refid="postproc_8internal_8h" local="yes">libs/render/src/eu/render/postproc.internal.h</includedby>
+    <includedby refid="renderer_8pimpl_8h" local="yes">libs/render/src/eu/render/renderer.pimpl.h</includedby>
+    <incdepgraph>
+      <node id="4">
+        <label>eu/core/uniform_buffer.h</label>
+        <link refid="core_2src_2eu_2core_2uniform__buffer_8h"/>
+      </node>
+      <node id="6">
+        <label>eu/core/vertex_layout.h</label>
+        <link refid="vertex__layout_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>eu/render/opengl_labels.h</label>
+        <link refid="opengl__labels_8h"/>
+      </node>
+      <node id="1">
+        <label>libs/render/src/eu/render/shader_resource.h</label>
+        <link refid="shader__resource_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu/render/uniform.h</label>
+        <link refid="uniform_8h"/>
+      </node>
+      <node id="3">
+        <label>eu/render/uniform_buffer.h</label>
+        <link refid="render_2src_2eu_2render_2uniform__buffer_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>map</label>
+      </node>
+      <node id="9">
+        <label>optional</label>
+      </node>
+      <node id="8">
+        <label>set</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>libs/render/src/eu/render/postproc.internal.h</label>
+        <link refid="postproc_8internal_8h"/>
+      </node>
+      <node id="3">
+        <label>libs/render/src/eu/render/renderer.pimpl.h</label>
+        <link refid="renderer_8pimpl_8h"/>
+      </node>
+      <node id="1">
+        <label>libs/render/src/eu/render/shader_resource.h</label>
+        <link refid="shader__resource_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structeu_1_1render_1_1CameraUniformBuffer" prot="public">eu::render::CameraUniformBuffer</innerclass>
+    <innerclass refid="structeu_1_1render_1_1LoadedShader__SingleColor" prot="public">eu::render::LoadedShader_SingleColor</innerclass>
+    <innerclass refid="structeu_1_1render_1_1LoadedShader__OnlyDepth" prot="public">eu::render::LoadedShader_OnlyDepth</innerclass>
+    <innerclass refid="structeu_1_1render_1_1LoadedShader__Skybox" prot="public">eu::render::LoadedShader_Skybox</innerclass>
+    <innerclass refid="structeu_1_1render_1_1LoadedShader__Unlit" prot="public">eu::render::LoadedShader_Unlit</innerclass>
+    <innerclass refid="structeu_1_1render_1_1DirectionalLightUniforms" prot="public">eu::render::DirectionalLightUniforms</innerclass>
+    <innerclass refid="structeu_1_1render_1_1PointLightUniforms" prot="public">eu::render::PointLightUniforms</innerclass>
+    <innerclass refid="structeu_1_1render_1_1FrustumLightUniforms" prot="public">eu::render::FrustumLightUniforms</innerclass>
+    <innerclass refid="structeu_1_1render_1_1LoadedPostProcShader" prot="public">eu::render::LoadedPostProcShader</innerclass>
+    <innerclass refid="structeu_1_1render_1_1LoadedShader__Default" prot="public">eu::render::LoadedShader_Default</innerclass>
+    <innerclass refid="structeu_1_1render_1_1RenderContext" prot="public">eu::render::RenderContext</innerclass>
+    <innerclass refid="structeu_1_1render_1_1LoadedShader__Unlit__Container" prot="public">eu::render::LoadedShader_Unlit_Container</innerclass>
+    <innerclass refid="structeu_1_1render_1_1LoadedShader__Default__Container" prot="public">eu::render::LoadedShader_Default_Container</innerclass>
+    <innerclass refid="structeu_1_1render_1_1RealizeShader" prot="public">eu::render::RealizeShader</innerclass>
+    <innerclass refid="structeu_1_1render_1_1ExtractShader" prot="public">eu::render::ExtractShader</innerclass>
+    <innerclass refid="structeu_1_1render_1_1PingPongBlurShader" prot="public">eu::render::PingPongBlurShader</innerclass>
+    <innerclass refid="structeu_1_1render_1_1ShaderResource" prot="public">eu::render::ShaderResource</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/eu/render/shader_resource.h"/>
+  </compounddef>
+</doxygen>

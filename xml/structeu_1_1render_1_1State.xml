@@ -1,0 +1,227 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1State" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::State</compoundname>
+    <includes refid="state_8h" local="no">state.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1State_1a6a78d5b13160e261835ec4bb862a1ff5" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1R" kindref="compound">bool</ref> &gt;</type>
+        <definition>std::optional&lt;bool&gt; eu::render::State::cull_face</definition>
+        <argsstring></argsstring>
+        <name>cull_face</name>
+        <qualifiedname>eu::render::State::cull_face</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/state.h" line="120" column="15" bodyfile="libs/render/src/eu/render/state.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1State_1aea0e2b9034792f869e0e357ce16460ff" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="group__render_1ga2a476d1716c1cbf4ac750f6f7941af87" kindref="member">CullFace</ref> &gt;</type>
+        <definition>std::optional&lt;CullFace&gt; eu::render::State::cull_face_mode</definition>
+        <argsstring></argsstring>
+        <name>cull_face_mode</name>
+        <qualifiedname>eu::render::State::cull_face_mode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/state.h" line="121" column="15" bodyfile="libs/render/src/eu/render/state.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1State_1a5363d55ae91db54bfa6d809293f57a65" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1R" kindref="compound">bool</ref> &gt;</type>
+        <definition>std::optional&lt;bool&gt; eu::render::State::blending</definition>
+        <argsstring></argsstring>
+        <name>blending</name>
+        <qualifiedname>eu::render::State::blending</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/state.h" line="123" column="15" bodyfile="libs/render/src/eu/render/state.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1State_1a930357eee05417a5bb2b7cf8317ee315" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="group__render_1gaf20743f7c4f35277d1d278d8ac20368d" kindref="member">BlendMode</ref> &gt;</type>
+        <definition>std::optional&lt;BlendMode&gt; eu::render::State::blend_mode</definition>
+        <argsstring></argsstring>
+        <name>blend_mode</name>
+        <qualifiedname>eu::render::State::blend_mode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/state.h" line="124" column="15" bodyfile="libs/render/src/eu/render/state.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1State_1a5a6ff925f08f47f0c8accd3203dd5a3f" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1R" kindref="compound">bool</ref> &gt;</type>
+        <definition>std::optional&lt;bool&gt; eu::render::State::depth_test</definition>
+        <argsstring></argsstring>
+        <name>depth_test</name>
+        <qualifiedname>eu::render::State::depth_test</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/state.h" line="126" column="15" bodyfile="libs/render/src/eu/render/state.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1State_1a860f757ec8b6bde6f31d5ecd8a2cc3b1" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1R" kindref="compound">bool</ref> &gt;</type>
+        <definition>std::optional&lt;bool&gt; eu::render::State::depth_mask</definition>
+        <argsstring></argsstring>
+        <name>depth_mask</name>
+        <qualifiedname>eu::render::State::depth_mask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/state.h" line="127" column="15" bodyfile="libs/render/src/eu/render/state.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1State_1a5917752b4d394082759f45ec32aeeedd" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="group__render_1gafdedc77ac04d69fa6e6b99c5a79f4ed4" kindref="member">Compare</ref> &gt;</type>
+        <definition>std::optional&lt;Compare&gt; eu::render::State::depth_func</definition>
+        <argsstring></argsstring>
+        <name>depth_func</name>
+        <qualifiedname>eu::render::State::depth_func</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/state.h" line="128" column="15" bodyfile="libs/render/src/eu/render/state.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1State_1af196fb078198797c942fec6a64231779" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1R" kindref="compound">bool</ref> &gt;</type>
+        <definition>std::optional&lt;bool&gt; eu::render::State::stencil_test</definition>
+        <argsstring></argsstring>
+        <name>stencil_test</name>
+        <qualifiedname>eu::render::State::stencil_test</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/state.h" line="130" column="15" bodyfile="libs/render/src/eu/render/state.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1State_1ae464f2be64178cd1c1afd1eb491bb5d2" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref> &gt;</type>
+        <definition>std::optional&lt;u32&gt; eu::render::State::stencil_mask</definition>
+        <argsstring></argsstring>
+        <name>stencil_mask</name>
+        <qualifiedname>eu::render::State::stencil_mask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/state.h" line="131" column="15" bodyfile="libs/render/src/eu/render/state.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1State_1a680fe9cfb6307d65b7c9f0c9c55c20bf" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="group__render_1ga3b342a9576b9003ba20553d4c3dbacb0" kindref="member">RenderMode</ref> &gt;</type>
+        <definition>std::optional&lt;RenderMode&gt; eu::render::State::render_mode</definition>
+        <argsstring></argsstring>
+        <name>render_mode</name>
+        <qualifiedname>eu::render::State::render_mode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/state.h" line="133" column="15" bodyfile="libs/render/src/eu/render/state.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1State_1a311c7c596ce697be36183c6267584409" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="group__render_1gad0035b261e0f761ea8db04d8b5de2ef5" kindref="member">StencilFunc</ref> &gt;</type>
+        <definition>std::optional&lt;StencilFunc&gt; eu::render::State::stencil_func</definition>
+        <argsstring></argsstring>
+        <name>stencil_func</name>
+        <qualifiedname>eu::render::State::stencil_func</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/state.h" line="134" column="15" bodyfile="libs/render/src/eu/render/state.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1State_1af139d5c26ea50316f024ba20f6f54dc8" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="group__render_1ga90cb5bd57c88feb4e3d017558200ced1" kindref="member">StencilOp</ref> &gt;</type>
+        <definition>std::optional&lt;StencilOp&gt; eu::render::State::stencil_op</definition>
+        <argsstring></argsstring>
+        <name>stencil_op</name>
+        <qualifiedname>eu::render::State::stencil_op</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/state.h" line="135" column="15" bodyfile="libs/render/src/eu/render/state.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1State_1ad9cb90bbcf704dc0341e64fb31c4cbde" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1R" kindref="compound">int</ref> &gt;</type>
+        <definition>std::optional&lt;int&gt; eu::render::State::active_texture</definition>
+        <argsstring></argsstring>
+        <name>active_texture</name>
+        <qualifiedname>eu::render::State::active_texture</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/state.h" line="137" column="15" bodyfile="libs/render/src/eu/render/state.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1State_1a59a945469daba5e10d6b145b7652fa48" prot="public" static="no" mutable="no">
+        <type>std::array&lt; std::optional&lt; <ref refid="structeu_1_1R" kindref="compound">unsigned</ref> <ref refid="structeu_1_1R" kindref="compound">int</ref> &gt;, <ref refid="namespaceeu_1_1render_1ad1e3a302bde920dcc4d7714570d5838d" kindref="member">MAX_TEXTURES_SUPPORTED</ref> &gt;</type>
+        <definition>std::array&lt;std::optional&lt;unsigned int&gt;, MAX_TEXTURES_SUPPORTED&gt; eu::render::State::texture_bound</definition>
+        <argsstring></argsstring>
+        <name>texture_bound</name>
+        <qualifiedname>eu::render::State::texture_bound</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/state.h" line="138" column="12" bodyfile="libs/render/src/eu/render/state.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A &quot;cache&quot; for the current open gl state. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/eu/render/state.h" line="118" column="1" bodyfile="libs/render/src/eu/render/state.h" bodystart="119" bodyend="139"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1State_1ad9cb90bbcf704dc0341e64fb31c4cbde" prot="public" virt="non-virtual"><scope>eu::render::State</scope><name>active_texture</name></member>
+      <member refid="structeu_1_1render_1_1State_1a930357eee05417a5bb2b7cf8317ee315" prot="public" virt="non-virtual"><scope>eu::render::State</scope><name>blend_mode</name></member>
+      <member refid="structeu_1_1render_1_1State_1a5363d55ae91db54bfa6d809293f57a65" prot="public" virt="non-virtual"><scope>eu::render::State</scope><name>blending</name></member>
+      <member refid="structeu_1_1render_1_1State_1a6a78d5b13160e261835ec4bb862a1ff5" prot="public" virt="non-virtual"><scope>eu::render::State</scope><name>cull_face</name></member>
+      <member refid="structeu_1_1render_1_1State_1aea0e2b9034792f869e0e357ce16460ff" prot="public" virt="non-virtual"><scope>eu::render::State</scope><name>cull_face_mode</name></member>
+      <member refid="structeu_1_1render_1_1State_1a5917752b4d394082759f45ec32aeeedd" prot="public" virt="non-virtual"><scope>eu::render::State</scope><name>depth_func</name></member>
+      <member refid="structeu_1_1render_1_1State_1a860f757ec8b6bde6f31d5ecd8a2cc3b1" prot="public" virt="non-virtual"><scope>eu::render::State</scope><name>depth_mask</name></member>
+      <member refid="structeu_1_1render_1_1State_1a5a6ff925f08f47f0c8accd3203dd5a3f" prot="public" virt="non-virtual"><scope>eu::render::State</scope><name>depth_test</name></member>
+      <member refid="structeu_1_1render_1_1State_1a680fe9cfb6307d65b7c9f0c9c55c20bf" prot="public" virt="non-virtual"><scope>eu::render::State</scope><name>render_mode</name></member>
+      <member refid="structeu_1_1render_1_1State_1a311c7c596ce697be36183c6267584409" prot="public" virt="non-virtual"><scope>eu::render::State</scope><name>stencil_func</name></member>
+      <member refid="structeu_1_1render_1_1State_1ae464f2be64178cd1c1afd1eb491bb5d2" prot="public" virt="non-virtual"><scope>eu::render::State</scope><name>stencil_mask</name></member>
+      <member refid="structeu_1_1render_1_1State_1af139d5c26ea50316f024ba20f6f54dc8" prot="public" virt="non-virtual"><scope>eu::render::State</scope><name>stencil_op</name></member>
+      <member refid="structeu_1_1render_1_1State_1af196fb078198797c942fec6a64231779" prot="public" virt="non-virtual"><scope>eu::render::State</scope><name>stencil_test</name></member>
+      <member refid="structeu_1_1render_1_1State_1a59a945469daba5e10d6b145b7652fa48" prot="public" virt="non-virtual"><scope>eu::render::State</scope><name>texture_bound</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

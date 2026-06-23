@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1TransformedMeshInWorld" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::TransformedMeshInWorld</compoundname>
+    <includes refid="compiledmesh_8h" local="no">compiledmesh.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1TransformedMeshInWorld_1ad8ed16a0eb07905cb216e257c3054b07" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1MeshInstance" kindref="compound">MeshInstance</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;MeshInstance&gt; &gt; eu::render::TransformedMeshInWorld::geoms</definition>
+        <argsstring></argsstring>
+        <name>geoms</name>
+        <qualifiedname>eu::render::TransformedMeshInWorld::geoms</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/compiledmesh.h" line="46" column="17" bodyfile="libs/render/src/eu/render/compiledmesh.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/eu/render/compiledmesh.h" line="44" column="1" bodyfile="libs/render/src/eu/render/compiledmesh.h" bodystart="45" bodyend="47"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1TransformedMeshInWorld_1ad8ed16a0eb07905cb216e257c3054b07" prot="public" virt="non-virtual"><scope>eu::render::TransformedMeshInWorld</scope><name>geoms</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

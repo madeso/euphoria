@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1CompiledStack" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::CompiledStack</compoundname>
+    <includes refid="postproc_8h" local="no">postproc.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledStack_1a7d4c0766faa49ce29ced16ce9fe5b5b8" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1RenderSource" kindref="compound">RenderSource</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;RenderSource&gt; eu::render::CompiledStack::last_source</definition>
+        <argsstring></argsstring>
+        <name>last_source</name>
+        <qualifiedname>eu::render::CompiledStack::last_source</qualifiedname>
+        <briefdescription>
+<para>start with a simple world, but depending on the current effect list, could be more... </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="90" column="17" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledStack_1a6ae8a8003e1f340ee29af086f2f09110" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1RenderTextureWithShader" kindref="compound">RenderTextureWithShader</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;RenderTextureWithShader&gt; &gt; eu::render::CompiledStack::targets</definition>
+        <argsstring></argsstring>
+        <name>targets</name>
+        <qualifiedname>eu::render::CompiledStack::targets</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="92" column="13" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A compiled full-screen-effect. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>when compiled it could be:<itemizedlist>
+<listitem><para>[render world to screen]</para>
+</listitem><listitem><para>[render world to fbo], [render fbo to screen with shader]</para>
+</listitem><listitem><para>[render world to fbo] [[render fbo to intermediate with shader] [render int to screen with shader]]</para>
+</listitem><listitem><para>[render world to fbo] [[render fbo to intermediate with shader] [render int to fbo with shader]] [render fbo to screen with shader] </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <location file="libs/render/src/eu/render/postproc.h" line="87" column="1" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="88" bodyend="93"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1CompiledStack_1a7d4c0766faa49ce29ced16ce9fe5b5b8" prot="public" virt="non-virtual"><scope>eu::render::CompiledStack</scope><name>last_source</name></member>
+      <member refid="structeu_1_1render_1_1CompiledStack_1a6ae8a8003e1f340ee29af086f2f09110" prot="public" virt="non-virtual"><scope>eu::render::CompiledStack</scope><name>targets</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

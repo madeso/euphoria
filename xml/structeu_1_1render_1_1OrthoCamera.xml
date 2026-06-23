@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1OrthoCamera" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::OrthoCamera</compoundname>
+    <includes refid="camera_8h" local="no">camera.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1OrthoCamera_1a449855d55b053e7af2d877e8a36dbc90" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::render::OrthoCamera::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <qualifiedname>eu::render::OrthoCamera::size</qualifiedname>
+        <initializer>= 100.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/camera.h" line="28" column="7" bodyfile="libs/render/src/eu/render/camera.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1OrthoCamera_1a339751b8a7ad82f6e2b1382525ba38ac" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::render::OrthoCamera::near</definition>
+        <argsstring></argsstring>
+        <name>near</name>
+        <qualifiedname>eu::render::OrthoCamera::near</qualifiedname>
+        <initializer>= 0.1<ref refid="structeu_1_1R" kindref="compound">f</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/camera.h" line="30" column="7" bodyfile="libs/render/src/eu/render/camera.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1OrthoCamera_1a1d8b5f9c4ca71ffd13793e40e5e55406" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::render::OrthoCamera::far</definition>
+        <argsstring></argsstring>
+        <name>far</name>
+        <qualifiedname>eu::render::OrthoCamera::far</qualifiedname>
+        <initializer>= 100.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/camera.h" line="31" column="7" bodyfile="libs/render/src/eu/render/camera.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1OrthoCamera_1a5768e451c806dad8d524304248cd311b" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
+        <definition>v3 eu::render::OrthoCamera::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <qualifiedname>eu::render::OrthoCamera::position</qualifiedname>
+        <initializer>= <ref refid="structeu_1_1v3" kindref="compound">v3</ref>{0.0f, 0.0f, 0.0f}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/camera.h" line="33" column="4" bodyfile="libs/render/src/eu/render/camera.h" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1OrthoCamera_1aa5441d5633574bf246a916a1308bb0de" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Ypr" kindref="compound">Ypr</ref></type>
+        <definition>Ypr eu::render::OrthoCamera::rotation</definition>
+        <argsstring></argsstring>
+        <name>rotation</name>
+        <qualifiedname>eu::render::OrthoCamera::rotation</qualifiedname>
+        <initializer>= <ref refid="structeu_1_1Ypr" kindref="compound">Ypr</ref>{ 0.0_rad, 0.0_rad, 0.0_rad }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/camera.h" line="35" column="9" bodyfile="libs/render/src/eu/render/camera.h" bodystart="35" bodyend="35"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A orthographic camera representation. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>eu::An</label>
+        <link refid="structeu_1_1An"/>
+      </node>
+      <node id="3">
+        <label>eu::Ypr</label>
+        <link refid="structeu_1_1Ypr"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>pitch</edgelabel>
+          <edgelabel>roll</edgelabel>
+          <edgelabel>yaw</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>eu::render::OrthoCamera</label>
+        <link refid="structeu_1_1render_1_1OrthoCamera"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>position</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>rotation</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::v3</label>
+        <link refid="structeu_1_1v3"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/eu/render/camera.h" line="26" column="1" bodyfile="libs/render/src/eu/render/camera.h" bodystart="27" bodyend="36"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1OrthoCamera_1a1d8b5f9c4ca71ffd13793e40e5e55406" prot="public" virt="non-virtual"><scope>eu::render::OrthoCamera</scope><name>far</name></member>
+      <member refid="structeu_1_1render_1_1OrthoCamera_1a339751b8a7ad82f6e2b1382525ba38ac" prot="public" virt="non-virtual"><scope>eu::render::OrthoCamera</scope><name>near</name></member>
+      <member refid="structeu_1_1render_1_1OrthoCamera_1a5768e451c806dad8d524304248cd311b" prot="public" virt="non-virtual"><scope>eu::render::OrthoCamera</scope><name>position</name></member>
+      <member refid="structeu_1_1render_1_1OrthoCamera_1aa5441d5633574bf246a916a1308bb0de" prot="public" virt="non-virtual"><scope>eu::render::OrthoCamera</scope><name>rotation</name></member>
+      <member refid="structeu_1_1render_1_1OrthoCamera_1a449855d55b053e7af2d877e8a36dbc90" prot="public" virt="non-virtual"><scope>eu::render::OrthoCamera</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

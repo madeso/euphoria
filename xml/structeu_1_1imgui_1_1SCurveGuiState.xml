@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1imgui_1_1SCurveGuiState" kind="struct" language="C++" prot="public">
+    <compoundname>eu::imgui::SCurveGuiState</compoundname>
+    <includes refid="imgui_2src_2eu_2imgui_2scurve_8h" local="no">scurve.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1imgui_1_1SCurveGuiState_1a1e223b925acfb7be3089879fea8df4e4" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">ImVec2</ref></type>
+        <definition>ImVec2 eu::imgui::SCurveGuiState::drag</definition>
+        <argsstring></argsstring>
+        <name>drag</name>
+        <qualifiedname>eu::imgui::SCurveGuiState::drag</qualifiedname>
+        <initializer>= {0.5<ref refid="structeu_1_1R" kindref="compound">f</ref>, 0.5<ref refid="structeu_1_1R" kindref="compound">f</ref>}</initializer>
+        <briefdescription>
+<para>the gui data </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/scurve.h" line="16" column="8" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="16" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1imgui_1_1SCurveGuiState_1af14f84442a1d9509cb3d32acc31a9834" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeu_1_1R" kindref="compound">ImVec2</ref> &gt;</type>
+        <definition>std::vector&lt;ImVec2&gt; eu::imgui::SCurveGuiState::point_cache</definition>
+        <argsstring></argsstring>
+        <name>point_cache</name>
+        <qualifiedname>eu::imgui::SCurveGuiState::point_cache</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/scurve.h" line="23" column="13" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1imgui_1_1SCurveGuiState_1a88bf48306c50ba46c1bf1f506a6d6117" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::imgui::SCurveGuiState::SCurveGuiState</definition>
+        <argsstring>()=default</argsstring>
+        <name>SCurveGuiState</name>
+        <qualifiedname>eu::imgui::SCurveGuiState::SCurveGuiState</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/scurve.h" line="18" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1imgui_1_1SCurveGuiState_1a9bb3c428a5a17311e115b1730aa83c6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::imgui::SCurveGuiState::SCurveGuiState</definition>
+        <argsstring>(float x, float y)</argsstring>
+        <name>SCurveGuiState</name>
+        <qualifiedname>eu::imgui::SCurveGuiState::SCurveGuiState</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/scurve.h" line="19" column="1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1imgui_1_1SCurveGuiState_1a682665dcf20cf5c7b56dedf48554b7a4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1imgui_1_1SCurveGuiState" kindref="compound">SCurveGuiState</ref></type>
+        <definition>static SCurveGuiState eu::imgui::SCurveGuiState::light_curve</definition>
+        <argsstring>()</argsstring>
+        <name>light_curve</name>
+        <qualifiedname>eu::imgui::SCurveGuiState::light_curve</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/scurve.h" line="21" column="23"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Represents the GUI state for an S-curve. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/imgui/src/eu/imgui/scurve.h" line="14" column="1" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="15" bodyend="24"/>
+    <listofallmembers>
+      <member refid="structeu_1_1imgui_1_1SCurveGuiState_1a1e223b925acfb7be3089879fea8df4e4" prot="public" virt="non-virtual"><scope>eu::imgui::SCurveGuiState</scope><name>drag</name></member>
+      <member refid="structeu_1_1imgui_1_1SCurveGuiState_1a682665dcf20cf5c7b56dedf48554b7a4" prot="public" virt="non-virtual"><scope>eu::imgui::SCurveGuiState</scope><name>light_curve</name></member>
+      <member refid="structeu_1_1imgui_1_1SCurveGuiState_1af14f84442a1d9509cb3d32acc31a9834" prot="public" virt="non-virtual"><scope>eu::imgui::SCurveGuiState</scope><name>point_cache</name></member>
+      <member refid="structeu_1_1imgui_1_1SCurveGuiState_1a88bf48306c50ba46c1bf1f506a6d6117" prot="public" virt="non-virtual"><scope>eu::imgui::SCurveGuiState</scope><name>SCurveGuiState</name></member>
+      <member refid="structeu_1_1imgui_1_1SCurveGuiState_1a9bb3c428a5a17311e115b1730aa83c6d" prot="public" virt="non-virtual"><scope>eu::imgui::SCurveGuiState</scope><name>SCurveGuiState</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

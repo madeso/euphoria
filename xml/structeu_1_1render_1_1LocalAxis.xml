@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1LocalAxis" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::LocalAxis</compoundname>
+    <includes refid="world_8h" local="no">world.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1LocalAxis_1a21f20b939e26fb024e2ebc4fbf28e7e6" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
+        <definition>v3 eu::render::LocalAxis::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>eu::render::LocalAxis::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/world.h" line="71" column="4" bodyfile="libs/render/src/eu/render/world.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1LocalAxis_1aac6a4c8d2c31fa6600c96d35ce3867e8" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
+        <definition>v3 eu::render::LocalAxis::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>eu::render::LocalAxis::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/world.h" line="72" column="4" bodyfile="libs/render/src/eu/render/world.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1LocalAxis_1a720cb2be6fcb945f388ba3e6f70c4dc7" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
+        <definition>v3 eu::render::LocalAxis::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <qualifiedname>eu::render::LocalAxis::z</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/world.h" line="73" column="4" bodyfile="libs/render/src/eu/render/world.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::render::LocalAxis</label>
+        <link refid="structeu_1_1render_1_1LocalAxis"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>x</edgelabel>
+          <edgelabel>y</edgelabel>
+          <edgelabel>z</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::v3</label>
+        <link refid="structeu_1_1v3"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/eu/render/world.h" line="69" column="1" bodyfile="libs/render/src/eu/render/world.h" bodystart="70" bodyend="74"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1LocalAxis_1a21f20b939e26fb024e2ebc4fbf28e7e6" prot="public" virt="non-virtual"><scope>eu::render::LocalAxis</scope><name>x</name></member>
+      <member refid="structeu_1_1render_1_1LocalAxis_1aac6a4c8d2c31fa6600c96d35ce3867e8" prot="public" virt="non-virtual"><scope>eu::render::LocalAxis</scope><name>y</name></member>
+      <member refid="structeu_1_1render_1_1LocalAxis_1a720cb2be6fcb945f388ba3e6f70c4dc7" prot="public" virt="non-virtual"><scope>eu::render::LocalAxis</scope><name>z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

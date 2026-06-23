@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1DebugLine" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::DebugLine</compoundname>
+    <includes refid="debug_8h" local="no">debug.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1DebugLine_1a3950af3896452045415ab1006761b7ff" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
+        <definition>v3 eu::render::DebugLine::from</definition>
+        <argsstring></argsstring>
+        <name>from</name>
+        <qualifiedname>eu::render::DebugLine::from</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/debug.h" line="16" column="4" bodyfile="libs/render/src/eu/render/debug.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1DebugLine_1a0ada90c5b317235b4a5acfd9c1abfd26" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
+        <definition>v3 eu::render::DebugLine::to</definition>
+        <argsstring></argsstring>
+        <name>to</name>
+        <qualifiedname>eu::render::DebugLine::to</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/debug.h" line="17" column="4" bodyfile="libs/render/src/eu/render/debug.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1DebugLine_1ab59df74498d4cab676a570ae587d6902" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <definition>Rgb eu::render::DebugLine::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>eu::render::DebugLine::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/debug.h" line="18" column="5" bodyfile="libs/render/src/eu/render/debug.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Line + color. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>eu::Rgb</label>
+        <link refid="structeu_1_1Rgb"/>
+      </node>
+      <node id="1">
+        <label>eu::render::DebugLine</label>
+        <link refid="structeu_1_1render_1_1DebugLine"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>from</edgelabel>
+          <edgelabel>to</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>color</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::v3</label>
+        <link refid="structeu_1_1v3"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/eu/render/debug.h" line="14" column="1" bodyfile="libs/render/src/eu/render/debug.h" bodystart="15" bodyend="19"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1DebugLine_1ab59df74498d4cab676a570ae587d6902" prot="public" virt="non-virtual"><scope>eu::render::DebugLine</scope><name>color</name></member>
+      <member refid="structeu_1_1render_1_1DebugLine_1a3950af3896452045415ab1006761b7ff" prot="public" virt="non-virtual"><scope>eu::render::DebugLine</scope><name>from</name></member>
+      <member refid="structeu_1_1render_1_1DebugLine_1a0ada90c5b317235b4a5acfd9c1abfd26" prot="public" virt="non-virtual"><scope>eu::render::DebugLine</scope><name>to</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

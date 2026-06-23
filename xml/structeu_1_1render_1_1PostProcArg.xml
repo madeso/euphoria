@@ -1,0 +1,208 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1PostProcArg" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::PostProcArg</compoundname>
+    <includes refid="postproc_8h" local="no">postproc.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1PostProcArg_1a996b104e553d746ea3b2c3620ec90fb7" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1World" kindref="compound">World</ref> *</type>
+        <definition>const World* eu::render::PostProcArg::world</definition>
+        <argsstring></argsstring>
+        <name>world</name>
+        <qualifiedname>eu::render::PostProcArg::world</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="26" column="13" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1PostProcArg_1a7bb5a8b752af2a98b01af7f38302d00e" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Size" kindref="compound">Size</ref></type>
+        <definition>Size eu::render::PostProcArg::window_size</definition>
+        <argsstring></argsstring>
+        <name>window_size</name>
+        <qualifiedname>eu::render::PostProcArg::window_size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="27" column="6" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1PostProcArg_1a35e1e140d3fbb42e82e9760904ef019d" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
+        <definition>Rect eu::render::PostProcArg::final_rect</definition>
+        <argsstring></argsstring>
+        <name>final_rect</name>
+        <qualifiedname>eu::render::PostProcArg::final_rect</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="28" column="10" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1PostProcArg_1ad657592510232f09cc22537c48306793" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Camera" kindref="compound">Camera</ref> *</type>
+        <definition>const Camera* eu::render::PostProcArg::camera</definition>
+        <argsstring></argsstring>
+        <name>camera</name>
+        <qualifiedname>eu::render::PostProcArg::camera</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="29" column="14" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1PostProcArg_1afa2f789336e85a43f64cc496adfd0db5" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1Renderer" kindref="compound">Renderer</ref> *</type>
+        <definition>Renderer* eu::render::PostProcArg::renderer</definition>
+        <argsstring></argsstring>
+        <name>renderer</name>
+        <qualifiedname>eu::render::PostProcArg::renderer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="30" column="10" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Arguments for rendering a post-processing effect. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="8">
+        <label>eu::An</label>
+        <link refid="structeu_1_1An"/>
+      </node>
+      <node id="6">
+        <label>eu::Rect</label>
+        <link refid="structeu_1_1Rect"/>
+      </node>
+      <node id="4">
+        <label>eu::Rgb</label>
+        <link refid="structeu_1_1Rgb"/>
+      </node>
+      <node id="5">
+        <label>eu::Size</label>
+        <link refid="structeu_1_1Size"/>
+      </node>
+      <node id="10">
+        <label>eu::Ypr</label>
+        <link refid="structeu_1_1Ypr"/>
+        <childnode refid="8" relation="usage">
+          <edgelabel>pitch</edgelabel>
+          <edgelabel>roll</edgelabel>
+          <edgelabel>yaw</edgelabel>
+        </childnode>
+      </node>
+      <node id="12">
+        <label>eu::render::Assets</label>
+        <link refid="structeu_1_1render_1_1Assets"/>
+        <childnode refid="13" relation="usage">
+          <edgelabel>default_shader_source</edgelabel>
+          <edgelabel>skybox_shader_source</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>eu::render::Camera</label>
+        <link refid="structeu_1_1render_1_1Camera"/>
+        <childnode refid="8" relation="usage">
+          <edgelabel>fov</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>position</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>rotation</edgelabel>
+        </childnode>
+      </node>
+      <node id="15">
+        <label>eu::render::DebugRender</label>
+        <link refid="structeu_1_1render_1_1DebugRender"/>
+      </node>
+      <node id="3">
+        <label>eu::render::Lights</label>
+        <link refid="structeu_1_1render_1_1Lights"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>ambient_color</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>eu::render::PostProcArg</label>
+        <link refid="structeu_1_1render_1_1PostProcArg"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>world</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>window_size</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>final_rect</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>camera</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>renderer</edgelabel>
+        </childnode>
+      </node>
+      <node id="14">
+        <label>eu::render::RenderSettings</label>
+        <link refid="structeu_1_1render_1_1RenderSettings"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>shadow_map_resolution</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>eu::render::Renderer</label>
+        <link refid="structeu_1_1render_1_1Renderer"/>
+        <childnode refid="12" relation="usage">
+          <edgelabel>assets</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>settings</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>debug</edgelabel>
+        </childnode>
+      </node>
+      <node id="13">
+        <label>eu::render::ShaderSource</label>
+        <link refid="structeu_1_1render_1_1ShaderSource"/>
+      </node>
+      <node id="2">
+        <label>eu::render::World</label>
+        <link refid="structeu_1_1render_1_1World"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>lights</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>clear_color</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>eu::v3</label>
+        <link refid="structeu_1_1v3"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/eu/render/postproc.h" line="24" column="1" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="25" bodyend="31"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1PostProcArg_1ad657592510232f09cc22537c48306793" prot="public" virt="non-virtual"><scope>eu::render::PostProcArg</scope><name>camera</name></member>
+      <member refid="structeu_1_1render_1_1PostProcArg_1a35e1e140d3fbb42e82e9760904ef019d" prot="public" virt="non-virtual"><scope>eu::render::PostProcArg</scope><name>final_rect</name></member>
+      <member refid="structeu_1_1render_1_1PostProcArg_1afa2f789336e85a43f64cc496adfd0db5" prot="public" virt="non-virtual"><scope>eu::render::PostProcArg</scope><name>renderer</name></member>
+      <member refid="structeu_1_1render_1_1PostProcArg_1a7bb5a8b752af2a98b01af7f38302d00e" prot="public" virt="non-virtual"><scope>eu::render::PostProcArg</scope><name>window_size</name></member>
+      <member refid="structeu_1_1render_1_1PostProcArg_1a996b104e553d746ea3b2c3620ec90fb7" prot="public" virt="non-virtual"><scope>eu::render::PostProcArg</scope><name>world</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

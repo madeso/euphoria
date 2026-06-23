@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="geom_8extract_8h" kind="file" language="C++">
+    <compoundname>geom.extract.h</compoundname>
+    <innerclass refid="structeu_1_1core_1_1ExtractedAttribute" prot="public">eu::core::ExtractedAttribute</innerclass>
+    <innerclass refid="structeu_1_1core_1_1ExtractedGeom" prot="public">eu::core::ExtractedGeom</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/eu/core/geom.extract.h"/>
+  </compounddef>
+</doxygen>

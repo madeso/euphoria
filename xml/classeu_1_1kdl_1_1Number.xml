@@ -1,0 +1,341 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classeu_1_1kdl_1_1Number" kind="class" language="C++" prot="public">
+    <compoundname>eu::kdl::Number</compoundname>
+    <includes refid="kdl_8h" local="no">kdl.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classeu_1_1kdl_1_1Number_1a37c02cfca7935d9a68dcceba4e52dea2" prot="private" static="no" mutable="no">
+        <type>std::variant&lt; <ref refid="structeu_1_1R" kindref="compound">long</ref> <ref refid="structeu_1_1R" kindref="compound">long</ref>, <ref refid="structeu_1_1R" kindref="compound">double</ref>, std::string &gt;</type>
+        <definition>std::variant&lt;long long, double, std::string&gt; eu::kdl::Number::m_value</definition>
+        <argsstring></argsstring>
+        <name>m_value</name>
+        <qualifiedname>eu::kdl::Number::m_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="68" column="18" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Number_1a9e05782636755d30939f05d80e7bda80" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::kdl::Number::Number</definition>
+        <argsstring>()</argsstring>
+        <name>Number</name>
+        <qualifiedname>eu::kdl::Number::Number</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="71" column="5" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="71" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Number_1a73e0aa10f2f2830b26ee4b06adbae5f3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::kdl::Number::Number</definition>
+        <argsstring>(long long n)</argsstring>
+        <name>Number</name>
+        <qualifiedname>eu::kdl::Number::Number</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">long</ref> <ref refid="structeu_1_1R" kindref="compound">long</ref></type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="72" column="5" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="72" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Number_1ada731c3ca22704b51570f429900f3a08" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::kdl::Number::Number</definition>
+        <argsstring>(long n)</argsstring>
+        <name>Number</name>
+        <qualifiedname>eu::kdl::Number::Number</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">long</ref></type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="73" column="5" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="73" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Number_1a7b95f441b6a193abef019026a8c0b689" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::kdl::Number::Number</definition>
+        <argsstring>(int n)</argsstring>
+        <name>Number</name>
+        <qualifiedname>eu::kdl::Number::Number</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="74" column="5" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="74" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Number_1ac1ad043766270a55bae492f6cc7d74e5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::kdl::Number::Number</definition>
+        <argsstring>(short n)</argsstring>
+        <name>Number</name>
+        <qualifiedname>eu::kdl::Number::Number</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">short</ref></type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="75" column="5" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="75" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Number_1ae26be9d4c317e5d60d8b2acebd847a8e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::kdl::Number::Number</definition>
+        <argsstring>(double n)</argsstring>
+        <name>Number</name>
+        <qualifiedname>eu::kdl::Number::Number</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">double</ref></type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="76" column="5" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="76" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Number_1ae5b33db3c76b12540fd3eac01efe32b5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::kdl::Number::Number</definition>
+        <argsstring>(float n)</argsstring>
+        <name>Number</name>
+        <qualifiedname>eu::kdl::Number::Number</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="77" column="5" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="77" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Number_1a1a5cde5dbf415d7d612407ca9f83b7d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::kdl::Number::Number</definition>
+        <argsstring>(const kdl_number &amp;n)</argsstring>
+        <name>Number</name>
+        <qualifiedname>eu::kdl::Number::Number</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="kdl_8h_1a1a934f41d9745206bbc6580e0f263300" kindref="member">kdl_number</ref> &amp;</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="78" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Number_1a7ac258ceea3e095753481389083140d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::kdl::Number::Number</definition>
+        <argsstring>(Number const &amp;)=default</argsstring>
+        <name>Number</name>
+        <qualifiedname>eu::kdl::Number::Number</qualifiedname>
+        <param>
+          <type><ref refid="classeu_1_1kdl_1_1Number" kindref="compound">Number</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="80" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Number_1a602600d8a98602db33c4c869a1b35291" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::kdl::Number::Number</definition>
+        <argsstring>(Number &amp;&amp;)=default</argsstring>
+        <name>Number</name>
+        <qualifiedname>eu::kdl::Number::Number</qualifiedname>
+        <param>
+          <type><ref refid="classeu_1_1kdl_1_1Number" kindref="compound">Number</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="81" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Number_1ae35a3be95b3fd7f894e50f38fe00ef9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classeu_1_1kdl_1_1Number" kindref="compound">Number</ref> &amp;</type>
+        <definition>Number &amp; eu::kdl::Number::operator=</definition>
+        <argsstring>(Number const &amp;)=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>eu::kdl::Number::operator=</qualifiedname>
+        <param>
+          <type><ref refid="classeu_1_1kdl_1_1Number" kindref="compound">Number</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="82" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Number_1a4e7173e2bea522946b4c88957f6ede68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classeu_1_1kdl_1_1Number" kindref="compound">Number</ref> &amp;</type>
+        <definition>Number &amp; eu::kdl::Number::operator=</definition>
+        <argsstring>(Number &amp;&amp;)=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>eu::kdl::Number::operator=</qualifiedname>
+        <param>
+          <type><ref refid="classeu_1_1kdl_1_1Number" kindref="compound">Number</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="83" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Number_1ae8cbf149863453d0866a10fdac1c802a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::kdl::Number::operator==</definition>
+        <argsstring>(const Number &amp;) const =default</argsstring>
+        <name>operator==</name>
+        <qualifiedname>eu::kdl::Number::operator==</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="classeu_1_1kdl_1_1Number" kindref="compound">Number</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="85" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Number_1acf031e5722f7a077e47d161c24332e0b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::kdl::Number::operator!=</definition>
+        <argsstring>(const Number &amp;) const =default</argsstring>
+        <name>operator!=</name>
+        <qualifiedname>eu::kdl::Number::operator!=</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="classeu_1_1kdl_1_1Number" kindref="compound">Number</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="86" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Number_1ae70f768050cfbdcd1341c83e89b7c397" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="namespaceeu_1_1kdl_1aef416f173d6ae40e891c68238191bbe9" kindref="member">NumberRepresentation</ref></type>
+        <definition>NumberRepresentation eu::kdl::Number::representation</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>representation</name>
+        <qualifiedname>eu::kdl::Number::representation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="88" column="26" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="88" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Number_1af8272c5e3a539983b9c5be48438fdd6a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>_arithmetic</type>
+            <declname>T</declname>
+            <defname>T</defname>
+          </param>
+        </templateparamlist>
+        <type><ref refid="structeu_1_1R" kindref="compound">T</ref></type>
+        <definition>T eu::kdl::Number::as</definition>
+        <argsstring>() const</argsstring>
+        <name>as</name>
+        <qualifiedname>eu::kdl::Number::as</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="96" column="7" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="96" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1Number_1a50a36b0c6e59f6eba63c9ea6d41e94d4" prot="public" static="no" const="yes" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::kdl::Number::operator kdl_number</definition>
+        <argsstring>() const</argsstring>
+        <name>operator kdl_number</name>
+        <qualifiedname>eu::kdl::Number::operator kdl_number</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="110" column="14"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/kdl/src/eu/kdl/kdl.h" line="67" column="1" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="67" bodyend="111"/>
+    <listofallmembers>
+      <member refid="classeu_1_1kdl_1_1Number_1af8272c5e3a539983b9c5be48438fdd6a" prot="public" virt="non-virtual"><scope>eu::kdl::Number</scope><name>as</name></member>
+      <member refid="classeu_1_1kdl_1_1Number_1a37c02cfca7935d9a68dcceba4e52dea2" prot="private" virt="non-virtual"><scope>eu::kdl::Number</scope><name>m_value</name></member>
+      <member refid="classeu_1_1kdl_1_1Number_1a9e05782636755d30939f05d80e7bda80" prot="public" virt="non-virtual"><scope>eu::kdl::Number</scope><name>Number</name></member>
+      <member refid="classeu_1_1kdl_1_1Number_1a73e0aa10f2f2830b26ee4b06adbae5f3" prot="public" virt="non-virtual"><scope>eu::kdl::Number</scope><name>Number</name></member>
+      <member refid="classeu_1_1kdl_1_1Number_1ada731c3ca22704b51570f429900f3a08" prot="public" virt="non-virtual"><scope>eu::kdl::Number</scope><name>Number</name></member>
+      <member refid="classeu_1_1kdl_1_1Number_1a7b95f441b6a193abef019026a8c0b689" prot="public" virt="non-virtual"><scope>eu::kdl::Number</scope><name>Number</name></member>
+      <member refid="classeu_1_1kdl_1_1Number_1ac1ad043766270a55bae492f6cc7d74e5" prot="public" virt="non-virtual"><scope>eu::kdl::Number</scope><name>Number</name></member>
+      <member refid="classeu_1_1kdl_1_1Number_1ae26be9d4c317e5d60d8b2acebd847a8e" prot="public" virt="non-virtual"><scope>eu::kdl::Number</scope><name>Number</name></member>
+      <member refid="classeu_1_1kdl_1_1Number_1ae5b33db3c76b12540fd3eac01efe32b5" prot="public" virt="non-virtual"><scope>eu::kdl::Number</scope><name>Number</name></member>
+      <member refid="classeu_1_1kdl_1_1Number_1a1a5cde5dbf415d7d612407ca9f83b7d9" prot="public" virt="non-virtual"><scope>eu::kdl::Number</scope><name>Number</name></member>
+      <member refid="classeu_1_1kdl_1_1Number_1a7ac258ceea3e095753481389083140d5" prot="public" virt="non-virtual"><scope>eu::kdl::Number</scope><name>Number</name></member>
+      <member refid="classeu_1_1kdl_1_1Number_1a602600d8a98602db33c4c869a1b35291" prot="public" virt="non-virtual"><scope>eu::kdl::Number</scope><name>Number</name></member>
+      <member refid="classeu_1_1kdl_1_1Number_1a50a36b0c6e59f6eba63c9ea6d41e94d4" prot="public" virt="non-virtual"><scope>eu::kdl::Number</scope><name>operator kdl_number</name></member>
+      <member refid="classeu_1_1kdl_1_1Number_1acf031e5722f7a077e47d161c24332e0b" prot="public" virt="non-virtual"><scope>eu::kdl::Number</scope><name>operator!=</name></member>
+      <member refid="classeu_1_1kdl_1_1Number_1ae35a3be95b3fd7f894e50f38fe00ef9a" prot="public" virt="non-virtual"><scope>eu::kdl::Number</scope><name>operator=</name></member>
+      <member refid="classeu_1_1kdl_1_1Number_1a4e7173e2bea522946b4c88957f6ede68" prot="public" virt="non-virtual"><scope>eu::kdl::Number</scope><name>operator=</name></member>
+      <member refid="classeu_1_1kdl_1_1Number_1ae8cbf149863453d0866a10fdac1c802a" prot="public" virt="non-virtual"><scope>eu::kdl::Number</scope><name>operator==</name></member>
+      <member refid="classeu_1_1kdl_1_1Number_1ae70f768050cfbdcd1341c83e89b7c397" prot="public" virt="non-virtual"><scope>eu::kdl::Number</scope><name>representation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

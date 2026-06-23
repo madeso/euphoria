@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="group__scurcve" kind="group">
+    <compoundname>scurcve</compoundname>
+    <title>S-Curve</title>
+    <innerclass refid="structeu_1_1core_1_1SCurve" prot="public">eu::core::SCurve</innerclass>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="group__scurcve_1ga0cdb84f66f339894b8af5d17cb395f65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SCurve</type>
+        <definition>SCurve eu::core::s_curve_from_input</definition>
+        <argsstring>(float x, float y)</argsstring>
+        <name>s_curve_from_input</name>
+        <qualifiedname>eu::core::s_curve_from_input</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>Generate an S-Curve from user input. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Adapted from <ulink url="https://twitter.com/ColugoMusic/status/1363071439679729665?s=20">Colugo&apos;s</ulink> S curve editor implemented in/on <ulink url="https://www.desmos.com/calculator/ibek4vkdiw">desmos</ulink> <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>[0,1] 0=left, 1=right </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>[0,1] 0=bottom, 1=top </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/scurve.h" line="37" column="8" declfile="libs/core/src/eu/core/scurve.h" declline="37" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="group__scurcve_1ga7b67c48a7749ea27a30bcf466601f027" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float eu::core::calculate_s_curve</definition>
+        <argsstring>(float x, float slope, float threshold)</argsstring>
+        <name>calculate_s_curve</name>
+        <qualifiedname>eu::core::calculate_s_curve</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>slope</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>threshold</declname>
+        </param>
+        <briefdescription>
+<para>Calculates an S-Curve. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>this takes floats instead of the curve since that means it could more easily be copied to glsl <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>[0,1] </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>slope</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>&gt;=0 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>threshold</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>[0,1] </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/scurve.h" line="44" column="7" declfile="libs/core/src/eu/core/scurve.h" declline="44" declcolumn="7"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A tweakable curve similar to easing functions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Discovered by Yann van der Cruyssen/Morusque on <ulink url="https://x.com/Morusque/status/1352569197499441155">twitter</ulink>. From <ulink url="https://arxiv.org/pdf/2010.09714">A Convenient Generalization of Schlick’s Bias and Gain Functions (pdf)</ulink> by Jonathan T. Barron. </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

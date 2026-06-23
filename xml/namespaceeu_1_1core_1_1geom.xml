@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespaceeu_1_1core_1_1geom" kind="namespace" language="C++">
+    <compoundname>eu::core::geom</compoundname>
+    <innerclass refid="structeu_1_1core_1_1geom_1_1Builder" prot="public">eu::core::geom::Builder</innerclass>
+    <innerclass refid="structeu_1_1core_1_1geom_1_1Triangle" prot="public">eu::core::geom::Triangle</innerclass>
+    <innerclass refid="structeu_1_1core_1_1geom_1_1Vertex" prot="public">eu::core::geom::Vertex</innerclass>
+    <sectiondef kind="enum">
+      <member refid="group__geom-builder_1gac555f9aea27c201510827fa4c4485e17" kind="enum"><name>SideCount</name></member>
+      <member refid="group__geom-builder_1gac6f831c259b84253f395b1ef239dcf33" kind="enum"><name>NormalsFacing</name></member>
+    </sectiondef>
+    <sectiondef kind="typedef">
+      <member refid="group__geom-builder_1ga7cfafc3b29e5aa6ed905369356ea1449" kind="typedef"><name>Index</name></member>
+      <member refid="group__geom-builder_1ga9452c6a6e248f5f5d01e37adfd08bdef" kind="typedef"><name>Influence4</name></member>
+    </sectiondef>
+    <sectiondef kind="func">
+      <member refid="group__geom-builder_1ga6b5f4d952543bb7c1e0b232ffd78e633" kind="function"><name>create_box</name></member>
+      <member refid="group__geom-builder_1gaf2119794c0b903ac0d553a4a28fe1986" kind="function"><name>create_xz_plane</name></member>
+      <member refid="group__geom-builder_1gaa11b04169236d2e3af5dc10af13a0be4" kind="function"><name>create_xy_plane</name></member>
+      <member refid="group__geom-builder_1gae2ee408f9791d380ea169629dcc3c77a" kind="function"><name>create_uv_sphere</name></member>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/eu/core/geom.builder.h" line="10" column="1"/>
+  </compounddef>
+</doxygen>

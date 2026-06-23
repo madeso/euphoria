@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1HshSt" kind="struct" language="C++" prot="public">
+    <compoundname>eu::HshSt</compoundname>
+    <includes refid="hash_8set_8h" local="no">hash.set.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1HshSt_1a791a8667f3daa643da23af6af5763fb3" prot="public" static="no" mutable="no">
+        <type>std::set&lt; <ref refid="structeu_1_1Hsh" kindref="compound">Hsh</ref> &gt;</type>
+        <definition>std::set&lt;Hsh&gt; eu::HshSt::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <qualifiedname>eu::HshSt::data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/hash.set.h" line="12" column="14" bodyfile="libs/base/src/eu/base/hash.set.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1HshSt_1a1495d6b57c53b2a81c0a978cf5247213" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Hsh" kindref="compound">Hsh</ref></type>
+        <definition>Hsh eu::HshSt::primary</definition>
+        <argsstring></argsstring>
+        <name>primary</name>
+        <qualifiedname>eu::HshSt::primary</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/hash.set.h" line="13" column="9" bodyfile="libs/base/src/eu/base/hash.set.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1HshSt_1a3eac63a3b35b82673912cce1b33a7b01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::HshSt::add</definition>
+        <argsstring>(const Hsh &amp;h)</argsstring>
+        <name>add</name>
+        <qualifiedname>eu::HshSt::add</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Hsh" kindref="compound">Hsh</ref> &amp;</type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/hash.set.h" line="15" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1HshSt_1aba3fa8c83b9f71ae67f3f784829553a9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1HshSt" kindref="compound">HshSt</ref></type>
+        <definition>HshSt eu::HshSt::combine</definition>
+        <argsstring>(const Hsh &amp;h) const</argsstring>
+        <name>combine</name>
+        <qualifiedname>eu::HshSt::combine</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Hsh" kindref="compound">Hsh</ref> &amp;</type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/hash.set.h" line="16" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1HshSt_1a7610bbb384f0ee7eaa2f5f5fd4de6040" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::HshSt::contains</definition>
+        <argsstring>(const Hsh &amp;h) const</argsstring>
+        <name>contains</name>
+        <qualifiedname>eu::HshSt::contains</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Hsh" kindref="compound">Hsh</ref> &amp;</type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/hash.set.h" line="18" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1HshSt_1adc7d730067e99f29fa27a4f970002d63" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::HshSt::is</definition>
+        <argsstring>(const HshSt &amp;h) const</argsstring>
+        <name>is</name>
+        <qualifiedname>eu::HshSt::is</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1HshSt" kindref="compound">HshSt</ref> &amp;</type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/hash.set.h" line="19" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::Hsh</label>
+        <link refid="structeu_1_1Hsh"/>
+      </node>
+      <node id="1">
+        <label>eu::HshSt</label>
+        <link refid="structeu_1_1HshSt"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>primary</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/base/src/eu/base/hash.set.h" line="10" column="1" bodyfile="libs/base/src/eu/base/hash.set.h" bodystart="11" bodyend="20"/>
+    <listofallmembers>
+      <member refid="structeu_1_1HshSt_1a3eac63a3b35b82673912cce1b33a7b01" prot="public" virt="non-virtual"><scope>eu::HshSt</scope><name>add</name></member>
+      <member refid="structeu_1_1HshSt_1aba3fa8c83b9f71ae67f3f784829553a9" prot="public" virt="non-virtual"><scope>eu::HshSt</scope><name>combine</name></member>
+      <member refid="structeu_1_1HshSt_1a7610bbb384f0ee7eaa2f5f5fd4de6040" prot="public" virt="non-virtual"><scope>eu::HshSt</scope><name>contains</name></member>
+      <member refid="structeu_1_1HshSt_1a791a8667f3daa643da23af6af5763fb3" prot="public" virt="non-virtual"><scope>eu::HshSt</scope><name>data</name></member>
+      <member refid="structeu_1_1HshSt_1adc7d730067e99f29fa27a4f970002d63" prot="public" virt="non-virtual"><scope>eu::HshSt</scope><name>is</name></member>
+      <member refid="structeu_1_1HshSt_1a1495d6b57c53b2a81c0a978cf5247213" prot="public" virt="non-virtual"><scope>eu::HshSt</scope><name>primary</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

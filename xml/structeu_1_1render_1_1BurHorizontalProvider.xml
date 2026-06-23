@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1BurHorizontalProvider" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::BurHorizontalProvider</compoundname>
+    <basecompoundref refid="structeu_1_1render_1_1ShaderPropertyProvider" prot="public" virt="non-virtual">eu::render::ShaderPropertyProvider</basecompoundref>
+    <includes refid="postproc_8internal_8h" local="no">postproc.internal.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1BurHorizontalProvider_1a31720af0a5c7961bfeeacf323533649c" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1BlurEffect" kindref="compound">BlurEffect</ref> *</type>
+        <definition>BlurEffect* eu::render::BurHorizontalProvider::blur</definition>
+        <argsstring></argsstring>
+        <name>blur</name>
+        <qualifiedname>eu::render::BurHorizontalProvider::blur</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="146" column="12" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1BurHorizontalProvider_1ad02f52cde2ab2603ae07b80399364031" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::BurHorizontalProvider::BurHorizontalProvider</definition>
+        <argsstring>(BlurEffect *b)</argsstring>
+        <name>BurHorizontalProvider</name>
+        <qualifiedname>eu::render::BurHorizontalProvider::BurHorizontalProvider</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1BlurEffect" kindref="compound">BlurEffect</ref> *</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="144" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1BurHorizontalProvider_1a2ff2339a133c9ac84cb261c90f6fb45c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::BurHorizontalProvider::use_shader</definition>
+        <argsstring>(const PostProcArg &amp;a, const FrameBuffer &amp;t) override</argsstring>
+        <name>use_shader</name>
+        <qualifiedname>eu::render::BurHorizontalProvider::use_shader</qualifiedname>
+        <reimplements refid="structeu_1_1render_1_1ShaderPropertyProvider_1a1fbd8762fb9077ad650492b9855d92de">use_shader</reimplements>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1PostProcArg" kindref="compound">PostProcArg</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">FrameBuffer</ref> &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="147" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A shader property for the horizontal blur step. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>eu::render::BurHorizontalProvider</label>
+        <link refid="structeu_1_1render_1_1BurHorizontalProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::render::ShaderPropertyProvider</label>
+        <link refid="structeu_1_1render_1_1ShaderPropertyProvider"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>eu::render::BlurEffect</label>
+        <link refid="structeu_1_1render_1_1BlurEffect"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>vert_p</edgelabel>
+        </childnode>
+        <childnode refid="1" relation="usage">
+          <edgelabel>hori_p</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>blur_size_h</edgelabel>
+          <edgelabel>blur_size_v</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>eu::render::BlurVerticalProvider</label>
+        <link refid="structeu_1_1render_1_1BlurVerticalProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>blur</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>eu::render::BurHorizontalProvider</label>
+        <link refid="structeu_1_1render_1_1BurHorizontalProvider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>blur</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>eu::render::Effect</label>
+        <link refid="structeu_1_1render_1_1Effect"/>
+      </node>
+      <node id="4">
+        <label>eu::render::FactorEffect</label>
+        <link refid="structeu_1_1render_1_1FactorEffect"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::render::ShaderPropertyProvider</label>
+        <link refid="structeu_1_1render_1_1ShaderPropertyProvider"/>
+      </node>
+      <node id="7">
+        <label>eu::render::Uniform</label>
+        <link refid="structeu_1_1render_1_1Uniform"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/eu/render/postproc.internal.h" line="142" column="1" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="143" bodyend="148"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1BurHorizontalProvider_1a31720af0a5c7961bfeeacf323533649c" prot="public" virt="non-virtual"><scope>eu::render::BurHorizontalProvider</scope><name>blur</name></member>
+      <member refid="structeu_1_1render_1_1BurHorizontalProvider_1ad02f52cde2ab2603ae07b80399364031" prot="public" virt="non-virtual"><scope>eu::render::BurHorizontalProvider</scope><name>BurHorizontalProvider</name></member>
+      <member refid="structeu_1_1render_1_1ShaderPropertyProvider_1a8bc01d1540183ea68dbf6f546c7cbd91" prot="public" virt="non-virtual"><scope>eu::render::BurHorizontalProvider</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1ShaderPropertyProvider_1a28de7a7a04548f77b1ba84fe7d5b06e7" prot="public" virt="non-virtual"><scope>eu::render::BurHorizontalProvider</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1ShaderPropertyProvider_1a9c02b1cca22a3d23ae04fe6012ce5630" prot="public" virt="non-virtual"><scope>eu::render::BurHorizontalProvider</scope><name>ShaderPropertyProvider</name></member>
+      <member refid="structeu_1_1render_1_1ShaderPropertyProvider_1ad1d9b8b28ae60493b8e78048684313d5" prot="public" virt="non-virtual"><scope>eu::render::BurHorizontalProvider</scope><name>ShaderPropertyProvider</name></member>
+      <member refid="structeu_1_1render_1_1ShaderPropertyProvider_1aaa65eeeb36684e8da117a02f292cd9c4" prot="public" virt="non-virtual"><scope>eu::render::BurHorizontalProvider</scope><name>ShaderPropertyProvider</name></member>
+      <member refid="structeu_1_1render_1_1BurHorizontalProvider_1a2ff2339a133c9ac84cb261c90f6fb45c" prot="public" virt="virtual"><scope>eu::render::BurHorizontalProvider</scope><name>use_shader</name></member>
+      <member refid="structeu_1_1render_1_1ShaderPropertyProvider_1adc9c92b727888f61aa00d39dadbbe775" prot="public" virt="virtual"><scope>eu::render::BurHorizontalProvider</scope><name>~ShaderPropertyProvider</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

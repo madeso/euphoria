@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1MeshGeom" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::MeshGeom</compoundname>
+    <includes refid="core_2src_2eu_2core_2mesh_8h" local="no">mesh.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1MeshGeom_1ab84d691dda478d27cad15200166b0a14" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1Geom" kindref="compound">Geom</ref></type>
+        <definition>Geom eu::core::MeshGeom::geom</definition>
+        <argsstring></argsstring>
+        <name>geom</name>
+        <qualifiedname>eu::core::MeshGeom::geom</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/mesh.h" line="11" column="10" bodyfile="libs/core/src/eu/core/mesh.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::core::Geom</label>
+        <link refid="structeu_1_1core_1_1Geom"/>
+      </node>
+      <node id="1">
+        <label>eu::core::MeshGeom</label>
+        <link refid="structeu_1_1core_1_1MeshGeom"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>geom</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/eu/core/mesh.h" line="9" column="1" bodyfile="libs/core/src/eu/core/mesh.h" bodystart="10" bodyend="13"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1MeshGeom_1ab84d691dda478d27cad15200166b0a14" prot="public" virt="non-virtual"><scope>eu::core::MeshGeom</scope><name>geom</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

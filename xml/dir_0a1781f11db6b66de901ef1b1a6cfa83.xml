@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_0a1781f11db6b66de901ef1b1a6cfa83" kind="dir">
+    <compoundname>libs/mrgui</compoundname>
+    <innerdir refid="dir_64aac8b9a32447fb5564500192d20f63">libs/mrgui/src</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/mrgui/"/>
+  </compounddef>
+</doxygen>

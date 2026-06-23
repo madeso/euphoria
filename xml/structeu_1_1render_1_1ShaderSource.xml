@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1ShaderSource" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::ShaderSource</compoundname>
+    <includes refid="shader_8source_8h" local="no">shader.source.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1ShaderSource_1a9695d488024eef8b0a1a920ca9cba7a6" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::render::ShaderSource::vertex</definition>
+        <argsstring></argsstring>
+        <name>vertex</name>
+        <qualifiedname>eu::render::ShaderSource::vertex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader.source.h" line="42" column="13" bodyfile="libs/render/src/eu/render/shader.source.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1ShaderSource_1ae4bf9dda658f4fea2a843412447da227" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::render::ShaderSource::fragment</definition>
+        <argsstring></argsstring>
+        <name>fragment</name>
+        <qualifiedname>eu::render::ShaderSource::fragment</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader.source.h" line="43" column="13" bodyfile="libs/render/src/eu/render/shader.source.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="structeu_1_1render_1_1ShaderSource__withLayout" kindref="compound">ShaderSource_withLayout</ref> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="libs/render/src/eu/render/shader.source.h" line="40" column="1" bodyfile="libs/render/src/eu/render/shader.source.h" bodystart="41" bodyend="44"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1ShaderSource_1ae4bf9dda658f4fea2a843412447da227" prot="public" virt="non-virtual"><scope>eu::render::ShaderSource</scope><name>fragment</name></member>
+      <member refid="structeu_1_1render_1_1ShaderSource_1a9695d488024eef8b0a1a920ca9cba7a6" prot="public" virt="non-virtual"><scope>eu::render::ShaderSource</scope><name>vertex</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

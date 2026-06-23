@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1ShaderPropertyProvider" kind="struct" language="C++" prot="public" abstract="yes">
+    <compoundname>eu::render::ShaderPropertyProvider</compoundname>
+    <derivedcompoundref refid="structeu_1_1render_1_1BlurVerticalProvider" prot="public" virt="non-virtual">eu::render::BlurVerticalProvider</derivedcompoundref>
+    <derivedcompoundref refid="structeu_1_1render_1_1BurHorizontalProvider" prot="public" virt="non-virtual">eu::render::BurHorizontalProvider</derivedcompoundref>
+    <derivedcompoundref refid="structeu_1_1render_1_1SimpleEffect" prot="public" virt="non-virtual">eu::render::SimpleEffect</derivedcompoundref>
+    <includes refid="postproc_8h" local="no">postproc.h</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderPropertyProvider_1a9c02b1cca22a3d23ae04fe6012ce5630" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::ShaderPropertyProvider::ShaderPropertyProvider</definition>
+        <argsstring>()=default</argsstring>
+        <name>ShaderPropertyProvider</name>
+        <qualifiedname>eu::render::ShaderPropertyProvider::ShaderPropertyProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="52" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderPropertyProvider_1adc9c92b727888f61aa00d39dadbbe775" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual eu::render::ShaderPropertyProvider::~ShaderPropertyProvider</definition>
+        <argsstring>()=default</argsstring>
+        <name>~ShaderPropertyProvider</name>
+        <qualifiedname>eu::render::ShaderPropertyProvider::~ShaderPropertyProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="53" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderPropertyProvider_1ad1d9b8b28ae60493b8e78048684313d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::ShaderPropertyProvider::ShaderPropertyProvider</definition>
+        <argsstring>(const ShaderPropertyProvider &amp;)=delete</argsstring>
+        <name>ShaderPropertyProvider</name>
+        <qualifiedname>eu::render::ShaderPropertyProvider::ShaderPropertyProvider</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1ShaderPropertyProvider" kindref="compound">ShaderPropertyProvider</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="55" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderPropertyProvider_1aaa65eeeb36684e8da117a02f292cd9c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::ShaderPropertyProvider::ShaderPropertyProvider</definition>
+        <argsstring>(ShaderPropertyProvider &amp;&amp;)=delete</argsstring>
+        <name>ShaderPropertyProvider</name>
+        <qualifiedname>eu::render::ShaderPropertyProvider::ShaderPropertyProvider</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1ShaderPropertyProvider" kindref="compound">ShaderPropertyProvider</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="56" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderPropertyProvider_1a8bc01d1540183ea68dbf6f546c7cbd91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::ShaderPropertyProvider::operator=</definition>
+        <argsstring>(const ShaderPropertyProvider &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>eu::render::ShaderPropertyProvider::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1ShaderPropertyProvider" kindref="compound">ShaderPropertyProvider</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="57" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderPropertyProvider_1a28de7a7a04548f77b1ba84fe7d5b06e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::ShaderPropertyProvider::operator=</definition>
+        <argsstring>(ShaderPropertyProvider &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>eu::render::ShaderPropertyProvider::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1ShaderPropertyProvider" kindref="compound">ShaderPropertyProvider</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="58" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderPropertyProvider_1a1fbd8762fb9077ad650492b9855d92de" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>virtual void eu::render::ShaderPropertyProvider::use_shader</definition>
+        <argsstring>(const PostProcArg &amp;a, const FrameBuffer &amp;t)=0</argsstring>
+        <name>use_shader</name>
+        <qualifiedname>eu::render::ShaderPropertyProvider::use_shader</qualifiedname>
+        <reimplementedby refid="structeu_1_1render_1_1SimpleEffect_1af827c96eaff25dad7dbb85e4ecc8f154">use_shader</reimplementedby>
+        <reimplementedby refid="structeu_1_1render_1_1BlurVerticalProvider_1afb8494ea2a4442e66e4d6debc4f1ce2a">use_shader</reimplementedby>
+        <reimplementedby refid="structeu_1_1render_1_1BurHorizontalProvider_1a2ff2339a133c9ac84cb261c90f6fb45c">use_shader</reimplementedby>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1PostProcArg" kindref="compound">PostProcArg</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">FrameBuffer</ref> &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="60" column="14"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A functor that sends properties/uniforms to the shader. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>First and foremost this would the used texture/fbo, but it could also be other uniforms like time, resolution, etc. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eu::render::BlurVerticalProvider</label>
+        <link refid="structeu_1_1render_1_1BlurVerticalProvider"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::render::BurHorizontalProvider</label>
+        <link refid="structeu_1_1render_1_1BurHorizontalProvider"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>eu::render::ShaderPropertyProvider</label>
+        <link refid="structeu_1_1render_1_1ShaderPropertyProvider"/>
+      </node>
+      <node id="4">
+        <label>eu::render::SimpleEffect</label>
+        <link refid="structeu_1_1render_1_1SimpleEffect"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="libs/render/src/eu/render/postproc.h" line="50" column="1" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="51" bodyend="61"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1ShaderPropertyProvider_1a8bc01d1540183ea68dbf6f546c7cbd91" prot="public" virt="non-virtual"><scope>eu::render::ShaderPropertyProvider</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1ShaderPropertyProvider_1a28de7a7a04548f77b1ba84fe7d5b06e7" prot="public" virt="non-virtual"><scope>eu::render::ShaderPropertyProvider</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1ShaderPropertyProvider_1a9c02b1cca22a3d23ae04fe6012ce5630" prot="public" virt="non-virtual"><scope>eu::render::ShaderPropertyProvider</scope><name>ShaderPropertyProvider</name></member>
+      <member refid="structeu_1_1render_1_1ShaderPropertyProvider_1ad1d9b8b28ae60493b8e78048684313d5" prot="public" virt="non-virtual"><scope>eu::render::ShaderPropertyProvider</scope><name>ShaderPropertyProvider</name></member>
+      <member refid="structeu_1_1render_1_1ShaderPropertyProvider_1aaa65eeeb36684e8da117a02f292cd9c4" prot="public" virt="non-virtual"><scope>eu::render::ShaderPropertyProvider</scope><name>ShaderPropertyProvider</name></member>
+      <member refid="structeu_1_1render_1_1ShaderPropertyProvider_1a1fbd8762fb9077ad650492b9855d92de" prot="public" virt="pure-virtual"><scope>eu::render::ShaderPropertyProvider</scope><name>use_shader</name></member>
+      <member refid="structeu_1_1render_1_1ShaderPropertyProvider_1adc9c92b727888f61aa00d39dadbbe775" prot="public" virt="virtual"><scope>eu::render::ShaderPropertyProvider</scope><name>~ShaderPropertyProvider</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

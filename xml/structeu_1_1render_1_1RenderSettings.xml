@@ -1,0 +1,222 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1RenderSettings" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::RenderSettings</compoundname>
+    <includes refid="render__settings_8h" local="no">render_settings.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1RenderSettings_1adb289b56f8441cb85496026a8e4a427d" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <definition>int eu::render::RenderSettings::number_of_directional_lights</definition>
+        <argsstring></argsstring>
+        <name>number_of_directional_lights</name>
+        <qualifiedname>eu::render::RenderSettings::number_of_directional_lights</qualifiedname>
+        <initializer>= 5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/render_settings.h" line="14" column="5" bodyfile="libs/render/src/eu/render/render_settings.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1RenderSettings_1a4945c802710e7f91f69b6c7a09277ca9" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <definition>int eu::render::RenderSettings::number_of_point_lights</definition>
+        <argsstring></argsstring>
+        <name>number_of_point_lights</name>
+        <qualifiedname>eu::render::RenderSettings::number_of_point_lights</qualifiedname>
+        <initializer>= 5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/render_settings.h" line="15" column="5" bodyfile="libs/render/src/eu/render/render_settings.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1RenderSettings_1a969f05924469ee64142c81e6157591a8" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <definition>int eu::render::RenderSettings::number_of_frustum_lights</definition>
+        <argsstring></argsstring>
+        <name>number_of_frustum_lights</name>
+        <qualifiedname>eu::render::RenderSettings::number_of_frustum_lights</qualifiedname>
+        <initializer>= 5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/render_settings.h" line="16" column="5" bodyfile="libs/render/src/eu/render/render_settings.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1RenderSettings_1a2e46bf6985e190073d90bcd24db0c71a" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::render::RenderSettings::use_bloom</definition>
+        <argsstring></argsstring>
+        <name>use_bloom</name>
+        <qualifiedname>eu::render::RenderSettings::use_bloom</qualifiedname>
+        <initializer>= <ref refid="structeu_1_1R" kindref="compound">true</ref></initializer>
+        <briefdescription>
+<para>Should bloom be used? The renderer doesn&apos;t need to restart when this value has changed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The effect stack needs to be rebuilt, but that should happen automatically. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/render_settings.h" line="21" column="6" bodyfile="libs/render/src/eu/render/render_settings.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1RenderSettings_1a9799d89bff084994ba8e753d15b28456" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <definition>int eu::render::RenderSettings::msaa</definition>
+        <argsstring></argsstring>
+        <name>msaa</name>
+        <qualifiedname>eu::render::RenderSettings::msaa</qualifiedname>
+        <initializer>= 4</initializer>
+        <briefdescription>
+<para>Number of msaa samples to use. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The renderer doesn&apos;t need to restart when this value has changed. The effect stack needs to be rebuilt, but that should happen automatically. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/render_settings.h" line="26" column="5" bodyfile="libs/render/src/eu/render/render_settings.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1RenderSettings_1ab0bad3a2f8cfc95b992e09f766db7fbb" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::render::RenderSettings::gamma</definition>
+        <argsstring></argsstring>
+        <name>gamma</name>
+        <qualifiedname>eu::render::RenderSettings::gamma</qualifiedname>
+        <initializer>= 2.2<ref refid="structeu_1_1R" kindref="compound">f</ref></initializer>
+        <briefdescription>
+<para>The gamma correction value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The renderer doesn&apos;t need to restart when this value has changed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/render_settings.h" line="30" column="7" bodyfile="libs/render/src/eu/render/render_settings.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1RenderSettings_1af76b70922d6cdecf253a6a7690a89cbf" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::render::RenderSettings::bloom_cutoff</definition>
+        <argsstring></argsstring>
+        <name>bloom_cutoff</name>
+        <qualifiedname>eu::render::RenderSettings::bloom_cutoff</qualifiedname>
+        <initializer>= 1.0f</initializer>
+        <briefdescription>
+<para>The bloom cutoff value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If brightness goes over this value, it will contribute to the bloom. The renderer doesn&apos;t need to restart when this value has changed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/render_settings.h" line="35" column="7" bodyfile="libs/render/src/eu/render/render_settings.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1RenderSettings_1addec2e6e7f33a4d92d2a2c7500951b8f" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::render::RenderSettings::bloom_softness</definition>
+        <argsstring></argsstring>
+        <name>bloom_softness</name>
+        <qualifiedname>eu::render::RenderSettings::bloom_softness</qualifiedname>
+        <initializer>= 0.25<ref refid="structeu_1_1R" kindref="compound">f</ref></initializer>
+        <briefdescription>
+<para>The bloom softness. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Also called knee, 0=no softness, 1=max softness. The renderer doesn&apos;t need to restart when this value has changed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/render_settings.h" line="40" column="7" bodyfile="libs/render/src/eu/render/render_settings.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1RenderSettings_1a2dcff0d2be7be941a0edfe6131d88c1d" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <definition>int eu::render::RenderSettings::bloom_blur_steps</definition>
+        <argsstring></argsstring>
+        <name>bloom_blur_steps</name>
+        <qualifiedname>eu::render::RenderSettings::bloom_blur_steps</qualifiedname>
+        <initializer>= 10</initializer>
+        <briefdescription>
+<para>how any steps of bloom blur to perform. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The renderer doesn&apos;t need to restart when this value has changed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/render_settings.h" line="44" column="5" bodyfile="libs/render/src/eu/render/render_settings.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1RenderSettings_1af3658987e0654933ab0be611091a3f62" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Size" kindref="compound">Size</ref></type>
+        <definition>Size eu::render::RenderSettings::shadow_map_resolution</definition>
+        <argsstring></argsstring>
+        <name>shadow_map_resolution</name>
+        <qualifiedname>eu::render::RenderSettings::shadow_map_resolution</qualifiedname>
+        <initializer>= {2048, 2048}</initializer>
+        <briefdescription>
+<para>The resolution of the shadow map. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The renderer needs to restart when this value has changed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/render_settings.h" line="48" column="6" bodyfile="libs/render/src/eu/render/render_settings.h" bodystart="48" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1RenderSettings_1aaca039f4bf4419f6fdc620338c55b62f" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::render::RenderSettings::use_tight_fit_shadows</definition>
+        <argsstring></argsstring>
+        <name>use_tight_fit_shadows</name>
+        <qualifiedname>eu::render::RenderSettings::use_tight_fit_shadows</qualifiedname>
+        <initializer>= <ref refid="structeu_1_1R" kindref="compound">false</ref></initializer>
+        <briefdescription>
+<para>Use a tight fit shadow map. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The renderer doesn&apos;t need to restart when this value has changed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/render_settings.h" line="52" column="6" bodyfile="libs/render/src/eu/render/render_settings.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Startup settings for the renderer. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::Size</label>
+        <link refid="structeu_1_1Size"/>
+      </node>
+      <node id="1">
+        <label>eu::render::RenderSettings</label>
+        <link refid="structeu_1_1render_1_1RenderSettings"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>shadow_map_resolution</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/eu/render/render_settings.h" line="12" column="1" bodyfile="libs/render/src/eu/render/render_settings.h" bodystart="13" bodyend="53"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1RenderSettings_1a2dcff0d2be7be941a0edfe6131d88c1d" prot="public" virt="non-virtual"><scope>eu::render::RenderSettings</scope><name>bloom_blur_steps</name></member>
+      <member refid="structeu_1_1render_1_1RenderSettings_1af76b70922d6cdecf253a6a7690a89cbf" prot="public" virt="non-virtual"><scope>eu::render::RenderSettings</scope><name>bloom_cutoff</name></member>
+      <member refid="structeu_1_1render_1_1RenderSettings_1addec2e6e7f33a4d92d2a2c7500951b8f" prot="public" virt="non-virtual"><scope>eu::render::RenderSettings</scope><name>bloom_softness</name></member>
+      <member refid="structeu_1_1render_1_1RenderSettings_1ab0bad3a2f8cfc95b992e09f766db7fbb" prot="public" virt="non-virtual"><scope>eu::render::RenderSettings</scope><name>gamma</name></member>
+      <member refid="structeu_1_1render_1_1RenderSettings_1a9799d89bff084994ba8e753d15b28456" prot="public" virt="non-virtual"><scope>eu::render::RenderSettings</scope><name>msaa</name></member>
+      <member refid="structeu_1_1render_1_1RenderSettings_1adb289b56f8441cb85496026a8e4a427d" prot="public" virt="non-virtual"><scope>eu::render::RenderSettings</scope><name>number_of_directional_lights</name></member>
+      <member refid="structeu_1_1render_1_1RenderSettings_1a969f05924469ee64142c81e6157591a8" prot="public" virt="non-virtual"><scope>eu::render::RenderSettings</scope><name>number_of_frustum_lights</name></member>
+      <member refid="structeu_1_1render_1_1RenderSettings_1a4945c802710e7f91f69b6c7a09277ca9" prot="public" virt="non-virtual"><scope>eu::render::RenderSettings</scope><name>number_of_point_lights</name></member>
+      <member refid="structeu_1_1render_1_1RenderSettings_1af3658987e0654933ab0be611091a3f62" prot="public" virt="non-virtual"><scope>eu::render::RenderSettings</scope><name>shadow_map_resolution</name></member>
+      <member refid="structeu_1_1render_1_1RenderSettings_1a2e46bf6985e190073d90bcd24db0c71a" prot="public" virt="non-virtual"><scope>eu::render::RenderSettings</scope><name>use_bloom</name></member>
+      <member refid="structeu_1_1render_1_1RenderSettings_1aaca039f4bf4419f6fdc620338c55b62f" prot="public" virt="non-virtual"><scope>eu::render::RenderSettings</scope><name>use_tight_fit_shadows</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

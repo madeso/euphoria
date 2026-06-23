@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1PointLight" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::PointLight</compoundname>
+    <includes refid="world_8h" local="no">world.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1PointLight_1ac56977825dbec5534d170bbc2a2ea32b" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
+        <definition>v3 eu::render::PointLight::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <qualifiedname>eu::render::PointLight::position</qualifiedname>
+        <initializer>= {0.0f, 0.0f, 0.0f}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/world.h" line="137" column="4" bodyfile="libs/render/src/eu/render/world.h" bodystart="137" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1PointLight_1ae5a00b005ac09008fe674b3a1e004eb6" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::render::PointLight::min_range</definition>
+        <argsstring></argsstring>
+        <name>min_range</name>
+        <qualifiedname>eu::render::PointLight::min_range</qualifiedname>
+        <initializer>= 10.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/world.h" line="138" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1PointLight_1a5a0760118a1bd3583e1f542f92b99237" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::render::PointLight::max_range</definition>
+        <argsstring></argsstring>
+        <name>max_range</name>
+        <qualifiedname>eu::render::PointLight::max_range</qualifiedname>
+        <initializer>= 20.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/world.h" line="139" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1PointLight_1ad0df72304458b932b3262642e4280fee" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1SCurve" kindref="compound">core::SCurve</ref></type>
+        <definition>core::SCurve eu::render::PointLight::curve</definition>
+        <argsstring></argsstring>
+        <name>curve</name>
+        <qualifiedname>eu::render::PointLight::curve</qualifiedname>
+        <initializer>= <ref refid="structeu_1_1core_1_1SCurve_1a19eee5149440ec64c8e76bf4262aa5cd" kindref="member">core::SCurve::light_curve</ref>()</initializer>
+        <briefdescription>
+<para>curve and ui, needs to be trimmed down for actual renderer </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/world.h" line="140" column="18" bodyfile="libs/render/src/eu/render/world.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1PointLight_1a85a7f25b0ec1f3e9cc246fb3f17ac934" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <definition>Rgb eu::render::PointLight::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>eu::render::PointLight::color</qualifiedname>
+        <initializer>= <ref refid="namespaceeu_1_1colors_1a409fef5830a03ee6928a8ef041c7dbec" kindref="member">colors::white</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/world.h" line="142" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1PointLight_1a1a1a97631e44131f375865a50219c0a0" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::render::PointLight::specular_strength</definition>
+        <argsstring></argsstring>
+        <name>specular_strength</name>
+        <qualifiedname>eu::render::PointLight::specular_strength</qualifiedname>
+        <initializer>= 1.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/world.h" line="143" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1PointLight_1a79cad658346ce4da7f8d03af77bb4067" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <definition>float eu::render::PointLight::diffuse_strength</definition>
+        <argsstring></argsstring>
+        <name>diffuse_strength</name>
+        <qualifiedname>eu::render::PointLight::diffuse_strength</qualifiedname>
+        <initializer>= 1.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/world.h" line="144" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A point light. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>eu::Rgb</label>
+        <link refid="structeu_1_1Rgb"/>
+      </node>
+      <node id="3">
+        <label>eu::core::SCurve</label>
+        <link refid="structeu_1_1core_1_1SCurve"/>
+      </node>
+      <node id="1">
+        <label>eu::render::PointLight</label>
+        <link refid="structeu_1_1render_1_1PointLight"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>position</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>curve</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>color</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::v3</label>
+        <link refid="structeu_1_1v3"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/eu/render/world.h" line="135" column="1" bodyfile="libs/render/src/eu/render/world.h" bodystart="136" bodyend="145"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1PointLight_1a85a7f25b0ec1f3e9cc246fb3f17ac934" prot="public" virt="non-virtual"><scope>eu::render::PointLight</scope><name>color</name></member>
+      <member refid="structeu_1_1render_1_1PointLight_1ad0df72304458b932b3262642e4280fee" prot="public" virt="non-virtual"><scope>eu::render::PointLight</scope><name>curve</name></member>
+      <member refid="structeu_1_1render_1_1PointLight_1a79cad658346ce4da7f8d03af77bb4067" prot="public" virt="non-virtual"><scope>eu::render::PointLight</scope><name>diffuse_strength</name></member>
+      <member refid="structeu_1_1render_1_1PointLight_1a5a0760118a1bd3583e1f542f92b99237" prot="public" virt="non-virtual"><scope>eu::render::PointLight</scope><name>max_range</name></member>
+      <member refid="structeu_1_1render_1_1PointLight_1ae5a00b005ac09008fe674b3a1e004eb6" prot="public" virt="non-virtual"><scope>eu::render::PointLight</scope><name>min_range</name></member>
+      <member refid="structeu_1_1render_1_1PointLight_1ac56977825dbec5534d170bbc2a2ea32b" prot="public" virt="non-virtual"><scope>eu::render::PointLight</scope><name>position</name></member>
+      <member refid="structeu_1_1render_1_1PointLight_1a1a1a97631e44131f375865a50219c0a0" prot="public" virt="non-virtual"><scope>eu::render::PointLight</scope><name>specular_strength</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

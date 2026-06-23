@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1LoadedShader__Default__Container" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::LoadedShader_Default_Container</compoundname>
+    <includes refid="shader__resource_8h" local="no">shader_resource.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__Default__Container_1a5e8522014a0e1ce706bae62dc4afbf02" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1CompiledGeomVertexAttributes" kindref="compound">core::CompiledGeomVertexAttributes</ref></type>
+        <definition>core::CompiledGeomVertexAttributes eu::render::LoadedShader_Default_Container::geom_layout</definition>
+        <argsstring></argsstring>
+        <name>geom_layout</name>
+        <qualifiedname>eu::render::LoadedShader_Default_Container::geom_layout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="230" column="40" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="230" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__Default__Container_1aa9b6207eaabad34f6f79d0e0c937e4fd" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1LoadedShader__Default" kindref="compound">LoadedShader_Default</ref></type>
+        <definition>LoadedShader_Default eu::render::LoadedShader_Default_Container::default_shader</definition>
+        <argsstring></argsstring>
+        <name>default_shader</name>
+        <qualifiedname>eu::render::LoadedShader_Default_Container::default_shader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="232" column="22" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="232" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__Default__Container_1a09c559dd21c638e2c04c336d4420abf9" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1LoadedShader__Default" kindref="compound">LoadedShader_Default</ref></type>
+        <definition>LoadedShader_Default eu::render::LoadedShader_Default_Container::transparency_shader</definition>
+        <argsstring></argsstring>
+        <name>transparency_shader</name>
+        <qualifiedname>eu::render::LoadedShader_Default_Container::transparency_shader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="233" column="22" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="233" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__Default__Container_1a66a137819cd1d11220f49811ddfcb853" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1LoadedShader__Default" kindref="compound">LoadedShader_Default</ref></type>
+        <definition>LoadedShader_Default eu::render::LoadedShader_Default_Container::default_shader_instance</definition>
+        <argsstring></argsstring>
+        <name>default_shader_instance</name>
+        <qualifiedname>eu::render::LoadedShader_Default_Container::default_shader_instance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="234" column="22" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="234" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1LoadedShader__Default__Container_1a68ac749e6f50a8c1cab286f1699933b9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::render::LoadedShader_Default_Container::is_loaded</definition>
+        <argsstring>() const</argsstring>
+        <name>is_loaded</name>
+        <qualifiedname>eu::render::LoadedShader_Default_Container::is_loaded</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="236" column="7"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A default shader. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::core::CompiledGeomVertexAttributes</label>
+        <link refid="structeu_1_1core_1_1CompiledGeomVertexAttributes"/>
+      </node>
+      <node id="3">
+        <label>eu::render::LoadedShader_Default</label>
+        <link refid="structeu_1_1render_1_1LoadedShader__Default"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>ambient_tint_uni</edgelabel>
+          <edgelabel>directional_shadow_clip_from_world_uni</edgelabel>
+          <edgelabel>emissive_factor_uni</edgelabel>
+          <edgelabel>light_ambient_color_uni</edgelabel>
+          <edgelabel>shininess_uni</edgelabel>
+          <edgelabel>specular_color_uni</edgelabel>
+          <edgelabel>tex_diffuse_uniform</edgelabel>
+          <edgelabel>tex_directional_light_depth_uni</edgelabel>
+          <edgelabel>tex_emissive_uniform</edgelabel>
+          <edgelabel>tex_specular_uniform</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>eu::render::LoadedShader_Default_Container</label>
+        <link refid="structeu_1_1render_1_1LoadedShader__Default__Container"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>geom_layout</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>default_shader</edgelabel>
+          <edgelabel>default_shader_instance</edgelabel>
+          <edgelabel>transparency_shader</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>eu::render::Uniform</label>
+        <link refid="structeu_1_1render_1_1Uniform"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/eu/render/shader_resource.h" line="228" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="229" bodyend="237"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1LoadedShader__Default__Container_1aa9b6207eaabad34f6f79d0e0c937e4fd" prot="public" virt="non-virtual"><scope>eu::render::LoadedShader_Default_Container</scope><name>default_shader</name></member>
+      <member refid="structeu_1_1render_1_1LoadedShader__Default__Container_1a66a137819cd1d11220f49811ddfcb853" prot="public" virt="non-virtual"><scope>eu::render::LoadedShader_Default_Container</scope><name>default_shader_instance</name></member>
+      <member refid="structeu_1_1render_1_1LoadedShader__Default__Container_1a5e8522014a0e1ce706bae62dc4afbf02" prot="public" virt="non-virtual"><scope>eu::render::LoadedShader_Default_Container</scope><name>geom_layout</name></member>
+      <member refid="structeu_1_1render_1_1LoadedShader__Default__Container_1a68ac749e6f50a8c1cab286f1699933b9" prot="public" virt="non-virtual"><scope>eu::render::LoadedShader_Default_Container</scope><name>is_loaded</name></member>
+      <member refid="structeu_1_1render_1_1LoadedShader__Default__Container_1a09c559dd21c638e2c04c336d4420abf9" prot="public" virt="non-virtual"><scope>eu::render::LoadedShader_Default_Container</scope><name>transparency_shader</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

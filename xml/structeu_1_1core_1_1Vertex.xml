@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1core_1_1Vertex" kind="struct" language="C++" prot="public">
+    <compoundname>eu::core::Vertex</compoundname>
+    <includes refid="geom_8h" local="no">geom.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1core_1_1Vertex_1ad3371e1e3bb0aec227a91ce5a259a144" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
+        <definition>v3 eu::core::Vertex::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <qualifiedname>eu::core::Vertex::position</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/geom.h" line="14" column="4" bodyfile="libs/core/src/eu/core/geom.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1Vertex_1a3b65ebec652ffdf3fa6533645b57c7d7" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
+        <definition>v3 eu::core::Vertex::normal</definition>
+        <argsstring></argsstring>
+        <name>normal</name>
+        <qualifiedname>eu::core::Vertex::normal</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/geom.h" line="15" column="4" bodyfile="libs/core/src/eu/core/geom.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1Vertex_1a68b3b7e5b378c733ac34a66441fdf8cd" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
+        <definition>v2 eu::core::Vertex::uv</definition>
+        <argsstring></argsstring>
+        <name>uv</name>
+        <qualifiedname>eu::core::Vertex::uv</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/geom.h" line="16" column="4" bodyfile="libs/core/src/eu/core/geom.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1core_1_1Vertex_1a1bd5360365b1b0667bf9b0dede299651" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
+        <definition>v3 eu::core::Vertex::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>eu::core::Vertex::color</qualifiedname>
+        <briefdescription>
+<para>in linear color space </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/geom.h" line="17" column="4" bodyfile="libs/core/src/eu/core/geom.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A single vertex in a Geom. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::core::Vertex</label>
+        <link refid="structeu_1_1core_1_1Vertex"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>color</edgelabel>
+          <edgelabel>normal</edgelabel>
+          <edgelabel>position</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>uv</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::v2</label>
+        <link refid="structeu_1_1v2"/>
+      </node>
+      <node id="2">
+        <label>eu::v3</label>
+        <link refid="structeu_1_1v3"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/eu/core/geom.h" line="12" column="1" bodyfile="libs/core/src/eu/core/geom.h" bodystart="13" bodyend="18"/>
+    <listofallmembers>
+      <member refid="structeu_1_1core_1_1Vertex_1a1bd5360365b1b0667bf9b0dede299651" prot="public" virt="non-virtual"><scope>eu::core::Vertex</scope><name>color</name></member>
+      <member refid="structeu_1_1core_1_1Vertex_1a3b65ebec652ffdf3fa6533645b57c7d7" prot="public" virt="non-virtual"><scope>eu::core::Vertex</scope><name>normal</name></member>
+      <member refid="structeu_1_1core_1_1Vertex_1ad3371e1e3bb0aec227a91ce5a259a144" prot="public" virt="non-virtual"><scope>eu::core::Vertex</scope><name>position</name></member>
+      <member refid="structeu_1_1core_1_1Vertex_1a68b3b7e5b378c733ac34a66441fdf8cd" prot="public" virt="non-virtual"><scope>eu::core::Vertex</scope><name>uv</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1MeshInWorld" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::MeshInWorld</compoundname>
+    <includes refid="compiledmesh_8h" local="no">compiledmesh.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1MeshInWorld_1a9ddb177c0d2cbee582a7edd714c7c047" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1CompiledMesh" kindref="compound">CompiledMesh</ref> *</type>
+        <definition>CompiledMesh* eu::render::MeshInWorld::compiled_mesh</definition>
+        <argsstring></argsstring>
+        <name>compiled_mesh</name>
+        <qualifiedname>eu::render::MeshInWorld::compiled_mesh</qualifiedname>
+        <initializer>= <ref refid="structeu_1_1R" kindref="compound">nullptr</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/compiledmesh.h" line="51" column="18" bodyfile="libs/render/src/eu/render/compiledmesh.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1MeshInWorld_1ad7f92b57f159adb8ee00534af5f86d5d" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeu_1_1render_1_1TransformedMeshInWorld" kindref="compound">TransformedMeshInWorld</ref> &gt;</type>
+        <definition>std::vector&lt;TransformedMeshInWorld&gt; eu::render::MeshInWorld::meshes</definition>
+        <argsstring></argsstring>
+        <name>meshes</name>
+        <qualifiedname>eu::render::MeshInWorld::meshes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/compiledmesh.h" line="52" column="17" bodyfile="libs/render/src/eu/render/compiledmesh.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1MeshInWorld_1aca74a6313f10a1c602be5858c45b643f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::MeshInWorld::add_to_world</definition>
+        <argsstring>(CompiledMesh *m, World *world, std::shared_ptr&lt; Material &gt; mat)</argsstring>
+        <name>add_to_world</name>
+        <qualifiedname>eu::render::MeshInWorld::add_to_world</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1CompiledMesh" kindref="compound">CompiledMesh</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1World" kindref="compound">World</ref> *</type>
+          <declname>world</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1Material" kindref="compound">Material</ref> &gt;</type>
+          <declname>mat</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/compiledmesh.h" line="55" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1MeshInWorld_1aa35fde2fc8055e5bc33ba28d9aa43147" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::MeshInWorld::set_transform</definition>
+        <argsstring>(const m4 &amp;trans)</argsstring>
+        <name>set_transform</name>
+        <qualifiedname>eu::render::MeshInWorld::set_transform</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1m4" kindref="compound">m4</ref> &amp;</type>
+          <declname>trans</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/compiledmesh.h" line="56" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::render::CompiledMesh</label>
+        <link refid="structeu_1_1render_1_1CompiledMesh"/>
+      </node>
+      <node id="1">
+        <label>eu::render::MeshInWorld</label>
+        <link refid="structeu_1_1render_1_1MeshInWorld"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>compiled_mesh</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/eu/render/compiledmesh.h" line="49" column="1" bodyfile="libs/render/src/eu/render/compiledmesh.h" bodystart="50" bodyend="57"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1MeshInWorld_1aca74a6313f10a1c602be5858c45b643f" prot="public" virt="non-virtual"><scope>eu::render::MeshInWorld</scope><name>add_to_world</name></member>
+      <member refid="structeu_1_1render_1_1MeshInWorld_1a9ddb177c0d2cbee582a7edd714c7c047" prot="public" virt="non-virtual"><scope>eu::render::MeshInWorld</scope><name>compiled_mesh</name></member>
+      <member refid="structeu_1_1render_1_1MeshInWorld_1ad7f92b57f159adb8ee00534af5f86d5d" prot="public" virt="non-virtual"><scope>eu::render::MeshInWorld</scope><name>meshes</name></member>
+      <member refid="structeu_1_1render_1_1MeshInWorld_1aa35fde2fc8055e5bc33ba28d9aa43147" prot="public" virt="non-virtual"><scope>eu::render::MeshInWorld</scope><name>set_transform</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

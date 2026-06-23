@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classeu_1_1kdl_1_1HasTypeAnnotation" kind="class" language="C++" prot="public">
+    <compoundname>eu::kdl::HasTypeAnnotation</compoundname>
+    <derivedcompoundref refid="classeu_1_1kdl_1_1Node" prot="public" virt="non-virtual">eu::kdl::Node</derivedcompoundref>
+    <derivedcompoundref refid="classeu_1_1kdl_1_1Value" prot="public" virt="non-virtual">eu::kdl::Value</derivedcompoundref>
+    <includes refid="kdl_8h" local="no">kdl.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classeu_1_1kdl_1_1HasTypeAnnotation_1ae076565bba1aa35c6402e8b66154abc8" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; std::string &gt;</type>
+        <definition>std::optional&lt;std::string&gt; eu::kdl::HasTypeAnnotation::m_type_annotation</definition>
+        <argsstring></argsstring>
+        <name>m_type_annotation</name>
+        <qualifiedname>eu::kdl::HasTypeAnnotation::m_type_annotation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="117" column="19" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classeu_1_1kdl_1_1HasTypeAnnotation_1ad49c9b187dc7dc101fa3681c0be22b78" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::kdl::HasTypeAnnotation::HasTypeAnnotation</definition>
+        <argsstring>()=default</argsstring>
+        <name>HasTypeAnnotation</name>
+        <qualifiedname>eu::kdl::HasTypeAnnotation::HasTypeAnnotation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="120" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1HasTypeAnnotation_1a2d515ac8bac4c3376bedf157de035fd1" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::kdl::HasTypeAnnotation::HasTypeAnnotation</definition>
+        <argsstring>(std::string_view t)</argsstring>
+        <name>HasTypeAnnotation</name>
+        <qualifiedname>eu::kdl::HasTypeAnnotation::HasTypeAnnotation</qualifiedname>
+        <param>
+          <type>std::string_view</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="121" column="5" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="121" bodyend="121"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classeu_1_1kdl_1_1HasTypeAnnotation_1afeff9474f936c3a4e6e434bb40123750" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::optional&lt; std::string &gt; &amp;</type>
+        <definition>const std::optional&lt; std::string &gt; &amp; eu::kdl::HasTypeAnnotation::type_annotation</definition>
+        <argsstring>() const</argsstring>
+        <name>type_annotation</name>
+        <qualifiedname>eu::kdl::HasTypeAnnotation::type_annotation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="124" column="25" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="124" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1HasTypeAnnotation_1a56a5a5f24b5c1d9194f99e5ccebbfdcb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::kdl::HasTypeAnnotation::set_type_annotation</definition>
+        <argsstring>(std::string_view type_annotation)</argsstring>
+        <name>set_type_annotation</name>
+        <qualifiedname>eu::kdl::HasTypeAnnotation::set_type_annotation</qualifiedname>
+        <param>
+          <type>std::string_view</type>
+          <declname>type_annotation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="126" column="10" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="126" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1HasTypeAnnotation_1a1ef6c17086d81625b957448d7c5ad33b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::kdl::HasTypeAnnotation::remove_type_annotation</definition>
+        <argsstring>()</argsstring>
+        <name>remove_type_annotation</name>
+        <qualifiedname>eu::kdl::HasTypeAnnotation::remove_type_annotation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="131" column="10" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="131" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1HasTypeAnnotation_1ad269e25f05ec1dc80eb74e4b5a10880d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::kdl::HasTypeAnnotation::operator==</definition>
+        <argsstring>(const HasTypeAnnotation &amp;) const =default</argsstring>
+        <name>operator==</name>
+        <qualifiedname>eu::kdl::HasTypeAnnotation::operator==</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="classeu_1_1kdl_1_1HasTypeAnnotation" kindref="compound">HasTypeAnnotation</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="133" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1HasTypeAnnotation_1aab21022ba98cd57c851ba6a3e60c304d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::kdl::HasTypeAnnotation::operator!=</definition>
+        <argsstring>(const HasTypeAnnotation &amp;) const =default</argsstring>
+        <name>operator!=</name>
+        <qualifiedname>eu::kdl::HasTypeAnnotation::operator!=</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="classeu_1_1kdl_1_1HasTypeAnnotation" kindref="compound">HasTypeAnnotation</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="134" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>eu::kdl::HasTypeAnnotation</label>
+        <link refid="classeu_1_1kdl_1_1HasTypeAnnotation"/>
+      </node>
+      <node id="2">
+        <label>eu::kdl::Node</label>
+        <link refid="classeu_1_1kdl_1_1Node"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::kdl::Value</label>
+        <link refid="classeu_1_1kdl_1_1Value"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="libs/kdl/src/eu/kdl/kdl.h" line="116" column="1" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="116" bodyend="135"/>
+    <listofallmembers>
+      <member refid="classeu_1_1kdl_1_1HasTypeAnnotation_1ad49c9b187dc7dc101fa3681c0be22b78" prot="protected" virt="non-virtual"><scope>eu::kdl::HasTypeAnnotation</scope><name>HasTypeAnnotation</name></member>
+      <member refid="classeu_1_1kdl_1_1HasTypeAnnotation_1a2d515ac8bac4c3376bedf157de035fd1" prot="protected" virt="non-virtual"><scope>eu::kdl::HasTypeAnnotation</scope><name>HasTypeAnnotation</name></member>
+      <member refid="classeu_1_1kdl_1_1HasTypeAnnotation_1ae076565bba1aa35c6402e8b66154abc8" prot="private" virt="non-virtual"><scope>eu::kdl::HasTypeAnnotation</scope><name>m_type_annotation</name></member>
+      <member refid="classeu_1_1kdl_1_1HasTypeAnnotation_1aab21022ba98cd57c851ba6a3e60c304d" prot="public" virt="non-virtual"><scope>eu::kdl::HasTypeAnnotation</scope><name>operator!=</name></member>
+      <member refid="classeu_1_1kdl_1_1HasTypeAnnotation_1ad269e25f05ec1dc80eb74e4b5a10880d" prot="public" virt="non-virtual"><scope>eu::kdl::HasTypeAnnotation</scope><name>operator==</name></member>
+      <member refid="classeu_1_1kdl_1_1HasTypeAnnotation_1a1ef6c17086d81625b957448d7c5ad33b" prot="public" virt="non-virtual"><scope>eu::kdl::HasTypeAnnotation</scope><name>remove_type_annotation</name></member>
+      <member refid="classeu_1_1kdl_1_1HasTypeAnnotation_1a56a5a5f24b5c1d9194f99e5ccebbfdcb" prot="public" virt="non-virtual"><scope>eu::kdl::HasTypeAnnotation</scope><name>set_type_annotation</name></member>
+      <member refid="classeu_1_1kdl_1_1HasTypeAnnotation_1afeff9474f936c3a4e6e434bb40123750" prot="public" virt="non-virtual"><scope>eu::kdl::HasTypeAnnotation</scope><name>type_annotation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

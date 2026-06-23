@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1CompiledMesh" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::CompiledMesh</compoundname>
+    <includes refid="compiledmesh_8h" local="no">compiledmesh.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1CompiledMesh_1a51491f7e62e8a4c4e0c3edbfd021b2d3" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeu_1_1render_1_1CompiledTransformedMesh" kindref="compound">CompiledTransformedMesh</ref> &gt;</type>
+        <definition>std::vector&lt;CompiledTransformedMesh&gt; eu::render::CompiledMesh::meshes</definition>
+        <argsstring></argsstring>
+        <name>meshes</name>
+        <qualifiedname>eu::render::CompiledMesh::meshes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/compiledmesh.h" line="34" column="17" bodyfile="libs/render/src/eu/render/compiledmesh.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/eu/render/compiledmesh.h" line="31" column="1" bodyfile="libs/render/src/eu/render/compiledmesh.h" bodystart="32" bodyend="36"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1CompiledMesh_1a51491f7e62e8a4c4e0c3edbfd021b2d3" prot="public" virt="non-virtual"><scope>eu::render::CompiledMesh</scope><name>meshes</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

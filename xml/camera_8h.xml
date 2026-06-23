@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="camera_8h" kind="file" language="C++">
+    <compoundname>camera.h</compoundname>
+    <includes refid="space_8h" local="yes">eu/render/space.h</includes>
+    <includedby refid="shadow_8h" local="yes">libs/render/src/eu/render/shadow.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>libs/render/src/eu/render/camera.h</label>
+        <link refid="camera_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu/render/space.h</label>
+        <link refid="space_8h"/>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/render/src/eu/render/camera.h</label>
+        <link refid="camera_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/render/src/eu/render/shadow.h</label>
+        <link refid="shadow_8h"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structeu_1_1render_1_1Camera" prot="public">eu::render::Camera</innerclass>
+    <innerclass refid="structeu_1_1render_1_1OrthoCamera" prot="public">eu::render::OrthoCamera</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledCamera" prot="public">eu::render::CompiledCamera</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/eu/render/camera.h"/>
+  </compounddef>
+</doxygen>

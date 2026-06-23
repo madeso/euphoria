@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_cbb9a462d4ad90cc85fe6a417cf8de6a" kind="dir">
+    <compoundname>libs/assert/src/eu</compoundname>
+    <innerdir refid="dir_668983293115e8f88f5d73628e3b0b5b">libs/assert/src/eu/assert</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/assert/src/eu/"/>
+  </compounddef>
+</doxygen>

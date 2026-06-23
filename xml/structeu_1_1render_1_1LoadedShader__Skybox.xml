@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1LoadedShader__Skybox" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::LoadedShader_Skybox</compoundname>
+    <includes refid="shader__resource_8h" local="no">shader_resource.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__Skybox_1a66e8d13c052f3819bd820a6101bcd471" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;ShaderProgram&gt; eu::render::LoadedShader_Skybox::program</definition>
+        <argsstring></argsstring>
+        <name>program</name>
+        <qualifiedname>eu::render::LoadedShader_Skybox::program</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="84" column="17" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__Skybox_1ac2673f2c43dc094d33fd9ab20bd7ad9b" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1core_1_1CompiledGeomVertexAttributes" kindref="compound">core::CompiledGeomVertexAttributes</ref></type>
+        <definition>core::CompiledGeomVertexAttributes eu::render::LoadedShader_Skybox::geom_layout</definition>
+        <argsstring></argsstring>
+        <name>geom_layout</name>
+        <qualifiedname>eu::render::LoadedShader_Skybox::geom_layout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="85" column="40" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__Skybox_1a2182b67ea6f916440a45ebb42cb8bf2e" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
+        <definition>Uniform eu::render::LoadedShader_Skybox::tex_skybox_uniform</definition>
+        <argsstring></argsstring>
+        <name>tex_skybox_uniform</name>
+        <qualifiedname>eu::render::LoadedShader_Skybox::tex_skybox_uniform</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="86" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1LoadedShader__Skybox_1ab9d6683af8a52e5c6335e01c786e1e1c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::LoadedShader_Skybox::LoadedShader_Skybox</definition>
+        <argsstring>(std::shared_ptr&lt; ShaderProgram &gt; p, core::CompiledGeomVertexAttributes l, const CameraUniformBuffer &amp;desc)</argsstring>
+        <name>LoadedShader_Skybox</name>
+        <qualifiedname>eu::render::LoadedShader_Skybox::LoadedShader_Skybox</qualifiedname>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> &gt;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1core_1_1CompiledGeomVertexAttributes" kindref="compound">core::CompiledGeomVertexAttributes</ref></type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1CameraUniformBuffer" kindref="compound">CameraUniformBuffer</ref> &amp;</type>
+          <declname>desc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="80" column="1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A skybox shader. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>eu::core::CompiledGeomVertexAttributes</label>
+        <link refid="structeu_1_1core_1_1CompiledGeomVertexAttributes"/>
+      </node>
+      <node id="1">
+        <label>eu::render::LoadedShader_Skybox</label>
+        <link refid="structeu_1_1render_1_1LoadedShader__Skybox"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>geom_layout</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>tex_skybox_uniform</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::render::Uniform</label>
+        <link refid="structeu_1_1render_1_1Uniform"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/eu/render/shader_resource.h" line="78" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="79" bodyend="87"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1LoadedShader__Skybox_1ac2673f2c43dc094d33fd9ab20bd7ad9b" prot="public" virt="non-virtual"><scope>eu::render::LoadedShader_Skybox</scope><name>geom_layout</name></member>
+      <member refid="structeu_1_1render_1_1LoadedShader__Skybox_1ab9d6683af8a52e5c6335e01c786e1e1c" prot="public" virt="non-virtual"><scope>eu::render::LoadedShader_Skybox</scope><name>LoadedShader_Skybox</name></member>
+      <member refid="structeu_1_1render_1_1LoadedShader__Skybox_1a66e8d13c052f3819bd820a6101bcd471" prot="public" virt="non-virtual"><scope>eu::render::LoadedShader_Skybox</scope><name>program</name></member>
+      <member refid="structeu_1_1render_1_1LoadedShader__Skybox_1a2182b67ea6f916440a45ebb42cb8bf2e" prot="public" virt="non-virtual"><scope>eu::render::LoadedShader_Skybox</scope><name>tex_skybox_uniform</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

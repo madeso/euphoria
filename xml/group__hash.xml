@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="group__hash" kind="group">
+    <compoundname>hash</compoundname>
+    <title>Hash-util</title>
+    <innerclass refid="structeu_1_1core_1_1HashCombiner" prot="public">eu::core::HashCombiner</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="group__hash_1ga9038dc1dac99b31ae58ae04bee68d416" prot="public" static="no">
+        <name>HASH_DEF_BEGIN</name>
+        <param><defname>TYPE</defname></param>
+        <initializer>	template&lt;&gt; \
+	struct std::hash&lt;TYPE&gt; \
+	{ \
+		std::size_t operator()(const TYPE&amp; x) const \
+		{ \
+			return <ref refid="structeu_1_1core_1_1HashCombiner" kindref="compound">eu::core::HashCombiner</ref> \
+			{ \
+			}</initializer>
+        <briefdescription>
+<para>Begins the definition of a specialization of std::hash for the given TYPE. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Should be closed by the <ref refid="group__hash_1gadea525dabdf353ba96abce59e6a5dadd" kindref="member">HASH_DEF_END</ref> macro <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>TYPE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The user-defined type for which the hash specialization is being created. \hideinlinesource </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/hash.h" line="51" column="9" bodyfile="libs/core/src/eu/core/hash.h" bodystart="51" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="define" id="group__hash_1ga102a60c28b17bc852589bbb26135173b" prot="public" static="no">
+        <name>HASH_DEF</name>
+        <param><defname>NAME</defname></param>
+        <initializer>.combine(x.NAME)</initializer>
+        <briefdescription>
+<para>Adds the hash of a member variable to the hash combination. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>\hideinlinesource</para>
+<para>This macro should be used within a <ref refid="group__hash_1ga9038dc1dac99b31ae58ae04bee68d416" kindref="member">HASH_DEF_BEGIN</ref> and <ref refid="group__hash_1gadea525dabdf353ba96abce59e6a5dadd" kindref="member">HASH_DEF_END</ref> block to combine the hash of a specific member variable of the type.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>NAME</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the member variable to include in the hash. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/hash.h" line="70" column="9" bodyfile="libs/core/src/eu/core/hash.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__hash_1gadea525dabdf353ba96abce59e6a5dadd" prot="public" static="no">
+        <name>HASH_DEF_END</name>
+        <param></param>
+        <initializer>	.result; \
+	} \
+	} \
+	;</initializer>
+        <briefdescription>
+<para>Ends the definition of the std::hash specialization. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This macro should be used to close the hash function definition started with <ref refid="group__hash_1ga9038dc1dac99b31ae58ae04bee68d416" kindref="member">HASH_DEF_BEGIN</ref>. It returns the final combined hash value.</para>
+<para>\hideinlinesource </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/eu/core/hash.h" line="79" column="9" bodyfile="libs/core/src/eu/core/hash.h" bodystart="79" bodyend="83"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Helper macros for specializing the std::hash. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This group provides a util <ref refid="structeu_1_1core_1_1HashCombiner" kindref="compound">HashCombiner</ref> to simplify the creation of hash functions for user-defined types (using std::hash) and macros for specialization of std::hash for custom types.</para>
+<para>Example usage: <programlisting><codeline><highlight class="normal"><ref refid="group__hash_1ga9038dc1dac99b31ae58ae04bee68d416" kindref="member">HASH_DEF_BEGIN</ref>(<ref refid="structeu_1_1R" kindref="compound">MyType</ref>)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__hash_1ga102a60c28b17bc852589bbb26135173b" kindref="member">HASH_DEF</ref>(<ref refid="structeu_1_1R" kindref="compound">member1</ref>)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__hash_1ga102a60c28b17bc852589bbb26135173b" kindref="member">HASH_DEF</ref>(<ref refid="structeu_1_1R" kindref="compound">member2</ref>)</highlight></codeline>
+<codeline><highlight class="normal"><ref refid="group__hash_1gadea525dabdf353ba96abce59e6a5dadd" kindref="member">HASH_DEF_END</ref>()</highlight></codeline>
+</programlisting> </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

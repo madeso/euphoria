@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classeu_1_1kdl_1_1ParseError" kind="class" language="C++" prot="public">
+    <compoundname>eu::kdl::ParseError</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">std::exception</basecompoundref>
+    <includes refid="kdl_8h" local="no">kdl.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classeu_1_1kdl_1_1ParseError_1aa5ccda0b6c64dfcd3e12fc8c607df9ee" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::kdl::ParseError::m_msg</definition>
+        <argsstring></argsstring>
+        <name>m_msg</name>
+        <qualifiedname>eu::kdl::ParseError::m_msg</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="40" column="17" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classeu_1_1kdl_1_1ParseError_1a3bfe393fa6575911bb64a7dfa5cf324d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::kdl::ParseError::ParseError</definition>
+        <argsstring>(kdl_str const &amp;msg)</argsstring>
+        <name>ParseError</name>
+        <qualifiedname>eu::kdl::ParseError::ParseError</qualifiedname>
+        <param>
+          <type><ref refid="kdl_8h_1a0871194d96ef3fe9606594bd45be95e0" kindref="member">kdl_str</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="43" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1ParseError_1af7312ac156a55f7c8bdd1cb3caa924b4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::kdl::ParseError::ParseError</definition>
+        <argsstring>(std::string msg)</argsstring>
+        <name>ParseError</name>
+        <qualifiedname>eu::kdl::ParseError::ParseError</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="44" column="5" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classeu_1_1kdl_1_1ParseError_1a862df2bd5d47b00798ce16e0585ed026" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">char</ref> *</type>
+        <definition>const char * eu::kdl::ParseError::what</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>what</name>
+        <qualifiedname>eu::kdl::ParseError::what</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="45" column="16" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="45" bodyend="45"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>eu::kdl::ParseError</label>
+        <link refid="classeu_1_1kdl_1_1ParseError"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::exception</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>eu::kdl::ParseError</label>
+        <link refid="classeu_1_1kdl_1_1ParseError"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::exception</label>
+      </node>
+    </collaborationgraph>
+    <location file="libs/kdl/src/eu/kdl/kdl.h" line="39" column="1" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="39" bodyend="46"/>
+    <listofallmembers>
+      <member refid="classeu_1_1kdl_1_1ParseError_1aa5ccda0b6c64dfcd3e12fc8c607df9ee" prot="private" virt="non-virtual"><scope>eu::kdl::ParseError</scope><name>m_msg</name></member>
+      <member refid="classeu_1_1kdl_1_1ParseError_1a3bfe393fa6575911bb64a7dfa5cf324d" prot="public" virt="non-virtual"><scope>eu::kdl::ParseError</scope><name>ParseError</name></member>
+      <member refid="classeu_1_1kdl_1_1ParseError_1af7312ac156a55f7c8bdd1cb3caa924b4" prot="public" virt="non-virtual"><scope>eu::kdl::ParseError</scope><name>ParseError</name></member>
+      <member refid="classeu_1_1kdl_1_1ParseError_1a862df2bd5d47b00798ce16e0585ed026" prot="public" virt="non-virtual"><scope>eu::kdl::ParseError</scope><name>what</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

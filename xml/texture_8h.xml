@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="texture_8h" kind="file" language="C++">
+    <compoundname>texture.h</compoundname>
+    <includes refid="size_8h" local="yes">eu/base/size.h</includes>
+    <includes refid="opengl__labels_8h" local="yes">eu/render/opengl_labels.h</includes>
+    <includes refid="color_8h" local="yes">eu/core/color.h</includes>
+    <includedby refid="assets_8h" local="yes">libs/render/src/eu/render/assets.h</includedby>
+    <includedby refid="canvas_8h" local="yes">libs/render/src/eu/render/canvas.h</includedby>
+    <includedby refid="font_8h" local="yes">libs/render/src/eu/render/font.h</includedby>
+    <includedby refid="material_8h" local="yes">libs/render/src/eu/render/material.h</includedby>
+    <includedby refid="postproc_8h" local="yes">libs/render/src/eu/render/postproc.h</includedby>
+    <includedby refid="texture_8io_8h" local="yes">libs/render/src/eu/render/texture.io.h</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>eu/base/size.h</label>
+        <link refid="size_8h"/>
+      </node>
+      <node id="4">
+        <label>eu/core/color.h</label>
+        <link refid="color_8h"/>
+      </node>
+      <node id="3">
+        <label>eu/render/opengl_labels.h</label>
+        <link refid="opengl__labels_8h"/>
+      </node>
+      <node id="1">
+        <label>libs/render/src/eu/render/texture.h</label>
+        <link refid="texture_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>libs/render/src/eu/render/assets.h</label>
+        <link refid="assets_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>libs/render/src/eu/render/canvas.h</label>
+        <link refid="canvas_8h"/>
+      </node>
+      <node id="10">
+        <label>libs/render/src/eu/render/font.h</label>
+        <link refid="font_8h"/>
+      </node>
+      <node id="7">
+        <label>libs/render/src/eu/render/fullscreen.h</label>
+        <link refid="fullscreen_8h"/>
+      </node>
+      <node id="3">
+        <label>libs/render/src/eu/render/material.h</label>
+        <link refid="material_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>libs/render/src/eu/render/postproc.h</label>
+        <link refid="postproc_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>libs/render/src/eu/render/postproc.internal.h</label>
+        <link refid="postproc_8internal_8h"/>
+      </node>
+      <node id="4">
+        <label>libs/render/src/eu/render/renderer.h</label>
+        <link refid="renderer_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>libs/render/src/eu/render/renderer.pimpl.h</label>
+        <link refid="renderer_8pimpl_8h"/>
+      </node>
+      <node id="1">
+        <label>libs/render/src/eu/render/texture.h</label>
+        <link refid="texture_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>libs/render/src/eu/render/texture.io.h</label>
+        <link refid="texture_8io_8h"/>
+      </node>
+      <node id="6">
+        <label>libs/render/src/eu/render/world.h</label>
+        <link refid="world_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structeu_1_1render_1_1BaseTexture" prot="public">eu::render::BaseTexture</innerclass>
+    <innerclass refid="structeu_1_1render_1_1Texture2d" prot="public">eu::render::Texture2d</innerclass>
+    <innerclass refid="structeu_1_1render_1_1TextureCubemap" prot="public">eu::render::TextureCubemap</innerclass>
+    <innerclass refid="structeu_1_1render_1_1FrameBuffer" prot="public">eu::render::FrameBuffer</innerclass>
+    <innerclass refid="structeu_1_1render_1_1BoundFbo" prot="public">eu::render::BoundFbo</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/eu/render/texture.h"/>
+  </compounddef>
+</doxygen>

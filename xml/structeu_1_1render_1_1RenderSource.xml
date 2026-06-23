@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1RenderSource" kind="struct" language="C++" prot="public" abstract="yes">
+    <compoundname>eu::render::RenderSource</compoundname>
+    <derivedcompoundref refid="structeu_1_1render_1_1RenderTextureWithShader" prot="public" virt="non-virtual">eu::render::RenderTextureWithShader</derivedcompoundref>
+    <derivedcompoundref refid="structeu_1_1render_1_1RenderWorld" prot="public" virt="non-virtual">eu::render::RenderWorld</derivedcompoundref>
+    <includes refid="postproc_8h" local="no">postproc.h</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1RenderSource_1a7ab0a91ffe9aedba48886c6f530eaf1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::RenderSource::RenderSource</definition>
+        <argsstring>()=default</argsstring>
+        <name>RenderSource</name>
+        <qualifiedname>eu::render::RenderSource::RenderSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="37" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1RenderSource_1a5229ea2ab88fbe9b6476251acf61e015" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual eu::render::RenderSource::~RenderSource</definition>
+        <argsstring>()=default</argsstring>
+        <name>~RenderSource</name>
+        <qualifiedname>eu::render::RenderSource::~RenderSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="38" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1RenderSource_1a84600af6eae80c301b3f781f115947e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::RenderSource::RenderSource</definition>
+        <argsstring>(const RenderSource &amp;)=delete</argsstring>
+        <name>RenderSource</name>
+        <qualifiedname>eu::render::RenderSource::RenderSource</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1RenderSource" kindref="compound">RenderSource</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="40" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1RenderSource_1a47d4e8a8f60cf01dea5c215e9e5906db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::RenderSource::RenderSource</definition>
+        <argsstring>(RenderSource &amp;&amp;)=delete</argsstring>
+        <name>RenderSource</name>
+        <qualifiedname>eu::render::RenderSource::RenderSource</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1RenderSource" kindref="compound">RenderSource</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="41" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1RenderSource_1a098f7f7e586ab9ceb5688408d1558420" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::RenderSource::operator=</definition>
+        <argsstring>(const RenderSource &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>eu::render::RenderSource::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1RenderSource" kindref="compound">RenderSource</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="42" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1RenderSource_1a31054db3e4c627616e911d3a91927dac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>void eu::render::RenderSource::operator=</definition>
+        <argsstring>(RenderSource &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>eu::render::RenderSource::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1RenderSource" kindref="compound">RenderSource</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="43" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1RenderSource_1aefd4f044c4caab48e9169ed248ab75e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <definition>virtual void eu::render::RenderSource::render</definition>
+        <argsstring>(const PostProcArg &amp;arg)=0</argsstring>
+        <name>render</name>
+        <qualifiedname>eu::render::RenderSource::render</qualifiedname>
+        <reimplementedby refid="structeu_1_1render_1_1RenderTextureWithShader_1a47e289b26d2b08119dbd2b1939b0631e">render</reimplementedby>
+        <reimplementedby refid="structeu_1_1render_1_1RenderWorld_1ad9cc968b3615dcf798ef77dc1ac59912">render</reimplementedby>
+        <param>
+          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1PostProcArg" kindref="compound">PostProcArg</ref> &amp;</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/postproc.h" line="45" column="14"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A source that can be rendered to a framebuffer or a screen. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Pretty much always a &quot;render world&quot; call or the output of an existing <ref refid="structeu_1_1render_1_1RenderTextureWithShader" kindref="compound">RenderTextureWithShader</ref>. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>eu::render::RenderSource</label>
+        <link refid="structeu_1_1render_1_1RenderSource"/>
+      </node>
+      <node id="2">
+        <label>eu::render::RenderTextureWithShader</label>
+        <link refid="structeu_1_1render_1_1RenderTextureWithShader"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eu::render::RenderWorld</label>
+        <link refid="structeu_1_1render_1_1RenderWorld"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="libs/render/src/eu/render/postproc.h" line="35" column="1" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="36" bodyend="46"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1RenderSource_1a098f7f7e586ab9ceb5688408d1558420" prot="public" virt="non-virtual"><scope>eu::render::RenderSource</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1RenderSource_1a31054db3e4c627616e911d3a91927dac" prot="public" virt="non-virtual"><scope>eu::render::RenderSource</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1RenderSource_1aefd4f044c4caab48e9169ed248ab75e8" prot="public" virt="pure-virtual"><scope>eu::render::RenderSource</scope><name>render</name></member>
+      <member refid="structeu_1_1render_1_1RenderSource_1a7ab0a91ffe9aedba48886c6f530eaf1e" prot="public" virt="non-virtual"><scope>eu::render::RenderSource</scope><name>RenderSource</name></member>
+      <member refid="structeu_1_1render_1_1RenderSource_1a84600af6eae80c301b3f781f115947e5" prot="public" virt="non-virtual"><scope>eu::render::RenderSource</scope><name>RenderSource</name></member>
+      <member refid="structeu_1_1render_1_1RenderSource_1a47d4e8a8f60cf01dea5c215e9e5906db" prot="public" virt="non-virtual"><scope>eu::render::RenderSource</scope><name>RenderSource</name></member>
+      <member refid="structeu_1_1render_1_1RenderSource_1a5229ea2ab88fbe9b6476251acf61e015" prot="public" virt="virtual"><scope>eu::render::RenderSource</scope><name>~RenderSource</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

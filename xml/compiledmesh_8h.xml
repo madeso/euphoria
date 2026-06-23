@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="compiledmesh_8h" kind="file" language="C++">
+    <compoundname>compiledmesh.h</compoundname>
+    <includes refid="core_2src_2eu_2core_2mesh_8h" local="yes">eu/core/mesh.h</includes>
+    <includes refid="opengl__labels_8h" local="yes">eu/render/opengl_labels.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>eu/core/geom.h</label>
+        <link refid="geom_8h"/>
+      </node>
+      <node id="2">
+        <label>eu/core/mesh.h</label>
+        <link refid="core_2src_2eu_2core_2mesh_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libs/render/src/eu/render/compiledmesh.h</label>
+        <link refid="compiledmesh_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>eu/render/opengl_labels.h</label>
+        <link refid="opengl__labels_8h"/>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structeu_1_1render_1_1CompiledMeshGeom" prot="public">eu::render::CompiledMeshGeom</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledTransformedMesh" prot="public">eu::render::CompiledTransformedMesh</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledMesh" prot="public">eu::render::CompiledMesh</innerclass>
+    <innerclass refid="structeu_1_1render_1_1TransformedMeshInWorld" prot="public">eu::render::TransformedMeshInWorld</innerclass>
+    <innerclass refid="structeu_1_1render_1_1MeshInWorld" prot="public">eu::render::MeshInWorld</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
+    <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/eu/render/compiledmesh.h"/>
+  </compounddef>
+</doxygen>

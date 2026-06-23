@@ -1,0 +1,312 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeu_1_1render_1_1ShaderResource" kind="struct" language="C++" prot="public">
+    <compoundname>eu::render::ShaderResource</compoundname>
+    <includes refid="shader__resource_8h" local="no">shader_resource.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1render_1_1ShaderResource_1a4b41a90ecfc64f95e1be36f11ec7ae4b" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1LoadedShader__SingleColor" kindref="compound">LoadedShader_SingleColor</ref></type>
+        <definition>LoadedShader_SingleColor eu::render::ShaderResource::single_color_shader</definition>
+        <argsstring></argsstring>
+        <name>single_color_shader</name>
+        <qualifiedname>eu::render::ShaderResource::single_color_shader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="282" column="26" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="282" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1ShaderResource_1a79af24ac68517cc691fb94b48f91bd55" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1LoadedShader__OnlyDepth" kindref="compound">LoadedShader_OnlyDepth</ref></type>
+        <definition>LoadedShader_OnlyDepth eu::render::ShaderResource::depth_transform_uniform</definition>
+        <argsstring></argsstring>
+        <name>depth_transform_uniform</name>
+        <qualifiedname>eu::render::ShaderResource::depth_transform_uniform</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="283" column="24" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="283" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1ShaderResource_1afb89f1908a455ade67876376b4638929" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1LoadedShader__OnlyDepth" kindref="compound">LoadedShader_OnlyDepth</ref></type>
+        <definition>LoadedShader_OnlyDepth eu::render::ShaderResource::depth_transform_instanced_mat4</definition>
+        <argsstring></argsstring>
+        <name>depth_transform_instanced_mat4</name>
+        <qualifiedname>eu::render::ShaderResource::depth_transform_instanced_mat4</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="284" column="24" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="284" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1ShaderResource_1a5fae1fa049e78debc688a2b1c64e2da8" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1LoadedShader__Skybox" kindref="compound">LoadedShader_Skybox</ref></type>
+        <definition>LoadedShader_Skybox eu::render::ShaderResource::skybox_shader</definition>
+        <argsstring></argsstring>
+        <name>skybox_shader</name>
+        <qualifiedname>eu::render::ShaderResource::skybox_shader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="285" column="21" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="285" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1ShaderResource_1aa5f851a9d3531115e497863e996b6630" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1LoadedShader__Unlit__Container" kindref="compound">LoadedShader_Unlit_Container</ref></type>
+        <definition>LoadedShader_Unlit_Container eu::render::ShaderResource::unlit_shader_container</definition>
+        <argsstring></argsstring>
+        <name>unlit_shader_container</name>
+        <qualifiedname>eu::render::ShaderResource::unlit_shader_container</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="287" column="30" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="287" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1ShaderResource_1ac15b69d5df23e1a32215e6e8341f48dc" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1LoadedShader__Default__Container" kindref="compound">LoadedShader_Default_Container</ref></type>
+        <definition>LoadedShader_Default_Container eu::render::ShaderResource::default_shader_container</definition>
+        <argsstring></argsstring>
+        <name>default_shader_container</name>
+        <qualifiedname>eu::render::ShaderResource::default_shader_container</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="288" column="32" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="288" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1ShaderResource_1a3ae0196d9a16536e06764255037c5b63" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1RealizeShader" kindref="compound">RealizeShader</ref></type>
+        <definition>RealizeShader eu::render::ShaderResource::pp_realize</definition>
+        <argsstring></argsstring>
+        <name>pp_realize</name>
+        <qualifiedname>eu::render::ShaderResource::pp_realize</qualifiedname>
+        <briefdescription>
+<para>the realization shader that is always run </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="291" column="15" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="291" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1ShaderResource_1abea74029edd7dcd1cdee0a042132cddc" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1ExtractShader" kindref="compound">ExtractShader</ref></type>
+        <definition>ExtractShader eu::render::ShaderResource::pp_extract</definition>
+        <argsstring></argsstring>
+        <name>pp_extract</name>
+        <qualifiedname>eu::render::ShaderResource::pp_extract</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="292" column="15" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="292" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1render_1_1ShaderResource_1ab42892ba9a79e9f784b6d41ee8c6491b" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1render_1_1PingPongBlurShader" kindref="compound">PingPongBlurShader</ref></type>
+        <definition>PingPongBlurShader eu::render::ShaderResource::pp_ping</definition>
+        <argsstring></argsstring>
+        <name>pp_ping</name>
+        <qualifiedname>eu::render::ShaderResource::pp_ping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="293" column="20" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="293" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderResource_1a9dfd82b0fd88af6cbc8985625c1fa67b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <definition>bool eu::render::ShaderResource::is_loaded</definition>
+        <argsstring>() const</argsstring>
+        <name>is_loaded</name>
+        <qualifiedname>eu::render::ShaderResource::is_loaded</qualifiedname>
+        <briefdescription>
+<para>verify that the shaders are loaded </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="296" column="7"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>All loaded shaders. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>eu::core::CompiledGeomVertexAttributes</label>
+        <link refid="structeu_1_1core_1_1CompiledGeomVertexAttributes"/>
+      </node>
+      <node id="12">
+        <label>eu::render::ExtractShader</label>
+        <link refid="structeu_1_1render_1_1ExtractShader"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>cutoff_uniform</edgelabel>
+          <edgelabel>softness_uniform</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>eu::render::LoadedShader_Default</label>
+        <link refid="structeu_1_1render_1_1LoadedShader__Default"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>ambient_tint_uni</edgelabel>
+          <edgelabel>directional_shadow_clip_from_world_uni</edgelabel>
+          <edgelabel>emissive_factor_uni</edgelabel>
+          <edgelabel>light_ambient_color_uni</edgelabel>
+          <edgelabel>shininess_uni</edgelabel>
+          <edgelabel>specular_color_uni</edgelabel>
+          <edgelabel>tex_diffuse_uniform</edgelabel>
+          <edgelabel>tex_directional_light_depth_uni</edgelabel>
+          <edgelabel>tex_emissive_uniform</edgelabel>
+          <edgelabel>tex_specular_uniform</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>eu::render::LoadedShader_Default_Container</label>
+        <link refid="structeu_1_1render_1_1LoadedShader__Default__Container"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>geom_layout</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>default_shader</edgelabel>
+          <edgelabel>default_shader_instance</edgelabel>
+          <edgelabel>transparency_shader</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>eu::render::LoadedShader_OnlyDepth</label>
+        <link refid="structeu_1_1render_1_1LoadedShader__OnlyDepth"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>geom_layout</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::render::LoadedShader_SingleColor</label>
+        <link refid="structeu_1_1render_1_1LoadedShader__SingleColor"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>geom_layout</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>tint_color_uni</edgelabel>
+          <edgelabel>world_from_local_uni</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>eu::render::LoadedShader_Skybox</label>
+        <link refid="structeu_1_1render_1_1LoadedShader__Skybox"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>geom_layout</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>tex_skybox_uniform</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>eu::render::LoadedShader_Unlit</label>
+        <link refid="structeu_1_1render_1_1LoadedShader__Unlit"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>tex_diffuse_uniform</edgelabel>
+          <edgelabel>tint_color_uni</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>eu::render::LoadedShader_Unlit_Container</label>
+        <link refid="structeu_1_1render_1_1LoadedShader__Unlit__Container"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>geom_layout</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>default_shader</edgelabel>
+          <edgelabel>transparency_shader</edgelabel>
+        </childnode>
+      </node>
+      <node id="13">
+        <label>eu::render::PingPongBlurShader</label>
+        <link refid="structeu_1_1render_1_1PingPongBlurShader"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>is_horizontal_uniform</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>eu::render::RealizeShader</label>
+        <link refid="structeu_1_1render_1_1RealizeShader"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>exposure_uniform</edgelabel>
+          <edgelabel>gamma_uniform</edgelabel>
+          <edgelabel>tex_blurred_bloom_uniform</edgelabel>
+          <edgelabel>tex_input_uniform</edgelabel>
+          <edgelabel>use_blur_uniform</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>eu::render::ShaderResource</label>
+        <link refid="structeu_1_1render_1_1ShaderResource"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>single_color_shader</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>depth_transform_instanced_mat4</edgelabel>
+          <edgelabel>depth_transform_uniform</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>skybox_shader</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>unlit_shader_container</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>default_shader_container</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>pp_realize</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>pp_extract</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>pp_ping</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>eu::render::Uniform</label>
+        <link refid="structeu_1_1render_1_1Uniform"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/eu/render/shader_resource.h" line="280" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="281" bodyend="297"/>
+    <listofallmembers>
+      <member refid="structeu_1_1render_1_1ShaderResource_1ac15b69d5df23e1a32215e6e8341f48dc" prot="public" virt="non-virtual"><scope>eu::render::ShaderResource</scope><name>default_shader_container</name></member>
+      <member refid="structeu_1_1render_1_1ShaderResource_1afb89f1908a455ade67876376b4638929" prot="public" virt="non-virtual"><scope>eu::render::ShaderResource</scope><name>depth_transform_instanced_mat4</name></member>
+      <member refid="structeu_1_1render_1_1ShaderResource_1a79af24ac68517cc691fb94b48f91bd55" prot="public" virt="non-virtual"><scope>eu::render::ShaderResource</scope><name>depth_transform_uniform</name></member>
+      <member refid="structeu_1_1render_1_1ShaderResource_1a9dfd82b0fd88af6cbc8985625c1fa67b" prot="public" virt="non-virtual"><scope>eu::render::ShaderResource</scope><name>is_loaded</name></member>
+      <member refid="structeu_1_1render_1_1ShaderResource_1abea74029edd7dcd1cdee0a042132cddc" prot="public" virt="non-virtual"><scope>eu::render::ShaderResource</scope><name>pp_extract</name></member>
+      <member refid="structeu_1_1render_1_1ShaderResource_1ab42892ba9a79e9f784b6d41ee8c6491b" prot="public" virt="non-virtual"><scope>eu::render::ShaderResource</scope><name>pp_ping</name></member>
+      <member refid="structeu_1_1render_1_1ShaderResource_1a3ae0196d9a16536e06764255037c5b63" prot="public" virt="non-virtual"><scope>eu::render::ShaderResource</scope><name>pp_realize</name></member>
+      <member refid="structeu_1_1render_1_1ShaderResource_1a4b41a90ecfc64f95e1be36f11ec7ae4b" prot="public" virt="non-virtual"><scope>eu::render::ShaderResource</scope><name>single_color_shader</name></member>
+      <member refid="structeu_1_1render_1_1ShaderResource_1a5fae1fa049e78debc688a2b1c64e2da8" prot="public" virt="non-virtual"><scope>eu::render::ShaderResource</scope><name>skybox_shader</name></member>
+      <member refid="structeu_1_1render_1_1ShaderResource_1aa5f851a9d3531115e497863e996b6630" prot="public" virt="non-virtual"><scope>eu::render::ShaderResource</scope><name>unlit_shader_container</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
