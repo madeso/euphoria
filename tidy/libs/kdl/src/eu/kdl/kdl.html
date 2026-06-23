@@ -1,0 +1,269 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/kdl/src/eu/kdl/kdl.cc</title>
+</head>
+<body>
+<h1>libs/kdl/src/eu/kdl/kdl.cc</h1>
+<span id='bugprone-unchecked-optional-access'>&nbsp;</span>
+<hr>
+<h3>warning: unchecked access to optional value</h3>
+<code>[bugprone-unchecked-optional-access]</code>
+<p><i>libs/kdl/src/eu/kdl/kdl.cc 54 : 46</i></p>
+<pre>
+   54 |                         emitter, to_kdl_str(*node.type_annotation()), to_kdl_str(node.name())))
+      |                                              ^
+</pre>
+<span id='google-readability-braces-around-statements'>&nbsp;</span>
+<span id='readability-braces-around-statements'>&nbsp;</span>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
+<p><i>libs/kdl/src/eu/kdl/kdl.cc 54 : 96</i></p>
+<pre>
+   54 |                         emitter, to_kdl_str(*node.type_annotation()), to_kdl_str(node.name())))
+      |                                                                                                ^
+      |                                                                                                 {
+   55 |                     throw EmitterError{};
+      |                                          
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<p><i>libs/kdl/src/eu/kdl/kdl.cc 57 : 70</i></p>
+<pre>
+   57 |                 if (!kdl_emit_node(emitter, to_kdl_str(node.name()))) throw EmitterError{};
+      |                                                                      ^                     
+      |                                                                       {
+</pre>
+<span id='google-readability-casting'>&nbsp;</span>
+<hr>
+<h3>warning: C-style casts are discouraged; use constructor call syntax</h3>
+<code>[google-readability-casting]</code>
+<p><i>libs/kdl/src/eu/kdl/kdl.cc 61 : 26</i></p>
+<pre>
+   61 |                 auto v = (kdl_value)arg;
+      |                          ^~~~~~~~~~~   
+      |                          kdl_value(    )
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<p><i>libs/kdl/src/eu/kdl/kdl.cc 62 : 48</i></p>
+<pre>
+   62 |                 if (!kdl_emit_arg(emitter, &amp;v)) throw EmitterError{};
+      |                                                ^                     
+      |                                                 {
+</pre>
+<hr>
+<h3>warning: C-style casts are discouraged; use constructor call syntax</h3>
+<code>[google-readability-casting]</code>
+<p><i>libs/kdl/src/eu/kdl/kdl.cc 66 : 26</i></p>
+<pre>
+   66 |                 auto v = (kdl_value)value;
+      |                          ^~~~~~~~~~~     
+      |                          kdl_value(      )
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<p><i>libs/kdl/src/eu/kdl/kdl.cc 67 : 70</i></p>
+<pre>
+   67 |                 if (!kdl_emit_property(emitter, to_kdl_str(key), &amp;v)) throw EmitterError{};
+      |                                                                      ^                     
+      |                                                                       {
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<p><i>libs/kdl/src/eu/kdl/kdl.cc 71 : 59</i></p>
+<pre>
+   71 |                 if (!kdl_start_emitting_children(emitter)) throw EmitterError{};
+      |                                                           ^                     
+      |                                                            {
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<p><i>libs/kdl/src/eu/kdl/kdl.cc 73 : 60</i></p>
+<pre>
+   73 |                 if (!kdl_finish_emitting_children(emitter)) throw EmitterError{};
+      |                                                            ^                     
+      |                                                             {
+</pre>
+<hr>
+<h3>warning: C-style casts are discouraged; use static_cast/const_cast/reinterpret_cast</h3>
+<code>[google-readability-casting]</code>
+<p><i>libs/kdl/src/eu/kdl/kdl.cc 139 : 33</i></p>
+<pre>
+  139 |                 result.number = (kdl_number)v;
+      |                                 ^
+</pre>
+<hr>
+<h3>warning: unchecked access to optional value</h3>
+<code>[bugprone-unchecked-optional-access]</code>
+<p><i>libs/kdl/src/eu/kdl/kdl.cc 149 : 46</i></p>
+<pre>
+  149 |         result.type_annotation = to_kdl_str(*type_annotation());
+      |                                              ^
+</pre>
+<span id='modernize-use-emplace'>&nbsp;</span>
+<hr>
+<h3>warning: unnecessary temporary object created while calling emplace_back</h3>
+<code>[modernize-use-emplace]</code>
+<p><i>libs/kdl/src/eu/kdl/kdl.cc 194 : 47</i></p>
+<pre>
+  194 |             current_node-&gt;args().emplace_back(Value{ev-&gt;value});
+      |                                               ^~~~~~         ~
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<p><i>libs/kdl/src/eu/kdl/kdl.cc 211 : 38</i></p>
+<pre>
+  211 |     if (version == KdlVersion::Kdl_1) opts.version = KDL_VERSION_1;
+      |                                      ^                             
+      |                                       {
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<p><i>libs/kdl/src/eu/kdl/kdl.cc 212 : 38</i></p>
+<pre>
+  212 |     if (version == KdlVersion::Kdl_2) opts.version = KDL_VERSION_2;
+      |                                      ^                             
+      |                                       {
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<p><i>libs/kdl/src/eu/kdl/kdl.cc 215 : 28</i></p>
+<pre>
+  215 |     if (emitter == nullptr) throw EmitterError{&quot;Error initializing the KDL emitter&quot;};
+      |                            ^                                                         
+      |                             {
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
+<p><i>libs/kdl/src/eu/kdl/kdl.cc 227 : 38</i></p>
+<pre>
+  227 |     if (version == KdlVersion::Kdl_1) opts = KDL_READ_VERSION_1;
+      |                                      ^
+      |                                       {
+  228 |     else if (version == KdlVersion::Kdl_2) opts = KDL_READ_VERSION_2;
+      |     } 
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
+<p><i>libs/kdl/src/eu/kdl/kdl.cc 228 : 43</i></p>
+<pre>
+  228 |     else if (version == KdlVersion::Kdl_2) opts = KDL_READ_VERSION_2;
+      |                                           ^
+      |                                            {
+  229 |     else if (version == KdlVersion::Any) {
+      |     } 
+</pre>
+<span id='misc-const-correctness'>&nbsp;</span>
+<hr>
+<h3>warning: variable &#39;text&#39; of type &#39;kdl_str&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>libs/kdl/src/eu/kdl/kdl.cc 237 : 5</i></p>
+<pre>
+  237 |     kdl_str text = {reinterpret_cast&lt;char const*&gt;(kdl_text.data()), kdl_text.size()};
+      |     ^
+      |             const 
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<p><i>libs/kdl/src/eu/kdl/kdl.cc 239 : 27</i></p>
+<pre>
+  239 |     if (parser == nullptr) throw std::runtime_error(&quot;Error initializing the KDL parser&quot;);
+      |                           ^                                                              
+      |                            {
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.cc:54:46: warning: unchecked access to optional value [bugprone-unchecked-optional-access]
+   54 |                         emitter, to_kdl_str(*node.type_annotation()), to_kdl_str(node.name())))
+      |                                              ^
+/home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.cc:54:96: warning: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements]
+   54 |                         emitter, to_kdl_str(*node.type_annotation()), to_kdl_str(node.name())))
+      |                                                                                                ^
+      |                                                                                                 {
+   55 |                     throw EmitterError{};
+      |                                          
+/home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.cc:57:70: warning: statement should be inside braces [readability-braces-around-statements]
+   57 |                 if (!kdl_emit_node(emitter, to_kdl_str(node.name()))) throw EmitterError{};
+      |                                                                      ^                     
+      |                                                                       {
+/home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.cc:61:26: warning: C-style casts are discouraged; use constructor call syntax [google-readability-casting]
+   61 |                 auto v = (kdl_value)arg;
+      |                          ^~~~~~~~~~~   
+      |                          kdl_value(    )
+/home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.cc:62:48: warning: statement should be inside braces [readability-braces-around-statements]
+   62 |                 if (!kdl_emit_arg(emitter, &v)) throw EmitterError{};
+      |                                                ^                     
+      |                                                 {
+/home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.cc:66:26: warning: C-style casts are discouraged; use constructor call syntax [google-readability-casting]
+   66 |                 auto v = (kdl_value)value;
+      |                          ^~~~~~~~~~~     
+      |                          kdl_value(      )
+/home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.cc:67:70: warning: statement should be inside braces [readability-braces-around-statements]
+   67 |                 if (!kdl_emit_property(emitter, to_kdl_str(key), &v)) throw EmitterError{};
+      |                                                                      ^                     
+      |                                                                       {
+/home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.cc:71:59: warning: statement should be inside braces [readability-braces-around-statements]
+   71 |                 if (!kdl_start_emitting_children(emitter)) throw EmitterError{};
+      |                                                           ^                     
+      |                                                            {
+/home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.cc:73:60: warning: statement should be inside braces [readability-braces-around-statements]
+   73 |                 if (!kdl_finish_emitting_children(emitter)) throw EmitterError{};
+      |                                                            ^                     
+      |                                                             {
+/home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.cc:139:33: warning: C-style casts are discouraged; use static_cast/const_cast/reinterpret_cast [google-readability-casting]
+  139 |                 result.number = (kdl_number)v;
+      |                                 ^
+/home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.cc:149:46: warning: unchecked access to optional value [bugprone-unchecked-optional-access]
+  149 |         result.type_annotation = to_kdl_str(*type_annotation());
+      |                                              ^
+/home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.cc:194:47: warning: unnecessary temporary object created while calling emplace_back [modernize-use-emplace]
+  194 |             current_node->args().emplace_back(Value{ev->value});
+      |                                               ^~~~~~         ~
+/home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.cc:211:38: warning: statement should be inside braces [readability-braces-around-statements]
+  211 |     if (version == KdlVersion::Kdl_1) opts.version = KDL_VERSION_1;
+      |                                      ^                             
+      |                                       {
+/home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.cc:212:38: warning: statement should be inside braces [readability-braces-around-statements]
+  212 |     if (version == KdlVersion::Kdl_2) opts.version = KDL_VERSION_2;
+      |                                      ^                             
+      |                                       {
+/home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.cc:215:28: warning: statement should be inside braces [readability-braces-around-statements]
+  215 |     if (emitter == nullptr) throw EmitterError{"Error initializing the KDL emitter"};
+      |                            ^                                                         
+      |                             {
+/home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.cc:227:38: warning: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements]
+  227 |     if (version == KdlVersion::Kdl_1) opts = KDL_READ_VERSION_1;
+      |                                      ^
+      |                                       {
+  228 |     else if (version == KdlVersion::Kdl_2) opts = KDL_READ_VERSION_2;
+      |     } 
+/home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.cc:228:43: warning: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements]
+  228 |     else if (version == KdlVersion::Kdl_2) opts = KDL_READ_VERSION_2;
+      |                                           ^
+      |                                            {
+  229 |     else if (version == KdlVersion::Any) {
+      |     } 
+/home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.cc:237:5: warning: variable 'text' of type 'kdl_str' can be declared 'const' [misc-const-correctness]
+  237 |     kdl_str text = {reinterpret_cast<char const*>(kdl_text.data()), kdl_text.size()};
+      |     ^
+      |             const 
+/home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.cc:239:27: warning: statement should be inside braces [readability-braces-around-statements]
+  239 |     if (parser == nullptr) throw std::runtime_error("Error initializing the KDL parser");
+      |                           ^                                                              
+      |                            {
+-->
+</body>
+</html>
