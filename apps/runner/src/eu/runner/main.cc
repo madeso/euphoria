@@ -237,7 +237,7 @@ struct InputSystem : runner::EntitySystem
         };
     }
 
-    void on_root_changed(runner::SpatialComponent* root) override
+    void on_root_changed(runner::SpatialComponent*) override
     {
     }
 
@@ -325,7 +325,7 @@ struct FollowCameraSystem : runner::EntitySystem
         imgui::gear("gear", &offset.x);
     }
 
-    void on_root_changed(runner::SpatialComponent* root) override
+    void on_root_changed(runner::SpatialComponent*) override
     {
     }
 
@@ -342,7 +342,7 @@ struct FollowCameraSystem : runner::EntitySystem
             LOG_INFO("Follow camera found camera");
         }
     }
-    void update(float dt) override
+    void update(float) override
     {
         if (!target) { return; }
         if (!camera) { return; }
@@ -403,7 +403,7 @@ struct UpdateCameraTarget : runner::WorldSystem
         }
     }
 
-    void update(float dt) override
+    void update(float) override
     {
         if (!src_entity) { return; }
         if (!dst_entity) { return; }
@@ -436,7 +436,7 @@ struct CameraFetcherSystem : runner::WorldSystem
         //todo(Gustav): display transform
     }
 
-    void add_component(runner::Entity* entity, runner::Component* component) override
+    void add_component(runner::Entity*, runner::Component* component) override
     {
         if (auto cam = runner::component_cast<CameraSpatialComponent>(component))
         {
@@ -445,11 +445,11 @@ struct CameraFetcherSystem : runner::WorldSystem
         }
     }
 
-    void on_root_changed(runner::Entity* entity, runner::SpatialComponent* component) override
+    void on_root_changed(runner::Entity*, runner::SpatialComponent*) override
     {
     }
 
-    void update(float dt) override
+    void update(float) override
     {
         if (!camera) return;
         transform = camera->get_transform();
