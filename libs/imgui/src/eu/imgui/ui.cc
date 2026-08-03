@@ -422,6 +422,7 @@ bool is_positive(float f)
 
 struct GearState
 {
+    ImVec2 center;
     ImVec2 pos;
     int turns;
     float orig;
@@ -438,6 +439,7 @@ bool gear(const char* const label, float* drag)
     const float one_turn = 10.0f;
 
     const auto orig = state ? state->orig : *drag;
+    const auto center = state.has_value() ? state->center : ImGui::GetMousePos();
 
     const auto& style = ImGui::GetStyle();
 
@@ -451,7 +453,6 @@ bool gear(const char* const label, float* drag)
     const auto size = frame + extra;
     const auto pos = ImGui::GetWindowPos() + ImGui::GetCursorPos();
     const auto mp = ImGui::GetMousePos();
-    const auto center = mp - ImGui::GetMouseDragDelta();
     const auto clicked = ImGui::InvisibleButton(label, size, flags);
     const auto active = ImGui::IsItemActive();
 
@@ -464,6 +465,8 @@ bool gear(const char* const label, float* drag)
     draw->AddRectFilled(pos, pos + label_size, bg_col);
     draw->AddText(pos, tx_col, label);
 
+    int turns = state ? state->turns : -1;
+
     if (active)
     {
         const auto input = mp - center;
@@ -472,11 +475,8 @@ bool gear(const char* const label, float* drag)
             const auto ang_right = std::acos(dot(dir_cur, {1, 0})) * (180.0f/std::numbers::pi_v<float>);
             const auto ang = dir_cur.y < 0 ? ang_right : 360 - ang_right;
 
-            int turns = -1;
             if (state.has_value())
             {
-                turns = state->turns;
-
                 const auto changed_y = is_positive(input.y) != is_positive(state->pos.y);
                 const auto on_right_side = input.x > 0 && state->pos.x > 0;
                 const auto changed_dir = changed_y && on_right_side;
@@ -485,13 +485,6 @@ bool gear(const char* const label, float* drag)
                     turns += is_positive(input.y) ? -1 : 1;
                 }
             }
-            state = GearState
-            {
-                .pos = input,
-                .turns = turns,
-                .orig = orig
-            };
-
             const auto new_ang = ang + static_cast<float>(turns) * 360.0f;
             const auto val = orig + (new_ang / 360.0f) * one_turn;
             
@@ -500,14 +493,22 @@ bool gear(const char* const label, float* drag)
                 *drag = val;
             }
         }
-        else
+
+        state = GearState
         {
-            state = std::nullopt;
-        }
+            .center = center,
+            .pos = input,
+            .turns = turns,
+            .orig = orig
+        };
 
         auto* fg = ImGui::GetForegroundDrawList();
         fg->AddCircle(center, radius, circle_col, 8);
         fg->AddLine(center, mp, circle_col);
+    }
+    else
+    {
+        state = std::nullopt;
     }
 
     return clicked;
