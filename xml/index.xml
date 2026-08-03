@@ -2045,6 +2045,12 @@
   </compound>
   <compound refid="numeric_8h" kind="file"><name>numeric.h</name>
   </compound>
+  <compound refid="base_2src_2eu_2base_2pch_8public_8h" kind="file"><name>pch.public.h</name>
+  </compound>
+  <compound refid="fmt_2src_2eu_2fmt_2pch_8public_8h" kind="file"><name>pch.public.h</name>
+    <member refid="fmt_2src_2eu_2fmt_2pch_8public_8h_1a2a9ccd1834c8052d71fbee493127ef67" kind="define"><name>ADD_CATCH_FORMATTER_DEF</name></member>
+    <member refid="fmt_2src_2eu_2fmt_2pch_8public_8h_1a9d5ac138e60feccdf63aa093ace42af9" kind="define"><name>ADD_CATCH_FORMATTER_IMPL</name></member>
+  </compound>
   <compound refid="quat_8h" kind="file"><name>quat.h</name>
   </compound>
   <compound refid="range_8h" kind="file"><name>range.h</name>
@@ -2078,6 +2084,26 @@
   </compound>
   <compound refid="loadedfont_8h" kind="file"><name>loadedfont.h</name>
   </compound>
+  <compound refid="tablelayout_8h" kind="file"><name>tablelayout.h</name>
+  </compound>
+  <compound refid="core_2src_2eu_2core_2uniform__buffer_8h" kind="file"><name>uniform_buffer.h</name>
+  </compound>
+  <compound refid="render_2src_2eu_2render_2uniform__buffer_8h" kind="file"><name>uniform_buffer.h</name>
+  </compound>
+  <compound refid="utf8_8h" kind="file"><name>utf8.h</name>
+  </compound>
+  <compound refid="vertex__layout_8h" kind="file"><name>vertex_layout.h</name>
+  </compound>
+  <compound refid="core_2src_2eu_2core_2scurve_8h" kind="file"><name>scurve.h</name>
+  </compound>
+  <compound refid="imgui_2src_2eu_2imgui_2scurve_8h" kind="file"><name>scurve.h</name>
+  </compound>
+  <compound refid="core_2src_2eu_2core_2ui_8h" kind="file"><name>ui.h</name>
+  </compound>
+  <compound refid="imgui_2src_2eu_2imgui_2ui_8h" kind="file"><name>ui.h</name>
+  </compound>
+  <compound refid="file_8h" kind="file"><name>file.h</name>
+  </compound>
   <compound refid="core_2src_2eu_2core_2mesh_8h" kind="file"><name>mesh.h</name>
   </compound>
   <compound refid="io_2src_2eu_2io_2mesh_8h" kind="file"><name>mesh.h</name>
@@ -2093,32 +2119,6 @@
   <compound refid="mrgui_2src_2eu_2mrgui_2pch_8private_8h" kind="file"><name>pch.private.h</name>
   </compound>
   <compound refid="render_2src_2eu_2render_2pch_8private_8h" kind="file"><name>pch.private.h</name>
-  </compound>
-  <compound refid="core_2src_2eu_2core_2scurve_8h" kind="file"><name>scurve.h</name>
-  </compound>
-  <compound refid="imgui_2src_2eu_2imgui_2scurve_8h" kind="file"><name>scurve.h</name>
-  </compound>
-  <compound refid="tablelayout_8h" kind="file"><name>tablelayout.h</name>
-  </compound>
-  <compound refid="core_2src_2eu_2core_2ui_8h" kind="file"><name>ui.h</name>
-  </compound>
-  <compound refid="imgui_2src_2eu_2imgui_2ui_8h" kind="file"><name>ui.h</name>
-  </compound>
-  <compound refid="core_2src_2eu_2core_2uniform__buffer_8h" kind="file"><name>uniform_buffer.h</name>
-  </compound>
-  <compound refid="render_2src_2eu_2render_2uniform__buffer_8h" kind="file"><name>uniform_buffer.h</name>
-  </compound>
-  <compound refid="utf8_8h" kind="file"><name>utf8.h</name>
-  </compound>
-  <compound refid="vertex__layout_8h" kind="file"><name>vertex_layout.h</name>
-  </compound>
-  <compound refid="base_2src_2eu_2base_2pch_8public_8h" kind="file"><name>pch.public.h</name>
-  </compound>
-  <compound refid="fmt_2src_2eu_2fmt_2pch_8public_8h" kind="file"><name>pch.public.h</name>
-    <member refid="fmt_2src_2eu_2fmt_2pch_8public_8h_1a2a9ccd1834c8052d71fbee493127ef67" kind="define"><name>ADD_CATCH_FORMATTER_DEF</name></member>
-    <member refid="fmt_2src_2eu_2fmt_2pch_8public_8h_1a9d5ac138e60feccdf63aa093ace42af9" kind="define"><name>ADD_CATCH_FORMATTER_IMPL</name></member>
-  </compound>
-  <compound refid="file_8h" kind="file"><name>file.h</name>
   </compound>
   <compound refid="kdl_8h" kind="file"><name>kdl.h</name>
     <member refid="kdl_8h_1a0871194d96ef3fe9606594bd45be95e0" kind="typedef"><name>kdl_str</name></member>
