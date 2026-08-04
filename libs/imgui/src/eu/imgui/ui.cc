@@ -426,6 +426,7 @@ struct GearState
     ImVec2 pos;
     int turns;
     float orig;
+    std::optional<float> initial_angle;
 };
 
 // https://anttweakbar.sourceforge.io/doc/tools_anttweakbar_rotoslider.html
@@ -465,15 +466,21 @@ bool gear(const char* const label, float* drag)
     draw->AddRectFilled(pos, pos + label_size, bg_col);
     draw->AddText(pos, tx_col, label);
 
-    int turns = state ? state->turns : -1;
+    int turns = state ? state->turns : 0;
 
     if (active)
     {
         const auto input = mp - center;
+        std::optional<float> initial_angle = state ? state->initial_angle : std::nullopt;
         if (length2(input) > (min_radius * min_radius)) {
             const auto dir_cur = normalize(input);
             const auto ang_right = std::acos(dot(dir_cur, {1, 0})) * (180.0f/std::numbers::pi_v<float>);
             const auto ang = dir_cur.y < 0 ? ang_right : 360 - ang_right;
+
+            if (initial_angle.has_value() == false)
+            {
+                initial_angle = ang;
+            }
 
             if (state.has_value())
             {
@@ -485,7 +492,7 @@ bool gear(const char* const label, float* drag)
                     turns += is_positive(input.y) ? -1 : 1;
                 }
             }
-            const auto new_ang = ang + static_cast<float>(turns) * 360.0f;
+            const auto new_ang = ang  - *initial_angle + static_cast<float>(turns) * 360.0f;
             const auto val = orig + (new_ang / 360.0f) * one_turn;
             
             if (drag)
@@ -493,13 +500,18 @@ bool gear(const char* const label, float* drag)
                 *drag = val;
             }
         }
+        else
+        {
+            initial_angle = std::nullopt;
+        }
 
         state = GearState
         {
             .center = center,
             .pos = input,
             .turns = turns,
-            .orig = orig
+            .orig = orig,
+            .initial_angle = initial_angle
         };
 
         auto* fg = ImGui::GetForegroundDrawList();
