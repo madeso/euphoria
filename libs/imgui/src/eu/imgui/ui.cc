@@ -439,7 +439,7 @@ bool gear(const char* const label, float* drag)
     const float radius = min_radius;
     const float one_turn = 10.0f;
 
-    const auto orig = state ? state->orig : *drag;
+    auto orig = state ? state->orig : *drag;
     const auto center = state.has_value() ? state->center : ImGui::GetMousePos();
 
     const auto& style = ImGui::GetStyle();
@@ -503,6 +503,8 @@ bool gear(const char* const label, float* drag)
         else
         {
             initial_angle = std::nullopt;
+            turns = 0;
+            orig = *drag;
         }
 
         state = GearState
