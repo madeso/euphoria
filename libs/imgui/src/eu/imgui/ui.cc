@@ -468,6 +468,8 @@ bool gear(const char* const label, float* drag)
 
     int turns = state ? state->turns : 0;
 
+    bool changed = false;
+
     if (active)
     {
         const auto input = mp - center;
@@ -498,6 +500,7 @@ bool gear(const char* const label, float* drag)
             if (drag)
             {
                 *drag = val;
+                changed = true;
             }
         }
         else
@@ -525,7 +528,7 @@ bool gear(const char* const label, float* drag)
         state = std::nullopt;
     }
 
-    return clicked;
+    return changed;
 }
 
 
