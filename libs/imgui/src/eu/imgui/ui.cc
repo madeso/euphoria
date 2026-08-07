@@ -10,6 +10,7 @@
 #include <numbers>
 
 #include "dear_imgui/imgui.h"
+#include "dear_imgui/imgui_internal.h"
 
 namespace eu::imgui
 {
@@ -447,11 +448,9 @@ bool gear(const char* const label, float* drag)
     const float w = ImGui::CalcItemWidth();
 
     const auto label_size = ImGui::CalcTextSize(label, nullptr, true);
-    const auto frame = ImVec2(w, label_size.y + style.FramePadding.y * 2.0f);
-    const auto extra = ImVec2(label_size.x > 0.0f ? style.ItemInnerSpacing.x + label_size.x : 0.0f, 0.0f);
 
     
-    const auto size = frame + extra;
+    const auto size = ImGui::GetItemRectSize();
     const auto pos = ImGui::GetWindowPos() + ImGui::GetCursorPos();
     const auto mp = ImGui::GetMousePos();
     const auto clicked = ImGui::InvisibleButton(label, size, flags);
@@ -463,8 +462,10 @@ bool gear(const char* const label, float* drag)
     const auto tx_col = ImColor(0, 0, 0); // ImColor(style.Colors[ImGuiCol_Text]);
     const auto circle_col = ImColor(0, 0, 255);
 
-    draw->AddRectFilled(pos, pos + label_size, bg_col);
-    draw->AddText(pos, tx_col, label);
+    draw->AddRectFilled(pos, pos + size, bg_col);
+
+    const char* label_end = ImGui::FindRenderedTextEnd(label);
+    draw->AddText(pos, tx_col, label, label_end);
 
     int turns = state ? state->turns : 0;
 
