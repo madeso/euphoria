@@ -447,32 +447,47 @@ bool gear(const char* const label, float* drag)
 
     const float w = ImGui::CalcItemWidth();
 
-    const auto label_size = ImGui::CalcTextSize(label, nullptr, true);
-
-    
-    const auto size = ImGui::GetItemRectSize();
+    const auto size = ImGui::GetItemRectSize(); // todo(Gustav): can't use the previous item size!!
     const auto pos = ImGui::GetWindowPos() + ImGui::GetCursorPos();
     const auto mp = ImGui::GetMousePos();
+
     const auto clicked = ImGui::InvisibleButton(label, size, flags);
     const auto active = ImGui::IsItemActive();
+    const auto lower_right = ImGui::GetItemRectMax();
 
     auto* draw = ImGui::GetForegroundDrawList();
-
     const auto bg_col = ImColor(100, 100, 100); // ImColor(style.Colors[ImGuiCol_ChildBg]);
     const auto tx_col = ImColor(0, 0, 0); // ImColor(style.Colors[ImGuiCol_Text]);
     const auto circle_col = ImColor(0, 0, 255);
 
     draw->AddRectFilled(pos, pos + size, bg_col);
 
-    const char* label_end = ImGui::FindRenderedTextEnd(label);
-    draw->AddText(pos, tx_col, label, label_end);
-
-    int turns = state ? state->turns : 0;
-
-    bool changed = false;
-
+    // draw value
+    {
+        const char* format = "%.3f";
+        char value_buf[64];
+        const char* value_buf_end = value_buf + ImGui::DataTypeFormatString(value_buf, IM_ARRAYSIZE(value_buf), ImGuiDataType_Float, drag, format);
+        draw->AddText(pos, tx_col, value_buf, value_buf_end);
+    }
+    // draw label
+    {
+        const auto label_size = ImGui::CalcTextSize(label, nullptr, true);
+        const char* label_end = ImGui::FindRenderedTextEnd(label);
+        draw->AddText({lower_right.x - label_size.x, pos.y}, tx_col, label, label_end);
+    }
+    // draw gear
     if (active)
     {
+        auto* fg = ImGui::GetForegroundDrawList();
+        fg->AddCircle(center, radius, circle_col, 8);
+        fg->AddLine(center, mp, circle_col);
+    }
+
+    // interaction
+    bool changed = false;
+    if (active)
+    {
+        int turns = state ? state->turns : 0;
         const auto input = mp - center;
         std::optional<float> initial_angle = state ? state->initial_angle : std::nullopt;
         if (length2(input) > (min_radius * min_radius)) {
@@ -519,10 +534,6 @@ bool gear(const char* const label, float* drag)
             .orig = orig,
             .initial_angle = initial_angle
         };
-
-        auto* fg = ImGui::GetForegroundDrawList();
-        fg->AddCircle(center, radius, circle_col, 8);
-        fg->AddLine(center, mp, circle_col);
     }
     else
     {
