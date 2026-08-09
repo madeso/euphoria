@@ -1,0 +1,375 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>apps/runner/src/eu/runner/main.cc</title>
+</head>
+<body>
+<h1>apps/runner/src/eu/runner/main.cc</h1>
+<span id='modernize-use-auto'>&nbsp;</span>
+<hr>
+<h3>warning: use auto when initializing with a template cast to avoid duplicating the type name</h3>
+<code>[modernize-use-auto]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 246 : 13</i></p>
+<pre>
+  246 |         if (MeshSpatialComponent* mc = runner::component_cast&lt;MeshSpatialComponent&gt;(component); mc)
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             auto
+</pre>
+<span id='readability-implicit-bool-conversion'>&nbsp;</span>
+<hr>
+<h3>warning: implicit conversion &#39;MeshSpatialComponent *&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 254 : 13</i></p>
+<pre>
+  254 |         if (mesh &amp;&amp; input &amp;&amp; input-&gt;get_current_frame().binds[0].current &gt; 0.5f)
+      |             ^
+      |             (    != nullptr)
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;runner:: Input *&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 254 : 21</i></p>
+<pre>
+  254 |         if (mesh &amp;&amp; input &amp;&amp; input-&gt;get_current_frame().binds[0].current &gt; 0.5f)
+      |                     ^
+      |                     (     != nullptr)
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;MeshSpatialComponent *&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 259 : 13</i></p>
+<pre>
+  259 |         if (mesh)
+      |             ^   
+      |                  != nullptr
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;TargetComponent *&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 347 : 14</i></p>
+<pre>
+  347 |         if (!target) { return; }
+      |             ~^     
+      |                     == nullptr
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;CameraSpatialComponent *&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 348 : 14</i></p>
+<pre>
+  348 |         if (!camera) { return; }
+      |             ~^     
+      |                     == nullptr
+</pre>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;CameraSpatialSource&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 357 : 15</i></p>
+<pre>
+  357 | constexpr Hsh CameraSpatialSource = &quot;camera_spatial_src_tag&quot;sv;
+      |               ^~~~~~~~~~~~~~~~~~~
+      |               camera_spatial_source
+</pre>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;CameraDestination&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 358 : 15</i></p>
+<pre>
+  358 | constexpr Hsh CameraDestination = &quot;camera_dst_tag&quot;sv;
+      |               ^~~~~~~~~~~~~~~~~
+      |               camera_destination
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;runner:: SpatialComponent *&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 408 : 14</i></p>
+<pre>
+  408 |         if (!src_entity) { return; }
+      |             ~^         
+      |                         == nullptr
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;TargetComponent *&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 409 : 14</i></p>
+<pre>
+  409 |         if (!dst_entity) { return; }
+      |             ~^         
+      |                         == nullptr
+</pre>
+<span id='readability-qualified-auto'>&nbsp;</span>
+<hr>
+<h3>warning: &#39;auto cam&#39; can be declared as &#39;auto *cam&#39;</h3>
+<code>[readability-qualified-auto]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 441 : 13</i></p>
+<pre>
+  441 |         if (auto cam = runner::component_cast&lt;CameraSpatialComponent&gt;(component))
+      |             ^~~~
+      |             auto *
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;CameraSpatialComponent *&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 454 : 14</i></p>
+<pre>
+  454 |         if (!camera) return;
+      |             ~^     
+      |                     == nullptr
+</pre>
+<span id='readability-braces-around-statements'>&nbsp;</span>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 454 : 21</i></p>
+<pre>
+  454 |         if (!camera) return;
+      |                     ^       
+      |                      {
+</pre>
+<span id='modernize-use-nodiscard'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;fetch&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 458 : 5</i></p>
+<pre>
+  458 |     render::Camera fetch() const
+      |     ^
+      |     [[nodiscard]] 
+</pre>
+<span id='bugprone-exception-escape'>&nbsp;</span>
+<hr>
+<h3>warning: an exception may be thrown in function &#39;main&#39; which should not throw exceptions</h3>
+<code>[bugprone-exception-escape]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 466 : 5</i></p>
+<pre>
+  466 | int main(int, char**)
+      |     ^
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;SDL_Window *&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 506 : 10</i></p>
+<pre>
+  506 |     if (!window) {
+      |         ~^     
+      |                 == nullptr
+</pre>
+<hr>
+<h3>warning: invalid case style for local pointer &#39;glContext&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 511 : 11</i></p>
+<pre>
+  511 |     auto* glContext = SDL_GL_CreateContext(window);
+      |           ^~~~~~~~~
+      |           gl_context
+  512 |     SDL_GetWindowSize(window, &amp;window_width, &amp;window_height);
+  513 |     if (!glContext) {
+      |          ~~~~~~~~~
+      |          gl_context
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;void *&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 513 : 10</i></p>
+<pre>
+  513 |     if (!glContext) {
+      |         ~^        
+      |                    == nullptr
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;int&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 527 : 13</i></p>
+<pre>
+  527 |         if (GLAD_GL_VERSION_1_0) {
+      |             ^                  
+      |                                 != 0
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;int&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 536 : 13</i></p>
+<pre>
+  536 |         if (GLAD_GL_VERSION_2_0) {
+      |             ^                  
+      |                                 != 0
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;int&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 542 : 10</i></p>
+<pre>
+  542 |     if (!GLAD_GL_VERSION_4_3)
+      |         ~^                  
+      |                              == 0
+</pre>
+<span id='misc-const-correctness'>&nbsp;</span>
+<hr>
+<h3>warning: variable &#39;io&#39; of type &#39;ImGuiIO &amp;&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 551 : 5</i></p>
+<pre>
+  551 |     ImGuiIO&amp; io = ImGui::GetIO(); (void)io;
+      |     ^      
+      |             const
+</pre>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;PLANE_SIZE&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 610 : 24</i></p>
+<pre>
+  610 |         constexpr auto PLANE_SIZE = 100.0f;
+      |                        ^~~~~~~~~~
+      |                        plane_size
+  611 |         auto plane_geom = eu::render::compile_geom(
+  612 |             USE_DEBUG_LABEL_MANY(&quot;plane&quot;)
+  613 |             eu::core::geom::create_xz_plane(PLANE_SIZE, PLANE_SIZE, false).to_geom(),
+      |                                             ~~~~~~~~~~  ~~~~~~~~~~
+      |                                             plane_size  plane_size
+</pre>
+<span id='cppcoreguidelines-init-variables'>&nbsp;</span>
+<hr>
+<h3>warning: variable &#39;camera_fetcher&#39; is not initialized</h3>
+<code>[cppcoreguidelines-init-variables]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 662 : 26</i></p>
+<pre>
+  662 |     CameraFetcherSystem* camera_fetcher;
+      |                          ^             
+      |                                         = nullptr
+</pre>
+<hr>
+<h3>warning: variable &#39;cmd&#39; of type &#39;eu::render:: RenderCommand&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 779 : 9</i></p>
+<pre>
+  779 |         eu::render::RenderCommand cmd{ .states = &amp;states, .render = &amp;render, .size = {.width = window_width, .height = window_height} };
+      |         ^
+      |                                   const 
+</pre>
+<hr>
+<h3>warning: variable &#39;camera&#39; of type &#39;eu::render:: Camera&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>apps/runner/src/eu/runner/main.cc 798 : 13</i></p>
+<pre>
+  798 |             eu::render::Camera camera = camera_fetcher-&gt;fetch();
+      |             ^
+      |                                const 
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:246:13: warning: use auto when initializing with a template cast to avoid duplicating the type name [modernize-use-auto]
+  246 |         if (MeshSpatialComponent* mc = runner::component_cast<MeshSpatialComponent>(component); mc)
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             auto
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:254:13: warning: implicit conversion 'MeshSpatialComponent *' -> 'bool' [readability-implicit-bool-conversion]
+  254 |         if (mesh && input && input->get_current_frame().binds[0].current > 0.5f)
+      |             ^
+      |             (    != nullptr)
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:254:21: warning: implicit conversion 'runner::Input *' -> 'bool' [readability-implicit-bool-conversion]
+  254 |         if (mesh && input && input->get_current_frame().binds[0].current > 0.5f)
+      |                     ^
+      |                     (     != nullptr)
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:259:13: warning: implicit conversion 'MeshSpatialComponent *' -> 'bool' [readability-implicit-bool-conversion]
+  259 |         if (mesh)
+      |             ^   
+      |                  != nullptr
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:347:14: warning: implicit conversion 'TargetComponent *' -> 'bool' [readability-implicit-bool-conversion]
+  347 |         if (!target) { return; }
+      |             ~^     
+      |                     == nullptr
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:348:14: warning: implicit conversion 'CameraSpatialComponent *' -> 'bool' [readability-implicit-bool-conversion]
+  348 |         if (!camera) { return; }
+      |             ~^     
+      |                     == nullptr
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:357:15: warning: invalid case style for constexpr variable 'CameraSpatialSource' [readability-identifier-naming]
+  357 | constexpr Hsh CameraSpatialSource = "camera_spatial_src_tag"sv;
+      |               ^~~~~~~~~~~~~~~~~~~
+      |               camera_spatial_source
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:358:15: warning: invalid case style for constexpr variable 'CameraDestination' [readability-identifier-naming]
+  358 | constexpr Hsh CameraDestination = "camera_dst_tag"sv;
+      |               ^~~~~~~~~~~~~~~~~
+      |               camera_destination
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:408:14: warning: implicit conversion 'runner::SpatialComponent *' -> 'bool' [readability-implicit-bool-conversion]
+  408 |         if (!src_entity) { return; }
+      |             ~^         
+      |                         == nullptr
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:409:14: warning: implicit conversion 'TargetComponent *' -> 'bool' [readability-implicit-bool-conversion]
+  409 |         if (!dst_entity) { return; }
+      |             ~^         
+      |                         == nullptr
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:441:13: warning: 'auto cam' can be declared as 'auto *cam' [readability-qualified-auto]
+  441 |         if (auto cam = runner::component_cast<CameraSpatialComponent>(component))
+      |             ^~~~
+      |             auto *
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:454:14: warning: implicit conversion 'CameraSpatialComponent *' -> 'bool' [readability-implicit-bool-conversion]
+  454 |         if (!camera) return;
+      |             ~^     
+      |                     == nullptr
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:454:21: warning: statement should be inside braces [readability-braces-around-statements]
+  454 |         if (!camera) return;
+      |                     ^       
+      |                      {
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:458:5: warning: function 'fetch' should be marked [[nodiscard]] [modernize-use-nodiscard]
+  458 |     render::Camera fetch() const
+      |     ^
+      |     [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:466:5: warning: an exception may be thrown in function 'main' which should not throw exceptions [bugprone-exception-escape]
+  466 | int main(int, char**)
+      |     ^
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:506:10: warning: implicit conversion 'SDL_Window *' -> 'bool' [readability-implicit-bool-conversion]
+  506 |     if (!window) {
+      |         ~^     
+      |                 == nullptr
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:511:11: warning: invalid case style for local pointer 'glContext' [readability-identifier-naming]
+  511 |     auto* glContext = SDL_GL_CreateContext(window);
+      |           ^~~~~~~~~
+      |           gl_context
+  512 |     SDL_GetWindowSize(window, &window_width, &window_height);
+  513 |     if (!glContext) {
+      |          ~~~~~~~~~
+      |          gl_context
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:513:10: warning: implicit conversion 'void *' -> 'bool' [readability-implicit-bool-conversion]
+  513 |     if (!glContext) {
+      |         ~^        
+      |                    == nullptr
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:527:13: warning: implicit conversion 'int' -> 'bool' [readability-implicit-bool-conversion]
+  527 |         if (GLAD_GL_VERSION_1_0) {
+      |             ^                  
+      |                                 != 0
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:536:13: warning: implicit conversion 'int' -> 'bool' [readability-implicit-bool-conversion]
+  536 |         if (GLAD_GL_VERSION_2_0) {
+      |             ^                  
+      |                                 != 0
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:542:10: warning: implicit conversion 'int' -> 'bool' [readability-implicit-bool-conversion]
+  542 |     if (!GLAD_GL_VERSION_4_3)
+      |         ~^                  
+      |                              == 0
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:551:5: warning: variable 'io' of type 'ImGuiIO &' can be declared 'const' [misc-const-correctness]
+  551 |     ImGuiIO& io = ImGui::GetIO(); (void)io;
+      |     ^      
+      |             const
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:610:24: warning: invalid case style for constexpr variable 'PLANE_SIZE' [readability-identifier-naming]
+  610 |         constexpr auto PLANE_SIZE = 100.0f;
+      |                        ^~~~~~~~~~
+      |                        plane_size
+  611 |         auto plane_geom = eu::render::compile_geom(
+  612 |             USE_DEBUG_LABEL_MANY("plane")
+  613 |             eu::core::geom::create_xz_plane(PLANE_SIZE, PLANE_SIZE, false).to_geom(),
+      |                                             ~~~~~~~~~~  ~~~~~~~~~~
+      |                                             plane_size  plane_size
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:662:26: warning: variable 'camera_fetcher' is not initialized [cppcoreguidelines-init-variables]
+  662 |     CameraFetcherSystem* camera_fetcher;
+      |                          ^             
+      |                                         = nullptr
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:779:9: warning: variable 'cmd' of type 'eu::render::RenderCommand' can be declared 'const' [misc-const-correctness]
+  779 |         eu::render::RenderCommand cmd{ .states = &states, .render = &render, .size = {.width = window_width, .height = window_height} };
+      |         ^
+      |                                   const 
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:798:13: warning: variable 'camera' of type 'eu::render::Camera' can be declared 'const' [misc-const-correctness]
+  798 |             eu::render::Camera camera = camera_fetcher->fetch();
+      |             ^
+      |                                const 
+-->
+</body>
+</html>

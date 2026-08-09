@@ -1,0 +1,286 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/mrgui/src/eu/mrgui/widgets.cc</title>
+</head>
+<body>
+<h1>libs/mrgui/src/eu/mrgui/widgets.cc</h1>
+<span id='readability-non-const-parameter'>&nbsp;</span>
+<hr>
+<h3>warning: pointer parameter &#39;str&#39; can be pointer to const</h3>
+<code>[readability-non-const-parameter]</code>
+<p><i>libs/mrgui/src/eu/mrgui/widgets.cc 16 : 29</i></p>
+<pre>
+   16 |     u32 hash(unsigned char* str, std::size_t length, u32 seed)
+      |                             ^
+      |              const 
+</pre>
+<span id='cppcoreguidelines-pro-type-const-cast'>&nbsp;</span>
+<hr>
+<h3>warning: do not use const_cast to remove const qualifier</h3>
+<code>[cppcoreguidelines-pro-type-const-cast]</code>
+<p><i>libs/mrgui/src/eu/mrgui/widgets.cc 31 : 54</i></p>
+<pre>
+   31 |         return hash(reinterpret_cast&lt;unsigned char*&gt;(const_cast&lt;char*&gt;(str.data())), str.size(), last_id());
+      |                                                      ^
+</pre>
+<span id='bugprone-switch-missing-default-case'>&nbsp;</span>
+<hr>
+<h3>warning: switching on non-enum value without default case may not cover all cases</h3>
+<code>[bugprone-switch-missing-default-case]</code>
+<p><i>libs/mrgui/src/eu/mrgui/widgets.cc 115 : 17</i></p>
+<pre>
+  115 |                 switch (k.key)
+      |                 ^
+</pre>
+<span id='readability-implicit-bool-conversion'>&nbsp;</span>
+<hr>
+<h3>warning: implicit conversion &#39;int&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>libs/mrgui/src/eu/mrgui/widgets.cc 119 : 25</i></p>
+<pre>
+  119 |                     if (k.mod &amp; KMOD_SHIFT)
+      |                         ^                 
+      |                         (                 ) != 0
+</pre>
+<span id='google-readability-braces-around-statements'>&nbsp;</span>
+<span id='readability-braces-around-statements'>&nbsp;</span>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
+<p><i>libs/mrgui/src/eu/mrgui/widgets.cc 119 : 44</i></p>
+<pre>
+  119 |                     if (k.mod &amp; KMOD_SHIFT)
+      |                                            ^
+      |                                             {
+  120 |                         uistate.kbd_item = uistate.last_widget;
+      |                                                                
+</pre>
+<hr>
+<h3>warning: switching on non-enum value without default case may not cover all cases</h3>
+<code>[bugprone-switch-missing-default-case]</code>
+<p><i>libs/mrgui/src/eu/mrgui/widgets.cc 255 : 17</i></p>
+<pre>
+  255 |                 switch (k.key)
+      |                 ^
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;int&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>libs/mrgui/src/eu/mrgui/widgets.cc 259 : 25</i></p>
+<pre>
+  259 |                     if (k.mod &amp; KMOD_SHIFT)
+      |                         ^                 
+      |                         (                 ) != 0
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
+<p><i>libs/mrgui/src/eu/mrgui/widgets.cc 330 : 46</i></p>
+<pre>
+  330 |         if (uistate.kbd_item == std::nullopt)
+      |                                              ^
+      |                                               {
+  331 |             uistate.kbd_item = id;
+      |                                   
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;int&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>libs/mrgui/src/eu/mrgui/widgets.cc 349 : 54</i></p>
+<pre>
+  349 |                 case SDLK_LEFT: text_state.onKeyLeft(shift, val); changed = true; break;
+      |                                                      ^    
+      |                                                            != 0
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;int&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>libs/mrgui/src/eu/mrgui/widgets.cc 350 : 56</i></p>
+<pre>
+  350 |                 case SDLK_RIGHT: text_state.onKeyRight(shift, val); changed = true; break;
+      |                                                        ^    
+      |                                                              != 0
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;int&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>libs/mrgui/src/eu/mrgui/widgets.cc 351 : 59</i></p>
+<pre>
+  351 |                 case SDLK_HOME: text_state.onKeyLineStart(shift, val); changed = true; break;
+      |                                                           ^    
+      |                                                                 != 0
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;int&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>libs/mrgui/src/eu/mrgui/widgets.cc 352 : 56</i></p>
+<pre>
+  352 |                 case SDLK_END: text_state.onKeyLineEnd(shift, val); changed = true; break;
+      |                                                        ^    
+      |                                                              != 0
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;int&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>libs/mrgui/src/eu/mrgui/widgets.cc 353 : 64</i></p>
+<pre>
+  353 |                 case SDLK_BACKSPACE: text_state.onKeyBackspace(shift, val); changed = true; break;
+      |                                                                ^    
+      |                                                                      != 0
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;int&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>libs/mrgui/src/eu/mrgui/widgets.cc 354 : 58</i></p>
+<pre>
+  354 |                 case SDLK_DELETE: text_state.onKeyDelete(shift, val); changed = true; break;
+      |                                                          ^    
+      |                                                                != 0
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;int&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>libs/mrgui/src/eu/mrgui/widgets.cc 358 : 25</i></p>
+<pre>
+  358 |                     if (shift)
+      |                         ^    
+      |                               != 0
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
+<p><i>libs/mrgui/src/eu/mrgui/widgets.cc 358 : 31</i></p>
+<pre>
+  358 |                     if (shift)
+      |                               ^
+      |                                {
+  359 |                         uistate.kbd_item = uistate.last_widget;
+      |                                                                
+</pre>
+<span id='misc-const-correctness'>&nbsp;</span>
+<hr>
+<h3>warning: variable &#39;c&#39; of type &#39;char&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>libs/mrgui/src/eu/mrgui/widgets.cc 366 : 17</i></p>
+<pre>
+  366 |                 char c = *uistate.keychar;
+      |                 ^
+      |                      const 
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;Uint32&#39; (aka &#39;unsigned int&#39;) -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>libs/mrgui/src/eu/mrgui/widgets.cc 395 : 17</i></p>
+<pre>
+  395 |             if (is_cursor_blink_visible) {
+      |                 ^                      
+      |                                         != 0u
+</pre>
+<span id='google-readability-casting'>&nbsp;</span>
+<hr>
+<h3>warning: C-style casts are discouraged; use static_cast</h3>
+<code>[google-readability-casting]</code>
+<p><i>libs/mrgui/src/eu/mrgui/widgets.cc 398 : 79</i></p>
+<pre>
+  398 |                 if (text_state.state.cursor &gt; 0 &amp;&amp; text_state.state.cursor &lt;= (int)val-&gt;size()) {
+      |                                                                               ^~~~~           
+      |                                                                               static_cast&lt;int&gt;( )
+</pre>
+<hr>
+<h3>warning: variable &#39;substr&#39; of type &#39;std:: string&#39; (aka &#39;basic_string&lt;char&gt;&#39;) can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>libs/mrgui/src/eu/mrgui/widgets.cc 399 : 21</i></p>
+<pre>
+  399 |                     std::string substr = val-&gt;substr(0, text_state.state.cursor);
+      |                     ^
+      |                                 const 
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/mrgui/src/eu/mrgui/widgets.cc:16:29: warning: pointer parameter 'str' can be pointer to const [readability-non-const-parameter]
+   16 |     u32 hash(unsigned char* str, std::size_t length, u32 seed)
+      |                             ^
+      |              const 
+/home/runner/work/euphoria/euphoria/libs/mrgui/src/eu/mrgui/widgets.cc:31:54: warning: do not use const_cast to remove const qualifier [cppcoreguidelines-pro-type-const-cast]
+   31 |         return hash(reinterpret_cast<unsigned char*>(const_cast<char*>(str.data())), str.size(), last_id());
+      |                                                      ^
+/home/runner/work/euphoria/euphoria/libs/mrgui/src/eu/mrgui/widgets.cc:115:17: warning: switching on non-enum value without default case may not cover all cases [bugprone-switch-missing-default-case]
+  115 |                 switch (k.key)
+      |                 ^
+/home/runner/work/euphoria/euphoria/libs/mrgui/src/eu/mrgui/widgets.cc:119:25: warning: implicit conversion 'int' -> 'bool' [readability-implicit-bool-conversion]
+  119 |                     if (k.mod & KMOD_SHIFT)
+      |                         ^                 
+      |                         (                 ) != 0
+/home/runner/work/euphoria/euphoria/libs/mrgui/src/eu/mrgui/widgets.cc:119:44: warning: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements]
+  119 |                     if (k.mod & KMOD_SHIFT)
+      |                                            ^
+      |                                             {
+  120 |                         uistate.kbd_item = uistate.last_widget;
+      |                                                                
+/home/runner/work/euphoria/euphoria/libs/mrgui/src/eu/mrgui/widgets.cc:255:17: warning: switching on non-enum value without default case may not cover all cases [bugprone-switch-missing-default-case]
+  255 |                 switch (k.key)
+      |                 ^
+/home/runner/work/euphoria/euphoria/libs/mrgui/src/eu/mrgui/widgets.cc:259:25: warning: implicit conversion 'int' -> 'bool' [readability-implicit-bool-conversion]
+  259 |                     if (k.mod & KMOD_SHIFT)
+      |                         ^                 
+      |                         (                 ) != 0
+/home/runner/work/euphoria/euphoria/libs/mrgui/src/eu/mrgui/widgets.cc:330:46: warning: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements]
+  330 |         if (uistate.kbd_item == std::nullopt)
+      |                                              ^
+      |                                               {
+  331 |             uistate.kbd_item = id;
+      |                                   
+/home/runner/work/euphoria/euphoria/libs/mrgui/src/eu/mrgui/widgets.cc:349:54: warning: implicit conversion 'int' -> 'bool' [readability-implicit-bool-conversion]
+  349 |                 case SDLK_LEFT: text_state.onKeyLeft(shift, val); changed = true; break;
+      |                                                      ^    
+      |                                                            != 0
+/home/runner/work/euphoria/euphoria/libs/mrgui/src/eu/mrgui/widgets.cc:350:56: warning: implicit conversion 'int' -> 'bool' [readability-implicit-bool-conversion]
+  350 |                 case SDLK_RIGHT: text_state.onKeyRight(shift, val); changed = true; break;
+      |                                                        ^    
+      |                                                              != 0
+/home/runner/work/euphoria/euphoria/libs/mrgui/src/eu/mrgui/widgets.cc:351:59: warning: implicit conversion 'int' -> 'bool' [readability-implicit-bool-conversion]
+  351 |                 case SDLK_HOME: text_state.onKeyLineStart(shift, val); changed = true; break;
+      |                                                           ^    
+      |                                                                 != 0
+/home/runner/work/euphoria/euphoria/libs/mrgui/src/eu/mrgui/widgets.cc:352:56: warning: implicit conversion 'int' -> 'bool' [readability-implicit-bool-conversion]
+  352 |                 case SDLK_END: text_state.onKeyLineEnd(shift, val); changed = true; break;
+      |                                                        ^    
+      |                                                              != 0
+/home/runner/work/euphoria/euphoria/libs/mrgui/src/eu/mrgui/widgets.cc:353:64: warning: implicit conversion 'int' -> 'bool' [readability-implicit-bool-conversion]
+  353 |                 case SDLK_BACKSPACE: text_state.onKeyBackspace(shift, val); changed = true; break;
+      |                                                                ^    
+      |                                                                      != 0
+/home/runner/work/euphoria/euphoria/libs/mrgui/src/eu/mrgui/widgets.cc:354:58: warning: implicit conversion 'int' -> 'bool' [readability-implicit-bool-conversion]
+  354 |                 case SDLK_DELETE: text_state.onKeyDelete(shift, val); changed = true; break;
+      |                                                          ^    
+      |                                                                != 0
+/home/runner/work/euphoria/euphoria/libs/mrgui/src/eu/mrgui/widgets.cc:358:25: warning: implicit conversion 'int' -> 'bool' [readability-implicit-bool-conversion]
+  358 |                     if (shift)
+      |                         ^    
+      |                               != 0
+/home/runner/work/euphoria/euphoria/libs/mrgui/src/eu/mrgui/widgets.cc:358:31: warning: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements]
+  358 |                     if (shift)
+      |                               ^
+      |                                {
+  359 |                         uistate.kbd_item = uistate.last_widget;
+      |                                                                
+/home/runner/work/euphoria/euphoria/libs/mrgui/src/eu/mrgui/widgets.cc:366:17: warning: variable 'c' of type 'char' can be declared 'const' [misc-const-correctness]
+  366 |                 char c = *uistate.keychar;
+      |                 ^
+      |                      const 
+/home/runner/work/euphoria/euphoria/libs/mrgui/src/eu/mrgui/widgets.cc:395:17: warning: implicit conversion 'Uint32' (aka 'unsigned int') -> 'bool' [readability-implicit-bool-conversion]
+  395 |             if (is_cursor_blink_visible) {
+      |                 ^                      
+      |                                         != 0u
+/home/runner/work/euphoria/euphoria/libs/mrgui/src/eu/mrgui/widgets.cc:398:79: warning: C-style casts are discouraged; use static_cast [google-readability-casting]
+  398 |                 if (text_state.state.cursor > 0 && text_state.state.cursor <= (int)val->size()) {
+      |                                                                               ^~~~~           
+      |                                                                               static_cast<int>( )
+/home/runner/work/euphoria/euphoria/libs/mrgui/src/eu/mrgui/widgets.cc:399:21: warning: variable 'substr' of type 'std::string' (aka 'basic_string<char>') can be declared 'const' [misc-const-correctness]
+  399 |                     std::string substr = val->substr(0, text_state.state.cursor);
+      |                     ^
+      |                                 const 
+-->
+</body>
+</html>
