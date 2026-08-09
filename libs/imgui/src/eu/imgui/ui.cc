@@ -436,27 +436,17 @@ bool gear(const char* const label, float* drag)
     static std::optional<GearState> state = std::nullopt;
 
     // config
-    const auto& style = ImGui::GetStyle();
-    const auto bg_col = ImColor(100, 100, 100); // ImColor(style.Colors[ImGuiCol_ChildBg]);
-    const auto tx_col = ImColor(0, 0, 0); // ImColor(style.Colors[ImGuiCol_Text]);
     const auto circle_col = ImColor(0, 0, 255);
-    const ImGuiButtonFlags flags = 0;
     const float min_radius = 20.0f;
     const float radius = min_radius;
     const float one_turn = 10.0f;
 
     auto orig = state ? state->orig : *drag;
     const auto center = state.has_value() ? state->center : ImGui::GetMousePos();
-
-    const float w = ImGui::CalcItemWidth();
-
-    const auto size = ImGui::GetItemRectSize(); // todo(Gustav): can't use the previous item size!!
-    const auto pos = ImGui::GetWindowPos() + ImGui::GetCursorPos();
     const auto mp = ImGui::GetMousePos();
 
-    ImGui::InvisibleButton(label, size, flags);
+    ImGui::SmallButton(label);
     const auto active = ImGui::IsItemActive();
-    const auto lower_right = ImGui::GetItemRectMax();
 
     // interaction
     bool changed = false;
@@ -517,23 +507,6 @@ bool gear(const char* const label, float* drag)
 
     // drawing
     {
-        auto* draw = ImGui::GetForegroundDrawList();
-
-        draw->AddRectFilled(pos, pos + size, bg_col);
-
-        // draw value
-        {
-            const char* format = "%.3f";
-            char value_buf[64];
-            const char* value_buf_end = value_buf + ImGui::DataTypeFormatString(value_buf, IM_ARRAYSIZE(value_buf), ImGuiDataType_Float, drag, format);
-            draw->AddText(pos, tx_col, value_buf, value_buf_end);
-        }
-        // draw label
-        {
-            const auto label_size = ImGui::CalcTextSize(label, nullptr, true);
-            const char* label_end = ImGui::FindRenderedTextEnd(label);
-            draw->AddText({ lower_right.x - label_size.x, pos.y }, tx_col, label, label_end);
-        }
         // draw gear
         if (active)
         {
