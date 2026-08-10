@@ -423,6 +423,7 @@ bool is_positive(float f)
 
 struct GearState
 {
+    ImGuiID id;
     ImVec2 center;
     ImVec2 pos;
     int turns;
@@ -431,7 +432,7 @@ struct GearState
 };
 
 // https://anttweakbar.sourceforge.io/doc/tools_anttweakbar_rotoslider.html
-bool gear(const char* const label, float* drag)
+bool gear_icon(const char* const label, float* drag)
 {
     static std::optional<GearState> state = std::nullopt;
 
@@ -441,68 +442,82 @@ bool gear(const char* const label, float* drag)
     const float radius = min_radius;
     const float one_turn = 10.0f;
 
-    auto orig = state ? state->orig : *drag;
-    const auto center = state.has_value() ? state->center : ImGui::GetMousePos();
     const auto mp = ImGui::GetMousePos();
 
-    ImGui::SmallButton(label);
+    ImGui::Button(label);
+    const auto id = ImGui::GetItemID();
     const auto active = ImGui::IsItemActive();
+
+    if (active && state && state->id != id)
+    {
+        // another id is active, but so are we => treat it as the previous lost the activity
+        state = std::nullopt;
+    }
+
+    auto orig = state ? state->orig : *drag;
+    const auto center = state.has_value() ? state->center : mp;
 
     // interaction
     bool changed = false;
-    if (active)
+    if (state.has_value() == false || state->id == id)
     {
-        int turns = state ? state->turns : 0;
-        const auto input = mp - center;
-        std::optional<float> initial_angle = state ? state->initial_angle : std::nullopt;
-        if (length2(input) > (min_radius * min_radius)) {
-            const auto dir_cur = normalize(input);
-            const auto ang_right = std::acos(dot(dir_cur, {1, 0})) * (180.0f/std::numbers::pi_v<float>);
-            const auto ang = dir_cur.y < 0 ? ang_right : 360 - ang_right;
-
-            if (initial_angle.has_value() == false)
+        // only change state if we are the interactive item or there is no interactive item
+        if (active)
+        {
+            int turns = state ? state->turns : 0;
+            const auto input = mp - center;
+            std::optional<float> initial_angle = state ? state->initial_angle : std::nullopt;
+            if (length2(input) > (min_radius * min_radius))
             {
-                initial_angle = ang;
-            }
+                const auto dir_cur = normalize(input);
+                const auto ang_right = std::acos(dot(dir_cur, {1, 0})) * (180.0f/std::numbers::pi_v<float>);
+                const auto ang = dir_cur.y < 0 ? ang_right : 360 - ang_right;
 
-            if (state.has_value())
-            {
-                const auto changed_y = is_positive(input.y) != is_positive(state->pos.y);
-                const auto on_right_side = input.x > 0 && state->pos.x > 0;
-                const auto changed_dir = changed_y && on_right_side;
-                if (changed_dir)
+                if (initial_angle.has_value() == false)
                 {
-                    turns += is_positive(input.y) ? -1 : 1;
+                    initial_angle = ang;
+                }
+
+                if (state.has_value())
+                {
+                    const auto changed_y = is_positive(input.y) != is_positive(state->pos.y);
+                    const auto on_right_side = input.x > 0 && state->pos.x > 0;
+                    const auto changed_dir = changed_y && on_right_side;
+                    if (changed_dir)
+                    {
+                        turns += is_positive(input.y) ? -1 : 1;
+                    }
+                }
+                const auto new_ang = ang  - *initial_angle + static_cast<float>(turns) * 360.0f;
+                const auto val = orig + (new_ang / 360.0f) * one_turn;
+                
+                if (drag)
+                {
+                    *drag = val;
+                    changed = true;
                 }
             }
-            const auto new_ang = ang  - *initial_angle + static_cast<float>(turns) * 360.0f;
-            const auto val = orig + (new_ang / 360.0f) * one_turn;
-            
-            if (drag)
+            else
             {
-                *drag = val;
-                changed = true;
+                initial_angle = std::nullopt;
+                turns = 0;
+                orig = *drag;
             }
+
+            state = GearState
+            {
+                .id = id,
+                .center = center,
+                .pos = input,
+                .turns = turns,
+                .orig = orig,
+                .initial_angle = initial_angle
+            };
         }
         else
         {
-            initial_angle = std::nullopt;
-            turns = 0;
-            orig = *drag;
+            state = std::nullopt;
         }
-
-        state = GearState
-        {
-            .center = center,
-            .pos = input,
-            .turns = turns,
-            .orig = orig,
-            .initial_angle = initial_angle
-        };
-    }
-    else
-    {
-        state = std::nullopt;
     }
 
     // drawing
@@ -519,6 +534,41 @@ bool gear(const char* const label, float* drag)
     return changed;
 }
 
+bool gear(const char* const label, v3* drag)
+{
+    auto& style = ImGui::GetStyle();
+
+    bool value_changed = false;
+    ImGui::BeginGroup();
+    ImGui::PushID(label);
+    ImGui::PushMultiItemsWidths(3, ImGui::CalcItemWidth());
+    const auto widget = [&](int i, float* p_data)
+        {
+            ImGui::PushID(i);
+            if (i > 0)
+                ImGui::SameLine(0, style.ItemInnerSpacing.x);
+            value_changed |= ImGui::DragFloat("", p_data);
+            ImGui::SameLine(0, style.ItemInnerSpacing.x);
+            value_changed |= gear_icon(".", p_data);
+            ImGui::PopID();
+            ImGui::PopItemWidth();
+        };
+    widget(0, &drag->x);
+    widget(1, &drag->y);
+    widget(2, &drag->z);
+    ImGui::PopID();
+
+    const char* label_end = ImGui::FindRenderedTextEnd(label);
+    if (label != label_end)
+    {
+        ImGui::SameLine(0, style.ItemInnerSpacing.x);
+        ImGui::TextEx(label, label_end);
+    }
+
+    ImGui::EndGroup();
+
+    return value_changed;
+}
 
 }
 
