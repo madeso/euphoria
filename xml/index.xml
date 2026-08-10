@@ -1841,7 +1841,7 @@
     <member refid="namespaceeu_1_1imgui_1ab76823a0cdc47913592393872d8445ac" kind="function"><name>simple_gamma_slider</name></member>
     <member refid="namespaceeu_1_1imgui_1aac726e31c001bea8566a1019d8ef58f6" kind="function"><name>drag</name></member>
     <member refid="namespaceeu_1_1imgui_1a4b040bce31b42a8492fd5b8e9d3c7635" kind="function"><name>drag</name></member>
-    <member refid="namespaceeu_1_1imgui_1a4bfd841919d2992f8e97bf5eaa8701f5" kind="function"><name>gear</name></member>
+    <member refid="namespaceeu_1_1imgui_1a14ca8b8ecb008694b753a5c7fbc29020" kind="function"><name>gear</name></member>
   </compound>
   <compound refid="namespaceeu_1_1io" kind="namespace"><name>eu::io</name>
     <member refid="namespaceeu_1_1io_1af1eaadaf42c3183baed23e8545e34ed6" kind="function"><name>string_from_file</name></member>

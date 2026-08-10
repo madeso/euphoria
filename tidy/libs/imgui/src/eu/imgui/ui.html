@@ -10,17 +10,36 @@
 <hr>
 <h3>warning: implicit conversion &#39;float *&#39; -&gt; &#39;bool&#39;</h3>
 <code>[readability-implicit-bool-conversion]</code>
-<p><i>libs/imgui/src/eu/imgui/ui.cc 481 : 17</i></p>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 494 : 21</i></p>
 <pre>
-  481 |             if (drag)
-      |                 ^   
-      |                      != nullptr
+  494 |                 if (drag)
+      |                     ^   
+      |                          != nullptr
+</pre>
+<span id='google-readability-braces-around-statements'>&nbsp;</span>
+<span id='readability-braces-around-statements'>&nbsp;</span>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 548 : 23</i></p>
+<pre>
+  548 |             if (i &gt; 0)
+      |                       ^
+      |                        {
+  549 |                 ImGui::SameLine(0, style.ItemInnerSpacing.x);
+      |                                                              
 </pre>
 <!--
-/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:481:17: warning: implicit conversion 'float *' -> 'bool' [readability-implicit-bool-conversion]
-  481 |             if (drag)
-      |                 ^   
-      |                      != nullptr
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:494:21: warning: implicit conversion 'float *' -> 'bool' [readability-implicit-bool-conversion]
+  494 |                 if (drag)
+      |                     ^   
+      |                          != nullptr
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:548:23: warning: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements]
+  548 |             if (i > 0)
+      |                       ^
+      |                        {
+  549 |                 ImGui::SameLine(0, style.ItemInnerSpacing.x);
+      |                                                              
 -->
 </body>
 </html>

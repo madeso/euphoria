@@ -235,10 +235,10 @@
         </inbodydescription>
         <location file="libs/imgui/src/eu/imgui/ui.h" line="45" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="45" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1imgui_1a4bfd841919d2992f8e97bf5eaa8701f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1imgui_1a14ca8b8ecb008694b753a5c7fbc29020" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
         <definition>bool eu::imgui::gear</definition>
-        <argsstring>(const char *const label, float *drag)</argsstring>
+        <argsstring>(const char *const label, v3 *drag)</argsstring>
         <name>gear</name>
         <qualifiedname>eu::imgui::gear</qualifiedname>
         <param>
@@ -246,7 +246,7 @@
           <declname>label</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref> *</type>
+          <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref> *</type>
           <declname>drag</declname>
         </param>
         <briefdescription>
