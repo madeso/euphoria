@@ -431,6 +431,57 @@ struct GearState
     std::optional<float> initial_angle;
 };
 
+namespace
+{
+    // dl functions are copied directly from ImDrawList with an additional starting angle and "special cases" removed.
+
+    void dl_PathArcToN(ImDrawList* dl, const ImVec2& center, float radius, float a_min, float a_max, int num_segments, float ang)
+    {
+        if (radius < 0.5f)
+        {
+            dl->_Path.push_back(center);
+            return;
+        }
+
+        // Note that we are adding a point at both a_min and a_max.
+        // If you are trying to draw a full closed circle you don't want the overlapping points!
+        dl->_Path.reserve(dl->_Path.Size + (num_segments + 1));
+        for (int i = 0; i <= num_segments; i++)
+        {
+            const float a = a_min + (static_cast<float>(i) / static_cast<float>(num_segments)) * (a_max - a_min);
+            dl->_Path.push_back(ImVec2(center.x + ImCos(a + ang) * radius, center.y + ImSin(a + ang) * radius));
+        }
+    }
+
+    void dl_PathArcTo(ImDrawList* dl, const ImVec2& center, float radius, float a_min, float a_max, int num_segments, float ang)
+    {
+        if (radius < 0.5f)
+        {
+            dl->_Path.push_back(center);
+            return;
+        }
+
+        dl_PathArcToN(dl, center, radius, a_min, a_max, num_segments, ang);
+    }
+
+    void dl_AddCircle(ImDrawList* dl, const ImVec2& center, float radius, ImU32 col, int num_segments, float thickness, float ang)
+    {
+        if ((col & IM_COL32_A_MASK) == 0 || radius < 0.5f)
+        {
+            return;
+        }
+
+        // Explicit segment count (still clamp to avoid drawing insanely tessellated shapes)
+        num_segments = ImClamp(num_segments, 3, IM_DRAWLIST_CIRCLE_AUTO_SEGMENT_MAX);
+
+        // Because we are filling a closed shape we remove 1 from the count of segments/points
+        const float a_max = (IM_PI * 2.0f) * (static_cast<float>(num_segments) - 1.0f) / static_cast<float>(num_segments);
+        dl_PathArcTo(dl, center, radius - 0.5f, 0.0f, a_max, num_segments - 1, ang);
+
+        dl->PathStroke(col, ImDrawFlags_Closed, thickness);
+    }
+}
+
 // https://anttweakbar.sourceforge.io/doc/tools_anttweakbar_rotoslider.html
 bool gear_icon(const char* const label, float* drag)
 {
@@ -441,6 +492,8 @@ bool gear_icon(const char* const label, float* drag)
     const float min_radius = 20.0f;
     const float radius = min_radius;
     const float one_turn = 10.0f;
+    constexpr float circle_thickness = 1.0f;
+    constexpr int gear_segments = 6;
 
     const auto mp = ImGui::GetMousePos();
 
@@ -526,7 +579,11 @@ bool gear_icon(const char* const label, float* drag)
         if (active)
         {
             auto* fg = ImGui::GetForegroundDrawList();
-            fg->AddCircle(center, radius, circle_col, 8);
+            // fg->AddCircle(center, radius, circle_col, gear_segments, thickness);
+            const auto ang = (std::fmodf(*drag, one_turn)/one_turn) * -2.0f * IM_PI;
+            dl_AddCircle(fg, center, radius, circle_col, gear_segments, circle_thickness, ang);
+            
+            // draw wrench instead?
             fg->AddLine(center, mp, circle_col);
         }
     }
