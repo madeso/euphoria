@@ -488,7 +488,7 @@ bool gear_icon(const char* const label, float* drag)
     static std::optional<GearState> state = std::nullopt;
 
     // config
-    const auto circle_col = ImColor(0, 0, 255);
+    const auto circle_col = ImColor(100, 100, 255);
     const float min_radius = 20.0f;
     const float radius = min_radius;
     const float one_turn = 10.0f;
