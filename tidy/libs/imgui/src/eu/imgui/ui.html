@@ -6,13 +6,50 @@
 </head>
 <body>
 <h1>libs/imgui/src/eu/imgui/ui.cc</h1>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for function &#39;dl_PathArcToN&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 438 : 10</i></p>
+<pre>
+  438 |     void dl_PathArcToN(ImDrawList* dl, const ImVec2&amp; center, float radius, float a_min, float a_max, int num_segments, float ang)
+      |          ^~~~~~~~~~~~~
+      |          dl_path_arc_to_n
+</pre>
+<span id='readability-identifier-length'>&nbsp;</span>
+<hr>
+<h3>warning: loop variable name &#39;i&#39; is too short, expected at least 2 characters</h3>
+<code>[readability-identifier-length]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 449 : 18</i></p>
+<pre>
+  449 |         for (int i = 0; i &lt;= num_segments; i++)
+      |                  ^
+</pre>
+<hr>
+<h3>warning: invalid case style for function &#39;dl_PathArcTo&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 456 : 10</i></p>
+<pre>
+  456 |     void dl_PathArcTo(ImDrawList* dl, const ImVec2&amp; center, float radius, float a_min, float a_max, int num_segments, float ang)
+      |          ^~~~~~~~~~~~
+      |          dl_path_arc_to
+</pre>
+<hr>
+<h3>warning: invalid case style for function &#39;dl_AddCircle&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 467 : 10</i></p>
+<pre>
+  467 |     void dl_AddCircle(ImDrawList* dl, const ImVec2&amp; center, float radius, ImU32 col, int num_segments, float thickness, float ang)
+      |          ^~~~~~~~~~~~
+      |          dl_add_circle
+</pre>
 <span id='readability-implicit-bool-conversion'>&nbsp;</span>
 <hr>
 <h3>warning: implicit conversion &#39;float *&#39; -&gt; &#39;bool&#39;</h3>
 <code>[readability-implicit-bool-conversion]</code>
-<p><i>libs/imgui/src/eu/imgui/ui.cc 494 : 21</i></p>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 547 : 21</i></p>
 <pre>
-  494 |                 if (drag)
+  547 |                 if (drag)
       |                     ^   
       |                          != nullptr
 </pre>
@@ -21,24 +58,39 @@
 <hr>
 <h3>warning: statement should be inside braces</h3>
 <code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
-<p><i>libs/imgui/src/eu/imgui/ui.cc 548 : 23</i></p>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 605 : 23</i></p>
 <pre>
-  548 |             if (i &gt; 0)
+  605 |             if (i &gt; 0)
       |                       ^
       |                        {
-  549 |                 ImGui::SameLine(0, style.ItemInnerSpacing.x);
+  606 |                 ImGui::SameLine(0, style.ItemInnerSpacing.x);
       |                                                              
 </pre>
 <!--
-/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:494:21: warning: implicit conversion 'float *' -> 'bool' [readability-implicit-bool-conversion]
-  494 |                 if (drag)
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:438:10: warning: invalid case style for function 'dl_PathArcToN' [readability-identifier-naming]
+  438 |     void dl_PathArcToN(ImDrawList* dl, const ImVec2& center, float radius, float a_min, float a_max, int num_segments, float ang)
+      |          ^~~~~~~~~~~~~
+      |          dl_path_arc_to_n
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:449:18: warning: loop variable name 'i' is too short, expected at least 2 characters [readability-identifier-length]
+  449 |         for (int i = 0; i <= num_segments; i++)
+      |                  ^
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:456:10: warning: invalid case style for function 'dl_PathArcTo' [readability-identifier-naming]
+  456 |     void dl_PathArcTo(ImDrawList* dl, const ImVec2& center, float radius, float a_min, float a_max, int num_segments, float ang)
+      |          ^~~~~~~~~~~~
+      |          dl_path_arc_to
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:467:10: warning: invalid case style for function 'dl_AddCircle' [readability-identifier-naming]
+  467 |     void dl_AddCircle(ImDrawList* dl, const ImVec2& center, float radius, ImU32 col, int num_segments, float thickness, float ang)
+      |          ^~~~~~~~~~~~
+      |          dl_add_circle
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:547:21: warning: implicit conversion 'float *' -> 'bool' [readability-implicit-bool-conversion]
+  547 |                 if (drag)
       |                     ^   
       |                          != nullptr
-/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:548:23: warning: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements]
-  548 |             if (i > 0)
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:605:23: warning: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements]
+  605 |             if (i > 0)
       |                       ^
       |                        {
-  549 |                 ImGui::SameLine(0, style.ItemInnerSpacing.x);
+  606 |                 ImGui::SameLine(0, style.ItemInnerSpacing.x);
       |                                                              
 -->
 </body>
