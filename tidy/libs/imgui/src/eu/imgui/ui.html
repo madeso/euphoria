@@ -47,23 +47,41 @@
 <hr>
 <h3>warning: implicit conversion &#39;float *&#39; -&gt; &#39;bool&#39;</h3>
 <code>[readability-implicit-bool-conversion]</code>
-<p><i>libs/imgui/src/eu/imgui/ui.cc 547 : 21</i></p>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 555 : 21</i></p>
 <pre>
-  547 |                 if (drag)
+  555 |                 if (drag)
       |                     ^   
       |                          != nullptr
+</pre>
+<span id='misc-const-correctness'>&nbsp;</span>
+<hr>
+<h3>warning: variable &#39;w_items&#39; of type &#39;float&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 615 : 5</i></p>
+<pre>
+  615 |     float w_items = ImMax(0.0f, ImGui::CalcItemWidth() - style.ItemInnerSpacing.x * (6 - 1) - gear_size.x * 3);
+      |     ^
+      |           const 
+</pre>
+<hr>
+<h3>warning: loop variable name &#39;i&#39; is too short, expected at least 2 characters</h3>
+<code>[readability-identifier-length]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 616 : 14</i></p>
+<pre>
+  616 |     for (int i=0; i&lt;3; i+=1)
+      |              ^
 </pre>
 <span id='google-readability-braces-around-statements'>&nbsp;</span>
 <span id='readability-braces-around-statements'>&nbsp;</span>
 <hr>
 <h3>warning: statement should be inside braces</h3>
 <code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
-<p><i>libs/imgui/src/eu/imgui/ui.cc 605 : 23</i></p>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 626 : 23</i></p>
 <pre>
-  605 |             if (i &gt; 0)
+  626 |             if (i &gt; 0)
       |                       ^
       |                        {
-  606 |                 ImGui::SameLine(0, style.ItemInnerSpacing.x);
+  627 |                 ImGui::SameLine(0, style.ItemInnerSpacing.x);
       |                                                              
 </pre>
 <!--
@@ -82,15 +100,22 @@
   467 |     void dl_AddCircle(ImDrawList* dl, const ImVec2& center, float radius, ImU32 col, int num_segments, float thickness, float ang)
       |          ^~~~~~~~~~~~
       |          dl_add_circle
-/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:547:21: warning: implicit conversion 'float *' -> 'bool' [readability-implicit-bool-conversion]
-  547 |                 if (drag)
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:555:21: warning: implicit conversion 'float *' -> 'bool' [readability-implicit-bool-conversion]
+  555 |                 if (drag)
       |                     ^   
       |                          != nullptr
-/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:605:23: warning: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements]
-  605 |             if (i > 0)
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:615:5: warning: variable 'w_items' of type 'float' can be declared 'const' [misc-const-correctness]
+  615 |     float w_items = ImMax(0.0f, ImGui::CalcItemWidth() - style.ItemInnerSpacing.x * (6 - 1) - gear_size.x * 3);
+      |     ^
+      |           const 
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:616:14: warning: loop variable name 'i' is too short, expected at least 2 characters [readability-identifier-length]
+  616 |     for (int i=0; i<3; i+=1)
+      |              ^
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:626:23: warning: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements]
+  626 |             if (i > 0)
       |                       ^
       |                        {
-  606 |                 ImGui::SameLine(0, style.ItemInnerSpacing.x);
+  627 |                 ImGui::SameLine(0, style.ItemInnerSpacing.x);
       |                                                              
 -->
 </body>
