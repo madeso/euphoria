@@ -482,8 +482,16 @@ namespace
     }
 }
 
+ImVec2 calc_button_size(const char* const label, const ImVec2& size_arg = ImVec2(0,0))
+{
+    const auto style = ImGui::GetStyle();
+    const ImVec2 label_size = ImGui::CalcTextSize(label, nullptr, true);
+    ImVec2 size = ImGui::CalcItemSize(size_arg, label_size.x + style.FramePadding.x * 2.0f, label_size.y + style.FramePadding.y * 2.0f);
+    return size;
+}
+
 // https://anttweakbar.sourceforge.io/doc/tools_anttweakbar_rotoslider.html
-bool gear_icon(const char* const label, float* drag)
+bool gear_icon(const char* const label, float* drag, const ImVec2& size)
 {
     static std::optional<GearState> state = std::nullopt;
 
@@ -497,7 +505,7 @@ bool gear_icon(const char* const label, float* drag)
 
     const auto mp = ImGui::GetMousePos();
 
-    ImGui::Button(label);
+    ImGui::Button(label, size);
     const auto id = ImGui::GetItemID();
     const auto active = ImGui::IsItemActive();
 
@@ -580,7 +588,9 @@ bool gear_icon(const char* const label, float* drag)
         {
             auto* fg = ImGui::GetForegroundDrawList();
             // fg->AddCircle(center, radius, circle_col, gear_segments, thickness);
-            const auto ang = (std::fmodf(*drag, one_turn)/one_turn) * -2.0f * IM_PI;
+            constexpr auto segment_factor = 1.0f / static_cast<float>(gear_segments - 1);
+            const auto turn_factor = std::fmodf(*drag, one_turn) / one_turn;
+            const auto ang = (turn_factor + segment_factor) * -2.0f * IM_PI;
             dl_AddCircle(fg, center, radius, circle_col, gear_segments, circle_thickness, ang);
             
             // draw wrench instead?
@@ -593,22 +603,34 @@ bool gear_icon(const char* const label, float* drag)
 
 bool gear(const char* const label, v3* drag)
 {
+    constexpr const char* const gear_string = ".";
+    const auto gear_size = calc_button_size(gear_string);
+
     auto& style = ImGui::GetStyle();
 
     bool value_changed = false;
     ImGui::BeginGroup();
     ImGui::PushID(label);
-    ImGui::PushMultiItemsWidths(3, ImGui::CalcItemWidth());
+    
+    float w_items = ImMax(0.0f, ImGui::CalcItemWidth() - style.ItemInnerSpacing.x * (6 - 1) - gear_size.x * 3);
+    for (int i=0; i<3; i+=1)
+    {
+        ImGui::PushItemWidth(gear_size.x);
+        ImGui::PushItemWidth(w_items / 3);
+    }
+    // ImGui::PushMultiItemsWidths(3, ImGui::CalcItemWidth());
+    
     const auto widget = [&](int i, float* p_data)
         {
             ImGui::PushID(i);
             if (i > 0)
                 ImGui::SameLine(0, style.ItemInnerSpacing.x);
             value_changed |= ImGui::DragFloat("", p_data);
-            ImGui::SameLine(0, style.ItemInnerSpacing.x);
-            value_changed |= gear_icon(".", p_data);
-            ImGui::PopID();
             ImGui::PopItemWidth();
+            ImGui::SameLine(0, style.ItemInnerSpacing.x);
+            value_changed |= gear_icon(gear_string, p_data, gear_size);
+            ImGui::PopItemWidth();
+            ImGui::PopID();
         };
     widget(0, &drag->x);
     widget(1, &drag->y);
