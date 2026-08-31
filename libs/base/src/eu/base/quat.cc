@@ -32,6 +32,28 @@ namespace eu
         return yp.then_get_rotated(roll);
     }
 
+    [[nodiscard]] Q
+     Q::from_fast(const Ypr& ypr)
+     {
+        // Abbreviations for the various angular functions
+        const auto cy = cos(ypr.yaw * 0.5);
+        const auto sy = sin(ypr.yaw * 0.5);
+        const auto cp = cos(ypr.pitch * 0.5);
+        const auto sp = sin(ypr.pitch * 0.5);
+        const auto cr = cos(ypr.roll * 0.5);
+        const auto sr = sin(ypr.roll * 0.5);
+
+        return
+        {
+            cr * cp * cy + sr * sp * sy,
+            {
+                sr * cp * cy - cr * sp * sy,
+                cr * sp * cy + sr * cp * sy,
+                cr * cp * sy - sr * sp * cy
+            }
+        };
+    }
+
 
     [[nodiscard]] Q
     Q::from_to(const Q& from, const Q& to)

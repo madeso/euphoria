@@ -43,6 +43,7 @@ namespace eu
 
         /// Create a quaternion from a yaw-pitch-roll
         [[nodiscard]] static Q from(const Ypr& ypr);
+        [[nodiscard]] static Q from_fast(const Ypr& ypr);
 
         /// Create a quaternion going from `from` to `to`.
         [[nodiscard]] static Q from_to(const Q& from, const Q& to);
