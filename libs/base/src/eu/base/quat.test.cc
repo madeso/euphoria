@@ -46,8 +46,6 @@ TEST_CASE("quat-testVecOp", "[quat]")
 	CHECK(Q(4, v3(1, 2, 3)).get_vec_part() == approx(v3(1, 2, 3)));
 }
 
-#define EXPECT_PRED_FORMAT2(a, b) CHECK(b == approx(a))
-
 TEST_CASE("quat-testLocalAxis", "[quat]")
 {
 	SECTION("identity")
