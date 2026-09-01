@@ -33,8 +33,8 @@ namespace eu
     }
 
     [[nodiscard]] Q
-     Q::from_fast(const Ypr& ypr)
-     {
+    Q::from_fast(const Ypr& ypr)
+    {
         // Abbreviations for the various angular functions
         const auto cy = cos(ypr.yaw * 0.5);
         const auto sy = sin(ypr.yaw * 0.5);
@@ -45,11 +45,11 @@ namespace eu
 
         return
         {
-            cr * cp * cy + sr * sp * sy,
+            cy * cp * cr + sy * sp * sr,
             {
-                sr * cp * cy - cr * sp * sy,
-                cr * sp * cy + sr * cp * sy,
-                cr * cp * sy - sr * sp * cy
+                -(cy * sp * cr + sy * cp * sr),
+                cy * sp * sr - sy * cp * cr,
+                cy * cp * sr - sy * sp * cr
             }
         };
     }

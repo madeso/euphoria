@@ -1,5 +1,7 @@
 #include "eu/base/quat.h"
 
+#include <vector>
+
 #include "eu/tests/approx_equal.h"
 #include "eu/base/axisangle.h"
 
@@ -169,6 +171,24 @@ TEST_CASE("quat-from-ypr", "[quat]")
     // right hand around right, positive is up, negative is down.
     // todo(Gustav): this looks weird...
 	CHECK(Q::from(Ypr{0_deg, 45_deg, 0_deg}) == approx(Q::from(rha(kk::left, 45_deg))));
+}
+
+TEST_CASE("quat-from-ypr-fast-matches-slow", "[quat]")
+{
+    const auto angles = std::vector{-180_deg, -90_deg, -45_deg, 0_deg, 45_deg, 90_deg, 135_deg, 180_deg};
+
+    for(const auto& yaw : angles)
+    {
+        for(const auto& pitch : angles)
+        {
+            for(const auto& roll : angles)
+            {
+                const auto ypr = Ypr{yaw, pitch, roll};
+                INFO("ypr: " << string_from(ypr));
+                CHECK(Q::from_fast(ypr) == approx(Q::from(ypr)));
+            }
+        }
+    }
 }
 
 TEST_CASE("quat-from-to", "[quat]")
