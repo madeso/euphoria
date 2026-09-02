@@ -272,13 +272,14 @@ namespace eu
 
     Q Q::look_in_direction(const n3& dir, const n3& up)
     {
+        // todo(Gustav): does this function work as expected?
         const v3 in = kk::in;
         const float dot_value = in.dot(dir);
 
         if (cabs(dot_value - (-1.0f)) < 0.000001f)
         {
             // todo(Gustav): replace with a constant in general but this line specifically
-            return {3.1415926535897932f, up};
+            return q_identity; // {3.1415926535897932f, up};
         }
         if (cabs(dot_value - (1.0f)) < 0.000001f)
         {
