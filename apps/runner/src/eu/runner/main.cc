@@ -347,8 +347,28 @@ struct FollowCameraSystem : runner::EntitySystem
         if (!target) { return; }
         if (!camera) { return; }
 
-        const auto nt = target->target.get_translated(offset);
-        camera->set_transform(nt);
+        const auto focus = target->target.get_translation();
+        const auto pos_from_focus =
+            target->target.get_transformed_vec(kk::right) * offset.x +
+            target->target.get_transformed_vec(kk::up) * offset.y +
+            target->target.get_transformed_vec(kk::in) * offset.z ;
+        const auto pos = focus + pos_from_focus;
+        const auto rot = Q::look_at(pos, focus, kk::up);
+        if (!rot)
+        {
+            return;
+        }
+        
+        const auto rot_mat = m4::from(*rot);
+        if (!rot_mat)
+        {
+            return;
+        }
+
+        const auto mat = *rot_mat * m4::from_translation(pos);
+
+        // const auto nt = target->target.get_translated(offset);
+        camera->set_transform(mat);
     }
 };
 
