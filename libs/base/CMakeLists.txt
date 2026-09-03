@@ -9,7 +9,6 @@ set(app_src
     src/eu/base/colors.cc src/eu/base/colors.h
     src/eu/base/ints.cc src/eu/base/ints.h
     src/eu/base/mat4.cc src/eu/base/mat4.h
-    src/eu/base/transform.cc src/eu/base/transform.h
     src/eu/base/quat.cc src/eu/base/quat.h
     src/eu/base/vec2.cc src/eu/base/vec2.h
     src/eu/base/vec3.cc src/eu/base/vec3.h
@@ -70,7 +69,6 @@ set(test_src
     src/eu/base/range.test.cc
     src/eu/base/axisangle.test.cc
     src/eu/base/mat4.test.cc
-    src/eu/base/transform.test.cc
     src/eu/base/quat.test.cc
     src/eu/base/vec2.test.cc
     src/eu/base/vec3.test.cc
