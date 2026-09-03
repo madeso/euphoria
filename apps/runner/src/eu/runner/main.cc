@@ -494,6 +494,12 @@ int main(int, char**)
         return -1;
     }
 
+    {
+        SDL_version version;
+        SDL_GetVersion(&version);
+        LOG_INFO("SDL {0}.{1}.{2} initialized", version.major, version.minor, version.patch);
+    }
+
 #if defined(__APPLE__)
     // GL 3.2 Core + GLSL 150
     const char* glsl_version = "#version 150";
