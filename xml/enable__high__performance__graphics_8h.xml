@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="enable__high__performance__graphics_8h" kind="file" language="C++">
     <compoundname>enable_high_performance_graphics.h</compoundname>
     <sectiondef kind="define">
@@ -12,23 +12,21 @@
 <para><simplesect kind="note"><para>This macro only applies to windows.</para>
 </simplesect>
 </para>
-<sect2 id="enable__high__performance__graphics_8h_1autotoc_md17">
-<title>Credits:</title>
-<para><itemizedlist>
+<sect1 id="enable__high__performance__graphics_8h_1autotoc_md17_1s1"><sect2 id="enable__high__performance__graphics_8h_1autotoc_md17">
+<title>Credits:</title><para><itemizedlist>
 <listitem><para>Graphics Programming discord</para>
 </listitem><listitem><para><ulink url="https://gist.github.com/statico/6809850727c708f08458">https://gist.github.com/statico/6809850727c708f08458</ulink></para>
 </listitem><listitem><para><ulink url="https://www.reddit.com/r/gamedev/comments/bk7xbe/psa_for_anyone_developing_a_gameengine_in_c/">https://www.reddit.com/r/gamedev/comments/bk7xbe/psa_for_anyone_developing_a_gameengine_in_c/</ulink></para>
 </listitem></itemizedlist>
 </para>
-</sect2>
-<sect2 id="enable__high__performance__graphics_8h_1autotoc_md18">
-<title>Additional resources:</title>
-<para><itemizedlist>
+</sect2></sect1>
+<sect1 id="enable__high__performance__graphics_8h_1autotoc_md18_1s1"><sect2 id="enable__high__performance__graphics_8h_1autotoc_md18">
+<title>Additional resources:</title><para><itemizedlist>
 <listitem><para><ulink url="http://developer.download.nvidia.com/devzone/devcenter/gamegraphics/files/OptimusRenderingPolicies.pdf">http://developer.download.nvidia.com/devzone/devcenter/gamegraphics/files/OptimusRenderingPolicies.pdf</ulink></para>
 </listitem><listitem><para><ulink url="http://developer.amd.com/community/blog/2015/10/02/amd-enduro-system-for-developers/">http://developer.amd.com/community/blog/2015/10/02/amd-enduro-system-for-developers/</ulink> </para>
 </listitem></itemizedlist>
 </para>
-</sect2>
+</sect2></sect1>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1RenderWorld" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::RenderWorld</compoundname>
     <basecompoundref refid="structeu_1_1render_1_1RenderSource" prot="public" virt="non-virtual">eu::render::RenderSource</basecompoundref>
@@ -20,7 +20,7 @@
         <location file="libs/render/src/eu/render/postproc.internal.h" line="34" column="6" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="34" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1RenderWorld_1a1ed3e603b854ae68738efbd6dc17d542" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref> *</type>
+        <type>bool *</type>
         <definition>bool* eu::render::RenderWorld::use_hdr</definition>
         <argsstring></argsstring>
         <name>use_hdr</name>
@@ -34,7 +34,7 @@
         <location file="libs/render/src/eu/render/postproc.internal.h" line="36" column="6" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="36" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1RenderWorld_1a5be38088ae951065ebdb597169512e44" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref> *</type>
+        <type>float *</type>
         <definition>float* eu::render::RenderWorld::exposure</definition>
         <argsstring></argsstring>
         <name>exposure</name>
@@ -140,7 +140,7 @@
         <name>RenderWorld</name>
         <qualifiedname>eu::render::RenderWorld::RenderWorld</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Size" kindref="compound">Size</ref></type>
+          <type>const <ref refid="structeu_1_1Size" kindref="compound">Size</ref></type>
           <declname>size</declname>
         </param>
         <param>
@@ -156,15 +156,15 @@
           <declname>ping_sh</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <type>int</type>
           <declname>msaa_samples</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">bool</ref> *</type>
+          <type>bool *</type>
           <declname>h</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref> *</type>
+          <type>float *</type>
           <declname>e</declname>
         </param>
         <briefdescription>
@@ -176,13 +176,13 @@
         <location file="libs/render/src/eu/render/postproc.internal.h" line="46" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1RenderWorld_1ace02fdde73cf6bd1d6643e43abd17e33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::RenderWorld::update</definition>
         <argsstring>(const PostProcArg &amp;arg)</argsstring>
         <name>update</name>
         <qualifiedname>eu::render::RenderWorld::update</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1PostProcArg" kindref="compound">PostProcArg</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1PostProcArg" kindref="compound">PostProcArg</ref> &amp;</type>
           <declname>arg</declname>
         </param>
         <briefdescription>
@@ -194,14 +194,14 @@
         <location file="libs/render/src/eu/render/postproc.internal.h" line="48" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1RenderWorld_1ad9cc968b3615dcf798ef77dc1ac59912" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::RenderWorld::render</definition>
         <argsstring>(const PostProcArg &amp;arg) override</argsstring>
         <name>render</name>
         <qualifiedname>eu::render::RenderWorld::render</qualifiedname>
         <reimplements refid="structeu_1_1render_1_1RenderSource_1aefd4f044c4caab48e9169ed248ab75e8">render</reimplements>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1PostProcArg" kindref="compound">PostProcArg</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1PostProcArg" kindref="compound">PostProcArg</ref> &amp;</type>
           <declname>arg</declname>
         </param>
         <briefdescription>
@@ -213,7 +213,7 @@
         <location file="libs/render/src/eu/render/postproc.internal.h" line="50" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1RenderWorld_1a283e637309965024a00646c07ed2db77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::RenderWorld::gui</definition>
         <argsstring>(imgui::ImguiShaderCache *cache)</argsstring>
         <name>gui</name>

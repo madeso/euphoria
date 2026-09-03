@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1Hsl" kind="struct" language="C++" prot="public">
     <compoundname>eu::Hsl</compoundname>
     <includes refid="colors_8h" local="no">colors.h</includes>
@@ -19,7 +19,7 @@
         <location file="libs/base/src/eu/base/colors.h" line="52" column="4" bodyfile="libs/base/src/eu/base/colors.h" bodystart="52" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1Hsl_1ac54998ecee51afe36db2917b6226296f" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::Hsl::saturation</definition>
         <argsstring></argsstring>
         <name>saturation</name>
@@ -33,7 +33,7 @@
         <location file="libs/base/src/eu/base/colors.h" line="53" column="7" bodyfile="libs/base/src/eu/base/colors.h" bodystart="53" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1Hsl_1a1085f1902c0a2704bb8526bc03b4ea6a" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::Hsl::lightness</definition>
         <argsstring></argsstring>
         <name>lightness</name>

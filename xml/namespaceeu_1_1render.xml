@@ -1,105 +1,105 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="namespaceeu_1_1render" kind="namespace" language="C++">
     <compoundname>eu::render</compoundname>
     <innerclass refid="structeu_1_1render_1_1Assets" prot="public">eu::render::Assets</innerclass>
-    <innerclass refid="structeu_1_1render_1_1BaseTexture" prot="public">eu::render::BaseTexture</innerclass>
-    <innerclass refid="structeu_1_1render_1_1BloomRender" prot="public">eu::render::BloomRender</innerclass>
-    <innerclass refid="structeu_1_1render_1_1BlurEffect" prot="public">eu::render::BlurEffect</innerclass>
-    <innerclass refid="structeu_1_1render_1_1BlurOptions" prot="public">eu::render::BlurOptions</innerclass>
-    <innerclass refid="structeu_1_1render_1_1BlurVerticalProvider" prot="public">eu::render::BlurVerticalProvider</innerclass>
-    <innerclass refid="structeu_1_1render_1_1BoundFbo" prot="public">eu::render::BoundFbo</innerclass>
-    <innerclass refid="structeu_1_1render_1_1BoundUniformBuffer" prot="public">eu::render::BoundUniformBuffer</innerclass>
-    <innerclass refid="structeu_1_1render_1_1BuildArg" prot="public">eu::render::BuildArg</innerclass>
-    <innerclass refid="structeu_1_1render_1_1BurHorizontalProvider" prot="public">eu::render::BurHorizontalProvider</innerclass>
     <innerclass refid="structeu_1_1render_1_1Camera" prot="public">eu::render::Camera</innerclass>
-    <innerclass refid="structeu_1_1render_1_1CameraUniformBuffer" prot="public">eu::render::CameraUniformBuffer</innerclass>
-    <innerclass refid="structeu_1_1render_1_1CameraVectors" prot="public">eu::render::CameraVectors</innerclass>
-    <innerclass refid="structeu_1_1render_1_1CompiledCamera" prot="public">eu::render::CompiledCamera</innerclass>
-    <innerclass refid="structeu_1_1render_1_1CompiledGeom" prot="public">eu::render::CompiledGeom</innerclass>
-    <innerclass refid="structeu_1_1render_1_1CompiledGeom__TransformInstance" prot="public">eu::render::CompiledGeom_TransformInstance</innerclass>
-    <innerclass refid="structeu_1_1render_1_1CompiledMesh" prot="public">eu::render::CompiledMesh</innerclass>
-    <innerclass refid="structeu_1_1render_1_1CompiledMeshGeom" prot="public">eu::render::CompiledMeshGeom</innerclass>
-    <innerclass refid="structeu_1_1render_1_1CompiledStack" prot="public">eu::render::CompiledStack</innerclass>
-    <innerclass refid="structeu_1_1render_1_1CompiledTransformedMesh" prot="public">eu::render::CompiledTransformedMesh</innerclass>
-    <innerclass refid="structeu_1_1render_1_1DebugLine" prot="public">eu::render::DebugLine</innerclass>
-    <innerclass refid="structeu_1_1render_1_1DebugRender" prot="public">eu::render::DebugRender</innerclass>
-    <innerclass refid="structeu_1_1render_1_1DefaultMaterial" prot="public">eu::render::DefaultMaterial</innerclass>
-    <innerclass refid="structeu_1_1render_1_1DirectionalLight" prot="public">eu::render::DirectionalLight</innerclass>
-    <innerclass refid="structeu_1_1render_1_1DirectionalLightUniforms" prot="public">eu::render::DirectionalLightUniforms</innerclass>
-    <innerclass refid="structeu_1_1render_1_1DrawableFont" prot="public">eu::render::DrawableFont</innerclass>
-    <innerclass refid="structeu_1_1render_1_1DrawableText" prot="public">eu::render::DrawableText</innerclass>
-    <innerclass refid="structeu_1_1render_1_1Effect" prot="public">eu::render::Effect</innerclass>
-    <innerclass refid="structeu_1_1render_1_1EffectStack" prot="public">eu::render::EffectStack</innerclass>
-    <innerclass refid="structeu_1_1render_1_1ExtractShader" prot="public">eu::render::ExtractShader</innerclass>
-    <innerclass refid="structeu_1_1render_1_1FactorEffect" prot="public">eu::render::FactorEffect</innerclass>
-    <innerclass refid="structeu_1_1render_1_1FloatDragShaderProp" prot="public">eu::render::FloatDragShaderProp</innerclass>
-    <innerclass refid="structeu_1_1render_1_1FloatSliderShaderProp" prot="public">eu::render::FloatSliderShaderProp</innerclass>
-    <innerclass refid="structeu_1_1render_1_1FrameBuffer" prot="public">eu::render::FrameBuffer</innerclass>
-    <innerclass refid="structeu_1_1render_1_1FrustumLight" prot="public">eu::render::FrustumLight</innerclass>
-    <innerclass refid="structeu_1_1render_1_1FrustumLightUniforms" prot="public">eu::render::FrustumLightUniforms</innerclass>
-    <innerclass refid="structeu_1_1render_1_1FullScreenGeom" prot="public">eu::render::FullScreenGeom</innerclass>
-    <innerclass refid="structeu_1_1render_1_1Glyph" prot="public">eu::render::Glyph</innerclass>
-    <innerclass refid="structeu_1_1render_1_1InputCommand" prot="public">eu::render::InputCommand</innerclass>
-    <innerclass refid="structeu_1_1render_1_1Layer" prot="public">eu::render::Layer</innerclass>
-    <innerclass refid="structeu_1_1render_1_1LayoutData" prot="public">eu::render::LayoutData</innerclass>
-    <innerclass refid="structeu_1_1render_1_1LerpData" prot="public">eu::render::LerpData</innerclass>
-    <innerclass refid="structeu_1_1render_1_1Lights" prot="public">eu::render::Lights</innerclass>
-    <innerclass refid="structeu_1_1render_1_1LineDrawer" prot="public">eu::render::LineDrawer</innerclass>
-    <innerclass refid="structeu_1_1render_1_1ListOfTextDrawCommands" prot="public">eu::render::ListOfTextDrawCommands</innerclass>
-    <innerclass refid="structeu_1_1render_1_1LoadedPostProcShader" prot="public">eu::render::LoadedPostProcShader</innerclass>
-    <innerclass refid="structeu_1_1render_1_1LoadedShader__Default" prot="public">eu::render::LoadedShader_Default</innerclass>
-    <innerclass refid="structeu_1_1render_1_1LoadedShader__Default__Container" prot="public">eu::render::LoadedShader_Default_Container</innerclass>
-    <innerclass refid="structeu_1_1render_1_1LoadedShader__OnlyDepth" prot="public">eu::render::LoadedShader_OnlyDepth</innerclass>
-    <innerclass refid="structeu_1_1render_1_1LoadedShader__SingleColor" prot="public">eu::render::LoadedShader_SingleColor</innerclass>
-    <innerclass refid="structeu_1_1render_1_1LoadedShader__Skybox" prot="public">eu::render::LoadedShader_Skybox</innerclass>
-    <innerclass refid="structeu_1_1render_1_1LoadedShader__Unlit" prot="public">eu::render::LoadedShader_Unlit</innerclass>
-    <innerclass refid="structeu_1_1render_1_1LoadedShader__Unlit__Container" prot="public">eu::render::LoadedShader_Unlit_Container</innerclass>
-    <innerclass refid="structeu_1_1render_1_1LocalAxis" prot="public">eu::render::LocalAxis</innerclass>
-    <innerclass refid="structeu_1_1render_1_1Material" prot="public">eu::render::Material</innerclass>
-    <innerclass refid="structeu_1_1render_1_1MeshInstance" prot="public">eu::render::MeshInstance</innerclass>
-    <innerclass refid="structeu_1_1render_1_1MeshInstance__TransformInstanced" prot="public">eu::render::MeshInstance_TransformInstanced</innerclass>
-    <innerclass refid="structeu_1_1render_1_1MeshInWorld" prot="public">eu::render::MeshInWorld</innerclass>
     <innerclass refid="structeu_1_1render_1_1OrthoCamera" prot="public">eu::render::OrthoCamera</innerclass>
-    <innerclass refid="structeu_1_1render_1_1PingPongBlurShader" prot="public">eu::render::PingPongBlurShader</innerclass>
-    <innerclass refid="structeu_1_1render_1_1PointLight" prot="public">eu::render::PointLight</innerclass>
-    <innerclass refid="structeu_1_1render_1_1PointLightUniforms" prot="public">eu::render::PointLightUniforms</innerclass>
-    <innerclass refid="structeu_1_1render_1_1PostProcArg" prot="public">eu::render::PostProcArg</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledCamera" prot="public">eu::render::CompiledCamera</innerclass>
+    <innerclass refid="structeu_1_1render_1_1Vertex2" prot="public">eu::render::Vertex2</innerclass>
+    <innerclass refid="structeu_1_1render_1_1RotateQuad" prot="public">eu::render::RotateQuad</innerclass>
     <innerclass refid="structeu_1_1render_1_1Quad" prot="public">eu::render::Quad</innerclass>
-    <innerclass refid="structeu_1_1render_1_1RealizeShader" prot="public">eu::render::RealizeShader</innerclass>
+    <innerclass refid="structeu_1_1render_1_1SpriteBatch" prot="public">eu::render::SpriteBatch</innerclass>
     <innerclass refid="structeu_1_1render_1_1Render2" prot="public">eu::render::Render2</innerclass>
-    <innerclass refid="structeu_1_1render_1_1RenderCommand" prot="public">eu::render::RenderCommand</innerclass>
-    <innerclass refid="structeu_1_1render_1_1RenderContext" prot="public">eu::render::RenderContext</innerclass>
-    <innerclass refid="structeu_1_1render_1_1Renderer" prot="public">eu::render::Renderer</innerclass>
-    <innerclass refid="structeu_1_1render_1_1RendererPimpl" prot="public">eu::render::RendererPimpl</innerclass>
+    <innerclass refid="structeu_1_1render_1_1Layer" prot="public">eu::render::Layer</innerclass>
     <innerclass refid="structeu_1_1render_1_1RenderLayer2" prot="public">eu::render::RenderLayer2</innerclass>
     <innerclass refid="structeu_1_1render_1_1RenderLayer3" prot="public">eu::render::RenderLayer3</innerclass>
-    <innerclass refid="structeu_1_1render_1_1RenderSettings" prot="public">eu::render::RenderSettings</innerclass>
+    <innerclass refid="structeu_1_1render_1_1LayoutData" prot="public">eu::render::LayoutData</innerclass>
+    <innerclass refid="structeu_1_1render_1_1LerpData" prot="public">eu::render::LerpData</innerclass>
+    <innerclass refid="structeu_1_1render_1_1InputCommand" prot="public">eu::render::InputCommand</innerclass>
+    <innerclass refid="structeu_1_1render_1_1RenderCommand" prot="public">eu::render::RenderCommand</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledMeshGeom" prot="public">eu::render::CompiledMeshGeom</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledTransformedMesh" prot="public">eu::render::CompiledTransformedMesh</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledMesh" prot="public">eu::render::CompiledMesh</innerclass>
+    <innerclass refid="structeu_1_1render_1_1TransformedMeshInWorld" prot="public">eu::render::TransformedMeshInWorld</innerclass>
+    <innerclass refid="structeu_1_1render_1_1MeshInWorld" prot="public">eu::render::MeshInWorld</innerclass>
+    <innerclass refid="structeu_1_1render_1_1DebugLine" prot="public">eu::render::DebugLine</innerclass>
+    <innerclass refid="structeu_1_1render_1_1DebugRender" prot="public">eu::render::DebugRender</innerclass>
+    <innerclass refid="structeu_1_1render_1_1Glyph" prot="public">eu::render::Glyph</innerclass>
+    <innerclass refid="structeu_1_1render_1_1TextDrawCommand" prot="public">eu::render::TextDrawCommand</innerclass>
+    <innerclass refid="structeu_1_1render_1_1ListOfTextDrawCommands" prot="public">eu::render::ListOfTextDrawCommands</innerclass>
+    <innerclass refid="structeu_1_1render_1_1DrawableText" prot="public">eu::render::DrawableText</innerclass>
+    <innerclass refid="structeu_1_1render_1_1DrawableFont" prot="public">eu::render::DrawableFont</innerclass>
+    <innerclass refid="structeu_1_1render_1_1FullScreenGeom" prot="public">eu::render::FullScreenGeom</innerclass>
+    <innerclass refid="structeu_1_1render_1_1LineDrawer" prot="public">eu::render::LineDrawer</innerclass>
+    <innerclass refid="structeu_1_1render_1_1Material" prot="public">eu::render::Material</innerclass>
+    <innerclass refid="structeu_1_1render_1_1UnlitMaterial" prot="public">eu::render::UnlitMaterial</innerclass>
+    <innerclass refid="structeu_1_1render_1_1DefaultMaterial" prot="public">eu::render::DefaultMaterial</innerclass>
+    <innerclass refid="structeu_1_1render_1_1PostProcArg" prot="public">eu::render::PostProcArg</innerclass>
     <innerclass refid="structeu_1_1render_1_1RenderSource" prot="public">eu::render::RenderSource</innerclass>
-    <innerclass refid="structeu_1_1render_1_1RenderTextureWithShader" prot="public">eu::render::RenderTextureWithShader</innerclass>
-    <innerclass refid="structeu_1_1render_1_1RenderWorld" prot="public">eu::render::RenderWorld</innerclass>
-    <innerclass refid="structeu_1_1render_1_1RotateQuad" prot="public">eu::render::RotateQuad</innerclass>
-    <innerclass refid="structeu_1_1render_1_1ShaderOptions" prot="public">eu::render::ShaderOptions</innerclass>
-    <innerclass refid="structeu_1_1render_1_1ShaderProgram" prot="public">eu::render::ShaderProgram</innerclass>
-    <innerclass refid="structeu_1_1render_1_1ShaderProp" prot="public">eu::render::ShaderProp</innerclass>
     <innerclass refid="structeu_1_1render_1_1ShaderPropertyProvider" prot="public">eu::render::ShaderPropertyProvider</innerclass>
-    <innerclass refid="structeu_1_1render_1_1ShaderResource" prot="public">eu::render::ShaderResource</innerclass>
-    <innerclass refid="structeu_1_1render_1_1ShaderSource" prot="public">eu::render::ShaderSource</innerclass>
-    <innerclass refid="structeu_1_1render_1_1ShaderSource__withLayout" prot="public">eu::render::ShaderSource_withLayout</innerclass>
-    <innerclass refid="structeu_1_1render_1_1ShadowContext" prot="public">eu::render::ShadowContext</innerclass>
+    <innerclass refid="structeu_1_1render_1_1RenderTextureWithShader" prot="public">eu::render::RenderTextureWithShader</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledStack" prot="public">eu::render::CompiledStack</innerclass>
+    <innerclass refid="structeu_1_1render_1_1BuildArg" prot="public">eu::render::BuildArg</innerclass>
+    <innerclass refid="structeu_1_1render_1_1Effect" prot="public">eu::render::Effect</innerclass>
+    <innerclass refid="structeu_1_1render_1_1FactorEffect" prot="public">eu::render::FactorEffect</innerclass>
+    <innerclass refid="structeu_1_1render_1_1EffectStack" prot="public">eu::render::EffectStack</innerclass>
+    <innerclass refid="structeu_1_1render_1_1BloomRender" prot="public">eu::render::BloomRender</innerclass>
+    <innerclass refid="structeu_1_1render_1_1RenderWorld" prot="public">eu::render::RenderWorld</innerclass>
+    <innerclass refid="structeu_1_1render_1_1ShaderProp" prot="public">eu::render::ShaderProp</innerclass>
+    <innerclass refid="structeu_1_1render_1_1FloatDragShaderProp" prot="public">eu::render::FloatDragShaderProp</innerclass>
+    <innerclass refid="structeu_1_1render_1_1FloatSliderShaderProp" prot="public">eu::render::FloatSliderShaderProp</innerclass>
     <innerclass refid="structeu_1_1render_1_1SimpleEffect" prot="public">eu::render::SimpleEffect</innerclass>
-    <innerclass refid="structeu_1_1render_1_1Skybox" prot="public">eu::render::Skybox</innerclass>
-    <innerclass refid="structeu_1_1render_1_1SpriteBatch" prot="public">eu::render::SpriteBatch</innerclass>
+    <innerclass refid="structeu_1_1render_1_1BlurVerticalProvider" prot="public">eu::render::BlurVerticalProvider</innerclass>
+    <innerclass refid="structeu_1_1render_1_1BurHorizontalProvider" prot="public">eu::render::BurHorizontalProvider</innerclass>
+    <innerclass refid="structeu_1_1render_1_1BlurEffect" prot="public">eu::render::BlurEffect</innerclass>
+    <innerclass refid="structeu_1_1render_1_1RenderSettings" prot="public">eu::render::RenderSettings</innerclass>
+    <innerclass refid="structeu_1_1render_1_1ShadowContext" prot="public">eu::render::ShadowContext</innerclass>
+    <innerclass refid="structeu_1_1render_1_1Renderer" prot="public">eu::render::Renderer</innerclass>
+    <innerclass refid="structeu_1_1render_1_1RendererPimpl" prot="public">eu::render::RendererPimpl</innerclass>
+    <innerclass refid="structeu_1_1render_1_1ShaderProgram" prot="public">eu::render::ShaderProgram</innerclass>
+    <innerclass refid="structeu_1_1render_1_1ShaderOptions" prot="public">eu::render::ShaderOptions</innerclass>
+    <innerclass refid="structeu_1_1render_1_1ShaderSource__withLayout" prot="public">eu::render::ShaderSource_withLayout</innerclass>
+    <innerclass refid="structeu_1_1render_1_1ShaderSource" prot="public">eu::render::ShaderSource</innerclass>
+    <innerclass refid="structeu_1_1render_1_1BlurOptions" prot="public">eu::render::BlurOptions</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CameraUniformBuffer" prot="public">eu::render::CameraUniformBuffer</innerclass>
+    <innerclass refid="structeu_1_1render_1_1LoadedShader__SingleColor" prot="public">eu::render::LoadedShader_SingleColor</innerclass>
+    <innerclass refid="structeu_1_1render_1_1LoadedShader__OnlyDepth" prot="public">eu::render::LoadedShader_OnlyDepth</innerclass>
+    <innerclass refid="structeu_1_1render_1_1LoadedShader__Skybox" prot="public">eu::render::LoadedShader_Skybox</innerclass>
+    <innerclass refid="structeu_1_1render_1_1LoadedShader__Unlit" prot="public">eu::render::LoadedShader_Unlit</innerclass>
+    <innerclass refid="structeu_1_1render_1_1DirectionalLightUniforms" prot="public">eu::render::DirectionalLightUniforms</innerclass>
+    <innerclass refid="structeu_1_1render_1_1PointLightUniforms" prot="public">eu::render::PointLightUniforms</innerclass>
+    <innerclass refid="structeu_1_1render_1_1FrustumLightUniforms" prot="public">eu::render::FrustumLightUniforms</innerclass>
+    <innerclass refid="structeu_1_1render_1_1LoadedPostProcShader" prot="public">eu::render::LoadedPostProcShader</innerclass>
+    <innerclass refid="structeu_1_1render_1_1LoadedShader__Default" prot="public">eu::render::LoadedShader_Default</innerclass>
+    <innerclass refid="structeu_1_1render_1_1RenderContext" prot="public">eu::render::RenderContext</innerclass>
+    <innerclass refid="structeu_1_1render_1_1LoadedShader__Unlit__Container" prot="public">eu::render::LoadedShader_Unlit_Container</innerclass>
+    <innerclass refid="structeu_1_1render_1_1LoadedShader__Default__Container" prot="public">eu::render::LoadedShader_Default_Container</innerclass>
+    <innerclass refid="structeu_1_1render_1_1RealizeShader" prot="public">eu::render::RealizeShader</innerclass>
+    <innerclass refid="structeu_1_1render_1_1ExtractShader" prot="public">eu::render::ExtractShader</innerclass>
+    <innerclass refid="structeu_1_1render_1_1PingPongBlurShader" prot="public">eu::render::PingPongBlurShader</innerclass>
+    <innerclass refid="structeu_1_1render_1_1ShaderResource" prot="public">eu::render::ShaderResource</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CameraVectors" prot="public">eu::render::CameraVectors</innerclass>
     <innerclass refid="structeu_1_1render_1_1State" prot="public">eu::render::State</innerclass>
     <innerclass refid="structeu_1_1render_1_1StateChanger" prot="public">eu::render::StateChanger</innerclass>
-    <innerclass refid="structeu_1_1render_1_1TextDrawCommand" prot="public">eu::render::TextDrawCommand</innerclass>
+    <innerclass refid="structeu_1_1render_1_1BaseTexture" prot="public">eu::render::BaseTexture</innerclass>
     <innerclass refid="structeu_1_1render_1_1Texture2d" prot="public">eu::render::Texture2d</innerclass>
     <innerclass refid="structeu_1_1render_1_1TextureCubemap" prot="public">eu::render::TextureCubemap</innerclass>
-    <innerclass refid="structeu_1_1render_1_1TransformedMeshInWorld" prot="public">eu::render::TransformedMeshInWorld</innerclass>
+    <innerclass refid="structeu_1_1render_1_1FrameBuffer" prot="public">eu::render::FrameBuffer</innerclass>
+    <innerclass refid="structeu_1_1render_1_1BoundFbo" prot="public">eu::render::BoundFbo</innerclass>
     <innerclass refid="structeu_1_1render_1_1Uniform" prot="public">eu::render::Uniform</innerclass>
     <innerclass refid="structeu_1_1render_1_1UniformBuffer" prot="public">eu::render::UniformBuffer</innerclass>
-    <innerclass refid="structeu_1_1render_1_1UnlitMaterial" prot="public">eu::render::UnlitMaterial</innerclass>
-    <innerclass refid="structeu_1_1render_1_1Vertex2" prot="public">eu::render::Vertex2</innerclass>
+    <innerclass refid="structeu_1_1render_1_1BoundUniformBuffer" prot="public">eu::render::BoundUniformBuffer</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledGeom" prot="public">eu::render::CompiledGeom</innerclass>
+    <innerclass refid="structeu_1_1render_1_1CompiledGeom__TransformInstance" prot="public">eu::render::CompiledGeom_TransformInstance</innerclass>
+    <innerclass refid="structeu_1_1render_1_1LocalAxis" prot="public">eu::render::LocalAxis</innerclass>
+    <innerclass refid="structeu_1_1render_1_1MeshInstance" prot="public">eu::render::MeshInstance</innerclass>
+    <innerclass refid="structeu_1_1render_1_1MeshInstance__TransformInstanced" prot="public">eu::render::MeshInstance_TransformInstanced</innerclass>
+    <innerclass refid="structeu_1_1render_1_1DirectionalLight" prot="public">eu::render::DirectionalLight</innerclass>
+    <innerclass refid="structeu_1_1render_1_1PointLight" prot="public">eu::render::PointLight</innerclass>
+    <innerclass refid="structeu_1_1render_1_1FrustumLight" prot="public">eu::render::FrustumLight</innerclass>
+    <innerclass refid="structeu_1_1render_1_1Lights" prot="public">eu::render::Lights</innerclass>
+    <innerclass refid="structeu_1_1render_1_1Skybox" prot="public">eu::render::Skybox</innerclass>
     <innerclass refid="structeu_1_1render_1_1World" prot="public">eu::render::World</innerclass>
     <sectiondef kind="enum">
       <memberdef kind="enum" id="namespaceeu_1_1render_1a710e23a3fd65289cad2cbea3aafb2a97" prot="public" static="no" strong="yes">
@@ -278,9 +278,9 @@
       <member refid="group__render_1gab249aa0de7a8d3bb6c510b1e8ede1e48" kind="enum"><name>Billboarding</name></member>
     </sectiondef>
     <sectiondef kind="typedef">
-      <memberdef kind="typedef" id="namespaceeu_1_1render_1a5aeac7365cdec1f55003519311b6e690" prot="public" static="no">
-        <type>std::map&lt; <ref refid="structeu_1_1R" kindref="compound">int</ref>, std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1Glyph" kindref="compound">Glyph</ref> &gt; &gt;</type>
-        <definition>using eu::render::CharToGlyphMap = typedef std::map&lt;int, std::shared_ptr&lt;Glyph&gt; &gt;</definition>
+      <memberdef kind="typedef" id="namespaceeu_1_1render_1a35077967058935cfe1bef1a282602960" prot="public" static="no">
+        <type>std::map&lt; int, std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1Glyph" kindref="compound">Glyph</ref> &gt; &gt;</type>
+        <definition>using eu::render::CharToGlyphMap =  std::map&lt;int, std::shared_ptr&lt;Glyph&gt;&gt;</definition>
         <argsstring></argsstring>
         <name>CharToGlyphMap</name>
         <qualifiedname>eu::render::CharToGlyphMap</qualifiedname>
@@ -292,14 +292,14 @@
         </inbodydescription>
         <location file="libs/render/src/eu/render/font.h" line="40" column="5" bodyfile="libs/render/src/eu/render/font.h" bodystart="40" bodyend="-1"/>
       </memberdef>
-      <member refid="group__render_1gaf20743f7c4f35277d1d278d8ac20368d" kind="typedef"><name>BlendMode</name></member>
-      <member refid="group__render_1gad0035b261e0f761ea8db04d8b5de2ef5" kind="typedef"><name>StencilFunc</name></member>
-      <member refid="group__render_1ga90cb5bd57c88feb4e3d017558200ced1" kind="typedef"><name>StencilOp</name></member>
+      <member refid="group__render_1ga7e2c947b3161d42b9b1360f266b56c88" kind="typedef"><name>BlendMode</name></member>
+      <member refid="group__render_1ga43fb2392c6b77e1684dc495d4b77c461" kind="typedef"><name>StencilFunc</name></member>
+      <member refid="group__render_1gac2414627ce6884064c21ae9b773b3b72" kind="typedef"><name>StencilOp</name></member>
     </sectiondef>
     <sectiondef kind="var">
       <memberdef kind="variable" id="namespaceeu_1_1render_1ad1e3a302bde920dcc4d7714570d5838d" prot="public" static="no" constexpr="yes" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> std::size_t</type>
-        <definition>constexpr std::size_t eu::render::MAX_TEXTURES_SUPPORTED</definition>
+        <type>std::size_t</type>
+        <definition>std::size_t eu::render::MAX_TEXTURES_SUPPORTED</definition>
         <argsstring></argsstring>
         <name>MAX_TEXTURES_SUPPORTED</name>
         <qualifiedname>eu::render::MAX_TEXTURES_SUPPORTED</qualifiedname>
@@ -313,12 +313,12 @@
         <location file="libs/render/src/eu/render/constants.h" line="7" column="23" bodyfile="libs/render/src/eu/render/constants.h" bodystart="7" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeu_1_1render_1a09db2372293ec938678ad34b8fb26625" prot="public" static="no" constexpr="yes" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1R" kindref="compound">float</ref></type>
-        <definition>constexpr float eu::render::ALMOST_ZERO</definition>
+        <type>float</type>
+        <definition>float eu::render::ALMOST_ZERO</definition>
         <argsstring></argsstring>
         <name>ALMOST_ZERO</name>
         <qualifiedname>eu::render::ALMOST_ZERO</qualifiedname>
-        <initializer>= 0.01<ref refid="structeu_1_1R" kindref="compound">f</ref></initializer>
+        <initializer>= 0.01f</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -328,8 +328,8 @@
         <location file="libs/render/src/eu/render/constants.h" line="11" column="17" bodyfile="libs/render/src/eu/render/constants.h" bodystart="11" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeu_1_1render_1a03c8a414127b669c13e4b0dfdabf24cc" prot="public" static="no" constexpr="yes" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1R" kindref="compound">float</ref></type>
-        <definition>constexpr float eu::render::ALPHA_TRANSPARENCY_LIMIT</definition>
+        <type>float</type>
+        <definition>float eu::render::ALPHA_TRANSPARENCY_LIMIT</definition>
         <argsstring></argsstring>
         <name>ALPHA_TRANSPARENCY_LIMIT</name>
         <qualifiedname>eu::render::ALPHA_TRANSPARENCY_LIMIT</qualifiedname>
@@ -344,12 +344,12 @@
         <location file="libs/render/src/eu/render/constants.h" line="13" column="17" bodyfile="libs/render/src/eu/render/constants.h" bodystart="13" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeu_1_1render_1a44e5de34a6276044970f6d46b5ae3e5a" prot="public" static="no" constexpr="yes" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1R" kindref="compound">float</ref></type>
-        <definition>constexpr float eu::render::OUTLINE_SCALE</definition>
+        <type>float</type>
+        <definition>float eu::render::OUTLINE_SCALE</definition>
         <argsstring></argsstring>
         <name>OUTLINE_SCALE</name>
         <qualifiedname>eu::render::OUTLINE_SCALE</qualifiedname>
-        <initializer>= 1.1<ref refid="structeu_1_1R" kindref="compound">f</ref></initializer>
+        <initializer>= 1.1f</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -359,8 +359,8 @@
         <location file="libs/render/src/eu/render/constants.h" line="15" column="17" bodyfile="libs/render/src/eu/render/constants.h" bodystart="15" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeu_1_1render_1a199d0ae92641f907f213eb798a652d03" prot="public" static="no" constexpr="yes" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1R" kindref="compound">int</ref></type>
-        <definition>constexpr int eu::render::BLUR_SAMPLES</definition>
+        <type>int</type>
+        <definition>int eu::render::BLUR_SAMPLES</definition>
         <argsstring></argsstring>
         <name>BLUR_SAMPLES</name>
         <qualifiedname>eu::render::BLUR_SAMPLES</qualifiedname>
@@ -374,8 +374,8 @@
         <location file="libs/render/src/eu/render/constants.h" line="17" column="15" bodyfile="libs/render/src/eu/render/constants.h" bodystart="17" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeu_1_1render_1a94b089347dc1ac56631b49728fb85d2d" prot="public" static="no" constexpr="yes" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1R" kindref="compound">auto</ref></type>
-        <definition>constexpr auto eu::render::UP</definition>
+        <type>auto</type>
+        <definition>auto eu::render::UP</definition>
         <argsstring></argsstring>
         <name>UP</name>
         <qualifiedname>eu::render::UP</qualifiedname>
@@ -403,11 +403,11 @@
         <name>with_layer2</name>
         <qualifiedname>eu::render::with_layer2</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1RenderCommand" kindref="compound">RenderCommand</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1RenderCommand" kindref="compound">RenderCommand</ref> &amp;</type>
           <declname>rc</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1LayoutData" kindref="compound">LayoutData</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1LayoutData" kindref="compound">LayoutData</ref> &amp;</type>
           <declname>ld</declname>
         </param>
         <briefdescription>
@@ -425,11 +425,11 @@
         <name>with_layer3</name>
         <qualifiedname>eu::render::with_layer3</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1RenderCommand" kindref="compound">RenderCommand</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1RenderCommand" kindref="compound">RenderCommand</ref> &amp;</type>
           <declname>rc</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1LayoutData" kindref="compound">LayoutData</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1LayoutData" kindref="compound">LayoutData</ref> &amp;</type>
           <declname>ld</declname>
         </param>
         <briefdescription>
@@ -447,11 +447,11 @@
         <name>with_layer</name>
         <qualifiedname>eu::render::with_layer</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1InputCommand" kindref="compound">InputCommand</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1InputCommand" kindref="compound">InputCommand</ref> &amp;</type>
           <declname>rc</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1LayoutData" kindref="compound">LayoutData</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1LayoutData" kindref="compound">LayoutData</ref> &amp;</type>
           <declname>ld</declname>
         </param>
         <briefdescription>
@@ -469,11 +469,11 @@
         <name>with_layer2</name>
         <qualifiedname>eu::render::with_layer2</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1RenderCommand" kindref="compound">RenderCommand</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1RenderCommand" kindref="compound">RenderCommand</ref> &amp;</type>
           <declname>rc</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1LerpData" kindref="compound">LerpData</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1LerpData" kindref="compound">LerpData</ref> &amp;</type>
           <declname>ld</declname>
         </param>
         <briefdescription>
@@ -491,11 +491,11 @@
         <name>with_layer3</name>
         <qualifiedname>eu::render::with_layer3</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1RenderCommand" kindref="compound">RenderCommand</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1RenderCommand" kindref="compound">RenderCommand</ref> &amp;</type>
           <declname>rc</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1LerpData" kindref="compound">LerpData</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1LerpData" kindref="compound">LerpData</ref> &amp;</type>
           <declname>ld</declname>
         </param>
         <briefdescription>
@@ -513,11 +513,11 @@
         <name>with_layer</name>
         <qualifiedname>eu::render::with_layer</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1InputCommand" kindref="compound">InputCommand</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1InputCommand" kindref="compound">InputCommand</ref> &amp;</type>
           <declname>rc</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1LerpData" kindref="compound">LerpData</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1LerpData" kindref="compound">LerpData</ref> &amp;</type>
           <declname>ld</declname>
         </param>
         <briefdescription>
@@ -535,11 +535,11 @@
         <name>compile_mesh</name>
         <qualifiedname>eu::render::compile_mesh</qualifiedname>
         <param>
-          <type><ref refid="group__debug_1gabd34c805e47ae972bc6f5b1e406e921d" kindref="member">DEBUG_LABEL_ARG_MANY</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1core_1_1Mesh" kindref="compound">core::Mesh</ref> &amp;</type>
+          <type><ref refid="group__debug_1gabd34c805e47ae972bc6f5b1e406e921d" kindref="member">DEBUG_LABEL_ARG_MANY</ref> const <ref refid="structeu_1_1core_1_1Mesh" kindref="compound">core::Mesh</ref> &amp;</type>
           <declname>mesh</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1core_1_1CompiledGeomVertexAttributes" kindref="compound">core::CompiledGeomVertexAttributes</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1core_1_1CompiledGeomVertexAttributes" kindref="compound">core::CompiledGeomVertexAttributes</ref> &amp;</type>
           <declname>geom_layout</declname>
         </param>
         <briefdescription>
@@ -553,7 +553,7 @@
       <member refid="group__render_1ga6a8ef58e235dd04c1bb6c5848bff8ce9" kind="function"><name>draw_frustum</name></member>
       <member refid="group__render_1ga750fd17d78e17bcaf8571acac0fc519b" kind="function"><name>vec_from_lin</name></member>
       <memberdef kind="function" id="namespaceeu_1_1render_1a0945d522074468a28e1880ff48ed34a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::setup_opengl_debug</definition>
         <argsstring>()</argsstring>
         <name>setup_opengl_debug</name>
@@ -567,13 +567,13 @@
         <location file="libs/render/src/eu/render/opengl_utils.h" line="10" column="6" declfile="libs/render/src/eu/render/opengl_utils.h" declline="10" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1af60cc727ff3b2f9996aca8907c0db7b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">GLenum</ref></type>
+        <type>GLenum</type>
         <definition>GLenum eu::render::glenum_from_int</definition>
         <argsstring>(int i)</argsstring>
         <name>glenum_from_int</name>
         <qualifiedname>eu::render::glenum_from_int</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <type>int</type>
           <declname>i</declname>
         </param>
         <briefdescription>
@@ -585,13 +585,13 @@
         <location file="libs/render/src/eu/render/opengl_utils.h" line="12" column="8" declfile="libs/render/src/eu/render/opengl_utils.h" declline="12" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1a32bf505b2351f8f41e9bb5abcd08dd6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">GLuint</ref></type>
+        <type>GLuint</type>
         <definition>GLuint eu::render::gluint_from_int</definition>
         <argsstring>(int i)</argsstring>
         <name>gluint_from_int</name>
         <qualifiedname>eu::render::gluint_from_int</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <type>int</type>
           <declname>i</declname>
         </param>
         <briefdescription>
@@ -603,7 +603,7 @@
         <location file="libs/render/src/eu/render/opengl_utils.h" line="13" column="8" declfile="libs/render/src/eu/render/opengl_utils.h" declline="13" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1a55a94e6a3442258ebb57cae06edf994a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">GLsizeiptr</ref></type>
+        <type>GLsizeiptr</type>
         <definition>GLsizeiptr eu::render::glsizeiptr_from_sizet</definition>
         <argsstring>(std::size_t t)</argsstring>
         <name>glsizeiptr_from_sizet</name>
@@ -621,7 +621,7 @@
         <location file="libs/render/src/eu/render/opengl_utils.h" line="14" column="12" declfile="libs/render/src/eu/render/opengl_utils.h" declline="14" declcolumn="12"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1a331cf76573062d374dae5925194b074f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">GLsizei</ref></type>
+        <type>GLsizei</type>
         <definition>GLsizei eu::render::glsizei_from_sizet</definition>
         <argsstring>(std::size_t t)</argsstring>
         <name>glsizei_from_sizet</name>
@@ -639,7 +639,7 @@
         <location file="libs/render/src/eu/render/opengl_utils.h" line="15" column="9" declfile="libs/render/src/eu/render/opengl_utils.h" declline="15" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1a1147fc461475fdaf906627e9e796ef83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref></type>
+        <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
         <definition>u32 eu::render::create_buffer</definition>
         <argsstring>()</argsstring>
         <name>create_buffer</name>
@@ -653,13 +653,13 @@
         <location file="libs/render/src/eu/render/opengl_utils.h" line="17" column="5" declfile="libs/render/src/eu/render/opengl_utils.h" declline="17" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1a411c3962f83629dd1ca67e37949d8e9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::destroy_buffer</definition>
         <argsstring>(u32 vbo)</argsstring>
         <name>destroy_buffer</name>
         <qualifiedname>eu::render::destroy_buffer</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref></type>
+          <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
           <declname>vbo</declname>
         </param>
         <briefdescription>
@@ -671,7 +671,7 @@
         <location file="libs/render/src/eu/render/opengl_utils.h" line="18" column="6" declfile="libs/render/src/eu/render/opengl_utils.h" declline="18" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1ab99e35fd9a9a1c22609b3fa5b64d3f8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref></type>
+        <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
         <definition>u32 eu::render::create_vertex_array</definition>
         <argsstring>()</argsstring>
         <name>create_vertex_array</name>
@@ -685,13 +685,13 @@
         <location file="libs/render/src/eu/render/opengl_utils.h" line="20" column="5" declfile="libs/render/src/eu/render/opengl_utils.h" declline="20" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1a29e6142e1c7993d9357f0ef4fc6d7768" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::destroy_vertex_array</definition>
         <argsstring>(u32 vao)</argsstring>
         <name>destroy_vertex_array</name>
         <qualifiedname>eu::render::destroy_vertex_array</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref></type>
+          <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
           <declname>vao</declname>
         </param>
         <briefdescription>
@@ -703,13 +703,13 @@
         <location file="libs/render/src/eu/render/opengl_utils.h" line="21" column="6" declfile="libs/render/src/eu/render/opengl_utils.h" declline="21" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1a380ed9ed787e08140243b14107af8a88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::set_gl_viewport</definition>
         <argsstring>(const Size &amp;sz)</argsstring>
         <name>set_gl_viewport</name>
         <qualifiedname>eu::render::set_gl_viewport</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Size" kindref="compound">Size</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Size" kindref="compound">Size</ref> &amp;</type>
           <declname>sz</declname>
         </param>
         <briefdescription>
@@ -721,13 +721,13 @@
         <location file="libs/render/src/eu/render/opengl_utils.h" line="23" column="6" declfile="libs/render/src/eu/render/opengl_utils.h" declline="23" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1af38666e84fc148fdf5e74a1bab2a8c93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::set_gl_viewport</definition>
         <argsstring>(const Rect &amp;r)</argsstring>
         <name>set_gl_viewport</name>
         <qualifiedname>eu::render::set_gl_viewport</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Rect" kindref="compound">Rect</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rect" kindref="compound">Rect</ref> &amp;</type>
           <declname>r</declname>
         </param>
         <briefdescription>
@@ -739,8 +739,8 @@
         <location file="libs/render/src/eu/render/opengl_utils.h" line="24" column="6" declfile="libs/render/src/eu/render/opengl_utils.h" declline="24" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1afcd9dd2cfd8f7b184d3fe3e492fd06c6" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1R" kindref="compound">void</ref></type>
-        <definition>constexpr void eu::render::opengl_nop</definition>
+        <type>void</type>
+        <definition>void eu::render::opengl_nop</definition>
         <argsstring>()</argsstring>
         <name>opengl_nop</name>
         <qualifiedname>eu::render::opengl_nop</qualifiedname>
@@ -753,7 +753,7 @@
         <location file="libs/render/src/eu/render/opengl_utils.h" line="68" column="16" bodyfile="libs/render/src/eu/render/opengl_utils.h" bodystart="68" bodyend="70"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1aa326a1bc3f0a3a85564b5954e00d1cc9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::setup_textures</definition>
         <argsstring>(ShaderProgram *shader, const std::vector&lt; Uniform * &gt; &amp;uniform_list)</argsstring>
         <name>setup_textures</name>
@@ -763,7 +763,7 @@
           <declname>shader</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::vector&lt; <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> * &gt; &amp;</type>
+          <type>const std::vector&lt; <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> * &gt; &amp;</type>
           <declname>uniform_list</declname>
         </param>
         <briefdescription>
@@ -796,13 +796,13 @@
         <location file="libs/render/src/eu/render/shader.h" line="181" column="6" declfile="libs/render/src/eu/render/shader.h" declline="181" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1a0dd4dc819ad4382daa30f118a47634a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <type>bool</type>
         <definition>bool eu::render::is_bound_for_shader</definition>
         <argsstring>(const std::unordered_set&lt; core::VertexType &gt; &amp;debug_geom_shader_types)</argsstring>
         <name>is_bound_for_shader</name>
         <qualifiedname>eu::render::is_bound_for_shader</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::unordered_set&lt; <ref refid="group__vertex-layout_1ga5f0685f8f017fd2ba9d143646266b46e" kindref="member">core::VertexType</ref> &gt; &amp;</type>
+          <type>const std::unordered_set&lt; <ref refid="group__vertex-layout_1ga5f0685f8f017fd2ba9d143646266b46e" kindref="member">core::VertexType</ref> &gt; &amp;</type>
           <declname>debug_geom_shader_types</declname>
         </param>
         <briefdescription>
@@ -831,13 +831,13 @@
         <location file="libs/render/src/eu/render/shader.h" line="189" column="6" declfile="libs/render/src/eu/render/shader.h" declline="189" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1ab380e7a18ed48ab702d7d0ad993c4798" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <type>bool</type>
         <definition>bool eu::render::is_shader_bound</definition>
         <argsstring>(unsigned int program)</argsstring>
         <name>is_shader_bound</name>
         <qualifiedname>eu::render::is_shader_bound</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">unsigned</ref> <ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <type>unsigned int</type>
           <declname>program</declname>
         </param>
         <briefdescription>
@@ -864,7 +864,7 @@
         <location file="libs/render/src/eu/render/shader.h" line="196" column="6" declfile="libs/render/src/eu/render/shader.h" declline="196" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1a2e782eecefa90980ac1d7ca2c82237b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::clear_shader_program</definition>
         <argsstring>()</argsstring>
         <name>clear_shader_program</name>
@@ -889,7 +889,7 @@
           <declname>src</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1BlurOptions" kindref="compound">BlurOptions</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1BlurOptions" kindref="compound">BlurOptions</ref> &amp;</type>
           <declname>options</declname>
         </param>
         <briefdescription>
@@ -907,15 +907,15 @@
         <name>load_shader_source</name>
         <qualifiedname>eu::render::load_shader_source</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1ShaderSource" kindref="compound">ShaderSource</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1ShaderSource" kindref="compound">ShaderSource</ref> &amp;</type>
           <declname>source</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1ShaderOptions" kindref="compound">ShaderOptions</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1ShaderOptions" kindref="compound">ShaderOptions</ref> &amp;</type>
           <declname>options</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <type>const std::string &amp;</type>
           <declname>uniform_buffer_source</declname>
         </param>
         <briefdescription>
@@ -933,11 +933,11 @@
         <name>load_skybox_source</name>
         <qualifiedname>eu::render::load_skybox_source</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1ShaderSource" kindref="compound">ShaderSource</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1ShaderSource" kindref="compound">ShaderSource</ref> &amp;</type>
           <declname>source</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <type>const std::string &amp;</type>
           <declname>uniform_buffer_source</declname>
         </param>
         <briefdescription>
@@ -959,23 +959,23 @@
         <name>compile_the_shadow_camera</name>
         <qualifiedname>eu::render::compile_the_shadow_camera</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Camera" kindref="compound">Camera</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1Camera" kindref="compound">Camera</ref> &amp;</type>
           <declname>camera</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Size" kindref="compound">Size</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Size" kindref="compound">Size</ref> &amp;</type>
           <declname>window_size</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1DirectionalLight" kindref="compound">DirectionalLight</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1DirectionalLight" kindref="compound">DirectionalLight</ref> &amp;</type>
           <declname>light</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1RenderSettings" kindref="compound">RenderSettings</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1RenderSettings" kindref="compound">RenderSettings</ref> &amp;</type>
           <declname>settings</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1World" kindref="compound">World</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1World" kindref="compound">World</ref> &amp;</type>
           <declname>world</declname>
         </param>
         <briefdescription>
@@ -993,7 +993,7 @@
         <name>create_vectors</name>
         <qualifiedname>eu::render::create_vectors</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Ypr" kindref="compound">Ypr</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Ypr" kindref="compound">Ypr</ref> &amp;</type>
           <declname>rotation</declname>
         </param>
         <briefdescription>
@@ -1015,14 +1015,14 @@
       <member refid="group__texture_1ga9efcced06a1a5e0309b34e1a40fcc1b9" kind="function"><name>build_hdr_floating_framebuffer</name></member>
       <member refid="group__texture_1gaa85e9db1b15d0ec62079995fc80cda5a" kind="function"><name>build_shadow_framebuffer</name></member>
       <member refid="group__texture_1ga7a077b1e09486b602076085519b63003" kind="function"><name>resolve_multisampled_buffer</name></member>
-      <memberdef kind="function" id="namespaceeu_1_1render_1ad71e1c0c60b9375103f39d79bf8e9848" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1render_1ad71e1c0c60b9375103f39d79bf8e9848" prot="public" static="no" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1Texture2d" kindref="compound">Texture2d</ref></type>
         <definition>Texture2d eu::render::load_image_from_embedded</definition>
         <argsstring>(DEBUG_LABEL_ARG_MANY const embedded_binary &amp;image_binary, TextureEdge te, TextureRenderStyle trs, Transparency t, ColorData cd)</argsstring>
         <name>load_image_from_embedded</name>
         <qualifiedname>eu::render::load_image_from_embedded</qualifiedname>
         <param>
-          <type><ref refid="group__debug_1gabd34c805e47ae972bc6f5b1e406e921d" kindref="member">DEBUG_LABEL_ARG_MANY</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">embedded_binary</ref> &amp;</type>
+          <type><ref refid="group__debug_1gabd34c805e47ae972bc6f5b1e406e921d" kindref="member">DEBUG_LABEL_ARG_MANY</ref> const embedded_binary &amp;</type>
           <declname>image_binary</declname>
         </param>
         <param>
@@ -1049,14 +1049,14 @@
         </inbodydescription>
         <location file="libs/render/src/eu/render/texture.io.h" line="11" column="11" declfile="libs/render/src/eu/render/texture.io.h" declline="11" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1render_1ae1df3a1b1999a6ae30c484ed7cdb8e11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1render_1ae1df3a1b1999a6ae30c484ed7cdb8e11" prot="public" static="no" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1TextureCubemap" kindref="compound">TextureCubemap</ref></type>
         <definition>TextureCubemap eu::render::load_cubemap_from_embedded</definition>
         <argsstring>(DEBUG_LABEL_ARG_MANY const std::array&lt; embedded_binary, cubemap_size &gt; &amp;images, ColorData cd)</argsstring>
         <name>load_cubemap_from_embedded</name>
         <qualifiedname>eu::render::load_cubemap_from_embedded</qualifiedname>
         <param>
-          <type><ref refid="group__debug_1gabd34c805e47ae972bc6f5b1e406e921d" kindref="member">DEBUG_LABEL_ARG_MANY</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> std::array&lt; <ref refid="structeu_1_1R" kindref="compound">embedded_binary</ref>, <ref refid="group__texture_1gac79b1d9294cd27d6bd858386a5d3b0b9" kindref="member">cubemap_size</ref> &gt; &amp;</type>
+          <type><ref refid="group__debug_1gabd34c805e47ae972bc6f5b1e406e921d" kindref="member">DEBUG_LABEL_ARG_MANY</ref> const std::array&lt; embedded_binary, <ref refid="group__texture_1gac79b1d9294cd27d6bd858386a5d3b0b9" kindref="member">cubemap_size</ref> &gt; &amp;</type>
           <declname>images</declname>
         </param>
         <param>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1FrustumLight" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::FrustumLight</compoundname>
     <includes refid="world_8h" local="no">world.h</includes>
@@ -50,7 +50,7 @@
         <location file="libs/render/src/eu/render/world.h" line="154" column="4" bodyfile="libs/render/src/eu/render/world.h" bodystart="154" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1FrustumLight_1ac7c9bb7390f10c249f832003c7fcc286" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::render::FrustumLight::aspect</definition>
         <argsstring></argsstring>
         <name>aspect</name>
@@ -65,7 +65,7 @@
         <location file="libs/render/src/eu/render/world.h" line="155" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="155" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1FrustumLight_1a89f56e3595c26b902dd3715b7b44dcaf" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::render::FrustumLight::min_range</definition>
         <argsstring></argsstring>
         <name>min_range</name>
@@ -80,7 +80,7 @@
         <location file="libs/render/src/eu/render/world.h" line="157" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="157" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1FrustumLight_1a8594a296544f7fdd7686c15c1625adf6" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::render::FrustumLight::max_range</definition>
         <argsstring></argsstring>
         <name>max_range</name>
@@ -126,7 +126,7 @@
         <location file="libs/render/src/eu/render/world.h" line="161" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="161" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1FrustumLight_1a76a7b8f20bfe4eeda85bfc0d3a0ba2db" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::render::FrustumLight::specular_strength</definition>
         <argsstring></argsstring>
         <name>specular_strength</name>
@@ -141,7 +141,7 @@
         <location file="libs/render/src/eu/render/world.h" line="162" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="162" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1FrustumLight_1a2127cdbd7cbdb2dca9f0ab05da9f38fe" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::render::FrustumLight::diffuse_strength</definition>
         <argsstring></argsstring>
         <name>diffuse_strength</name>

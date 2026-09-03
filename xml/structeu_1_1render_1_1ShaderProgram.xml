@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1ShaderProgram" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::ShaderProgram</compoundname>
     <includes refid="shader_8h" local="no">shader.h</includes>
     <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1render_1_1ShaderProgram_1adb3f8720b56841120d321445fa3bc470" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">unsigned</ref> <ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <type>unsigned int</type>
         <definition>unsigned int eu::render::ShaderProgram::shader_program</definition>
         <argsstring></argsstring>
         <name>shader_program</name>
@@ -20,7 +20,7 @@
         <location file="libs/render/src/eu/render/shader.h" line="172" column="14" bodyfile="libs/render/src/eu/render/shader.h" bodystart="172" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1ShaderProgram_1a9d7b100b636e717229e03c1351076a32" prot="public" static="no" mutable="no">
-        <type><ref refid="group__vertex-layout_1ga3e578f2648d7f1003720795dc8826011" kindref="member">core::VertexTypes</ref></type>
+        <type><ref refid="group__vertex-layout_1ga510273e803bc110171edbb624cd2e937" kindref="member">core::VertexTypes</ref></type>
         <definition>core::VertexTypes eu::render::ShaderProgram::debug_vertex_types</definition>
         <argsstring></argsstring>
         <name>debug_vertex_types</name>
@@ -43,15 +43,15 @@
         <name>ShaderProgram</name>
         <qualifiedname>eu::render::ShaderProgram::ShaderProgram</qualifiedname>
         <param>
-          <type><ref refid="group__debug_1gabd34c805e47ae972bc6f5b1e406e921d" kindref="member">DEBUG_LABEL_ARG_MANY</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <type><ref refid="group__debug_1gabd34c805e47ae972bc6f5b1e406e921d" kindref="member">DEBUG_LABEL_ARG_MANY</ref> const std::string &amp;</type>
           <declname>vertex_source</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <type>const std::string &amp;</type>
           <declname>fragment_source</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1core_1_1CompiledShaderVertexAttributes" kindref="compound">core::CompiledShaderVertexAttributes</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1core_1_1CompiledShaderVertexAttributes" kindref="compound">core::CompiledShaderVertexAttributes</ref> &amp;</type>
           <declname>layout</declname>
         </param>
         <briefdescription>
@@ -114,7 +114,7 @@
         <name>ShaderProgram</name>
         <qualifiedname>eu::render::ShaderProgram::ShaderProgram</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> &amp;</type>
+          <type>const ShaderProgram &amp;</type>
         </param>
         <briefdescription>
 <para>Copying is not allowed. </para>
@@ -126,13 +126,13 @@
         <location file="libs/render/src/eu/render/shader.h" line="48" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1af51d53d47ad66306d9d46c44497fcc1c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::ShaderProgram::operator=</definition>
         <argsstring>(const ShaderProgram &amp;)=delete</argsstring>
         <name>operator=</name>
         <qualifiedname>eu::render::ShaderProgram::operator=</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1ShaderProgram_1aabde88b146985bb4c88bd42a5cb4ac46" kindref="member">ShaderProgram</ref> &amp;</type>
         </param>
         <briefdescription>
 <para>Copying is not allowed. </para>
@@ -150,7 +150,7 @@
         <name>ShaderProgram</name>
         <qualifiedname>eu::render::ShaderProgram::ShaderProgram</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> &amp;&amp;</type>
+          <type>ShaderProgram &amp;&amp;</type>
           <declname>other</declname>
         </param>
         <briefdescription>
@@ -173,13 +173,13 @@
         <location file="libs/render/src/eu/render/shader.h" line="56" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1ad8eb5528cf51d4b0254822861fe0cd63" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
-        <type><ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> &amp;</type>
+        <type><ref refid="structeu_1_1render_1_1ShaderProgram_1aabde88b146985bb4c88bd42a5cb4ac46" kindref="member">ShaderProgram</ref> &amp;</type>
         <definition>ShaderProgram &amp; eu::render::ShaderProgram::operator=</definition>
         <argsstring>(ShaderProgram &amp;&amp;rhs) noexcept</argsstring>
         <name>operator=</name>
         <qualifiedname>eu::render::ShaderProgram::operator=</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> &amp;&amp;</type>
+          <type><ref refid="structeu_1_1render_1_1ShaderProgram_1aabde88b146985bb4c88bd42a5cb4ac46" kindref="member">ShaderProgram</ref> &amp;&amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -202,7 +202,7 @@
         <location file="libs/render/src/eu/render/shader.h" line="61" column="15"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1a784dde4259806a8cc0f9a50a8b551643" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::ShaderProgram::clear</definition>
         <argsstring>()</argsstring>
         <name>clear</name>
@@ -219,8 +219,8 @@
         </inbodydescription>
         <location file="libs/render/src/eu/render/shader.h" line="66" column="6"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1ada1e5517af13916bf529baa1d77f58b2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1ada1e5517af13916bf529baa1d77f58b2" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
         <definition>bool eu::render::ShaderProgram::is_loaded</definition>
         <argsstring>() const</argsstring>
         <name>is_loaded</name>
@@ -238,7 +238,7 @@
         <location file="libs/render/src/eu/render/shader.h" line="71" column="7"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1a9ff1aff950f23ae3f24f431e8d114bd4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::ShaderProgram::use</definition>
         <argsstring>() const</argsstring>
         <name>use</name>
@@ -252,14 +252,14 @@
         </inbodydescription>
         <location file="libs/render/src/eu/render/shader.h" line="75" column="6"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1acf8c26b90d4ce65f4ccd225e904f93af" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1acf8c26b90d4ce65f4ccd225e904f93af" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
         <definition>Uniform eu::render::ShaderProgram::get_uniform</definition>
         <argsstring>(const std::string &amp;name) const</argsstring>
         <name>get_uniform</name>
         <qualifiedname>eu::render::ShaderProgram::get_uniform</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <type>const std::string &amp;</type>
           <declname>name</declname>
         </param>
         <briefdescription>
@@ -284,17 +284,17 @@
         <location file="libs/render/src/eu/render/shader.h" line="81" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1a7d3bfb7c2f9b1c5c4444eea2046dacd1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::ShaderProgram::set_float</definition>
         <argsstring>(const Uniform &amp;uniform, float value)</argsstring>
         <name>set_float</name>
         <qualifiedname>eu::render::ShaderProgram::set_float</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
           <declname>uniform</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>value</declname>
         </param>
         <briefdescription>
@@ -327,17 +327,17 @@
         <location file="libs/render/src/eu/render/shader.h" line="89" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1ac4fbb5c5948a8b4518e4d31372038421" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::ShaderProgram::set_bool</definition>
         <argsstring>(const Uniform &amp;uniform, bool value)</argsstring>
         <name>set_bool</name>
         <qualifiedname>eu::render::ShaderProgram::set_bool</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
           <declname>uniform</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+          <type>bool</type>
           <declname>value</declname>
         </param>
         <briefdescription>
@@ -370,21 +370,21 @@
         <location file="libs/render/src/eu/render/shader.h" line="97" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1aae0219a80c03b90f67c61a5450642d50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::ShaderProgram::set_vec2</definition>
         <argsstring>(const Uniform &amp;uniform, float x, float y)</argsstring>
         <name>set_vec2</name>
         <qualifiedname>eu::render::ShaderProgram::set_vec2</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
           <declname>uniform</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>x</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>y</declname>
         </param>
         <briefdescription>
@@ -425,17 +425,17 @@
         <location file="libs/render/src/eu/render/shader.h" line="106" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1aa2d508ecd20a1111478063b568905e25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::ShaderProgram::set_vec2</definition>
         <argsstring>(const Uniform &amp;uniform, const v2 &amp;v)</argsstring>
         <name>set_vec2</name>
         <qualifiedname>eu::render::ShaderProgram::set_vec2</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
           <declname>uniform</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
           <declname>v</declname>
         </param>
         <briefdescription>
@@ -468,25 +468,25 @@
         <location file="libs/render/src/eu/render/shader.h" line="114" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1a5a0610b8c5a24272e375d9e3e055220c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::ShaderProgram::set_vec3</definition>
         <argsstring>(const Uniform &amp;uniform, float x, float y, float z)</argsstring>
         <name>set_vec3</name>
         <qualifiedname>eu::render::ShaderProgram::set_vec3</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
           <declname>uniform</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>x</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>y</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>z</declname>
         </param>
         <briefdescription>
@@ -535,17 +535,17 @@
         <location file="libs/render/src/eu/render/shader.h" line="124" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1a0cf9ad0795eb3bdce899ac65acf8062e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::ShaderProgram::set_vec3</definition>
         <argsstring>(const Uniform &amp;uniform, const v3 &amp;v)</argsstring>
         <name>set_vec3</name>
         <qualifiedname>eu::render::ShaderProgram::set_vec3</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
           <declname>uniform</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v3" kindref="compound">v3</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1v3" kindref="compound">v3</ref> &amp;</type>
           <declname>v</declname>
         </param>
         <briefdescription>
@@ -578,29 +578,29 @@
         <location file="libs/render/src/eu/render/shader.h" line="132" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1ad739e87b5a45af182d5e2d8d1ef86c36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::ShaderProgram::set_vec4</definition>
         <argsstring>(const Uniform &amp;uniform, float x, float y, float z, float w)</argsstring>
         <name>set_vec4</name>
         <qualifiedname>eu::render::ShaderProgram::set_vec4</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
           <declname>uniform</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>x</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>y</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>z</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>w</declname>
         </param>
         <briefdescription>
@@ -657,17 +657,17 @@
         <location file="libs/render/src/eu/render/shader.h" line="143" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1a4de44a44468269b57ac8d7462c4d7b3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::ShaderProgram::set_vec4</definition>
         <argsstring>(const Uniform &amp;uniform, const v4 &amp;v)</argsstring>
         <name>set_vec4</name>
         <qualifiedname>eu::render::ShaderProgram::set_vec4</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
           <declname>uniform</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v4" kindref="compound">v4</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1v4" kindref="compound">v4</ref> &amp;</type>
           <declname>v</declname>
         </param>
         <briefdescription>
@@ -700,13 +700,13 @@
         <location file="libs/render/src/eu/render/shader.h" line="151" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1aa2f95cf1e8246179c689220b473a8c7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::ShaderProgram::set_texture</definition>
         <argsstring>(const Uniform &amp;uniform)</argsstring>
         <name>set_texture</name>
         <qualifiedname>eu::render::ShaderProgram::set_texture</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
           <declname>uniform</declname>
         </param>
         <briefdescription>
@@ -731,17 +731,17 @@
         <location file="libs/render/src/eu/render/shader.h" line="158" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1ab5b5bfe65481e8b67003bea40885c5c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::ShaderProgram::set_mat</definition>
         <argsstring>(const Uniform &amp;uniform, const m4 &amp;mat)</argsstring>
         <name>set_mat</name>
         <qualifiedname>eu::render::ShaderProgram::set_mat</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &amp;</type>
           <declname>uniform</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1m4" kindref="compound">m4</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1m4" kindref="compound">m4</ref> &amp;</type>
           <declname>mat</declname>
         </param>
         <briefdescription>
@@ -774,13 +774,13 @@
         <location file="libs/render/src/eu/render/shader.h" line="165" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProgram_1aab192a5ac3c0b8f6d7f02e379cb8580b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::ShaderProgram::setup_uniform_block</definition>
         <argsstring>(const core::UniformBufferSetup &amp;setup)</argsstring>
         <name>setup_uniform_block</name>
         <qualifiedname>eu::render::ShaderProgram::setup_uniform_block</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1core_1_1UniformBufferSetup" kindref="compound">core::UniformBufferSetup</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1core_1_1UniformBufferSetup" kindref="compound">core::UniformBufferSetup</ref> &amp;</type>
           <declname>setup</declname>
         </param>
         <briefdescription>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1Color" kind="struct" language="C++" prot="public">
     <compoundname>eu::Color</compoundname>
     <includes refid="colors_8h" local="no">colors.h</includes>
@@ -19,7 +19,7 @@
         <location file="libs/base/src/eu/base/colors.h" line="76" column="9" bodyfile="libs/base/src/eu/base/colors.h" bodystart="76" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1Color_1a663b595718889e0cc1a263c4f99520c6" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::Color::alpha</definition>
         <argsstring></argsstring>
         <name>alpha</name>
@@ -35,17 +35,17 @@
     </sectiondef>
     <sectiondef kind="public-func">
       <memberdef kind="function" id="structeu_1_1Color_1a7be0a5394af231dca098d154232ef430" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref></type>
-        <definition>constexpr eu::Color::Color</definition>
+        <type>constexpr</type>
+        <definition>eu::Color::Color</definition>
         <argsstring>(const Rgb &amp;a_rgb, float a_alpha=1.0f)</argsstring>
         <name>Color</name>
         <qualifiedname>eu::Color::Color</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
           <declname>a_rgb</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>a_alpha</declname>
           <defval>1.0f</defval>
         </param>

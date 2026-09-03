@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="group__geom-builder" kind="group">
     <compoundname>geom-builder</compoundname>
     <title>Geom-builder</title>
@@ -85,9 +85,9 @@
       </memberdef>
     </sectiondef>
     <sectiondef kind="typedef">
-      <memberdef kind="typedef" id="group__geom-builder_1ga7cfafc3b29e5aa6ed905369356ea1449" prot="public" static="no">
+      <memberdef kind="typedef" id="group__geom-builder_1gab3d342a617cc37061b9466839a40e222" prot="public" static="no">
         <type>u64</type>
-        <definition>using eu::core::geom::Index = typedef u64</definition>
+        <definition>using eu::core::geom::Index =  u64</definition>
         <argsstring></argsstring>
         <name>Index</name>
         <qualifiedname>eu::core::geom::Index</qualifiedname>
@@ -101,9 +101,9 @@
         </inbodydescription>
         <location file="libs/core/src/eu/core/geom.builder.h" line="19" column="1" bodyfile="libs/core/src/eu/core/geom.builder.h" bodystart="19" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="typedef" id="group__geom-builder_1ga9452c6a6e248f5f5d01e37adfd08bdef" prot="public" static="no">
+      <memberdef kind="typedef" id="group__geom-builder_1gaa1f4652aea2012fd2f3720108d8b548a" prot="public" static="no">
         <type>std::array&lt; std::size_t, 4 &gt;</type>
-        <definition>using eu::core::geom::Influence4 = typedef std::array&lt;std::size_t, 4&gt;</definition>
+        <definition>using eu::core::geom::Influence4 =  std::array&lt;std::size_t, 4&gt;</definition>
         <argsstring></argsstring>
         <name>Influence4</name>
         <qualifiedname>eu::core::geom::Influence4</qualifiedname>

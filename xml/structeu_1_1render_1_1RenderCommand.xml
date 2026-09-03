@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1RenderCommand" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::RenderCommand</compoundname>
     <includes refid="canvas_8h" local="no">canvas.h</includes>
@@ -49,17 +49,17 @@
     </sectiondef>
     <sectiondef kind="public-func">
       <memberdef kind="function" id="structeu_1_1render_1_1RenderCommand_1a33bb6a36d510497c116f4c675c25c15c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::RenderCommand::clear</definition>
         <argsstring>(const Rgb &amp;color, const LayoutData &amp;ld) const</argsstring>
         <name>clear</name>
         <qualifiedname>eu::render::RenderCommand::clear</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
           <declname>color</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1LayoutData" kindref="compound">LayoutData</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1LayoutData" kindref="compound">LayoutData</ref> &amp;</type>
           <declname>ld</declname>
         </param>
         <briefdescription>
@@ -71,17 +71,17 @@
         <location file="libs/render/src/eu/render/canvas.h" line="144" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1RenderCommand_1a6c7aa5e683b18ac22b23ba8979e6053e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::RenderCommand::clear</definition>
         <argsstring>(const Rgb &amp;color, const LerpData &amp;ld) const</argsstring>
         <name>clear</name>
         <qualifiedname>eu::render::RenderCommand::clear</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
           <declname>color</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1LerpData" kindref="compound">LerpData</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1LerpData" kindref="compound">LerpData</ref> &amp;</type>
           <declname>ld</declname>
         </param>
         <briefdescription>

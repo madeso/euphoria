@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1OkHsv" kind="struct" language="C++" prot="public">
     <compoundname>eu::OkHsv</compoundname>
     <includes refid="colors_8h" local="no">colors.h</includes>
@@ -19,7 +19,7 @@
         <location file="libs/base/src/eu/base/colors.h" line="36" column="4" bodyfile="libs/base/src/eu/base/colors.h" bodystart="36" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1OkHsv_1a48bb204edf9676c2351c114ee041dc2f" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::OkHsv::saturation</definition>
         <argsstring></argsstring>
         <name>saturation</name>
@@ -33,7 +33,7 @@
         <location file="libs/base/src/eu/base/colors.h" line="37" column="7" bodyfile="libs/base/src/eu/base/colors.h" bodystart="37" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1OkHsv_1ad57875fb17fa0e9bb8dd4f509eca9428" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::OkHsv::value</definition>
         <argsstring></argsstring>
         <name>value</name>

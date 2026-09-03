@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1log_1_1ScopedLogger" kind="struct" language="C++" prot="public">
     <compoundname>eu::log::ScopedLogger</compoundname>
     <includes refid="log_8h" local="no">log.h</includes>
@@ -43,7 +43,7 @@
         <name>ScopedLogger</name>
         <qualifiedname>eu::log::ScopedLogger::ScopedLogger</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1log_1_1ScopedLogger" kindref="compound">ScopedLogger</ref> &amp;</type>
+          <type>const ScopedLogger &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -60,7 +60,7 @@
         <name>ScopedLogger</name>
         <qualifiedname>eu::log::ScopedLogger::ScopedLogger</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1log_1_1ScopedLogger" kindref="compound">ScopedLogger</ref> &amp;&amp;</type>
+          <type>ScopedLogger &amp;&amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -71,13 +71,13 @@
         <location file="libs/log/src/eu/log/log.h" line="69" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1log_1_1ScopedLogger_1abf3cd5fa18bcdf1ad2107b3f9782039e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::log::ScopedLogger::operator=</definition>
         <argsstring>(const ScopedLogger &amp;)=delete</argsstring>
         <name>operator=</name>
         <qualifiedname>eu::log::ScopedLogger::operator=</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1log_1_1ScopedLogger" kindref="compound">ScopedLogger</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1log_1_1ScopedLogger_1a9268bca1b3ab62f4c0cf04fd293268d2" kindref="member">ScopedLogger</ref> &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -88,13 +88,13 @@
         <location file="libs/log/src/eu/log/log.h" line="70" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1log_1_1ScopedLogger_1a7f1c35c53bd6395becd4603d90f0a2d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::log::ScopedLogger::operator=</definition>
         <argsstring>(ScopedLogger &amp;&amp;)=delete</argsstring>
         <name>operator=</name>
         <qualifiedname>eu::log::ScopedLogger::operator=</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1log_1_1ScopedLogger" kindref="compound">ScopedLogger</ref> &amp;&amp;</type>
+          <type><ref refid="structeu_1_1log_1_1ScopedLogger_1a9268bca1b3ab62f4c0cf04fd293268d2" kindref="member">ScopedLogger</ref> &amp;&amp;</type>
         </param>
         <briefdescription>
         </briefdescription>

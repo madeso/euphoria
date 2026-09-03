@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1Uniform" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::Uniform</compoundname>
     <includes refid="uniform_8h" local="no">uniform.h</includes>
@@ -20,7 +20,7 @@
         <location file="libs/render/src/eu/render/uniform.h" line="10" column="13" bodyfile="libs/render/src/eu/render/uniform.h" bodystart="10" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Uniform_1a69c255ad9fb665a5f3b89823ad3af1a2" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <type>int</type>
         <definition>int eu::render::Uniform::location</definition>
         <argsstring></argsstring>
         <name>location</name>
@@ -35,7 +35,7 @@
         <location file="libs/render/src/eu/render/uniform.h" line="11" column="5" bodyfile="libs/render/src/eu/render/uniform.h" bodystart="11" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Uniform_1a673d2eabbed16cddf77d7f4f9dd7f634" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">unsigned</ref> <ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <type>unsigned int</type>
         <definition>unsigned int eu::render::Uniform::debug_shader_program</definition>
         <argsstring></argsstring>
         <name>debug_shader_program</name>
@@ -50,7 +50,7 @@
         <location file="libs/render/src/eu/render/uniform.h" line="12" column="14" bodyfile="libs/render/src/eu/render/uniform.h" bodystart="12" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Uniform_1a96f07d04819873231d1139c9ef591651" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <type>int</type>
         <definition>int eu::render::Uniform::texture</definition>
         <argsstring></argsstring>
         <name>texture</name>
@@ -93,11 +93,11 @@
           <declname>n</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <type>int</type>
           <declname>l</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">unsigned</ref> <ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <type>unsigned int</type>
           <declname>sp</declname>
         </param>
         <briefdescription>
@@ -108,8 +108,8 @@
         </inbodydescription>
         <location file="libs/render/src/eu/render/uniform.h" line="18" column="1"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1Uniform_1a227f71e8bb38b860200b4ed0593a63c5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+      <memberdef kind="function" id="structeu_1_1render_1_1Uniform_1a227f71e8bb38b860200b4ed0593a63c5" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
         <definition>bool eu::render::Uniform::is_valid</definition>
         <argsstring>() const</argsstring>
         <name>is_valid</name>
@@ -124,7 +124,7 @@
       </memberdef>
     </sectiondef>
     <briefdescription>
-<para>Represents a found shader uniform and created via ShaderProgram::GetUniform() </para>
+<para>Represents a found shader uniform and created via ShaderProgram::GetUniform(). </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>

@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1UnlitMaterial" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::UnlitMaterial</compoundname>
     <basecompoundref refid="structeu_1_1render_1_1Material" prot="public" virt="non-virtual">eu::render::Material</basecompoundref>
     <includes refid="material_8h" local="no">material.h</includes>
     <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1render_1_1UnlitMaterial_1a5a5ecef64d7f5ef71ab1e24163c7ffed" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1LoadedShader__Unlit__Container" kindref="compound">LoadedShader_Unlit_Container</ref> *</type>
+        <type>const <ref refid="structeu_1_1render_1_1LoadedShader__Unlit__Container" kindref="compound">LoadedShader_Unlit_Container</ref> *</type>
         <definition>const LoadedShader_Unlit_Container* eu::render::UnlitMaterial::shader_container</definition>
         <argsstring></argsstring>
         <name>shader_container</name>
@@ -35,7 +35,7 @@
         <location file="libs/render/src/eu/render/material.h" line="52" column="5" bodyfile="libs/render/src/eu/render/material.h" bodystart="52" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1UnlitMaterial_1a2ce1b6508956c85215e84cb88088228f" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::render::UnlitMaterial::alpha</definition>
         <argsstring></argsstring>
         <name>alpha</name>
@@ -72,7 +72,7 @@
         <name>UnlitMaterial</name>
         <qualifiedname>eu::render::UnlitMaterial::UnlitMaterial</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1ShaderResource" kindref="compound">ShaderResource</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1ShaderResource" kindref="compound">ShaderResource</ref> &amp;</type>
           <declname>resource</declname>
         </param>
         <briefdescription>
@@ -84,14 +84,14 @@
         <location file="libs/render/src/eu/render/material.h" line="56" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1UnlitMaterial_1a4c32dd6f7b741944a7d0492a8ba022b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::UnlitMaterial::use_shader</definition>
         <argsstring>(const RenderContext &amp;) override</argsstring>
         <name>use_shader</name>
         <qualifiedname>eu::render::UnlitMaterial::use_shader</qualifiedname>
         <reimplements refid="structeu_1_1render_1_1Material_1a325f01a7e9603d6cffc21e9f0eb254a5">use_shader</reimplements>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1RenderContext" kindref="compound">RenderContext</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1RenderContext" kindref="compound">RenderContext</ref> &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -102,20 +102,20 @@
         <location file="libs/render/src/eu/render/material.h" line="57" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1UnlitMaterial_1a6706e7d934347aa760cf059582c21e3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::UnlitMaterial::set_uniforms</definition>
         <argsstring>(const RenderContext &amp;, const CompiledCamera &amp;, const std::optional&lt; m4 &gt; &amp;) override</argsstring>
         <name>set_uniforms</name>
         <qualifiedname>eu::render::UnlitMaterial::set_uniforms</qualifiedname>
         <reimplements refid="structeu_1_1render_1_1Material_1a7b05f68f4ecd3e6db3c4075f021ffdde">set_uniforms</reimplements>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1RenderContext" kindref="compound">RenderContext</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1RenderContext" kindref="compound">RenderContext</ref> &amp;</type>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1CompiledCamera" kindref="compound">CompiledCamera</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1CompiledCamera" kindref="compound">CompiledCamera</ref> &amp;</type>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::optional&lt; <ref refid="structeu_1_1m4" kindref="compound">m4</ref> &gt; &amp;</type>
+          <type>const std::optional&lt; <ref refid="structeu_1_1m4" kindref="compound">m4</ref> &gt; &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -126,14 +126,14 @@
         <location file="libs/render/src/eu/render/material.h" line="58" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1UnlitMaterial_1a76b614a7b48f562380356bbcee6c9950" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::UnlitMaterial::bind_textures</definition>
         <argsstring>(const RenderContext &amp;, State *states, Assets *assets) override</argsstring>
         <name>bind_textures</name>
         <qualifiedname>eu::render::UnlitMaterial::bind_textures</qualifiedname>
         <reimplements refid="structeu_1_1render_1_1Material_1a23b81c117a9571b1d1cedf2844b5a723">bind_textures</reimplements>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1RenderContext" kindref="compound">RenderContext</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1RenderContext" kindref="compound">RenderContext</ref> &amp;</type>
         </param>
         <param>
           <type><ref refid="structeu_1_1render_1_1State" kindref="compound">State</ref> *</type>
@@ -152,21 +152,21 @@
         <location file="libs/render/src/eu/render/material.h" line="59" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1UnlitMaterial_1a9dd9e58dc7950f3bbb1a3c961bc7d401" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::UnlitMaterial::apply_lights</definition>
         <argsstring>(const RenderContext &amp;, const Lights &amp;lights, const RenderSettings &amp;settings, State *states, Assets *assets) override</argsstring>
         <name>apply_lights</name>
         <qualifiedname>eu::render::UnlitMaterial::apply_lights</qualifiedname>
         <reimplements refid="structeu_1_1render_1_1Material_1a59a0ebddb44e35a16984bd419ab8f1d8">apply_lights</reimplements>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1RenderContext" kindref="compound">RenderContext</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1RenderContext" kindref="compound">RenderContext</ref> &amp;</type>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Lights" kindref="compound">Lights</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1Lights" kindref="compound">Lights</ref> &amp;</type>
           <declname>lights</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1RenderSettings" kindref="compound">RenderSettings</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1RenderSettings" kindref="compound">RenderSettings</ref> &amp;</type>
           <declname>settings</declname>
         </param>
         <param>
@@ -185,8 +185,8 @@
         </inbodydescription>
         <location file="libs/render/src/eu/render/material.h" line="60" column="6"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1UnlitMaterial_1a488b9e1b45502c31c3150f4ea420e0db" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+      <memberdef kind="function" id="structeu_1_1render_1_1UnlitMaterial_1a488b9e1b45502c31c3150f4ea420e0db" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
         <definition>bool eu::render::UnlitMaterial::is_transparent</definition>
         <argsstring>() const override</argsstring>
         <name>is_transparent</name>

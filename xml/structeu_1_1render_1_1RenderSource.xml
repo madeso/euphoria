@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1RenderSource" kind="struct" language="C++" prot="public" abstract="yes">
     <compoundname>eu::render::RenderSource</compoundname>
     <derivedcompoundref refid="structeu_1_1render_1_1RenderTextureWithShader" prot="public" virt="non-virtual">eu::render::RenderTextureWithShader</derivedcompoundref>
@@ -41,7 +41,7 @@
         <name>RenderSource</name>
         <qualifiedname>eu::render::RenderSource::RenderSource</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1RenderSource" kindref="compound">RenderSource</ref> &amp;</type>
+          <type>const RenderSource &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -58,7 +58,7 @@
         <name>RenderSource</name>
         <qualifiedname>eu::render::RenderSource::RenderSource</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1render_1_1RenderSource" kindref="compound">RenderSource</ref> &amp;&amp;</type>
+          <type>RenderSource &amp;&amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -69,13 +69,13 @@
         <location file="libs/render/src/eu/render/postproc.h" line="41" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1RenderSource_1a098f7f7e586ab9ceb5688408d1558420" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::RenderSource::operator=</definition>
         <argsstring>(const RenderSource &amp;)=delete</argsstring>
         <name>operator=</name>
         <qualifiedname>eu::render::RenderSource::operator=</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1RenderSource" kindref="compound">RenderSource</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1RenderSource_1a7ab0a91ffe9aedba48886c6f530eaf1e" kindref="member">RenderSource</ref> &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -86,13 +86,13 @@
         <location file="libs/render/src/eu/render/postproc.h" line="42" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1RenderSource_1a31054db3e4c627616e911d3a91927dac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::RenderSource::operator=</definition>
         <argsstring>(RenderSource &amp;&amp;)=delete</argsstring>
         <name>operator=</name>
         <qualifiedname>eu::render::RenderSource::operator=</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1render_1_1RenderSource" kindref="compound">RenderSource</ref> &amp;&amp;</type>
+          <type><ref refid="structeu_1_1render_1_1RenderSource_1a7ab0a91ffe9aedba48886c6f530eaf1e" kindref="member">RenderSource</ref> &amp;&amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -103,7 +103,7 @@
         <location file="libs/render/src/eu/render/postproc.h" line="43" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1RenderSource_1aefd4f044c4caab48e9169ed248ab75e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>virtual void eu::render::RenderSource::render</definition>
         <argsstring>(const PostProcArg &amp;arg)=0</argsstring>
         <name>render</name>
@@ -111,7 +111,7 @@
         <reimplementedby refid="structeu_1_1render_1_1RenderTextureWithShader_1a47e289b26d2b08119dbd2b1939b0631e">render</reimplementedby>
         <reimplementedby refid="structeu_1_1render_1_1RenderWorld_1ad9cc968b3615dcf798ef77dc1ac59912">render</reimplementedby>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1PostProcArg" kindref="compound">PostProcArg</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1PostProcArg" kindref="compound">PostProcArg</ref> &amp;</type>
           <declname>arg</declname>
         </param>
         <briefdescription>

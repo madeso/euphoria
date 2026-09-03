@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1SpriteBatch" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::SpriteBatch</compoundname>
     <includes refid="canvas_8h" local="no">canvas.h</includes>
     <sectiondef kind="public-static-attrib">
       <memberdef kind="variable" id="structeu_1_1render_1_1SpriteBatch_1aff323970d4e6f3d924c1dbc565b76e19" prot="public" static="yes" constexpr="yes" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref> <ref refid="structeu_1_1R" kindref="compound">int</ref></type>
-        <definition>constexpr int eu::render::SpriteBatch::max_quads</definition>
+        <type>int</type>
+        <definition>int eu::render::SpriteBatch::max_quads</definition>
         <argsstring></argsstring>
         <name>max_quads</name>
         <qualifiedname>eu::render::SpriteBatch::max_quads</qualifiedname>
@@ -36,7 +36,7 @@
         <location file="libs/render/src/eu/render/canvas.h" line="57" column="11" bodyfile="libs/render/src/eu/render/canvas.h" bodystart="57" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1SpriteBatch_1a39af4d9aa51e60f9f0c93ab501de78ff" prot="public" static="no" mutable="no">
-        <type>std::vector&lt; <ref refid="structeu_1_1R" kindref="compound">float</ref> &gt;</type>
+        <type>std::vector&lt; float &gt;</type>
         <definition>std::vector&lt;float&gt; eu::render::SpriteBatch::data</definition>
         <argsstring></argsstring>
         <name>data</name>
@@ -50,7 +50,7 @@
         <location file="libs/render/src/eu/render/canvas.h" line="58" column="17" bodyfile="libs/render/src/eu/render/canvas.h" bodystart="58" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1SpriteBatch_1a72ae5aeb7afd30e0591655edc4a35706" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <type>int</type>
         <definition>int eu::render::SpriteBatch::quads</definition>
         <argsstring></argsstring>
         <name>quads</name>
@@ -65,12 +65,12 @@
         <location file="libs/render/src/eu/render/canvas.h" line="59" column="9" bodyfile="libs/render/src/eu/render/canvas.h" bodystart="59" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1SpriteBatch_1a8ae57efd44c40c65a9f02d28e8176203" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Texture2d" kindref="compound">Texture2d</ref> *</type>
+        <type>const <ref refid="structeu_1_1render_1_1Texture2d" kindref="compound">Texture2d</ref> *</type>
         <definition>const Texture2d* eu::render::SpriteBatch::current_texture</definition>
         <argsstring></argsstring>
         <name>current_texture</name>
         <qualifiedname>eu::render::SpriteBatch::current_texture</qualifiedname>
-        <initializer>= <ref refid="structeu_1_1R" kindref="compound">nullptr</ref></initializer>
+        <initializer>= nullptr</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -80,7 +80,7 @@
         <location file="libs/render/src/eu/render/canvas.h" line="60" column="21" bodyfile="libs/render/src/eu/render/canvas.h" bodystart="60" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1SpriteBatch_1a5822290b4912786ec11a315eed1a91fb" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref></type>
+        <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
         <definition>u32 eu::render::SpriteBatch::va</definition>
         <argsstring></argsstring>
         <name>va</name>
@@ -95,7 +95,7 @@
         <location file="libs/render/src/eu/render/canvas.h" line="61" column="9" bodyfile="libs/render/src/eu/render/canvas.h" bodystart="61" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1SpriteBatch_1a728772c541c639f7eebc9d649673bdb3" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref></type>
+        <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
         <definition>u32 eu::render::SpriteBatch::vb</definition>
         <argsstring></argsstring>
         <name>vb</name>
@@ -110,7 +110,7 @@
         <location file="libs/render/src/eu/render/canvas.h" line="62" column="9" bodyfile="libs/render/src/eu/render/canvas.h" bodystart="62" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1SpriteBatch_1a34b58e7e4d36643bf68b1c435291dcdd" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref></type>
+        <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
         <definition>u32 eu::render::SpriteBatch::ib</definition>
         <argsstring></argsstring>
         <name>ib</name>
@@ -201,7 +201,7 @@
         <name>SpriteBatch</name>
         <qualifiedname>eu::render::SpriteBatch::SpriteBatch</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1SpriteBatch" kindref="compound">SpriteBatch</ref> &amp;</type>
+          <type>const SpriteBatch &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -212,13 +212,13 @@
         <location file="libs/render/src/eu/render/canvas.h" line="70" column="5"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1SpriteBatch_1a1bdeccf1a75f03db27f5751b9183dfc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::SpriteBatch::operator=</definition>
         <argsstring>(const SpriteBatch &amp;)=delete</argsstring>
         <name>operator=</name>
         <qualifiedname>eu::render::SpriteBatch::operator=</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1SpriteBatch" kindref="compound">SpriteBatch</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1SpriteBatch_1a7f1b6d72f2992612af2bda9728e5595d" kindref="member">SpriteBatch</ref> &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -235,7 +235,7 @@
         <name>SpriteBatch</name>
         <qualifiedname>eu::render::SpriteBatch::SpriteBatch</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1render_1_1SpriteBatch" kindref="compound">SpriteBatch</ref> &amp;&amp;</type>
+          <type>SpriteBatch &amp;&amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -246,13 +246,13 @@
         <location file="libs/render/src/eu/render/canvas.h" line="72" column="5"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1SpriteBatch_1ae6fe69a3ff9cf2bded6cc53c6cff888d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::SpriteBatch::operator=</definition>
         <argsstring>(SpriteBatch &amp;&amp;)=delete</argsstring>
         <name>operator=</name>
         <qualifiedname>eu::render::SpriteBatch::operator=</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1render_1_1SpriteBatch" kindref="compound">SpriteBatch</ref> &amp;&amp;</type>
+          <type><ref refid="structeu_1_1render_1_1SpriteBatch_1a7f1b6d72f2992612af2bda9728e5595d" kindref="member">SpriteBatch</ref> &amp;&amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -263,29 +263,29 @@
         <location file="libs/render/src/eu/render/canvas.h" line="73" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1SpriteBatch_1a8a0865da36435bebc8ef89b0c3bc6519" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::SpriteBatch::quad</definition>
         <argsstring>(std::optional&lt; const Texture2d * &gt; texture, const Vertex2 &amp;v0, const Vertex2 &amp;v1, const Vertex2 &amp;v2, const Vertex2 &amp;v3)</argsstring>
         <name>quad</name>
         <qualifiedname>eu::render::SpriteBatch::quad</qualifiedname>
         <param>
-          <type>std::optional&lt; <ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Texture2d" kindref="compound">Texture2d</ref> * &gt;</type>
+          <type>std::optional&lt; const <ref refid="structeu_1_1render_1_1Texture2d" kindref="compound">Texture2d</ref> * &gt;</type>
           <declname>texture</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Vertex2" kindref="compound">Vertex2</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1Vertex2" kindref="compound">Vertex2</ref> &amp;</type>
           <declname>v0</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Vertex2" kindref="compound">Vertex2</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1Vertex2" kindref="compound">Vertex2</ref> &amp;</type>
           <declname>v1</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Vertex2" kindref="compound">Vertex2</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1Vertex2" kindref="compound">Vertex2</ref> &amp;</type>
           <declname>v2</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Vertex2" kindref="compound">Vertex2</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1Vertex2" kindref="compound">Vertex2</ref> &amp;</type>
           <declname>v3</declname>
         </param>
         <briefdescription>
@@ -297,7 +297,7 @@
         <location file="libs/render/src/eu/render/canvas.h" line="75" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1SpriteBatch_1af9c929bd59c81d7126173c4101a1fb67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::SpriteBatch::submit</definition>
         <argsstring>()</argsstring>
         <name>submit</name>

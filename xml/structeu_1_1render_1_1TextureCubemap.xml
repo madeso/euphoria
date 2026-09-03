@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1TextureCubemap" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::TextureCubemap</compoundname>
     <basecompoundref refid="structeu_1_1render_1_1BaseTexture" prot="public" virt="non-virtual">eu::render::BaseTexture</basecompoundref>
@@ -26,15 +26,15 @@
         <name>TextureCubemap</name>
         <qualifiedname>eu::render::TextureCubemap::TextureCubemap</qualifiedname>
         <param>
-          <type><ref refid="group__debug_1gabd34c805e47ae972bc6f5b1e406e921d" kindref="member">DEBUG_LABEL_ARG_MANY</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> std::array&lt; <ref refid="structeu_1_1R" kindref="compound">void</ref> *, <ref refid="group__texture_1gac79b1d9294cd27d6bd858386a5d3b0b9" kindref="member">cubemap_size</ref> &gt; &amp;</type>
+          <type><ref refid="group__debug_1gabd34c805e47ae972bc6f5b1e406e921d" kindref="member">DEBUG_LABEL_ARG_MANY</ref> const std::array&lt; void *, <ref refid="group__texture_1gac79b1d9294cd27d6bd858386a5d3b0b9" kindref="member">cubemap_size</ref> &gt; &amp;</type>
           <declname>pixel_data</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <type>int</type>
           <declname>width</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <type>int</type>
           <declname>height</declname>
         </param>
         <param>

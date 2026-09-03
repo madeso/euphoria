@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1core_1_1ExtractedAttribute" kind="struct" language="C++" prot="public">
     <compoundname>eu::core::ExtractedAttribute</compoundname>
     <includes refid="geom_8extract_8h" local="no">geom.extract.h</includes>
@@ -19,7 +19,7 @@
         <location file="libs/core/src/eu/core/geom.extract.h" line="25" column="24" bodyfile="libs/core/src/eu/core/geom.extract.h" bodystart="25" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1ExtractedAttribute_1aa60d649b5f3adff9fceb14b5f6d9da24" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <type>int</type>
         <definition>int eu::core::ExtractedAttribute::count</definition>
         <argsstring></argsstring>
         <name>count</name>
@@ -48,7 +48,7 @@
       </memberdef>
     </sectiondef>
     <briefdescription>
-<para>A extracted attribute like <computeroutput>float 3</computeroutput> </para>
+<para>A extracted attribute like <computeroutput>float 3</computeroutput>. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>

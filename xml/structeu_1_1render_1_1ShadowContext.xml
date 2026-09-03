@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1ShadowContext" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::ShadowContext</compoundname>
     <includes refid="renderer_8h" local="no">renderer.h</includes>
@@ -10,7 +10,7 @@
         <argsstring></argsstring>
         <name>directional_shadow_map</name>
         <qualifiedname>eu::render::ShadowContext::directional_shadow_map</qualifiedname>
-        <initializer>= <ref refid="structeu_1_1R" kindref="compound">nullptr</ref></initializer>
+        <initializer>= nullptr</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>

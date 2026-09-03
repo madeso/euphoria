@@ -1,17 +1,17 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1DefaultMaterial" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::DefaultMaterial</compoundname>
     <basecompoundref refid="structeu_1_1render_1_1Material" prot="public" virt="non-virtual">eu::render::Material</basecompoundref>
     <includes refid="material_8h" local="no">material.h</includes>
     <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1render_1_1DefaultMaterial_1af6584f766fa6c888870dd9cf09d8fed1" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1LoadedShader__Default__Container" kindref="compound">LoadedShader_Default_Container</ref> *</type>
+        <type>const <ref refid="structeu_1_1render_1_1LoadedShader__Default__Container" kindref="compound">LoadedShader_Default_Container</ref> *</type>
         <definition>const LoadedShader_Default_Container* eu::render::DefaultMaterial::shader_container</definition>
         <argsstring></argsstring>
         <name>shader_container</name>
         <qualifiedname>eu::render::DefaultMaterial::shader_container</qualifiedname>
-        <initializer>= <ref refid="structeu_1_1R" kindref="compound">nullptr</ref></initializer>
+        <initializer>= nullptr</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -36,7 +36,7 @@
         <location file="libs/render/src/eu/render/material.h" line="71" column="5" bodyfile="libs/render/src/eu/render/material.h" bodystart="71" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1DefaultMaterial_1a28be7abc0abf28bda351a50710a93b0c" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::render::DefaultMaterial::alpha</definition>
         <argsstring></argsstring>
         <name>alpha</name>
@@ -81,7 +81,7 @@
         <location file="libs/render/src/eu/render/material.h" line="75" column="5" bodyfile="libs/render/src/eu/render/material.h" bodystart="75" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1DefaultMaterial_1a1bca0fe1fd4b61092bea8fea467fd486" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::render::DefaultMaterial::shininess</definition>
         <argsstring></argsstring>
         <name>shininess</name>
@@ -96,7 +96,7 @@
         <location file="libs/render/src/eu/render/material.h" line="76" column="7" bodyfile="libs/render/src/eu/render/material.h" bodystart="76" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1DefaultMaterial_1ae3f863846f313ca5a4a7f096d9e29a20" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::render::DefaultMaterial::emissive_factor</definition>
         <argsstring></argsstring>
         <name>emissive_factor</name>
@@ -161,7 +161,7 @@
         <name>DefaultMaterial</name>
         <qualifiedname>eu::render::DefaultMaterial::DefaultMaterial</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1ShaderResource" kindref="compound">ShaderResource</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1ShaderResource" kindref="compound">ShaderResource</ref> &amp;</type>
           <declname>resource</declname>
         </param>
         <briefdescription>
@@ -173,14 +173,14 @@
         <location file="libs/render/src/eu/render/material.h" line="83" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1DefaultMaterial_1a0430a4d529ea1c9c3eeaafc0aa68300d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::DefaultMaterial::use_shader</definition>
         <argsstring>(const RenderContext &amp;) override</argsstring>
         <name>use_shader</name>
         <qualifiedname>eu::render::DefaultMaterial::use_shader</qualifiedname>
         <reimplements refid="structeu_1_1render_1_1Material_1a325f01a7e9603d6cffc21e9f0eb254a5">use_shader</reimplements>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1RenderContext" kindref="compound">RenderContext</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1RenderContext" kindref="compound">RenderContext</ref> &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -191,20 +191,20 @@
         <location file="libs/render/src/eu/render/material.h" line="84" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1DefaultMaterial_1abba8c69c26d675530cca2be97c3e5f7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::DefaultMaterial::set_uniforms</definition>
         <argsstring>(const RenderContext &amp;, const CompiledCamera &amp;, const std::optional&lt; m4 &gt; &amp;) override</argsstring>
         <name>set_uniforms</name>
         <qualifiedname>eu::render::DefaultMaterial::set_uniforms</qualifiedname>
         <reimplements refid="structeu_1_1render_1_1Material_1a7b05f68f4ecd3e6db3c4075f021ffdde">set_uniforms</reimplements>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1RenderContext" kindref="compound">RenderContext</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1RenderContext" kindref="compound">RenderContext</ref> &amp;</type>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1CompiledCamera" kindref="compound">CompiledCamera</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1CompiledCamera" kindref="compound">CompiledCamera</ref> &amp;</type>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::optional&lt; <ref refid="structeu_1_1m4" kindref="compound">m4</ref> &gt; &amp;</type>
+          <type>const std::optional&lt; <ref refid="structeu_1_1m4" kindref="compound">m4</ref> &gt; &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -215,14 +215,14 @@
         <location file="libs/render/src/eu/render/material.h" line="85" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1DefaultMaterial_1a929fd9fe39a8017cc7e9bb771b795890" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::DefaultMaterial::bind_textures</definition>
         <argsstring>(const RenderContext &amp;, State *states, Assets *assets) override</argsstring>
         <name>bind_textures</name>
         <qualifiedname>eu::render::DefaultMaterial::bind_textures</qualifiedname>
         <reimplements refid="structeu_1_1render_1_1Material_1a23b81c117a9571b1d1cedf2844b5a723">bind_textures</reimplements>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1RenderContext" kindref="compound">RenderContext</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1RenderContext" kindref="compound">RenderContext</ref> &amp;</type>
         </param>
         <param>
           <type><ref refid="structeu_1_1render_1_1State" kindref="compound">State</ref> *</type>
@@ -241,21 +241,21 @@
         <location file="libs/render/src/eu/render/material.h" line="86" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1DefaultMaterial_1ae4a9c487803a6702d3c68046ec213c6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::DefaultMaterial::apply_lights</definition>
         <argsstring>(const RenderContext &amp;, const Lights &amp;lights, const RenderSettings &amp;settings, State *states, Assets *assets) override</argsstring>
         <name>apply_lights</name>
         <qualifiedname>eu::render::DefaultMaterial::apply_lights</qualifiedname>
         <reimplements refid="structeu_1_1render_1_1Material_1a59a0ebddb44e35a16984bd419ab8f1d8">apply_lights</reimplements>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1RenderContext" kindref="compound">RenderContext</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1RenderContext" kindref="compound">RenderContext</ref> &amp;</type>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Lights" kindref="compound">Lights</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1Lights" kindref="compound">Lights</ref> &amp;</type>
           <declname>lights</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1RenderSettings" kindref="compound">RenderSettings</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1RenderSettings" kindref="compound">RenderSettings</ref> &amp;</type>
           <declname>settings</declname>
         </param>
         <param>
@@ -274,8 +274,8 @@
         </inbodydescription>
         <location file="libs/render/src/eu/render/material.h" line="87" column="6"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1DefaultMaterial_1a9d235d710f04a15134169dc06e6608c6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+      <memberdef kind="function" id="structeu_1_1render_1_1DefaultMaterial_1a9d235d710f04a15134169dc06e6608c6" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
         <definition>bool eu::render::DefaultMaterial::is_transparent</definition>
         <argsstring>() const override</argsstring>
         <name>is_transparent</name>
@@ -344,7 +344,7 @@
           <edgelabel>tex_directional_light_depth_uni</edgelabel>
           <edgelabel>tex_emissive_uniform</edgelabel>
           <edgelabel>tex_specular_uniform</edgelabel>
-          <edgelabel>...</edgelabel>
+          <edgelabel>  ...</edgelabel>
         </childnode>
       </node>
       <node id="3">

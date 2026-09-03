@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1CameraUniformBuffer" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::CameraUniformBuffer</compoundname>
     <includes refid="shader__resource_8h" local="no">shader_resource.h</includes>
@@ -63,13 +63,13 @@
     </sectiondef>
     <sectiondef kind="public-func">
       <memberdef kind="function" id="structeu_1_1render_1_1CameraUniformBuffer_1ae99f0cd6ddffb36a958e7a1ce1ac960a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::CameraUniformBuffer::set_props</definition>
         <argsstring>(const CompiledCamera &amp;cc)</argsstring>
         <name>set_props</name>
         <qualifiedname>eu::render::CameraUniformBuffer::set_props</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1CompiledCamera" kindref="compound">CompiledCamera</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1CompiledCamera" kindref="compound">CompiledCamera</ref> &amp;</type>
           <declname>cc</declname>
         </param>
         <briefdescription>

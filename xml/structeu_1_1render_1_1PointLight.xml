@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1PointLight" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::PointLight</compoundname>
     <includes refid="world_8h" local="no">world.h</includes>
@@ -20,7 +20,7 @@
         <location file="libs/render/src/eu/render/world.h" line="137" column="4" bodyfile="libs/render/src/eu/render/world.h" bodystart="137" bodyend="137"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1PointLight_1ae5a00b005ac09008fe674b3a1e004eb6" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::render::PointLight::min_range</definition>
         <argsstring></argsstring>
         <name>min_range</name>
@@ -35,7 +35,7 @@
         <location file="libs/render/src/eu/render/world.h" line="138" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="138" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1PointLight_1a5a0760118a1bd3583e1f542f92b99237" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::render::PointLight::max_range</definition>
         <argsstring></argsstring>
         <name>max_range</name>
@@ -81,7 +81,7 @@
         <location file="libs/render/src/eu/render/world.h" line="142" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="142" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1PointLight_1a1a1a97631e44131f375865a50219c0a0" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::render::PointLight::specular_strength</definition>
         <argsstring></argsstring>
         <name>specular_strength</name>
@@ -96,7 +96,7 @@
         <location file="libs/render/src/eu/render/world.h" line="143" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="143" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1PointLight_1a79cad658346ce4da7f8d03af77bb4067" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::render::PointLight::diffuse_strength</definition>
         <argsstring></argsstring>
         <name>diffuse_strength</name>

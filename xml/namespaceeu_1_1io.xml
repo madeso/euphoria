@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="namespaceeu_1_1io" kind="namespace" language="C++">
     <compoundname>eu::io</compoundname>
     <sectiondef kind="func">
@@ -10,7 +10,7 @@
         <name>string_from_file</name>
         <qualifiedname>eu::io::string_from_file</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <type>const std::string &amp;</type>
           <declname>path</declname>
         </param>
         <briefdescription>
@@ -22,13 +22,13 @@
         <location file="libs/io/src/eu/io/file.h" line="6" column="13" declfile="libs/io/src/eu/io/file.h" declline="6" declcolumn="13"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1io_1ab943a2a2c9534ed8de0befa7bced9949" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::vector&lt; <ref refid="structeu_1_1R" kindref="compound">uint8_t</ref> &gt;</type>
+        <type>std::vector&lt; uint8_t &gt;</type>
         <definition>std::vector&lt; uint8_t &gt; eu::io::bytes_from_file</definition>
         <argsstring>(const std::string &amp;path)</argsstring>
         <name>bytes_from_file</name>
         <qualifiedname>eu::io::bytes_from_file</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <type>const std::string &amp;</type>
           <declname>path</declname>
         </param>
         <briefdescription>
@@ -46,7 +46,7 @@
         <name>mesh_from_file</name>
         <qualifiedname>eu::io::mesh_from_file</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <type>const std::string &amp;</type>
           <declname>file</declname>
         </param>
         <briefdescription>

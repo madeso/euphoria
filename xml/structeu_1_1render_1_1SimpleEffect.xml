@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1SimpleEffect" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::SimpleEffect</compoundname>
     <basecompoundref refid="structeu_1_1render_1_1FactorEffect" prot="public" virt="non-virtual">eu::render::FactorEffect</basecompoundref>
@@ -49,7 +49,7 @@
         <location file="libs/render/src/eu/render/postproc.internal.h" line="112" column="13" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="112" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1SimpleEffect_1aab4ad327691b9d5f9253a689eef23a72" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::render::SimpleEffect::time</definition>
         <argsstring></argsstring>
         <name>time</name>
@@ -88,21 +88,21 @@
         <location file="libs/render/src/eu/render/postproc.internal.h" line="115" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1SimpleEffect_1a3a827d4ba9c29ecd30c473731eead116" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::SimpleEffect::add_float_drag_prop</definition>
         <argsstring>(const std::string &amp;prop_name, float value, float speed)</argsstring>
         <name>add_float_drag_prop</name>
         <qualifiedname>eu::render::SimpleEffect::add_float_drag_prop</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <type>const std::string &amp;</type>
           <declname>prop_name</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>value</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>speed</declname>
         </param>
         <briefdescription>
@@ -114,25 +114,25 @@
         <location file="libs/render/src/eu/render/postproc.internal.h" line="117" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1SimpleEffect_1a0808a9fc50f983787c7ea23d1512902e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::SimpleEffect::add_float_slider_prop</definition>
         <argsstring>(const std::string &amp;prop_name, float value, float min, float max)</argsstring>
         <name>add_float_slider_prop</name>
         <qualifiedname>eu::render::SimpleEffect::add_float_slider_prop</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <type>const std::string &amp;</type>
           <declname>prop_name</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>value</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>min</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>max</declname>
         </param>
         <briefdescription>
@@ -144,7 +144,7 @@
         <location file="libs/render/src/eu/render/postproc.internal.h" line="119" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1SimpleEffect_1a71d7a2c711c843adc5280dc52666a4c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::SimpleEffect::gui</definition>
         <argsstring>() override</argsstring>
         <name>gui</name>
@@ -159,14 +159,14 @@
         <location file="libs/render/src/eu/render/postproc.internal.h" line="121" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1SimpleEffect_1ae7d0fe4e0a1ed79a7d04950ac9a59eae" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::SimpleEffect::update</definition>
         <argsstring>(float dt) override</argsstring>
         <name>update</name>
         <qualifiedname>eu::render::SimpleEffect::update</qualifiedname>
         <reimplements refid="structeu_1_1render_1_1Effect_1a0d7ba9e2f2ee5b6f8ae1e85cf7b62825">update</reimplements>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>dt</declname>
         </param>
         <briefdescription>
@@ -178,18 +178,18 @@
         <location file="libs/render/src/eu/render/postproc.internal.h" line="123" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1SimpleEffect_1af827c96eaff25dad7dbb85e4ecc8f154" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::SimpleEffect::use_shader</definition>
         <argsstring>(const PostProcArg &amp;a, const FrameBuffer &amp;t) override</argsstring>
         <name>use_shader</name>
         <qualifiedname>eu::render::SimpleEffect::use_shader</qualifiedname>
         <reimplements refid="structeu_1_1render_1_1ShaderPropertyProvider_1a1fbd8762fb9077ad650492b9855d92de">use_shader</reimplements>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1PostProcArg" kindref="compound">PostProcArg</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1PostProcArg" kindref="compound">PostProcArg</ref> &amp;</type>
           <declname>a</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">FrameBuffer</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">FrameBuffer</ref> &amp;</type>
           <declname>t</declname>
         </param>
         <briefdescription>
@@ -201,14 +201,14 @@
         <location file="libs/render/src/eu/render/postproc.internal.h" line="125" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1SimpleEffect_1ac4bd0a9ba85b2da7303a4f136d6b27b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::SimpleEffect::build</definition>
         <argsstring>(const BuildArg &amp;arg) override</argsstring>
         <name>build</name>
         <qualifiedname>eu::render::SimpleEffect::build</qualifiedname>
         <reimplements refid="structeu_1_1render_1_1Effect_1ab9c96c9b468942c7bf4ea7c6573280d1">build</reimplements>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1BuildArg" kindref="compound">BuildArg</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1BuildArg" kindref="compound">BuildArg</ref> &amp;</type>
           <declname>arg</declname>
         </param>
         <briefdescription>

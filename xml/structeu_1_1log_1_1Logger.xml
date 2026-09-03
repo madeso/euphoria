@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1log_1_1Logger" kind="struct" language="C++" prot="public" abstract="yes">
     <compoundname>eu::log::Logger</compoundname>
     <includes refid="log_8h" local="no">log.h</includes>
@@ -39,7 +39,7 @@
         <name>Logger</name>
         <qualifiedname>eu::log::Logger::Logger</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1log_1_1Logger" kindref="compound">Logger</ref> &amp;</type>
+          <type>const Logger &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -56,7 +56,7 @@
         <name>Logger</name>
         <qualifiedname>eu::log::Logger::Logger</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1log_1_1Logger" kindref="compound">Logger</ref> &amp;&amp;</type>
+          <type>Logger &amp;&amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -67,13 +67,13 @@
         <location file="libs/log/src/eu/log/log.h" line="48" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1log_1_1Logger_1aa2ee55126420e17cd6c60a1b573480f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::log::Logger::operator=</definition>
         <argsstring>(const Logger &amp;)=delete</argsstring>
         <name>operator=</name>
         <qualifiedname>eu::log::Logger::operator=</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1log_1_1Logger" kindref="compound">Logger</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1log_1_1Logger_1a86a567c61eabb14a1894b05094c49400" kindref="member">Logger</ref> &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -84,13 +84,13 @@
         <location file="libs/log/src/eu/log/log.h" line="49" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1log_1_1Logger_1aaeda7ce06bd578f6efa49d3c9863f6d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::log::Logger::operator=</definition>
         <argsstring>(Logger &amp;&amp;)=delete</argsstring>
         <name>operator=</name>
         <qualifiedname>eu::log::Logger::operator=</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1log_1_1Logger" kindref="compound">Logger</ref> &amp;&amp;</type>
+          <type><ref refid="structeu_1_1log_1_1Logger_1a86a567c61eabb14a1894b05094c49400" kindref="member">Logger</ref> &amp;&amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -101,13 +101,13 @@
         <location file="libs/log/src/eu/log/log.h" line="50" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1log_1_1Logger_1ad2b67eb49edc11aab5978f306f8e41b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>virtual void eu::log::Logger::info</definition>
         <argsstring>(const std::string &amp;str)=0</argsstring>
         <name>info</name>
         <qualifiedname>eu::log::Logger::info</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <type>const std::string &amp;</type>
           <declname>str</declname>
         </param>
         <briefdescription>
@@ -120,13 +120,13 @@
         <location file="libs/log/src/eu/log/log.h" line="53" column="22"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1log_1_1Logger_1a06423e395456c121ee759d7569df5907" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>virtual void eu::log::Logger::warn</definition>
         <argsstring>(const std::string &amp;str)=0</argsstring>
         <name>warn</name>
         <qualifiedname>eu::log::Logger::warn</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <type>const std::string &amp;</type>
           <declname>str</declname>
         </param>
         <briefdescription>
@@ -139,13 +139,13 @@
         <location file="libs/log/src/eu/log/log.h" line="56" column="22"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1log_1_1Logger_1afaf5e8f95546857df1e95d8bae6775ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>virtual void eu::log::Logger::error</definition>
         <argsstring>(const std::string &amp;str)=0</argsstring>
         <name>error</name>
         <qualifiedname>eu::log::Logger::error</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <type>const std::string &amp;</type>
           <declname>str</declname>
         </param>
         <briefdescription>

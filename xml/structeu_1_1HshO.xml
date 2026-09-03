@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1HshO" kind="struct" language="C++" prot="public">
     <compoundname>eu::HshO</compoundname>
     <includes refid="hash_8string_8h" local="no">hash.string.h</includes>
     <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1HshO_1a420d0ed1237da74a1594507d3bf4e546" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1ac0b6d77da47da3ce6bb55d66abc897f5" kindref="member">u64</ref></type>
+        <type><ref refid="namespaceeu_1abe0c1a612663ea762f0507c0e96a3514" kindref="member">u64</ref></type>
         <definition>u64 eu::HshO::hash</definition>
         <argsstring></argsstring>
         <name>hash</name>
@@ -39,13 +39,13 @@
     </sectiondef>
     <sectiondef kind="public-func">
       <memberdef kind="function" id="structeu_1_1HshO_1a7cfca6d725abfcae7a3f7a8e706e94d7" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref></type>
-        <definition>constexpr eu::HshO::HshO</definition>
+        <type>constexpr</type>
+        <definition>eu::HshO::HshO</definition>
         <argsstring>(const std::string &amp;s)</argsstring>
         <name>HshO</name>
         <qualifiedname>eu::HshO::HshO</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <type>const std::string &amp;</type>
           <declname>s</declname>
         </param>
         <briefdescription>
@@ -58,13 +58,13 @@
         <location file="libs/base/src/eu/base/hash.string.h" line="65" column="15" bodyfile="libs/base/src/eu/base/hash.string.h" bodystart="65" bodyend="70"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1HshO_1abc710ee7c6b775cb779572038188fe2a" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref></type>
-        <definition>constexpr eu::HshO::HshO</definition>
+        <type>constexpr</type>
+        <definition>eu::HshO::HshO</definition>
         <argsstring>(const std::string_view &amp;s)</argsstring>
         <name>HshO</name>
         <qualifiedname>eu::HshO::HshO</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string_view &amp;</type>
+          <type>const std::string_view &amp;</type>
           <declname>s</declname>
         </param>
         <briefdescription>
@@ -77,13 +77,13 @@
         <location file="libs/base/src/eu/base/hash.string.h" line="73" column="15" bodyfile="libs/base/src/eu/base/hash.string.h" bodystart="73" bodyend="78"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1HshO_1a80972476266aa1a936728c0eae2784b1" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref></type>
-        <definition>constexpr eu::HshO::HshO</definition>
+        <type>constexpr</type>
+        <definition>eu::HshO::HshO</definition>
         <argsstring>(const Hsh &amp;o)</argsstring>
         <name>HshO</name>
         <qualifiedname>eu::HshO::HshO</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Hsh" kindref="compound">Hsh</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Hsh" kindref="compound">Hsh</ref> &amp;</type>
           <declname>o</declname>
         </param>
         <briefdescription>

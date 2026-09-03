@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1TextDrawCommand" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::TextDrawCommand</compoundname>
     <includes refid="font_8h" local="no">font.h</includes>
     <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1render_1_1TextDrawCommand_1a2b82a9a322f76c289c4ae8e33d39f45f" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Texture2d" kindref="compound">Texture2d</ref> *</type>
+        <type>const <ref refid="structeu_1_1render_1_1Texture2d" kindref="compound">Texture2d</ref> *</type>
         <definition>const Texture2d* eu::render::TextDrawCommand::texture</definition>
         <argsstring></argsstring>
         <name>texture</name>
@@ -47,7 +47,7 @@
         <location file="libs/render/src/eu/render/font.h" line="62" column="14" bodyfile="libs/render/src/eu/render/font.h" bodystart="62" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1TextDrawCommand_1afa811a8de43377bfdfb466053ce942a2" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <type>bool</type>
         <definition>bool eu::render::TextDrawCommand::hi</definition>
         <argsstring></argsstring>
         <name>hi</name>
@@ -69,19 +69,19 @@
         <name>TextDrawCommand</name>
         <qualifiedname>eu::render::TextDrawCommand::TextDrawCommand</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Texture2d" kindref="compound">Texture2d</ref> *</type>
+          <type>const <ref refid="structeu_1_1render_1_1Texture2d" kindref="compound">Texture2d</ref> *</type>
           <declname>texture</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Rect" kindref="compound">Rect</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rect" kindref="compound">Rect</ref> &amp;</type>
           <declname>sprite_rect</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Rect" kindref="compound">Rect</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rect" kindref="compound">Rect</ref> &amp;</type>
           <declname>texture_rect</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+          <type>bool</type>
           <declname>hi</declname>
         </param>
         <briefdescription>

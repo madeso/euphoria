@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1RenderContext" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::RenderContext</compoundname>
     <includes refid="shader__resource_8h" local="no">shader_resource.h</includes>
@@ -33,7 +33,7 @@
         <location file="libs/render/src/eu/render/shader_resource.h" line="204" column="17" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="204" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1RenderContext_1a45296ee83376db886097cdba7d8376a1" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::render::RenderContext::gamma</definition>
         <argsstring></argsstring>
         <name>gamma</name>
@@ -48,7 +48,7 @@
         <location file="libs/render/src/eu/render/shader_resource.h" line="205" column="7" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="205" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1RenderContext_1a3ea0db047e5c5cc74b309c54fec94953" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1render_1_1ShadowContext" kindref="compound">ShadowContext</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref>  *</type>
+        <type><ref refid="structeu_1_1render_1_1ShadowContext" kindref="compound">ShadowContext</ref> const  *</type>
         <definition>ShadowContext const* eu::render::RenderContext::shadow_context</definition>
         <argsstring></argsstring>
         <name>shadow_context</name>
@@ -64,8 +64,8 @@
     </sectiondef>
     <sectiondef kind="public-func">
       <memberdef kind="function" id="structeu_1_1render_1_1RenderContext_1a7565aa2919bb055bbfdb3a408c090a56" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref></type>
-        <definition>constexpr eu::render::RenderContext::RenderContext</definition>
+        <type>constexpr</type>
+        <definition>eu::render::RenderContext::RenderContext</definition>
         <argsstring>(TransformSource s, UseTransparency t, float g, const ShadowContext *sc)</argsstring>
         <name>RenderContext</name>
         <qualifiedname>eu::render::RenderContext::RenderContext</qualifiedname>
@@ -78,11 +78,11 @@
           <declname>t</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>g</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1ShadowContext" kindref="compound">ShadowContext</ref> *</type>
+          <type>const <ref refid="structeu_1_1render_1_1ShadowContext" kindref="compound">ShadowContext</ref> *</type>
           <declname>sc</declname>
         </param>
         <briefdescription>

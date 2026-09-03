@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1core_1_1Face" kind="struct" language="C++" prot="public">
     <compoundname>eu::core::Face</compoundname>
     <includes refid="geom_8h" local="no">geom.h</includes>
     <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1Face_1aaa8af21ddcf50f2dbc8eee695a41cf8e" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref></type>
+        <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
         <definition>u32 eu::core::Face::a</definition>
         <argsstring></argsstring>
         <name>a</name>
@@ -19,7 +19,7 @@
         <location file="libs/core/src/eu/core/geom.h" line="23" column="5" bodyfile="libs/core/src/eu/core/geom.h" bodystart="23" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1Face_1a8a7ee2d8e5de2edc816a29256b0603ad" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref></type>
+        <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
         <definition>u32 eu::core::Face::b</definition>
         <argsstring></argsstring>
         <name>b</name>
@@ -33,7 +33,7 @@
         <location file="libs/core/src/eu/core/geom.h" line="24" column="5" bodyfile="libs/core/src/eu/core/geom.h" bodystart="24" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1Face_1a5313ca81dcc04c4af9e41d2a0e30746e" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kindref="member">u32</ref></type>
+        <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
         <definition>u32 eu::core::Face::c</definition>
         <argsstring></argsstring>
         <name>c</name>

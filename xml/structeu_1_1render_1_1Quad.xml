@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1Quad" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::Quad</compoundname>
     <includes refid="canvas_8h" local="no">canvas.h</includes>
     <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1render_1_1Quad_1a0171a5fc672dc116efdb234a24f62d8d" prot="public" static="no" mutable="no">
-        <type>std::optional&lt; <ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Texture2d" kindref="compound">Texture2d</ref> * &gt;</type>
+        <type>std::optional&lt; const <ref refid="structeu_1_1render_1_1Texture2d" kindref="compound">Texture2d</ref> * &gt;</type>
         <definition>std::optional&lt;const Texture2d*&gt; eu::render::Quad::texture</definition>
         <argsstring></argsstring>
         <name>texture</name>
@@ -67,7 +67,7 @@
     </sectiondef>
     <sectiondef kind="public-func">
       <memberdef kind="function" id="structeu_1_1render_1_1Quad_1a920e6d1673116d957f50ef03d0738aa5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::Quad::draw</definition>
         <argsstring>(SpriteBatch *batch, const Rect &amp;screen)</argsstring>
         <name>draw</name>
@@ -77,7 +77,7 @@
           <declname>batch</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Rect" kindref="compound">Rect</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rect" kindref="compound">Rect</ref> &amp;</type>
           <declname>screen</declname>
         </param>
         <briefdescription>

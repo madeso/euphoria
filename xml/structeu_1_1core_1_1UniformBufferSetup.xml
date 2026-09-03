@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1core_1_1UniformBufferSetup" kind="struct" language="C++" prot="public">
     <compoundname>eu::core::UniformBufferSetup</compoundname>
     <includes refid="core_2src_2eu_2core_2uniform__buffer_8h" local="no">uniform_buffer.h</includes>
     <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1UniformBufferSetup_1a1d0d4dc5f519444a83b1c9004fa9ef33" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <type>int</type>
         <definition>int eu::core::UniformBufferSetup::size</definition>
         <argsstring></argsstring>
         <name>size</name>
@@ -20,7 +20,7 @@
         <location file="libs/core/src/eu/core/uniform_buffer.h" line="25" column="5" bodyfile="libs/core/src/eu/core/uniform_buffer.h" bodystart="25" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1UniformBufferSetup_1a279a699a0dd0932a7bd314321cbebf60" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <type>int</type>
         <definition>int eu::core::UniformBufferSetup::binding_point</definition>
         <argsstring></argsstring>
         <name>binding_point</name>

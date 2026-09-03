@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1BurHorizontalProvider" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::BurHorizontalProvider</compoundname>
     <basecompoundref refid="structeu_1_1render_1_1ShaderPropertyProvider" prot="public" virt="non-virtual">eu::render::ShaderPropertyProvider</basecompoundref>
@@ -40,18 +40,18 @@
         <location file="libs/render/src/eu/render/postproc.internal.h" line="144" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1BurHorizontalProvider_1a2ff2339a133c9ac84cb261c90f6fb45c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::BurHorizontalProvider::use_shader</definition>
         <argsstring>(const PostProcArg &amp;a, const FrameBuffer &amp;t) override</argsstring>
         <name>use_shader</name>
         <qualifiedname>eu::render::BurHorizontalProvider::use_shader</qualifiedname>
         <reimplements refid="structeu_1_1render_1_1ShaderPropertyProvider_1a1fbd8762fb9077ad650492b9855d92de">use_shader</reimplements>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1PostProcArg" kindref="compound">PostProcArg</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1PostProcArg" kindref="compound">PostProcArg</ref> &amp;</type>
           <declname>a</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">FrameBuffer</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">FrameBuffer</ref> &amp;</type>
           <declname>t</declname>
         </param>
         <briefdescription>

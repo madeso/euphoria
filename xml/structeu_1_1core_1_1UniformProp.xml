@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1core_1_1UniformProp" kind="struct" language="C++" prot="public">
     <compoundname>eu::core::UniformProp</compoundname>
     <includes refid="core_2src_2eu_2core_2uniform__buffer_8h" local="no">uniform_buffer.h</includes>
@@ -47,7 +47,7 @@
         <location file="libs/core/src/eu/core/uniform_buffer.h" line="45" column="13" bodyfile="libs/core/src/eu/core/uniform_buffer.h" bodystart="45" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1UniformProp_1af5634f781cc01c4cb2aeb5b6bc2844db" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <type>int</type>
         <definition>int eu::core::UniformProp::array_count</definition>
         <argsstring></argsstring>
         <name>array_count</name>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="group__vertex-layout" kind="group">
     <compoundname>vertex-layout</compoundname>
     <title>Vertex layout</title>
@@ -84,14 +84,14 @@
       </memberdef>
     </sectiondef>
     <sectiondef kind="typedef">
-      <memberdef kind="typedef" id="group__vertex-layout_1ga40a08dae458002da001fab3a190780a9" prot="public" static="no">
+      <memberdef kind="typedef" id="group__vertex-layout_1gadbc01228bcff314cbd83ef3014a44a8b" prot="public" static="no">
         <type>std::vector&lt; VertexElementDescription &gt;</type>
-        <definition>using eu::core::ShaderVertexAttributes = typedef std::vector&lt;VertexElementDescription&gt;</definition>
+        <definition>using eu::core::ShaderVertexAttributes =  std::vector&lt;VertexElementDescription&gt;</definition>
         <argsstring></argsstring>
         <name>ShaderVertexAttributes</name>
         <qualifiedname>eu::core::ShaderVertexAttributes</qualifiedname>
         <briefdescription>
-<para>Describes all vertex inputs a shader requires like <computeroutput>[vec3 position, vec3 normal, vec2 uv]</computeroutput> </para>
+<para>Describes all vertex inputs a shader requires like <computeroutput>[vec3 position, vec3 normal, vec2 uv]</computeroutput>. </para>
         </briefdescription>
         <detaileddescription>
 <para><simplesect kind="note"><para>It&apos;s invalid for this to contain duplicates, use <ref refid="group__vertex-layout_1ga9d840fc9659abc25984af301a538cf07" kindref="member">find_duplicates</ref> to find duplicates </para>
@@ -102,9 +102,9 @@
         </inbodydescription>
         <location file="libs/core/src/eu/core/vertex_layout.h" line="50" column="1" bodyfile="libs/core/src/eu/core/vertex_layout.h" bodystart="50" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="typedef" id="group__vertex-layout_1ga3e578f2648d7f1003720795dc8826011" prot="public" static="no">
+      <memberdef kind="typedef" id="group__vertex-layout_1ga510273e803bc110171edbb624cd2e937" prot="public" static="no">
         <type>std::vector&lt; VertexType &gt;</type>
-        <definition>using eu::core::VertexTypes = typedef std::vector&lt;VertexType&gt;</definition>
+        <definition>using eu::core::VertexTypes =  std::vector&lt;VertexType&gt;</definition>
         <argsstring></argsstring>
         <name>VertexTypes</name>
         <qualifiedname>eu::core::VertexTypes</qualifiedname>
@@ -119,8 +119,8 @@
     </sectiondef>
     <sectiondef kind="func">
       <memberdef kind="function" id="group__vertex-layout_1gaf1da25791cb234dee579d9a1f5ac341d" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr bool</type>
-        <definition>constexpr bool eu::core::is_instance_based</definition>
+        <type>bool</type>
+        <definition>bool eu::core::is_instance_based</definition>
         <argsstring>(VertexType v)</argsstring>
         <name>is_instance_based</name>
         <qualifiedname>eu::core::is_instance_based</qualifiedname>
@@ -154,7 +154,7 @@
         </inbodydescription>
         <location file="libs/core/src/eu/core/vertex_layout.h" line="52" column="13" declfile="libs/core/src/eu/core/vertex_layout.h" declline="52" declcolumn="13"/>
       </memberdef>
-      <memberdef kind="function" id="group__vertex-layout_1ga457db7dffcd3e57bde0c17e6cb57b4ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__vertex-layout_1ga457db7dffcd3e57bde0c17e6cb57b4ed" prot="public" static="no" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>CompiledShaderVertexAttributes</type>
         <definition>CompiledShaderVertexAttributes eu::core::compile_shader_layout</definition>
         <argsstring>(const CompiledVertexTypeList &amp;l, const ShaderVertexAttributes &amp;elements, std::optional&lt; InstanceProp &gt; instance_prop, std::optional&lt; int &gt; start_index)</argsstring>
@@ -184,7 +184,7 @@
         </inbodydescription>
         <location file="libs/core/src/eu/core/vertex_layout.h" line="102" column="32" declfile="libs/core/src/eu/core/vertex_layout.h" declline="102" declcolumn="32"/>
       </memberdef>
-      <memberdef kind="function" id="group__vertex-layout_1ga28c0b3611483fde81d624a4e28ad9236" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__vertex-layout_1ga28c0b3611483fde81d624a4e28ad9236" prot="public" static="no" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>CompiledGeomVertexAttributes</type>
         <definition>CompiledGeomVertexAttributes eu::core::get_geom_layout</definition>
         <argsstring>(const CompiledVertexTypeList &amp;l)</argsstring>

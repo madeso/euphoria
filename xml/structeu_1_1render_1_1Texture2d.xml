@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1Texture2d" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::Texture2d</compoundname>
     <basecompoundref refid="structeu_1_1render_1_1BaseTexture" prot="public" virt="non-virtual">eu::render::BaseTexture</basecompoundref>
@@ -26,19 +26,19 @@
         <name>Texture2d</name>
         <qualifiedname>eu::render::Texture2d::Texture2d</qualifiedname>
         <param>
-          <type><ref refid="group__debug_1gabd34c805e47ae972bc6f5b1e406e921d" kindref="member">DEBUG_LABEL_ARG_MANY</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">void</ref> *</type>
+          <type><ref refid="group__debug_1gabd34c805e47ae972bc6f5b1e406e921d" kindref="member">DEBUG_LABEL_ARG_MANY</ref> const void *</type>
           <declname>pixel_data</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">unsigned</ref> <ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <type>unsigned int</type>
           <declname>pixel_format</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <type>int</type>
           <declname>w</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <type>int</type>
           <declname>h</declname>
         </param>
         <param>

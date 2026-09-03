@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1core_1_1HashCombiner" kind="struct" language="C++" prot="public">
     <compoundname>eu::core::HashCombiner</compoundname>
     <includes refid="hash_8h" local="no">hash.h</includes>
@@ -24,7 +24,7 @@
       <memberdef kind="function" id="structeu_1_1core_1_1HashCombiner_1ae993dbf457a68d2b4ea6b201d9612c42" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
-            <type><ref refid="structeu_1_1R" kindref="compound">typename</ref> <ref refid="structeu_1_1R" kindref="compound">T</ref></type>
+            <type>typename T</type>
           </param>
         </templateparamlist>
         <type><ref refid="structeu_1_1core_1_1HashCombiner" kindref="compound">HashCombiner</ref> &amp;</type>
@@ -33,7 +33,7 @@
         <name>combine</name>
         <qualifiedname>eu::core::HashCombiner::combine</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">T</ref> &amp;</type>
+          <type>const T &amp;</type>
           <declname>t</declname>
         </param>
         <briefdescription>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1BlurOptions" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::BlurOptions</compoundname>
     <includes refid="shader_8source_8h" local="no">shader.source.h</includes>
@@ -19,7 +19,7 @@
         <location file="libs/render/src/eu/render/shader.source.h" line="64" column="10" bodyfile="libs/render/src/eu/render/shader.source.h" bodystart="64" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1BlurOptions_1a44bd37f611c29503dcff517c28997134" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <type>int</type>
         <definition>int eu::render::BlurOptions::sample_count</definition>
         <argsstring></argsstring>
         <name>sample_count</name>

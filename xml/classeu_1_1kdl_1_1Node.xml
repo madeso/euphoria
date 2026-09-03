@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="classeu_1_1kdl_1_1Node" kind="class" language="C++" prot="public">
     <compoundname>eu::kdl::Node</compoundname>
     <basecompoundref refid="classeu_1_1kdl_1_1HasTypeAnnotation" prot="public" virt="non-virtual">eu::kdl::HasTypeAnnotation</basecompoundref>
@@ -62,7 +62,7 @@
         <location file="libs/kdl/src/eu/kdl/kdl.h" line="273" column="14" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="273" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classeu_1_1kdl_1_1Node_1ae7defecfa2ea3605fce55db011b31cae" prot="private" static="no" mutable="no">
-        <type>std::vector&lt; <ref refid="classeu_1_1kdl_1_1Node" kindref="compound">Node</ref> &gt;</type>
+        <type>std::vector&lt; <ref refid="classeu_1_1kdl_1_1Node_1ac39591ffd39dc8dbb753119efb0323f7" kindref="member">Node</ref> &gt;</type>
         <definition>std::vector&lt;Node&gt; eu::kdl::Node::m_children</definition>
         <argsstring></argsstring>
         <name>m_children</name>
@@ -98,7 +98,7 @@
         <name>Node</name>
         <qualifiedname>eu::kdl::Node::Node</qualifiedname>
         <param>
-          <type><ref refid="classeu_1_1kdl_1_1Node" kindref="compound">Node</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> &amp;</type>
+          <type>Node const &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -115,7 +115,7 @@
         <name>Node</name>
         <qualifiedname>eu::kdl::Node::Node</qualifiedname>
         <param>
-          <type><ref refid="classeu_1_1kdl_1_1Node" kindref="compound">Node</ref> &amp;&amp;</type>
+          <type>Node &amp;&amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -184,7 +184,7 @@
           <declname>properties</declname>
         </param>
         <param>
-          <type>std::vector&lt; <ref refid="classeu_1_1kdl_1_1Node" kindref="compound">Node</ref> &gt;</type>
+          <type>std::vector&lt; Node &gt;</type>
           <declname>children</declname>
         </param>
         <briefdescription>
@@ -218,7 +218,7 @@
           <declname>properties</declname>
         </param>
         <param>
-          <type>std::vector&lt; <ref refid="classeu_1_1kdl_1_1Node" kindref="compound">Node</ref> &gt;</type>
+          <type>std::vector&lt; Node &gt;</type>
           <declname>children</declname>
         </param>
         <briefdescription>
@@ -230,13 +230,13 @@
         <location file="libs/kdl/src/eu/kdl/kdl.h" line="296" column="5" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="296" bodyend="307"/>
       </memberdef>
       <memberdef kind="function" id="classeu_1_1kdl_1_1Node_1a31eb3899c0e5079f0221dd84077dbc01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="classeu_1_1kdl_1_1Node" kindref="compound">Node</ref> &amp;</type>
+        <type><ref refid="classeu_1_1kdl_1_1Node_1ac39591ffd39dc8dbb753119efb0323f7" kindref="member">Node</ref> &amp;</type>
         <definition>Node &amp; eu::kdl::Node::operator=</definition>
         <argsstring>(Node const &amp;)=default</argsstring>
         <name>operator=</name>
         <qualifiedname>eu::kdl::Node::operator=</qualifiedname>
         <param>
-          <type><ref refid="classeu_1_1kdl_1_1Node" kindref="compound">Node</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> &amp;</type>
+          <type><ref refid="classeu_1_1kdl_1_1Node_1ac39591ffd39dc8dbb753119efb0323f7" kindref="member">Node</ref> const &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -247,13 +247,13 @@
         <location file="libs/kdl/src/eu/kdl/kdl.h" line="309" column="10"/>
       </memberdef>
       <memberdef kind="function" id="classeu_1_1kdl_1_1Node_1a0af059831df73f98a677045f7387dee3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="classeu_1_1kdl_1_1Node" kindref="compound">Node</ref> &amp;</type>
+        <type><ref refid="classeu_1_1kdl_1_1Node_1ac39591ffd39dc8dbb753119efb0323f7" kindref="member">Node</ref> &amp;</type>
         <definition>Node &amp; eu::kdl::Node::operator=</definition>
         <argsstring>(Node &amp;&amp;)=default</argsstring>
         <name>operator=</name>
         <qualifiedname>eu::kdl::Node::operator=</qualifiedname>
         <param>
-          <type><ref refid="classeu_1_1kdl_1_1Node" kindref="compound">Node</ref> &amp;&amp;</type>
+          <type><ref refid="classeu_1_1kdl_1_1Node_1ac39591ffd39dc8dbb753119efb0323f7" kindref="member">Node</ref> &amp;&amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -264,7 +264,7 @@
         <location file="libs/kdl/src/eu/kdl/kdl.h" line="310" column="10"/>
       </memberdef>
       <memberdef kind="function" id="classeu_1_1kdl_1_1Node_1a9f16cef066dd1b461b558f4f24ac19f4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>std::string <ref refid="structeu_1_1R" kindref="compound">const</ref> &amp;</type>
+        <type>std::string const &amp;</type>
         <definition>std::string const  &amp; eu::kdl::Node::name</definition>
         <argsstring>() const</argsstring>
         <name>name</name>
@@ -278,7 +278,7 @@
         <location file="libs/kdl/src/eu/kdl/kdl.h" line="312" column="23" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="312" bodyend="312"/>
       </memberdef>
       <memberdef kind="function" id="classeu_1_1kdl_1_1Node_1aa4fa0f83ac6d5f5d9d0b3266b003d658" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::kdl::Node::set_name</definition>
         <argsstring>(std::string_view name)</argsstring>
         <name>set_name</name>
@@ -296,7 +296,7 @@
         <location file="libs/kdl/src/eu/kdl/kdl.h" line="313" column="10" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="313" bodyend="313"/>
       </memberdef>
       <memberdef kind="function" id="classeu_1_1kdl_1_1Node_1a2f137f718ff0c18b9b6489752f0a6350" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::vector&lt; <ref refid="classeu_1_1kdl_1_1Value" kindref="compound">Value</ref> &gt; &amp;</type>
+        <type>const std::vector&lt; <ref refid="classeu_1_1kdl_1_1Value" kindref="compound">Value</ref> &gt; &amp;</type>
         <definition>const std::vector&lt; Value &gt; &amp; eu::kdl::Node::args</definition>
         <argsstring>() const</argsstring>
         <name>args</name>
@@ -324,7 +324,7 @@
         <location file="libs/kdl/src/eu/kdl/kdl.h" line="316" column="17" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="316" bodyend="316"/>
       </memberdef>
       <memberdef kind="function" id="classeu_1_1kdl_1_1Node_1a815302c6a68abcffdc7f2a0bf5940ac6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::map&lt; std::string, <ref refid="classeu_1_1kdl_1_1Value" kindref="compound">Value</ref>, std::less&lt;&gt; &gt; &amp;</type>
+        <type>const std::map&lt; std::string, <ref refid="classeu_1_1kdl_1_1Value" kindref="compound">Value</ref>, std::less&lt;&gt; &gt; &amp;</type>
         <definition>const std::map&lt; std::string, Value, std::less&lt;&gt; &gt; &amp; eu::kdl::Node::properties</definition>
         <argsstring>() const</argsstring>
         <name>properties</name>
@@ -352,7 +352,7 @@
         <location file="libs/kdl/src/eu/kdl/kdl.h" line="318" column="14" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="318" bodyend="318"/>
       </memberdef>
       <memberdef kind="function" id="classeu_1_1kdl_1_1Node_1ae529881ada7ecf2671ecbcae57907898" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::vector&lt; <ref refid="classeu_1_1kdl_1_1Node" kindref="compound">Node</ref> &gt; &amp;</type>
+        <type>const std::vector&lt; <ref refid="classeu_1_1kdl_1_1Node_1ac39591ffd39dc8dbb753119efb0323f7" kindref="member">Node</ref> &gt; &amp;</type>
         <definition>const std::vector&lt; Node &gt; &amp; eu::kdl::Node::children</definition>
         <argsstring>() const</argsstring>
         <name>children</name>
@@ -366,7 +366,7 @@
         <location file="libs/kdl/src/eu/kdl/kdl.h" line="319" column="23" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="319" bodyend="319"/>
       </memberdef>
       <memberdef kind="function" id="classeu_1_1kdl_1_1Node_1a57aeb8bf075058334e4dac5d56c594ec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>std::vector&lt; <ref refid="classeu_1_1kdl_1_1Node" kindref="compound">Node</ref> &gt; &amp;</type>
+        <type>std::vector&lt; <ref refid="classeu_1_1kdl_1_1Node_1ac39591ffd39dc8dbb753119efb0323f7" kindref="member">Node</ref> &gt; &amp;</type>
         <definition>std::vector&lt; Node &gt; &amp; eu::kdl::Node::children</definition>
         <argsstring>()</argsstring>
         <name>children</name>

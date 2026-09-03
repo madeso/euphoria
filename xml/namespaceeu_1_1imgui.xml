@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="namespaceeu_1_1imgui" kind="namespace" language="C++">
     <compoundname>eu::imgui</compoundname>
-    <innerclass refid="structeu_1_1imgui_1_1ImguiShaderCache" prot="public">eu::imgui::ImguiShaderCache</innerclass>
-    <innerclass refid="structeu_1_1imgui_1_1ImguiShaderProgram" prot="public">eu::imgui::ImguiShaderProgram</innerclass>
     <innerclass refid="structeu_1_1imgui_1_1SCurveGuiState" prot="public">eu::imgui::SCurveGuiState</innerclass>
     <innerclass refid="structeu_1_1imgui_1_1SCurveImguiSettings" prot="public">eu::imgui::SCurveImguiSettings</innerclass>
+    <innerclass refid="structeu_1_1imgui_1_1ImguiShaderProgram" prot="public">eu::imgui::ImguiShaderProgram</innerclass>
+    <innerclass refid="structeu_1_1imgui_1_1ImguiShaderCache" prot="public">eu::imgui::ImguiShaderCache</innerclass>
     <sectiondef kind="enum">
       <memberdef kind="enum" id="namespaceeu_1_1imgui_1a6887d690e8c91852b12a0aef78d2111f" prot="public" static="no" strong="yes">
         <type></type>
@@ -69,13 +69,13 @@
     </sectiondef>
     <sectiondef kind="func">
       <memberdef kind="function" id="namespaceeu_1_1imgui_1a78b11aa78f2ad17f6b073cf346e64850" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <type>bool</type>
         <definition>bool eu::imgui::imgui_s_curve_editor</definition>
         <argsstring>(const char *title, core::SCurve *scurve, SCurveGuiState *gui, FlipX flip_x, const SCurveImguiSettings &amp;settings, bool force_init_curve)</argsstring>
         <name>imgui_s_curve_editor</name>
         <qualifiedname>eu::imgui::imgui_s_curve_editor</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">char</ref> *</type>
+          <type>const char *</type>
           <declname>title</declname>
         </param>
         <param>
@@ -91,11 +91,11 @@
           <declname>flip_x</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1imgui_1_1SCurveImguiSettings" kindref="compound">SCurveImguiSettings</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1imgui_1_1SCurveImguiSettings" kindref="compound">SCurveImguiSettings</ref> &amp;</type>
           <declname>settings</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+          <type>bool</type>
           <declname>force_init_curve</declname>
         </param>
         <briefdescription>
@@ -107,13 +107,13 @@
         <location file="libs/imgui/src/eu/imgui/scurve.h" line="52" column="6" declfile="libs/imgui/src/eu/imgui/scurve.h" declline="52" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1imgui_1a420ae25b84de7554562a2b45086d01fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::imgui::imgui_text</definition>
         <argsstring>(const std::string &amp;str)</argsstring>
         <name>imgui_text</name>
         <qualifiedname>eu::imgui::imgui_text</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <type>const std::string &amp;</type>
           <declname>str</declname>
         </param>
         <briefdescription>
@@ -125,17 +125,17 @@
         <location file="libs/imgui/src/eu/imgui/ui.h" line="40" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="40" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1imgui_1a16ec0dc141f3a5c138f01887ee7b3b98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::imgui::imgui_image</definition>
         <argsstring>(const char *name, const render::FrameBuffer &amp;img, ImguiShaderCache *cache, ImageShader shader)</argsstring>
         <name>imgui_image</name>
         <qualifiedname>eu::imgui::imgui_image</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">char</ref> *</type>
+          <type>const char *</type>
           <declname>name</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">render::FrameBuffer</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">render::FrameBuffer</ref> &amp;</type>
           <declname>img</declname>
         </param>
         <param>
@@ -155,33 +155,33 @@
         <location file="libs/imgui/src/eu/imgui/ui.h" line="41" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="41" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1imgui_1ab76823a0cdc47913592393872d8445ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <type>bool</type>
         <definition>bool eu::imgui::simple_gamma_slider</definition>
         <argsstring>(const char *label, float *gamma, float curve=1.5f, float min_gamma=1.6f, float max_gamma=2.8f)</argsstring>
         <name>simple_gamma_slider</name>
         <qualifiedname>eu::imgui::simple_gamma_slider</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">char</ref> *</type>
+          <type>const char *</type>
           <declname>label</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref> *</type>
+          <type>float *</type>
           <declname>gamma</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>curve</declname>
-          <defval>1.5<ref refid="structeu_1_1R" kindref="compound">f</ref></defval>
+          <defval>1.5f</defval>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>min_gamma</declname>
-          <defval>1.6<ref refid="structeu_1_1R" kindref="compound">f</ref></defval>
+          <defval>1.6f</defval>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>max_gamma</declname>
-          <defval>2.8<ref refid="structeu_1_1R" kindref="compound">f</ref></defval>
+          <defval>2.8f</defval>
         </param>
         <briefdescription>
         </briefdescription>
@@ -192,13 +192,13 @@
         <location file="libs/imgui/src/eu/imgui/ui.h" line="42" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="42" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1imgui_1aac726e31c001bea8566a1019d8ef58f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <type>bool</type>
         <definition>bool eu::imgui::drag</definition>
         <argsstring>(const char *const label, v3 *drag)</argsstring>
         <name>drag</name>
         <qualifiedname>eu::imgui::drag</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">char</ref> *<ref refid="structeu_1_1R" kindref="compound">const</ref></type>
+          <type>const char *const</type>
           <declname>label</declname>
         </param>
         <param>
@@ -214,13 +214,13 @@
         <location file="libs/imgui/src/eu/imgui/ui.h" line="44" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="44" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1imgui_1a4b040bce31b42a8492fd5b8e9d3c7635" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <type>bool</type>
         <definition>bool eu::imgui::drag</definition>
         <argsstring>(const char *const label, Ypr *drag)</argsstring>
         <name>drag</name>
         <qualifiedname>eu::imgui::drag</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">char</ref> *<ref refid="structeu_1_1R" kindref="compound">const</ref></type>
+          <type>const char *const</type>
           <declname>label</declname>
         </param>
         <param>
@@ -236,13 +236,13 @@
         <location file="libs/imgui/src/eu/imgui/ui.h" line="45" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="45" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1imgui_1a14ca8b8ecb008694b753a5c7fbc29020" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <type>bool</type>
         <definition>bool eu::imgui::gear</definition>
         <argsstring>(const char *const label, v3 *drag)</argsstring>
         <name>gear</name>
         <qualifiedname>eu::imgui::gear</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">char</ref> *<ref refid="structeu_1_1R" kindref="compound">const</ref></type>
+          <type>const char *const</type>
           <declname>label</declname>
         </param>
         <param>

@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1core_1_1CompiledUniformProp" kind="struct" language="C++" prot="public">
     <compoundname>eu::core::CompiledUniformProp</compoundname>
     <includes refid="core_2src_2eu_2core_2uniform__buffer_8h" local="no">uniform_buffer.h</includes>
     <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1CompiledUniformProp_1a4685cf6d3471116df7e284716bfbc06e" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <type>int</type>
         <definition>int eu::core::CompiledUniformProp::offset</definition>
         <argsstring></argsstring>
         <name>offset</name>
@@ -35,7 +35,7 @@
         <location file="libs/core/src/eu/core/uniform_buffer.h" line="35" column="13" bodyfile="libs/core/src/eu/core/uniform_buffer.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1CompiledUniformProp_1a9ee9f9cbc5c85ebe419e12a440e12288" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <type>int</type>
         <definition>int eu::core::CompiledUniformProp::array_count</definition>
         <argsstring></argsstring>
         <name>array_count</name>

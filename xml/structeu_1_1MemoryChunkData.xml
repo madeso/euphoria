@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1MemoryChunkData" kind="struct" language="C++" prot="public">
     <compoundname>eu::MemoryChunkData</compoundname>
     <includes refid="memorychunk_8h" local="no">memorychunk.h</includes>
     <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1MemoryChunkData_1aab384a9ea3ee25c3bf177cb89e77670b" prot="public" static="no" mutable="no">
-        <type>std::vector&lt; <ref refid="structeu_1_1R" kindref="compound">char</ref> &gt;</type>
+        <type>std::vector&lt; char &gt;</type>
         <definition>std::vector&lt;char&gt; eu::MemoryChunkData::bytes</definition>
         <argsstring></argsstring>
         <name>bytes</name>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1core_1_1UniformBufferCompiler" kind="struct" language="C++" prot="public">
     <compoundname>eu::core::UniformBufferCompiler</compoundname>
     <includes refid="core_2src_2eu_2core_2uniform__buffer_8h" local="no">uniform_buffer.h</includes>
@@ -21,7 +21,7 @@
     </sectiondef>
     <sectiondef kind="public-func">
       <memberdef kind="function" id="structeu_1_1core_1_1UniformBufferCompiler_1a4450b7da838c8f5911e94b71c9f8c9b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::core::UniformBufferCompiler::add</definition>
         <argsstring>(CompiledUniformProp *target, UniformType type, const std::string &amp;name, int array_count=1)</argsstring>
         <name>add</name>
@@ -35,11 +35,11 @@
           <declname>type</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <type>const std::string &amp;</type>
           <declname>name</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <type>int</type>
           <declname>array_count</declname>
           <defval>1</defval>
         </param>
@@ -51,18 +51,18 @@
         </inbodydescription>
         <location file="libs/core/src/eu/core/uniform_buffer.h" line="51" column="6"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1core_1_1UniformBufferCompiler_1a57ce1265ec74f6085b17090636d0d56d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1core_1_1UniformBufferCompiler_1a57ce1265ec74f6085b17090636d0d56d" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1UniformBufferSetup" kindref="compound">UniformBufferSetup</ref></type>
         <definition>UniformBufferSetup eu::core::UniformBufferCompiler::compile</definition>
         <argsstring>(const std::string &amp;name, int binding_point) const</argsstring>
         <name>compile</name>
         <qualifiedname>eu::core::UniformBufferCompiler::compile</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <type>const std::string &amp;</type>
           <declname>name</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+          <type>int</type>
           <declname>binding_point</declname>
         </param>
         <briefdescription>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1imgui_1_1ImguiShaderCache" kind="struct" language="C++" prot="public">
     <compoundname>eu::imgui::ImguiShaderCache</compoundname>
     <includes refid="imgui_2src_2eu_2imgui_2ui_8h" local="no">ui.h</includes>
@@ -69,7 +69,7 @@
         <name>ImguiShaderCache</name>
         <qualifiedname>eu::imgui::ImguiShaderCache::ImguiShaderCache</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1imgui_1_1ImguiShaderCache" kindref="compound">ImguiShaderCache</ref> &amp;</type>
+          <type>const ImguiShaderCache &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -86,7 +86,7 @@
         <name>ImguiShaderCache</name>
         <qualifiedname>eu::imgui::ImguiShaderCache::ImguiShaderCache</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1imgui_1_1ImguiShaderCache" kindref="compound">ImguiShaderCache</ref> &amp;&amp;</type>
+          <type>ImguiShaderCache &amp;&amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -97,13 +97,13 @@
         <location file="libs/imgui/src/eu/imgui/ui.h" line="24" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1ImguiShaderCache_1af3d8254af932af3e16038ed5f6f2035c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1imgui_1_1ImguiShaderCache" kindref="compound">ImguiShaderCache</ref> &amp;</type>
+        <type><ref refid="structeu_1_1imgui_1_1ImguiShaderCache_1abdb193cc0b9f1d5240c94eb4e7819bb8" kindref="member">ImguiShaderCache</ref> &amp;</type>
         <definition>ImguiShaderCache &amp; eu::imgui::ImguiShaderCache::operator=</definition>
         <argsstring>(const ImguiShaderCache &amp;)=delete</argsstring>
         <name>operator=</name>
         <qualifiedname>eu::imgui::ImguiShaderCache::operator=</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1imgui_1_1ImguiShaderCache" kindref="compound">ImguiShaderCache</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1imgui_1_1ImguiShaderCache_1abdb193cc0b9f1d5240c94eb4e7819bb8" kindref="member">ImguiShaderCache</ref> &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -114,13 +114,13 @@
         <location file="libs/imgui/src/eu/imgui/ui.h" line="25" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1ImguiShaderCache_1a19a72c10af949d01aae70d914aa55e19" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1imgui_1_1ImguiShaderCache" kindref="compound">ImguiShaderCache</ref> &amp;</type>
+        <type><ref refid="structeu_1_1imgui_1_1ImguiShaderCache_1abdb193cc0b9f1d5240c94eb4e7819bb8" kindref="member">ImguiShaderCache</ref> &amp;</type>
         <definition>ImguiShaderCache &amp; eu::imgui::ImguiShaderCache::operator=</definition>
         <argsstring>(ImguiShaderCache &amp;&amp;)=delete</argsstring>
         <name>operator=</name>
         <qualifiedname>eu::imgui::ImguiShaderCache::operator=</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1imgui_1_1ImguiShaderCache" kindref="compound">ImguiShaderCache</ref> &amp;&amp;</type>
+          <type><ref refid="structeu_1_1imgui_1_1ImguiShaderCache_1abdb193cc0b9f1d5240c94eb4e7819bb8" kindref="member">ImguiShaderCache</ref> &amp;&amp;</type>
         </param>
         <briefdescription>
         </briefdescription>

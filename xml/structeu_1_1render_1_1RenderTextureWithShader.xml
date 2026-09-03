@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1RenderTextureWithShader" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::RenderTextureWithShader</compoundname>
     <basecompoundref refid="structeu_1_1render_1_1RenderSource" prot="public" virt="non-virtual">eu::render::RenderSource</basecompoundref>
@@ -20,7 +20,7 @@
         <location file="libs/render/src/eu/render/postproc.h" line="67" column="13" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="67" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1RenderTextureWithShader_1ac5615d337bffa77e7ad393e8bdd72eac" prot="public" static="no" mutable="no">
-        <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1RenderSource" kindref="compound">RenderSource</ref> &gt;</type>
+        <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1RenderSource_1a7ab0a91ffe9aedba48886c6f530eaf1e" kindref="member">RenderSource</ref> &gt;</type>
         <definition>std::shared_ptr&lt;RenderSource&gt; eu::render::RenderTextureWithShader::source</definition>
         <argsstring></argsstring>
         <name>source</name>
@@ -74,7 +74,7 @@
           <declname>n</declname>
         </param>
         <param>
-          <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1RenderSource" kindref="compound">RenderSource</ref> &gt;</type>
+          <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1RenderSource_1a7ab0a91ffe9aedba48886c6f530eaf1e" kindref="member">RenderSource</ref> &gt;</type>
           <declname>s</declname>
         </param>
         <param>
@@ -94,14 +94,14 @@
         <location file="libs/render/src/eu/render/postproc.h" line="72" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1RenderTextureWithShader_1a47e289b26d2b08119dbd2b1939b0631e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::RenderTextureWithShader::render</definition>
         <argsstring>(const PostProcArg &amp;arg) override</argsstring>
         <name>render</name>
         <qualifiedname>eu::render::RenderTextureWithShader::render</qualifiedname>
         <reimplements refid="structeu_1_1render_1_1RenderSource_1aefd4f044c4caab48e9169ed248ab75e8">render</reimplements>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1PostProcArg" kindref="compound">PostProcArg</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1PostProcArg" kindref="compound">PostProcArg</ref> &amp;</type>
           <declname>arg</declname>
         </param>
         <briefdescription>
@@ -114,13 +114,13 @@
         <location file="libs/render/src/eu/render/postproc.h" line="75" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1RenderTextureWithShader_1a5327e9df9e8e94f103201aee75078967" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::RenderTextureWithShader::update</definition>
         <argsstring>(const PostProcArg &amp;arg)</argsstring>
         <name>update</name>
         <qualifiedname>eu::render::RenderTextureWithShader::update</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1PostProcArg" kindref="compound">PostProcArg</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1PostProcArg" kindref="compound">PostProcArg</ref> &amp;</type>
           <declname>arg</declname>
         </param>
         <briefdescription>

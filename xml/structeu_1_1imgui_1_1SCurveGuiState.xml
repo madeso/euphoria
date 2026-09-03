@@ -1,16 +1,16 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1imgui_1_1SCurveGuiState" kind="struct" language="C++" prot="public">
     <compoundname>eu::imgui::SCurveGuiState</compoundname>
     <includes refid="imgui_2src_2eu_2imgui_2scurve_8h" local="no">scurve.h</includes>
     <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1imgui_1_1SCurveGuiState_1a1e223b925acfb7be3089879fea8df4e4" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">ImVec2</ref></type>
+        <type>ImVec2</type>
         <definition>ImVec2 eu::imgui::SCurveGuiState::drag</definition>
         <argsstring></argsstring>
         <name>drag</name>
         <qualifiedname>eu::imgui::SCurveGuiState::drag</qualifiedname>
-        <initializer>= {0.5<ref refid="structeu_1_1R" kindref="compound">f</ref>, 0.5<ref refid="structeu_1_1R" kindref="compound">f</ref>}</initializer>
+        <initializer>= {0.5f, 0.5f}</initializer>
         <briefdescription>
 <para>the gui data </para>
         </briefdescription>
@@ -21,7 +21,7 @@
         <location file="libs/imgui/src/eu/imgui/scurve.h" line="16" column="8" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="16" bodyend="16"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1imgui_1_1SCurveGuiState_1af14f84442a1d9509cb3d32acc31a9834" prot="public" static="no" mutable="no">
-        <type>std::vector&lt; <ref refid="structeu_1_1R" kindref="compound">ImVec2</ref> &gt;</type>
+        <type>std::vector&lt; ImVec2 &gt;</type>
         <definition>std::vector&lt;ImVec2&gt; eu::imgui::SCurveGuiState::point_cache</definition>
         <argsstring></argsstring>
         <name>point_cache</name>
@@ -57,11 +57,11 @@
         <name>SCurveGuiState</name>
         <qualifiedname>eu::imgui::SCurveGuiState::SCurveGuiState</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>x</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>y</declname>
         </param>
         <briefdescription>
@@ -75,7 +75,7 @@
     </sectiondef>
     <sectiondef kind="public-static-func">
       <memberdef kind="function" id="structeu_1_1imgui_1_1SCurveGuiState_1a682665dcf20cf5c7b56dedf48554b7a4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1imgui_1_1SCurveGuiState" kindref="compound">SCurveGuiState</ref></type>
+        <type><ref refid="structeu_1_1imgui_1_1SCurveGuiState_1a88bf48306c50ba46c1bf1f506a6d6117" kindref="member">SCurveGuiState</ref></type>
         <definition>static SCurveGuiState eu::imgui::SCurveGuiState::light_curve</definition>
         <argsstring>()</argsstring>
         <name>light_curve</name>

@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1Hsh" kind="struct" language="C++" prot="public">
     <compoundname>eu::Hsh</compoundname>
     <includes refid="hash_8string_8h" local="no">hash.string.h</includes>
     <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1Hsh_1aeb79fcb4cd0e4dd8fc62360d2ff6a219" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1ac0b6d77da47da3ce6bb55d66abc897f5" kindref="member">u64</ref></type>
+        <type><ref refid="namespaceeu_1abe0c1a612663ea762f0507c0e96a3514" kindref="member">u64</ref></type>
         <definition>u64 eu::Hsh::hash</definition>
         <argsstring></argsstring>
         <name>hash</name>
@@ -39,13 +39,13 @@
     </sectiondef>
     <sectiondef kind="public-func">
       <memberdef kind="function" id="structeu_1_1Hsh_1a7c658893d059b01ff9bcc490efaab3bf" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref></type>
-        <definition>constexpr eu::Hsh::Hsh</definition>
+        <type>constexpr</type>
+        <definition>eu::Hsh::Hsh</definition>
         <argsstring>(const std::string_view s)</argsstring>
         <name>Hsh</name>
         <qualifiedname>eu::Hsh::Hsh</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string_view</type>
+          <type>const std::string_view</type>
           <declname>s</declname>
         </param>
         <briefdescription>

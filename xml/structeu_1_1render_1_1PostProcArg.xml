@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1PostProcArg" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::PostProcArg</compoundname>
     <includes refid="postproc_8h" local="no">postproc.h</includes>
     <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1render_1_1PostProcArg_1a996b104e553d746ea3b2c3620ec90fb7" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1World" kindref="compound">World</ref> *</type>
+        <type>const <ref refid="structeu_1_1render_1_1World" kindref="compound">World</ref> *</type>
         <definition>const World* eu::render::PostProcArg::world</definition>
         <argsstring></argsstring>
         <name>world</name>
@@ -47,7 +47,7 @@
         <location file="libs/render/src/eu/render/postproc.h" line="28" column="10" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="28" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1PostProcArg_1ad657592510232f09cc22537c48306793" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Camera" kindref="compound">Camera</ref> *</type>
+        <type>const <ref refid="structeu_1_1render_1_1Camera" kindref="compound">Camera</ref> *</type>
         <definition>const Camera* eu::render::PostProcArg::camera</definition>
         <argsstring></argsstring>
         <name>camera</name>

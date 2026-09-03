@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1Render2" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::Render2</compoundname>
     <includes refid="canvas_8h" local="no">canvas.h</includes>
     <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1render_1_1Render2_1adc95314f9eed7b395c91b12421c3ca01" prot="public" static="no" mutable="no">
-        <type><ref refid="group__vertex-layout_1ga40a08dae458002da001fab3a190780a9" kindref="member">core::ShaderVertexAttributes</ref></type>
+        <type><ref refid="group__vertex-layout_1gadbc01228bcff314cbd83ef3014a44a8b" kindref="member">core::ShaderVertexAttributes</ref></type>
         <definition>core::ShaderVertexAttributes eu::render::Render2::quad_description</definition>
         <argsstring></argsstring>
         <name>quad_description</name>

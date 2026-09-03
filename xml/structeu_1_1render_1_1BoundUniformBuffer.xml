@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1BoundUniformBuffer" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::BoundUniformBuffer</compoundname>
     <includes refid="render_2src_2eu_2render_2uniform__buffer_8h" local="no">uniform_buffer.h</includes>
@@ -59,7 +59,7 @@
         <name>BoundUniformBuffer</name>
         <qualifiedname>eu::render::BoundUniformBuffer::BoundUniformBuffer</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1BoundUniformBuffer" kindref="compound">BoundUniformBuffer</ref> &amp;</type>
+          <type>const BoundUniformBuffer &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -76,7 +76,7 @@
         <name>BoundUniformBuffer</name>
         <qualifiedname>eu::render::BoundUniformBuffer::BoundUniformBuffer</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1render_1_1BoundUniformBuffer" kindref="compound">BoundUniformBuffer</ref> &amp;&amp;</type>
+          <type>BoundUniformBuffer &amp;&amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -87,13 +87,13 @@
         <location file="libs/render/src/eu/render/uniform_buffer.h" line="38" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1BoundUniformBuffer_1a39d989440cc51aeaae06de4bf4e559dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::BoundUniformBuffer::operator=</definition>
         <argsstring>(const BoundUniformBuffer &amp;)=delete</argsstring>
         <name>operator=</name>
         <qualifiedname>eu::render::BoundUniformBuffer::operator=</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1BoundUniformBuffer" kindref="compound">BoundUniformBuffer</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1BoundUniformBuffer_1ae8a1859b2dc775163469d96a13428860" kindref="member">BoundUniformBuffer</ref> &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -104,13 +104,13 @@
         <location file="libs/render/src/eu/render/uniform_buffer.h" line="39" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1BoundUniformBuffer_1a982cb96850558e2b0b1796479688f5cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::BoundUniformBuffer::operator=</definition>
         <argsstring>(BoundUniformBuffer &amp;&amp;)=delete</argsstring>
         <name>operator=</name>
         <qualifiedname>eu::render::BoundUniformBuffer::operator=</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1render_1_1BoundUniformBuffer" kindref="compound">BoundUniformBuffer</ref> &amp;&amp;</type>
+          <type><ref refid="structeu_1_1render_1_1BoundUniformBuffer_1ae8a1859b2dc775163469d96a13428860" kindref="member">BoundUniformBuffer</ref> &amp;&amp;</type>
         </param>
         <briefdescription>
         </briefdescription>

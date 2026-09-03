@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1AA" kind="struct" language="C++" prot="public">
     <compoundname>eu::AA</compoundname>
     <includes refid="axisangle_8h" local="no">axisangle.h</includes>
@@ -43,11 +43,11 @@
         <name>AA</name>
         <qualifiedname>eu::AA::AA</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1n3" kindref="compound">n3</ref> &amp;</type>
           <declname>ax</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1An" kindref="compound">An</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1An" kindref="compound">An</ref> &amp;</type>
           <declname>ang</declname>
         </param>
         <briefdescription>
@@ -60,14 +60,14 @@
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeu_1_1AA_1aa12744e9510b1a6de37d85d0c326eafc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::optional&lt; <ref refid="structeu_1_1AA" kindref="compound">AA</ref> &gt;</type>
+      <memberdef kind="function" id="structeu_1_1AA_1aa12744e9510b1a6de37d85d0c326eafc" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="structeu_1_1AA_1af1690aab94c15e9db117c61ea3265e8a" kindref="member">AA</ref> &gt;</type>
         <definition>static std::optional&lt; AA &gt; eu::AA::from</definition>
         <argsstring>(const Q &amp;q)</argsstring>
         <name>from</name>
         <qualifiedname>eu::AA::from</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
           <declname>q</declname>
         </param>
         <briefdescription>

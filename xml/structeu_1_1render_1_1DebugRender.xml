@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1DebugRender" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::DebugRender</compoundname>
     <includes refid="debug_8h" local="no">debug.h</includes>
@@ -21,21 +21,21 @@
     </sectiondef>
     <sectiondef kind="public-func">
       <memberdef kind="function" id="structeu_1_1render_1_1DebugRender_1a2be19195507063c5b805eeba7f192573" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::DebugRender::add_line</definition>
         <argsstring>(const v3 &amp;from, const v3 &amp;to, const Rgb &amp;color)</argsstring>
         <name>add_line</name>
         <qualifiedname>eu::render::DebugRender::add_line</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v3" kindref="compound">v3</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1v3" kindref="compound">v3</ref> &amp;</type>
           <declname>from</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v3" kindref="compound">v3</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1v3" kindref="compound">v3</ref> &amp;</type>
           <declname>to</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
           <declname>color</declname>
         </param>
         <briefdescription>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1BlurEffect" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::BlurEffect</compoundname>
     <basecompoundref refid="structeu_1_1render_1_1FactorEffect" prot="public" virt="non-virtual">eu::render::FactorEffect</basecompoundref>
@@ -104,12 +104,12 @@
         <location file="libs/render/src/eu/render/postproc.internal.h" line="160" column="9" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="160" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1BlurEffect_1a4190f4647333510b15c1914a63ef7bd5" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::render::BlurEffect::blur_size</definition>
         <argsstring></argsstring>
         <name>blur_size</name>
         <qualifiedname>eu::render::BlurEffect::blur_size</qualifiedname>
-        <initializer>= 0.02<ref refid="structeu_1_1R" kindref="compound">f</ref></initializer>
+        <initializer>= 0.02f</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -147,7 +147,7 @@
         <location file="libs/render/src/eu/render/postproc.internal.h" line="172" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1BlurEffect_1af8b6d218ec937f709acfb551bdada138" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::BlurEffect::gui</definition>
         <argsstring>() override</argsstring>
         <name>gui</name>
@@ -162,14 +162,14 @@
         <location file="libs/render/src/eu/render/postproc.internal.h" line="174" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1BlurEffect_1a677bca16202c03d8125d07301cc0d6d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::BlurEffect::update</definition>
         <argsstring>(float) override</argsstring>
         <name>update</name>
         <qualifiedname>eu::render::BlurEffect::update</qualifiedname>
         <reimplements refid="structeu_1_1render_1_1Effect_1a0d7ba9e2f2ee5b6f8ae1e85cf7b62825">update</reimplements>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -180,17 +180,17 @@
         <location file="libs/render/src/eu/render/postproc.internal.h" line="176" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1BlurEffect_1ac6381f6f3f352f64662b8efd78dbf732" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::BlurEffect::use_vert_shader</definition>
         <argsstring>(const PostProcArg &amp;a, const FrameBuffer &amp;t) const</argsstring>
         <name>use_vert_shader</name>
         <qualifiedname>eu::render::BlurEffect::use_vert_shader</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1PostProcArg" kindref="compound">PostProcArg</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1PostProcArg" kindref="compound">PostProcArg</ref> &amp;</type>
           <declname>a</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">FrameBuffer</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">FrameBuffer</ref> &amp;</type>
           <declname>t</declname>
         </param>
         <briefdescription>
@@ -202,17 +202,17 @@
         <location file="libs/render/src/eu/render/postproc.internal.h" line="178" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1BlurEffect_1a240ddcd4bf1a36d239501aa4bad3e296" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::BlurEffect::use_hori_shader</definition>
         <argsstring>(const PostProcArg &amp;a, const FrameBuffer &amp;t)</argsstring>
         <name>use_hori_shader</name>
         <qualifiedname>eu::render::BlurEffect::use_hori_shader</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1PostProcArg" kindref="compound">PostProcArg</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1PostProcArg" kindref="compound">PostProcArg</ref> &amp;</type>
           <declname>a</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">FrameBuffer</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">FrameBuffer</ref> &amp;</type>
           <declname>t</declname>
         </param>
         <briefdescription>
@@ -224,14 +224,14 @@
         <location file="libs/render/src/eu/render/postproc.internal.h" line="180" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1BlurEffect_1a063dbf2a3d6063a4d5a8d64822ae5512" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::BlurEffect::build</definition>
         <argsstring>(const BuildArg &amp;arg) override</argsstring>
         <name>build</name>
         <qualifiedname>eu::render::BlurEffect::build</qualifiedname>
         <reimplements refid="structeu_1_1render_1_1Effect_1ab9c96c9b468942c7bf4ea7c6573280d1">build</reimplements>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1BuildArg" kindref="compound">BuildArg</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1BuildArg" kindref="compound">BuildArg</ref> &amp;</type>
           <declname>arg</declname>
         </param>
         <briefdescription>

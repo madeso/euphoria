@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="classeu_1_1kdl_1_1ParseError" kind="class" language="C++" prot="public">
     <compoundname>eu::kdl::ParseError</compoundname>
     <basecompoundref prot="public" virt="non-virtual">std::exception</basecompoundref>
@@ -28,7 +28,7 @@
         <name>ParseError</name>
         <qualifiedname>eu::kdl::ParseError::ParseError</qualifiedname>
         <param>
-          <type><ref refid="kdl_8h_1a0871194d96ef3fe9606594bd45be95e0" kindref="member">kdl_str</ref> <ref refid="structeu_1_1R" kindref="compound">const</ref> &amp;</type>
+          <type><ref refid="kdl_8h_1a0871194d96ef3fe9606594bd45be95e0" kindref="member">kdl_str</ref> const &amp;</type>
           <declname>msg</declname>
         </param>
         <briefdescription>
@@ -58,7 +58,7 @@
         <location file="libs/kdl/src/eu/kdl/kdl.h" line="44" column="5" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="44" bodyend="44"/>
       </memberdef>
       <memberdef kind="function" id="classeu_1_1kdl_1_1ParseError_1a862df2bd5d47b00798ce16e0585ed026" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">char</ref> *</type>
+        <type>const char *</type>
         <definition>const char * eu::kdl::ParseError::what</definition>
         <argsstring>() const noexcept</argsstring>
         <name>what</name>

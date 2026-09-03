@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="group__render" kind="group">
     <compoundname>render</compoundname>
     <title>Renderer</title>
@@ -627,9 +627,9 @@
       </memberdef>
     </sectiondef>
     <sectiondef kind="typedef">
-      <memberdef kind="typedef" id="group__render_1gaf20743f7c4f35277d1d278d8ac20368d" prot="public" static="no">
+      <memberdef kind="typedef" id="group__render_1ga7e2c947b3161d42b9b1360f266b56c88" prot="public" static="no">
         <type>std::tuple&lt; Blend, Blend &gt;</type>
-        <definition>using eu::render::BlendMode = typedef std::tuple&lt;Blend, Blend&gt;</definition>
+        <definition>using eu::render::BlendMode =  std::tuple&lt;Blend, Blend&gt;</definition>
         <argsstring></argsstring>
         <name>BlendMode</name>
         <qualifiedname>eu::render::BlendMode</qualifiedname>
@@ -642,9 +642,9 @@
         </inbodydescription>
         <location file="libs/render/src/eu/render/state.h" line="103" column="1" bodyfile="libs/render/src/eu/render/state.h" bodystart="103" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="typedef" id="group__render_1gad0035b261e0f761ea8db04d8b5de2ef5" prot="public" static="no">
+      <memberdef kind="typedef" id="group__render_1ga43fb2392c6b77e1684dc495d4b77c461" prot="public" static="no">
         <type>std::tuple&lt; Compare, i32, u32 &gt;</type>
-        <definition>using eu::render::StencilFunc = typedef std::tuple&lt;Compare, i32, u32&gt;</definition>
+        <definition>using eu::render::StencilFunc =  std::tuple&lt;Compare, i32, u32&gt;</definition>
         <argsstring></argsstring>
         <name>StencilFunc</name>
         <qualifiedname>eu::render::StencilFunc</qualifiedname>
@@ -660,9 +660,9 @@
         </inbodydescription>
         <location file="libs/render/src/eu/render/state.h" line="107" column="1" bodyfile="libs/render/src/eu/render/state.h" bodystart="107" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="typedef" id="group__render_1ga90cb5bd57c88feb4e3d017558200ced1" prot="public" static="no">
+      <memberdef kind="typedef" id="group__render_1gac2414627ce6884064c21ae9b773b3b72" prot="public" static="no">
         <type>std::tuple&lt; StencilAction, StencilAction, StencilAction &gt;</type>
-        <definition>using eu::render::StencilOp = typedef std::tuple&lt;StencilAction, StencilAction, StencilAction&gt;</definition>
+        <definition>using eu::render::StencilOp =  std::tuple&lt;StencilAction, StencilAction, StencilAction&gt;</definition>
         <argsstring></argsstring>
         <name>StencilOp</name>
         <qualifiedname>eu::render::StencilOp</qualifiedname>
@@ -855,7 +855,7 @@
         </inbodydescription>
         <location file="libs/render/src/eu/render/shader_resource.h" line="148" column="15" declfile="libs/render/src/eu/render/shader_resource.h" declline="148" declcolumn="15"/>
       </memberdef>
-      <memberdef kind="function" id="group__render_1ga521fe9e6ecd5ce09d12e17b5e3f31e8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__render_1ga521fe9e6ecd5ce09d12e17b5e3f31e8a" prot="public" static="no" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const LoadedShader_Unlit &amp;</type>
         <definition>const LoadedShader_Unlit &amp; eu::render::shader_from_container</definition>
         <argsstring>(const LoadedShader_Unlit_Container &amp;container, const RenderContext &amp;rc)</argsstring>
@@ -878,7 +878,7 @@
         </inbodydescription>
         <location file="libs/render/src/eu/render/shader_resource.h" line="240" column="27" declfile="libs/render/src/eu/render/shader_resource.h" declline="240" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="group__render_1gab8c7bb982af9cfe2845bb5f5b2d2c5a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__render_1gab8c7bb982af9cfe2845bb5f5b2d2c5a4" prot="public" static="no" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const LoadedShader_Default &amp;</type>
         <definition>const LoadedShader_Default &amp; eu::render::shader_from_container</definition>
         <argsstring>(const LoadedShader_Default_Container &amp;container, const RenderContext &amp;rc)</argsstring>

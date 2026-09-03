@@ -1,15 +1,17 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="namespaceeu_1_1kdl" kind="namespace" language="C++">
     <compoundname>eu::kdl</compoundname>
-    <innerclass refid="classeu_1_1kdl_1_1Document" prot="public">eu::kdl::Document</innerclass>
-    <innerclass refid="classeu_1_1kdl_1_1EmitterError" prot="public">eu::kdl::EmitterError</innerclass>
-    <innerclass refid="classeu_1_1kdl_1_1HasTypeAnnotation" prot="public">eu::kdl::HasTypeAnnotation</innerclass>
-    <innerclass refid="classeu_1_1kdl_1_1Node" prot="public">eu::kdl::Node</innerclass>
-    <innerclass refid="classeu_1_1kdl_1_1Number" prot="public">eu::kdl::Number</innerclass>
-    <innerclass refid="classeu_1_1kdl_1_1ParseError" prot="public">eu::kdl::ParseError</innerclass>
     <innerclass refid="classeu_1_1kdl_1_1TypeError" prot="public">eu::kdl::TypeError</innerclass>
+    <innerclass refid="classeu_1_1kdl_1_1ParseError" prot="public">eu::kdl::ParseError</innerclass>
+    <innerclass refid="classeu_1_1kdl_1_1EmitterError" prot="public">eu::kdl::EmitterError</innerclass>
+    <innerclass refid="classeu_1_1kdl_1_1Number" prot="public">eu::kdl::Number</innerclass>
+    <innerclass refid="classeu_1_1kdl_1_1HasTypeAnnotation" prot="public">eu::kdl::HasTypeAnnotation</innerclass>
     <innerclass refid="classeu_1_1kdl_1_1Value" prot="public">eu::kdl::Value</innerclass>
+    <innerclass refid="classeu_1_1kdl_1_1Node" prot="public">eu::kdl::Node</innerclass>
+    <innerclass refid="classeu_1_1kdl_1_1Document" prot="public">eu::kdl::Document</innerclass>
+    <innerconcept refid="concepteu_1_1kdl_1_1__arithmetic">eu::kdl::_arithmetic</innerconcept>
+    <innerconcept refid="concepteu_1_1kdl_1_1__into__number">eu::kdl::_into_number</innerconcept>
     <sectiondef kind="enum">
       <memberdef kind="enum" id="namespaceeu_1_1kdl_1a8a35bda2e74362d12aec8484f3675dcf" prot="public" static="no" strong="yes">
         <type></type>

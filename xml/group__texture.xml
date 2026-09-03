@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="group__texture" kind="group">
     <compoundname>texture</compoundname>
     <title>Texture</title>
@@ -117,7 +117,7 @@
         <enumvalue id="group__texture_1gga4c49cf44c6f0f36c25cc3fd17be1dda5abe7bbe0cf3947e795861f1fa966bab58" prot="public">
           <name>dont_care</name>
           <briefdescription>
-<para>Explicitly don&apos;t care about the color data but same as <ref refid="group__texture_1gga4c49cf44c6f0f36c25cc3fd17be1dda5a305f7fe2fe08b4d3c0244267c8428bfc" kindref="member">non_color_data</ref>. </para>
+<para>Explicitly don&apos;t care about the color data but same as non_color_data. </para>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
@@ -215,8 +215,8 @@
     </sectiondef>
     <sectiondef kind="var">
       <memberdef kind="variable" id="group__texture_1gac79b1d9294cd27d6bd858386a5d3b0b9" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>constexpr std::size_t</type>
-        <definition>constexpr std::size_t eu::render::cubemap_size</definition>
+        <type>std::size_t</type>
+        <definition>std::size_t eu::render::cubemap_size</definition>
         <argsstring></argsstring>
         <name>cubemap_size</name>
         <qualifiedname>eu::render::cubemap_size</qualifiedname>

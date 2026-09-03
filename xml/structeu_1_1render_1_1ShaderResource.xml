@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1ShaderResource" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::ShaderResource</compoundname>
     <includes refid="shader__resource_8h" local="no">shader_resource.h</includes>
@@ -133,8 +133,8 @@
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeu_1_1render_1_1ShaderResource_1a9dfd82b0fd88af6cbc8985625c1fa67b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderResource_1a9dfd82b0fd88af6cbc8985625c1fa67b" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
         <definition>bool eu::render::ShaderResource::is_loaded</definition>
         <argsstring>() const</argsstring>
         <name>is_loaded</name>
@@ -181,7 +181,7 @@
           <edgelabel>tex_directional_light_depth_uni</edgelabel>
           <edgelabel>tex_emissive_uniform</edgelabel>
           <edgelabel>tex_specular_uniform</edgelabel>
-          <edgelabel>...</edgelabel>
+          <edgelabel>  ...</edgelabel>
         </childnode>
       </node>
       <node id="9">

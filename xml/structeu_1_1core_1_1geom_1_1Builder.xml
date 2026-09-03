@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1core_1_1geom_1_1Builder" kind="struct" language="C++" prot="public">
     <compoundname>eu::core::geom::Builder</compoundname>
     <includes refid="geom_8builder_8h" local="no">geom.builder.h</includes>
@@ -90,7 +90,7 @@
         <location file="libs/core/src/eu/core/geom.builder.h" line="93" column="17" bodyfile="libs/core/src/eu/core/geom.builder.h" bodystart="93" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1geom_1_1Builder_1a82e9e04e04dd2e842cbd44709c7b324c" prot="public" static="no" mutable="no">
-        <type>std::vector&lt; <ref refid="group__geom-builder_1ga9452c6a6e248f5f5d01e37adfd08bdef" kindref="member">Influence4</ref> &gt;</type>
+        <type>std::vector&lt; <ref refid="group__geom-builder_1gaa1f4652aea2012fd2f3720108d8b548a" kindref="member">Influence4</ref> &gt;</type>
         <definition>std::vector&lt;Influence4&gt; eu::core::geom::Builder::influences</definition>
         <argsstring></argsstring>
         <name>influences</name>
@@ -106,13 +106,13 @@
     </sectiondef>
     <sectiondef kind="public-func">
       <memberdef kind="function" id="structeu_1_1core_1_1geom_1_1Builder_1ae32988df3a011f7b265341b984bece13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="group__geom-builder_1ga7cfafc3b29e5aa6ed905369356ea1449" kindref="member">Index</ref></type>
+        <type><ref refid="group__geom-builder_1gab3d342a617cc37061b9466839a40e222" kindref="member">Index</ref></type>
         <definition>Index eu::core::geom::Builder::add_text_coord</definition>
         <argsstring>(const v2 &amp;tc)</argsstring>
         <name>add_text_coord</name>
         <qualifiedname>eu::core::geom::Builder::add_text_coord</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
           <declname>tc</declname>
         </param>
         <briefdescription>
@@ -124,13 +124,13 @@
         <location file="libs/core/src/eu/core/geom.builder.h" line="63" column="7"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1geom_1_1Builder_1a26f7be1c3c843aeb041031e75bb49365" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="group__geom-builder_1ga7cfafc3b29e5aa6ed905369356ea1449" kindref="member">Index</ref></type>
+        <type><ref refid="group__geom-builder_1gab3d342a617cc37061b9466839a40e222" kindref="member">Index</ref></type>
         <definition>Index eu::core::geom::Builder::add_position</definition>
         <argsstring>(const v3 &amp;pos)</argsstring>
         <name>add_position</name>
         <qualifiedname>eu::core::geom::Builder::add_position</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v3" kindref="compound">v3</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1v3" kindref="compound">v3</ref> &amp;</type>
           <declname>pos</declname>
         </param>
         <briefdescription>
@@ -142,13 +142,13 @@
         <location file="libs/core/src/eu/core/geom.builder.h" line="64" column="7"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1geom_1_1Builder_1ac76532c4f4ff1f9ffa1fc945d1cbda43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="group__geom-builder_1ga7cfafc3b29e5aa6ed905369356ea1449" kindref="member">Index</ref></type>
+        <type><ref refid="group__geom-builder_1gab3d342a617cc37061b9466839a40e222" kindref="member">Index</ref></type>
         <definition>Index eu::core::geom::Builder::add_normal</definition>
         <argsstring>(const n3 &amp;norm)</argsstring>
         <name>add_normal</name>
         <qualifiedname>eu::core::geom::Builder::add_normal</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1n3" kindref="compound">n3</ref> &amp;</type>
           <declname>norm</declname>
         </param>
         <briefdescription>
@@ -160,13 +160,13 @@
         <location file="libs/core/src/eu/core/geom.builder.h" line="65" column="7"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1geom_1_1Builder_1ad74f373dc037863b05b6df9d5bfbb8c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="group__geom-builder_1ga7cfafc3b29e5aa6ed905369356ea1449" kindref="member">Index</ref></type>
+        <type><ref refid="group__geom-builder_1gab3d342a617cc37061b9466839a40e222" kindref="member">Index</ref></type>
         <definition>Index eu::core::geom::Builder::add_color</definition>
         <argsstring>(const Lin_rgb &amp;color)</argsstring>
         <name>add_color</name>
         <qualifiedname>eu::core::geom::Builder::add_color</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Lin__rgb" kindref="compound">Lin_rgb</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Lin__rgb" kindref="compound">Lin_rgb</ref> &amp;</type>
           <declname>color</declname>
         </param>
         <briefdescription>
@@ -178,13 +178,13 @@
         <location file="libs/core/src/eu/core/geom.builder.h" line="66" column="7"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1geom_1_1Builder_1a5eecda4628a73b260de80e32b610b70a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::core::geom::Builder::add_weight</definition>
         <argsstring>(const v4 &amp;weight)</argsstring>
         <name>add_weight</name>
         <qualifiedname>eu::core::geom::Builder::add_weight</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v4" kindref="compound">v4</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1v4" kindref="compound">v4</ref> &amp;</type>
           <declname>weight</declname>
         </param>
         <briefdescription>
@@ -196,13 +196,13 @@
         <location file="libs/core/src/eu/core/geom.builder.h" line="67" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1geom_1_1Builder_1a769c6cdc050241100e4cdcfd567af304" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::core::geom::Builder::add_influence</definition>
         <argsstring>(const Influence4 &amp;weight)</argsstring>
         <name>add_influence</name>
         <qualifiedname>eu::core::geom::Builder::add_influence</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="group__geom-builder_1ga9452c6a6e248f5f5d01e37adfd08bdef" kindref="member">Influence4</ref> &amp;</type>
+          <type>const <ref refid="group__geom-builder_1gaa1f4652aea2012fd2f3720108d8b548a" kindref="member">Influence4</ref> &amp;</type>
           <declname>weight</declname>
         </param>
         <briefdescription>
@@ -214,17 +214,17 @@
         <location file="libs/core/src/eu/core/geom.builder.h" line="68" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1geom_1_1Builder_1a147288d2b70580e0d0b361cfc35d4f05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="group__geom-builder_1ga7cfafc3b29e5aa6ed905369356ea1449" kindref="member">Index</ref></type>
+        <type><ref refid="group__geom-builder_1gab3d342a617cc37061b9466839a40e222" kindref="member">Index</ref></type>
         <definition>Index eu::core::geom::Builder::foa_text_coord</definition>
         <argsstring>(const v2 &amp;v, float max_diff)</argsstring>
         <name>foa_text_coord</name>
         <qualifiedname>eu::core::geom::Builder::foa_text_coord</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
           <declname>v</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>max_diff</declname>
         </param>
         <briefdescription>
@@ -236,17 +236,17 @@
         <location file="libs/core/src/eu/core/geom.builder.h" line="71" column="7"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1geom_1_1Builder_1aa9a7abf35475d6f4bd8b39c70a94bbb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="group__geom-builder_1ga7cfafc3b29e5aa6ed905369356ea1449" kindref="member">Index</ref></type>
+        <type><ref refid="group__geom-builder_1gab3d342a617cc37061b9466839a40e222" kindref="member">Index</ref></type>
         <definition>Index eu::core::geom::Builder::foa_position</definition>
         <argsstring>(const v3 &amp;pos, float max_diff)</argsstring>
         <name>foa_position</name>
         <qualifiedname>eu::core::geom::Builder::foa_position</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v3" kindref="compound">v3</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1v3" kindref="compound">v3</ref> &amp;</type>
           <declname>pos</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>max_diff</declname>
         </param>
         <briefdescription>
@@ -258,17 +258,17 @@
         <location file="libs/core/src/eu/core/geom.builder.h" line="72" column="7"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1geom_1_1Builder_1a76e6a3817cfaf0f8321f563bb5b2dc1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="group__geom-builder_1ga7cfafc3b29e5aa6ed905369356ea1449" kindref="member">Index</ref></type>
+        <type><ref refid="group__geom-builder_1gab3d342a617cc37061b9466839a40e222" kindref="member">Index</ref></type>
         <definition>Index eu::core::geom::Builder::foa_normal</definition>
         <argsstring>(const n3 &amp;norm, float max_diff)</argsstring>
         <name>foa_normal</name>
         <qualifiedname>eu::core::geom::Builder::foa_normal</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1n3" kindref="compound">n3</ref> &amp;</type>
           <declname>norm</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>max_diff</declname>
         </param>
         <briefdescription>
@@ -280,17 +280,17 @@
         <location file="libs/core/src/eu/core/geom.builder.h" line="73" column="7"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1geom_1_1Builder_1adeff3702c7cf400f8e0d8397cdc1c278" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="group__geom-builder_1ga7cfafc3b29e5aa6ed905369356ea1449" kindref="member">Index</ref></type>
+        <type><ref refid="group__geom-builder_1gab3d342a617cc37061b9466839a40e222" kindref="member">Index</ref></type>
         <definition>Index eu::core::geom::Builder::foa_color</definition>
         <argsstring>(const Lin_rgb &amp;color, float max_diff)</argsstring>
         <name>foa_color</name>
         <qualifiedname>eu::core::geom::Builder::foa_color</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Lin__rgb" kindref="compound">Lin_rgb</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Lin__rgb" kindref="compound">Lin_rgb</ref> &amp;</type>
           <declname>color</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>max_diff</declname>
         </param>
         <briefdescription>
@@ -308,7 +308,7 @@
         <name>add_triangle</name>
         <qualifiedname>eu::core::geom::Builder::add_triangle</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1core_1_1geom_1_1Triangle" kindref="compound">Triangle</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1core_1_1geom_1_1Triangle" kindref="compound">Triangle</ref> &amp;</type>
           <declname>t</declname>
         </param>
         <briefdescription>
@@ -326,23 +326,23 @@
         <name>add_quad</name>
         <qualifiedname>eu::core::geom::Builder::add_quad</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+          <type>bool</type>
           <declname>ccw</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1core_1_1geom_1_1Vertex" kindref="compound">Vertex</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1core_1_1geom_1_1Vertex" kindref="compound">Vertex</ref> &amp;</type>
           <declname>v0</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1core_1_1geom_1_1Vertex" kindref="compound">Vertex</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1core_1_1geom_1_1Vertex" kindref="compound">Vertex</ref> &amp;</type>
           <declname>v1</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1core_1_1geom_1_1Vertex" kindref="compound">Vertex</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1core_1_1geom_1_1Vertex" kindref="compound">Vertex</ref> &amp;</type>
           <declname>v2</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1core_1_1geom_1_1Vertex" kindref="compound">Vertex</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1core_1_1geom_1_1Vertex" kindref="compound">Vertex</ref> &amp;</type>
           <declname>v3</declname>
         </param>
         <briefdescription>
@@ -360,7 +360,7 @@
         <name>add_face</name>
         <qualifiedname>eu::core::geom::Builder::add_face</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::vector&lt; <ref refid="structeu_1_1core_1_1geom_1_1Vertex" kindref="compound">Vertex</ref> &gt; &amp;</type>
+          <type>const std::vector&lt; <ref refid="structeu_1_1core_1_1geom_1_1Vertex" kindref="compound">Vertex</ref> &gt; &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -377,7 +377,7 @@
         <name>move</name>
         <qualifiedname>eu::core::geom::Builder::move</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v3" kindref="compound">v3</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1v3" kindref="compound">v3</ref> &amp;</type>
           <declname>dir</declname>
         </param>
         <briefdescription>
@@ -395,7 +395,7 @@
         <name>scale</name>
         <qualifiedname>eu::core::geom::Builder::scale</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>scale</declname>
         </param>
         <briefdescription>
@@ -420,7 +420,7 @@
         </inbodydescription>
         <location file="libs/core/src/eu/core/geom.builder.h" line="82" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1core_1_1geom_1_1Builder_1a6c8ad17f7747e0fed1d235dcf48064e1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1core_1_1geom_1_1Builder_1a6c8ad17f7747e0fed1d235dcf48064e1" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1Geom" kindref="compound">Geom</ref></type>
         <definition>Geom eu::core::geom::Builder::to_geom</definition>
         <argsstring>() const</argsstring>
@@ -441,7 +441,7 @@
         <name>write_obj</name>
         <qualifiedname>eu::core::geom::Builder::write_obj</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> std::string &amp;</type>
+          <type>const std::string &amp;</type>
           <declname>path</declname>
         </param>
         <briefdescription>

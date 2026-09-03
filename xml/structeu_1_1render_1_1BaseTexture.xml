@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1BaseTexture" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::BaseTexture</compoundname>
     <derivedcompoundref refid="structeu_1_1render_1_1FrameBuffer" prot="public" virt="non-virtual">eu::render::FrameBuffer</derivedcompoundref>
@@ -8,7 +8,7 @@
     <includes refid="texture_8h" local="no">texture.h</includes>
     <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1render_1_1BaseTexture_1a1ad500ed909568d7d3d7042170b9e6dd" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">unsigned</ref> <ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <type>unsigned int</type>
         <definition>unsigned int eu::render::BaseTexture::id</definition>
         <argsstring></argsstring>
         <name>id</name>
@@ -58,7 +58,7 @@
         <name>BaseTexture</name>
         <qualifiedname>eu::render::BaseTexture::BaseTexture</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1BaseTexture" kindref="compound">BaseTexture</ref> &amp;</type>
+          <type>const BaseTexture &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -69,13 +69,13 @@
         <location file="libs/render/src/eu/render/texture.h" line="60" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1BaseTexture_1a80d0ca15ad4e96b0e1903be4f37b3450" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::BaseTexture::operator=</definition>
         <argsstring>(const BaseTexture &amp;)=delete</argsstring>
         <name>operator=</name>
         <qualifiedname>eu::render::BaseTexture::operator=</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1BaseTexture" kindref="compound">BaseTexture</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1BaseTexture_1a4f8bf634470e48be913dac919fd688c7" kindref="member">BaseTexture</ref> &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -92,7 +92,7 @@
         <name>BaseTexture</name>
         <qualifiedname>eu::render::BaseTexture::BaseTexture</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1render_1_1BaseTexture" kindref="compound">BaseTexture</ref> &amp;&amp;</type>
+          <type>BaseTexture &amp;&amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -103,13 +103,13 @@
         <location file="libs/render/src/eu/render/texture.h" line="63" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1BaseTexture_1aeb794f4887900ce084b91d8a0305cdbd" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
-        <type><ref refid="structeu_1_1render_1_1BaseTexture" kindref="compound">BaseTexture</ref> &amp;</type>
+        <type><ref refid="structeu_1_1render_1_1BaseTexture_1a4f8bf634470e48be913dac919fd688c7" kindref="member">BaseTexture</ref> &amp;</type>
         <definition>BaseTexture &amp; eu::render::BaseTexture::operator=</definition>
         <argsstring>(BaseTexture &amp;&amp;) noexcept</argsstring>
         <name>operator=</name>
         <qualifiedname>eu::render::BaseTexture::operator=</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1render_1_1BaseTexture" kindref="compound">BaseTexture</ref> &amp;&amp;</type>
+          <type><ref refid="structeu_1_1render_1_1BaseTexture_1a4f8bf634470e48be913dac919fd688c7" kindref="member">BaseTexture</ref> &amp;&amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -120,7 +120,7 @@
         <location file="libs/render/src/eu/render/texture.h" line="64" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1BaseTexture_1abe95020af353f26dfc963ac6a8d1cc75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::BaseTexture::unload</definition>
         <argsstring>()</argsstring>
         <name>unload</name>

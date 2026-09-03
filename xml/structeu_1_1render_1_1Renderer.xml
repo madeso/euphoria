@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1Renderer" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::Renderer</compoundname>
     <includes refid="renderer_8h" local="no">renderer.h</includes>
@@ -77,7 +77,7 @@
           <declname>default_assets</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1RenderSettings" kindref="compound">RenderSettings</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1RenderSettings" kindref="compound">RenderSettings</ref> &amp;</type>
           <declname>settings</declname>
         </param>
         <briefdescription>
@@ -109,7 +109,7 @@
         <name>Renderer</name>
         <qualifiedname>eu::render::Renderer::Renderer</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Renderer" kindref="compound">Renderer</ref> &amp;</type>
+          <type>const Renderer &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -126,7 +126,7 @@
         <name>Renderer</name>
         <qualifiedname>eu::render::Renderer::Renderer</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1render_1_1Renderer" kindref="compound">Renderer</ref> &amp;&amp;</type>
+          <type>Renderer &amp;&amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -137,13 +137,13 @@
         <location file="libs/render/src/eu/render/renderer.h" line="42" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1ae4b6bfdf39ba8a4c1ae74366a659eca4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::Renderer::operator=</definition>
         <argsstring>(const Renderer &amp;)=delete</argsstring>
         <name>operator=</name>
         <qualifiedname>eu::render::Renderer::operator=</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1Renderer" kindref="compound">Renderer</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1Renderer_1a9cb5cd60a0e727573fff32403d65b081" kindref="member">Renderer</ref> &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -154,13 +154,13 @@
         <location file="libs/render/src/eu/render/renderer.h" line="43" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1afe4100a7fd35f7ab4d3aa71b2cd5c370" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::Renderer::operator=</definition>
         <argsstring>(Renderer &amp;&amp;)=delete</argsstring>
         <name>operator=</name>
         <qualifiedname>eu::render::Renderer::operator=</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1render_1_1Renderer" kindref="compound">Renderer</ref> &amp;&amp;</type>
+          <type><ref refid="structeu_1_1render_1_1Renderer_1a9cb5cd60a0e727573fff32403d65b081" kindref="member">Renderer</ref> &amp;&amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -198,7 +198,7 @@
         </inbodydescription>
         <location file="libs/render/src/eu/render/renderer.h" line="47" column="17"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a5e14a019529bc30d1cf222ea78ab6f56" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a5e14a019529bc30d1cf222ea78ab6f56" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1CompiledGeomVertexAttributes" kindref="compound">core::CompiledGeomVertexAttributes</ref></type>
         <definition>core::CompiledGeomVertexAttributes eu::render::Renderer::unlit_geom_layout</definition>
         <argsstring>() const</argsstring>
@@ -212,7 +212,7 @@
         </inbodydescription>
         <location file="libs/render/src/eu/render/renderer.h" line="49" column="37"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a4a832ca6cb425e046826cdaf1bdbc2da" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a4a832ca6cb425e046826cdaf1bdbc2da" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1CompiledGeomVertexAttributes" kindref="compound">core::CompiledGeomVertexAttributes</ref></type>
         <definition>core::CompiledGeomVertexAttributes eu::render::Renderer::default_geom_layout</definition>
         <argsstring>() const</argsstring>
@@ -282,7 +282,7 @@
         </inbodydescription>
         <location file="libs/render/src/eu/render/renderer.h" line="55" column="17"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a5a8a427e91e67011a7651c7af5530c22" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a5a8a427e91e67011a7651c7af5530c22" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1Skybox" kindref="compound">Skybox</ref></type>
         <definition>Skybox eu::render::Renderer::make_skybox</definition>
         <argsstring>(std::shared_ptr&lt; TextureCubemap &gt; texture) const</argsstring>
@@ -300,8 +300,8 @@
         </inbodydescription>
         <location file="libs/render/src/eu/render/renderer.h" line="57" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a4bc0ed77c627dcf7d3b6aecce53baaea" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+      <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a4bc0ed77c627dcf7d3b6aecce53baaea" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
         <definition>bool eu::render::Renderer::is_loaded</definition>
         <argsstring>() const</argsstring>
         <name>is_loaded</name>
@@ -316,23 +316,23 @@
         <location file="libs/render/src/eu/render/renderer.h" line="60" column="7"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a1237cad9b3f85985a7a5216206171f1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::Renderer::render_world</definition>
         <argsstring>(const Size &amp;window_size, const World &amp;, const CompiledCamera &amp;, const ShadowContext &amp;shadow_context)</argsstring>
         <name>render_world</name>
         <qualifiedname>eu::render::Renderer::render_world</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Size" kindref="compound">Size</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Size" kindref="compound">Size</ref> &amp;</type>
           <declname>window_size</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1World" kindref="compound">World</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1World" kindref="compound">World</ref> &amp;</type>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1CompiledCamera" kindref="compound">CompiledCamera</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1CompiledCamera" kindref="compound">CompiledCamera</ref> &amp;</type>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1ShadowContext" kindref="compound">ShadowContext</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1ShadowContext" kindref="compound">ShadowContext</ref> &amp;</type>
           <declname>shadow_context</declname>
         </param>
         <briefdescription>
@@ -345,20 +345,20 @@
         <location file="libs/render/src/eu/render/renderer.h" line="63" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1af32c692c18d3e01135ea16e3a660e862" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::Renderer::render_shadows</definition>
         <argsstring>(const Size &amp;window_size, const World &amp;, const CompiledCamera &amp;) const</argsstring>
         <name>render_shadows</name>
         <qualifiedname>eu::render::Renderer::render_shadows</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Size" kindref="compound">Size</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Size" kindref="compound">Size</ref> &amp;</type>
           <declname>window_size</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1World" kindref="compound">World</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1World" kindref="compound">World</ref> &amp;</type>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1render_1_1CompiledCamera" kindref="compound">CompiledCamera</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1CompiledCamera" kindref="compound">CompiledCamera</ref> &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1HshSt" kind="struct" language="C++" prot="public">
     <compoundname>eu::HshSt</compoundname>
     <includes refid="hash_8set_8h" local="no">hash.set.h</includes>
@@ -35,13 +35,13 @@
     </sectiondef>
     <sectiondef kind="public-func">
       <memberdef kind="function" id="structeu_1_1HshSt_1a3eac63a3b35b82673912cce1b33a7b01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::HshSt::add</definition>
         <argsstring>(const Hsh &amp;h)</argsstring>
         <name>add</name>
         <qualifiedname>eu::HshSt::add</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Hsh" kindref="compound">Hsh</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Hsh" kindref="compound">Hsh</ref> &amp;</type>
           <declname>h</declname>
         </param>
         <briefdescription>
@@ -59,7 +59,7 @@
         <name>combine</name>
         <qualifiedname>eu::HshSt::combine</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Hsh" kindref="compound">Hsh</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Hsh" kindref="compound">Hsh</ref> &amp;</type>
           <declname>h</declname>
         </param>
         <briefdescription>
@@ -71,13 +71,13 @@
         <location file="libs/base/src/eu/base/hash.set.h" line="16" column="11"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1HshSt_1a7610bbb384f0ee7eaa2f5f5fd4de6040" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <type>bool</type>
         <definition>bool eu::HshSt::contains</definition>
         <argsstring>(const Hsh &amp;h) const</argsstring>
         <name>contains</name>
         <qualifiedname>eu::HshSt::contains</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Hsh" kindref="compound">Hsh</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Hsh" kindref="compound">Hsh</ref> &amp;</type>
           <declname>h</declname>
         </param>
         <briefdescription>
@@ -89,13 +89,13 @@
         <location file="libs/base/src/eu/base/hash.set.h" line="18" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1HshSt_1adc7d730067e99f29fa27a4f970002d63" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">bool</ref></type>
+        <type>bool</type>
         <definition>bool eu::HshSt::is</definition>
         <argsstring>(const HshSt &amp;h) const</argsstring>
         <name>is</name>
         <qualifiedname>eu::HshSt::is</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1HshSt" kindref="compound">HshSt</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1HshSt" kindref="compound">HshSt</ref> &amp;</type>
           <declname>h</declname>
         </param>
         <briefdescription>

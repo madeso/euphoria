@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.8" xml:lang="en-US">
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.15.0" xml:lang="en-US">
   <compound refid="structeu_1_1AA" kind="struct"><name>eu::AA</name>
     <member refid="structeu_1_1AA_1a517bd92c9485430787c833f68eb42379" kind="variable"><name>axis</name></member>
     <member refid="structeu_1_1AA_1a0ef36e1500a96f32d75602e9a53596da" kind="variable"><name>angle</name></member>
@@ -561,7 +561,7 @@
   </compound>
   <compound refid="structeu_1_1mrgui_1_1KeyboardInput" kind="struct"><name>eu::mrgui::KeyboardInput</name>
     <member refid="structeu_1_1mrgui_1_1KeyboardInput_1aae48a76f9df19c3c875ae4908c92d9b8" kind="variable"><name>key</name></member>
-    <member refid="structeu_1_1mrgui_1_1KeyboardInput_1a97dd044bfda16d82370f1f2463b6251c" kind="variable"><name>mod</name></member>
+    <member refid="structeu_1_1mrgui_1_1KeyboardInput_1a304698b3cf827fa074c3a70e90ec82d8" kind="variable"><name>mod</name></member>
   </compound>
   <compound refid="structeu_1_1render_1_1Layer" kind="struct"><name>eu::render::Layer</name>
     <member refid="structeu_1_1render_1_1Layer_1a7c89993da5c98c4c33005592aa910ecf" kind="variable"><name>viewport_aabb_in_worldspace</name></member>
@@ -1620,14 +1620,14 @@
     <member refid="namespaceeu_1a85307e96edc76ca2a8fdbb1624211c68a7c4f29407893c334a6cb7a87bf045c0d" kind="enumvalue"><name>right</name></member>
     <member refid="namespaceeu_1a85307e96edc76ca2a8fdbb1624211c68ab28354b543375bfa94dabaeda722927f" kind="enumvalue"><name>top</name></member>
     <member refid="namespaceeu_1a85307e96edc76ca2a8fdbb1624211c68a71f262d796bed1ab30e8a2d5a8ddee6f" kind="enumvalue"><name>bottom</name></member>
-    <member refid="namespaceeu_1af51071e3961aca6266852501c7229467" kind="typedef"><name>i8</name></member>
-    <member refid="namespaceeu_1afecf894b7eeb1b4f81f1cb5a8a0067c4" kind="typedef"><name>i16</name></member>
-    <member refid="namespaceeu_1a15538981e8dad713d329dfddba4b8ae8" kind="typedef"><name>i32</name></member>
-    <member refid="namespaceeu_1ac8b00c8f6edc5aa17943b7d8574bdeb4" kind="typedef"><name>i64</name></member>
-    <member refid="namespaceeu_1ad34c2d1a742c5f58543366875dc21649" kind="typedef"><name>u8</name></member>
-    <member refid="namespaceeu_1a52c8bd230b49dafc68274e81ecfd9ee0" kind="typedef"><name>u16</name></member>
-    <member refid="namespaceeu_1a19661e9cf09bb33310545fe2b4c4f90c" kind="typedef"><name>u32</name></member>
-    <member refid="namespaceeu_1ac0b6d77da47da3ce6bb55d66abc897f5" kind="typedef"><name>u64</name></member>
+    <member refid="namespaceeu_1a090d699ff2e662746efe3360da037a63" kind="typedef"><name>i8</name></member>
+    <member refid="namespaceeu_1ab54bb6d749a09a2813b4cea2efd2e6ae" kind="typedef"><name>i16</name></member>
+    <member refid="namespaceeu_1add0144d900d7bc769809952bd5a192dc" kind="typedef"><name>i32</name></member>
+    <member refid="namespaceeu_1a62513252b62b046b32657ad9d3779d74" kind="typedef"><name>i64</name></member>
+    <member refid="namespaceeu_1ab10f4fc790440413475454dc69c9e901" kind="typedef"><name>u8</name></member>
+    <member refid="namespaceeu_1aa248cae79ab17191d82317be93474ee3" kind="typedef"><name>u16</name></member>
+    <member refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kind="typedef"><name>u32</name></member>
+    <member refid="namespaceeu_1abe0c1a612663ea762f0507c0e96a3514" kind="typedef"><name>u64</name></member>
     <member refid="group__math_1gaad753d4f4d3024b2f9b0366738751511" kind="variable"><name>one_turn</name></member>
     <member refid="group__math_1ga03d368230871c29cd8d4464edd37081d" kind="variable"><name>half_turn</name></member>
     <member refid="group__math_1ga795093272e2f8a2748665fd8a37e5d91" kind="variable"><name>quarter_turn</name></member>
@@ -1789,9 +1789,9 @@
     <member refid="group__geom-builder_1ga5e464d0d67d6ed4c57fed1a834e23741" kind="enum"><name>ExtractedAttributeType</name></member>
     <member refid="group__render_1ga6ebb0c1fbb5227cfb8bbd4fea1a9cb86" kind="enum"><name>UniformType</name></member>
     <member refid="group__vertex-layout_1ga5f0685f8f017fd2ba9d143646266b46e" kind="enum"><name>VertexType</name></member>
-    <member refid="namespaceeu_1_1core_1a6a77bbc36ff85d2391bee78c34b1b2c4" kind="typedef"><name>KerningMap</name></member>
-    <member refid="group__vertex-layout_1ga40a08dae458002da001fab3a190780a9" kind="typedef"><name>ShaderVertexAttributes</name></member>
-    <member refid="group__vertex-layout_1ga3e578f2648d7f1003720795dc8826011" kind="typedef"><name>VertexTypes</name></member>
+    <member refid="namespaceeu_1_1core_1a3cf39335b672a096d106a459999efb40" kind="typedef"><name>KerningMap</name></member>
+    <member refid="group__vertex-layout_1gadbc01228bcff314cbd83ef3014a44a8b" kind="typedef"><name>ShaderVertexAttributes</name></member>
+    <member refid="group__vertex-layout_1ga510273e803bc110171edbb624cd2e937" kind="typedef"><name>VertexTypes</name></member>
     <member refid="namespaceeu_1_1core_1a4f9d9d19b866d718c4f83c0d467064a9" kind="function"><name>color_from_rgba</name></member>
     <member refid="group__geom-builder_1gace7a5ef0ddf784784e402eca80626dd8" kind="function"><name>extract_geom</name></member>
     <member refid="namespaceeu_1_1core_1ab5a041b170ca16c0ddda499e604b2f32" kind="function"><name>paste_image</name></member>
@@ -1812,8 +1812,8 @@
   <compound refid="namespaceeu_1_1core_1_1geom" kind="namespace"><name>eu::core::geom</name>
     <member refid="group__geom-builder_1gac555f9aea27c201510827fa4c4485e17" kind="enum"><name>SideCount</name></member>
     <member refid="group__geom-builder_1gac6f831c259b84253f395b1ef239dcf33" kind="enum"><name>NormalsFacing</name></member>
-    <member refid="group__geom-builder_1ga7cfafc3b29e5aa6ed905369356ea1449" kind="typedef"><name>Index</name></member>
-    <member refid="group__geom-builder_1ga9452c6a6e248f5f5d01e37adfd08bdef" kind="typedef"><name>Influence4</name></member>
+    <member refid="group__geom-builder_1gab3d342a617cc37061b9466839a40e222" kind="typedef"><name>Index</name></member>
+    <member refid="group__geom-builder_1gaa1f4652aea2012fd2f3720108d8b548a" kind="typedef"><name>Influence4</name></member>
     <member refid="group__geom-builder_1ga6b5f4d952543bb7c1e0b232ffd78e633" kind="function"><name>create_box</name></member>
     <member refid="group__geom-builder_1gaf2119794c0b903ac0d553a4a28fe1986" kind="function"><name>create_xz_plane</name></member>
     <member refid="group__geom-builder_1gaa11b04169236d2e3af5dc10af13a0be4" kind="function"><name>create_xy_plane</name></member>
@@ -1924,10 +1924,10 @@
     <member refid="group__texture_1gac052096755747d49a7e0954123286623" kind="enum"><name>DepthBits</name></member>
     <member refid="group__texture_1gaa48ab79573cf3af6eae3ba0201a0c6a5" kind="enum"><name>ColorBitsPerPixel</name></member>
     <member refid="group__render_1gab249aa0de7a8d3bb6c510b1e8ede1e48" kind="enum"><name>Billboarding</name></member>
-    <member refid="namespaceeu_1_1render_1a5aeac7365cdec1f55003519311b6e690" kind="typedef"><name>CharToGlyphMap</name></member>
-    <member refid="group__render_1gaf20743f7c4f35277d1d278d8ac20368d" kind="typedef"><name>BlendMode</name></member>
-    <member refid="group__render_1gad0035b261e0f761ea8db04d8b5de2ef5" kind="typedef"><name>StencilFunc</name></member>
-    <member refid="group__render_1ga90cb5bd57c88feb4e3d017558200ced1" kind="typedef"><name>StencilOp</name></member>
+    <member refid="namespaceeu_1_1render_1a35077967058935cfe1bef1a282602960" kind="typedef"><name>CharToGlyphMap</name></member>
+    <member refid="group__render_1ga7e2c947b3161d42b9b1360f266b56c88" kind="typedef"><name>BlendMode</name></member>
+    <member refid="group__render_1ga43fb2392c6b77e1684dc495d4b77c461" kind="typedef"><name>StencilFunc</name></member>
+    <member refid="group__render_1gac2414627ce6884064c21ae9b773b3b72" kind="typedef"><name>StencilOp</name></member>
     <member refid="namespaceeu_1_1render_1ad1e3a302bde920dcc4d7714570d5838d" kind="variable"><name>MAX_TEXTURES_SUPPORTED</name></member>
     <member refid="namespaceeu_1_1render_1a09db2372293ec938678ad34b8fb26625" kind="variable"><name>ALMOST_ZERO</name></member>
     <member refid="namespaceeu_1_1render_1a03c8a414127b669c13e4b0dfdabf24cc" kind="variable"><name>ALPHA_TRANSPARENCY_LIMIT</name></member>
@@ -2085,19 +2085,23 @@
   </compound>
   <compound refid="loadedfont_8h" kind="file"><name>loadedfont.h</name>
   </compound>
-  <compound refid="core_2src_2eu_2core_2mesh_8h" kind="file"><name>mesh.h</name>
-  </compound>
-  <compound refid="io_2src_2eu_2io_2mesh_8h" kind="file"><name>mesh.h</name>
-  </compound>
   <compound refid="tablelayout_8h" kind="file"><name>tablelayout.h</name>
-  </compound>
-  <compound refid="core_2src_2eu_2core_2uniform__buffer_8h" kind="file"><name>uniform_buffer.h</name>
-  </compound>
-  <compound refid="render_2src_2eu_2render_2uniform__buffer_8h" kind="file"><name>uniform_buffer.h</name>
   </compound>
   <compound refid="utf8_8h" kind="file"><name>utf8.h</name>
   </compound>
   <compound refid="vertex__layout_8h" kind="file"><name>vertex_layout.h</name>
+  </compound>
+  <compound refid="base_2src_2eu_2base_2pch_8private_8h" kind="file"><name>pch.private.h</name>
+  </compound>
+  <compound refid="core_2src_2eu_2core_2pch_8private_8h" kind="file"><name>pch.private.h</name>
+  </compound>
+  <compound refid="imgui_2src_2eu_2imgui_2pch_8private_8h" kind="file"><name>pch.private.h</name>
+  </compound>
+  <compound refid="io_2src_2eu_2io_2pch_8private_8h" kind="file"><name>pch.private.h</name>
+  </compound>
+  <compound refid="mrgui_2src_2eu_2mrgui_2pch_8private_8h" kind="file"><name>pch.private.h</name>
+  </compound>
+  <compound refid="render_2src_2eu_2render_2pch_8private_8h" kind="file"><name>pch.private.h</name>
   </compound>
   <compound refid="core_2src_2eu_2core_2scurve_8h" kind="file"><name>scurve.h</name>
   </compound>
@@ -2108,6 +2112,10 @@
   <compound refid="imgui_2src_2eu_2imgui_2ui_8h" kind="file"><name>ui.h</name>
   </compound>
   <compound refid="file_8h" kind="file"><name>file.h</name>
+  </compound>
+  <compound refid="core_2src_2eu_2core_2mesh_8h" kind="file"><name>mesh.h</name>
+  </compound>
+  <compound refid="io_2src_2eu_2io_2mesh_8h" kind="file"><name>mesh.h</name>
   </compound>
   <compound refid="kdl_8h" kind="file"><name>kdl.h</name>
     <member refid="kdl_8h_1a0871194d96ef3fe9606594bd45be95e0" kind="typedef"><name>kdl_str</name></member>
@@ -2122,18 +2130,6 @@
     <member refid="log_8h_1a378e28bfcb78d17285210d6bbb70a083" kind="define"><name>LOG_INFO</name></member>
     <member refid="log_8h_1add82efa459e0af380b68522c29b9fd44" kind="define"><name>LOG_WARN</name></member>
     <member refid="log_8h_1ad6db28c61c838c1f7316417e1e4847f2" kind="define"><name>LOG_ERR</name></member>
-  </compound>
-  <compound refid="base_2src_2eu_2base_2pch_8private_8h" kind="file"><name>pch.private.h</name>
-  </compound>
-  <compound refid="core_2src_2eu_2core_2pch_8private_8h" kind="file"><name>pch.private.h</name>
-  </compound>
-  <compound refid="imgui_2src_2eu_2imgui_2pch_8private_8h" kind="file"><name>pch.private.h</name>
-  </compound>
-  <compound refid="io_2src_2eu_2io_2pch_8private_8h" kind="file"><name>pch.private.h</name>
-  </compound>
-  <compound refid="mrgui_2src_2eu_2mrgui_2pch_8private_8h" kind="file"><name>pch.private.h</name>
-  </compound>
-  <compound refid="render_2src_2eu_2render_2pch_8private_8h" kind="file"><name>pch.private.h</name>
   </compound>
   <compound refid="widgets_8h" kind="file"><name>widgets.h</name>
   </compound>
@@ -2203,6 +2199,10 @@
   </compound>
   <compound refid="uniform_8h" kind="file"><name>uniform.h</name>
   </compound>
+  <compound refid="core_2src_2eu_2core_2uniform__buffer_8h" kind="file"><name>uniform_buffer.h</name>
+  </compound>
+  <compound refid="render_2src_2eu_2render_2uniform__buffer_8h" kind="file"><name>uniform_buffer.h</name>
+  </compound>
   <compound refid="world_8h" kind="file"><name>world.h</name>
   </compound>
   <compound refid="libs_2readme_8md" kind="file"><name>readme.md</name>
@@ -2219,8 +2219,8 @@
     <member refid="group__vertex-layout_1gga5f0685f8f017fd2ba9d143646266b46eaa2fa857196bdc299240294b055f5c9ee" kind="enumvalue"><name>color4</name></member>
     <member refid="group__vertex-layout_1gga5f0685f8f017fd2ba9d143646266b46eab500aaa6137a6357d8d9c5f5e09165cd" kind="enumvalue"><name>texture2</name></member>
     <member refid="group__vertex-layout_1gga5f0685f8f017fd2ba9d143646266b46ea6dacc621672a82305301e95d9c6b020e" kind="enumvalue"><name>instance_transform</name></member>
-    <member refid="group__vertex-layout_1ga40a08dae458002da001fab3a190780a9" kind="typedef"><name>ShaderVertexAttributes</name></member>
-    <member refid="group__vertex-layout_1ga3e578f2648d7f1003720795dc8826011" kind="typedef"><name>VertexTypes</name></member>
+    <member refid="group__vertex-layout_1gadbc01228bcff314cbd83ef3014a44a8b" kind="typedef"><name>ShaderVertexAttributes</name></member>
+    <member refid="group__vertex-layout_1ga510273e803bc110171edbb624cd2e937" kind="typedef"><name>VertexTypes</name></member>
     <member refid="group__vertex-layout_1gaf1da25791cb234dee579d9a1f5ac341d" kind="function"><name>is_instance_based</name></member>
     <member refid="group__vertex-layout_1ga9d840fc9659abc25984af301a538cf07" kind="function"><name>find_duplicates</name></member>
     <member refid="group__vertex-layout_1ga457db7dffcd3e57bde0c17e6cb57b4ed" kind="function"><name>compile_shader_layout</name></member>
@@ -2329,8 +2329,8 @@
     <member refid="group__geom-builder_1ggac6f831c259b84253f395b1ef239dcf33a7c147cda9e49590f6abe83d118b7353b" kind="enumvalue"><name>Out</name></member>
     <member refid="group__geom-builder_1ga5e464d0d67d6ed4c57fed1a834e23741" kind="enum"><name>ExtractedAttributeType</name></member>
     <member refid="group__geom-builder_1gga5e464d0d67d6ed4c57fed1a834e23741a22ae0e2b89e5e3d477f988cc36d3272b" kind="enumvalue"><name>Float</name></member>
-    <member refid="group__geom-builder_1ga7cfafc3b29e5aa6ed905369356ea1449" kind="typedef"><name>Index</name></member>
-    <member refid="group__geom-builder_1ga9452c6a6e248f5f5d01e37adfd08bdef" kind="typedef"><name>Influence4</name></member>
+    <member refid="group__geom-builder_1gab3d342a617cc37061b9466839a40e222" kind="typedef"><name>Index</name></member>
+    <member refid="group__geom-builder_1gaa1f4652aea2012fd2f3720108d8b548a" kind="typedef"><name>Influence4</name></member>
     <member refid="group__geom-builder_1ga6b5f4d952543bb7c1e0b232ffd78e633" kind="function"><name>create_box</name></member>
     <member refid="group__geom-builder_1gaf2119794c0b903ac0d553a4a28fe1986" kind="function"><name>create_xz_plane</name></member>
     <member refid="group__geom-builder_1gaa11b04169236d2e3af5dc10af13a0be4" kind="function"><name>create_xy_plane</name></member>
@@ -2421,9 +2421,9 @@
     <member refid="group__render_1ggab249aa0de7a8d3bb6c510b1e8ede1e48a0c696d31c08ea533281573b99fc17e7a" kind="enumvalue"><name>screen_fast</name></member>
     <member refid="group__render_1ggab249aa0de7a8d3bb6c510b1e8ede1e48a7e71d1f362f989fdcd3829f7b9cea7dc" kind="enumvalue"><name>axial_y</name></member>
     <member refid="group__render_1ggab249aa0de7a8d3bb6c510b1e8ede1e48ad56ef2b8111596c3345b42a6e2be5325" kind="enumvalue"><name>axial_y_fast</name></member>
-    <member refid="group__render_1gaf20743f7c4f35277d1d278d8ac20368d" kind="typedef"><name>BlendMode</name></member>
-    <member refid="group__render_1gad0035b261e0f761ea8db04d8b5de2ef5" kind="typedef"><name>StencilFunc</name></member>
-    <member refid="group__render_1ga90cb5bd57c88feb4e3d017558200ced1" kind="typedef"><name>StencilOp</name></member>
+    <member refid="group__render_1ga7e2c947b3161d42b9b1360f266b56c88" kind="typedef"><name>BlendMode</name></member>
+    <member refid="group__render_1ga43fb2392c6b77e1684dc495d4b77c461" kind="typedef"><name>StencilFunc</name></member>
+    <member refid="group__render_1gac2414627ce6884064c21ae9b773b3b72" kind="typedef"><name>StencilOp</name></member>
     <member refid="group__render_1gadbbc30dc5b709d2c5378943ea468c5a4" kind="function"><name>create_vectors</name></member>
     <member refid="group__render_1ga294fc5bce51cf7db33bfcfbed0d0afc1" kind="function"><name>create_view_from_world_mat</name></member>
     <member refid="group__render_1ga49f20d8d8f4cf168bca0b9802eebbbee" kind="function"><name>compile</name></member>

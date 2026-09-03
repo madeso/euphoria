@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="classeu_1_1kdl_1_1TypeError" kind="class" language="C++" prot="public">
     <compoundname>eu::kdl::TypeError</compoundname>
     <basecompoundref prot="public" virt="non-virtual">std::exception</basecompoundref>
     <includes refid="kdl_8h" local="no">kdl.h</includes>
     <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classeu_1_1kdl_1_1TypeError_1a5f8f6cf428c05142ac4ba370b34d2e9f" prot="private" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">char</ref> *</type>
+        <type>const char *</type>
         <definition>const char* eu::kdl::TypeError::m_msg</definition>
         <argsstring></argsstring>
         <name>m_msg</name>
@@ -42,7 +42,7 @@
         <name>TypeError</name>
         <qualifiedname>eu::kdl::TypeError::TypeError</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">char</ref> *</type>
+          <type>const char *</type>
           <declname>msg</declname>
         </param>
         <briefdescription>
@@ -54,7 +54,7 @@
         <location file="libs/kdl/src/eu/kdl/kdl.h" line="34" column="5" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="34" bodyend="34"/>
       </memberdef>
       <memberdef kind="function" id="classeu_1_1kdl_1_1TypeError_1aef6d391c1e961bc8899619230d3961dd" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">char</ref> *</type>
+        <type>const char *</type>
         <definition>const char * eu::kdl::TypeError::what</definition>
         <argsstring>() const noexcept</argsstring>
         <name>what</name>

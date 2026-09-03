@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1Size" kind="struct" language="C++" prot="public">
     <compoundname>eu::Size</compoundname>
     <includes refid="size_8h" local="no">size.h</includes>
     <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1Size_1a58a0659240feac3df855fac40188b3f7" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <type>int</type>
         <definition>int eu::Size::width</definition>
         <argsstring></argsstring>
         <name>width</name>
@@ -19,7 +19,7 @@
         <location file="libs/base/src/eu/base/size.h" line="12" column="13" bodyfile="libs/base/src/eu/base/size.h" bodystart="12" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1Size_1aad3679e70c764692239fe9d17246979e" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">int</ref></type>
+        <type>int</type>
         <definition>int eu::Size::height</definition>
         <argsstring></argsstring>
         <name>height</name>

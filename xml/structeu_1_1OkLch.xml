@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1OkLch" kind="struct" language="C++" prot="public">
     <compoundname>eu::OkLch</compoundname>
     <includes refid="colors_8h" local="no">colors.h</includes>
     <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1OkLch_1acbb8f84ce05e6304d4e9d8559a4d06d0" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::OkLch::l</definition>
         <argsstring></argsstring>
         <name>l</name>
@@ -19,7 +19,7 @@
         <location file="libs/base/src/eu/base/colors.h" line="60" column="7" bodyfile="libs/base/src/eu/base/colors.h" bodystart="60" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1OkLch_1af984be5ef77455cb59a8682f12e363a8" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::OkLch::c</definition>
         <argsstring></argsstring>
         <name>c</name>

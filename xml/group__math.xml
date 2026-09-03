@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="group__math" kind="group">
     <compoundname>math</compoundname>
     <title>Math</title>
@@ -18,8 +18,8 @@
     <innernamespace refid="namespaceeu_1_1kk">eu::kk</innernamespace>
     <sectiondef kind="var">
       <memberdef kind="variable" id="group__math_1gaad753d4f4d3024b2f9b0366738751511" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>constexpr An</type>
-        <definition>constexpr An eu::one_turn</definition>
+        <type>An</type>
+        <definition>An eu::one_turn</definition>
         <argsstring></argsstring>
         <name>one_turn</name>
         <qualifiedname>eu::one_turn</qualifiedname>
@@ -33,8 +33,8 @@
         <location file="libs/base/src/eu/base/angle.h" line="86" column="18" bodyfile="libs/base/src/eu/base/angle.h" bodystart="86" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__math_1ga03d368230871c29cd8d4464edd37081d" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>constexpr An</type>
-        <definition>constexpr An eu::half_turn</definition>
+        <type>An</type>
+        <definition>An eu::half_turn</definition>
         <argsstring></argsstring>
         <name>half_turn</name>
         <qualifiedname>eu::half_turn</qualifiedname>
@@ -48,8 +48,8 @@
         <location file="libs/base/src/eu/base/angle.h" line="87" column="18" bodyfile="libs/base/src/eu/base/angle.h" bodystart="87" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__math_1ga795093272e2f8a2748665fd8a37e5d91" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>constexpr An</type>
-        <definition>constexpr An eu::quarter_turn</definition>
+        <type>An</type>
+        <definition>An eu::quarter_turn</definition>
         <argsstring></argsstring>
         <name>quarter_turn</name>
         <qualifiedname>eu::quarter_turn</qualifiedname>
@@ -63,8 +63,8 @@
         <location file="libs/base/src/eu/base/angle.h" line="88" column="18" bodyfile="libs/base/src/eu/base/angle.h" bodystart="88" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__math_1ga22905decd86a4bf45c79c109119f2b6f" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>constexpr An</type>
-        <definition>constexpr An eu::no_rotation</definition>
+        <type>An</type>
+        <definition>An eu::no_rotation</definition>
         <argsstring></argsstring>
         <name>no_rotation</name>
         <qualifiedname>eu::no_rotation</qualifiedname>
@@ -78,8 +78,8 @@
         <location file="libs/base/src/eu/base/angle.h" line="89" column="18" bodyfile="libs/base/src/eu/base/angle.h" bodystart="89" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__math_1ga5957f0b19a66d6e1123f22d681e726e0" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>constexpr m4</type>
-        <definition>constexpr m4 eu::m4_identity</definition>
+        <type>m4</type>
+        <definition>m4 eu::m4_identity</definition>
         <argsstring></argsstring>
         <name>m4_identity</name>
         <qualifiedname>eu::m4_identity</qualifiedname>
@@ -94,8 +94,8 @@
         <location file="libs/base/src/eu/base/mat4.h" line="177" column="18" bodyfile="libs/base/src/eu/base/mat4.h" bodystart="177" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__math_1ga074a5f400069f641ce3857da18d65d93" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>constexpr Q</type>
-        <definition>constexpr Q eu::q_identity</definition>
+        <type>Q</type>
+        <definition>Q eu::q_identity</definition>
         <argsstring></argsstring>
         <name>q_identity</name>
         <qualifiedname>eu::q_identity</qualifiedname>
@@ -110,8 +110,8 @@
         <location file="libs/base/src/eu/base/quat.h" line="130" column="17" bodyfile="libs/base/src/eu/base/quat.h" bodystart="130" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__math_1ga1762260135f2b7b538f1b8be43146481" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>constexpr R&lt; float &gt;</type>
-        <definition>constexpr R&lt;float&gt; eu::r01</definition>
+        <type>R&lt; float &gt;</type>
+        <definition>R&lt;float&gt; eu::r01</definition>
         <argsstring></argsstring>
         <name>r01</name>
         <qualifiedname>eu::r01</qualifiedname>
@@ -126,8 +126,8 @@
         <location file="libs/base/src/eu/base/range.h" line="52" column="17" bodyfile="libs/base/src/eu/base/range.h" bodystart="52" bodyend="52"/>
       </memberdef>
       <memberdef kind="variable" id="group__math_1gab44633bc6b6ae7cbf3e473fe917d1e70" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>constexpr R&lt; float &gt;</type>
-        <definition>constexpr R&lt;float&gt; eu::r11</definition>
+        <type>R&lt; float &gt;</type>
+        <definition>R&lt;float&gt; eu::r11</definition>
         <argsstring></argsstring>
         <name>r11</name>
         <qualifiedname>eu::r11</qualifiedname>
@@ -141,8 +141,8 @@
         <location file="libs/base/src/eu/base/range.h" line="55" column="17" bodyfile="libs/base/src/eu/base/range.h" bodystart="55" bodyend="55"/>
       </memberdef>
       <memberdef kind="variable" id="group__math_1ga5fac55b859c3ed3d22eac1245737524f" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>constexpr v2</type>
-        <definition>constexpr v2 eu::zero2f</definition>
+        <type>v2</type>
+        <definition>v2 eu::zero2f</definition>
         <argsstring></argsstring>
         <name>zero2f</name>
         <qualifiedname>eu::zero2f</qualifiedname>
@@ -156,8 +156,8 @@
         <location file="libs/base/src/eu/base/vec2.h" line="71" column="18" bodyfile="libs/base/src/eu/base/vec2.h" bodystart="71" bodyend="71"/>
       </memberdef>
       <memberdef kind="variable" id="group__math_1gaf1a49fc9a55b790e9d31a82a0aa3c6db" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>constexpr v3</type>
-        <definition>constexpr v3 eu::zero3f</definition>
+        <type>v3</type>
+        <definition>v3 eu::zero3f</definition>
         <argsstring></argsstring>
         <name>zero3f</name>
         <qualifiedname>eu::zero3f</qualifiedname>
@@ -544,7 +544,7 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/angle.h" line="113" column="8" declfile="libs/base/src/eu/base/angle.h" declline="113" declcolumn="8"/>
       </memberdef>
-      <memberdef kind="function" id="group__math_1ga1a4ab59cbac3b18a87a0d490dff83143" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__math_1ga1a4ab59cbac3b18a87a0d490dff83143" prot="public" static="no" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>AA</type>
         <definition>AA eu::rha</definition>
         <argsstring>(const n3 &amp;axis, const An &amp;angle)</argsstring>
@@ -710,8 +710,8 @@
         <location file="libs/base/src/eu/base/mat4.h" line="185" column="8" declfile="libs/base/src/eu/base/mat4.h" declline="185" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gafb6a0b321ce809096583aff23695f879" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr bool</type>
-        <definition>constexpr bool eu::is_zero</definition>
+        <type>bool</type>
+        <definition>bool eu::is_zero</definition>
         <argsstring>(float r, float epsilon=kk::epsilon)</argsstring>
         <name>is_zero</name>
         <qualifiedname>eu::is_zero</qualifiedname>
@@ -733,8 +733,8 @@
         <location file="libs/base/src/eu/base/numeric.h" line="27" column="20" bodyfile="libs/base/src/eu/base/numeric.h" bodystart="27" bodyend="30"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gab10cc1349e8e191360ba5959098d6653" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr bool</type>
-        <definition>constexpr bool eu::is_equal</definition>
+        <type>bool</type>
+        <definition>bool eu::is_equal</definition>
         <argsstring>(float lhs, float rhs, float epsilon=kk::epsilon)</argsstring>
         <name>is_equal</name>
         <qualifiedname>eu::is_equal</qualifiedname>
@@ -796,8 +796,8 @@
         <location file="libs/base/src/eu/base/numeric.h" line="42" column="5" declfile="libs/base/src/eu/base/numeric.h" declline="42" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gaa4b54c027685920fc9b2d80e662b0c77" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr int</type>
-        <definition>constexpr int eu::get_sign</definition>
+        <type>int</type>
+        <definition>int eu::get_sign</definition>
         <argsstring>(float r)</argsstring>
         <name>get_sign</name>
         <qualifiedname>eu::get_sign</qualifiedname>
@@ -818,8 +818,8 @@
         <location file="libs/base/src/eu/base/numeric.h" line="49" column="5" bodyfile="libs/base/src/eu/base/numeric.h" bodystart="49" bodyend="53"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gaf5870e3671458ab8ef225347b90a9ff8" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr float</type>
-        <definition>constexpr float eu::get_sign</definition>
+        <type>float</type>
+        <definition>float eu::get_sign</definition>
         <argsstring>(bool b)</argsstring>
         <name>get_sign</name>
         <qualifiedname>eu::get_sign</qualifiedname>
@@ -837,8 +837,8 @@
         <location file="libs/base/src/eu/base/numeric.h" line="58" column="5" bodyfile="libs/base/src/eu/base/numeric.h" bodystart="58" bodyend="62"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gad900e658f3dfe0475a29b5e7dc5ba73e" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr float</type>
-        <definition>constexpr float eu::lerp_float</definition>
+        <type>float</type>
+        <definition>float eu::lerp_float</definition>
         <argsstring>(float f, float scale, float t)</argsstring>
         <name>lerp_float</name>
         <qualifiedname>eu::lerp_float</qualifiedname>
@@ -863,8 +863,8 @@
         <location file="libs/base/src/eu/base/numeric.h" line="66" column="5" bodyfile="libs/base/src/eu/base/numeric.h" bodystart="66" bodyend="69"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gadee023bab298f01bcdb0143798fdebfe" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr float</type>
-        <definition>constexpr float eu::square</definition>
+        <type>float</type>
+        <definition>float eu::square</definition>
         <argsstring>(float r)</argsstring>
         <name>square</name>
         <qualifiedname>eu::square</qualifiedname>
@@ -873,7 +873,7 @@
           <declname>r</declname>
         </param>
         <briefdescription>
-<para>Return <computeroutput>r * r</computeroutput> </para>
+<para>Return <computeroutput>r * r</computeroutput>. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
@@ -882,8 +882,8 @@
         <location file="libs/base/src/eu/base/numeric.h" line="73" column="5" bodyfile="libs/base/src/eu/base/numeric.h" bodystart="73" bodyend="76"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gaa4f3a1d68eda3b72dc542eca112fc1e3" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr float</type>
-        <definition>constexpr float eu::min</definition>
+        <type>float</type>
+        <definition>float eu::min</definition>
         <argsstring>(float lhs, float rhs)</argsstring>
         <name>min</name>
         <qualifiedname>eu::min</qualifiedname>
@@ -904,8 +904,8 @@
         <location file="libs/base/src/eu/base/numeric.h" line="78" column="21" bodyfile="libs/base/src/eu/base/numeric.h" bodystart="78" bodyend="78"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gafdb18ee646a157c1e7d64082029202bb" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr float</type>
-        <definition>constexpr float eu::max</definition>
+        <type>float</type>
+        <definition>float eu::max</definition>
         <argsstring>(float lhs, float rhs)</argsstring>
         <name>max</name>
         <qualifiedname>eu::max</qualifiedname>
@@ -926,8 +926,8 @@
         <location file="libs/base/src/eu/base/numeric.h" line="79" column="21" bodyfile="libs/base/src/eu/base/numeric.h" bodystart="79" bodyend="79"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga837f4f94c5bcdbdbb01e10a26367e75f" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr float</type>
-        <definition>constexpr float eu::clamp_zero</definition>
+        <type>float</type>
+        <definition>float eu::clamp_zero</definition>
         <argsstring>(float value, float def=0.0f, float epsilon=kk::epsilon)</argsstring>
         <name>clamp_zero</name>
         <qualifiedname>eu::clamp_zero</qualifiedname>
@@ -955,8 +955,8 @@
         <location file="libs/base/src/eu/base/numeric.h" line="84" column="5" bodyfile="libs/base/src/eu/base/numeric.h" bodystart="84" bodyend="88"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gacf682fb838844d44f223cfb1d9f25f7e" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr float</type>
-        <definition>constexpr float eu::keep_within01</definition>
+        <type>float</type>
+        <definition>float eu::keep_within01</definition>
         <argsstring>(float f)</argsstring>
         <name>keep_within01</name>
         <qualifiedname>eu::keep_within01</qualifiedname>
@@ -1099,7 +1099,7 @@
           <declname>max</declname>
         </param>
         <briefdescription>
-<para>Create a range from <computeroutput>min</computeroutput> to <computeroutput>max</computeroutput> (inclusive) </para>
+<para>Create a range from <computeroutput>min</computeroutput> to <computeroutput>max</computeroutput> (inclusive). </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
@@ -1123,7 +1123,7 @@
           <declname>max</declname>
         </param>
         <briefdescription>
-<para>Create a range from zero (0) to <computeroutput>max</computeroutput> (inclusive) </para>
+<para>Create a range from zero (0) to <computeroutput>max</computeroutput> (inclusive). </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
@@ -1388,8 +1388,8 @@
         <location file="libs/base/src/eu/base/range.h" line="134" column="7" bodyfile="libs/base/src/eu/base/range.h" bodystart="134" bodyend="148"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gabe7b085e3c3eb168ed9243e478c37b3e" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr bool</type>
-        <definition>constexpr bool eu::operator==</definition>
+        <type>bool</type>
+        <definition>bool eu::operator==</definition>
         <argsstring>(const Size &amp;lhs, const Size &amp;rhs)</argsstring>
         <name>operator==</name>
         <qualifiedname>eu::operator==</qualifiedname>
@@ -1887,8 +1887,8 @@
         <location file="libs/base/src/eu/base/vec3.h" line="151" column="17" declfile="libs/base/src/eu/base/vec3.h" declline="151" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga20517b7416d5479476f6372742c5f9b9" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr v3</type>
-        <definition>constexpr v3 eu::min</definition>
+        <type>v3</type>
+        <definition>v3 eu::min</definition>
         <argsstring>(const v3 &amp;lhs, const v3 &amp;rhs)</argsstring>
         <name>min</name>
         <qualifiedname>eu::min</qualifiedname>
@@ -1910,8 +1910,8 @@
         <location file="libs/base/src/eu/base/vec3.h" line="155" column="5" bodyfile="libs/base/src/eu/base/vec3.h" bodystart="155" bodyend="162"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga6acd10ee86510432805a6f2e2cefa8e5" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr v3</type>
-        <definition>constexpr v3 eu::max</definition>
+        <type>v3</type>
+        <definition>v3 eu::max</definition>
         <argsstring>(const v3 &amp;lhs, const v3 &amp;rhs)</argsstring>
         <name>max</name>
         <qualifiedname>eu::max</qualifiedname>

@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1Q" kind="struct" language="C++" prot="public">
     <compoundname>eu::Q</compoundname>
     <includes refid="quat_8h" local="no">quat.h</includes>
     <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1Q_1a7afdc2215833a3cb71c2bf1a8c90fe2c" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::Q::w</definition>
         <argsstring></argsstring>
         <name>w</name>
@@ -19,7 +19,7 @@
         <location file="libs/base/src/eu/base/quat.h" line="20" column="15" bodyfile="libs/base/src/eu/base/quat.h" bodystart="20" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1Q_1ad8aeb869310015e4272e78916026df82" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::Q::x</definition>
         <argsstring></argsstring>
         <name>x</name>
@@ -33,7 +33,7 @@
         <location file="libs/base/src/eu/base/quat.h" line="21" column="15" bodyfile="libs/base/src/eu/base/quat.h" bodystart="21" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1Q_1a50aaa08671d751fed867532d0dd79a47" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::Q::y</definition>
         <argsstring></argsstring>
         <name>y</name>
@@ -47,7 +47,7 @@
         <location file="libs/base/src/eu/base/quat.h" line="22" column="15" bodyfile="libs/base/src/eu/base/quat.h" bodystart="22" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1Q_1a1a6ff7d5f15569592af76d269183253f" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::Q::z</definition>
         <argsstring></argsstring>
         <name>z</name>
@@ -63,17 +63,17 @@
     </sectiondef>
     <sectiondef kind="public-func">
       <memberdef kind="function" id="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref></type>
-        <definition>constexpr eu::Q::Q</definition>
+        <type>constexpr</type>
+        <definition>eu::Q::Q</definition>
         <argsstring>(float aw, const v3 &amp;v)</argsstring>
         <name>Q</name>
         <qualifiedname>eu::Q::Q</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>aw</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v3" kindref="compound">v3</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1v3" kindref="compound">v3</ref> &amp;</type>
           <declname>v</declname>
         </param>
         <briefdescription>
@@ -85,13 +85,13 @@
         <location file="libs/base/src/eu/base/quat.h" line="25" column="19" bodyfile="libs/base/src/eu/base/quat.h" bodystart="25" bodyend="31"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1Q_1aa0754949d89be87e7ddfe43461a33d60" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">constexpr</ref></type>
-        <definition>constexpr eu::Q::Q</definition>
+        <type>constexpr</type>
+        <definition>eu::Q::Q</definition>
         <argsstring>(const float *arr)</argsstring>
         <name>Q</name>
         <qualifiedname>eu::Q::Q</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1R" kindref="compound">float</ref> *</type>
+          <type>const float *</type>
           <declname>arr</declname>
         </param>
         <briefdescription>
@@ -103,7 +103,7 @@
         <location file="libs/base/src/eu/base/quat.h" line="33" column="19" bodyfile="libs/base/src/eu/base/quat.h" bodystart="33" bodyend="39"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1Q_1a92b5e5a95a0ff772e72d89c30cc29c54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::Q::normalize</definition>
         <argsstring>()</argsstring>
         <name>normalize</name>
@@ -118,14 +118,14 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/quat.h" line="60" column="14"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1a9bd27b1649ccaa89974b6b8fea7e24d0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
+      <memberdef kind="function" id="structeu_1_1Q_1a9bd27b1649ccaa89974b6b8fea7e24d0" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref></type>
         <definition>Q eu::Q::then_get_rotated</definition>
         <argsstring>(const Q &amp;q) const</argsstring>
         <name>then_get_rotated</name>
         <qualifiedname>eu::Q::then_get_rotated</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref> &amp;</type>
           <declname>q</declname>
         </param>
         <briefdescription>
@@ -137,14 +137,14 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/quat.h" line="63" column="12"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1ac3a95299a10db635df3c150ddb614224" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Q_1ac3a95299a10db635df3c150ddb614224" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
         <definition>n3 eu::Q::get_rotated</definition>
         <argsstring>(const n3 &amp;v) const</argsstring>
         <name>get_rotated</name>
         <qualifiedname>eu::Q::get_rotated</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1n3" kindref="compound">n3</ref> &amp;</type>
           <declname>v</declname>
         </param>
         <briefdescription>
@@ -156,8 +156,8 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/quat.h" line="66" column="13"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1a3213b5c3e10b21ebd36eedcf8d4c509c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
+      <memberdef kind="function" id="structeu_1_1Q_1a3213b5c3e10b21ebd36eedcf8d4c509c" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref></type>
         <definition>Q eu::Q::get_negated</definition>
         <argsstring>() const</argsstring>
         <name>get_negated</name>
@@ -172,7 +172,7 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/quat.h" line="70" column="12"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1a504bd4cb431623cb546353b9e7543d6c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Q_1a504bd4cb431623cb546353b9e7543d6c" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
         <definition>v3 eu::Q::get_vec_part</definition>
         <argsstring>() const</argsstring>
@@ -187,8 +187,8 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/quat.h" line="73" column="13"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1aa68e076abf7fa7b0c888ae7e7d77f9b5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
+      <memberdef kind="function" id="structeu_1_1Q_1aa68e076abf7fa7b0c888ae7e7d77f9b5" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref></type>
         <definition>Q eu::Q::get_conjugate</definition>
         <argsstring>() const</argsstring>
         <name>get_conjugate</name>
@@ -202,8 +202,8 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/quat.h" line="76" column="12"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1ae7d04e804c60452ca2bdcfa519c97b08" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
+      <memberdef kind="function" id="structeu_1_1Q_1ae7d04e804c60452ca2bdcfa519c97b08" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref></type>
         <definition>Q eu::Q::get_inverse</definition>
         <argsstring>() const</argsstring>
         <name>get_inverse</name>
@@ -220,8 +220,8 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/quat.h" line="81" column="12"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1a4e47f55d29c27a6d91c9f17123fccc0f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+      <memberdef kind="function" id="structeu_1_1Q_1a4e47f55d29c27a6d91c9f17123fccc0f" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
         <definition>float eu::Q::get_length</definition>
         <argsstring>() const</argsstring>
         <name>get_length</name>
@@ -236,8 +236,8 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/quat.h" line="85" column="16"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1af2147d76f7cb77cf06cb71fab354aab3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
+      <memberdef kind="function" id="structeu_1_1Q_1af2147d76f7cb77cf06cb71fab354aab3" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref></type>
         <definition>Q eu::Q::get_normalized</definition>
         <argsstring>() const</argsstring>
         <name>get_normalized</name>
@@ -251,7 +251,7 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/quat.h" line="89" column="12"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1ade74dc1916312df46de10734debf25af" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Q_1ade74dc1916312df46de10734debf25af" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
         <definition>n3 eu::Q::get_local_in</definition>
         <argsstring>() const</argsstring>
@@ -266,7 +266,7 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/quat.h" line="92" column="13"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1ad20730e19c10e6956b81e938fe8c8959" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Q_1ad20730e19c10e6956b81e938fe8c8959" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
         <definition>n3 eu::Q::get_local_out</definition>
         <argsstring>() const</argsstring>
@@ -281,7 +281,7 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/quat.h" line="95" column="13"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1a2078a81b5a4e15ab9d49a3defe463f09" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Q_1a2078a81b5a4e15ab9d49a3defe463f09" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
         <definition>n3 eu::Q::get_local_right</definition>
         <argsstring>() const</argsstring>
@@ -296,7 +296,7 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/quat.h" line="98" column="13"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1ace0d24d75aba71d2ac882167e13ec69a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Q_1ace0d24d75aba71d2ac882167e13ec69a" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
         <definition>n3 eu::Q::get_local_left</definition>
         <argsstring>() const</argsstring>
@@ -311,7 +311,7 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/quat.h" line="101" column="13"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1a0f45561d12959099fd8f1835de33b01c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Q_1a0f45561d12959099fd8f1835de33b01c" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
         <definition>n3 eu::Q::get_local_up</definition>
         <argsstring>() const</argsstring>
@@ -326,7 +326,7 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/quat.h" line="104" column="13"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1abac216f44639cd93359eb94cf9df7133" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Q_1abac216f44639cd93359eb94cf9df7133" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
         <definition>n3 eu::Q::get_local_down</definition>
         <argsstring>() const</argsstring>
@@ -342,13 +342,13 @@
         <location file="libs/base/src/eu/base/quat.h" line="107" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1Q_1a0d598e8d983468dd130394a0fcab90fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::Q::operator*=</definition>
         <argsstring>(float rhs)</argsstring>
         <name>operator*=</name>
         <qualifiedname>eu::Q::operator*=</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -360,13 +360,13 @@
         <location file="libs/base/src/eu/base/quat.h" line="109" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1Q_1a5157e607b25efe618c69117897b19daa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::Q::operator*=</definition>
         <argsstring>(const Q &amp;rhs)</argsstring>
         <name>operator*=</name>
         <qualifiedname>eu::Q::operator*=</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -379,14 +379,14 @@
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeu_1_1Q_1acf38e08247c681bffa8d6e4d3e731f96" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
+      <memberdef kind="function" id="structeu_1_1Q_1acf38e08247c681bffa8d6e4d3e731f96" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref></type>
         <definition>static Q eu::Q::from</definition>
         <argsstring>(const AA &amp;aa)</argsstring>
         <name>from</name>
         <qualifiedname>eu::Q::from</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1AA" kindref="compound">AA</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1AA" kindref="compound">AA</ref> &amp;</type>
           <declname>aa</declname>
         </param>
         <briefdescription>
@@ -398,14 +398,14 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/quat.h" line="42" column="19"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1afaa1c917caaf0a005f39bc0ba222ecac" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
+      <memberdef kind="function" id="structeu_1_1Q_1afaa1c917caaf0a005f39bc0ba222ecac" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref></type>
         <definition>static Q eu::Q::from</definition>
         <argsstring>(const Ypr &amp;ypr)</argsstring>
         <name>from</name>
         <qualifiedname>eu::Q::from</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Ypr" kindref="compound">Ypr</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Ypr" kindref="compound">Ypr</ref> &amp;</type>
           <declname>ypr</declname>
         </param>
         <briefdescription>
@@ -417,14 +417,14 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/quat.h" line="45" column="19"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1aa2b95f3c6963dab0e8b7f19098bbabcf" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
+      <memberdef kind="function" id="structeu_1_1Q_1aa2b95f3c6963dab0e8b7f19098bbabcf" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref></type>
         <definition>static Q eu::Q::from_fast</definition>
         <argsstring>(const Ypr &amp;ypr)</argsstring>
         <name>from_fast</name>
         <qualifiedname>eu::Q::from_fast</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Ypr" kindref="compound">Ypr</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Ypr" kindref="compound">Ypr</ref> &amp;</type>
           <declname>ypr</declname>
         </param>
         <briefdescription>
@@ -435,18 +435,18 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/quat.h" line="46" column="19"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1a0b7e97b743d06f8d4305a4f3ad54c26a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
+      <memberdef kind="function" id="structeu_1_1Q_1a0b7e97b743d06f8d4305a4f3ad54c26a" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref></type>
         <definition>static Q eu::Q::from_to</definition>
         <argsstring>(const Q &amp;from, const Q &amp;to)</argsstring>
         <name>from_to</name>
         <qualifiedname>eu::Q::from_to</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref> &amp;</type>
           <declname>from</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref> &amp;</type>
           <declname>to</declname>
         </param>
         <briefdescription>
@@ -458,22 +458,22 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/quat.h" line="49" column="19"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1af80452ab6aa9531bb2cfc11ada256321" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::optional&lt; <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &gt;</type>
+      <memberdef kind="function" id="structeu_1_1Q_1af80452ab6aa9531bb2cfc11ada256321" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref> &gt;</type>
         <definition>static std::optional&lt; Q &gt; eu::Q::look_at</definition>
         <argsstring>(const v3 &amp;from, const v3 &amp;to, const n3 &amp;up)</argsstring>
         <name>look_at</name>
         <qualifiedname>eu::Q::look_at</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v3" kindref="compound">v3</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1v3" kindref="compound">v3</ref> &amp;</type>
           <declname>from</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1v3" kindref="compound">v3</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1v3" kindref="compound">v3</ref> &amp;</type>
           <declname>to</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1n3" kindref="compound">n3</ref> &amp;</type>
           <declname>up</declname>
         </param>
         <briefdescription>
@@ -486,18 +486,18 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/quat.h" line="53" column="31"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1abdf0df3ce5bdd1000bb0658c7838fc28" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
+      <memberdef kind="function" id="structeu_1_1Q_1abdf0df3ce5bdd1000bb0658c7838fc28" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref></type>
         <definition>static Q eu::Q::look_in_direction</definition>
         <argsstring>(const n3 &amp;dir, const n3 &amp;up)</argsstring>
         <name>look_in_direction</name>
         <qualifiedname>eu::Q::look_in_direction</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1n3" kindref="compound">n3</ref> &amp;</type>
           <declname>dir</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1n3" kindref="compound">n3</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1n3" kindref="compound">n3</ref> &amp;</type>
           <declname>up</declname>
         </param>
         <briefdescription>
@@ -510,21 +510,21 @@
         <location file="libs/base/src/eu/base/quat.h" line="56" column="19"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1Q_1ad00dec4c8c27dccc03671098080bb817" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
+        <type><ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref></type>
         <definition>static Q eu::Q::nlerp</definition>
         <argsstring>(const Q &amp;f, float scale, const Q &amp;t)</argsstring>
         <name>nlerp</name>
         <qualifiedname>eu::Q::nlerp</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref> &amp;</type>
           <declname>f</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>scale</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref> &amp;</type>
           <declname>t</declname>
         </param>
         <briefdescription>
@@ -540,21 +540,21 @@
         <location file="libs/base/src/eu/base/quat.h" line="115" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1Q_1ade6b9d81f9750befb4d67af5324263a9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
+        <type><ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref></type>
         <definition>static Q eu::Q::slerp_fast</definition>
         <argsstring>(const Q &amp;qa, float t, const Q &amp;qb)</argsstring>
         <name>slerp_fast</name>
         <qualifiedname>eu::Q::slerp_fast</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref> &amp;</type>
           <declname>qa</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>t</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref> &amp;</type>
           <declname>qb</declname>
         </param>
         <briefdescription>
@@ -570,21 +570,21 @@
         <location file="libs/base/src/eu/base/quat.h" line="120" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1Q_1a9cd9f45333d77f435568cba66c0be12c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
+        <type><ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref></type>
         <definition>static Q eu::Q::slerp</definition>
         <argsstring>(const Q &amp;from, float scale, const Q &amp;to)</argsstring>
         <name>slerp</name>
         <qualifiedname>eu::Q::slerp</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref> &amp;</type>
           <declname>from</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>scale</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">const</ref> <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref> &amp;</type>
           <declname>to</declname>
         </param>
         <briefdescription>

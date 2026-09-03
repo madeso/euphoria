@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1FactorEffect" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::FactorEffect</compoundname>
     <basecompoundref refid="structeu_1_1render_1_1Effect" prot="public" virt="non-virtual">eu::render::Effect</basecompoundref>
@@ -8,7 +8,7 @@
     <includes refid="postproc_8h" local="no">postproc.h</includes>
     <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="structeu_1_1render_1_1FactorEffect_1a73a91bc0af8072f38219c7ff6ec59317" prot="private" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::render::FactorEffect::factor</definition>
         <argsstring></argsstring>
         <name>factor</name>
@@ -38,8 +38,8 @@
         </inbodydescription>
         <location file="libs/render/src/eu/render/postproc.h" line="142" column="1"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1FactorEffect_1ac041a6b6df6b146910d44a825f4306e2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+      <memberdef kind="function" id="structeu_1_1render_1_1FactorEffect_1ac041a6b6df6b146910d44a825f4306e2" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
         <definition>float eu::render::FactorEffect::get_factor</definition>
         <argsstring>() const</argsstring>
         <name>get_factor</name>
@@ -53,13 +53,13 @@
         <location file="libs/render/src/eu/render/postproc.h" line="143" column="8"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1FactorEffect_1aab6d2ef4e55c410767238287c024e13a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeu_1_1R" kindref="compound">void</ref></type>
+        <type>void</type>
         <definition>void eu::render::FactorEffect::set_factor</definition>
         <argsstring>(float f)</argsstring>
         <name>set_factor</name>
         <qualifiedname>eu::render::FactorEffect::set_factor</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+          <type>float</type>
           <declname>f</declname>
         </param>
         <briefdescription>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1Lights" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::Lights</compoundname>
     <includes refid="world_8h" local="no">world.h</includes>
@@ -20,12 +20,12 @@
         <location file="libs/render/src/eu/render/world.h" line="171" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="171" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Lights_1abb457c131c9d103bc47d82f8118a6566" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::render::Lights::ambient_strength</definition>
         <argsstring></argsstring>
         <name>ambient_strength</name>
         <qualifiedname>eu::render::Lights::ambient_strength</qualifiedname>
-        <initializer>= 0.029<ref refid="structeu_1_1R" kindref="compound">f</ref></initializer>
+        <initializer>= 0.029f</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -35,7 +35,7 @@
         <location file="libs/render/src/eu/render/world.h" line="172" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="172" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Lights_1a07bf432b62f5aff089254bccc7a1ad9c" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::render::Lights::shadow_near</definition>
         <argsstring></argsstring>
         <name>shadow_near</name>
@@ -50,7 +50,7 @@
         <location file="libs/render/src/eu/render/world.h" line="174" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="174" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Lights_1a2a004a3f416363fb8907e375a17a56a9" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::render::Lights::shadow_offset</definition>
         <argsstring></argsstring>
         <name>shadow_offset</name>
@@ -65,7 +65,7 @@
         <location file="libs/render/src/eu/render/world.h" line="175" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="175" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Lights_1a9f4cb83106d3fc599eb0ea5cfbdbac3c" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::render::Lights::shadow_far</definition>
         <argsstring></argsstring>
         <name>shadow_far</name>
@@ -80,7 +80,7 @@
         <location file="libs/render/src/eu/render/world.h" line="176" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="176" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Lights_1a1a374f142e85cc81eb5f28136f9f73f2" prot="public" static="no" mutable="no">
-        <type><ref refid="structeu_1_1R" kindref="compound">float</ref></type>
+        <type>float</type>
         <definition>float eu::render::Lights::shadow_size</definition>
         <argsstring></argsstring>
         <name>shadow_size</name>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="dir_6719ab1f1f7655efc2fa43f7eb574fd1" kind="dir">
     <compoundname>libs</compoundname>
     <innerdir refid="dir_be4889e00cf19717698d04e08b906024">libs/assert</innerdir>
@@ -15,6 +15,54 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+<sect1 id="dir_6719ab1f1f7655efc2fa43f7eb574fd1_1autotoc_md8">
+<title>Euphoria libraries</title></sect1>
+<sect1 id="dir_6719ab1f1f7655efc2fa43f7eb574fd1_1autotoc_md9">
+<title>log</title><para>logging library</para>
+</sect1>
+<sect1 id="dir_6719ab1f1f7655efc2fa43f7eb574fd1_1autotoc_md10">
+<title>assert</title><para>assert library, uses log</para>
+<sect2 id="dir_6719ab1f1f7655efc2fa43f7eb574fd1_1autotoc_md11">
+<title>core</title><para>contains core functionality like math and other things that doesn&apos;t require external libraries that can&apos;t be embedded</para>
+</sect2>
+<sect2 id="dir_6719ab1f1f7655efc2fa43f7eb574fd1_1autotoc_md12">
+<title>gui</title><para>a system for rendering gui with the rendering library</para>
+</sect2>
+<sect2 id="dir_6719ab1f1f7655efc2fa43f7eb574fd1_1autotoc_md13">
+<title>minsynth</title><para>a minimal software synth</para>
+</sect2>
+<sect2 id="dir_6719ab1f1f7655efc2fa43f7eb574fd1_1autotoc_md14">
+<title>render</title><para>a library for rendering 2d and 3d content in real-time</para>
+</sect2>
+<sect2 id="dir_6719ab1f1f7655efc2fa43f7eb574fd1_1autotoc_md15">
+<title>tests</title><para>testing libraries that are useful in unittests. should be replaced with the catchy library</para>
+</sect2>
+<sect2 id="dir_6719ab1f1f7655efc2fa43f7eb574fd1_1autotoc_md16">
+<title>window</title><para>sdl and imgui wrapper</para>
+<para><preformatted>
+┌───────┐
+│ test  │
+├───────┤
+│       │
+└───────┘
+</preformatted></para>
+<para><programlisting><codeline><highlight class="normal">┌───┬──┬──┐</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>│<sp/><sp/>│<sp/><sp/>│</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>├──┼──┤</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/>│<sp/><sp/>│<sp/><sp/>│</highlight></codeline>
+<codeline><highlight class="normal">├───┴──┴──┤</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>│</highlight></codeline>
+<codeline><highlight class="normal">└─────────┘</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">┌───────┐</highlight></codeline>
+<codeline><highlight class="normal">│<sp/>test<sp/><sp/>│</highlight></codeline>
+<codeline><highlight class="normal">├───────┤</highlight></codeline>
+<codeline><highlight class="normal">│<sp/><sp/><sp/><sp/><sp/><sp/><sp/>│</highlight></codeline>
+<codeline><highlight class="normal">└───────┘</highlight></codeline>
+</programlisting> </para>
+</sect2>
+</sect1>
     </detaileddescription>
     <location file="libs/"/>
   </compounddef>
