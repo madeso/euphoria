@@ -16,7 +16,7 @@ template<>
 struct fmt::formatter<VertexType> : formatter<string_view>
 {
 	template<typename FormatContext>
-	auto format(VertexType c, FormatContext& ctx)
+	auto format(VertexType c, FormatContext& ctx) const
 	{
 		string_view name = "<unknown>";
 		switch (c)

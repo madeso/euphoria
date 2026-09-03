@@ -4,6 +4,8 @@
 
 #include <iostream>
 
+#include "fmt/ranges.h"
+
 #ifndef _MSC_VER
 #include <cxxabi.h>
 #include <execinfo.h>
