@@ -32,6 +32,6 @@ target_link_libraries(runner
         euph::window
         external::lua
         external::imgui
-        external::sdl2
+        external::sdl3
 )
 

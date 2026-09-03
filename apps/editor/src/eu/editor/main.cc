@@ -1,3 +1,6 @@
+// todo(Gustav): look into glad support
+#define SDL_FUNCTION_POINTER_IS_VOID_POINTER
+
 #include "SDL.h"
 
 #include <cassert>
@@ -19,7 +22,7 @@
 #include "dear_imgui/imgui.h"
 #include "dear_imgui/imgui_internal.h"
 
-#include "dear_imgui/backends/imgui_impl_sdl2.h"
+#include "dear_imgui/backends/imgui_impl_sdl3.h"
 #include "dear_imgui/backends/imgui_impl_opengl3.h"
 
 ENABLE_HIGH_PERFORMANCE_GRAPHICS
@@ -78,7 +81,7 @@ int  main(int, char**)
     int window_height = 720;
     const char* glsl_version = "#version 130";
 
-    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_EVENTS) < 0) {
+    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS) < 0) {
         LOG_ERR("Error initializing SDL: {}", SDL_GetError());
         return -1;
     }
@@ -110,8 +113,8 @@ int  main(int, char**)
     SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
     SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);
 
-    SDL_Window* window = SDL_CreateWindow("Editor sample", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-        window_width, window_height, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN | SDL_WINDOW_ALLOW_HIGHDPI | SDL_WINDOW_RESIZABLE);
+    SDL_Window* window = SDL_CreateWindow("Editor sample", 
+        window_width, window_height, SDL_WINDOW_OPENGL | SDL_WINDOW_HIGH_PIXEL_DENSITY | SDL_WINDOW_RESIZABLE);
     if (!window) {
         LOG_ERR("Error creating window: {}", SDL_GetError());
         return -1;
@@ -136,7 +139,7 @@ int  main(int, char**)
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO(); (void)io;
     ImGui::StyleColorsDark();
-    ImGui_ImplSDL2_InitForOpenGL(window, glContext);
+    ImGui_ImplSDL3_InitForOpenGL(window, glContext);
     ImGui_ImplOpenGL3_Init(glsl_version);
 
     bool show_demo_window = true;
@@ -174,17 +177,14 @@ int  main(int, char**)
         SDL_Event e;
         while (SDL_PollEvent(&e) != 0)
         {
-            ImGui_ImplSDL2_ProcessEvent(&e);
+            ImGui_ImplSDL3_ProcessEvent(&e);
             switch (e.type)
             {
-            case SDL_WINDOWEVENT:
-                if (e.window.event == SDL_WINDOWEVENT_RESIZED || e.window.event == SDL_WINDOWEVENT_SIZE_CHANGED)
-                {
-                    LOG_INFO("Resized");
-                    SDL_GetWindowSize(window, &window_width, &window_height);
-                }
+            case SDL_EVENT_WINDOW_RESIZED:
+                LOG_INFO("Resized");
+                SDL_GetWindowSize(window, &window_width, &window_height);
                 break;
-            case SDL_QUIT: running = false; break;
+            case SDL_EVENT_QUIT: running = false; break;
             default:
                 // ignore other events
                 break;
@@ -192,7 +192,7 @@ int  main(int, char**)
         }
 
         ImGui_ImplOpenGL3_NewFrame();
-        ImGui_ImplSDL2_NewFrame();
+        ImGui_ImplSDL3_NewFrame();
         ImGui::NewFrame();
 
         if (show_demo_window)
@@ -238,11 +238,11 @@ int  main(int, char**)
     }
 
     ImGui_ImplOpenGL3_Shutdown();
-    ImGui_ImplSDL2_Shutdown();
+    ImGui_ImplSDL3_Shutdown();
     ImGui::DestroyContext();
 
     LOG_INFO("Shutting down");
-    SDL_GL_DeleteContext(glContext);
+    SDL_GL_DestroyContext(glContext);
     SDL_DestroyWindow(window);
     SDL_Quit();
 

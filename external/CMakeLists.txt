@@ -2,7 +2,7 @@ Include(FetchContent)
 include(ExternalProject)
 
 # todo(Gustav): update to sdl 3
-set(SDL_VERSION_STRING "2.32.10") # tar.gz name on sdl github release page
+set(SDL_VERSION_STRING "3.4.16") # tar.gz name on sdl github release page
 set(CATCH_GIT_TAG v3.7.1)
 
 
@@ -209,11 +209,7 @@ add_library(external::opengl ALIAS opengl)
 
 
 ###################################################################################################
-## sdl2
-
-###################################################################################################
-# SDL2
-###################################################################################################
+## sdl3
 
 if(EU_SDL_SOURCE_FETCH)
     set(SDL_EXTERN_DIR ${CMAKE_CURRENT_BINARY_DIR}/sdl)
@@ -221,9 +217,9 @@ if(EU_SDL_SOURCE_FETCH)
     message(STATUS "Will download and build ${SDL_VERSION_STRING} to ${SDL_EXTERN_DIR} and install to ${SDL_INSTALL_DIR} when building")
 
     ExternalProject_Add(
-        SDL2_external
+        SDL3_external
         DOWNLOAD_EXTRACT_TIMESTAMP TRUE
-        URL https://github.com/libsdl-org/SDL/releases/download/release-${SDL_VERSION_STRING}/SDL2-${SDL_VERSION_STRING}.zip
+        URL https://github.com/libsdl-org/SDL/releases/download/release-${SDL_VERSION_STRING}/SDL3-${SDL_VERSION_STRING}.zip
         PREFIX "${SDL_EXTERN_DIR}/${SDL_VERSION_STRING}"
         LOG_DIR "${SDL_EXTERN_DIR}/log"
         INSTALL_DIR ${SDL_INSTALL_DIR}
@@ -232,53 +228,53 @@ if(EU_SDL_SOURCE_FETCH)
             -DLIBC=ON
             -DSDL_STATIC=ON
             -DSDL_SHARED=OFF
+            -DCMAKE_DEBUG_POSTFIX=d
         LOG_DOWNLOAD ON
         LOG_CONFIGURE ON
         LOG_BUILD ON
         LOG_INSTALL ON
     )
-    set_target_properties(SDL2_external PROPERTIES FOLDER "Dependencies")
+    set_target_properties(SDL3_external PROPERTIES FOLDER "Dependencies")
 
-    add_library(external_sdl2 INTERFACE)
-    add_dependencies(external_sdl2 SDL2_external)
-    target_include_directories(external_sdl2 SYSTEM
+    add_library(external_sdl3 INTERFACE)
+    add_dependencies(external_sdl3 SDL3_external)
+    target_include_directories(external_sdl3 SYSTEM
         INTERFACE
-            ${SDL_INSTALL_DIR}/include/SDL2
+            ${SDL_INSTALL_DIR}/include/SDL3
+            ${SDL_INSTALL_DIR}/include/
     )
     if(WIN32)
-        target_link_libraries(external_sdl2 INTERFACE
-            optimized ${SDL_INSTALL_DIR}/lib/SDL2main.lib
-            optimized ${SDL_INSTALL_DIR}/lib/SDL2-static.lib
-            debug ${SDL_INSTALL_DIR}/lib/SDL2maind.lib
-            debug ${SDL_INSTALL_DIR}/lib/SDL2-staticd.lib
+        target_link_libraries(external_sdl3 INTERFACE
+            optimized ${SDL_INSTALL_DIR}/lib/SDL3-static.lib
+            debug ${SDL_INSTALL_DIR}/lib/SDL3-staticd.lib
             version.lib imm32.lib winmm.lib Setupapi.lib
         )
     else()
         # todo(Gustav): specify debug flag?
-        target_link_libraries(external_sdl2 INTERFACE ${SDL_INSTALL_DIR}/lib/libSDL2.a)
+        target_link_libraries(external_sdl3 INTERFACE ${SDL_INSTALL_DIR}/lib/libSDL3.a)
     endif()
-    add_library(external::sdl2 ALIAS external_sdl2)
+    add_library(external::sdl3 ALIAS external_sdl3)
 endif()
 
 if(EU_SDL_SOURCE_FIND)
-    find_package(SDL2 REQUIRED)
-    add_library(external_sdl2 INTERFACE)
-    target_include_directories(external_sdl2 SYSTEM
+    find_package(SDL3 REQUIRED)
+    add_library(external_sdl3 INTERFACE)
+    target_include_directories(external_sdl3 SYSTEM
         INTERFACE
-            ${SDL2_INCLUDE_DIR}
+            ${SDL3_INCLUDE_DIR}
     )
-    target_link_libraries(external_sdl2
+    target_link_libraries(external_sdl3
         INTERFACE
-            ${SDL2_LIBRARY}
+            ${SDL3_LIBRARY}
             ${CMAKE_DL_LIBS}
     )
     if(WIN32)
-    target_link_libraries(external_sdl2
+    target_link_libraries(external_sdl3
         INTERFACE
         Setupapi.lib
     )
     endif()
-    add_library(external::sdl2 ALIAS external_sdl2)
+    add_library(external::sdl3 ALIAS external_sdl3)
 endif()
 
 
@@ -301,8 +297,8 @@ set(dear_imgui_src
     dear_imgui/dear_imgui/imstb_textedit.h
     dear_imgui/dear_imgui/imstb_truetype.h
 
-    dear_imgui/dear_imgui/backends/imgui_impl_sdl2.cpp
-    dear_imgui/dear_imgui/backends/imgui_impl_sdl2.h
+    dear_imgui/dear_imgui/backends/imgui_impl_sdl3.cpp
+    dear_imgui/dear_imgui/backends/imgui_impl_sdl3.h
     dear_imgui/dear_imgui/backends/imgui_impl_opengl3.cpp
     dear_imgui/dear_imgui/backends/imgui_impl_opengl3.h
 )
@@ -320,7 +316,7 @@ target_include_directories(dear_imgui SYSTEM
 )
 target_link_libraries(dear_imgui
     PUBLIC
-        external::sdl2
+        external::sdl3
         external::glad
         # need assert and project_options for assert override
         euph::assert

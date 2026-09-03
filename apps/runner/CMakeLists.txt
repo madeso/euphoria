@@ -29,7 +29,7 @@ target_link_libraries(runner
         euph::render
         euph::kdl
         lax::liblax
-        external::sdl2
+        external::sdl3
         external::opengl
         external::glad
 )

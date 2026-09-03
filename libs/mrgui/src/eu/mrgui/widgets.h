@@ -33,7 +33,7 @@ namespace eu::mrgui
     struct KeyboardInput
     {
         SDL_Keycode key;
-        u16 mod;
+        SDL_Keymod mod;
     };
 
     struct UiState

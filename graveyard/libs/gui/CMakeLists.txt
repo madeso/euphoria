@@ -54,6 +54,6 @@ target_link_libraries(examples-gui
         euph::render
         euph::window
         external::imgui
-        external::sdl2
+        external::sdl3
 )
 

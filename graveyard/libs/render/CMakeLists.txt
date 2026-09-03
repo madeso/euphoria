@@ -73,7 +73,7 @@ target_link_libraries(examples-3d
         euph::render
         euph::window
         external::imgui
-        external::sdl2
+        external::sdl3
 )
 
 add_executable(examples-2d WIN32 MACOSX_BUNDLE examples/2d.cc)
@@ -86,5 +86,5 @@ target_link_libraries(examples-2d
         euph::render
         euph::window
         external::imgui
-        external::sdl2
+        external::sdl3
 )

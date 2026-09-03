@@ -6,11 +6,11 @@ jobs:
     build:
         strategy:
             matrix:
-                gcc: ['14']
-                clang: ['18']
+                gcc: ['15']
+                clang: ['22']
                 build_type: [Debug]
 
-        runs-on: ubuntu-24.04
+        runs-on: ubuntu-26.04
 
         steps:
         - uses: actions/checkout@v2
@@ -23,7 +23,7 @@ jobs:
         - name: Install Dependencies
           run: |
                 sudo apt update
-                sudo apt install -y libsdl2-dev libassimp-dev curl
+                sudo apt install -y libsdl3-dev libassimp-dev curl
                 pip3 install wheel setuptools gcovr
                 sudo apt install -y doxygen
 

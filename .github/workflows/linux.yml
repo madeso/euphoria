@@ -6,11 +6,11 @@ jobs:
     build:
         strategy:
             matrix:
-                cxx: [g++-14, clang++-18]
+                cxx: [g++-15, clang++-22]
                 build_type: [Debug, Release]
             fail-fast: false
 
-        runs-on: ubuntu-24.04
+        runs-on: ubuntu-26.04
 
         steps:
         - uses: actions/checkout@v2
@@ -20,7 +20,7 @@ jobs:
         - name: Install Dependencies
           run: |
                 sudo apt update
-                sudo apt install -y libsdl2-dev libassimp-dev
+                sudo apt install -y libsdl3-dev libassimp-dev
 
         - name: Create Build Environment
           run: cmake -E make_directory ${{github.workspace}}/build

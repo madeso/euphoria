@@ -66,7 +66,7 @@ target_link_libraries(window
         euph::fmt
         external::imgui
         external::icon_font_cpp_headers
-        external::sdl2
+        external::sdl3
         external::glad
         external::imguizmo
 )

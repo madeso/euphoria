@@ -20,6 +20,6 @@ target_link_libraries(pixel
         euph::render
         euph::window
         external::imgui
-        external::sdl2
+        external::sdl3
 )
 

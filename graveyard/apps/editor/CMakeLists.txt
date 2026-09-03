@@ -21,7 +21,7 @@ target_link_libraries(editor
         euph::core
         euph::render
         euph::window
-        external::sdl2
+        external::sdl3
         external::imgui
 )
 

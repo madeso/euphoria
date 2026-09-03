@@ -116,7 +116,7 @@ namespace eu::mrgui
                 {
                 case SDLK_TAB:
                     uistate.kbd_item = std::nullopt;
-                    if (k.mod & KMOD_SHIFT)
+                    if (k.mod & SDL_KMOD_SHIFT)
                         uistate.kbd_item = uistate.last_widget;
                     break;
                 case SDLK_RETURN:
@@ -256,7 +256,7 @@ namespace eu::mrgui
                 {
                 case SDLK_TAB:
                     uistate.kbd_item = std::nullopt;
-                    if (k.mod & KMOD_SHIFT)
+                    if (k.mod & SDL_KMOD_SHIFT)
                     {
                         uistate.kbd_item = uistate.last_widget;
                     }
@@ -344,7 +344,7 @@ namespace eu::mrgui
         if (uistate.kbd_item == id) {
             if (uistate.key.has_value()) {
                 auto k = uistate.key.value();
-                const auto shift = k.mod & KMOD_SHIFT;
+                const auto shift = k.mod & SDL_KMOD_SHIFT;
                 switch (k.key) {
                 case SDLK_LEFT: text_state.onKeyLeft(shift, val); changed = true; break;
                 case SDLK_RIGHT: text_state.onKeyRight(shift, val); changed = true; break;

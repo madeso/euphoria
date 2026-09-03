@@ -1,3 +1,6 @@
+// todo(Gustav): look into glad support
+#define SDL_FUNCTION_POINTER_IS_VOID_POINTER
+
 #include "SDL.h"
 #include "SDL_timer.h"
 
@@ -42,7 +45,7 @@ int  main(int, char**)
     int window_width = 1280;
     int window_height = 720;
 
-    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_EVENTS) < 0) {
+    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS) == false) {
         LOG_ERR("Error initializing SDL: {}", SDL_GetError());
         return -1;
     }
@@ -75,8 +78,8 @@ int  main(int, char**)
     SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
     SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);
 
-    SDL_Window* window = SDL_CreateWindow("mrgui sample", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-        window_width, window_height, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN | SDL_WINDOW_ALLOW_HIGHDPI | SDL_WINDOW_RESIZABLE);
+    SDL_Window* window = SDL_CreateWindow("mrgui sample",
+        window_width, window_height, SDL_WINDOW_OPENGL | SDL_WINDOW_HIGH_PIXEL_DENSITY | SDL_WINDOW_RESIZABLE);
     if (!window) {
         LOG_ERR("Error creating window: {}", SDL_GetError());
         return -1;
@@ -134,32 +137,30 @@ int  main(int, char**)
         {
             switch (e.type)
             {
-            case SDL_MOUSEMOTION:
-                uistate.mouse = { static_cast<float>(e.motion.x), static_cast<float>(window_height - e.motion.y) };
+            case SDL_EVENT_MOUSE_MOTION:
+                uistate.mouse = { e.motion.x, static_cast<float>(window_height) - e.motion.y };
                 break;
-            case SDL_MOUSEBUTTONDOWN:
+            case SDL_EVENT_MOUSE_BUTTON_DOWN:
                 if (e.button.button == 1)
                 {
                     uistate.mousedown = true;
                 }
                 break;
-            case SDL_MOUSEBUTTONUP:
+            case SDL_EVENT_MOUSE_BUTTON_UP:
                 if (e.button.button == 1)
                 {
                     uistate.mousedown = false;
                 }
                 break;
-            case SDL_WINDOWEVENT:
-                if (e.window.event == SDL_WINDOWEVENT_RESIZED || e.window.event == SDL_WINDOWEVENT_SIZE_CHANGED)
-                {
-                    LOG_INFO("Resized");
-                    SDL_GetWindowSize(window, &window_width, &window_height);
-                }
+            case SDL_EVENT_WINDOW_RESIZED:
+            case SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED:
+                LOG_INFO("Resized");
+                SDL_GetWindowSize(window, &window_width, &window_height);
                 break;
-            case SDL_KEYDOWN:
-                uistate.key = KeyboardInput {.key = e.key.keysym.sym, .mod = e.key.keysym.mod };
+            case SDL_EVENT_KEY_DOWN:
+                uistate.key = KeyboardInput {.key = e.key.key, .mod = e.key.mod };
                 break;
-            case SDL_TEXTINPUT:
+            case SDL_EVENT_TEXT_INPUT:
                 {
                 // todo(Gustav): handle unicode
                 char c = e.text.text[0];
@@ -167,7 +168,7 @@ int  main(int, char**)
                     uistate.keychar = static_cast<char>(c & 0x7f);
                 }
                 break;
-            case SDL_QUIT: running = false; break;
+            case SDL_EVENT_QUIT: running = false; break;
             default:
                 // ignore other events
                 break;
@@ -231,7 +232,7 @@ int  main(int, char**)
     }
 
     LOG_INFO("Shutting down");
-    SDL_GL_DeleteContext(glContext);
+    SDL_GL_DestroyContext(glContext);
     SDL_DestroyWindow(window);
     SDL_Quit();
 

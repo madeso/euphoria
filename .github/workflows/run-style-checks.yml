@@ -8,7 +8,7 @@ jobs:
             matrix:
                 build_type: [Debug, Release]
 
-        runs-on: ubuntu-24.04
+        runs-on: ubuntu-26.04
 
         steps:
         - uses: actions/checkout@v2
@@ -18,7 +18,7 @@ jobs:
         - name: Install Dependencies
           run: |
                 sudo apt update
-                sudo apt install -y libsdl2-dev libassimp-dev
+                sudo apt install -y libsdl3-dev libassimp-dev
 
         - name: Create Build Environment
           run: cmake -E make_directory ${{github.workspace}}/build
@@ -34,7 +34,7 @@ jobs:
           shell: bash
           working-directory: ${{github.workspace}}/build
           env:
-                CXX: clang++-18
+                CXX: clang++-22
           run: cmake -DCMAKE_BUILD_TYPE=${{matrix.build_type}} $GITHUB_WORKSPACE
 
         - name: clang-tidy version
@@ -42,9 +42,9 @@ jobs:
           working-directory: ${{github.workspace}}
           run: |
                 ls /usr/bin/clang-*
-                clang-tidy-18 --version
+                clang-tidy-22 --version
                 dotnet run --project ./tools/buildtools/Workbench/ -- path clang-tidy list
-                dotnet run --project ./tools/buildtools/Workbench/ -- path clang-tidy set /usr/bin/clang-tidy-18
+                dotnet run --project ./tools/buildtools/Workbench/ -- path clang-tidy set /usr/bin/clang-tidy-22
                 dotnet run --project ./tools/buildtools/Workbench/ -- path clang-tidy list
 
         - name: Build

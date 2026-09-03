@@ -30,6 +30,6 @@ target_link_libraries(t3d
         euph::render
         euph::window
         external::imgui
-        external::sdl2
+        external::sdl3
 )
 

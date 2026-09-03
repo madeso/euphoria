@@ -37,7 +37,7 @@ target_link_libraries(editor
         euph::render
         external::dear_imgui
         euph::imgui
-        external::sdl2
+        external::sdl3
         external::opengl
         external::glad
 )

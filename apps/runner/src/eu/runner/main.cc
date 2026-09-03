@@ -1,5 +1,8 @@
 #include <utility>
 
+// todo(Gustav): look into glad support
+#define SDL_FUNCTION_POINTER_IS_VOID_POINTER
+
 #include "SDL.h"
 
 // #include <string>
@@ -36,7 +39,7 @@
 #include "eu/imgui/ui.h"
 
 #include "dear_imgui/imgui.h"
-#include "dear_imgui/backends/imgui_impl_sdl2.h"
+#include "dear_imgui/backends/imgui_impl_sdl3.h"
 #include "dear_imgui/backends/imgui_impl_opengl3.h"
 
 static void imgui_color(const char* const label, eu::Rgb* color)
@@ -489,15 +492,21 @@ int main(int, char**)
     int window_height = 720;
     const char* glsl_version = "#version 130";
 
-    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_EVENTS) < 0) {
+    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS) < 0) {
         LOG_ERR("Error initializing SDL: {}", SDL_GetError());
         return -1;
     }
 
     {
-        SDL_version version;
-        SDL_GetVersion(&version);
-        LOG_INFO("SDL {0}.{1}.{2} initialized", version.major, version.minor, version.patch);
+        const auto str = [](int version)
+            {
+                const auto major = SDL_VERSIONNUM_MAJOR(version);
+                const auto minor = SDL_VERSIONNUM_MINOR(version);
+                const auto micro = SDL_VERSIONNUM_MICRO(version);
+                return fmt::format("{0}.{1}.{2}", major, minor, micro);
+            };
+        const int version_loaded = SDL_GetVersion();
+        LOG_INFO("SDL {0} initialized with {1}", str(SDL_VERSION), str(version_loaded));
     }
 
 #if defined(__APPLE__)
@@ -527,8 +536,8 @@ int main(int, char**)
     SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
     SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);
 
-    SDL_Window* window = SDL_CreateWindow("Runner", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-        window_width, window_height, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN | SDL_WINDOW_ALLOW_HIGHDPI | SDL_WINDOW_RESIZABLE);
+    SDL_Window* window = SDL_CreateWindow("Runner",
+        window_width, window_height, SDL_WINDOW_OPENGL | SDL_WINDOW_HIGH_PIXEL_DENSITY | SDL_WINDOW_RESIZABLE);
     if (!window) {
         LOG_ERR("Error creating window: {}", SDL_GetError());
         return -1;
@@ -576,9 +585,9 @@ int main(int, char**)
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO(); (void)io;
     ImGui::StyleColorsDark();
-    if (false == ImGui_ImplSDL2_InitForOpenGL(window, glContext))
+    if (false == ImGui_ImplSDL3_InitForOpenGL(window, glContext))
     {
-        LOG_ERR("Failed to init ImGui SDL2 backend");
+        LOG_ERR("Failed to init ImGui SDL3 backend");
         return -1;
     }
     if (false == ImGui_ImplOpenGL3_Init(glsl_version))
@@ -742,23 +751,20 @@ int main(int, char**)
         while (SDL_PollEvent(&e) != 0)
         {
 #if FF_HAS(EU_DEBUG_RUNNER)
-            ImGui_ImplSDL2_ProcessEvent(&e);
+            ImGui_ImplSDL3_ProcessEvent(&e);
 #endif
 
             switch (e.type)
             {
-            case SDL_KEYDOWN:
-            case SDL_KEYUP:
-                input.on_key(e.key.keysym.sym, e.type == SDL_KEYDOWN);
+            case SDL_EVENT_KEY_DOWN:
+            case SDL_EVENT_KEY_UP:
+                input.on_key(e.key.key, e.type == SDL_EVENT_KEY_DOWN);
                 break;
-            case SDL_WINDOWEVENT:
-                if (e.window.event == SDL_WINDOWEVENT_RESIZED || e.window.event == SDL_WINDOWEVENT_SIZE_CHANGED)
-                {
-                    LOG_INFO("Resized");
-                    SDL_GetWindowSize(window, &window_width, &window_height);
-                }
+            case SDL_EVENT_WINDOW_RESIZED:
+                LOG_INFO("Resized");
+                SDL_GetWindowSize(window, &window_width, &window_height);
                 break;
-            case SDL_QUIT: running = false; break;
+            case SDL_EVENT_QUIT: running = false; break;
             default:
                 // ignore other events
                 break;
@@ -772,7 +778,7 @@ int main(int, char**)
 
 #if FF_HAS(EU_DEBUG_RUNNER)
         ImGui_ImplOpenGL3_NewFrame();
-        ImGui_ImplSDL2_NewFrame();
+        ImGui_ImplSDL3_NewFrame();
         ImGui::NewFrame();
 
         if (show_demo_window)
@@ -852,12 +858,12 @@ int main(int, char**)
 
 #if FF_HAS(EU_DEBUG_RUNNER)
     ImGui_ImplOpenGL3_Shutdown();
-    ImGui_ImplSDL2_Shutdown();
+    ImGui_ImplSDL3_Shutdown();
     ImGui::DestroyContext();
 #endif
 
     LOG_INFO("Shutting down");
-    SDL_GL_DeleteContext(glContext);
+    SDL_GL_DestroyContext(glContext);
     SDL_DestroyWindow(window);
     SDL_Quit();
 

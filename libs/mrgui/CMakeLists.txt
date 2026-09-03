@@ -31,7 +31,7 @@ target_link_libraries(mrgui
         euph::render
         external::stb_image
         embed::embed
-        external::sdl2
+        external::sdl3
         external::stb_textedit
     PRIVATE
         euph::project_options
@@ -72,7 +72,7 @@ target_link_libraries(mrgui_demo PRIVATE euph::project_options
     euph::base
     euph::render
     euph::mrgui
-    external::sdl2
+    external::sdl3
     external::opengl
     external::glad
 )
