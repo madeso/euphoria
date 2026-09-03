@@ -172,7 +172,7 @@ set_target_properties(Catch2WithMain PROPERTIES FOLDER "Dependencies/catch2")
 
 ###################################################################################################
 ## fmt
-add_subdirectory(fmt-10.1.1)
+add_subdirectory(fmt-12.2.0)
 add_library(fmt_dep INTERFACE)
 target_link_libraries(fmt_dep INTERFACE fmt::fmt)
 add_library(external::fmt ALIAS fmt_dep)
