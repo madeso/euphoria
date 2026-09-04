@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 #include "eu/render/texture.h"
 
 namespace eu::imgui

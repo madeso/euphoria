@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 #include "eu/core/vertex_layout.h"
 
 #include "eu/render/debug.h"

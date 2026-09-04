@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 #include "eu/render/world.h"
 
 namespace eu::render

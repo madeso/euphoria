@@ -1,4 +1,7 @@
 #pragma once
+
+#include <memory>
+
 #include "eu/core/mesh.h"
 #include "eu/render/opengl_labels.h"
 

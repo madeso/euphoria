@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 #include "eu/render/uniform.h"
 #include "eu/render/uniform_buffer.h"
 #include "eu/core/vertex_layout.h"

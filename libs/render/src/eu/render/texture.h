@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 #include "eu/base/size.h"
 
 #include "eu/render/opengl_labels.h"

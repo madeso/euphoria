@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 #include "eu/render/shader.source.h"
 #include "eu/render/texture.h"
 

@@ -1,11 +1,13 @@
 #pragma once
+
+#include <unordered_set>
+#include <memory>
+
 #include "eu/core/scurve.h"
 
 #include "eu/render/material.h"
 #include "eu/core/vertex_layout.h"
 #include "eu/render/space.h"
-
-#include <unordered_set>
 
 namespace eu::core
 {

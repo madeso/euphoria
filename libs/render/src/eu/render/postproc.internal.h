@@ -1,7 +1,8 @@
 #pragma once
 
-#include "eu/render/postproc.h"
+#include <memory>
 
+#include "eu/render/postproc.h"
 
 #include "eu/render/renderer.h"
 #include "eu/render/shader.h"
