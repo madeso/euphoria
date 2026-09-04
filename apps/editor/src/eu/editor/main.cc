@@ -81,7 +81,10 @@ int  main(int, char**)
     int window_height = 720;
     const char* glsl_version = "#version 130";
 
-    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS) < 0) {
+    SDL_SetAppMetadata("Euphoria editor", "v0.1", "com.madeso.euphoria");
+
+    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS) == false)
+    {
         LOG_ERR("Error initializing SDL: {}", SDL_GetError());
         return -1;
     }
