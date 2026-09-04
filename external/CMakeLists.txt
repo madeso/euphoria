@@ -3,7 +3,7 @@ include(ExternalProject)
 
 # todo(Gustav): update to sdl 3
 set(SDL_VERSION_STRING "3.4.16") # tar.gz name on sdl github release page
-set(CATCH_GIT_TAG v3.7.1)
+set(CATCH_GIT_TAG v3.16.0)
 
 
 
