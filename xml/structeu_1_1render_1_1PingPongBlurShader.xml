@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="274" column="17" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="274" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="276" column="17" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="276" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1PingPongBlurShader_1aa09c3eb6683d6a130029a4d08e6add3c" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="275" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="275" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="277" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="277" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="272" column="10"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="274" column="10"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -70,7 +70,7 @@
         <link refid="structeu_1_1render_1_1Uniform"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/shader_resource.h" line="270" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="271" bodyend="276"/>
+    <location file="libs/render/src/eu/render/shader_resource.h" line="272" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="273" bodyend="278"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1PingPongBlurShader_1aa09c3eb6683d6a130029a4d08e6add3c" prot="public" virt="non-virtual"><scope>eu::render::PingPongBlurShader</scope><name>is_horizontal_uniform</name></member>
       <member refid="structeu_1_1render_1_1PingPongBlurShader_1ac025f0eb12ce409cb048c574ab979df2" prot="public" virt="non-virtual"><scope>eu::render::PingPongBlurShader</scope><name>PingPongBlurShader</name></member>

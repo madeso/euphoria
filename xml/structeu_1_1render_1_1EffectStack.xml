@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="154" column="5" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="154" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="156" column="5" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="156" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1EffectStack_1ad951e90e8f7559a1b60e18c16e7c0122" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="155" column="6" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="155" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="157" column="6" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="157" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1EffectStack_1afebb6cbe04fce569426cfc7edc90ae44" prot="public" static="no" mutable="no">
         <type>std::optional&lt; <ref refid="structeu_1_1Size" kindref="compound">Size</ref> &gt;</type>
@@ -46,7 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="156" column="15" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="156" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="158" column="15" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="158" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1EffectStack_1aee61ceb7f1e51c392449c9c285a22eed" prot="public" static="no" mutable="no">
         <type>std::vector&lt; std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1Effect" kindref="compound">Effect</ref> &gt; &gt;</type>
@@ -60,7 +60,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="157" column="13" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="157" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="159" column="13" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="159" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1EffectStack_1a8b227c3d308375ef9ed142aeff87a60f" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1CompiledStack" kindref="compound">CompiledStack</ref></type>
@@ -74,7 +74,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="158" column="15" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="158" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="160" column="15" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="160" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1EffectStack_1a5c265fd9c208bc039f17367f11fc097d" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -89,7 +89,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="163" column="6" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="163" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="165" column="6" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="165" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1EffectStack_1a91089ad1c671ff53a0e64767733bfbf4" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -104,7 +104,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="164" column="7" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="164" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="166" column="7" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="166" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1EffectStack_1acafbedc23d801c735398fe4ad3b50847" prot="public" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1RenderWorld" kindref="compound">RenderWorld</ref> &gt;</type>
@@ -118,7 +118,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="166" column="17" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="166" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="168" column="17" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="168" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -139,7 +139,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="169" column="6"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="171" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1EffectStack_1aae5ff2d6e21d076e821f0a0b5aa4b238" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -157,7 +157,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="170" column="6"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="172" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1EffectStack_1a408f46356d692e944e8d3d27f1f695b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -175,7 +175,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="171" column="6"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="173" column="6"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -196,7 +196,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/postproc.h" line="152" column="1" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="153" bodyend="172"/>
+    <location file="libs/render/src/eu/render/postproc.h" line="154" column="1" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="155" bodyend="174"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1EffectStack_1a8b227c3d308375ef9ed142aeff87a60f" prot="public" virt="non-virtual"><scope>eu::render::EffectStack</scope><name>compiled</name></member>
       <member refid="structeu_1_1render_1_1EffectStack_1a2eadfe359bfa3494d8b3d1d53f054259" prot="public" virt="non-virtual"><scope>eu::render::EffectStack</scope><name>current_msaa_setting</name></member>

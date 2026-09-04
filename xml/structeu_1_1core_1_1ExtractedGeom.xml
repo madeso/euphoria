@@ -47,7 +47,7 @@
         <location file="libs/core/src/eu/core/geom.extract.h" line="36" column="13" bodyfile="libs/core/src/eu/core/geom.extract.h" bodystart="36" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1ExtractedGeom_1a3f189723c11a5e0eeaa4d007d863830e" prot="public" static="no" mutable="no">
-        <type>std::vector&lt; <ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref> &gt;</type>
+        <type>std::vector&lt; <ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref> &gt;</type>
         <definition>std::vector&lt;u32&gt; eu::core::ExtractedGeom::indices</definition>
         <argsstring></argsstring>
         <name>indices</name>
@@ -61,7 +61,7 @@
         <location file="libs/core/src/eu/core/geom.extract.h" line="37" column="13" bodyfile="libs/core/src/eu/core/geom.extract.h" bodystart="37" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1ExtractedGeom_1a9f09513fb7c17a05b683130a6744c028" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1add0144d900d7bc769809952bd5a192dc" kindref="member">i32</ref></type>
+        <type><ref refid="namespaceeu_1a90d2f6faad0b9b10ac7cfd7d84f8f950" kindref="member">i32</ref></type>
         <definition>i32 eu::core::ExtractedGeom::face_size</definition>
         <argsstring></argsstring>
         <name>face_size</name>

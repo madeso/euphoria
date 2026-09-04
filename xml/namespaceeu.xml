@@ -84,9 +84,9 @@
       </memberdef>
     </sectiondef>
     <sectiondef kind="typedef">
-      <memberdef kind="typedef" id="namespaceeu_1a090d699ff2e662746efe3360da037a63" prot="public" static="no">
-        <type>std::int8_t</type>
-        <definition>using eu::i8 =  std::int8_t</definition>
+      <memberdef kind="typedef" id="namespaceeu_1a8a933192ba169dc0dbf2c58d4ee3f357" prot="public" static="no">
+        <type>int8_t</type>
+        <definition>using eu::i8 =  int8_t</definition>
         <argsstring></argsstring>
         <name>i8</name>
         <qualifiedname>eu::i8</qualifiedname>
@@ -98,9 +98,9 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/ints.h" line="7" column="5" bodyfile="libs/base/src/eu/base/ints.h" bodystart="7" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="typedef" id="namespaceeu_1ab54bb6d749a09a2813b4cea2efd2e6ae" prot="public" static="no">
-        <type>std::int16_t</type>
-        <definition>using eu::i16 =  std::int16_t</definition>
+      <memberdef kind="typedef" id="namespaceeu_1aee9856aacc02a179d8c380cbb0aecfc9" prot="public" static="no">
+        <type>int16_t</type>
+        <definition>using eu::i16 =  int16_t</definition>
         <argsstring></argsstring>
         <name>i16</name>
         <qualifiedname>eu::i16</qualifiedname>
@@ -112,9 +112,9 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/ints.h" line="8" column="5" bodyfile="libs/base/src/eu/base/ints.h" bodystart="8" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="typedef" id="namespaceeu_1add0144d900d7bc769809952bd5a192dc" prot="public" static="no">
-        <type>std::int32_t</type>
-        <definition>using eu::i32 =  std::int32_t</definition>
+      <memberdef kind="typedef" id="namespaceeu_1a90d2f6faad0b9b10ac7cfd7d84f8f950" prot="public" static="no">
+        <type>int32_t</type>
+        <definition>using eu::i32 =  int32_t</definition>
         <argsstring></argsstring>
         <name>i32</name>
         <qualifiedname>eu::i32</qualifiedname>
@@ -126,9 +126,9 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/ints.h" line="9" column="5" bodyfile="libs/base/src/eu/base/ints.h" bodystart="9" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="typedef" id="namespaceeu_1a62513252b62b046b32657ad9d3779d74" prot="public" static="no">
-        <type>std::int64_t</type>
-        <definition>using eu::i64 =  std::int64_t</definition>
+      <memberdef kind="typedef" id="namespaceeu_1afd64aebdcc64a04ce3704aaf36bac100" prot="public" static="no">
+        <type>int64_t</type>
+        <definition>using eu::i64 =  int64_t</definition>
         <argsstring></argsstring>
         <name>i64</name>
         <qualifiedname>eu::i64</qualifiedname>
@@ -140,9 +140,9 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/ints.h" line="10" column="5" bodyfile="libs/base/src/eu/base/ints.h" bodystart="10" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="typedef" id="namespaceeu_1ab10f4fc790440413475454dc69c9e901" prot="public" static="no">
-        <type>std::uint8_t</type>
-        <definition>using eu::u8 =  std::uint8_t</definition>
+      <memberdef kind="typedef" id="namespaceeu_1ab409964e4fa95e47f7286765989f4131" prot="public" static="no">
+        <type>uint8_t</type>
+        <definition>using eu::u8 =  uint8_t</definition>
         <argsstring></argsstring>
         <name>u8</name>
         <qualifiedname>eu::u8</qualifiedname>
@@ -154,9 +154,9 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/ints.h" line="12" column="5" bodyfile="libs/base/src/eu/base/ints.h" bodystart="12" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="typedef" id="namespaceeu_1aa248cae79ab17191d82317be93474ee3" prot="public" static="no">
-        <type>std::uint16_t</type>
-        <definition>using eu::u16 =  std::uint16_t</definition>
+      <memberdef kind="typedef" id="namespaceeu_1a8abaf9e3814c5d42e66619d80bda44c0" prot="public" static="no">
+        <type>uint16_t</type>
+        <definition>using eu::u16 =  uint16_t</definition>
         <argsstring></argsstring>
         <name>u16</name>
         <qualifiedname>eu::u16</qualifiedname>
@@ -168,9 +168,9 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/ints.h" line="13" column="5" bodyfile="libs/base/src/eu/base/ints.h" bodystart="13" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="typedef" id="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" prot="public" static="no">
-        <type>std::uint32_t</type>
-        <definition>using eu::u32 =  std::uint32_t</definition>
+      <memberdef kind="typedef" id="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" prot="public" static="no">
+        <type>uint32_t</type>
+        <definition>using eu::u32 =  uint32_t</definition>
         <argsstring></argsstring>
         <name>u32</name>
         <qualifiedname>eu::u32</qualifiedname>
@@ -182,9 +182,9 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/ints.h" line="14" column="5" bodyfile="libs/base/src/eu/base/ints.h" bodystart="14" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="typedef" id="namespaceeu_1abe0c1a612663ea762f0507c0e96a3514" prot="public" static="no">
-        <type>std::uint64_t</type>
-        <definition>using eu::u64 =  std::uint64_t</definition>
+      <memberdef kind="typedef" id="namespaceeu_1a71ee399e74f0202698296f0a27e896ef" prot="public" static="no">
+        <type>uint64_t</type>
+        <definition>using eu::u64 =  uint64_t</definition>
         <argsstring></argsstring>
         <name>u64</name>
         <qualifiedname>eu::u64</qualifiedname>
@@ -210,7 +210,7 @@
         <qualifiedname>eu::nil_guid</qualifiedname>
         <initializer>= <ref refid="structeu_1_1Guid" kindref="compound">Guid</ref>
     {
-        std::array&lt;<ref refid="namespaceeu_1ab10f4fc790440413475454dc69c9e901" kindref="member">u8</ref>, 16&gt;
+        std::array&lt;<ref refid="namespaceeu_1ab409964e4fa95e47f7286765989f4131" kindref="member">u8</ref>, 16&gt;
         {
             0, 0, 0, 0,
             0, 0,
@@ -381,7 +381,7 @@
         <location file="libs/base/src/eu/base/cint.h" line="16" column="23" bodyfile="libs/base/src/eu/base/cint.h" bodystart="16" bodyend="19"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a1601a5b817cb769a5a619671987fa7cc" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
+        <type><ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref></type>
         <definition>u32 eu::u32_from_sizet</definition>
         <argsstring>(std::size_t i)</argsstring>
         <name>u32_from_sizet</name>
@@ -963,7 +963,7 @@
         <location file="libs/base/src/eu/base/guid.h" line="66" column="18" declfile="libs/base/src/eu/base/guid.h" declline="66" declcolumn="18"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1a1314a884697b4470c9c443ec00890b63" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeu_1abe0c1a612663ea762f0507c0e96a3514" kindref="member">u64</ref></type>
+        <type><ref refid="namespaceeu_1a71ee399e74f0202698296f0a27e896ef" kindref="member">u64</ref></type>
         <definition>u64 eu::hash64</definition>
         <argsstring>(const std::string_view str, u64 hash=0xcbf29ce484222325)</argsstring>
         <name>hash64</name>
@@ -973,7 +973,7 @@
           <declname>str</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1abe0c1a612663ea762f0507c0e96a3514" kindref="member">u64</ref></type>
+          <type><ref refid="namespaceeu_1a71ee399e74f0202698296f0a27e896ef" kindref="member">u64</ref></type>
           <declname>hash</declname>
           <defval>0xcbf29ce484222325</defval>
         </param>

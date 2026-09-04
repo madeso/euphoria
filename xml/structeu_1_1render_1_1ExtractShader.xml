@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="265" column="17" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="265" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="267" column="17" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="267" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1ExtractShader_1ac7f9373be257e298f7860b45ee841778" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="266" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="266" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="268" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="268" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1ExtractShader_1a4f1abb8b52de8ee8c874bcb375705146" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="267" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="267" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="269" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="269" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -64,7 +64,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="263" column="10"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="265" column="10"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -86,7 +86,7 @@
         <link refid="structeu_1_1render_1_1Uniform"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/shader_resource.h" line="261" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="262" bodyend="268"/>
+    <location file="libs/render/src/eu/render/shader_resource.h" line="263" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="264" bodyend="270"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1ExtractShader_1ac7f9373be257e298f7860b45ee841778" prot="public" virt="non-virtual"><scope>eu::render::ExtractShader</scope><name>cutoff_uniform</name></member>
       <member refid="structeu_1_1render_1_1ExtractShader_1a946c0b9be4ef79410a0fadd4b9e52001" prot="public" virt="non-virtual"><scope>eu::render::ExtractShader</scope><name>ExtractShader</name></member>

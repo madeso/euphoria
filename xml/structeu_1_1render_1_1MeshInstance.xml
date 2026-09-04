@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="89" column="17" bodyfile="libs/render/src/eu/render/world.h" bodystart="89" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="91" column="17" bodyfile="libs/render/src/eu/render/world.h" bodystart="91" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1MeshInstance_1aa927ffc7b4c619b6301210986779fab4" prot="public" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1Material" kindref="compound">Material</ref> &gt;</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="90" column="17" bodyfile="libs/render/src/eu/render/world.h" bodystart="90" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="92" column="17" bodyfile="libs/render/src/eu/render/world.h" bodystart="92" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1MeshInstance_1a4ae6b9664ad0a47eedd135e141ca8577" prot="public" static="no" mutable="no">
         <type>std::optional&lt; <ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> &gt;</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="92" column="15" bodyfile="libs/render/src/eu/render/world.h" bodystart="92" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="94" column="15" bodyfile="libs/render/src/eu/render/world.h" bodystart="94" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1MeshInstance_1a48219f187a6f783cf939efede7a3b0e8" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
@@ -59,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="94" column="8" bodyfile="libs/render/src/eu/render/world.h" bodystart="94" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="96" column="8" bodyfile="libs/render/src/eu/render/world.h" bodystart="96" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1MeshInstance_1a3c0cdc27bbce8bdeb1e9228593bf5dee" prot="public" static="no" mutable="no">
         <type><ref refid="group__render_1gab249aa0de7a8d3bb6c510b1e8ede1e48" kindref="member">Billboarding</ref></type>
@@ -75,7 +75,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="95" column="14" bodyfile="libs/render/src/eu/render/world.h" bodystart="95" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="97" column="14" bodyfile="libs/render/src/eu/render/world.h" bodystart="97" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -91,7 +91,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="97" column="11"/>
+        <location file="libs/render/src/eu/render/world.h" line="99" column="11"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -112,7 +112,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/world.h" line="87" column="1" bodyfile="libs/render/src/eu/render/world.h" bodystart="88" bodyend="98"/>
+    <location file="libs/render/src/eu/render/world.h" line="89" column="1" bodyfile="libs/render/src/eu/render/world.h" bodystart="90" bodyend="100"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1MeshInstance_1a3c0cdc27bbce8bdeb1e9228593bf5dee" prot="public" virt="non-virtual"><scope>eu::render::MeshInstance</scope><name>billboarding</name></member>
       <member refid="structeu_1_1render_1_1MeshInstance_1a01bc5c4aa1b9709e00c5a713388d792f" prot="public" virt="non-virtual"><scope>eu::render::MeshInstance</scope><name>geom</name></member>

@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="37" column="1"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="39" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1RenderSource_1a5229ea2ab88fbe9b6476251acf61e015" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type></type>
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="38" column="9"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="40" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1RenderSource_1a84600af6eae80c301b3f781f115947e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -49,7 +49,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="40" column="1"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="42" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1RenderSource_1a47d4e8a8f60cf01dea5c215e9e5906db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="41" column="1"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="43" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1RenderSource_1a098f7f7e586ab9ceb5688408d1558420" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -83,7 +83,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="42" column="6"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="44" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1RenderSource_1a31054db3e4c627616e911d3a91927dac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -100,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="43" column="6"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="45" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1RenderSource_1aefd4f044c4caab48e9169ed248ab75e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -120,7 +120,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="45" column="14"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="47" column="14"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -147,7 +147,7 @@
         </childnode>
       </node>
     </inheritancegraph>
-    <location file="libs/render/src/eu/render/postproc.h" line="35" column="1" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="36" bodyend="46"/>
+    <location file="libs/render/src/eu/render/postproc.h" line="37" column="1" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="38" bodyend="48"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1RenderSource_1a098f7f7e586ab9ceb5688408d1558420" prot="public" virt="non-virtual"><scope>eu::render::RenderSource</scope><name>operator=</name></member>
       <member refid="structeu_1_1render_1_1RenderSource_1a31054db3e4c627616e911d3a91927dac" prot="public" virt="non-virtual"><scope>eu::render::RenderSource</scope><name>operator=</name></member>

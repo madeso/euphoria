@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="74" column="9" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="74" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="75" column="9" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="75" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1FloatDragShaderProp_1aed6ab4d06c8f05f57793af35c07e1e98" prot="public" static="no" mutable="no">
         <type>std::string</type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="75" column="13" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="75" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="76" column="13" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="76" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1FloatDragShaderProp_1a90922cf90beaa69655f916f92ed08381" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -45,7 +45,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="76" column="7" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="76" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="77" column="7" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="77" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1FloatDragShaderProp_1a00c1cc6968faeecb6417562034b6ae0d" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -59,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="77" column="7" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="77" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="78" column="7" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="78" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -91,7 +91,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="79" column="1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="80" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1FloatDragShaderProp_1a2b2643ed042b87d2d55277acb4a64c86" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -113,7 +113,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="81" column="6"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="82" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1FloatDragShaderProp_1ac33058166ad1f6fb7f43c77f63b56e87" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -128,7 +128,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="83" column="6"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="84" column="6"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -167,7 +167,7 @@
         <link refid="structeu_1_1render_1_1Uniform"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/postproc.internal.h" line="72" column="1" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="73" bodyend="84"/>
+    <location file="libs/render/src/eu/render/postproc.internal.h" line="73" column="1" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="74" bodyend="85"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1FloatDragShaderProp_1af1b4fdabc15b3ceb99ddc860fa460f10" prot="public" virt="non-virtual"><scope>eu::render::FloatDragShaderProp</scope><name>FloatDragShaderProp</name></member>
       <member refid="structeu_1_1render_1_1FloatDragShaderProp_1ac33058166ad1f6fb7f43c77f63b56e87" prot="public" virt="virtual"><scope>eu::render::FloatDragShaderProp</scope><name>gui</name></member>

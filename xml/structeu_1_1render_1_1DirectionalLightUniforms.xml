@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="109" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="109" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="111" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="111" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1DirectionalLightUniforms_1a40dc04f91f042f9e4e3af936126b04b4" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="110" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="110" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="112" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="112" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1DirectionalLightUniforms_1a85fce17f96e0d36949e11d8a9484600e" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="111" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="111" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="113" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="113" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="107" column="1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="109" column="1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -94,7 +94,7 @@
         <link refid="structeu_1_1render_1_1Uniform"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/shader_resource.h" line="105" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="106" bodyend="112"/>
+    <location file="libs/render/src/eu/render/shader_resource.h" line="107" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="108" bodyend="114"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1DirectionalLightUniforms_1a85fce17f96e0d36949e11d8a9484600e" prot="public" virt="non-virtual"><scope>eu::render::DirectionalLightUniforms</scope><name>dir_uni</name></member>
       <member refid="structeu_1_1render_1_1DirectionalLightUniforms_1afe4b0835ab0cc4324a86d7b1514473e5" prot="public" virt="non-virtual"><scope>eu::render::DirectionalLightUniforms</scope><name>DirectionalLightUniforms</name></member>

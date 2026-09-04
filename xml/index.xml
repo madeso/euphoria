@@ -1620,14 +1620,14 @@
     <member refid="namespaceeu_1a85307e96edc76ca2a8fdbb1624211c68a7c4f29407893c334a6cb7a87bf045c0d" kind="enumvalue"><name>right</name></member>
     <member refid="namespaceeu_1a85307e96edc76ca2a8fdbb1624211c68ab28354b543375bfa94dabaeda722927f" kind="enumvalue"><name>top</name></member>
     <member refid="namespaceeu_1a85307e96edc76ca2a8fdbb1624211c68a71f262d796bed1ab30e8a2d5a8ddee6f" kind="enumvalue"><name>bottom</name></member>
-    <member refid="namespaceeu_1a090d699ff2e662746efe3360da037a63" kind="typedef"><name>i8</name></member>
-    <member refid="namespaceeu_1ab54bb6d749a09a2813b4cea2efd2e6ae" kind="typedef"><name>i16</name></member>
-    <member refid="namespaceeu_1add0144d900d7bc769809952bd5a192dc" kind="typedef"><name>i32</name></member>
-    <member refid="namespaceeu_1a62513252b62b046b32657ad9d3779d74" kind="typedef"><name>i64</name></member>
-    <member refid="namespaceeu_1ab10f4fc790440413475454dc69c9e901" kind="typedef"><name>u8</name></member>
-    <member refid="namespaceeu_1aa248cae79ab17191d82317be93474ee3" kind="typedef"><name>u16</name></member>
-    <member refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kind="typedef"><name>u32</name></member>
-    <member refid="namespaceeu_1abe0c1a612663ea762f0507c0e96a3514" kind="typedef"><name>u64</name></member>
+    <member refid="namespaceeu_1a8a933192ba169dc0dbf2c58d4ee3f357" kind="typedef"><name>i8</name></member>
+    <member refid="namespaceeu_1aee9856aacc02a179d8c380cbb0aecfc9" kind="typedef"><name>i16</name></member>
+    <member refid="namespaceeu_1a90d2f6faad0b9b10ac7cfd7d84f8f950" kind="typedef"><name>i32</name></member>
+    <member refid="namespaceeu_1afd64aebdcc64a04ce3704aaf36bac100" kind="typedef"><name>i64</name></member>
+    <member refid="namespaceeu_1ab409964e4fa95e47f7286765989f4131" kind="typedef"><name>u8</name></member>
+    <member refid="namespaceeu_1a8abaf9e3814c5d42e66619d80bda44c0" kind="typedef"><name>u16</name></member>
+    <member refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kind="typedef"><name>u32</name></member>
+    <member refid="namespaceeu_1a71ee399e74f0202698296f0a27e896ef" kind="typedef"><name>u64</name></member>
     <member refid="group__math_1gaad753d4f4d3024b2f9b0366738751511" kind="variable"><name>one_turn</name></member>
     <member refid="group__math_1ga03d368230871c29cd8d4464edd37081d" kind="variable"><name>half_turn</name></member>
     <member refid="group__math_1ga795093272e2f8a2748665fd8a37e5d91" kind="variable"><name>quarter_turn</name></member>

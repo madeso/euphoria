@@ -80,7 +80,7 @@
         <location file="libs/render/src/eu/render/canvas.h" line="60" column="21" bodyfile="libs/render/src/eu/render/canvas.h" bodystart="60" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1SpriteBatch_1a5822290b4912786ec11a315eed1a91fb" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
+        <type><ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref></type>
         <definition>u32 eu::render::SpriteBatch::va</definition>
         <argsstring></argsstring>
         <name>va</name>
@@ -95,7 +95,7 @@
         <location file="libs/render/src/eu/render/canvas.h" line="61" column="9" bodyfile="libs/render/src/eu/render/canvas.h" bodystart="61" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1SpriteBatch_1a728772c541c639f7eebc9d649673bdb3" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
+        <type><ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref></type>
         <definition>u32 eu::render::SpriteBatch::vb</definition>
         <argsstring></argsstring>
         <name>vb</name>
@@ -110,7 +110,7 @@
         <location file="libs/render/src/eu/render/canvas.h" line="62" column="9" bodyfile="libs/render/src/eu/render/canvas.h" bodystart="62" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1SpriteBatch_1a34b58e7e4d36643bf68b1c435291dcdd" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
+        <type><ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref></type>
         <definition>u32 eu::render::SpriteBatch::ib</definition>
         <argsstring></argsstring>
         <name>ib</name>

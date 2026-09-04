@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="132" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="132" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="134" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="134" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1FrustumLightUniforms_1aaef9c481355141995acb147c7c9aa171" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="133" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="133" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="135" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="135" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1FrustumLightUniforms_1ace3f1f3f79e23e8be89d643f558f57f4" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="134" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="134" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="136" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="136" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1FrustumLightUniforms_1ae30ad666990fb61e8d9e75d2819a65a4" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="135" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="135" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="137" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="137" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1FrustumLightUniforms_1ad3bb8643fa904b3e4f6f675f81a1ba11" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="136" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="136" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="138" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="138" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1FrustumLightUniforms_1aaee735649cd681286e991878af9904f2" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -86,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="137" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="137" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="139" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="139" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -110,7 +110,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="130" column="1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="132" column="1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -139,7 +139,7 @@
         <link refid="structeu_1_1render_1_1Uniform"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/shader_resource.h" line="128" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="129" bodyend="138"/>
+    <location file="libs/render/src/eu/render/shader_resource.h" line="130" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="131" bodyend="140"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1FrustumLightUniforms_1ace3f1f3f79e23e8be89d643f558f57f4" prot="public" virt="non-virtual"><scope>eu::render::FrustumLightUniforms</scope><name>attenuation_uni</name></member>
       <member refid="structeu_1_1render_1_1FrustumLightUniforms_1ae30ad666990fb61e8d9e75d2819a65a4" prot="public" virt="non-virtual"><scope>eu::render::FrustumLightUniforms</scope><name>clip_from_world_uni</name></member>

@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="59" column="1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="60" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProp_1a03c6d3a65f7eb47b08075435d8805f5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -35,7 +35,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="60" column="1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="61" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProp_1a16b3731090d09eea25f4b39278f0cf8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -52,7 +52,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="61" column="1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="62" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProp_1ad5887ea7df968f0cde3239db166a50a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -69,7 +69,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="62" column="6"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="63" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProp_1a2aad6e450e170d4ca43fc62e7c9fa8b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -86,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="63" column="6"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="64" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProp_1a01f7854e2d58ca2933cb20e667b8ba9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type></type>
@@ -100,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="65" column="9"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="66" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProp_1ab2ce18385f2de642e426d0bd33aefc3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -124,7 +124,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="67" column="14"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="68" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1ShaderProp_1ab7847971300744772f77dd41db42286d" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -140,7 +140,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="68" column="14"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="69" column="14"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -166,7 +166,7 @@
         <link refid="structeu_1_1render_1_1ShaderProp"/>
       </node>
     </inheritancegraph>
-    <location file="libs/render/src/eu/render/postproc.internal.h" line="57" column="1" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="58" bodyend="69"/>
+    <location file="libs/render/src/eu/render/postproc.internal.h" line="58" column="1" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="59" bodyend="70"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1ShaderProp_1ab7847971300744772f77dd41db42286d" prot="public" virt="pure-virtual"><scope>eu::render::ShaderProp</scope><name>gui</name></member>
       <member refid="structeu_1_1render_1_1ShaderProp_1ad5887ea7df968f0cde3239db166a50a0" prot="public" virt="non-virtual"><scope>eu::render::ShaderProp</scope><name>operator=</name></member>

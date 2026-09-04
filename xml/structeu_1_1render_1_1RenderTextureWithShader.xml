@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="67" column="13" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="67" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="69" column="13" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="69" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1RenderTextureWithShader_1ac5615d337bffa77e7ad393e8bdd72eac" prot="public" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1RenderSource_1a7ab0a91ffe9aedba48886c6f530eaf1e" kindref="member">RenderSource</ref> &gt;</type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="68" column="17" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="68" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="70" column="17" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="70" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1RenderTextureWithShader_1a3277cc3a4fad4a30764f9277188c78e7" prot="public" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">FrameBuffer</ref> &gt;</type>
@@ -45,7 +45,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="69" column="17" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="69" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="71" column="17" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="71" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1RenderTextureWithShader_1a140130fca85ca12751e794077aa67f32" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1ShaderPropertyProvider" kindref="compound">ShaderPropertyProvider</ref> *</type>
@@ -59,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="70" column="24" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="70" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="72" column="24" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="72" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -91,7 +91,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="72" column="1"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="74" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1RenderTextureWithShader_1a47e289b26d2b08119dbd2b1939b0631e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -111,7 +111,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="75" column="6"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="77" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1RenderTextureWithShader_1a5327e9df9e8e94f103201aee75078967" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -130,7 +130,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="78" column="6"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="80" column="6"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -170,7 +170,7 @@
         <link refid="structeu_1_1render_1_1ShaderPropertyProvider"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/postproc.h" line="65" column="1" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="66" bodyend="79"/>
+    <location file="libs/render/src/eu/render/postproc.h" line="67" column="1" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="68" bodyend="81"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1RenderTextureWithShader_1a140130fca85ca12751e794077aa67f32" prot="public" virt="non-virtual"><scope>eu::render::RenderTextureWithShader</scope><name>effect</name></member>
       <member refid="structeu_1_1render_1_1RenderTextureWithShader_1a3277cc3a4fad4a30764f9277188c78e7" prot="public" virt="non-virtual"><scope>eu::render::RenderTextureWithShader</scope><name>fbo</name></member>

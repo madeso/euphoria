@@ -5,7 +5,7 @@
     <includes refid="hash_8string_8h" local="no">hash.string.h</includes>
     <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1HshO_1a420d0ed1237da74a1594507d3bf4e546" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1abe0c1a612663ea762f0507c0e96a3514" kindref="member">u64</ref></type>
+        <type><ref refid="namespaceeu_1a71ee399e74f0202698296f0a27e896ef" kindref="member">u64</ref></type>
         <definition>u64 eu::HshO::hash</definition>
         <argsstring></argsstring>
         <name>hash</name>

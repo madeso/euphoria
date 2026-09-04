@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="127" column="9" bodyfile="libs/render/src/eu/render/world.h" bodystart="127" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="129" column="9" bodyfile="libs/render/src/eu/render/world.h" bodystart="129" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1DirectionalLight_1a57670e97bcd90db830d3bc31bce7dddb" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="129" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="129" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="131" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="131" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1DirectionalLight_1ab3d3f9d9260ac98584ee4efcab86f087" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -46,7 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="130" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="130" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="132" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="132" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1DirectionalLight_1ab1c35d6b89a9530d917f79d91ea499fc" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -61,7 +61,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="131" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="131" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="133" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="133" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -98,7 +98,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/world.h" line="125" column="1" bodyfile="libs/render/src/eu/render/world.h" bodystart="126" bodyend="132"/>
+    <location file="libs/render/src/eu/render/world.h" line="127" column="1" bodyfile="libs/render/src/eu/render/world.h" bodystart="128" bodyend="134"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1DirectionalLight_1a57670e97bcd90db830d3bc31bce7dddb" prot="public" virt="non-virtual"><scope>eu::render::DirectionalLight</scope><name>color</name></member>
       <member refid="structeu_1_1render_1_1DirectionalLight_1ab1c35d6b89a9530d917f79d91ea499fc" prot="public" virt="non-virtual"><scope>eu::render::DirectionalLight</scope><name>diffuse_strength</name></member>

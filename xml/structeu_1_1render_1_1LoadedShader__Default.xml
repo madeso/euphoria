@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="166" column="17" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="166" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="168" column="17" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="168" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__Default_1a40629211c41f248ce0eb1e9e84edc26d" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="172" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="172" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="174" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="174" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__Default_1a203947155e9f204eaecb711f0b077878" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="173" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="173" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="175" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="175" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__Default_1aa82a17ecb9441710c3ef040bd6028f76" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="174" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="174" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="176" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="176" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__Default_1af85ddc0880f65ef3afe38401b3d9f01f" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="175" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="175" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="177" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="177" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__Default_1a867bd98f89555c54542bfcd8116ec383" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -86,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="176" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="176" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="178" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="178" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__Default_1a4be653af1886134e872b27df417ddb72" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -100,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="177" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="177" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="179" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="179" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__Default_1a15a941a1f3c0d85c0ada4d3129cf21b2" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -114,7 +114,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="178" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="178" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="180" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="180" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__Default_1abfb6e4b7758fe5025164325fe27a582f" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -128,7 +128,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="179" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="179" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="181" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="181" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__Default_1add1d42a59e5a2421b82461ea2e3193d7" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -142,7 +142,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="180" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="180" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="182" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="182" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__Default_1a410fa0a116869b4ece4b9da2e7be67c7" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -156,7 +156,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="181" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="181" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="183" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="183" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__Default_1af9e3aaa71f2d495b576589ea84faba2b" prot="public" static="no" mutable="no">
         <type>std::optional&lt; <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &gt;</type>
@@ -170,7 +170,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="183" column="15" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="183" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="185" column="15" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="185" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__Default_1a6f59dcc1c7560de07faed3b3804115fb" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -184,7 +184,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="185" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="185" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="187" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="187" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__Default_1aa0717e832045c603260e570ea03b83c0" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -198,7 +198,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="186" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="186" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="188" column="9" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="188" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__Default_1aa054d07cce1e2abd17b5d4415d26fb64" prot="public" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="structeu_1_1render_1_1DirectionalLightUniforms" kindref="compound">DirectionalLightUniforms</ref> &gt;</type>
@@ -212,7 +212,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="188" column="13" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="188" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="190" column="13" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="190" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__Default_1a6898fe981c057e11d95dc0475458557b" prot="public" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="structeu_1_1render_1_1PointLightUniforms" kindref="compound">PointLightUniforms</ref> &gt;</type>
@@ -226,7 +226,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="189" column="13" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="189" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="191" column="13" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="191" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__Default_1ad2f25b8182212887d78650bf949e614c" prot="public" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="structeu_1_1render_1_1FrustumLightUniforms" kindref="compound">FrustumLightUniforms</ref> &gt;</type>
@@ -240,7 +240,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="190" column="13" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="190" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="192" column="13" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="192" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -272,7 +272,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="168" column="1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="170" column="1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -306,7 +306,7 @@
         <link refid="structeu_1_1render_1_1Uniform"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/shader_resource.h" line="164" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="165" bodyend="191"/>
+    <location file="libs/render/src/eu/render/shader_resource.h" line="166" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="167" bodyend="193"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1LoadedShader__Default_1a15a941a1f3c0d85c0ada4d3129cf21b2" prot="public" virt="non-virtual"><scope>eu::render::LoadedShader_Default</scope><name>ambient_tint_uni</name></member>
       <member refid="structeu_1_1render_1_1LoadedShader__Default_1aa054d07cce1e2abd17b5d4415d26fb64" prot="public" virt="non-virtual"><scope>eu::render::LoadedShader_Default</scope><name>directional_lights</name></member>

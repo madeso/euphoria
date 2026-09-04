@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/assets.h" line="12" column="21" bodyfile="libs/render/src/eu/render/assets.h" bodystart="12" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/assets.h" line="14" column="21" bodyfile="libs/render/src/eu/render/assets.h" bodystart="14" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Assets_1a85ea4f1a9f25718fcdecd65da82f9fb9" prot="public" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1Texture2d" kindref="compound">Texture2d</ref> &gt;</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/assets.h" line="13" column="21" bodyfile="libs/render/src/eu/render/assets.h" bodystart="13" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/assets.h" line="15" column="21" bodyfile="libs/render/src/eu/render/assets.h" bodystart="15" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Assets_1a73292694aa57cac7d3e312bebd879421" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1ShaderSource" kindref="compound">ShaderSource</ref></type>
@@ -45,7 +45,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/assets.h" line="16" column="18" bodyfile="libs/render/src/eu/render/assets.h" bodystart="16" bodyend="16"/>
+        <location file="libs/render/src/eu/render/assets.h" line="18" column="18" bodyfile="libs/render/src/eu/render/assets.h" bodystart="18" bodyend="18"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Assets_1a6e322a154d4ee495ee359adda3166c97" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1ShaderSource" kindref="compound">ShaderSource</ref></type>
@@ -60,7 +60,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/assets.h" line="17" column="18" bodyfile="libs/render/src/eu/render/assets.h" bodystart="17" bodyend="17"/>
+        <location file="libs/render/src/eu/render/assets.h" line="19" column="18" bodyfile="libs/render/src/eu/render/assets.h" bodystart="19" bodyend="19"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Assets_1a94104bac056af6702eb3160f3db14d40" prot="public" static="no" mutable="no">
         <type>std::string</type>
@@ -74,7 +74,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/assets.h" line="19" column="17" bodyfile="libs/render/src/eu/render/assets.h" bodystart="19" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/assets.h" line="21" column="17" bodyfile="libs/render/src/eu/render/assets.h" bodystart="21" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Assets_1a34f49119fac6a76fb8075270e75bb0eb" prot="public" static="no" mutable="no">
         <type>std::string</type>
@@ -88,7 +88,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/assets.h" line="20" column="17" bodyfile="libs/render/src/eu/render/assets.h" bodystart="20" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/assets.h" line="22" column="17" bodyfile="libs/render/src/eu/render/assets.h" bodystart="22" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Assets_1a005e6debde4868542c885b550a4e0926" prot="public" static="no" mutable="no">
         <type>std::string</type>
@@ -102,7 +102,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/assets.h" line="21" column="17" bodyfile="libs/render/src/eu/render/assets.h" bodystart="21" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/assets.h" line="23" column="17" bodyfile="libs/render/src/eu/render/assets.h" bodystart="23" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Assets_1ae50fb34a95e9ecc8ec0e7dc4319b4c1e" prot="public" static="no" mutable="no">
         <type>std::string</type>
@@ -116,7 +116,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/assets.h" line="22" column="17" bodyfile="libs/render/src/eu/render/assets.h" bodystart="22" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/assets.h" line="24" column="17" bodyfile="libs/render/src/eu/render/assets.h" bodystart="24" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -137,7 +137,7 @@
         <link refid="structeu_1_1render_1_1ShaderSource"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/assets.h" line="9" column="1" bodyfile="libs/render/src/eu/render/assets.h" bodystart="10" bodyend="23"/>
+    <location file="libs/render/src/eu/render/assets.h" line="11" column="1" bodyfile="libs/render/src/eu/render/assets.h" bodystart="12" bodyend="25"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1Assets_1a85ea4f1a9f25718fcdecd65da82f9fb9" prot="public" virt="non-virtual"><scope>eu::render::Assets</scope><name>black</name></member>
       <member refid="structeu_1_1render_1_1Assets_1a73292694aa57cac7d3e312bebd879421" prot="public" virt="non-virtual"><scope>eu::render::Assets</scope><name>default_shader_source</name></member>

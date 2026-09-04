@@ -2,17 +2,18 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="compiledmesh_8h" kind="file" language="C++">
     <compoundname>compiledmesh.h</compoundname>
+    <includes local="no">memory</includes>
     <includes refid="core_2src_2eu_2core_2mesh_8h" local="yes">eu/core/mesh.h</includes>
     <includes refid="opengl__labels_8h" local="yes">eu/render/opengl_labels.h</includes>
     <incdepgraph>
-      <node id="3">
+      <node id="4">
         <label>eu/core/geom.h</label>
         <link refid="geom_8h"/>
       </node>
-      <node id="2">
+      <node id="3">
         <label>eu/core/mesh.h</label>
         <link refid="core_2src_2eu_2core_2mesh_8h"/>
-        <childnode refid="3" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
       </node>
       <node id="1">
@@ -20,12 +21,17 @@
         <link refid="compiledmesh_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="4" relation="include">
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="4">
+      <node id="5">
         <label>eu/render/opengl_labels.h</label>
         <link refid="opengl__labels_8h"/>
+      </node>
+      <node id="2">
+        <label>memory</label>
       </node>
     </incdepgraph>
     <innerclass refid="structeu_1_1render_1_1CompiledMeshGeom" prot="public">eu::render::CompiledMeshGeom</innerclass>

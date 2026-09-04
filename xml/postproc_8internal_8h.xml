@@ -2,20 +2,21 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="postproc_8internal_8h" kind="file" language="C++">
     <compoundname>postproc.internal.h</compoundname>
+    <includes local="no">memory</includes>
     <includes refid="postproc_8h" local="yes">eu/render/postproc.h</includes>
     <includes refid="renderer_8h" local="yes">eu/render/renderer.h</includes>
     <includes refid="shader_8h" local="yes">eu/render/shader.h</includes>
     <includes refid="shader__resource_8h" local="yes">eu/render/shader_resource.h</includes>
     <incdepgraph>
-      <node id="4">
+      <node id="5">
         <label>eu/base/size.h</label>
         <link refid="size_8h"/>
       </node>
-      <node id="6">
+      <node id="7">
         <label>eu/core/color.h</label>
         <link refid="color_8h"/>
       </node>
-      <node id="19">
+      <node id="20">
         <label>eu/core/scurve.h</label>
         <link refid="core_2src_2eu_2core_2scurve_8h"/>
       </node>
@@ -23,48 +24,52 @@
         <label>eu/core/uniform_buffer.h</label>
         <link refid="core_2src_2eu_2core_2uniform__buffer_8h"/>
       </node>
-      <node id="8">
+      <node id="9">
         <label>eu/core/vertex_layout.h</label>
         <link refid="vertex__layout_8h"/>
-        <childnode refid="9" relation="include">
-        </childnode>
         <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
       </node>
-      <node id="14">
+      <node id="15">
         <label>eu/render/assets.h</label>
         <link refid="assets_8h"/>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
-      <node id="12">
-        <label>eu/render/debug.h</label>
-        <link refid="debug_8h"/>
-      </node>
-      <node id="13">
-        <label>eu/render/material.h</label>
-        <link refid="material_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="16" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
       </node>
-      <node id="5">
+      <node id="13">
+        <label>eu/render/debug.h</label>
+        <link refid="debug_8h"/>
+      </node>
+      <node id="14">
+        <label>eu/render/material.h</label>
+        <link refid="material_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
         <label>eu/render/opengl_labels.h</label>
         <link refid="opengl__labels_8h"/>
       </node>
-      <node id="2">
+      <node id="3">
         <label>eu/render/postproc.h</label>
         <link refid="postproc_8h"/>
-        <childnode refid="3" relation="include">
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
         </childnode>
       </node>
       <node id="1">
@@ -72,7 +77,9 @@
         <link refid="postproc_8internal_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
         </childnode>
         <childnode refid="22" relation="include">
         </childnode>
@@ -83,16 +90,18 @@
         <label>eu/render/render_settings.h</label>
         <link refid="render__settings_8h"/>
       </node>
-      <node id="7">
+      <node id="8">
         <label>eu/render/renderer.h</label>
         <link refid="renderer_8h"/>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
         <childnode refid="2" relation="include">
         </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
         <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
         </childnode>
         <childnode refid="17" relation="include">
         </childnode>
@@ -102,43 +111,47 @@
       <node id="22">
         <label>eu/render/shader.h</label>
         <link refid="shader_8h"/>
-        <childnode refid="21" relation="include">
+        <childnode refid="19" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
+        <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="23" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
       </node>
-      <node id="15">
+      <node id="16">
         <label>eu/render/shader.source.h</label>
         <link refid="shader_8source_8h"/>
-        <childnode refid="8" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
       </node>
       <node id="24">
         <label>eu/render/shader_resource.h</label>
         <link refid="shader__resource_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
         <childnode refid="23" relation="include">
         </childnode>
         <childnode refid="25" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
       </node>
-      <node id="20">
+      <node id="21">
         <label>eu/render/space.h</label>
         <link refid="space_8h"/>
       </node>
-      <node id="3">
+      <node id="4">
         <label>eu/render/texture.h</label>
         <link refid="texture_8h"/>
-        <childnode refid="4" relation="include">
+        <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
         </childnode>
       </node>
       <node id="23">
@@ -150,7 +163,7 @@
         <link refid="render_2src_2eu_2render_2uniform__buffer_8h"/>
         <childnode refid="26" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
+        <childnode refid="6" relation="include">
         </childnode>
       </node>
       <node id="18">
@@ -158,28 +171,30 @@
         <link refid="world_8h"/>
         <childnode refid="19" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="21" relation="include">
         </childnode>
       </node>
-      <node id="9">
+      <node id="10">
         <label>map</label>
       </node>
-      <node id="16">
+      <node id="2">
         <label>memory</label>
       </node>
-      <node id="11">
+      <node id="12">
         <label>optional</label>
       </node>
-      <node id="10">
+      <node id="11">
         <label>set</label>
       </node>
-      <node id="21">
+      <node id="19">
         <label>unordered_set</label>
       </node>
     </incdepgraph>

@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/fullscreen.h" line="16" column="17" bodyfile="libs/render/src/eu/render/fullscreen.h" bodystart="16" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/fullscreen.h" line="18" column="17" bodyfile="libs/render/src/eu/render/fullscreen.h" bodystart="18" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1FullScreenGeom_1a760de3fba9a8da2bce4a9bc99bbaa4ad" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1core_1_1CompiledShaderVertexAttributes" kindref="compound">core::CompiledShaderVertexAttributes</ref></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/fullscreen.h" line="17" column="42" bodyfile="libs/render/src/eu/render/fullscreen.h" bodystart="17" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/fullscreen.h" line="19" column="42" bodyfile="libs/render/src/eu/render/fullscreen.h" bodystart="19" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -46,7 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/fullscreen.h" line="19" column="1"/>
+        <location file="libs/render/src/eu/render/fullscreen.h" line="21" column="1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -67,7 +67,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/fullscreen.h" line="14" column="1" bodyfile="libs/render/src/eu/render/fullscreen.h" bodystart="15" bodyend="20"/>
+    <location file="libs/render/src/eu/render/fullscreen.h" line="16" column="1" bodyfile="libs/render/src/eu/render/fullscreen.h" bodystart="17" bodyend="22"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1FullScreenGeom_1afa7830dda3f5027504a77f6d1e7a51b0" prot="public" virt="non-virtual"><scope>eu::render::FullScreenGeom</scope><name>FullScreenGeom</name></member>
       <member refid="structeu_1_1render_1_1FullScreenGeom_1a3e93d304acea540414bd1dbb0cf9ea41" prot="public" virt="non-virtual"><scope>eu::render::FullScreenGeom</scope><name>geom</name></member>

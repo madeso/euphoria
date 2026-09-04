@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="171" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="171" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="173" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="173" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Lights_1abb457c131c9d103bc47d82f8118a6566" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="172" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="172" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="174" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="174" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Lights_1a07bf432b62f5aff089254bccc7a1ad9c" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="174" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="174" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="176" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="176" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Lights_1a2a004a3f416363fb8907e375a17a56a9" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -62,7 +62,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="175" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="175" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="177" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="177" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Lights_1a9f4cb83106d3fc599eb0ea5cfbdbac3c" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -77,7 +77,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="176" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="176" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="178" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="178" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Lights_1a1a374f142e85cc81eb5f28136f9f73f2" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -92,7 +92,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="177" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="177" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="179" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="179" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Lights_1aac0c26278eea699b6336fb06fca11675" prot="public" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="structeu_1_1render_1_1DirectionalLight" kindref="compound">DirectionalLight</ref> &gt;</type>
@@ -106,7 +106,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="179" column="13" bodyfile="libs/render/src/eu/render/world.h" bodystart="179" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="181" column="13" bodyfile="libs/render/src/eu/render/world.h" bodystart="181" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Lights_1a8e612d64606a525a0e882904af5fd463" prot="public" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="structeu_1_1render_1_1PointLight" kindref="compound">PointLight</ref> &gt;</type>
@@ -120,7 +120,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="180" column="13" bodyfile="libs/render/src/eu/render/world.h" bodystart="180" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="182" column="13" bodyfile="libs/render/src/eu/render/world.h" bodystart="182" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Lights_1ac244239a2744bba14a4e1df77a5169ce" prot="public" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="structeu_1_1render_1_1FrustumLight" kindref="compound">FrustumLight</ref> &gt;</type>
@@ -134,7 +134,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="181" column="13" bodyfile="libs/render/src/eu/render/world.h" bodystart="181" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="183" column="13" bodyfile="libs/render/src/eu/render/world.h" bodystart="183" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -155,7 +155,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/world.h" line="169" column="1" bodyfile="libs/render/src/eu/render/world.h" bodystart="170" bodyend="182"/>
+    <location file="libs/render/src/eu/render/world.h" line="171" column="1" bodyfile="libs/render/src/eu/render/world.h" bodystart="172" bodyend="184"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1Lights_1ae63e1b1cd7265bdc31b08c195b54d5a5" prot="public" virt="non-virtual"><scope>eu::render::Lights</scope><name>ambient_color</name></member>
       <member refid="structeu_1_1render_1_1Lights_1abb457c131c9d103bc47d82f8118a6566" prot="public" virt="non-virtual"><scope>eu::render::Lights</scope><name>ambient_strength</name></member>

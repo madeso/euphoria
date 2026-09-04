@@ -153,7 +153,7 @@
         <name>stencil_mask</name>
         <qualifiedname>eu::render::StateChanger::stencil_mask</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
+          <type><ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref></type>
           <declname>new_state</declname>
         </param>
         <briefdescription>
@@ -176,11 +176,11 @@
           <declname>func</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1add0144d900d7bc769809952bd5a192dc" kindref="member">i32</ref></type>
+          <type><ref refid="namespaceeu_1a90d2f6faad0b9b10ac7cfd7d84f8f950" kindref="member">i32</ref></type>
           <declname>ref</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
+          <type><ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref></type>
           <declname>mask</declname>
         </param>
         <briefdescription>

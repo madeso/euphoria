@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="108" column="17" bodyfile="libs/render/src/eu/render/world.h" bodystart="108" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="110" column="17" bodyfile="libs/render/src/eu/render/world.h" bodystart="110" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1MeshInstance__TransformInstanced_1aa50253ec514fe9b4953464b4bab6ca35" prot="public" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1Material" kindref="compound">Material</ref> &gt;</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="109" column="17" bodyfile="libs/render/src/eu/render/world.h" bodystart="109" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="111" column="17" bodyfile="libs/render/src/eu/render/world.h" bodystart="111" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1MeshInstance__TransformInstanced_1aa7d1f854a0d580081c42be8f856eef4c" prot="public" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="structeu_1_1m4" kindref="compound">m4</ref> &gt;</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="113" column="13" bodyfile="libs/render/src/eu/render/world.h" bodystart="113" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="115" column="13" bodyfile="libs/render/src/eu/render/world.h" bodystart="115" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -52,7 +52,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/render/src/eu/render/world.h" line="106" column="1" bodyfile="libs/render/src/eu/render/world.h" bodystart="107" bodyend="114"/>
+    <location file="libs/render/src/eu/render/world.h" line="108" column="1" bodyfile="libs/render/src/eu/render/world.h" bodystart="109" bodyend="116"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1MeshInstance__TransformInstanced_1ac9c9ecf920b69cd2b787d7dccc350546" prot="public" virt="non-virtual"><scope>eu::render::MeshInstance_TransformInstanced</scope><name>geom</name></member>
       <member refid="structeu_1_1render_1_1MeshInstance__TransformInstanced_1aa50253ec514fe9b4953464b4bab6ca35" prot="public" virt="non-virtual"><scope>eu::render::MeshInstance_TransformInstanced</scope><name>material</name></member>

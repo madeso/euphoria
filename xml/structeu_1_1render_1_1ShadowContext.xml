@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="24" column="13" bodyfile="libs/render/src/eu/render/renderer.h" bodystart="24" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="26" column="13" bodyfile="libs/render/src/eu/render/renderer.h" bodystart="26" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1ShadowContext_1ab4615401438bec1d9209487731ddb2c5" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="25" column="4" bodyfile="libs/render/src/eu/render/renderer.h" bodystart="25" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="27" column="4" bodyfile="libs/render/src/eu/render/renderer.h" bodystart="27" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -71,7 +71,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/renderer.h" line="22" column="1" bodyfile="libs/render/src/eu/render/renderer.h" bodystart="23" bodyend="26"/>
+    <location file="libs/render/src/eu/render/renderer.h" line="24" column="1" bodyfile="libs/render/src/eu/render/renderer.h" bodystart="25" bodyend="28"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1ShadowContext_1ab4615401438bec1d9209487731ddb2c5" prot="public" virt="non-virtual"><scope>eu::render::ShadowContext</scope><name>directional_shadow_clip_from_world</name></member>
       <member refid="structeu_1_1render_1_1ShadowContext_1a0b21933e2e007977f7cb14b08a981005" prot="public" virt="non-virtual"><scope>eu::render::ShadowContext</scope><name>directional_shadow_map</name></member>

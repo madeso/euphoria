@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="24" column="15" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="24" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="25" column="15" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="25" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1BloomRender_1a8024327e78edb7028c0a344ad2c41af1" prot="public" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">FrameBuffer</ref> &gt;</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="25" column="17" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="25" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="26" column="17" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="26" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1BloomRender_1ad40f8c8d7bb14dbf232737d5e6876c7b" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1PingPongBlurShader" kindref="compound">PingPongBlurShader</ref> *</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="27" column="20" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="27" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="28" column="20" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="28" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1BloomRender_1abe84ecc9afa17ddef2bf8748f382200c" prot="public" static="no" mutable="no">
         <type>std::array&lt; std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">FrameBuffer</ref> &gt;, 2 &gt;</type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="28" column="12" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="28" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="29" column="12" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="29" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -96,7 +96,7 @@
         <link refid="structeu_1_1render_1_1Uniform"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/postproc.internal.h" line="22" column="1" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="23" bodyend="29"/>
+    <location file="libs/render/src/eu/render/postproc.internal.h" line="23" column="1" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="24" bodyend="30"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1BloomRender_1a8024327e78edb7028c0a344ad2c41af1" prot="public" virt="non-virtual"><scope>eu::render::BloomRender</scope><name>bloom_buffer</name></member>
       <member refid="structeu_1_1render_1_1BloomRender_1a0f2207a61e286382ba2d3e7514b95f68" prot="public" virt="non-virtual"><scope>eu::render::BloomRender</scope><name>extract_shader</name></member>

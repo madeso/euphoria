@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="219" column="40" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="219" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="221" column="40" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="221" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__Unlit__Container_1a63f42628244ce96c3e198dae8e6bd3a0" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1LoadedShader__Unlit" kindref="compound">LoadedShader_Unlit</ref></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="221" column="20" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="221" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="223" column="20" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="223" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__Unlit__Container_1a4cf4491c3fbb32234d936fc7ba3de0db" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1LoadedShader__Unlit" kindref="compound">LoadedShader_Unlit</ref></type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="222" column="20" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="222" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="224" column="20" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="224" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -60,7 +60,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="224" column="7"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="226" column="7"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -97,7 +97,7 @@
         <link refid="structeu_1_1render_1_1Uniform"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/shader_resource.h" line="217" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="218" bodyend="225"/>
+    <location file="libs/render/src/eu/render/shader_resource.h" line="219" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="220" bodyend="227"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1LoadedShader__Unlit__Container_1a63f42628244ce96c3e198dae8e6bd3a0" prot="public" virt="non-virtual"><scope>eu::render::LoadedShader_Unlit_Container</scope><name>default_shader</name></member>
       <member refid="structeu_1_1render_1_1LoadedShader__Unlit__Container_1aee2072f459b86a9e28009c26a09e8e97" prot="public" virt="non-virtual"><scope>eu::render::LoadedShader_Unlit_Container</scope><name>geom_layout</name></member>

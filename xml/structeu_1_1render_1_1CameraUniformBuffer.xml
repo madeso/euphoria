@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="38" column="30" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="38" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="40" column="30" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="40" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1CameraUniformBuffer_1aae7410a80cc610d8cec45e5cfd937b62" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1core_1_1CompiledUniformProp" kindref="compound">core::CompiledUniformProp</ref></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="40" column="31" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="40" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="42" column="31" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="42" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1CameraUniformBuffer_1aade14b2755d9c86bec08e7bb73186d8b" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1core_1_1CompiledUniformProp" kindref="compound">core::CompiledUniformProp</ref></type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="41" column="31" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="41" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="43" column="31" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="43" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1CameraUniformBuffer_1a4b72239dfa619d2c1c81aee3d88cf2aa" prot="public" static="no" mutable="no">
         <type>std::unique_ptr&lt; <ref refid="structeu_1_1render_1_1UniformBuffer" kindref="compound">UniformBuffer</ref> &gt;</type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="43" column="17" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="43" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="45" column="17" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="45" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -78,7 +78,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="45" column="6"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="47" column="6"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -107,7 +107,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/shader_resource.h" line="36" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="37" bodyend="46"/>
+    <location file="libs/render/src/eu/render/shader_resource.h" line="38" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="39" bodyend="48"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1CameraUniformBuffer_1a4b72239dfa619d2c1c81aee3d88cf2aa" prot="public" virt="non-virtual"><scope>eu::render::CameraUniformBuffer</scope><name>buffer</name></member>
       <member refid="structeu_1_1render_1_1CameraUniformBuffer_1aae7410a80cc610d8cec45e5cfd937b62" prot="public" virt="non-virtual"><scope>eu::render::CameraUniformBuffer</scope><name>clip_from_view_uni</name></member>

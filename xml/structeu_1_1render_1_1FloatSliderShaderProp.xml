@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="89" column="9" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="89" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="90" column="9" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="90" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1FloatSliderShaderProp_1a1b50d7f4695b865b0fef4f2afc0a3a3f" prot="public" static="no" mutable="no">
         <type>std::string</type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="90" column="13" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="90" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="91" column="13" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="91" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1FloatSliderShaderProp_1a58c105e5d43139ec7e23458eca116466" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -45,7 +45,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="91" column="7" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="91" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="92" column="7" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="92" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1FloatSliderShaderProp_1a95752bb6657dd4c1be534ea968a5a433" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -59,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="92" column="7" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="92" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="93" column="7" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="93" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1FloatSliderShaderProp_1a63cb6b37aae8153f50c16f8d788d8431" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -73,7 +73,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="93" column="7" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="93" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="94" column="7" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="94" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -109,7 +109,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="95" column="1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="96" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1FloatSliderShaderProp_1a917136553a660a39021001b3c39fb9dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -131,7 +131,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="99" column="6"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="100" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1FloatSliderShaderProp_1a295e7936dce2b6597d767ac56e193b21" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -146,7 +146,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="101" column="6"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="102" column="6"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -185,7 +185,7 @@
         <link refid="structeu_1_1render_1_1Uniform"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/postproc.internal.h" line="87" column="1" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="88" bodyend="102"/>
+    <location file="libs/render/src/eu/render/postproc.internal.h" line="88" column="1" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="89" bodyend="103"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1FloatSliderShaderProp_1ae634396b9a9ae29d05c97f8bc351b3bb" prot="public" virt="non-virtual"><scope>eu::render::FloatSliderShaderProp</scope><name>FloatSliderShaderProp</name></member>
       <member refid="structeu_1_1render_1_1FloatSliderShaderProp_1a295e7936dce2b6597d767ac56e193b21" prot="public" virt="virtual"><scope>eu::render::FloatSliderShaderProp</scope><name>gui</name></member>

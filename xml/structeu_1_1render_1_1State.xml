@@ -117,7 +117,7 @@
         <location file="libs/render/src/eu/render/state.h" line="130" column="15" bodyfile="libs/render/src/eu/render/state.h" bodystart="130" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1State_1ae464f2be64178cd1c1afd1eb491bb5d2" prot="public" static="no" mutable="no">
-        <type>std::optional&lt; <ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref> &gt;</type>
+        <type>std::optional&lt; <ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref> &gt;</type>
         <definition>std::optional&lt;u32&gt; eu::render::State::stencil_mask</definition>
         <argsstring></argsstring>
         <name>stencil_mask</name>

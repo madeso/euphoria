@@ -244,7 +244,7 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a35077967058935cfe1bef1a282602960" id="r_a35077967058935cfe1bef1a282602960"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35077967058935cfe1bef1a282602960">CharToGlyphMap</a> = std::map&lt;int, std::shared_ptr&lt;<a class="el" href="structeu_1_1render_1_1Glyph.html">Glyph</a>&gt;&gt;</td></tr>
 <tr class="memitem:ga7e2c947b3161d42b9b1360f266b56c88" id="r_ga7e2c947b3161d42b9b1360f266b56c88"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__render.html#ga7e2c947b3161d42b9b1360f266b56c88">BlendMode</a> = std::tuple&lt;<a class="el" href="group__render.html#ga974f78d25ec60e8dc6e560769f474d41">Blend</a>, <a class="el" href="group__render.html#ga974f78d25ec60e8dc6e560769f474d41">Blend</a>&gt;</td></tr>
 <tr class="memdesc:ga7e2c947b3161d42b9b1360f266b56c88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blend mode state consisting of src and dst blend functions.  <br /></td></tr>
-<tr class="memitem:ga43fb2392c6b77e1684dc495d4b77c461" id="r_ga43fb2392c6b77e1684dc495d4b77c461"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__render.html#ga43fb2392c6b77e1684dc495d4b77c461">StencilFunc</a> = std::tuple&lt;<a class="el" href="group__render.html#gafdedc77ac04d69fa6e6b99c5a79f4ed4">Compare</a>, <a class="el" href="namespaceeu.html#add0144d900d7bc769809952bd5a192dc">i32</a>, <a class="el" href="namespaceeu.html#a3e9fea60e31eeaac13f6ab5870238000">u32</a>&gt;</td></tr>
+<tr class="memitem:ga43fb2392c6b77e1684dc495d4b77c461" id="r_ga43fb2392c6b77e1684dc495d4b77c461"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__render.html#ga43fb2392c6b77e1684dc495d4b77c461">StencilFunc</a> = std::tuple&lt;<a class="el" href="group__render.html#gafdedc77ac04d69fa6e6b99c5a79f4ed4">Compare</a>, <a class="el" href="namespaceeu.html#a90d2f6faad0b9b10ac7cfd7d84f8f950">i32</a>, <a class="el" href="namespaceeu.html#a9a724f18ad2eb0410f8da5a23b19a2d8">u32</a>&gt;</td></tr>
 <tr class="memdesc:ga43fb2392c6b77e1684dc495d4b77c461"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stencil function state consisiting of the compare function, the ref and the state.  <br /></td></tr>
 <tr class="memitem:gac2414627ce6884064c21ae9b773b3b72" id="r_gac2414627ce6884064c21ae9b773b3b72"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__render.html#gac2414627ce6884064c21ae9b773b3b72">StencilOp</a> = std::tuple&lt;<a class="el" href="group__render.html#ga0f6dcc02ac356d7f5db8177ab779e66b">StencilAction</a>, <a class="el" href="group__render.html#ga0f6dcc02ac356d7f5db8177ab779e66b">StencilAction</a>, <a class="el" href="group__render.html#ga0f6dcc02ac356d7f5db8177ab779e66b">StencilAction</a>&gt;</td></tr>
 <tr class="memdesc:gac2414627ce6884064c21ae9b773b3b72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stencil operation state consisting of the stencil fail, depth fail and the pass action.  <br /></td></tr>
@@ -408,10 +408,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a32bf505b2351f8f41e9bb5abcd08dd6d" id="r_a32bf505b2351f8f41e9bb5abcd08dd6d"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a32bf505b2351f8f41e9bb5abcd08dd6d">gluint_from_int</a> (int i)</td></tr>
 <tr class="memitem:a55a94e6a3442258ebb57cae06edf994a" id="r_a55a94e6a3442258ebb57cae06edf994a"><td class="memItemLeft" align="right" valign="top">GLsizeiptr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a55a94e6a3442258ebb57cae06edf994a">glsizeiptr_from_sizet</a> (std::size_t t)</td></tr>
 <tr class="memitem:a331cf76573062d374dae5925194b074f" id="r_a331cf76573062d374dae5925194b074f"><td class="memItemLeft" align="right" valign="top">GLsizei&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a331cf76573062d374dae5925194b074f">glsizei_from_sizet</a> (std::size_t t)</td></tr>
-<tr class="memitem:a1147fc461475fdaf906627e9e796ef83" id="r_a1147fc461475fdaf906627e9e796ef83"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceeu.html#a3e9fea60e31eeaac13f6ab5870238000">u32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1147fc461475fdaf906627e9e796ef83">create_buffer</a> ()</td></tr>
-<tr class="memitem:a411c3962f83629dd1ca67e37949d8e9a" id="r_a411c3962f83629dd1ca67e37949d8e9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a411c3962f83629dd1ca67e37949d8e9a">destroy_buffer</a> (<a class="el" href="namespaceeu.html#a3e9fea60e31eeaac13f6ab5870238000">u32</a> vbo)</td></tr>
-<tr class="memitem:ab99e35fd9a9a1c22609b3fa5b64d3f8f" id="r_ab99e35fd9a9a1c22609b3fa5b64d3f8f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceeu.html#a3e9fea60e31eeaac13f6ab5870238000">u32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab99e35fd9a9a1c22609b3fa5b64d3f8f">create_vertex_array</a> ()</td></tr>
-<tr class="memitem:a29e6142e1c7993d9357f0ef4fc6d7768" id="r_a29e6142e1c7993d9357f0ef4fc6d7768"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29e6142e1c7993d9357f0ef4fc6d7768">destroy_vertex_array</a> (<a class="el" href="namespaceeu.html#a3e9fea60e31eeaac13f6ab5870238000">u32</a> vao)</td></tr>
+<tr class="memitem:a1147fc461475fdaf906627e9e796ef83" id="r_a1147fc461475fdaf906627e9e796ef83"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceeu.html#a9a724f18ad2eb0410f8da5a23b19a2d8">u32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1147fc461475fdaf906627e9e796ef83">create_buffer</a> ()</td></tr>
+<tr class="memitem:a411c3962f83629dd1ca67e37949d8e9a" id="r_a411c3962f83629dd1ca67e37949d8e9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a411c3962f83629dd1ca67e37949d8e9a">destroy_buffer</a> (<a class="el" href="namespaceeu.html#a9a724f18ad2eb0410f8da5a23b19a2d8">u32</a> vbo)</td></tr>
+<tr class="memitem:ab99e35fd9a9a1c22609b3fa5b64d3f8f" id="r_ab99e35fd9a9a1c22609b3fa5b64d3f8f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceeu.html#a9a724f18ad2eb0410f8da5a23b19a2d8">u32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab99e35fd9a9a1c22609b3fa5b64d3f8f">create_vertex_array</a> ()</td></tr>
+<tr class="memitem:a29e6142e1c7993d9357f0ef4fc6d7768" id="r_a29e6142e1c7993d9357f0ef4fc6d7768"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29e6142e1c7993d9357f0ef4fc6d7768">destroy_vertex_array</a> (<a class="el" href="namespaceeu.html#a9a724f18ad2eb0410f8da5a23b19a2d8">u32</a> vao)</td></tr>
 <tr class="memitem:a380ed9ed787e08140243b14107af8a88" id="r_a380ed9ed787e08140243b14107af8a88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a380ed9ed787e08140243b14107af8a88">set_gl_viewport</a> (const <a class="el" href="structeu_1_1Size.html">Size</a> &amp;sz)</td></tr>
 <tr class="memitem:af38666e84fc148fdf5e74a1bab2a8c93" id="r_af38666e84fc148fdf5e74a1bab2a8c93"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af38666e84fc148fdf5e74a1bab2a8c93">set_gl_viewport</a> (const <a class="el" href="structeu_1_1Rect.html">Rect</a> &amp;r)</td></tr>
 <tr class="memitem:afcd9dd2cfd8f7b184d3fe3e492fd06c6" id="r_afcd9dd2cfd8f7b184d3fe3e492fd06c6"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afcd9dd2cfd8f7b184d3fe3e492fd06c6">opengl_nop</a> ()</td></tr>
@@ -696,7 +696,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespaceeu.html#a3e9fea60e31eeaac13f6ab5870238000">u32</a> eu::render::create_buffer </td>
+          <td class="memname"><a class="el" href="namespaceeu.html#a9a724f18ad2eb0410f8da5a23b19a2d8">u32</a> eu::render::create_buffer </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -732,7 +732,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespaceeu.html#a3e9fea60e31eeaac13f6ab5870238000">u32</a> eu::render::create_vertex_array </td>
+          <td class="memname"><a class="el" href="namespaceeu.html#a9a724f18ad2eb0410f8da5a23b19a2d8">u32</a> eu::render::create_vertex_array </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -751,7 +751,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void eu::render::destroy_buffer </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespaceeu.html#a3e9fea60e31eeaac13f6ab5870238000">u32</a></td>          <td class="paramname"><span class="paramname"><em>vbo</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="namespaceeu.html#a9a724f18ad2eb0410f8da5a23b19a2d8">u32</a></td>          <td class="paramname"><span class="paramname"><em>vbo</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -768,7 +768,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void eu::render::destroy_vertex_array </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespaceeu.html#a3e9fea60e31eeaac13f6ab5870238000">u32</a></td>          <td class="paramname"><span class="paramname"><em>vao</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="namespaceeu.html#a9a724f18ad2eb0410f8da5a23b19a2d8">u32</a></td>          <td class="paramname"><span class="paramname"><em>vao</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>

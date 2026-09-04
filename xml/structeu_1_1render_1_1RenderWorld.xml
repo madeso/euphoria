@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="34" column="6" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="34" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="35" column="6" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1RenderWorld_1a1ed3e603b854ae68738efbd6dc17d542" prot="public" static="no" mutable="no">
         <type>bool *</type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="36" column="6" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="36" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="37" column="6" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="37" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1RenderWorld_1a5be38088ae951065ebdb597169512e44" prot="public" static="no" mutable="no">
         <type>float *</type>
@@ -45,7 +45,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="37" column="7" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="37" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="38" column="7" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="38" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1RenderWorld_1a0386ab35356bfb0734b68474e89bd645" prot="public" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">FrameBuffer</ref> &gt;</type>
@@ -59,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="39" column="17" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="39" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="40" column="17" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="40" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1RenderWorld_1aae5ecb312a8e221c8fdd6ff65a7eaf67" prot="public" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">FrameBuffer</ref> &gt;</type>
@@ -73,7 +73,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="40" column="17" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="40" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="41" column="17" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="41" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1RenderWorld_1a40e9a21c2025825f48f5cac619947552" prot="public" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">FrameBuffer</ref> &gt;</type>
@@ -87,7 +87,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="41" column="17" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="41" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="42" column="17" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="42" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1RenderWorld_1ae5764b9e9bd8a429bf3b3f5ce41ee5bd" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1RealizeShader" kindref="compound">RealizeShader</ref> *</type>
@@ -101,7 +101,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="42" column="15" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="42" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="43" column="15" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="43" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1RenderWorld_1aca8a59cf2ff8039db64c469166a5e52d" prot="public" static="no" mutable="no">
         <type>std::optional&lt; <ref refid="structeu_1_1render_1_1BloomRender" kindref="compound">BloomRender</ref> &gt;</type>
@@ -115,7 +115,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="43" column="15" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="43" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="44" column="15" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="44" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1RenderWorld_1a28e477bdaa6a7af7247029289405c4d0" prot="public" static="no" mutable="no">
         <type>std::size_t</type>
@@ -129,7 +129,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="44" column="13" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="44" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="45" column="13" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="45" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -173,7 +173,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="46" column="1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="47" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1RenderWorld_1ace02fdde73cf6bd1d6643e43abd17e33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -191,7 +191,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="48" column="6"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="49" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1RenderWorld_1ad9cc968b3615dcf798ef77dc1ac59912" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -210,7 +210,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="50" column="6"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="51" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1RenderWorld_1a283e637309965024a00646c07ed2db77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -228,7 +228,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="52" column="6"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="53" column="6"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -285,7 +285,7 @@
         <link refid="structeu_1_1render_1_1Uniform"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/postproc.internal.h" line="32" column="1" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="33" bodyend="53"/>
+    <location file="libs/render/src/eu/render/postproc.internal.h" line="33" column="1" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="34" bodyend="54"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1RenderWorld_1aca8a59cf2ff8039db64c469166a5e52d" prot="public" virt="non-virtual"><scope>eu::render::RenderWorld</scope><name>bloom_render</name></member>
       <member refid="structeu_1_1render_1_1RenderWorld_1a5be38088ae951065ebdb597169512e44" prot="public" virt="non-virtual"><scope>eu::render::RenderWorld</scope><name>exposure</name></member>

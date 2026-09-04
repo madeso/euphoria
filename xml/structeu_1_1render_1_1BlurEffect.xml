@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="153" column="13" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="153" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="154" column="13" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="154" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1BlurEffect_1aca0154c769a2aa8f5d47ffac79ef5212" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1BlurVerticalProvider" kindref="compound">BlurVerticalProvider</ref></type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="154" column="22" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="154" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="155" column="22" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="155" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1BlurEffect_1a8491d0876f4fd169b5c5aba56c7e7f1e" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1BurHorizontalProvider" kindref="compound">BurHorizontalProvider</ref></type>
@@ -45,7 +45,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="155" column="23" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="155" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="156" column="23" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="156" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1BlurEffect_1ac573c19e52ca82b0dfe3e210cc4d3844" prot="public" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1LoadedPostProcShader" kindref="compound">LoadedPostProcShader</ref> &gt;</type>
@@ -59,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="156" column="17" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="156" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="157" column="17" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="157" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1BlurEffect_1adecb6909c87c35612128b96de8dcd830" prot="public" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1LoadedPostProcShader" kindref="compound">LoadedPostProcShader</ref> &gt;</type>
@@ -73,7 +73,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="157" column="17" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="157" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="158" column="17" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="158" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1BlurEffect_1a57ba7d3153f38dbc379b7dcd9c2749a5" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -87,7 +87,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="159" column="9" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="159" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="160" column="9" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="160" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1BlurEffect_1af6c2722374f9727bf285f0122d0e853a" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref></type>
@@ -101,7 +101,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="160" column="9" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="160" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="161" column="9" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="161" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1BlurEffect_1a4190f4647333510b15c1914a63ef7bd5" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -116,7 +116,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="167" column="7" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="167" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="168" column="7" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="168" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -144,7 +144,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="172" column="1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="173" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1BlurEffect_1af8b6d218ec937f709acfb551bdada138" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -159,7 +159,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="174" column="6"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="175" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1BlurEffect_1a677bca16202c03d8125d07301cc0d6d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -177,7 +177,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="176" column="6"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="177" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1BlurEffect_1ac6381f6f3f352f64662b8efd78dbf732" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -199,7 +199,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="178" column="6"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="179" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1BlurEffect_1a240ddcd4bf1a36d239501aa4bad3e296" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -221,7 +221,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="180" column="6"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="181" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1BlurEffect_1a063dbf2a3d6063a4d5a8d64822ae5512" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -240,7 +240,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="182" column="6"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="183" column="6"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -320,7 +320,7 @@
         <link refid="structeu_1_1render_1_1Uniform"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/postproc.internal.h" line="151" column="1" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="152" bodyend="183"/>
+    <location file="libs/render/src/eu/render/postproc.internal.h" line="152" column="1" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="153" bodyend="184"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1BlurEffect_1a4190f4647333510b15c1914a63ef7bd5" prot="public" virt="non-virtual"><scope>eu::render::BlurEffect</scope><name>blur_size</name></member>
       <member refid="structeu_1_1render_1_1BlurEffect_1af6c2722374f9727bf285f0122d0e853a" prot="public" virt="non-virtual"><scope>eu::render::BlurEffect</scope><name>blur_size_h</name></member>

@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="110" column="13" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="110" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="111" column="13" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="111" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1SimpleEffect_1a0721715cb26af2c1d58f6c7b618b74a2" prot="public" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1LoadedPostProcShader" kindref="compound">LoadedPostProcShader</ref> &gt;</type>
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="111" column="17" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="111" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="112" column="17" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="112" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1SimpleEffect_1a06c6529e4ade7aa33d5e43c7ba3e3952" prot="public" static="no" mutable="no">
         <type>std::vector&lt; std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1ShaderProp" kindref="compound">ShaderProp</ref> &gt; &gt;</type>
@@ -46,7 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="112" column="13" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="112" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="113" column="13" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="113" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1SimpleEffect_1aab4ad327691b9d5f9253a689eef23a72" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -61,7 +61,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="113" column="7" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="113" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="114" column="7" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="114" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -85,7 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="115" column="1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="116" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1SimpleEffect_1a3a827d4ba9c29ecd30c473731eead116" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -111,7 +111,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="117" column="6"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="118" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1SimpleEffect_1a0808a9fc50f983787c7ea23d1512902e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -141,7 +141,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="119" column="6"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="120" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1SimpleEffect_1a71d7a2c711c843adc5280dc52666a4c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -156,7 +156,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="121" column="6"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="122" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1SimpleEffect_1ae7d0fe4e0a1ed79a7d04950ac9a59eae" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -175,7 +175,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="123" column="6"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="124" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1SimpleEffect_1af827c96eaff25dad7dbb85e4ecc8f154" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -198,7 +198,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="125" column="6"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="126" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1SimpleEffect_1ac4bd0a9ba85b2da7303a4f136d6b27b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -217,7 +217,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="127" column="6"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="128" column="6"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -274,7 +274,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/postproc.internal.h" line="106" column="1" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="109" bodyend="128"/>
+    <location file="libs/render/src/eu/render/postproc.internal.h" line="107" column="1" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="110" bodyend="129"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1SimpleEffect_1a3a827d4ba9c29ecd30c473731eead116" prot="public" virt="non-virtual"><scope>eu::render::SimpleEffect</scope><name>add_float_drag_prop</name></member>
       <member refid="structeu_1_1render_1_1SimpleEffect_1a0808a9fc50f983787c7ea23d1512902e" prot="public" virt="non-virtual"><scope>eu::render::SimpleEffect</scope><name>add_float_slider_prop</name></member>

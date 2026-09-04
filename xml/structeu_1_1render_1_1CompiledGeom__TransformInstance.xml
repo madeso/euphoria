@@ -5,7 +5,7 @@
     <includes refid="world_8h" local="no">world.h</includes>
     <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1render_1_1CompiledGeom__TransformInstance_1aaba1d2f89fad2960ca22096922588c5f" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
+        <type><ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref></type>
         <definition>u32 eu::render::CompiledGeom_TransformInstance::instance_vbo</definition>
         <argsstring></argsstring>
         <name>instance_vbo</name>
@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="44" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="44" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="46" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="46" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1CompiledGeom__TransformInstance_1a11cb349a16123c5c594411a9b8b9cc0c" prot="public" static="no" mutable="no">
         <type>std::size_t</type>
@@ -30,10 +30,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="45" column="13" bodyfile="libs/render/src/eu/render/world.h" bodystart="45" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="47" column="13" bodyfile="libs/render/src/eu/render/world.h" bodystart="47" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1CompiledGeom__TransformInstance_1ae5412675f21ebaeac0dfd01b503c4c58" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
+        <type><ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref></type>
         <definition>u32 eu::render::CompiledGeom_TransformInstance::vbo</definition>
         <argsstring></argsstring>
         <name>vbo</name>
@@ -44,10 +44,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="47" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="47" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="49" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="49" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1CompiledGeom__TransformInstance_1a2bd36d3defea13c0fba32f7a8017c809" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
+        <type><ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref></type>
         <definition>u32 eu::render::CompiledGeom_TransformInstance::vao</definition>
         <argsstring></argsstring>
         <name>vao</name>
@@ -58,10 +58,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="48" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="48" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="50" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="50" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1CompiledGeom__TransformInstance_1ab9278457e7edecc8d101a4de7f34df63" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
+        <type><ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref></type>
         <definition>u32 eu::render::CompiledGeom_TransformInstance::ebo</definition>
         <argsstring></argsstring>
         <name>ebo</name>
@@ -72,10 +72,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="49" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="49" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="51" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="51" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1CompiledGeom__TransformInstance_1ac1ccee2abcbf2d2c4e483f393c75d68d" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1add0144d900d7bc769809952bd5a192dc" kindref="member">i32</ref></type>
+        <type><ref refid="namespaceeu_1a90d2f6faad0b9b10ac7cfd7d84f8f950" kindref="member">i32</ref></type>
         <definition>i32 eu::render::CompiledGeom_TransformInstance::number_of_triangles</definition>
         <argsstring></argsstring>
         <name>number_of_triangles</name>
@@ -86,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="50" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="50" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="52" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="52" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1CompiledGeom__TransformInstance_1a346399cd75915929535ef0acbd69957f" prot="public" static="no" mutable="no">
         <type>std::unordered_set&lt; <ref refid="group__vertex-layout_1ga5f0685f8f017fd2ba9d143646266b46e" kindref="member">core::VertexType</ref> &gt;</type>
@@ -100,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="51" column="20" bodyfile="libs/render/src/eu/render/world.h" bodystart="51" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="53" column="20" bodyfile="libs/render/src/eu/render/world.h" bodystart="53" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -111,25 +111,25 @@
         <name>CompiledGeom_TransformInstance</name>
         <qualifiedname>eu::render::CompiledGeom_TransformInstance::CompiledGeom_TransformInstance</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
+          <type><ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref></type>
         </param>
         <param>
           <type>std::size_t</type>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
+          <type><ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref></type>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
+          <type><ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref></type>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
+          <type><ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref></type>
         </param>
         <param>
           <type>const <ref refid="structeu_1_1core_1_1CompiledGeomVertexAttributes" kindref="compound">core::CompiledGeomVertexAttributes</ref> &amp;</type>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1add0144d900d7bc769809952bd5a192dc" kindref="member">i32</ref></type>
+          <type><ref refid="namespaceeu_1a90d2f6faad0b9b10ac7cfd7d84f8f950" kindref="member">i32</ref></type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -137,7 +137,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="53" column="10"/>
+        <location file="libs/render/src/eu/render/world.h" line="55" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1CompiledGeom__TransformInstance_1a511353f1567b2d9ffaff4eec7aae477b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -151,7 +151,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="54" column="1"/>
+        <location file="libs/render/src/eu/render/world.h" line="56" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1CompiledGeom__TransformInstance_1a1712e5dda1ce60505cb9fd185e993f89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -168,7 +168,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="56" column="1"/>
+        <location file="libs/render/src/eu/render/world.h" line="58" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1CompiledGeom__TransformInstance_1a00da8abd05f9386ae23fa62faed81ff0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -185,7 +185,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="57" column="1"/>
+        <location file="libs/render/src/eu/render/world.h" line="59" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1CompiledGeom__TransformInstance_1ae01af204ef59b8b1cd1d1c754bf5a35c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -202,7 +202,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="58" column="6"/>
+        <location file="libs/render/src/eu/render/world.h" line="60" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1CompiledGeom__TransformInstance_1a858f220bb8abcc592aaf123e64157e00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -219,7 +219,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="59" column="6"/>
+        <location file="libs/render/src/eu/render/world.h" line="61" column="6"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -227,7 +227,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/render/src/eu/render/world.h" line="42" column="1" bodyfile="libs/render/src/eu/render/world.h" bodystart="43" bodyend="60"/>
+    <location file="libs/render/src/eu/render/world.h" line="44" column="1" bodyfile="libs/render/src/eu/render/world.h" bodystart="45" bodyend="62"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1CompiledGeom__TransformInstance_1ad33dde396769d616aad58e33e40c1c98" prot="public" virt="non-virtual"><scope>eu::render::CompiledGeom_TransformInstance</scope><name>CompiledGeom_TransformInstance</name></member>
       <member refid="structeu_1_1render_1_1CompiledGeom__TransformInstance_1a1712e5dda1ce60505cb9fd185e993f89" prot="public" virt="non-virtual"><scope>eu::render::CompiledGeom_TransformInstance</scope><name>CompiledGeom_TransformInstance</name></member>

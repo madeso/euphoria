@@ -9,28 +9,30 @@
     <includedby refid="renderer_8h" local="yes">libs/render/src/eu/render/renderer.h</includedby>
     <includedby refid="world_8h" local="yes">libs/render/src/eu/render/world.h</includedby>
     <incdepgraph>
-      <node id="3">
+      <node id="4">
         <label>eu/base/size.h</label>
         <link refid="size_8h"/>
       </node>
-      <node id="5">
+      <node id="6">
         <label>eu/core/color.h</label>
         <link refid="color_8h"/>
       </node>
-      <node id="8">
+      <node id="9">
         <label>eu/core/vertex_layout.h</label>
         <link refid="vertex__layout_8h"/>
-        <childnode refid="9" relation="include">
-        </childnode>
         <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
       </node>
-      <node id="6">
+      <node id="7">
         <label>eu/render/assets.h</label>
         <link refid="assets_8h"/>
-        <childnode refid="7" relation="include">
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
         </childnode>
         <childnode refid="2" relation="include">
         </childnode>
@@ -40,21 +42,21 @@
         <link refid="material_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="12" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
       </node>
-      <node id="4">
+      <node id="5">
         <label>eu/render/opengl_labels.h</label>
         <link refid="opengl__labels_8h"/>
       </node>
-      <node id="7">
+      <node id="8">
         <label>eu/render/shader.source.h</label>
         <link refid="shader_8source_8h"/>
-        <childnode refid="8" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
       </node>
       <node id="2">
@@ -66,17 +68,19 @@
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-      </node>
-      <node id="9">
-        <label>map</label>
-      </node>
-      <node id="12">
-        <label>memory</label>
-      </node>
-      <node id="11">
-        <label>optional</label>
+        <childnode refid="6" relation="include">
+        </childnode>
       </node>
       <node id="10">
+        <label>map</label>
+      </node>
+      <node id="3">
+        <label>memory</label>
+      </node>
+      <node id="12">
+        <label>optional</label>
+      </node>
+      <node id="11">
         <label>set</label>
       </node>
     </incdepgraph>

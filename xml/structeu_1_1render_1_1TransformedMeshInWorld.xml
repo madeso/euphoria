@@ -16,14 +16,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/compiledmesh.h" line="46" column="17" bodyfile="libs/render/src/eu/render/compiledmesh.h" bodystart="46" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/compiledmesh.h" line="49" column="17" bodyfile="libs/render/src/eu/render/compiledmesh.h" bodystart="49" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/render/src/eu/render/compiledmesh.h" line="44" column="1" bodyfile="libs/render/src/eu/render/compiledmesh.h" bodystart="45" bodyend="47"/>
+    <location file="libs/render/src/eu/render/compiledmesh.h" line="47" column="1" bodyfile="libs/render/src/eu/render/compiledmesh.h" bodystart="48" bodyend="50"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1TransformedMeshInWorld_1ad8ed16a0eb07905cb216e257c3054b07" prot="public" virt="non-virtual"><scope>eu::render::TransformedMeshInWorld</scope><name>geoms</name></member>
     </listofallmembers>

@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="90" column="17" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="90" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="92" column="17" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="92" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1CompiledStack_1a6ae8a8003e1f340ee29af086f2f09110" prot="public" static="no" mutable="no">
         <type>std::vector&lt; std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1RenderTextureWithShader" kindref="compound">RenderTextureWithShader</ref> &gt; &gt;</type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="92" column="13" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="92" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="94" column="13" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="94" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -46,7 +46,7 @@
 </listitem></itemizedlist>
 </para>
     </detaileddescription>
-    <location file="libs/render/src/eu/render/postproc.h" line="87" column="1" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="88" bodyend="93"/>
+    <location file="libs/render/src/eu/render/postproc.h" line="89" column="1" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="90" bodyend="95"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1CompiledStack_1a7d4c0766faa49ce29ced16ce9fe5b5b8" prot="public" virt="non-virtual"><scope>eu::render::CompiledStack</scope><name>last_source</name></member>
       <member refid="structeu_1_1render_1_1CompiledStack_1a6ae8a8003e1f340ee29af086f2f09110" prot="public" virt="non-virtual"><scope>eu::render::CompiledStack</scope><name>targets</name></member>

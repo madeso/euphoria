@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/compiledmesh.h" line="51" column="18" bodyfile="libs/render/src/eu/render/compiledmesh.h" bodystart="51" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/compiledmesh.h" line="54" column="18" bodyfile="libs/render/src/eu/render/compiledmesh.h" bodystart="54" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1MeshInWorld_1ad7f92b57f159adb8ee00534af5f86d5d" prot="public" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="structeu_1_1render_1_1TransformedMeshInWorld" kindref="compound">TransformedMeshInWorld</ref> &gt;</type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/compiledmesh.h" line="52" column="17" bodyfile="libs/render/src/eu/render/compiledmesh.h" bodystart="52" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/compiledmesh.h" line="55" column="17" bodyfile="libs/render/src/eu/render/compiledmesh.h" bodystart="55" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -59,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/compiledmesh.h" line="55" column="10"/>
+        <location file="libs/render/src/eu/render/compiledmesh.h" line="58" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1MeshInWorld_1aa35fde2fc8055e5bc33ba28d9aa43147" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -77,7 +77,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/compiledmesh.h" line="56" column="10"/>
+        <location file="libs/render/src/eu/render/compiledmesh.h" line="59" column="10"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -97,7 +97,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/compiledmesh.h" line="49" column="1" bodyfile="libs/render/src/eu/render/compiledmesh.h" bodystart="50" bodyend="57"/>
+    <location file="libs/render/src/eu/render/compiledmesh.h" line="52" column="1" bodyfile="libs/render/src/eu/render/compiledmesh.h" bodystart="53" bodyend="60"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1MeshInWorld_1aca74a6313f10a1c602be5858c45b643f" prot="public" virt="non-virtual"><scope>eu::render::MeshInWorld</scope><name>add_to_world</name></member>
       <member refid="structeu_1_1render_1_1MeshInWorld_1a9ddb177c0d2cbee582a7edd714c7c047" prot="public" virt="non-virtual"><scope>eu::render::MeshInWorld</scope><name>compiled_mesh</name></member>

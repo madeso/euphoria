@@ -33,7 +33,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/texture.h" line="16" column="1" bodyfile="libs/render/src/eu/render/texture.h" bodystart="17" bodyend="20"/>
+        <location file="libs/render/src/eu/render/texture.h" line="18" column="1" bodyfile="libs/render/src/eu/render/texture.h" bodystart="19" bodyend="22"/>
       </memberdef>
       <memberdef kind="enum" id="group__texture_1gad077a05d0224820dd5e1c6ffb797fa79" prot="public" static="no" strong="yes">
         <type></type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/texture.h" line="23" column="1" bodyfile="libs/render/src/eu/render/texture.h" bodystart="24" bodyend="28"/>
+        <location file="libs/render/src/eu/render/texture.h" line="25" column="1" bodyfile="libs/render/src/eu/render/texture.h" bodystart="26" bodyend="30"/>
       </memberdef>
       <memberdef kind="enum" id="group__texture_1ga5b945431a3e7a9568374b883c85565d7" prot="public" static="no" strong="yes">
         <type></type>
@@ -92,7 +92,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/texture.h" line="31" column="1" bodyfile="libs/render/src/eu/render/texture.h" bodystart="32" bodyend="35"/>
+        <location file="libs/render/src/eu/render/texture.h" line="33" column="1" bodyfile="libs/render/src/eu/render/texture.h" bodystart="34" bodyend="37"/>
       </memberdef>
       <memberdef kind="enum" id="group__texture_1ga4c49cf44c6f0f36c25cc3fd17be1dda5" prot="public" static="no" strong="yes">
         <type></type>
@@ -128,7 +128,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/texture.h" line="37" column="1" bodyfile="libs/render/src/eu/render/texture.h" bodystart="38" bodyend="48"/>
+        <location file="libs/render/src/eu/render/texture.h" line="39" column="1" bodyfile="libs/render/src/eu/render/texture.h" bodystart="40" bodyend="50"/>
       </memberdef>
       <memberdef kind="enum" id="group__texture_1gac052096755747d49a7e0954123286623" prot="public" static="no" strong="yes">
         <type></type>
@@ -169,7 +169,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/texture.h" line="121" column="1" bodyfile="libs/render/src/eu/render/texture.h" bodystart="122" bodyend="125"/>
+        <location file="libs/render/src/eu/render/texture.h" line="123" column="1" bodyfile="libs/render/src/eu/render/texture.h" bodystart="124" bodyend="127"/>
       </memberdef>
       <memberdef kind="enum" id="group__texture_1gaa48ab79573cf3af6eae3ba0201a0c6a5" prot="public" static="no" strong="yes">
         <type></type>
@@ -210,7 +210,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/texture.h" line="128" column="1" bodyfile="libs/render/src/eu/render/texture.h" bodystart="129" bodyend="132"/>
+        <location file="libs/render/src/eu/render/texture.h" line="130" column="1" bodyfile="libs/render/src/eu/render/texture.h" bodystart="131" bodyend="134"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="var">
@@ -228,7 +228,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/texture.h" line="83" column="23" bodyfile="libs/render/src/eu/render/texture.h" bodystart="83" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/texture.h" line="85" column="23" bodyfile="libs/render/src/eu/render/texture.h" bodystart="85" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="func">
@@ -264,7 +264,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/texture.h" line="79" column="11" declfile="libs/render/src/eu/render/texture.h" declline="79" declcolumn="11"/>
+        <location file="libs/render/src/eu/render/texture.h" line="81" column="11" declfile="libs/render/src/eu/render/texture.h" declline="81" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group__texture_1ga458cbe8a21306ccd47b408340440c60d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>TextureCubemap</type>
@@ -286,7 +286,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/texture.h" line="94" column="16" declfile="libs/render/src/eu/render/texture.h" declline="94" declcolumn="16"/>
+        <location file="libs/render/src/eu/render/texture.h" line="96" column="16" declfile="libs/render/src/eu/render/texture.h" declline="96" declcolumn="16"/>
       </memberdef>
       <memberdef kind="function" id="group__texture_1ga1e6e831737209f381f2f34fd68b360d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; FrameBuffer &gt;</type>
@@ -318,7 +318,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/texture.h" line="144" column="17" declfile="libs/render/src/eu/render/texture.h" declline="144" declcolumn="17"/>
+        <location file="libs/render/src/eu/render/texture.h" line="146" column="17" declfile="libs/render/src/eu/render/texture.h" declline="146" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="group__texture_1ga0e72b05730d7520b132ee620dcb86679" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; FrameBuffer &gt;</type>
@@ -374,7 +374,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/texture.h" line="158" column="17" declfile="libs/render/src/eu/render/texture.h" declline="158" declcolumn="17"/>
+        <location file="libs/render/src/eu/render/texture.h" line="160" column="17" declfile="libs/render/src/eu/render/texture.h" declline="160" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="group__texture_1ga9efcced06a1a5e0309b34e1a40fcc1b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; FrameBuffer &gt;</type>
@@ -417,7 +417,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/texture.h" line="169" column="17" declfile="libs/render/src/eu/render/texture.h" declline="169" declcolumn="17"/>
+        <location file="libs/render/src/eu/render/texture.h" line="171" column="17" declfile="libs/render/src/eu/render/texture.h" declline="171" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="group__texture_1gaa85e9db1b15d0ec62079995fc80cda5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; FrameBuffer &gt;</type>
@@ -448,7 +448,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/texture.h" line="179" column="17" declfile="libs/render/src/eu/render/texture.h" declline="179" declcolumn="17"/>
+        <location file="libs/render/src/eu/render/texture.h" line="181" column="17" declfile="libs/render/src/eu/render/texture.h" declline="181" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="group__texture_1ga7a077b1e09486b602076085519b63003" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -470,7 +470,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/texture.h" line="196" column="6" declfile="libs/render/src/eu/render/texture.h" declline="196" declcolumn="6"/>
+        <location file="libs/render/src/eu/render/texture.h" line="198" column="6" declfile="libs/render/src/eu/render/texture.h" declline="198" declcolumn="6"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

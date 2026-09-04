@@ -163,7 +163,7 @@
         <location file="libs/render/src/eu/render/linebatch.h" line="27" column="5" bodyfile="libs/render/src/eu/render/linebatch.h" bodystart="27" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1LineDrawer_1a9a314173626cce5097bcc776f7585ba0" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
+        <type><ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref></type>
         <definition>u32 eu::render::LineDrawer::va</definition>
         <argsstring></argsstring>
         <name>va</name>
@@ -177,7 +177,7 @@
         <location file="libs/render/src/eu/render/linebatch.h" line="28" column="5" bodyfile="libs/render/src/eu/render/linebatch.h" bodystart="28" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1LineDrawer_1a59f87b4cbd4031fd962fcdce91168c62" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
+        <type><ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref></type>
         <definition>u32 eu::render::LineDrawer::vb</definition>
         <argsstring></argsstring>
         <name>vb</name>
@@ -191,7 +191,7 @@
         <location file="libs/render/src/eu/render/linebatch.h" line="29" column="5" bodyfile="libs/render/src/eu/render/linebatch.h" bodystart="29" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1LineDrawer_1a5cf61c2275479be14f70ae8c54a24a2c" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
+        <type><ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref></type>
         <definition>u32 eu::render::LineDrawer::ib</definition>
         <argsstring></argsstring>
         <name>ib</name>

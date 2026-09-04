@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="137" column="4" bodyfile="libs/render/src/eu/render/world.h" bodystart="137" bodyend="137"/>
+        <location file="libs/render/src/eu/render/world.h" line="139" column="4" bodyfile="libs/render/src/eu/render/world.h" bodystart="139" bodyend="139"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1PointLight_1ae5a00b005ac09008fe674b3a1e004eb6" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="138" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="138" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="140" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="140" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1PointLight_1a5a0760118a1bd3583e1f542f92b99237" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="139" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="139" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="141" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="141" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1PointLight_1ad0df72304458b932b3262642e4280fee" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1core_1_1SCurve" kindref="compound">core::SCurve</ref></type>
@@ -63,7 +63,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="140" column="18" bodyfile="libs/render/src/eu/render/world.h" bodystart="140" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="142" column="18" bodyfile="libs/render/src/eu/render/world.h" bodystart="142" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1PointLight_1a85a7f25b0ec1f3e9cc246fb3f17ac934" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
@@ -78,7 +78,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="142" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="142" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="144" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="144" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1PointLight_1a1a1a97631e44131f375865a50219c0a0" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -93,7 +93,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="143" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="143" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="145" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="145" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1PointLight_1a79cad658346ce4da7f8d03af77bb4067" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -108,7 +108,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="144" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="144" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="146" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="146" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -143,7 +143,7 @@
         <link refid="structeu_1_1v3"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/world.h" line="135" column="1" bodyfile="libs/render/src/eu/render/world.h" bodystart="136" bodyend="145"/>
+    <location file="libs/render/src/eu/render/world.h" line="137" column="1" bodyfile="libs/render/src/eu/render/world.h" bodystart="138" bodyend="147"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1PointLight_1a85a7f25b0ec1f3e9cc246fb3f17ac934" prot="public" virt="non-virtual"><scope>eu::render::PointLight</scope><name>color</name></member>
       <member refid="structeu_1_1render_1_1PointLight_1ad0df72304458b932b3262642e4280fee" prot="public" virt="non-virtual"><scope>eu::render::PointLight</scope><name>curve</name></member>

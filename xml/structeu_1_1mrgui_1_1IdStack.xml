@@ -5,7 +5,7 @@
     <includes refid="widgets_8h" local="no">widgets.h</includes>
     <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1mrgui_1_1IdStack_1aa871ecb45756d6afa35a19fcd9045fa3" prot="public" static="no" mutable="no">
-        <type>std::vector&lt; <ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref> &gt;</type>
+        <type>std::vector&lt; <ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref> &gt;</type>
         <definition>std::vector&lt;u32&gt; eu::mrgui::IdStack::stack</definition>
         <argsstring></argsstring>
         <name>stack</name>
@@ -21,7 +21,7 @@
     </sectiondef>
     <sectiondef kind="public-func">
       <memberdef kind="function" id="structeu_1_1mrgui_1_1IdStack_1a82b913de8bd71ac10006fecc5978d2df" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
+        <type><ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref></type>
         <definition>u32 eu::mrgui::IdStack::get</definition>
         <argsstring>(const std::string &amp;str) const</argsstring>
         <name>get</name>
@@ -39,7 +39,7 @@
         <location file="libs/mrgui/src/eu/mrgui/widgets.h" line="20" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1mrgui_1_1IdStack_1a34791cf7883d758e4c886e6a0cf8415e" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
+        <type><ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref></type>
         <definition>u32 eu::mrgui::IdStack::get</definition>
         <argsstring>(int id) const</argsstring>
         <name>get</name>
@@ -107,7 +107,7 @@
         <location file="libs/mrgui/src/eu/mrgui/widgets.h" line="26" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1mrgui_1_1IdStack_1abc0e17e65e9fd264926ba2f52c276200" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
+        <type><ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref></type>
         <definition>u32 eu::mrgui::IdStack::last_id</definition>
         <argsstring>() const</argsstring>
         <name>last_id</name>

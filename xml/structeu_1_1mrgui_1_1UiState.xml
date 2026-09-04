@@ -35,7 +35,7 @@
         <location file="libs/mrgui/src/eu/mrgui/widgets.h" line="42" column="14" bodyfile="libs/mrgui/src/eu/mrgui/widgets.h" bodystart="42" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1mrgui_1_1UiState_1aaa3bebdd0f78b87b57b1eabd5704179b" prot="public" static="no" mutable="no">
-        <type>std::optional&lt; <ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref> &gt;</type>
+        <type>std::optional&lt; <ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref> &gt;</type>
         <definition>std::optional&lt;u32&gt; eu::mrgui::UiState::hot_item</definition>
         <argsstring></argsstring>
         <name>hot_item</name>
@@ -50,7 +50,7 @@
         <location file="libs/mrgui/src/eu/mrgui/widgets.h" line="43" column="23" bodyfile="libs/mrgui/src/eu/mrgui/widgets.h" bodystart="43" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1mrgui_1_1UiState_1a4a6170df9fe7174f4d5e0307b9085815" prot="public" static="no" mutable="no">
-        <type>std::optional&lt; <ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref> &gt;</type>
+        <type>std::optional&lt; <ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref> &gt;</type>
         <definition>std::optional&lt;u32&gt; eu::mrgui::UiState::active_item</definition>
         <argsstring></argsstring>
         <name>active_item</name>
@@ -80,7 +80,7 @@
         <location file="libs/mrgui/src/eu/mrgui/widgets.h" line="45" column="14" bodyfile="libs/mrgui/src/eu/mrgui/widgets.h" bodystart="45" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1mrgui_1_1UiState_1a9cc710f26ecae58911232d289e1a67ce" prot="public" static="no" mutable="no">
-        <type>std::optional&lt; <ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref> &gt;</type>
+        <type>std::optional&lt; <ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref> &gt;</type>
         <definition>std::optional&lt;u32&gt; eu::mrgui::UiState::kbd_item</definition>
         <argsstring></argsstring>
         <name>kbd_item</name>
@@ -95,7 +95,7 @@
         <location file="libs/mrgui/src/eu/mrgui/widgets.h" line="47" column="23" bodyfile="libs/mrgui/src/eu/mrgui/widgets.h" bodystart="47" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1mrgui_1_1UiState_1af3209bd583150a38bd7d5ca89fd436b6" prot="public" static="no" mutable="no">
-        <type>std::optional&lt; <ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref> &gt;</type>
+        <type>std::optional&lt; <ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref> &gt;</type>
         <definition>std::optional&lt;u32&gt; eu::mrgui::UiState::last_widget</definition>
         <argsstring></argsstring>
         <name>last_widget</name>

@@ -5,7 +5,7 @@
     <includes refid="guid_8h" local="no">guid.h</includes>
     <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1Guid_1ac9c5c042647a79b26ba31966a708f3fc" prot="public" static="no" mutable="no">
-        <type>std::array&lt; <ref refid="namespaceeu_1ab10f4fc790440413475454dc69c9e901" kindref="member">u8</ref>, 16 &gt;</type>
+        <type>std::array&lt; <ref refid="namespaceeu_1ab409964e4fa95e47f7286765989f4131" kindref="member">u8</ref>, 16 &gt;</type>
         <definition>std::array&lt;u8, 16&gt; eu::Guid::data</definition>
         <argsstring></argsstring>
         <name>data</name>
@@ -45,7 +45,7 @@
         <name>Guid</name>
         <qualifiedname>eu::Guid::Guid</qualifiedname>
         <param>
-          <type>std::array&lt; <ref refid="namespaceeu_1ab10f4fc790440413475454dc69c9e901" kindref="member">u8</ref>, 16 &gt;</type>
+          <type>std::array&lt; <ref refid="namespaceeu_1ab409964e4fa95e47f7286765989f4131" kindref="member">u8</ref>, 16 &gt;</type>
           <declname>d</declname>
         </param>
         <briefdescription>
@@ -64,23 +64,23 @@
         <name>Guid</name>
         <qualifiedname>eu::Guid::Guid</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
+          <type><ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref></type>
           <declname>a</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1aa248cae79ab17191d82317be93474ee3" kindref="member">u16</ref></type>
+          <type><ref refid="namespaceeu_1a8abaf9e3814c5d42e66619d80bda44c0" kindref="member">u16</ref></type>
           <declname>b</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1aa248cae79ab17191d82317be93474ee3" kindref="member">u16</ref></type>
+          <type><ref refid="namespaceeu_1a8abaf9e3814c5d42e66619d80bda44c0" kindref="member">u16</ref></type>
           <declname>c</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1aa248cae79ab17191d82317be93474ee3" kindref="member">u16</ref></type>
+          <type><ref refid="namespaceeu_1a8abaf9e3814c5d42e66619d80bda44c0" kindref="member">u16</ref></type>
           <declname>d</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1abe0c1a612663ea762f0507c0e96a3514" kindref="member">u64</ref></type>
+          <type><ref refid="namespaceeu_1a71ee399e74f0202698296f0a27e896ef" kindref="member">u64</ref></type>
           <declname>e</declname>
         </param>
         <briefdescription>

@@ -16,14 +16,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/compiledmesh.h" line="34" column="17" bodyfile="libs/render/src/eu/render/compiledmesh.h" bodystart="34" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/compiledmesh.h" line="37" column="17" bodyfile="libs/render/src/eu/render/compiledmesh.h" bodystart="37" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/render/src/eu/render/compiledmesh.h" line="31" column="1" bodyfile="libs/render/src/eu/render/compiledmesh.h" bodystart="32" bodyend="36"/>
+    <location file="libs/render/src/eu/render/compiledmesh.h" line="34" column="1" bodyfile="libs/render/src/eu/render/compiledmesh.h" bodystart="35" bodyend="39"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1CompiledMesh_1a51491f7e62e8a4c4e0c3edbfd021b2d3" prot="public" virt="non-virtual"><scope>eu::render::CompiledMesh</scope><name>meshes</name></member>
     </listofallmembers>

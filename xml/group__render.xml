@@ -148,7 +148,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="26" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="27" bodyend="33"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="28" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="29" bodyend="35"/>
       </memberdef>
       <memberdef kind="enum" id="group__render_1ga0259d27836d6b0923021ed4759c2494f" prot="public" static="no" strong="yes">
         <type></type>
@@ -193,7 +193,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="141" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="142" bodyend="147"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="143" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="144" bodyend="149"/>
       </memberdef>
       <memberdef kind="enum" id="group__render_1ga3b9103d6372df27997cfdc8ffac146e3" prot="public" static="no" strong="yes">
         <type></type>
@@ -220,7 +220,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="194" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="195" bodyend="198"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="196" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="197" bodyend="200"/>
       </memberdef>
       <memberdef kind="enum" id="group__render_1ga974f78d25ec60e8dc6e560769f474d41" prot="public" static="no" strong="yes">
         <type></type>
@@ -623,7 +623,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="77" column="1" bodyfile="libs/render/src/eu/render/world.h" bodystart="78" bodyend="84"/>
+        <location file="libs/render/src/eu/render/world.h" line="79" column="1" bodyfile="libs/render/src/eu/render/world.h" bodystart="80" bodyend="86"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="typedef">
@@ -853,7 +853,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="148" column="15" declfile="libs/render/src/eu/render/shader_resource.h" declline="148" declcolumn="15"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="150" column="15" declfile="libs/render/src/eu/render/shader_resource.h" declline="150" declcolumn="15"/>
       </memberdef>
       <memberdef kind="function" id="group__render_1ga521fe9e6ecd5ce09d12e17b5e3f31e8a" prot="public" static="no" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const LoadedShader_Unlit &amp;</type>
@@ -876,7 +876,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="240" column="27" declfile="libs/render/src/eu/render/shader_resource.h" declline="240" declcolumn="27"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="242" column="27" declfile="libs/render/src/eu/render/shader_resource.h" declline="242" declcolumn="27"/>
       </memberdef>
       <memberdef kind="function" id="group__render_1gab8c7bb982af9cfe2845bb5f5b2d2c5a4" prot="public" static="no" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const LoadedShader_Default &amp;</type>
@@ -899,7 +899,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="243" column="29" declfile="libs/render/src/eu/render/shader_resource.h" declline="243" declcolumn="29"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="245" column="29" declfile="libs/render/src/eu/render/shader_resource.h" declline="245" declcolumn="29"/>
       </memberdef>
       <memberdef kind="function" id="group__render_1ga2da81eb08802c13ab472d867c954a7de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>ShaderResource</type>
@@ -929,7 +929,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="299" column="16" declfile="libs/render/src/eu/render/shader_resource.h" declline="299" declcolumn="16"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="301" column="16" declfile="libs/render/src/eu/render/shader_resource.h" declline="301" declcolumn="16"/>
       </memberdef>
       <memberdef kind="function" id="group__render_1ga5bb1733b57b1d0b9e47e84e2d36e02c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1028,7 +1028,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="62" column="17" declfile="libs/render/src/eu/render/world.h" declline="62" declcolumn="17"/>
+        <location file="libs/render/src/eu/render/world.h" line="64" column="17" declfile="libs/render/src/eu/render/world.h" declline="64" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="group__render_1ga9e2d3909a86a1286154f50e1b182aea8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; CompiledGeom_TransformInstance &gt;</type>
@@ -1053,7 +1053,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="63" column="17" declfile="libs/render/src/eu/render/world.h" declline="63" declcolumn="17"/>
+        <location file="libs/render/src/eu/render/world.h" line="65" column="17" declfile="libs/render/src/eu/render/world.h" declline="65" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="group__render_1gab8f162bec384e0fd82b4237a2bfd32d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>m4</type>
@@ -1075,7 +1075,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="100" column="4" declfile="libs/render/src/eu/render/world.h" declline="100" declcolumn="4"/>
+        <location file="libs/render/src/eu/render/world.h" line="102" column="4" declfile="libs/render/src/eu/render/world.h" declline="102" declcolumn="4"/>
       </memberdef>
       <memberdef kind="function" id="group__render_1gaf72cbecec8e96155ad5b06f8cfe8ff2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>m4</type>
@@ -1101,7 +1101,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="101" column="4" declfile="libs/render/src/eu/render/world.h" declline="101" declcolumn="4"/>
+        <location file="libs/render/src/eu/render/world.h" line="103" column="4" declfile="libs/render/src/eu/render/world.h" declline="103" declcolumn="4"/>
       </memberdef>
       <memberdef kind="function" id="group__render_1ga887131557f85bd92064368dff12f2228" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; MeshInstance &gt;</type>
@@ -1123,7 +1123,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="103" column="17" declfile="libs/render/src/eu/render/world.h" declline="103" declcolumn="17"/>
+        <location file="libs/render/src/eu/render/world.h" line="105" column="17" declfile="libs/render/src/eu/render/world.h" declline="105" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="group__render_1gab6605e0ec8c53f13f13e69ca1b180497" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; MeshInstance_TransformInstanced &gt;</type>
@@ -1145,7 +1145,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="116" column="17" declfile="libs/render/src/eu/render/world.h" declline="116" declcolumn="17"/>
+        <location file="libs/render/src/eu/render/world.h" line="118" column="17" declfile="libs/render/src/eu/render/world.h" declline="118" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="group__render_1ga661feb90f9290f9f983f297d559b7956" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1163,7 +1163,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="120" column="6" declfile="libs/render/src/eu/render/world.h" declline="120" declcolumn="6"/>
+        <location file="libs/render/src/eu/render/world.h" line="122" column="6" declfile="libs/render/src/eu/render/world.h" declline="122" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group__render_1ga420c8a229e7b1a8eb166df6e7c47abb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1181,7 +1181,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="121" column="6" declfile="libs/render/src/eu/render/world.h" declline="121" declcolumn="6"/>
+        <location file="libs/render/src/eu/render/world.h" line="123" column="6" declfile="libs/render/src/eu/render/world.h" declline="123" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group__render_1gadd9fe4779c1c20e9cb4a7d044ba7f3f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>CameraVectors</type>
@@ -1199,7 +1199,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="147" column="15" declfile="libs/render/src/eu/render/world.h" declline="147" declcolumn="15"/>
+        <location file="libs/render/src/eu/render/world.h" line="149" column="15" declfile="libs/render/src/eu/render/world.h" declline="149" declcolumn="15"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

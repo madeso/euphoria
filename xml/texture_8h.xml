@@ -2,6 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="texture_8h" kind="file" language="C++">
     <compoundname>texture.h</compoundname>
+    <includes local="no">memory</includes>
     <includes refid="size_8h" local="yes">eu/base/size.h</includes>
     <includes refid="opengl__labels_8h" local="yes">eu/render/opengl_labels.h</includes>
     <includes refid="color_8h" local="yes">eu/core/color.h</includes>
@@ -12,15 +13,15 @@
     <includedby refid="postproc_8h" local="yes">libs/render/src/eu/render/postproc.h</includedby>
     <includedby refid="texture_8io_8h" local="yes">libs/render/src/eu/render/texture.io.h</includedby>
     <incdepgraph>
-      <node id="2">
+      <node id="3">
         <label>eu/base/size.h</label>
         <link refid="size_8h"/>
       </node>
-      <node id="4">
+      <node id="5">
         <label>eu/core/color.h</label>
         <link refid="color_8h"/>
       </node>
-      <node id="3">
+      <node id="4">
         <label>eu/render/opengl_labels.h</label>
         <link refid="opengl__labels_8h"/>
       </node>
@@ -33,6 +34,11 @@
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>memory</label>
       </node>
     </incdepgraph>
     <invincdepgraph>

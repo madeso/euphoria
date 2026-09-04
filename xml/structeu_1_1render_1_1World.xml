@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="195" column="13" bodyfile="libs/render/src/eu/render/world.h" bodystart="195" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="197" column="13" bodyfile="libs/render/src/eu/render/world.h" bodystart="197" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1World_1a7ce9a2e2cd97c7880349e1b902564385" prot="public" static="no" mutable="no">
         <type>std::vector&lt; std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1MeshInstance__TransformInstanced" kindref="compound">MeshInstance_TransformInstanced</ref> &gt; &gt;</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="196" column="13" bodyfile="libs/render/src/eu/render/world.h" bodystart="196" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="198" column="13" bodyfile="libs/render/src/eu/render/world.h" bodystart="198" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1World_1aa6c02408b9e4224d9f230528457fe748" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1Lights" kindref="compound">Lights</ref></type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="197" column="8" bodyfile="libs/render/src/eu/render/world.h" bodystart="197" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="199" column="8" bodyfile="libs/render/src/eu/render/world.h" bodystart="199" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1World_1a7678a5ea436297680e5cfd41f6ba1530" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
@@ -59,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="199" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="199" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="201" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="201" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1World_1a253e1ae17cea4cb37ff7575a38e33b9b" prot="public" static="no" mutable="no">
         <type>std::optional&lt; <ref refid="structeu_1_1render_1_1Skybox" kindref="compound">Skybox</ref> &gt;</type>
@@ -73,7 +73,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="200" column="15" bodyfile="libs/render/src/eu/render/world.h" bodystart="200" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="202" column="15" bodyfile="libs/render/src/eu/render/world.h" bodystart="202" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -105,7 +105,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/world.h" line="193" column="1" bodyfile="libs/render/src/eu/render/world.h" bodystart="194" bodyend="201"/>
+    <location file="libs/render/src/eu/render/world.h" line="195" column="1" bodyfile="libs/render/src/eu/render/world.h" bodystart="196" bodyend="203"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1World_1a7678a5ea436297680e5cfd41f6ba1530" prot="public" virt="non-virtual"><scope>eu::render::World</scope><name>clear_color</name></member>
       <member refid="structeu_1_1render_1_1World_1a7ce9a2e2cd97c7880349e1b902564385" prot="public" virt="non-virtual"><scope>eu::render::World</scope><name>instances</name></member>

@@ -548,7 +548,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/compiledmesh.h" line="38" column="14" declfile="libs/render/src/eu/render/compiledmesh.h" declline="38" declcolumn="14"/>
+        <location file="libs/render/src/eu/render/compiledmesh.h" line="41" column="14" declfile="libs/render/src/eu/render/compiledmesh.h" declline="41" declcolumn="14"/>
       </memberdef>
       <member refid="group__render_1ga6a8ef58e235dd04c1bb6c5848bff8ce9" kind="function"><name>draw_frustum</name></member>
       <member refid="group__render_1ga750fd17d78e17bcaf8571acac0fc519b" kind="function"><name>vec_from_lin</name></member>
@@ -639,7 +639,7 @@
         <location file="libs/render/src/eu/render/opengl_utils.h" line="15" column="9" declfile="libs/render/src/eu/render/opengl_utils.h" declline="15" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1a1147fc461475fdaf906627e9e796ef83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
+        <type><ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref></type>
         <definition>u32 eu::render::create_buffer</definition>
         <argsstring>()</argsstring>
         <name>create_buffer</name>
@@ -659,7 +659,7 @@
         <name>destroy_buffer</name>
         <qualifiedname>eu::render::destroy_buffer</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
+          <type><ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref></type>
           <declname>vbo</declname>
         </param>
         <briefdescription>
@@ -671,7 +671,7 @@
         <location file="libs/render/src/eu/render/opengl_utils.h" line="18" column="6" declfile="libs/render/src/eu/render/opengl_utils.h" declline="18" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1ab99e35fd9a9a1c22609b3fa5b64d3f8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
+        <type><ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref></type>
         <definition>u32 eu::render::create_vertex_array</definition>
         <argsstring>()</argsstring>
         <name>create_vertex_array</name>
@@ -691,7 +691,7 @@
         <name>destroy_vertex_array</name>
         <qualifiedname>eu::render::destroy_vertex_array</qualifiedname>
         <param>
-          <type><ref refid="namespaceeu_1a3e9fea60e31eeaac13f6ab5870238000" kindref="member">u32</ref></type>
+          <type><ref refid="namespaceeu_1a9a724f18ad2eb0410f8da5a23b19a2d8" kindref="member">u32</ref></type>
           <declname>vao</declname>
         </param>
         <briefdescription>

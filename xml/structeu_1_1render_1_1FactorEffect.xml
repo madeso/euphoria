@@ -20,7 +20,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="148" column="7" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="148" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="150" column="7" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="150" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -36,7 +36,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="142" column="1"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="144" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1FactorEffect_1ac041a6b6df6b146910d44a825f4306e2" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="143" column="8"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="145" column="8"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1FactorEffect_1aab6d2ef4e55c410767238287c024e13a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="144" column="6"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="146" column="6"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -113,7 +113,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/postproc.h" line="140" column="1" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="141" bodyend="149"/>
+    <location file="libs/render/src/eu/render/postproc.h" line="142" column="1" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="143" bodyend="151"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1Effect_1ab9c96c9b468942c7bf4ea7c6573280d1" prot="public" virt="pure-virtual"><scope>eu::render::FactorEffect</scope><name>build</name></member>
       <member refid="structeu_1_1render_1_1Effect_1ac8c7d832bbcdfb590adf74d90ca9e7bb" prot="public" virt="non-virtual"><scope>eu::render::FactorEffect</scope><name>Effect</name></member>

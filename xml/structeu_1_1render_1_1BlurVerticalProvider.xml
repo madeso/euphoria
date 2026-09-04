@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="137" column="12" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="137" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="138" column="12" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="138" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -37,7 +37,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="135" column="10"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="136" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1BlurVerticalProvider_1afb8494ea2a4442e66e4d6debc4f1ce2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -60,7 +60,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.internal.h" line="138" column="6"/>
+        <location file="libs/render/src/eu/render/postproc.internal.h" line="139" column="6"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -134,7 +134,7 @@
         <link refid="structeu_1_1render_1_1Uniform"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/postproc.internal.h" line="133" column="1" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="134" bodyend="139"/>
+    <location file="libs/render/src/eu/render/postproc.internal.h" line="134" column="1" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="135" bodyend="140"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1BlurVerticalProvider_1a76dd8574332352ce25af5fa157b70907" prot="public" virt="non-virtual"><scope>eu::render::BlurVerticalProvider</scope><name>blur</name></member>
       <member refid="structeu_1_1render_1_1BlurVerticalProvider_1a471ce3acc2fd46214fe3f9aafbcd82c8" prot="public" virt="non-virtual"><scope>eu::render::BlurVerticalProvider</scope><name>BlurVerticalProvider</name></member>

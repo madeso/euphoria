@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="71" column="17" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="71" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="73" column="17" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="73" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__OnlyDepth_1a62a23d62b85926de53cb8e05a40d8ebe" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1core_1_1CompiledGeomVertexAttributes" kindref="compound">core::CompiledGeomVertexAttributes</ref></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="72" column="40" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="72" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="74" column="40" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="74" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1LoadedShader__OnlyDepth_1a5fc3a308b6786cc3f877199eedafa959" prot="public" static="no" mutable="no">
         <type>std::optional&lt; <ref refid="structeu_1_1render_1_1Uniform" kindref="compound">Uniform</ref> &gt;</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="74" column="15" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="74" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="76" column="15" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="76" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -76,7 +76,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/shader_resource.h" line="66" column="1"/>
+        <location file="libs/render/src/eu/render/shader_resource.h" line="68" column="1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -98,7 +98,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/shader_resource.h" line="64" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="65" bodyend="75"/>
+    <location file="libs/render/src/eu/render/shader_resource.h" line="66" column="1" bodyfile="libs/render/src/eu/render/shader_resource.h" bodystart="67" bodyend="77"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1LoadedShader__OnlyDepth_1a62a23d62b85926de53cb8e05a40d8ebe" prot="public" virt="non-virtual"><scope>eu::render::LoadedShader_OnlyDepth</scope><name>geom_layout</name></member>
       <member refid="structeu_1_1render_1_1LoadedShader__OnlyDepth_1a72580c340378061d66369148d6d6a398" prot="public" virt="non-virtual"><scope>eu::render::LoadedShader_OnlyDepth</scope><name>LoadedShader_OnlyDepth</name></member>

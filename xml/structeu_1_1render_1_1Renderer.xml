@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="32" column="12" bodyfile="libs/render/src/eu/render/renderer.h" bodystart="32" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="34" column="12" bodyfile="libs/render/src/eu/render/renderer.h" bodystart="34" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Renderer_1a60ee62a50e93b243e8fafcee728a05cb" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1RenderSettings" kindref="compound">RenderSettings</ref></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="33" column="16" bodyfile="libs/render/src/eu/render/renderer.h" bodystart="33" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="35" column="16" bodyfile="libs/render/src/eu/render/renderer.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Renderer_1a33dc1544737bdfc949d50e79460e6b0e" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1render_1_1DebugRender" kindref="compound">DebugRender</ref></type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="34" column="13" bodyfile="libs/render/src/eu/render/renderer.h" bodystart="34" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="36" column="13" bodyfile="libs/render/src/eu/render/renderer.h" bodystart="36" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1Renderer_1a4e515a8661f6f9ee90fb62ee3646fd73" prot="public" static="no" mutable="no">
         <type>std::unique_ptr&lt; <ref refid="structeu_1_1render_1_1RendererPimpl" kindref="compound">RendererPimpl</ref> &gt;</type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="36" column="17" bodyfile="libs/render/src/eu/render/renderer.h" bodystart="36" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="38" column="17" bodyfile="libs/render/src/eu/render/renderer.h" bodystart="38" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -86,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="38" column="1"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="40" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a6eae6353d97c8e8895feb690005d53f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -100,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="39" column="1"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="41" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1af0d68ec745b92bd02e6b421dc9fef10e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -117,7 +117,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="41" column="1"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="43" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a8725dc405821dd20c6e3d168c3fe0db7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -134,7 +134,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="42" column="1"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="44" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1ae4b6bfdf39ba8a4c1ae74366a659eca4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -151,7 +151,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="43" column="6"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="45" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1afe4100a7fd35f7ab4d3aa71b2cd5c370" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -168,7 +168,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="44" column="6"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="46" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a48c61e596ec3b70086b2350b2994a5bd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1UnlitMaterial" kindref="compound">UnlitMaterial</ref> &gt;</type>
@@ -182,7 +182,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="46" column="17"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="48" column="17"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a4d493a1c79a32e0f663ef4142a38075a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1DefaultMaterial" kindref="compound">DefaultMaterial</ref> &gt;</type>
@@ -196,7 +196,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="47" column="17"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="49" column="17"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a5e14a019529bc30d1cf222ea78ab6f56" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1CompiledGeomVertexAttributes" kindref="compound">core::CompiledGeomVertexAttributes</ref></type>
@@ -210,7 +210,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="49" column="37"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="51" column="37"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a4a832ca6cb425e046826cdaf1bdbc2da" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1CompiledGeomVertexAttributes" kindref="compound">core::CompiledGeomVertexAttributes</ref></type>
@@ -224,7 +224,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="50" column="37"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="52" column="37"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a28a5fb38eb7a942745517e4a16e31395" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1FactorEffect" kindref="compound">FactorEffect</ref> &gt;</type>
@@ -238,7 +238,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="52" column="17"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="54" column="17"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a39b992c8704ccd976e38ed00044b6816" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1FactorEffect" kindref="compound">FactorEffect</ref> &gt;</type>
@@ -252,7 +252,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="53" column="17"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="55" column="17"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a7c8b89eb68b3ea264c3e68c5488a4fb2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1FactorEffect" kindref="compound">FactorEffect</ref> &gt;</type>
@@ -266,7 +266,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="54" column="17"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="56" column="17"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a402b5a90ae844d430493e557d1aa894f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1FactorEffect" kindref="compound">FactorEffect</ref> &gt;</type>
@@ -280,7 +280,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="55" column="17"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="57" column="17"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a5a8a427e91e67011a7651c7af5530c22" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1Skybox" kindref="compound">Skybox</ref></type>
@@ -298,7 +298,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="57" column="9"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="59" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a4bc0ed77c627dcf7d3b6aecce53baaea" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -313,7 +313,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="60" column="7"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="62" column="7"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a1237cad9b3f85985a7a5216206171f1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -342,7 +342,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="63" column="6"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="65" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1af32c692c18d3e01135ea16e3a660e862" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -366,7 +366,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="65" column="6"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="67" column="6"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -416,7 +416,7 @@
         <link refid="structeu_1_1render_1_1ShaderSource"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/renderer.h" line="30" column="1" bodyfile="libs/render/src/eu/render/renderer.h" bodystart="31" bodyend="66"/>
+    <location file="libs/render/src/eu/render/renderer.h" line="32" column="1" bodyfile="libs/render/src/eu/render/renderer.h" bodystart="33" bodyend="68"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1Renderer_1a20f70b738cc6fd2a275c78cff9f858c3" prot="public" virt="non-virtual"><scope>eu::render::Renderer</scope><name>assets</name></member>
       <member refid="structeu_1_1render_1_1Renderer_1a33dc1544737bdfc949d50e79460e6b0e" prot="public" virt="non-virtual"><scope>eu::render::Renderer</scope><name>debug</name></member>
