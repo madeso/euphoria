@@ -1,0 +1,223 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/render/src/eu/render/opengl_utils.cc</title>
+</head>
+<body>
+<h1>libs/render/src/eu/render/opengl_utils.cc</h1>
+<span id='misc-use-internal-linkage'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;string_from_opengl_error_enum&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.cc 12 : 13</i></p>
+<pre>
+   12 | const char* string_from_opengl_error_enum(GLenum error_code)
+      |             ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;on_opengl_debug_output&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.cc 75 : 15</i></p>
+<pre>
+   75 | void APIENTRY on_opengl_debug_output(
+      |               ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;has_khr_debug&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.cc 139 : 6</i></p>
+<pre>
+  139 | bool has_khr_debug()
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;glenum_from_object_type&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.cc 218 : 8</i></p>
+<pre>
+  218 | GLenum glenum_from_object_type(DebugLabelFor type)
+      |        ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;set_gl_debug_label_with_size&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.cc 236 : 6</i></p>
+<pre>
+  236 | void set_gl_debug_label_with_size(DebugLabelFor type, GLuint object, std::size_t size, const char* label)
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;push_debug_group&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.cc 262 : 6</i></p>
+<pre>
+  262 | void push_debug_group(unsigned int id, std::size_t size, const char* label)
+      |      ^
+      | static 
+</pre>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Buffer&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 30 : 6</i></p>
+<pre>
+   30 |             Buffer,
+      |             ^~~~~~
+      |             buffer
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Shader&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 31 : 6</i></p>
+<pre>
+   31 |             Shader,
+      |             ^~~~~~
+      |             shader
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Program&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 32 : 6</i></p>
+<pre>
+   32 |             Program,
+      |             ^~~~~~~
+      |             program
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;VertexArray&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 33 : 6</i></p>
+<pre>
+   33 |             VertexArray,
+      |             ^~~~~~~~~~~
+      |             vertex_array
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Query&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 34 : 6</i></p>
+<pre>
+   34 |             Query,
+      |             ^~~~~
+      |             query
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;ProgramPipeline&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 35 : 6</i></p>
+<pre>
+   35 |             ProgramPipeline,
+      |             ^~~~~~~~~~~~~~~
+      |             program_pipeline
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Sampler&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 36 : 6</i></p>
+<pre>
+   36 |             Sampler,
+      |             ^~~~~~~
+      |             sampler
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Texture&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 37 : 6</i></p>
+<pre>
+   37 |             Texture,
+      |             ^~~~~~~
+      |             texture
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;RenderBuffer&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 38 : 6</i></p>
+<pre>
+   38 |             RenderBuffer,
+      |             ^~~~~~~~~~~~
+      |             render_buffer
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;FrameBuffer&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 39 : 6</i></p>
+<pre>
+   39 |             FrameBuffer
+      |             ^~~~~~~~~~~
+      |             frame_buffer
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.cc:12:13: warning: function 'string_from_opengl_error_enum' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+   12 | const char* string_from_opengl_error_enum(GLenum error_code)
+      |             ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.cc:75:15: warning: function 'on_opengl_debug_output' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+   75 | void APIENTRY on_opengl_debug_output(
+      |               ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.cc:139:6: warning: function 'has_khr_debug' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  139 | bool has_khr_debug()
+      |      ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.cc:218:8: warning: function 'glenum_from_object_type' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  218 | GLenum glenum_from_object_type(DebugLabelFor type)
+      |        ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.cc:236:6: warning: function 'set_gl_debug_label_with_size' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  236 | void set_gl_debug_label_with_size(DebugLabelFor type, GLuint object, std::size_t size, const char* label)
+      |      ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.cc:262:6: warning: function 'push_debug_group' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  262 | void push_debug_group(unsigned int id, std::size_t size, const char* label)
+      |      ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:30:6: warning: invalid case style for scoped enum constant 'Buffer' [readability-identifier-naming]
+   30 |             Buffer,
+      |             ^~~~~~
+      |             buffer
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:31:6: warning: invalid case style for scoped enum constant 'Shader' [readability-identifier-naming]
+   31 |             Shader,
+      |             ^~~~~~
+      |             shader
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:32:6: warning: invalid case style for scoped enum constant 'Program' [readability-identifier-naming]
+   32 |             Program,
+      |             ^~~~~~~
+      |             program
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:33:6: warning: invalid case style for scoped enum constant 'VertexArray' [readability-identifier-naming]
+   33 |             VertexArray,
+      |             ^~~~~~~~~~~
+      |             vertex_array
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:34:6: warning: invalid case style for scoped enum constant 'Query' [readability-identifier-naming]
+   34 |             Query,
+      |             ^~~~~
+      |             query
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:35:6: warning: invalid case style for scoped enum constant 'ProgramPipeline' [readability-identifier-naming]
+   35 |             ProgramPipeline,
+      |             ^~~~~~~~~~~~~~~
+      |             program_pipeline
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:36:6: warning: invalid case style for scoped enum constant 'Sampler' [readability-identifier-naming]
+   36 |             Sampler,
+      |             ^~~~~~~
+      |             sampler
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:37:6: warning: invalid case style for scoped enum constant 'Texture' [readability-identifier-naming]
+   37 |             Texture,
+      |             ^~~~~~~
+      |             texture
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:38:6: warning: invalid case style for scoped enum constant 'RenderBuffer' [readability-identifier-naming]
+   38 |             RenderBuffer,
+      |             ^~~~~~~~~~~~
+      |             render_buffer
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:39:6: warning: invalid case style for scoped enum constant 'FrameBuffer' [readability-identifier-naming]
+   39 |             FrameBuffer
+      |             ^~~~~~~~~~~
+      |             frame_buffer
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+-->
+</body>
+</html>

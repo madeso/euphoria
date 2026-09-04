@@ -1,0 +1,183 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/base/src/eu/base/rect.cc</title>
+</head>
+<body>
+<h1>libs/base/src/eu/base/rect.cc</h1>
+<span id='google-runtime-float'>&nbsp;</span>
+<hr>
+<h3>warning: &#39;long double&#39; type is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/base/src/eu/base/angle.h 128 : 33</i></p>
+<pre>
+  128 |     constexpr An operator&quot;&quot;_deg(long double d)
+      |                                 ^
+</pre>
+<hr>
+<h3>warning: &#39;long double&#39; type is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/base/src/eu/base/angle.h 134 : 33</i></p>
+<pre>
+  134 |     constexpr An operator&quot;&quot;_rad(long double r)
+      |                                 ^
+</pre>
+<span id='readability-math-missing-parentheses'>&nbsp;</span>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/numeric.h 68 : 20</i></p>
+<pre>
+   68 |         return f + (t - f) * scale;
+      |                    ^~~~~~~~~~~~~~~~
+      |                    (              )
+</pre>
+<span id='modernize-type-traits'>&nbsp;</span>
+<hr>
+<h3>warning: use c++17 style variable templates</h3>
+<code>[modernize-type-traits]</code>
+<p><i>libs/base/src/eu/base/range.h 70 : 23</i></p>
+<pre>
+   70 |         if constexpr (std::is_unsigned&lt;T&gt;::value)
+      |                       ^                  ~~~~~~~
+      |                                       _v
+</pre>
+<span id='misc-use-internal-linkage'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;lbrt&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/base/src/eu/base/rect.cc 274 : 10</i></p>
+<pre>
+  274 |     Rect lbrt(float l, float b, float r, float t)
+      |          ^
+      |     static 
+</pre>
+<span id='modernize-use-nodiscard'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;get_left&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/base/src/eu/base/rect.h 104 : 9</i></p>
+<pre>
+  104 |         Rect get_left(float amount) const;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;get_right&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/base/src/eu/base/rect.h 105 : 9</i></p>
+<pre>
+  105 |         Rect get_right(float amount) const;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;get_bottom&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/base/src/eu/base/rect.h 106 : 9</i></p>
+<pre>
+  106 |         Rect get_bottom(float amount) const;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;get_top&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/base/src/eu/base/rect.h 107 : 9</i></p>
+<pre>
+  107 |         Rect get_top(float amount) const;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;add_left&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/base/src/eu/base/rect.h 111 : 9</i></p>
+<pre>
+  111 |         Rect add_left(float amount) const;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;add_right&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/base/src/eu/base/rect.h 112 : 9</i></p>
+<pre>
+  112 |         Rect add_right(float amount) const;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;add_bottom&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/base/src/eu/base/rect.h 113 : 9</i></p>
+<pre>
+  113 |         Rect add_bottom(float amount) const;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;add_top&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/base/src/eu/base/rect.h 114 : 9</i></p>
+<pre>
+  114 |         Rect add_top(float amount) const;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/angle.h:128:33: warning: 'long double' type is not portable and should not be used [google-runtime-float]
+  128 |     constexpr An operator""_deg(long double d)
+      |                                 ^
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/angle.h:134:33: warning: 'long double' type is not portable and should not be used [google-runtime-float]
+  134 |     constexpr An operator""_rad(long double r)
+      |                                 ^
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/numeric.h:68:20: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+   68 |         return f + (t - f) * scale;
+      |                    ^~~~~~~~~~~~~~~~
+      |                    (              )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/range.h:70:23: warning: use c++17 style variable templates [modernize-type-traits]
+   70 |         if constexpr (std::is_unsigned<T>::value)
+      |                       ^                  ~~~~~~~
+      |                                       _v
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/rect.cc:274:10: warning: function 'lbrt' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  274 |     Rect lbrt(float l, float b, float r, float t)
+      |          ^
+      |     static 
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/rect.h:104:9: warning: function 'get_left' should be marked [[nodiscard]] [modernize-use-nodiscard]
+  104 |         Rect get_left(float amount) const;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/rect.h:105:9: warning: function 'get_right' should be marked [[nodiscard]] [modernize-use-nodiscard]
+  105 |         Rect get_right(float amount) const;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/rect.h:106:9: warning: function 'get_bottom' should be marked [[nodiscard]] [modernize-use-nodiscard]
+  106 |         Rect get_bottom(float amount) const;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/rect.h:107:9: warning: function 'get_top' should be marked [[nodiscard]] [modernize-use-nodiscard]
+  107 |         Rect get_top(float amount) const;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/rect.h:111:9: warning: function 'add_left' should be marked [[nodiscard]] [modernize-use-nodiscard]
+  111 |         Rect add_left(float amount) const;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/rect.h:112:9: warning: function 'add_right' should be marked [[nodiscard]] [modernize-use-nodiscard]
+  112 |         Rect add_right(float amount) const;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/rect.h:113:9: warning: function 'add_bottom' should be marked [[nodiscard]] [modernize-use-nodiscard]
+  113 |         Rect add_bottom(float amount) const;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/rect.h:114:9: warning: function 'add_top' should be marked [[nodiscard]] [modernize-use-nodiscard]
+  114 |         Rect add_top(float amount) const;
+      |         ^
+      |         [[nodiscard]] 
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+-->
+</body>
+</html>

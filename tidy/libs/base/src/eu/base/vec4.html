@@ -1,0 +1,118 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/base/src/eu/base/vec4.cc</title>
+</head>
+<body>
+<h1>libs/base/src/eu/base/vec4.cc</h1>
+<span id='readability-math-missing-parentheses'>&nbsp;</span>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/numeric.h 68 : 20</i></p>
+<pre>
+   68 |         return f + (t - f) * scale;
+      |                    ^~~~~~~~~~~~~~~~
+      |                    (              )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/vec3.h 68 : 20</i></p>
+<pre>
+   68 |             return x * x + y * y + z * z;
+      |                    ^~~~~
+      |                    (    )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/vec3.h 68 : 28</i></p>
+<pre>
+   68 |             return x * x + y * y + z * z;
+      |                            ^~~~~
+      |                            (    )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/vec3.h 68 : 36</i></p>
+<pre>
+   68 |             return x * x + y * y + z * z;
+      |                                    ^~~~~~
+      |                                    (    )
+</pre>
+<span id='bugprone-derived-method-shadowing-base-method'>&nbsp;</span>
+<hr>
+<h3>warning: &#39;eu::n3:: operator-&#39; shadows method with the same name in class &#39;v3&#39;</h3>
+<code>[bugprone-derived-method-shadowing-base-method]</code>
+<p><i>libs/base/src/eu/base/vec3.h 95 : 9</i></p>
+<pre>
+   95 |         constexpr n3 operator-() const
+      |         ^
+</pre>
+<p>previous definition of &#39;operator-&#39; is here</p>
+<p><i>libs/base/src/eu/base/vec3.h 55 : 9</i></p>
+<pre>
+   55 |         v3 operator-() const;
+      |         ^
+</pre>
+<span id='cppcoreguidelines-pro-type-member-init'>&nbsp;</span>
+<hr>
+<h3>warning: constructor does not initialize these bases: v3</h3>
+<code>[cppcoreguidelines-pro-type-member-init]</code>
+<p><i>libs/base/src/eu/base/vec3.h 110 : 9</i></p>
+<pre>
+  110 |         constexpr n3(float a, float b, float c)
+      |         ^
+  111 |             : v3(a, b, c)
+      |               v3(),
+</pre>
+<hr>
+<h3>warning: constructor does not initialize these bases: v3</h3>
+<code>[cppcoreguidelines-pro-type-member-init]</code>
+<p><i>libs/base/src/eu/base/vec3.h 117 : 9</i></p>
+<pre>
+  117 |         constexpr explicit n3(const v3&amp; v)
+      |         ^
+  118 |             : v3(v)
+      |               v3(),
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/numeric.h:68:20: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+   68 |         return f + (t - f) * scale;
+      |                    ^~~~~~~~~~~~~~~~
+      |                    (              )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:68:20: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+   68 |             return x * x + y * y + z * z;
+      |                    ^~~~~
+      |                    (    )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:68:28: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+   68 |             return x * x + y * y + z * z;
+      |                            ^~~~~
+      |                            (    )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:68:36: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+   68 |             return x * x + y * y + z * z;
+      |                                    ^~~~~~
+      |                                    (    )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:95:9: warning: 'eu::n3::operator-' shadows method with the same name in class 'v3' [bugprone-derived-method-shadowing-base-method]
+   95 |         constexpr n3 operator-() const
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:55:9: note: previous definition of 'operator-' is here
+   55 |         v3 operator-() const;
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:110:9: warning: constructor does not initialize these bases: v3 [cppcoreguidelines-pro-type-member-init]
+  110 |         constexpr n3(float a, float b, float c)
+      |         ^
+  111 |             : v3(a, b, c)
+      |               v3(),
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:117:9: warning: constructor does not initialize these bases: v3 [cppcoreguidelines-pro-type-member-init]
+  117 |         constexpr explicit n3(const v3& v)
+      |         ^
+  118 |             : v3(v)
+      |               v3(),
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+-->
+</body>
+</html>

@@ -1,0 +1,204 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/core/src/eu/core/loadedfont.cc</title>
+</head>
+<body>
+<h1>libs/core/src/eu/core/loadedfont.cc</h1>
+<span id='modernize-use-nodiscard'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;is_valid&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/core/src/eu/core/image.h 27 : 5</i></p>
+<pre>
+   27 |     bool is_valid() const;
+      |     ^
+      |     [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;get_pixel&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/core/src/eu/core/image.h 53 : 5</i></p>
+<pre>
+   53 |     PixelColor get_pixel(int x, int y) const;
+      |     ^
+      |     [[nodiscard]] 
+</pre>
+<span id='misc-use-internal-linkage'>&nbsp;</span>
+<hr>
+<h3>warning: struct &#39;FontData&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/core/src/eu/core/loadedfont.cc 22 : 12</i></p>
+<pre>
+   22 |     struct FontData
+      |            ^
+</pre>
+<span id='readability-math-missing-parentheses'>&nbsp;</span>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/core/src/eu/core/loadedfont.cc 115 : 51</i></p>
+<pre>
+  115 |                         const auto alpha = bitmap[ch.image.width * y + x];
+      |                                                   ^~~~~~~~~~~~~~~~~~
+      |                                                   (                 )
+</pre>
+<span id='readability-avoid-unconditional-preprocessor-if'>&nbsp;</span>
+<hr>
+<h3>warning: preprocessor condition is always &#39;false&#39;, consider removing both the condition and its contents</h3>
+<code>[readability-avoid-unconditional-preprocessor-if]</code>
+<p><i>libs/core/src/eu/core/loadedfont.cc 212 : 2</i></p>
+<pre>
+  212 | #if 0
+      |  ^
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/core/src/eu/core/loadedfont.cc 267 : 42</i></p>
+<pre>
+  267 |         glyph.bearing_y = int_from_float(s * static_cast&lt;float&gt;(image.height) + image_bearing_y);
+      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                          (                                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/core/src/eu/core/loadedfont.cc 269 : 40</i></p>
+<pre>
+  269 |         glyph.advance = int_from_float(s * static_cast&lt;float&gt;(image.width) + image_advance);
+      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                        (                                  )
+</pre>
+<span id='cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'>&nbsp;</span>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/utf8.h 77 : 67</i></p>
+<pre>
+   77 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[0] &amp; ~mask2) &lt;&lt; 6) |
+      |                                                                   ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/utf8.h 78 : 67</i></p>
+<pre>
+   78 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[1] &amp; ~mask1) &lt;&lt; 0)
+      |                                                                   ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/utf8.h 84 : 67</i></p>
+<pre>
+   84 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[0] &amp; ~mask3) &lt;&lt; 12) |
+      |                                                                   ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/utf8.h 85 : 67</i></p>
+<pre>
+   85 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[1] &amp; ~mask1) &lt;&lt; 6 ) |
+      |                                                                   ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/utf8.h 86 : 67</i></p>
+<pre>
+   86 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[2] &amp; ~mask1) &lt;&lt; 0 )
+      |                                                                   ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/utf8.h 92 : 67</i></p>
+<pre>
+   92 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[0] &amp; ~mask4) &lt;&lt; 18) |
+      |                                                                   ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/utf8.h 93 : 67</i></p>
+<pre>
+   93 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[1] &amp; ~mask1) &lt;&lt; 12) |
+      |                                                                   ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/utf8.h 94 : 67</i></p>
+<pre>
+   94 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[2] &amp; ~mask1) &lt;&lt; 6 ) |
+      |                                                                   ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/utf8.h 95 : 67</i></p>
+<pre>
+   95 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[3] &amp; ~mask1) &lt;&lt; 0 )
+      |                                                                   ^~~
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.h:27:5: warning: function 'is_valid' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   27 |     bool is_valid() const;
+      |     ^
+      |     [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.h:53:5: warning: function 'get_pixel' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   53 |     PixelColor get_pixel(int x, int y) const;
+      |     ^
+      |     [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/loadedfont.cc:22:12: warning: struct 'FontData' can be moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+   22 |     struct FontData
+      |            ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/loadedfont.cc:115:51: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  115 |                         const auto alpha = bitmap[ch.image.width * y + x];
+      |                                                   ^~~~~~~~~~~~~~~~~~
+      |                                                   (                 )
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/loadedfont.cc:212:2: warning: preprocessor condition is always 'false', consider removing both the condition and its contents [readability-avoid-unconditional-preprocessor-if]
+  212 | #if 0
+      |  ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/loadedfont.cc:267:42: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  267 |         glyph.bearing_y = int_from_float(s * static_cast<float>(image.height) + image_bearing_y);
+      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                          (                                   )
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/loadedfont.cc:269:40: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  269 |         glyph.advance = int_from_float(s * static_cast<float>(image.width) + image_advance);
+      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                        (                                  )
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:77:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   77 |                             ( std::to_integer<CodePointInt>(buffer[0] & ~mask2) << 6) |
+      |                                                                   ^~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:78:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   78 |                             ( std::to_integer<CodePointInt>(buffer[1] & ~mask1) << 0)
+      |                                                                   ^~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:84:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   84 |                             ( std::to_integer<CodePointInt>(buffer[0] & ~mask3) << 12) |
+      |                                                                   ^~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:85:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   85 |                             ( std::to_integer<CodePointInt>(buffer[1] & ~mask1) << 6 ) |
+      |                                                                   ^~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:86:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   86 |                             ( std::to_integer<CodePointInt>(buffer[2] & ~mask1) << 0 )
+      |                                                                   ^~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:92:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   92 |                             ( std::to_integer<CodePointInt>(buffer[0] & ~mask4) << 18) |
+      |                                                                   ^~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:93:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   93 |                             ( std::to_integer<CodePointInt>(buffer[1] & ~mask1) << 12) |
+      |                                                                   ^~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:94:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   94 |                             ( std::to_integer<CodePointInt>(buffer[2] & ~mask1) << 6 ) |
+      |                                                                   ^~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:95:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   95 |                             ( std::to_integer<CodePointInt>(buffer[3] & ~mask1) << 0 )
+      |                                                                   ^~~
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+-->
+</body>
+</html>

@@ -1,0 +1,460 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/render/src/eu/render/font.cc</title>
+</head>
+<body>
+<h1>libs/render/src/eu/render/font.cc</h1>
+<span id='modernize-use-nodiscard'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;is_valid&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/core/src/eu/core/image.h 27 : 5</i></p>
+<pre>
+   27 |     bool is_valid() const;
+      |     ^
+      |     [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;get_pixel&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/core/src/eu/core/image.h 53 : 5</i></p>
+<pre>
+   53 |     PixelColor get_pixel(int x, int y) const;
+      |     ^
+      |     [[nodiscard]] 
+</pre>
+<span id='cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'>&nbsp;</span>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/utf8.h 77 : 67</i></p>
+<pre>
+   77 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[0] &amp; ~mask2) &lt;&lt; 6) |
+      |                                                                   ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/utf8.h 78 : 67</i></p>
+<pre>
+   78 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[1] &amp; ~mask1) &lt;&lt; 0)
+      |                                                                   ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/utf8.h 84 : 67</i></p>
+<pre>
+   84 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[0] &amp; ~mask3) &lt;&lt; 12) |
+      |                                                                   ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/utf8.h 85 : 67</i></p>
+<pre>
+   85 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[1] &amp; ~mask1) &lt;&lt; 6 ) |
+      |                                                                   ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/utf8.h 86 : 67</i></p>
+<pre>
+   86 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[2] &amp; ~mask1) &lt;&lt; 0 )
+      |                                                                   ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/utf8.h 92 : 67</i></p>
+<pre>
+   92 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[0] &amp; ~mask4) &lt;&lt; 18) |
+      |                                                                   ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/utf8.h 93 : 67</i></p>
+<pre>
+   93 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[1] &amp; ~mask1) &lt;&lt; 12) |
+      |                                                                   ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/utf8.h 94 : 67</i></p>
+<pre>
+   94 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[2] &amp; ~mask1) &lt;&lt; 6 ) |
+      |                                                                   ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/utf8.h 95 : 67</i></p>
+<pre>
+   95 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[3] &amp; ~mask1) &lt;&lt; 0 )
+      |                                                                   ^~~
+</pre>
+<hr>
+<h3>warning: function &#39;mouse_to_world&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/render/src/eu/render/canvas.h 99 : 5</i></p>
+<pre>
+   99 |     v2 mouse_to_world(const v2&amp; p) const;
+      |     ^
+      |     [[nodiscard]] 
+</pre>
+<span id='cppcoreguidelines-special-member-functions'>&nbsp;</span>
+<hr>
+<h3>warning: class &#39;RenderLayer2&#39; defines a destructor but does not define a copy constructor, a copy assignment operator, a move constructor or a move assignment operator</h3>
+<code>[cppcoreguidelines-special-member-functions]</code>
+<p><i>libs/render/src/eu/render/canvas.h 102 : 8</i></p>
+<pre>
+  102 | struct RenderLayer2 : Layer
+      |        ^
+</pre>
+<span id='misc-use-internal-linkage'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;construct_character_rects&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/render/src/eu/render/font.cc 49 : 5</i></p>
+<pre>
+   48 |     std::pair&lt;Rect, Rect&gt;
+      |     static 
+   49 |     construct_character_rects
+      |     ^
+</pre>
+<span id='readability-math-missing-parentheses'>&nbsp;</span>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/render/src/eu/render/font.cc 64 : 64</i></p>
+<pre>
+   64 |         const stbrp_coord uv_right = uv_left + packed_rect.w - half_margin * 2;
+      |                                                                ^~~~~~~~~~~~~~~~
+      |                                                                (              )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/render/src/eu/render/font.cc 66 : 81</i></p>
+<pre>
+   66 |         const stbrp_coord uv_top = uv_bottom + std::max&lt;int&gt;(1, packed_rect.h - half_margin * 2);
+      |                                                                                 ^~~~~~~~~~~~~~~~
+      |                                                                                 (              )
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/render/src/eu/render/font.cc 137 : 45</i></p>
+<pre>
+  137 |                 stbrp_rect&amp; r = packed_rects[index];
+      |                                             ^~~~~~~
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/render/src/eu/render/font.cc 139 : 43</i></p>
+<pre>
+  139 |                 r.w = glyph.image.width + half_margin * 2;
+      |                                           ^~~~~~~~~~~~~~~~
+      |                                           (              )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/render/src/eu/render/font.cc 140 : 44</i></p>
+<pre>
+  140 |                 r.h = glyph.image.height + half_margin * 2;
+      |                                            ^~~~~~~~~~~~~~~~
+      |                                            (              )
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/render/src/eu/render/font.cc 156 : 54</i></p>
+<pre>
+  156 |             const stbrp_rect&amp; src_rect = packed_rects[rect_index];
+      |                                                      ^~~~~~~~~~~~
+</pre>
+<span id='misc-const-correctness'>&nbsp;</span>
+<hr>
+<h3>warning: variable &#39;dest&#39; of type &#39;std:: shared_ptr&lt;Glyph&gt;&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>libs/render/src/eu/render/font.cc 186 : 13</i></p>
+<pre>
+  186 |             std::shared_ptr&lt;Glyph&gt; dest
+      |             ^
+      |                                    const 
+</pre>
+<span id='modernize-make-shared'>&nbsp;</span>
+<hr>
+<h3>warning: use std:: make_shared instead</h3>
+<code>[modernize-make-shared]</code>
+<p><i>libs/render/src/eu/render/font.cc 186 : 36</i></p>
+<pre>
+  186 |             std::shared_ptr&lt;Glyph&gt; dest
+      |                                    ^~~~
+  187 |             (
+  188 |                 new Glyph
+      |                 ~~~~~~~~~
+  189 |                 (
+      |                 ~
+  190 |                     sprite_and_texture_rects.first,
+  191 |                     sprite_and_texture_rects.second,
+  192 |                     src_char.code_point,
+  193 |                     static_cast&lt;float&gt;(src_char.advance) / src_char.size
+  194 |                 )
+      |                 ~
+</pre>
+<span id='readability-convert-member-functions-to-static'>&nbsp;</span>
+<hr>
+<h3>warning: method &#39;draw_background&#39; can be made static</h3>
+<code>[readability-convert-member-functions-to-static]</code>
+<p><i>libs/render/src/eu/render/font.cc 215 : 19</i></p>
+<pre>
+  215 |     DrawableFont::draw_background
+      |                   ^
+  216 |     (
+  217 |         SpriteBatch* renderer,
+  218 |         float alpha,
+  219 |         const Rect&amp; where
+  220 |     ) const
+      |       ~~~~~
+</pre>
+<span id='cppcoreguidelines-avoid-const-or-ref-data-members'>&nbsp;</span>
+<hr>
+<h3>warning: member &#39;font&#39; of type &#39;const DrawableFont &amp;&#39; is a reference</h3>
+<code>[cppcoreguidelines-avoid-const-or-ref-data-members]</code>
+<p><i>libs/render/src/eu/render/font.cc 277 : 29</i></p>
+<pre>
+  277 |         const DrawableFont&amp; font;
+      |                             ^
+</pre>
+<span id='readability-avoid-unconditional-preprocessor-if'>&nbsp;</span>
+<hr>
+<h3>warning: preprocessor condition is always &#39;false&#39;, consider removing both the condition and its contents</h3>
+<code>[readability-avoid-unconditional-preprocessor-if]</code>
+<p><i>libs/render/src/eu/render/font.cc 312 : 2</i></p>
+<pre>
+  312 | #if 0
+      |  ^
+</pre>
+<hr>
+<h3>warning: variable &#39;ch&#39; of type &#39;std:: shared_ptr&lt;Glyph&gt;&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>libs/render/src/eu/render/font.cc 363 : 17</i></p>
+<pre>
+  363 |                 std::shared_ptr&lt;Glyph&gt; ch = it-&gt;second;
+      |                 ^
+      |                                        const 
+</pre>
+<hr>
+<h3>warning: function &#39;get_offset&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/render/src/eu/render/font.cc 468 : 5</i></p>
+<pre>
+  467 |     v2
+      |     static 
+  468 |     get_offset(Align alignment, const Rect&amp; extent)
+      |     ^
+</pre>
+<span id='cppcoreguidelines-use-default-member-init'>&nbsp;</span>
+<span id='modernize-use-default-member-init'>&nbsp;</span>
+<hr>
+<h3>warning: use default member initializer for &#39;size&#39;</h3>
+<code>[cppcoreguidelines-use-default-member-init,modernize-use-default-member-init]</code>
+<p><i>libs/render/src/eu/render/font.h 150 : 15</i></p>
+<pre>
+  150 |         float size;
+      |               ^   
+      |                   {12.0f}
+</pre>
+<hr>
+<h3>warning: use default member initializer for &#39;alignment&#39;</h3>
+<code>[cppcoreguidelines-use-default-member-init,modernize-use-default-member-init]</code>
+<p><i>libs/render/src/eu/render/font.h 152 : 15</i></p>
+<pre>
+  152 |         Align alignment;
+      |               ^        
+      |                        {Align::baseline_left}
+</pre>
+<hr>
+<h3>warning: use default member initializer for &#39;use_background&#39;</h3>
+<code>[cppcoreguidelines-use-default-member-init,modernize-use-default-member-init]</code>
+<p><i>libs/render/src/eu/render/font.h 154 : 14</i></p>
+<pre>
+  154 |         bool use_background;
+      |              ^             
+      |                            {false}
+</pre>
+<hr>
+<h3>warning: use default member initializer for &#39;background_alpha&#39;</h3>
+<code>[cppcoreguidelines-use-default-member-init,modernize-use-default-member-init]</code>
+<p><i>libs/render/src/eu/render/font.h 155 : 15</i></p>
+<pre>
+  155 |         float background_alpha;
+      |               ^               
+      |                               {0.0f}
+</pre>
+<hr>
+<h3>warning: use default member initializer for &#39;is_dirty&#39;</h3>
+<code>[cppcoreguidelines-use-default-member-init,modernize-use-default-member-init]</code>
+<p><i>libs/render/src/eu/render/font.h 158 : 22</i></p>
+<pre>
+  158 |         mutable bool is_dirty;
+      |                      ^       
+      |                              {true}
+</pre>
+<hr>
+<h3>warning: function &#39;get_line_height&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/render/src/eu/render/font.h 171 : 9</i></p>
+<pre>
+  171 |         constexpr float get_line_height() const
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.h:27:5: warning: function 'is_valid' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   27 |     bool is_valid() const;
+      |     ^
+      |     [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.h:53:5: warning: function 'get_pixel' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   53 |     PixelColor get_pixel(int x, int y) const;
+      |     ^
+      |     [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:77:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   77 |                             ( std::to_integer<CodePointInt>(buffer[0] & ~mask2) << 6) |
+      |                                                                   ^~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:78:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   78 |                             ( std::to_integer<CodePointInt>(buffer[1] & ~mask1) << 0)
+      |                                                                   ^~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:84:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   84 |                             ( std::to_integer<CodePointInt>(buffer[0] & ~mask3) << 12) |
+      |                                                                   ^~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:85:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   85 |                             ( std::to_integer<CodePointInt>(buffer[1] & ~mask1) << 6 ) |
+      |                                                                   ^~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:86:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   86 |                             ( std::to_integer<CodePointInt>(buffer[2] & ~mask1) << 0 )
+      |                                                                   ^~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:92:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   92 |                             ( std::to_integer<CodePointInt>(buffer[0] & ~mask4) << 18) |
+      |                                                                   ^~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:93:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   93 |                             ( std::to_integer<CodePointInt>(buffer[1] & ~mask1) << 12) |
+      |                                                                   ^~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:94:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   94 |                             ( std::to_integer<CodePointInt>(buffer[2] & ~mask1) << 6 ) |
+      |                                                                   ^~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:95:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   95 |                             ( std::to_integer<CodePointInt>(buffer[3] & ~mask1) << 0 )
+      |                                                                   ^~~
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/canvas.h:99:5: warning: function 'mouse_to_world' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   99 |     v2 mouse_to_world(const v2& p) const;
+      |     ^
+      |     [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/canvas.h:102:8: warning: class 'RenderLayer2' defines a destructor but does not define a copy constructor, a copy assignment operator, a move constructor or a move assignment operator [cppcoreguidelines-special-member-functions]
+  102 | struct RenderLayer2 : Layer
+      |        ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.cc:49:5: warning: function 'construct_character_rects' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+   48 |     std::pair<Rect, Rect>
+      |     static 
+   49 |     construct_character_rects
+      |     ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.cc:64:64: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+   64 |         const stbrp_coord uv_right = uv_left + packed_rect.w - half_margin * 2;
+      |                                                                ^~~~~~~~~~~~~~~~
+      |                                                                (              )
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.cc:66:81: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+   66 |         const stbrp_coord uv_top = uv_bottom + std::max<int>(1, packed_rect.h - half_margin * 2);
+      |                                                                                 ^~~~~~~~~~~~~~~~
+      |                                                                                 (              )
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.cc:137:45: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+  137 |                 stbrp_rect& r = packed_rects[index];
+      |                                             ^~~~~~~
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.cc:139:43: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  139 |                 r.w = glyph.image.width + half_margin * 2;
+      |                                           ^~~~~~~~~~~~~~~~
+      |                                           (              )
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.cc:140:44: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  140 |                 r.h = glyph.image.height + half_margin * 2;
+      |                                            ^~~~~~~~~~~~~~~~
+      |                                            (              )
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.cc:156:54: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+  156 |             const stbrp_rect& src_rect = packed_rects[rect_index];
+      |                                                      ^~~~~~~~~~~~
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.cc:186:13: warning: variable 'dest' of type 'std::shared_ptr<Glyph>' can be declared 'const' [misc-const-correctness]
+  186 |             std::shared_ptr<Glyph> dest
+      |             ^
+      |                                    const 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.cc:186:36: warning: use std::make_shared instead [modernize-make-shared]
+  186 |             std::shared_ptr<Glyph> dest
+      |                                    ^~~~
+  187 |             (
+  188 |                 new Glyph
+      |                 ~~~~~~~~~
+  189 |                 (
+      |                 ~
+  190 |                     sprite_and_texture_rects.first,
+  191 |                     sprite_and_texture_rects.second,
+  192 |                     src_char.code_point,
+  193 |                     static_cast<float>(src_char.advance) / src_char.size
+  194 |                 )
+      |                 ~
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.cc:215:19: warning: method 'draw_background' can be made static [readability-convert-member-functions-to-static]
+  215 |     DrawableFont::draw_background
+      |                   ^
+  216 |     (
+  217 |         SpriteBatch* renderer,
+  218 |         float alpha,
+  219 |         const Rect& where
+  220 |     ) const
+      |       ~~~~~
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.cc:277:29: warning: member 'font' of type 'const DrawableFont &' is a reference [cppcoreguidelines-avoid-const-or-ref-data-members]
+  277 |         const DrawableFont& font;
+      |                             ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.cc:312:2: warning: preprocessor condition is always 'false', consider removing both the condition and its contents [readability-avoid-unconditional-preprocessor-if]
+  312 | #if 0
+      |  ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.cc:363:17: warning: variable 'ch' of type 'std::shared_ptr<Glyph>' can be declared 'const' [misc-const-correctness]
+  363 |                 std::shared_ptr<Glyph> ch = it->second;
+      |                 ^
+      |                                        const 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.cc:468:5: warning: function 'get_offset' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  467 |     v2
+      |     static 
+  468 |     get_offset(Align alignment, const Rect& extent)
+      |     ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.h:150:15: warning: use default member initializer for 'size' [cppcoreguidelines-use-default-member-init,modernize-use-default-member-init]
+  150 |         float size;
+      |               ^   
+      |                   {12.0f}
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.h:152:15: warning: use default member initializer for 'alignment' [cppcoreguidelines-use-default-member-init,modernize-use-default-member-init]
+  152 |         Align alignment;
+      |               ^        
+      |                        {Align::baseline_left}
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.h:154:14: warning: use default member initializer for 'use_background' [cppcoreguidelines-use-default-member-init,modernize-use-default-member-init]
+  154 |         bool use_background;
+      |              ^             
+      |                            {false}
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.h:155:15: warning: use default member initializer for 'background_alpha' [cppcoreguidelines-use-default-member-init,modernize-use-default-member-init]
+  155 |         float background_alpha;
+      |               ^               
+      |                               {0.0f}
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.h:158:22: warning: use default member initializer for 'is_dirty' [cppcoreguidelines-use-default-member-init,modernize-use-default-member-init]
+  158 |         mutable bool is_dirty;
+      |                      ^       
+      |                              {true}
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.h:171:9: warning: function 'get_line_height' should be marked [[nodiscard]] [modernize-use-nodiscard]
+  171 |         constexpr float get_line_height() const
+      |         ^
+      |         [[nodiscard]] 
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+-->
+</body>
+</html>

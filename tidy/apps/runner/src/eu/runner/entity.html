@@ -1,0 +1,265 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>apps/runner/src/eu/runner/entity.cc</title>
+</head>
+<body>
+<h1>apps/runner/src/eu/runner/entity.cc</h1>
+<span id='readability-implicit-bool-conversion'>&nbsp;</span>
+<hr>
+<h3>warning: implicit conversion &#39;World *&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/runner/src/eu/runner/entity.cc 37 : 13</i></p>
+<pre>
+   37 |         if (world)
+      |             ^    
+      |                   != nullptr
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;SpatialComponent *&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/runner/src/eu/runner/entity.cc 51 : 13</i></p>
+<pre>
+   51 |         if (root)
+      |             ^   
+      |                  != nullptr
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;World *&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/runner/src/eu/runner/entity.cc 76 : 13</i></p>
+<pre>
+   76 |         if (world)
+      |             ^    
+      |                   != nullptr
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;SpatialComponent *&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/runner/src/eu/runner/entity.cc 198 : 17</i></p>
+<pre>
+  198 |             if (ent-&gt;get_root())
+      |                 ^              
+      |                                 != nullptr
+</pre>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for constexpr function &#39;C&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>apps/runner/src/eu/runner/entity.h 36 : 27</i></p>
+<pre>
+   36 |     constexpr std::size_t C(UpdateStage s)
+      |                           ^
+      |                           c
+   37 |     {
+   38 |         return static_cast&lt;std::size_t&gt;(s);
+   39 |     }
+   40 | 
+   41 |     template&lt;typename TSystem&gt;
+   42 |     struct UpdateHandler
+   43 |     {
+   44 |         std::array&lt;std::vector&lt;SystemWithPrio&lt;TSystem&gt;&gt;, update_stage_count&gt; stages;
+   45 | 
+   46 |         void add(TSystem* system)
+   47 |         {
+   48 |             const UpdateStageAndPrio s = system-&gt;get_stage();
+   49 | 
+   50 |             auto&amp; systems = stages[C(s.stage)];
+      |                                    ~
+      |                                    c
+</pre>
+<span id='cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'>&nbsp;</span>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>apps/runner/src/eu/runner/entity.h 50 : 29</i></p>
+<pre>
+   50 |             auto&amp; systems = stages[C(s.stage)];
+      |                             ^~~~~~~~~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>apps/runner/src/eu/runner/entity.h 61 : 29</i></p>
+<pre>
+   61 |             auto&amp; systems = stages[C(stage)];
+      |                             ^~~~~~~~~~~~~~~~
+</pre>
+<span id='cppcoreguidelines-special-member-functions'>&nbsp;</span>
+<hr>
+<h3>warning: class &#39;Entity&#39; defines a copy constructor, a copy assignment operator, a move constructor and a move assignment operator but does not define a destructor</h3>
+<code>[cppcoreguidelines-special-member-functions]</code>
+<p><i>apps/runner/src/eu/runner/entity.h 69 : 12</i></p>
+<pre>
+   69 |     struct Entity
+      |            ^
+</pre>
+<span id='cppcoreguidelines-non-private-member-variables-in-classes'>&nbsp;</span>
+<hr>
+<h3>warning: member variable &#39;name&#39; has public visibility</h3>
+<code>[cppcoreguidelines-non-private-member-variables-in-classes]</code>
+<p><i>apps/runner/src/eu/runner/entity.h 78 : 27</i></p>
+<pre>
+   78 |         const std::string name;
+      |                           ^
+</pre>
+<hr>
+<h3>warning: member variable &#39;world&#39; has public visibility</h3>
+<code>[cppcoreguidelines-non-private-member-variables-in-classes]</code>
+<p><i>apps/runner/src/eu/runner/entity.h 81 : 16</i></p>
+<pre>
+   81 |         World* world = nullptr;
+      |                ^
+</pre>
+<hr>
+<h3>warning: member variable &#39;components&#39; has public visibility</h3>
+<code>[cppcoreguidelines-non-private-member-variables-in-classes]</code>
+<p><i>apps/runner/src/eu/runner/entity.h 82 : 49</i></p>
+<pre>
+   82 |         std::vector&lt;std::unique_ptr&lt;Component&gt;&gt; components;
+      |                                                 ^
+</pre>
+<hr>
+<h3>warning: member variable &#39;systems&#39; has public visibility</h3>
+<code>[cppcoreguidelines-non-private-member-variables-in-classes]</code>
+<p><i>apps/runner/src/eu/runner/entity.h 83 : 52</i></p>
+<pre>
+   83 |         std::vector&lt;std::unique_ptr&lt;EntitySystem&gt;&gt; systems;
+      |                                                    ^
+</pre>
+<hr>
+<h3>warning: member variable &#39;updates&#39; has public visibility</h3>
+<code>[cppcoreguidelines-non-private-member-variables-in-classes]</code>
+<p><i>apps/runner/src/eu/runner/entity.h 84 : 37</i></p>
+<pre>
+   84 |         UpdateHandler&lt;EntitySystem&gt; updates;
+      |                                     ^
+</pre>
+<span id='modernize-use-nodiscard'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;has_tag&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>apps/runner/src/eu/runner/entity.h 88 : 9</i></p>
+<pre>
+   88 |         bool has_tag(const Hsh&amp; h) const;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;get_root&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>apps/runner/src/eu/runner/entity.h 90 : 9</i></p>
+<pre>
+   90 |         SpatialComponent* get_root() const;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;get_transform&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>apps/runner/src/eu/runner/entity.h 142 : 9</i></p>
+<pre>
+  142 |         const m4&amp; get_transform() const;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: class &#39;EntitySystem&#39; defines a default destructor, a copy constructor, a copy assignment operator and a move assignment operator but does not define a move constructor</h3>
+<code>[cppcoreguidelines-special-member-functions]</code>
+<p><i>apps/runner/src/eu/runner/entity.h 153 : 12</i></p>
+<pre>
+  153 |     struct EntitySystem
+      |            ^
+</pre>
+<hr>
+<h3>warning: class &#39;WorldSystem&#39; defines a default destructor, a copy constructor, a copy assignment operator and a move assignment operator but does not define a move constructor</h3>
+<code>[cppcoreguidelines-special-member-functions]</code>
+<p><i>apps/runner/src/eu/runner/entity.h 174 : 12</i></p>
+<pre>
+  174 |     struct WorldSystem
+      |            ^
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/entity.cc:37:13: warning: implicit conversion 'World *' -> 'bool' [readability-implicit-bool-conversion]
+   37 |         if (world)
+      |             ^    
+      |                   != nullptr
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/entity.cc:51:13: warning: implicit conversion 'SpatialComponent *' -> 'bool' [readability-implicit-bool-conversion]
+   51 |         if (root)
+      |             ^   
+      |                  != nullptr
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/entity.cc:76:13: warning: implicit conversion 'World *' -> 'bool' [readability-implicit-bool-conversion]
+   76 |         if (world)
+      |             ^    
+      |                   != nullptr
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/entity.cc:198:17: warning: implicit conversion 'SpatialComponent *' -> 'bool' [readability-implicit-bool-conversion]
+  198 |             if (ent->get_root())
+      |                 ^              
+      |                                 != nullptr
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/entity.h:36:27: warning: invalid case style for constexpr function 'C' [readability-identifier-naming]
+   36 |     constexpr std::size_t C(UpdateStage s)
+      |                           ^
+      |                           c
+   37 |     {
+   38 |         return static_cast<std::size_t>(s);
+   39 |     }
+   40 | 
+   41 |     template<typename TSystem>
+   42 |     struct UpdateHandler
+   43 |     {
+   44 |         std::array<std::vector<SystemWithPrio<TSystem>>, update_stage_count> stages;
+   45 | 
+   46 |         void add(TSystem* system)
+   47 |         {
+   48 |             const UpdateStageAndPrio s = system->get_stage();
+   49 | 
+   50 |             auto& systems = stages[C(s.stage)];
+      |                                    ~
+      |                                    c
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/entity.h:50:29: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   50 |             auto& systems = stages[C(s.stage)];
+      |                             ^~~~~~~~~~~~~~~~~~
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/entity.h:61:29: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   61 |             auto& systems = stages[C(stage)];
+      |                             ^~~~~~~~~~~~~~~~
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/entity.h:69:12: warning: class 'Entity' defines a copy constructor, a copy assignment operator, a move constructor and a move assignment operator but does not define a destructor [cppcoreguidelines-special-member-functions]
+   69 |     struct Entity
+      |            ^
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/entity.h:78:27: warning: member variable 'name' has public visibility [cppcoreguidelines-non-private-member-variables-in-classes]
+   78 |         const std::string name;
+      |                           ^
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/entity.h:81:16: warning: member variable 'world' has public visibility [cppcoreguidelines-non-private-member-variables-in-classes]
+   81 |         World* world = nullptr;
+      |                ^
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/entity.h:82:49: warning: member variable 'components' has public visibility [cppcoreguidelines-non-private-member-variables-in-classes]
+   82 |         std::vector<std::unique_ptr<Component>> components;
+      |                                                 ^
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/entity.h:83:52: warning: member variable 'systems' has public visibility [cppcoreguidelines-non-private-member-variables-in-classes]
+   83 |         std::vector<std::unique_ptr<EntitySystem>> systems;
+      |                                                    ^
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/entity.h:84:37: warning: member variable 'updates' has public visibility [cppcoreguidelines-non-private-member-variables-in-classes]
+   84 |         UpdateHandler<EntitySystem> updates;
+      |                                     ^
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/entity.h:88:9: warning: function 'has_tag' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   88 |         bool has_tag(const Hsh& h) const;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/entity.h:90:9: warning: function 'get_root' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   90 |         SpatialComponent* get_root() const;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/entity.h:142:9: warning: function 'get_transform' should be marked [[nodiscard]] [modernize-use-nodiscard]
+  142 |         const m4& get_transform() const;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/entity.h:153:12: warning: class 'EntitySystem' defines a default destructor, a copy constructor, a copy assignment operator and a move assignment operator but does not define a move constructor [cppcoreguidelines-special-member-functions]
+  153 |     struct EntitySystem
+      |            ^
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/entity.h:174:12: warning: class 'WorldSystem' defines a default destructor, a copy constructor, a copy assignment operator and a move assignment operator but does not define a move constructor [cppcoreguidelines-special-member-functions]
+  174 |     struct WorldSystem
+      |            ^
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+-->
+</body>
+</html>

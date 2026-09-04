@@ -1,0 +1,348 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/render/src/eu/render/shader.cc</title>
+</head>
+<body>
+<h1>libs/render/src/eu/render/shader.cc</h1>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;MAX_TEXTURES_SUPPORTED&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/constants.h 7 : 23</i></p>
+<pre>
+    7 | constexpr std::size_t MAX_TEXTURES_SUPPORTED = 16;
+      |                       ^~~~~~~~~~~~~~~~~~~~~~
+      |                       max_textures_supported
+</pre>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;ALMOST_ZERO&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/constants.h 11 : 17</i></p>
+<pre>
+   11 | constexpr float ALMOST_ZERO = 0.01f;
+      |                 ^~~~~~~~~~~
+      |                 almost_zero
+   12 | /// if alpha goes above this limit, it is no longer considered transparent
+   13 | constexpr float ALPHA_TRANSPARENCY_LIMIT = 1.0f - ALMOST_ZERO;
+      |                                                   ~~~~~~~~~~~
+      |                                                   almost_zero
+</pre>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;ALPHA_TRANSPARENCY_LIMIT&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/constants.h 13 : 17</i></p>
+<pre>
+   13 | constexpr float ALPHA_TRANSPARENCY_LIMIT = 1.0f - ALMOST_ZERO;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                 alpha_transparency_limit
+</pre>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;OUTLINE_SCALE&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/constants.h 15 : 17</i></p>
+<pre>
+   15 | constexpr float OUTLINE_SCALE = 1.1f;
+      |                 ^~~~~~~~~~~~~
+      |                 outline_scale
+</pre>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;BLUR_SAMPLES&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/constants.h 17 : 15</i></p>
+<pre>
+   17 | constexpr int BLUR_SAMPLES = 10;
+      |               ^~~~~~~~~~~~
+      |               blur_samples
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Buffer&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 30 : 6</i></p>
+<pre>
+   30 |             Buffer,
+      |             ^~~~~~
+      |             buffer
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Shader&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 31 : 6</i></p>
+<pre>
+   31 |             Shader,
+      |             ^~~~~~
+      |             shader
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Program&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 32 : 6</i></p>
+<pre>
+   32 |             Program,
+      |             ^~~~~~~
+      |             program
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;VertexArray&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 33 : 6</i></p>
+<pre>
+   33 |             VertexArray,
+      |             ^~~~~~~~~~~
+      |             vertex_array
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Query&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 34 : 6</i></p>
+<pre>
+   34 |             Query,
+      |             ^~~~~
+      |             query
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;ProgramPipeline&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 35 : 6</i></p>
+<pre>
+   35 |             ProgramPipeline,
+      |             ^~~~~~~~~~~~~~~
+      |             program_pipeline
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Sampler&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 36 : 6</i></p>
+<pre>
+   36 |             Sampler,
+      |             ^~~~~~~
+      |             sampler
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Texture&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 37 : 6</i></p>
+<pre>
+   37 |             Texture,
+      |             ^~~~~~~
+      |             texture
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;RenderBuffer&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 38 : 6</i></p>
+<pre>
+   38 |             RenderBuffer,
+      |             ^~~~~~~~~~~~
+      |             render_buffer
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;FrameBuffer&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 39 : 6</i></p>
+<pre>
+   39 |             FrameBuffer
+      |             ^~~~~~~~~~~
+      |             frame_buffer
+</pre>
+<span id='misc-use-internal-linkage'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;set_shader_program&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/render/src/eu/render/shader.cc 15 : 6</i></p>
+<pre>
+   15 | void set_shader_program(unsigned int new_program, const core::VertexTypes&amp; types);
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;check_shader_compilation_error&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/render/src/eu/render/shader.cc 19 : 6</i></p>
+<pre>
+   19 | bool check_shader_compilation_error(const char* name, unsigned int shader)
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;check_shader_link_error&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/render/src/eu/render/shader.cc 38 : 6</i></p>
+<pre>
+   38 | bool check_shader_link_error(unsigned int program)
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;upload_shader_source&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/render/src/eu/render/shader.cc 56 : 6</i></p>
+<pre>
+   56 | void upload_shader_source(unsigned int shader, std::string_view source)
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;bind_shader_attribute_location&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/render/src/eu/render/shader.cc 63 : 6</i></p>
+<pre>
+   63 | void bind_shader_attribute_location(unsigned int shader_program, const core::CompiledShaderVertexAttributes&amp; layout)
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;verify_shader_attribute_location&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/render/src/eu/render/shader.cc 71 : 6</i></p>
+<pre>
+   71 | void verify_shader_attribute_location(unsigned int shader_program, const core::CompiledShaderVertexAttributes&amp; layout)
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;log_source&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/render/src/eu/render/shader.cc 84 : 6</i></p>
+<pre>
+   84 | void log_source(const std::string&amp; src)
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;load_shader_source&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/render/src/eu/render/shader.cc 96 : 6</i></p>
+<pre>
+   96 | void load_shader_source(
+      |      ^
+      | static 
+</pre>
+<span id='readability-use-anyofallof'>&nbsp;</span>
+<hr>
+<h3>warning: replace loop by &#39;std::ranges:: all_of()&#39;</h3>
+<code>[readability-use-anyofallof]</code>
+<p><i>libs/render/src/eu/render/shader.cc 360 : 2</i></p>
+<pre>
+  360 |         for (auto t: debug_current_shader_types)
+      |         ^
+</pre>
+<span id='readability-container-contains'>&nbsp;</span>
+<hr>
+<h3>warning: use &#39;contains&#39; to check for membership</h3>
+<code>[readability-container-contains]</code>
+<p><i>libs/render/src/eu/render/shader.cc 362 : 31</i></p>
+<pre>
+  362 |                 if (debug_geom_shader_types.find(t) == debug_geom_shader_types.end())
+      |                                             ^~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                     !                       contains t)
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/constants.h:7:23: warning: invalid case style for constexpr variable 'MAX_TEXTURES_SUPPORTED' [readability-identifier-naming]
+    7 | constexpr std::size_t MAX_TEXTURES_SUPPORTED = 16;
+      |                       ^~~~~~~~~~~~~~~~~~~~~~
+      |                       max_textures_supported
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/constants.h:11:17: warning: invalid case style for constexpr variable 'ALMOST_ZERO' [readability-identifier-naming]
+   11 | constexpr float ALMOST_ZERO = 0.01f;
+      |                 ^~~~~~~~~~~
+      |                 almost_zero
+   12 | /// if alpha goes above this limit, it is no longer considered transparent
+   13 | constexpr float ALPHA_TRANSPARENCY_LIMIT = 1.0f - ALMOST_ZERO;
+      |                                                   ~~~~~~~~~~~
+      |                                                   almost_zero
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/constants.h:13:17: warning: invalid case style for constexpr variable 'ALPHA_TRANSPARENCY_LIMIT' [readability-identifier-naming]
+   13 | constexpr float ALPHA_TRANSPARENCY_LIMIT = 1.0f - ALMOST_ZERO;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                 alpha_transparency_limit
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/constants.h:15:17: warning: invalid case style for constexpr variable 'OUTLINE_SCALE' [readability-identifier-naming]
+   15 | constexpr float OUTLINE_SCALE = 1.1f;
+      |                 ^~~~~~~~~~~~~
+      |                 outline_scale
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/constants.h:17:15: warning: invalid case style for constexpr variable 'BLUR_SAMPLES' [readability-identifier-naming]
+   17 | constexpr int BLUR_SAMPLES = 10;
+      |               ^~~~~~~~~~~~
+      |               blur_samples
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:30:6: warning: invalid case style for scoped enum constant 'Buffer' [readability-identifier-naming]
+   30 |             Buffer,
+      |             ^~~~~~
+      |             buffer
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:31:6: warning: invalid case style for scoped enum constant 'Shader' [readability-identifier-naming]
+   31 |             Shader,
+      |             ^~~~~~
+      |             shader
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:32:6: warning: invalid case style for scoped enum constant 'Program' [readability-identifier-naming]
+   32 |             Program,
+      |             ^~~~~~~
+      |             program
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:33:6: warning: invalid case style for scoped enum constant 'VertexArray' [readability-identifier-naming]
+   33 |             VertexArray,
+      |             ^~~~~~~~~~~
+      |             vertex_array
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:34:6: warning: invalid case style for scoped enum constant 'Query' [readability-identifier-naming]
+   34 |             Query,
+      |             ^~~~~
+      |             query
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:35:6: warning: invalid case style for scoped enum constant 'ProgramPipeline' [readability-identifier-naming]
+   35 |             ProgramPipeline,
+      |             ^~~~~~~~~~~~~~~
+      |             program_pipeline
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:36:6: warning: invalid case style for scoped enum constant 'Sampler' [readability-identifier-naming]
+   36 |             Sampler,
+      |             ^~~~~~~
+      |             sampler
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:37:6: warning: invalid case style for scoped enum constant 'Texture' [readability-identifier-naming]
+   37 |             Texture,
+      |             ^~~~~~~
+      |             texture
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:38:6: warning: invalid case style for scoped enum constant 'RenderBuffer' [readability-identifier-naming]
+   38 |             RenderBuffer,
+      |             ^~~~~~~~~~~~
+      |             render_buffer
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:39:6: warning: invalid case style for scoped enum constant 'FrameBuffer' [readability-identifier-naming]
+   39 |             FrameBuffer
+      |             ^~~~~~~~~~~
+      |             frame_buffer
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.cc:15:6: warning: function 'set_shader_program' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+   15 | void set_shader_program(unsigned int new_program, const core::VertexTypes& types);
+      |      ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.cc:19:6: warning: function 'check_shader_compilation_error' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+   19 | bool check_shader_compilation_error(const char* name, unsigned int shader)
+      |      ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.cc:38:6: warning: function 'check_shader_link_error' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+   38 | bool check_shader_link_error(unsigned int program)
+      |      ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.cc:56:6: warning: function 'upload_shader_source' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+   56 | void upload_shader_source(unsigned int shader, std::string_view source)
+      |      ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.cc:63:6: warning: function 'bind_shader_attribute_location' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+   63 | void bind_shader_attribute_location(unsigned int shader_program, const core::CompiledShaderVertexAttributes& layout)
+      |      ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.cc:71:6: warning: function 'verify_shader_attribute_location' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+   71 | void verify_shader_attribute_location(unsigned int shader_program, const core::CompiledShaderVertexAttributes& layout)
+      |      ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.cc:84:6: warning: function 'log_source' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+   84 | void log_source(const std::string& src)
+      |      ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.cc:96:6: warning: function 'load_shader_source' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+   96 | void load_shader_source(
+      |      ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.cc:360:2: warning: replace loop by 'std::ranges::all_of()' [readability-use-anyofallof]
+  360 |         for (auto t: debug_current_shader_types)
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.cc:362:31: warning: use 'contains' to check for membership [readability-container-contains]
+  362 |                 if (debug_geom_shader_types.find(t) == debug_geom_shader_types.end())
+      |                                             ^~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                     !                       contains t)
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+-->
+</body>
+</html>

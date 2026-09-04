@@ -1,0 +1,622 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/imgui/src/eu/imgui/ui.cc</title>
+</head>
+<body>
+<h1>libs/imgui/src/eu/imgui/ui.cc</h1>
+<span id='misc-use-internal-linkage'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;imgui_destroy_shader&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 64 : 6</i></p>
+<pre>
+   64 | void imgui_destroy_shader(ImguiShaderProgram* bd)
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;imgui_load_shader&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 75 : 20</i></p>
+<pre>
+   75 | ImguiShaderProgram imgui_load_shader(const char* glsl_version_string, const char* vertex_shader, const char* fragment_shader)
+      |                    ^
+      | static 
+</pre>
+<span id='misc-const-correctness'>&nbsp;</span>
+<hr>
+<h3>warning: pointee of variable &#39;vertex_shader_with_version&#39; of type &#39;const GLchar *[2]&#39; (aka &#39;const char *[2]&#39;) can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 78 : 2</i></p>
+<pre>
+   78 |         const GLchar* vertex_shader_with_version[2] = {glsl_version_string, vertex_shader};
+      |         ^           
+      |                      const
+</pre>
+<hr>
+<h3>warning: pointee of variable &#39;fragment_shader_with_version&#39; of type &#39;const GLchar *[2]&#39; (aka &#39;const char *[2]&#39;) can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 87 : 2</i></p>
+<pre>
+   87 |         const GLchar* fragment_shader_with_version[2] = {glsl_version_string, fragment_shader};
+      |         ^           
+      |                      const
+</pre>
+<hr>
+<h3>warning: function &#39;imgui_set_shared_shader_params&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 197 : 6</i></p>
+<pre>
+  197 | void imgui_set_shared_shader_params(ImguiShaderProgram* prog)
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: pointee of variable &#39;draw_data&#39; of type &#39;ImDrawData *&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 199 : 2</i></p>
+<pre>
+  199 |         ImDrawData* draw_data = ImGui::GetDrawData();
+      |         ^         
+      |                    const
+</pre>
+<hr>
+<h3>warning: function &#39;im_draw_callback_linear_to_gamma&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 217 : 6</i></p>
+<pre>
+  217 | void im_draw_callback_linear_to_gamma(const ImDrawList*, const ImDrawCmd* cmd)
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;im_draw_callback_depth_ortho&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 224 : 6</i></p>
+<pre>
+  224 | void im_draw_callback_depth_ortho(const ImDrawList*, const ImDrawCmd* cmd)
+      |      ^
+      | static 
+</pre>
+<span id='readability-redundant-parentheses'>&nbsp;</span>
+<hr>
+<h3>warning: redundant parentheses around expression</h3>
+<code>[readability-redundant-parentheses]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 280 : 53</i></p>
+<pre>
+  280 |         const auto uv0 = ImVec2{region.x / texture_size.x, (flipped_region_y) / texture_size.y};
+      |                                                            ^                ~
+</pre>
+<hr>
+<h3>warning: redundant parentheses around expression</h3>
+<code>[readability-redundant-parentheses]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 357 : 40</i></p>
+<pre>
+  357 |         const auto t = (*gamma - min_gamma) / (gamma_range);
+      |                                               ^           ~
+</pre>
+<span id='readability-math-missing-parentheses'>&nbsp;</span>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 366 : 23</i></p>
+<pre>
+  366 |         *gamma = min_gamma + perceptual * gamma_range;
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |                              (                       )
+</pre>
+<hr>
+<h3>warning: function &#39;length2&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 396 : 7</i></p>
+<pre>
+  396 | float length2(const ImVec2&amp; v)
+      |       ^
+      | static 
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 398 : 12</i></p>
+<pre>
+  398 |     return v.x* v.x + v.y * v.y;
+      |            ^~~~~~~~
+      |            (       )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 398 : 23</i></p>
+<pre>
+  398 |     return v.x* v.x + v.y * v.y;
+      |                       ^~~~~~~~~~
+      |                       (        )
+</pre>
+<hr>
+<h3>warning: function &#39;length&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 401 : 7</i></p>
+<pre>
+  401 | float length(const ImVec2&amp; v)
+      |       ^
+      | static 
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 403 : 22</i></p>
+<pre>
+  403 |     return std::sqrt(v.x * v.x + v.y * v.y);
+      |                      ^~~~~~~~~
+      |                      (        )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 403 : 34</i></p>
+<pre>
+  403 |     return std::sqrt(v.x * v.x + v.y * v.y);
+      |                                  ^~~~~~~~~~
+      |                                  (        )
+</pre>
+<hr>
+<h3>warning: function &#39;normalize&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 406 : 8</i></p>
+<pre>
+  406 | ImVec2 normalize(const ImVec2&amp; v, float len)
+      |        ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;normalize&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 410 : 8</i></p>
+<pre>
+  410 | ImVec2 normalize(const ImVec2&amp; v)
+      |        ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;dot&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 415 : 7</i></p>
+<pre>
+  415 | float dot(const ImVec2&amp; lhs, const ImVec2&amp; rhs)
+      |       ^
+      | static 
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 417 : 12</i></p>
+<pre>
+  417 |     return lhs.x * rhs.x + lhs.y * rhs.y;
+      |            ^~~~~~~~~~~~~
+      |            (            )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 417 : 28</i></p>
+<pre>
+  417 |     return lhs.x * rhs.x + lhs.y * rhs.y;
+      |                            ^~~~~~~~~~~~~~
+      |                            (            )
+</pre>
+<hr>
+<h3>warning: function &#39;is_positive&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 419 : 6</i></p>
+<pre>
+  419 | bool is_positive(float f)
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: struct &#39;GearState&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 424 : 8</i></p>
+<pre>
+  424 | struct GearState
+      |        ^
+</pre>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for function &#39;dl_PathArcToN&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 438 : 10</i></p>
+<pre>
+  438 |     void dl_PathArcToN(ImDrawList* dl, const ImVec2&amp; center, float radius, float a_min, float a_max, int num_segments, float ang)
+      |          ^~~~~~~~~~~~~
+      |          dl_path_arc_to_n
+</pre>
+<span id='readability-identifier-length'>&nbsp;</span>
+<hr>
+<h3>warning: loop variable name &#39;i&#39; is too short, expected at least 2 characters</h3>
+<code>[readability-identifier-length]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 449 : 18</i></p>
+<pre>
+  449 |         for (int i = 0; i &lt;= num_segments; i++)
+      |                  ^
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 451 : 37</i></p>
+<pre>
+  451 |             const float a = a_min + (static_cast&lt;float&gt;(i) / static_cast&lt;float&gt;(num_segments)) * (a_max - a_min);
+      |                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                     (                                                                           )
+</pre>
+<hr>
+<h3>warning: invalid case style for function &#39;dl_PathArcTo&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 456 : 10</i></p>
+<pre>
+  456 |     void dl_PathArcTo(ImDrawList* dl, const ImVec2&amp; center, float radius, float a_min, float a_max, int num_segments, float ang)
+      |          ^~~~~~~~~~~~
+      |          dl_path_arc_to
+</pre>
+<hr>
+<h3>warning: invalid case style for function &#39;dl_AddCircle&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 467 : 10</i></p>
+<pre>
+  467 |     void dl_AddCircle(ImDrawList* dl, const ImVec2&amp; center, float radius, ImU32 col, int num_segments, float thickness, float ang)
+      |          ^~~~~~~~~~~~
+      |          dl_add_circle
+</pre>
+<hr>
+<h3>warning: function &#39;calc_button_size&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 485 : 8</i></p>
+<pre>
+  485 | ImVec2 calc_button_size(const char* const label, const ImVec2&amp; size_arg = ImVec2(0,0))
+      |        ^
+      | static 
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 489 : 64</i></p>
+<pre>
+  489 |     ImVec2 size = ImGui::CalcItemSize(size_arg, label_size.x + style.FramePadding.x * 2.0f, label_size.y + style.FramePadding.y * 2.0f);
+      |                                                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                (                          )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 489 : 108</i></p>
+<pre>
+  489 |     ImVec2 size = ImGui::CalcItemSize(size_arg, label_size.x + style.FramePadding.x * 2.0f, label_size.y + style.FramePadding.y * 2.0f);
+      |                                                                                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                                                            (                          )
+</pre>
+<hr>
+<h3>warning: function &#39;gear_icon&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 494 : 6</i></p>
+<pre>
+  494 | bool gear_icon(const char* const label, float* drag, const ImVec2&amp; size)
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 552 : 62</i></p>
+<pre>
+  552 |                 const auto new_ang = ang  - *initial_angle + static_cast&lt;float&gt;(turns) * 360.0f;
+      |                                                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                              (                                 )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 553 : 41</i></p>
+<pre>
+  553 |                 const auto val = orig + (new_ang / 360.0f) * one_turn;
+      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                         (                            )
+</pre>
+<span id='readability-implicit-bool-conversion'>&nbsp;</span>
+<hr>
+<h3>warning: implicit conversion &#39;float *&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 555 : 21</i></p>
+<pre>
+  555 |                 if (drag)
+      |                     ^   
+      |                          != nullptr
+</pre>
+<hr>
+<h3>warning: variable &#39;w_items&#39; of type &#39;float&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 615 : 5</i></p>
+<pre>
+  615 |     float w_items = ImMax(0.0f, ImGui::CalcItemWidth() - style.ItemInnerSpacing.x * (6 - 1) - gear_size.x * 3);
+      |     ^
+      |           const 
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 615 : 58</i></p>
+<pre>
+  615 |     float w_items = ImMax(0.0f, ImGui::CalcItemWidth() - style.ItemInnerSpacing.x * (6 - 1) - gear_size.x * 3);
+      |                                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                          (                                 )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 615 : 95</i></p>
+<pre>
+  615 |     float w_items = ImMax(0.0f, ImGui::CalcItemWidth() - style.ItemInnerSpacing.x * (6 - 1) - gear_size.x * 3);
+      |                                                                                               ^~~~~~~~~~~~~~~~
+      |                                                                                               (              )
+</pre>
+<hr>
+<h3>warning: loop variable name &#39;i&#39; is too short, expected at least 2 characters</h3>
+<code>[readability-identifier-length]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 616 : 14</i></p>
+<pre>
+  616 |     for (int i=0; i&lt;3; i+=1)
+      |              ^
+</pre>
+<span id='google-readability-braces-around-statements'>&nbsp;</span>
+<span id='readability-braces-around-statements'>&nbsp;</span>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.cc 626 : 23</i></p>
+<pre>
+  626 |             if (i &gt; 0)
+      |                       ^
+      |                        {
+  627 |                 ImGui::SameLine(0, style.ItemInnerSpacing.x);
+      |                                                              
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;None&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.h 34 : 2</i></p>
+<pre>
+   34 |         None,
+      |         ^~~~
+      |         none
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;TonemapAndGamma&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.h 35 : 2</i></p>
+<pre>
+   35 |         TonemapAndGamma,
+      |         ^~~~~~~~~~~~~~~
+      |         tonemap_and_gamma
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;DepthOrtho&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.h 36 : 2</i></p>
+<pre>
+   36 |         DepthOrtho
+      |         ^~~~~~~~~~
+      |         depth_ortho
+</pre>
+<span id='readability-avoid-const-params-in-decls'>&nbsp;</span>
+<hr>
+<h3>warning: parameter &#39;label&#39; is const-qualified in the function declaration; const-qualification of parameters only has an effect in function definitions</h3>
+<code>[readability-avoid-const-params-in-decls]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.h 44 : 23</i></p>
+<pre>
+   44 | bool drag(const char* const label, v3* drag);
+      |                       ^~~~~
+</pre>
+<hr>
+<h3>warning: parameter &#39;label&#39; is const-qualified in the function declaration; const-qualification of parameters only has an effect in function definitions</h3>
+<code>[readability-avoid-const-params-in-decls]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.h 45 : 23</i></p>
+<pre>
+   45 | bool drag(const char* const label, Ypr* drag);
+      |                       ^~~~~
+</pre>
+<hr>
+<h3>warning: parameter &#39;label&#39; is const-qualified in the function declaration; const-qualification of parameters only has an effect in function definitions</h3>
+<code>[readability-avoid-const-params-in-decls]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.h 47 : 23</i></p>
+<pre>
+   47 | bool gear(const char* const label, v3* drag);
+      |                       ^~~~~
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:64:6: warning: function 'imgui_destroy_shader' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+   64 | void imgui_destroy_shader(ImguiShaderProgram* bd)
+      |      ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:75:20: warning: function 'imgui_load_shader' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+   75 | ImguiShaderProgram imgui_load_shader(const char* glsl_version_string, const char* vertex_shader, const char* fragment_shader)
+      |                    ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:78:2: warning: pointee of variable 'vertex_shader_with_version' of type 'const GLchar *[2]' (aka 'const char *[2]') can be declared 'const' [misc-const-correctness]
+   78 |         const GLchar* vertex_shader_with_version[2] = {glsl_version_string, vertex_shader};
+      |         ^           
+      |                      const
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:87:2: warning: pointee of variable 'fragment_shader_with_version' of type 'const GLchar *[2]' (aka 'const char *[2]') can be declared 'const' [misc-const-correctness]
+   87 |         const GLchar* fragment_shader_with_version[2] = {glsl_version_string, fragment_shader};
+      |         ^           
+      |                      const
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:197:6: warning: function 'imgui_set_shared_shader_params' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  197 | void imgui_set_shared_shader_params(ImguiShaderProgram* prog)
+      |      ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:199:2: warning: pointee of variable 'draw_data' of type 'ImDrawData *' can be declared 'const' [misc-const-correctness]
+  199 |         ImDrawData* draw_data = ImGui::GetDrawData();
+      |         ^         
+      |                    const
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:217:6: warning: function 'im_draw_callback_linear_to_gamma' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  217 | void im_draw_callback_linear_to_gamma(const ImDrawList*, const ImDrawCmd* cmd)
+      |      ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:224:6: warning: function 'im_draw_callback_depth_ortho' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  224 | void im_draw_callback_depth_ortho(const ImDrawList*, const ImDrawCmd* cmd)
+      |      ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:280:53: warning: redundant parentheses around expression [readability-redundant-parentheses]
+  280 |         const auto uv0 = ImVec2{region.x / texture_size.x, (flipped_region_y) / texture_size.y};
+      |                                                            ^                ~
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:357:40: warning: redundant parentheses around expression [readability-redundant-parentheses]
+  357 |         const auto t = (*gamma - min_gamma) / (gamma_range);
+      |                                               ^           ~
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:366:23: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  366 |         *gamma = min_gamma + perceptual * gamma_range;
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |                              (                       )
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:396:7: warning: function 'length2' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  396 | float length2(const ImVec2& v)
+      |       ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:398:12: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  398 |     return v.x* v.x + v.y * v.y;
+      |            ^~~~~~~~
+      |            (       )
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:398:23: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  398 |     return v.x* v.x + v.y * v.y;
+      |                       ^~~~~~~~~~
+      |                       (        )
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:401:7: warning: function 'length' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  401 | float length(const ImVec2& v)
+      |       ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:403:22: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  403 |     return std::sqrt(v.x * v.x + v.y * v.y);
+      |                      ^~~~~~~~~
+      |                      (        )
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:403:34: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  403 |     return std::sqrt(v.x * v.x + v.y * v.y);
+      |                                  ^~~~~~~~~~
+      |                                  (        )
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:406:8: warning: function 'normalize' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  406 | ImVec2 normalize(const ImVec2& v, float len)
+      |        ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:410:8: warning: function 'normalize' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  410 | ImVec2 normalize(const ImVec2& v)
+      |        ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:415:7: warning: function 'dot' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  415 | float dot(const ImVec2& lhs, const ImVec2& rhs)
+      |       ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:417:12: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  417 |     return lhs.x * rhs.x + lhs.y * rhs.y;
+      |            ^~~~~~~~~~~~~
+      |            (            )
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:417:28: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  417 |     return lhs.x * rhs.x + lhs.y * rhs.y;
+      |                            ^~~~~~~~~~~~~~
+      |                            (            )
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:419:6: warning: function 'is_positive' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  419 | bool is_positive(float f)
+      |      ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:424:8: warning: struct 'GearState' can be moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  424 | struct GearState
+      |        ^
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:438:10: warning: invalid case style for function 'dl_PathArcToN' [readability-identifier-naming]
+  438 |     void dl_PathArcToN(ImDrawList* dl, const ImVec2& center, float radius, float a_min, float a_max, int num_segments, float ang)
+      |          ^~~~~~~~~~~~~
+      |          dl_path_arc_to_n
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:449:18: warning: loop variable name 'i' is too short, expected at least 2 characters [readability-identifier-length]
+  449 |         for (int i = 0; i <= num_segments; i++)
+      |                  ^
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:451:37: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  451 |             const float a = a_min + (static_cast<float>(i) / static_cast<float>(num_segments)) * (a_max - a_min);
+      |                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                     (                                                                           )
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:456:10: warning: invalid case style for function 'dl_PathArcTo' [readability-identifier-naming]
+  456 |     void dl_PathArcTo(ImDrawList* dl, const ImVec2& center, float radius, float a_min, float a_max, int num_segments, float ang)
+      |          ^~~~~~~~~~~~
+      |          dl_path_arc_to
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:467:10: warning: invalid case style for function 'dl_AddCircle' [readability-identifier-naming]
+  467 |     void dl_AddCircle(ImDrawList* dl, const ImVec2& center, float radius, ImU32 col, int num_segments, float thickness, float ang)
+      |          ^~~~~~~~~~~~
+      |          dl_add_circle
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:485:8: warning: function 'calc_button_size' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  485 | ImVec2 calc_button_size(const char* const label, const ImVec2& size_arg = ImVec2(0,0))
+      |        ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:489:64: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  489 |     ImVec2 size = ImGui::CalcItemSize(size_arg, label_size.x + style.FramePadding.x * 2.0f, label_size.y + style.FramePadding.y * 2.0f);
+      |                                                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                (                          )
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:489:108: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  489 |     ImVec2 size = ImGui::CalcItemSize(size_arg, label_size.x + style.FramePadding.x * 2.0f, label_size.y + style.FramePadding.y * 2.0f);
+      |                                                                                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                                                            (                          )
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:494:6: warning: function 'gear_icon' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  494 | bool gear_icon(const char* const label, float* drag, const ImVec2& size)
+      |      ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:552:62: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  552 |                 const auto new_ang = ang  - *initial_angle + static_cast<float>(turns) * 360.0f;
+      |                                                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                              (                                 )
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:553:41: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  553 |                 const auto val = orig + (new_ang / 360.0f) * one_turn;
+      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                         (                            )
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:555:21: warning: implicit conversion 'float *' -> 'bool' [readability-implicit-bool-conversion]
+  555 |                 if (drag)
+      |                     ^   
+      |                          != nullptr
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:615:5: warning: variable 'w_items' of type 'float' can be declared 'const' [misc-const-correctness]
+  615 |     float w_items = ImMax(0.0f, ImGui::CalcItemWidth() - style.ItemInnerSpacing.x * (6 - 1) - gear_size.x * 3);
+      |     ^
+      |           const 
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:615:58: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  615 |     float w_items = ImMax(0.0f, ImGui::CalcItemWidth() - style.ItemInnerSpacing.x * (6 - 1) - gear_size.x * 3);
+      |                                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                          (                                 )
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:615:95: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  615 |     float w_items = ImMax(0.0f, ImGui::CalcItemWidth() - style.ItemInnerSpacing.x * (6 - 1) - gear_size.x * 3);
+      |                                                                                               ^~~~~~~~~~~~~~~~
+      |                                                                                               (              )
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:616:14: warning: loop variable name 'i' is too short, expected at least 2 characters [readability-identifier-length]
+  616 |     for (int i=0; i<3; i+=1)
+      |              ^
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:626:23: warning: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements]
+  626 |             if (i > 0)
+      |                       ^
+      |                        {
+  627 |                 ImGui::SameLine(0, style.ItemInnerSpacing.x);
+      |                                                              
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.h:34:2: warning: invalid case style for scoped enum constant 'None' [readability-identifier-naming]
+   34 |         None,
+      |         ^~~~
+      |         none
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.h:35:2: warning: invalid case style for scoped enum constant 'TonemapAndGamma' [readability-identifier-naming]
+   35 |         TonemapAndGamma,
+      |         ^~~~~~~~~~~~~~~
+      |         tonemap_and_gamma
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.h:36:2: warning: invalid case style for scoped enum constant 'DepthOrtho' [readability-identifier-naming]
+   36 |         DepthOrtho
+      |         ^~~~~~~~~~
+      |         depth_ortho
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.h:44:23: warning: parameter 'label' is const-qualified in the function declaration; const-qualification of parameters only has an effect in function definitions [readability-avoid-const-params-in-decls]
+   44 | bool drag(const char* const label, v3* drag);
+      |                       ^~~~~
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.h:45:23: warning: parameter 'label' is const-qualified in the function declaration; const-qualification of parameters only has an effect in function definitions [readability-avoid-const-params-in-decls]
+   45 | bool drag(const char* const label, Ypr* drag);
+      |                       ^~~~~
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.h:47:23: warning: parameter 'label' is const-qualified in the function declaration; const-qualification of parameters only has an effect in function definitions [readability-avoid-const-params-in-decls]
+   47 | bool gear(const char* const label, v3* drag);
+      |                       ^~~~~
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+-->
+</body>
+</html>

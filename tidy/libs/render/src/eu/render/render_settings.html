@@ -1,0 +1,36 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/render/src/eu/render/render_settings.cc</title>
+</head>
+<body>
+<h1>libs/render/src/eu/render/render_settings.cc</h1>
+<span id='modernize-use-designated-initializers'>&nbsp;</span>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Size&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/render/src/eu/render/render_settings.h 48 : 31</i></p>
+<pre>
+   48 |         Size shadow_map_resolution = {2048, 2048};
+      |                                      ^~~~~~~~~~~~
+      |                                       .width= .height=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/base/src/eu/base/size.h 10 : 5</i></p>
+<pre>
+   10 |     struct Size
+      |     ^
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/render_settings.h:48:31: warning: use designated initializer list to initialize 'Size' [modernize-use-designated-initializers]
+   48 |         Size shadow_map_resolution = {2048, 2048};
+      |                                      ^~~~~~~~~~~~
+      |                                       .width= .height=
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/size.h:10:5: note: aggregate type is defined here
+   10 |     struct Size
+      |     ^
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+-->
+</body>
+</html>

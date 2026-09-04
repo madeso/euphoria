@@ -1,0 +1,110 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/imgui/src/eu/imgui/scurve.cc</title>
+</head>
+<body>
+<h1>libs/imgui/src/eu/imgui/scurve.cc</h1>
+<span id='cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'>&nbsp;</span>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/imgui/src/eu/imgui/scurve.cc 57 : 9</i></p>
+<pre>
+   57 |                 points[point_index] = ImVec2{x * widget_size.x, (1 - y) * widget_size.y} + widget_position;
+      |                       ^~~~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/imgui/src/eu/imgui/scurve.cc 65 : 32</i></p>
+<pre>
+   65 |                         draw-&gt;AddCircleFilled(points[point_index], settings.point_radius, settings.point_color);
+      |                                                     ^~~~~~~~~~~~~
+</pre>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;None&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.h 34 : 2</i></p>
+<pre>
+   34 |         None,
+      |         ^~~~
+      |         none
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;TonemapAndGamma&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.h 35 : 2</i></p>
+<pre>
+   35 |         TonemapAndGamma,
+      |         ^~~~~~~~~~~~~~~
+      |         tonemap_and_gamma
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;DepthOrtho&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.h 36 : 2</i></p>
+<pre>
+   36 |         DepthOrtho
+      |         ^~~~~~~~~~
+      |         depth_ortho
+</pre>
+<span id='readability-avoid-const-params-in-decls'>&nbsp;</span>
+<hr>
+<h3>warning: parameter &#39;label&#39; is const-qualified in the function declaration; const-qualification of parameters only has an effect in function definitions</h3>
+<code>[readability-avoid-const-params-in-decls]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.h 44 : 23</i></p>
+<pre>
+   44 | bool drag(const char* const label, v3* drag);
+      |                       ^~~~~
+</pre>
+<hr>
+<h3>warning: parameter &#39;label&#39; is const-qualified in the function declaration; const-qualification of parameters only has an effect in function definitions</h3>
+<code>[readability-avoid-const-params-in-decls]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.h 45 : 23</i></p>
+<pre>
+   45 | bool drag(const char* const label, Ypr* drag);
+      |                       ^~~~~
+</pre>
+<hr>
+<h3>warning: parameter &#39;label&#39; is const-qualified in the function declaration; const-qualification of parameters only has an effect in function definitions</h3>
+<code>[readability-avoid-const-params-in-decls]</code>
+<p><i>libs/imgui/src/eu/imgui/ui.h 47 : 23</i></p>
+<pre>
+   47 | bool gear(const char* const label, v3* drag);
+      |                       ^~~~~
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/scurve.cc:57:9: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   57 |                 points[point_index] = ImVec2{x * widget_size.x, (1 - y) * widget_size.y} + widget_position;
+      |                       ^~~~~~~~~~~~~
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/scurve.cc:65:32: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   65 |                         draw->AddCircleFilled(points[point_index], settings.point_radius, settings.point_color);
+      |                                                     ^~~~~~~~~~~~~
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.h:34:2: warning: invalid case style for scoped enum constant 'None' [readability-identifier-naming]
+   34 |         None,
+      |         ^~~~
+      |         none
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.h:35:2: warning: invalid case style for scoped enum constant 'TonemapAndGamma' [readability-identifier-naming]
+   35 |         TonemapAndGamma,
+      |         ^~~~~~~~~~~~~~~
+      |         tonemap_and_gamma
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.h:36:2: warning: invalid case style for scoped enum constant 'DepthOrtho' [readability-identifier-naming]
+   36 |         DepthOrtho
+      |         ^~~~~~~~~~
+      |         depth_ortho
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.h:44:23: warning: parameter 'label' is const-qualified in the function declaration; const-qualification of parameters only has an effect in function definitions [readability-avoid-const-params-in-decls]
+   44 | bool drag(const char* const label, v3* drag);
+      |                       ^~~~~
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.h:45:23: warning: parameter 'label' is const-qualified in the function declaration; const-qualification of parameters only has an effect in function definitions [readability-avoid-const-params-in-decls]
+   45 | bool drag(const char* const label, Ypr* drag);
+      |                       ^~~~~
+/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.h:47:23: warning: parameter 'label' is const-qualified in the function declaration; const-qualification of parameters only has an effect in function definitions [readability-avoid-const-params-in-decls]
+   47 | bool gear(const char* const label, v3* drag);
+      |                       ^~~~~
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+-->
+</body>
+</html>

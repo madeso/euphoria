@@ -1,0 +1,85 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>apps/runner/src/eu/runner/input.cc</title>
+</head>
+<body>
+<h1>apps/runner/src/eu/runner/input.cc</h1>
+<span id='misc-use-internal-linkage'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;lower&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>apps/runner/src/eu/runner/input.cc 11 : 13</i></p>
+<pre>
+   11 | std::string lower(const std::string&amp; str)
+      |             ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;key_from_name&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>apps/runner/src/eu/runner/input.cc 22 : 28</i></p>
+<pre>
+   22 | std::optional&lt;KeyboardKey&gt; key_from_name(const std::string&amp; name)
+      |                            ^
+      | static 
+</pre>
+<span id='cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'>&nbsp;</span>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>apps/runner/src/eu/runner/input.cc 83 : 42</i></p>
+<pre>
+   83 |             const auto name = node.args()[0].as_string();
+      |                                          ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>apps/runner/src/eu/runner/input.cc 102 : 49</i></p>
+<pre>
+  102 |             const auto action_name = node.args()[0].as_string();
+      |                                                 ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>apps/runner/src/eu/runner/input.cc 111 : 46</i></p>
+<pre>
+  111 |             const auto key_name = node.args()[1].as_string();
+      |                                              ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>apps/runner/src/eu/runner/input.cc 155 : 27</i></p>
+<pre>
+  155 |     auto&amp; action = actions[bind.bind_action];
+      |                           ^~~~~~~~~~~~~~~~~~
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/input.cc:11:13: warning: function 'lower' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+   11 | std::string lower(const std::string& str)
+      |             ^
+      | static 
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/input.cc:22:28: warning: function 'key_from_name' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+   22 | std::optional<KeyboardKey> key_from_name(const std::string& name)
+      |                            ^
+      | static 
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/input.cc:83:42: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   83 |             const auto name = node.args()[0].as_string();
+      |                                          ^~~
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/input.cc:102:49: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+  102 |             const auto action_name = node.args()[0].as_string();
+      |                                                 ^~~
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/input.cc:111:46: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+  111 |             const auto key_name = node.args()[1].as_string();
+      |                                              ^~~
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/input.cc:155:27: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+  155 |     auto& action = actions[bind.bind_action];
+      |                           ^~~~~~~~~~~~~~~~~~
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+-->
+</body>
+</html>

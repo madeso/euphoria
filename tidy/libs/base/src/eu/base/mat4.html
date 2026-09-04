@@ -1,0 +1,1694 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/base/src/eu/base/mat4.cc</title>
+</head>
+<body>
+<h1>libs/base/src/eu/base/mat4.cc</h1>
+<span id='google-runtime-float'>&nbsp;</span>
+<hr>
+<h3>warning: &#39;long double&#39; type is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/base/src/eu/base/angle.h 128 : 33</i></p>
+<pre>
+  128 |     constexpr An operator&quot;&quot;_deg(long double d)
+      |                                 ^
+</pre>
+<hr>
+<h3>warning: &#39;long double&#39; type is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/base/src/eu/base/angle.h 134 : 33</i></p>
+<pre>
+  134 |     constexpr An operator&quot;&quot;_rad(long double r)
+      |                                 ^
+</pre>
+<span id='readability-math-missing-parentheses'>&nbsp;</span>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 158 : 20</i></p>
+<pre>
+  158 |             rcos + u * u * (1 - rcos),
+      |                    ^~~~~~~~~~~~~~~~~~~
+      |                    (                 )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 159 : 13</i></p>
+<pre>
+  159 |             w * rsin + v * u * (1 - rcos),
+      |             ^~~~~~~~
+      |             (       )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 159 : 24</i></p>
+<pre>
+  159 |             w * rsin + v * u * (1 - rcos),
+      |                        ^~~~~~~~~~~~~~~~~~~
+      |                        (                 )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 160 : 13</i></p>
+<pre>
+  160 |             -v * rsin + w * u * (1 - rcos),
+      |             ^~~~~~~~~
+      |             (        )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 160 : 25</i></p>
+<pre>
+  160 |             -v * rsin + w * u * (1 - rcos),
+      |                         ^~~~~~~~~~~~~~~~~~~
+      |                         (                 )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 163 : 13</i></p>
+<pre>
+  163 |             -w * rsin + u * v * (1 - rcos),
+      |             ^~~~~~~~~
+      |             (        )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 163 : 25</i></p>
+<pre>
+  163 |             -w * rsin + u * v * (1 - rcos),
+      |                         ^~~~~~~~~~~~~~~~~~~
+      |                         (                 )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 164 : 20</i></p>
+<pre>
+  164 |             rcos + v * v * (1 - rcos),
+      |                    ^~~~~~~~~~~~~~~~~~~
+      |                    (                 )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 165 : 13</i></p>
+<pre>
+  165 |             u * rsin + w * v * (1 - rcos),
+      |             ^~~~~~~~
+      |             (       )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 165 : 24</i></p>
+<pre>
+  165 |             u * rsin + w * v * (1 - rcos),
+      |                        ^~~~~~~~~~~~~~~~~~~
+      |                        (                 )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 168 : 13</i></p>
+<pre>
+  168 |             v * rsin + u * w * (1 - rcos),
+      |             ^~~~~~~~
+      |             (       )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 168 : 24</i></p>
+<pre>
+  168 |             v * rsin + u * w * (1 - rcos),
+      |                        ^~~~~~~~~~~~~~~~~~~
+      |                        (                 )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 169 : 13</i></p>
+<pre>
+  169 |             -u * rsin + v * w * (1 - rcos),
+      |             ^~~~~~~~~
+      |             (        )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 169 : 25</i></p>
+<pre>
+  169 |             -u * rsin + v * w * (1 - rcos),
+      |                         ^~~~~~~~~~~~~~~~~~~
+      |                         (                 )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 170 : 20</i></p>
+<pre>
+  170 |             rcos + w * w * (1 - rcos),
+      |                    ^~~~~~~~~~~~~~~~~~~
+      |                    (                 )
+</pre>
+<span id='misc-use-internal-linkage'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;get_axis&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 198 : 5</i></p>
+<pre>
+  197 |     n3
+      |     static 
+  198 |     get_axis(const m4&amp; m, int col)
+      |     ^
+</pre>
+<span id='misc-const-correctness'>&nbsp;</span>
+<hr>
+<h3>warning: pointee of variable &#39;m&#39; of type &#39;float *&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 242 : 9</i></p>
+<pre>
+  242 |         float* m = data;
+      |         ^    
+      |               const
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 245 : 13</i></p>
+<pre>
+  245 |             m[5] * m[10] * m[15] - m[5] * m[11] * m[14] -
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 245 : 36</i></p>
+<pre>
+  245 |             m[5] * m[10] * m[15] - m[5] * m[11] * m[14] -
+      |                                    ^~~~~~~~~~~~~~~~~~~~
+      |                                    (                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 246 : 13</i></p>
+<pre>
+  246 |             m[9] * m[6] * m[15] + m[9] * m[7] * m[14] +
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 246 : 35</i></p>
+<pre>
+  246 |             m[9] * m[6] * m[15] + m[9] * m[7] * m[14] +
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 247 : 13</i></p>
+<pre>
+  247 |             m[13] * m[6] * m[11] - m[13] * m[7] * m[10]
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 247 : 36</i></p>
+<pre>
+  247 |             m[13] * m[6] * m[11] - m[13] * m[7] * m[10]
+      |                                    ^~~~~~~~~~~~~~~~~~~~
+      |                                    (                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 251 : 13</i></p>
+<pre>
+  251 |             -m[4] * m[10] * m[15] + m[4] * m[11] * m[14] +
+      |             ^~~~~~~~~~~~~~~~~~~~~
+      |             (                    )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 251 : 37</i></p>
+<pre>
+  251 |             -m[4] * m[10] * m[15] + m[4] * m[11] * m[14] +
+      |                                     ^~~~~~~~~~~~~~~~~~~~
+      |                                     (                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 252 : 13</i></p>
+<pre>
+  252 |             m[8] * m[6] * m[15] - m[8] * m[7] * m[14] -
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 252 : 35</i></p>
+<pre>
+  252 |             m[8] * m[6] * m[15] - m[8] * m[7] * m[14] -
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 253 : 13</i></p>
+<pre>
+  253 |             m[12] * m[6] * m[11] + m[12] * m[7] * m[10]
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 253 : 36</i></p>
+<pre>
+  253 |             m[12] * m[6] * m[11] + m[12] * m[7] * m[10]
+      |                                    ^~~~~~~~~~~~~~~~~~~~
+      |                                    (                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 257 : 13</i></p>
+<pre>
+  257 |             m[4] * m[9] * m[15] - m[4] * m[11] * m[13] -
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 257 : 35</i></p>
+<pre>
+  257 |             m[4] * m[9] * m[15] - m[4] * m[11] * m[13] -
+      |                                   ^~~~~~~~~~~~~~~~~~~~
+      |                                   (                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 258 : 13</i></p>
+<pre>
+  258 |             m[8] * m[5] * m[15] + m[8] * m[7] * m[13] +
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 258 : 35</i></p>
+<pre>
+  258 |             m[8] * m[5] * m[15] + m[8] * m[7] * m[13] +
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 259 : 13</i></p>
+<pre>
+  259 |             m[12] * m[5] * m[11] - m[12] * m[7] * m[9]
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 259 : 36</i></p>
+<pre>
+  259 |             m[12] * m[5] * m[11] - m[12] * m[7] * m[9]
+      |                                    ^~~~~~~~~~~~~~~~~~~
+      |                                    (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 263 : 13</i></p>
+<pre>
+  263 |             -m[4] * m[9] * m[14] + m[4] * m[10] * m[13] +
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 263 : 36</i></p>
+<pre>
+  263 |             -m[4] * m[9] * m[14] + m[4] * m[10] * m[13] +
+      |                                    ^~~~~~~~~~~~~~~~~~~~
+      |                                    (                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 264 : 13</i></p>
+<pre>
+  264 |             m[8] * m[5] * m[14] - m[8] * m[6] * m[13] -
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 264 : 35</i></p>
+<pre>
+  264 |             m[8] * m[5] * m[14] - m[8] * m[6] * m[13] -
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 265 : 13</i></p>
+<pre>
+  265 |             m[12] * m[5] * m[10] + m[12] * m[6] * m[9]
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 265 : 36</i></p>
+<pre>
+  265 |             m[12] * m[5] * m[10] + m[12] * m[6] * m[9]
+      |                                    ^~~~~~~~~~~~~~~~~~~
+      |                                    (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 269 : 13</i></p>
+<pre>
+  269 |             -m[1] * m[10] * m[15] + m[1] * m[11] * m[14] +
+      |             ^~~~~~~~~~~~~~~~~~~~~
+      |             (                    )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 269 : 37</i></p>
+<pre>
+  269 |             -m[1] * m[10] * m[15] + m[1] * m[11] * m[14] +
+      |                                     ^~~~~~~~~~~~~~~~~~~~
+      |                                     (                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 270 : 13</i></p>
+<pre>
+  270 |             m[9] * m[2] * m[15] - m[9] * m[3] * m[14] -
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 270 : 35</i></p>
+<pre>
+  270 |             m[9] * m[2] * m[15] - m[9] * m[3] * m[14] -
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 271 : 13</i></p>
+<pre>
+  271 |             m[13] * m[2] * m[11] + m[13] * m[3] * m[10]
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 271 : 36</i></p>
+<pre>
+  271 |             m[13] * m[2] * m[11] + m[13] * m[3] * m[10]
+      |                                    ^~~~~~~~~~~~~~~~~~~~
+      |                                    (                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 275 : 13</i></p>
+<pre>
+  275 |             m[0] * m[10] * m[15] - m[0] * m[11] * m[14] -
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 275 : 36</i></p>
+<pre>
+  275 |             m[0] * m[10] * m[15] - m[0] * m[11] * m[14] -
+      |                                    ^~~~~~~~~~~~~~~~~~~~
+      |                                    (                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 276 : 13</i></p>
+<pre>
+  276 |             m[8] * m[2] * m[15] + m[8] * m[3] * m[14] +
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 276 : 35</i></p>
+<pre>
+  276 |             m[8] * m[2] * m[15] + m[8] * m[3] * m[14] +
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 277 : 13</i></p>
+<pre>
+  277 |             m[12] * m[2] * m[11] - m[12] * m[3] * m[10]
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 277 : 36</i></p>
+<pre>
+  277 |             m[12] * m[2] * m[11] - m[12] * m[3] * m[10]
+      |                                    ^~~~~~~~~~~~~~~~~~~~
+      |                                    (                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 281 : 13</i></p>
+<pre>
+  281 |             -m[0] * m[9] * m[15] + m[0] * m[11] * m[13] +
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 281 : 36</i></p>
+<pre>
+  281 |             -m[0] * m[9] * m[15] + m[0] * m[11] * m[13] +
+      |                                    ^~~~~~~~~~~~~~~~~~~~
+      |                                    (                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 282 : 13</i></p>
+<pre>
+  282 |             m[8] * m[1] * m[15] - m[8] * m[3] * m[13] -
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 282 : 35</i></p>
+<pre>
+  282 |             m[8] * m[1] * m[15] - m[8] * m[3] * m[13] -
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 283 : 13</i></p>
+<pre>
+  283 |             m[12] * m[1] * m[11] + m[12] * m[3] * m[9]
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 283 : 36</i></p>
+<pre>
+  283 |             m[12] * m[1] * m[11] + m[12] * m[3] * m[9]
+      |                                    ^~~~~~~~~~~~~~~~~~~
+      |                                    (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 287 : 13</i></p>
+<pre>
+  287 |             m[0] * m[9] * m[14] - m[0] * m[10] * m[13] -
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 287 : 35</i></p>
+<pre>
+  287 |             m[0] * m[9] * m[14] - m[0] * m[10] * m[13] -
+      |                                   ^~~~~~~~~~~~~~~~~~~~
+      |                                   (                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 288 : 13</i></p>
+<pre>
+  288 |             m[8] * m[1] * m[14] + m[8] * m[2] * m[13] +
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 288 : 35</i></p>
+<pre>
+  288 |             m[8] * m[1] * m[14] + m[8] * m[2] * m[13] +
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 289 : 13</i></p>
+<pre>
+  289 |             m[12] * m[1] * m[10] - m[12] * m[2] * m[9]
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 289 : 36</i></p>
+<pre>
+  289 |             m[12] * m[1] * m[10] - m[12] * m[2] * m[9]
+      |                                    ^~~~~~~~~~~~~~~~~~~
+      |                                    (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 293 : 13</i></p>
+<pre>
+  293 |             m[1] * m[6] * m[15] - m[1] * m[7] * m[14] -
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 293 : 35</i></p>
+<pre>
+  293 |             m[1] * m[6] * m[15] - m[1] * m[7] * m[14] -
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 294 : 13</i></p>
+<pre>
+  294 |             m[5] * m[2] * m[15] + m[5] * m[3] * m[14] +
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 294 : 35</i></p>
+<pre>
+  294 |             m[5] * m[2] * m[15] + m[5] * m[3] * m[14] +
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 295 : 13</i></p>
+<pre>
+  295 |             m[13] * m[2] * m[7] - m[13] * m[3] * m[6]
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 295 : 35</i></p>
+<pre>
+  295 |             m[13] * m[2] * m[7] - m[13] * m[3] * m[6]
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 299 : 13</i></p>
+<pre>
+  299 |             -m[0] * m[6] * m[15] + m[0] * m[7] * m[14] +
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 299 : 36</i></p>
+<pre>
+  299 |             -m[0] * m[6] * m[15] + m[0] * m[7] * m[14] +
+      |                                    ^~~~~~~~~~~~~~~~~~~
+      |                                    (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 300 : 13</i></p>
+<pre>
+  300 |             m[4] * m[2] * m[15] - m[4] * m[3] * m[14] -
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 300 : 35</i></p>
+<pre>
+  300 |             m[4] * m[2] * m[15] - m[4] * m[3] * m[14] -
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 301 : 13</i></p>
+<pre>
+  301 |             m[12] * m[2] * m[7] + m[12] * m[3] * m[6]
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 301 : 35</i></p>
+<pre>
+  301 |             m[12] * m[2] * m[7] + m[12] * m[3] * m[6]
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 305 : 13</i></p>
+<pre>
+  305 |             m[0] * m[5] * m[15] - m[0] * m[7] * m[13] -
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 305 : 35</i></p>
+<pre>
+  305 |             m[0] * m[5] * m[15] - m[0] * m[7] * m[13] -
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 306 : 13</i></p>
+<pre>
+  306 |             m[4] * m[1] * m[15] + m[4] * m[3] * m[13] +
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 306 : 35</i></p>
+<pre>
+  306 |             m[4] * m[1] * m[15] + m[4] * m[3] * m[13] +
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 307 : 13</i></p>
+<pre>
+  307 |             m[12] * m[1] * m[7] - m[12] * m[3] * m[5]
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 307 : 35</i></p>
+<pre>
+  307 |             m[12] * m[1] * m[7] - m[12] * m[3] * m[5]
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 311 : 13</i></p>
+<pre>
+  311 |             -m[0] * m[5] * m[14] + m[0] * m[6] * m[13] +
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 311 : 36</i></p>
+<pre>
+  311 |             -m[0] * m[5] * m[14] + m[0] * m[6] * m[13] +
+      |                                    ^~~~~~~~~~~~~~~~~~~
+      |                                    (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 312 : 13</i></p>
+<pre>
+  312 |             m[4] * m[1] * m[14] - m[4] * m[2] * m[13] -
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 312 : 35</i></p>
+<pre>
+  312 |             m[4] * m[1] * m[14] - m[4] * m[2] * m[13] -
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 313 : 13</i></p>
+<pre>
+  313 |             m[12] * m[1] * m[6] + m[12] * m[2] * m[5]
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 313 : 35</i></p>
+<pre>
+  313 |             m[12] * m[1] * m[6] + m[12] * m[2] * m[5]
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 317 : 13</i></p>
+<pre>
+  317 |             -m[1] * m[6] * m[11] + m[1] * m[7] * m[10] +
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 317 : 36</i></p>
+<pre>
+  317 |             -m[1] * m[6] * m[11] + m[1] * m[7] * m[10] +
+      |                                    ^~~~~~~~~~~~~~~~~~~
+      |                                    (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 318 : 13</i></p>
+<pre>
+  318 |             m[5] * m[2] * m[11] - m[5] * m[3] * m[10] -
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 318 : 35</i></p>
+<pre>
+  318 |             m[5] * m[2] * m[11] - m[5] * m[3] * m[10] -
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 319 : 13</i></p>
+<pre>
+  319 |             m[9] * m[2] * m[7] + m[9] * m[3] * m[6]
+      |             ^~~~~~~~~~~~~~~~~~
+      |             (                 )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 319 : 34</i></p>
+<pre>
+  319 |             m[9] * m[2] * m[7] + m[9] * m[3] * m[6]
+      |                                  ^~~~~~~~~~~~~~~~~~
+      |                                  (                 )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 323 : 13</i></p>
+<pre>
+  323 |             m[0] * m[6] * m[11] - m[0] * m[7] * m[10] -
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 323 : 35</i></p>
+<pre>
+  323 |             m[0] * m[6] * m[11] - m[0] * m[7] * m[10] -
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 324 : 13</i></p>
+<pre>
+  324 |             m[4] * m[2] * m[11] + m[4] * m[3] * m[10] +
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 324 : 35</i></p>
+<pre>
+  324 |             m[4] * m[2] * m[11] + m[4] * m[3] * m[10] +
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 325 : 13</i></p>
+<pre>
+  325 |             m[8] * m[2] * m[7] - m[8] * m[3] * m[6]
+      |             ^~~~~~~~~~~~~~~~~~
+      |             (                 )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 325 : 34</i></p>
+<pre>
+  325 |             m[8] * m[2] * m[7] - m[8] * m[3] * m[6]
+      |                                  ^~~~~~~~~~~~~~~~~~
+      |                                  (                 )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 329 : 13</i></p>
+<pre>
+  329 |             -m[0] * m[5] * m[11] + m[0] * m[7] * m[9] +
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 329 : 36</i></p>
+<pre>
+  329 |             -m[0] * m[5] * m[11] + m[0] * m[7] * m[9] +
+      |                                    ^~~~~~~~~~~~~~~~~~
+      |                                    (                 )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 330 : 13</i></p>
+<pre>
+  330 |             m[4] * m[1] * m[11] - m[4] * m[3] * m[9] -
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 330 : 35</i></p>
+<pre>
+  330 |             m[4] * m[1] * m[11] - m[4] * m[3] * m[9] -
+      |                                   ^~~~~~~~~~~~~~~~~~
+      |                                   (                 )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 331 : 13</i></p>
+<pre>
+  331 |             m[8] * m[1] * m[7] + m[8] * m[3] * m[5]
+      |             ^~~~~~~~~~~~~~~~~~
+      |             (                 )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 331 : 34</i></p>
+<pre>
+  331 |             m[8] * m[1] * m[7] + m[8] * m[3] * m[5]
+      |                                  ^~~~~~~~~~~~~~~~~~
+      |                                  (                 )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 335 : 13</i></p>
+<pre>
+  335 |             m[0] * m[5] * m[10] - m[0] * m[6] * m[9] -
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 335 : 35</i></p>
+<pre>
+  335 |             m[0] * m[5] * m[10] - m[0] * m[6] * m[9] -
+      |                                   ^~~~~~~~~~~~~~~~~~
+      |                                   (                 )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 336 : 13</i></p>
+<pre>
+  336 |             m[4] * m[1] * m[10] + m[4] * m[2] * m[9] +
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 336 : 35</i></p>
+<pre>
+  336 |             m[4] * m[1] * m[10] + m[4] * m[2] * m[9] +
+      |                                   ^~~~~~~~~~~~~~~~~~
+      |                                   (                 )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 337 : 13</i></p>
+<pre>
+  337 |             m[8] * m[1] * m[6] - m[8] * m[2] * m[5]
+      |             ^~~~~~~~~~~~~~~~~~
+      |             (                 )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 337 : 34</i></p>
+<pre>
+  337 |             m[8] * m[1] * m[6] - m[8] * m[2] * m[5]
+      |                                  ^~~~~~~~~~~~~~~~~~
+      |                                  (                 )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 341 : 13</i></p>
+<pre>
+  341 |             m[0] * inv[0] + m[1] * inv[4] + m[2] * inv[8] +
+      |             ^~~~~~~~~~~~~
+      |             (            )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 341 : 29</i></p>
+<pre>
+  341 |             m[0] * inv[0] + m[1] * inv[4] + m[2] * inv[8] +
+      |                             ^~~~~~~~~~~~~
+      |                             (            )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 341 : 45</i></p>
+<pre>
+  341 |             m[0] * inv[0] + m[1] * inv[4] + m[2] * inv[8] +
+      |                                             ^~~~~~~~~~~~~
+      |                                             (            )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 342 : 13</i></p>
+<pre>
+  342 |             m[3] * inv[12];
+      |             ^~~~~~~~~~~~~~~
+      |             (             )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 448 : 21</i></p>
+<pre>
+  448 |         return data[col * 4 + row];
+      |                     ^~~~~~~
+      |                     (      )
+</pre>
+<hr>
+<h3>warning: function &#39;get_component_multiply_sum&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/base/src/eu/base/mat4.cc 496 : 5</i></p>
+<pre>
+  495 |     float
+      |     static 
+  496 |     get_component_multiply_sum(const v4&amp; lhs, const v4&amp; rhs)
+      |     ^
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/numeric.h 68 : 20</i></p>
+<pre>
+   68 |         return f + (t - f) * scale;
+      |                    ^~~~~~~~~~~~~~~~
+      |                    (              )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/vec3.h 68 : 20</i></p>
+<pre>
+   68 |             return x * x + y * y + z * z;
+      |                    ^~~~~
+      |                    (    )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/vec3.h 68 : 28</i></p>
+<pre>
+   68 |             return x * x + y * y + z * z;
+      |                            ^~~~~
+      |                            (    )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/vec3.h 68 : 36</i></p>
+<pre>
+   68 |             return x * x + y * y + z * z;
+      |                                    ^~~~~~
+      |                                    (    )
+</pre>
+<span id='bugprone-derived-method-shadowing-base-method'>&nbsp;</span>
+<hr>
+<h3>warning: &#39;eu::n3:: operator-&#39; shadows method with the same name in class &#39;v3&#39;</h3>
+<code>[bugprone-derived-method-shadowing-base-method]</code>
+<p><i>libs/base/src/eu/base/vec3.h 95 : 9</i></p>
+<pre>
+   95 |         constexpr n3 operator-() const
+      |         ^
+</pre>
+<p>previous definition of &#39;operator-&#39; is here</p>
+<p><i>libs/base/src/eu/base/vec3.h 55 : 9</i></p>
+<pre>
+   55 |         v3 operator-() const;
+      |         ^
+</pre>
+<span id='cppcoreguidelines-pro-type-member-init'>&nbsp;</span>
+<hr>
+<h3>warning: constructor does not initialize these bases: v3</h3>
+<code>[cppcoreguidelines-pro-type-member-init]</code>
+<p><i>libs/base/src/eu/base/vec3.h 110 : 9</i></p>
+<pre>
+  110 |         constexpr n3(float a, float b, float c)
+      |         ^
+  111 |             : v3(a, b, c)
+      |               v3(),
+</pre>
+<hr>
+<h3>warning: constructor does not initialize these bases: v3</h3>
+<code>[cppcoreguidelines-pro-type-member-init]</code>
+<p><i>libs/base/src/eu/base/vec3.h 117 : 9</i></p>
+<pre>
+  117 |         constexpr explicit n3(const v3&amp; v)
+      |         ^
+  118 |             : v3(v)
+      |               v3(),
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/angle.h:128:33: warning: 'long double' type is not portable and should not be used [google-runtime-float]
+  128 |     constexpr An operator""_deg(long double d)
+      |                                 ^
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/angle.h:134:33: warning: 'long double' type is not portable and should not be used [google-runtime-float]
+  134 |     constexpr An operator""_rad(long double r)
+      |                                 ^
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:158:20: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  158 |             rcos + u * u * (1 - rcos),
+      |                    ^~~~~~~~~~~~~~~~~~~
+      |                    (                 )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:159:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  159 |             w * rsin + v * u * (1 - rcos),
+      |             ^~~~~~~~
+      |             (       )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:159:24: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  159 |             w * rsin + v * u * (1 - rcos),
+      |                        ^~~~~~~~~~~~~~~~~~~
+      |                        (                 )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:160:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  160 |             -v * rsin + w * u * (1 - rcos),
+      |             ^~~~~~~~~
+      |             (        )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:160:25: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  160 |             -v * rsin + w * u * (1 - rcos),
+      |                         ^~~~~~~~~~~~~~~~~~~
+      |                         (                 )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:163:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  163 |             -w * rsin + u * v * (1 - rcos),
+      |             ^~~~~~~~~
+      |             (        )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:163:25: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  163 |             -w * rsin + u * v * (1 - rcos),
+      |                         ^~~~~~~~~~~~~~~~~~~
+      |                         (                 )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:164:20: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  164 |             rcos + v * v * (1 - rcos),
+      |                    ^~~~~~~~~~~~~~~~~~~
+      |                    (                 )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:165:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  165 |             u * rsin + w * v * (1 - rcos),
+      |             ^~~~~~~~
+      |             (       )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:165:24: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  165 |             u * rsin + w * v * (1 - rcos),
+      |                        ^~~~~~~~~~~~~~~~~~~
+      |                        (                 )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:168:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  168 |             v * rsin + u * w * (1 - rcos),
+      |             ^~~~~~~~
+      |             (       )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:168:24: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  168 |             v * rsin + u * w * (1 - rcos),
+      |                        ^~~~~~~~~~~~~~~~~~~
+      |                        (                 )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:169:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  169 |             -u * rsin + v * w * (1 - rcos),
+      |             ^~~~~~~~~
+      |             (        )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:169:25: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  169 |             -u * rsin + v * w * (1 - rcos),
+      |                         ^~~~~~~~~~~~~~~~~~~
+      |                         (                 )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:170:20: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  170 |             rcos + w * w * (1 - rcos),
+      |                    ^~~~~~~~~~~~~~~~~~~
+      |                    (                 )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:198:5: warning: function 'get_axis' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  197 |     n3
+      |     static 
+  198 |     get_axis(const m4& m, int col)
+      |     ^
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:242:9: warning: pointee of variable 'm' of type 'float *' can be declared 'const' [misc-const-correctness]
+  242 |         float* m = data;
+      |         ^    
+      |               const
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:245:13: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  245 |             m[5] * m[10] * m[15] - m[5] * m[11] * m[14] -
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:245:36: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  245 |             m[5] * m[10] * m[15] - m[5] * m[11] * m[14] -
+      |                                    ^~~~~~~~~~~~~~~~~~~~
+      |                                    (                   )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:246:13: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  246 |             m[9] * m[6] * m[15] + m[9] * m[7] * m[14] +
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:246:35: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  246 |             m[9] * m[6] * m[15] + m[9] * m[7] * m[14] +
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:247:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  247 |             m[13] * m[6] * m[11] - m[13] * m[7] * m[10]
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:247:36: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  247 |             m[13] * m[6] * m[11] - m[13] * m[7] * m[10]
+      |                                    ^~~~~~~~~~~~~~~~~~~~
+      |                                    (                   )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:251:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  251 |             -m[4] * m[10] * m[15] + m[4] * m[11] * m[14] +
+      |             ^~~~~~~~~~~~~~~~~~~~~
+      |             (                    )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:251:37: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  251 |             -m[4] * m[10] * m[15] + m[4] * m[11] * m[14] +
+      |                                     ^~~~~~~~~~~~~~~~~~~~
+      |                                     (                   )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:252:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  252 |             m[8] * m[6] * m[15] - m[8] * m[7] * m[14] -
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:252:35: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  252 |             m[8] * m[6] * m[15] - m[8] * m[7] * m[14] -
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:253:13: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  253 |             m[12] * m[6] * m[11] + m[12] * m[7] * m[10]
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:253:36: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  253 |             m[12] * m[6] * m[11] + m[12] * m[7] * m[10]
+      |                                    ^~~~~~~~~~~~~~~~~~~~
+      |                                    (                   )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:257:13: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  257 |             m[4] * m[9] * m[15] - m[4] * m[11] * m[13] -
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:257:35: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  257 |             m[4] * m[9] * m[15] - m[4] * m[11] * m[13] -
+      |                                   ^~~~~~~~~~~~~~~~~~~~
+      |                                   (                   )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:258:13: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  258 |             m[8] * m[5] * m[15] + m[8] * m[7] * m[13] +
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:258:35: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  258 |             m[8] * m[5] * m[15] + m[8] * m[7] * m[13] +
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:259:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  259 |             m[12] * m[5] * m[11] - m[12] * m[7] * m[9]
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:259:36: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  259 |             m[12] * m[5] * m[11] - m[12] * m[7] * m[9]
+      |                                    ^~~~~~~~~~~~~~~~~~~
+      |                                    (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:263:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  263 |             -m[4] * m[9] * m[14] + m[4] * m[10] * m[13] +
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:263:36: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  263 |             -m[4] * m[9] * m[14] + m[4] * m[10] * m[13] +
+      |                                    ^~~~~~~~~~~~~~~~~~~~
+      |                                    (                   )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:264:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  264 |             m[8] * m[5] * m[14] - m[8] * m[6] * m[13] -
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:264:35: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  264 |             m[8] * m[5] * m[14] - m[8] * m[6] * m[13] -
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:265:13: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  265 |             m[12] * m[5] * m[10] + m[12] * m[6] * m[9]
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:265:36: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  265 |             m[12] * m[5] * m[10] + m[12] * m[6] * m[9]
+      |                                    ^~~~~~~~~~~~~~~~~~~
+      |                                    (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:269:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  269 |             -m[1] * m[10] * m[15] + m[1] * m[11] * m[14] +
+      |             ^~~~~~~~~~~~~~~~~~~~~
+      |             (                    )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:269:37: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  269 |             -m[1] * m[10] * m[15] + m[1] * m[11] * m[14] +
+      |                                     ^~~~~~~~~~~~~~~~~~~~
+      |                                     (                   )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:270:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  270 |             m[9] * m[2] * m[15] - m[9] * m[3] * m[14] -
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:270:35: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  270 |             m[9] * m[2] * m[15] - m[9] * m[3] * m[14] -
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:271:13: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  271 |             m[13] * m[2] * m[11] + m[13] * m[3] * m[10]
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:271:36: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  271 |             m[13] * m[2] * m[11] + m[13] * m[3] * m[10]
+      |                                    ^~~~~~~~~~~~~~~~~~~~
+      |                                    (                   )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:275:13: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  275 |             m[0] * m[10] * m[15] - m[0] * m[11] * m[14] -
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:275:36: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  275 |             m[0] * m[10] * m[15] - m[0] * m[11] * m[14] -
+      |                                    ^~~~~~~~~~~~~~~~~~~~
+      |                                    (                   )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:276:13: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  276 |             m[8] * m[2] * m[15] + m[8] * m[3] * m[14] +
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:276:35: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  276 |             m[8] * m[2] * m[15] + m[8] * m[3] * m[14] +
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:277:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  277 |             m[12] * m[2] * m[11] - m[12] * m[3] * m[10]
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:277:36: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  277 |             m[12] * m[2] * m[11] - m[12] * m[3] * m[10]
+      |                                    ^~~~~~~~~~~~~~~~~~~~
+      |                                    (                   )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:281:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  281 |             -m[0] * m[9] * m[15] + m[0] * m[11] * m[13] +
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:281:36: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  281 |             -m[0] * m[9] * m[15] + m[0] * m[11] * m[13] +
+      |                                    ^~~~~~~~~~~~~~~~~~~~
+      |                                    (                   )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:282:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  282 |             m[8] * m[1] * m[15] - m[8] * m[3] * m[13] -
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:282:35: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  282 |             m[8] * m[1] * m[15] - m[8] * m[3] * m[13] -
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:283:13: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  283 |             m[12] * m[1] * m[11] + m[12] * m[3] * m[9]
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:283:36: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  283 |             m[12] * m[1] * m[11] + m[12] * m[3] * m[9]
+      |                                    ^~~~~~~~~~~~~~~~~~~
+      |                                    (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:287:13: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  287 |             m[0] * m[9] * m[14] - m[0] * m[10] * m[13] -
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:287:35: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  287 |             m[0] * m[9] * m[14] - m[0] * m[10] * m[13] -
+      |                                   ^~~~~~~~~~~~~~~~~~~~
+      |                                   (                   )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:288:13: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  288 |             m[8] * m[1] * m[14] + m[8] * m[2] * m[13] +
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:288:35: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  288 |             m[8] * m[1] * m[14] + m[8] * m[2] * m[13] +
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:289:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  289 |             m[12] * m[1] * m[10] - m[12] * m[2] * m[9]
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:289:36: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  289 |             m[12] * m[1] * m[10] - m[12] * m[2] * m[9]
+      |                                    ^~~~~~~~~~~~~~~~~~~
+      |                                    (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:293:13: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  293 |             m[1] * m[6] * m[15] - m[1] * m[7] * m[14] -
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:293:35: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  293 |             m[1] * m[6] * m[15] - m[1] * m[7] * m[14] -
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:294:13: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  294 |             m[5] * m[2] * m[15] + m[5] * m[3] * m[14] +
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:294:35: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  294 |             m[5] * m[2] * m[15] + m[5] * m[3] * m[14] +
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:295:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  295 |             m[13] * m[2] * m[7] - m[13] * m[3] * m[6]
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:295:35: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  295 |             m[13] * m[2] * m[7] - m[13] * m[3] * m[6]
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:299:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  299 |             -m[0] * m[6] * m[15] + m[0] * m[7] * m[14] +
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:299:36: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  299 |             -m[0] * m[6] * m[15] + m[0] * m[7] * m[14] +
+      |                                    ^~~~~~~~~~~~~~~~~~~
+      |                                    (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:300:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  300 |             m[4] * m[2] * m[15] - m[4] * m[3] * m[14] -
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:300:35: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  300 |             m[4] * m[2] * m[15] - m[4] * m[3] * m[14] -
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:301:13: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  301 |             m[12] * m[2] * m[7] + m[12] * m[3] * m[6]
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:301:35: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  301 |             m[12] * m[2] * m[7] + m[12] * m[3] * m[6]
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:305:13: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  305 |             m[0] * m[5] * m[15] - m[0] * m[7] * m[13] -
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:305:35: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  305 |             m[0] * m[5] * m[15] - m[0] * m[7] * m[13] -
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:306:13: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  306 |             m[4] * m[1] * m[15] + m[4] * m[3] * m[13] +
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:306:35: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  306 |             m[4] * m[1] * m[15] + m[4] * m[3] * m[13] +
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:307:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  307 |             m[12] * m[1] * m[7] - m[12] * m[3] * m[5]
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:307:35: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  307 |             m[12] * m[1] * m[7] - m[12] * m[3] * m[5]
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:311:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  311 |             -m[0] * m[5] * m[14] + m[0] * m[6] * m[13] +
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:311:36: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  311 |             -m[0] * m[5] * m[14] + m[0] * m[6] * m[13] +
+      |                                    ^~~~~~~~~~~~~~~~~~~
+      |                                    (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:312:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  312 |             m[4] * m[1] * m[14] - m[4] * m[2] * m[13] -
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:312:35: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  312 |             m[4] * m[1] * m[14] - m[4] * m[2] * m[13] -
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:313:13: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  313 |             m[12] * m[1] * m[6] + m[12] * m[2] * m[5]
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:313:35: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  313 |             m[12] * m[1] * m[6] + m[12] * m[2] * m[5]
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:317:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  317 |             -m[1] * m[6] * m[11] + m[1] * m[7] * m[10] +
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:317:36: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  317 |             -m[1] * m[6] * m[11] + m[1] * m[7] * m[10] +
+      |                                    ^~~~~~~~~~~~~~~~~~~
+      |                                    (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:318:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  318 |             m[5] * m[2] * m[11] - m[5] * m[3] * m[10] -
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:318:35: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  318 |             m[5] * m[2] * m[11] - m[5] * m[3] * m[10] -
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:319:13: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  319 |             m[9] * m[2] * m[7] + m[9] * m[3] * m[6]
+      |             ^~~~~~~~~~~~~~~~~~
+      |             (                 )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:319:34: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  319 |             m[9] * m[2] * m[7] + m[9] * m[3] * m[6]
+      |                                  ^~~~~~~~~~~~~~~~~~
+      |                                  (                 )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:323:13: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  323 |             m[0] * m[6] * m[11] - m[0] * m[7] * m[10] -
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:323:35: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  323 |             m[0] * m[6] * m[11] - m[0] * m[7] * m[10] -
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:324:13: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  324 |             m[4] * m[2] * m[11] + m[4] * m[3] * m[10] +
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:324:35: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  324 |             m[4] * m[2] * m[11] + m[4] * m[3] * m[10] +
+      |                                   ^~~~~~~~~~~~~~~~~~~
+      |                                   (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:325:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  325 |             m[8] * m[2] * m[7] - m[8] * m[3] * m[6]
+      |             ^~~~~~~~~~~~~~~~~~
+      |             (                 )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:325:34: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  325 |             m[8] * m[2] * m[7] - m[8] * m[3] * m[6]
+      |                                  ^~~~~~~~~~~~~~~~~~
+      |                                  (                 )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:329:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  329 |             -m[0] * m[5] * m[11] + m[0] * m[7] * m[9] +
+      |             ^~~~~~~~~~~~~~~~~~~~
+      |             (                   )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:329:36: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  329 |             -m[0] * m[5] * m[11] + m[0] * m[7] * m[9] +
+      |                                    ^~~~~~~~~~~~~~~~~~
+      |                                    (                 )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:330:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  330 |             m[4] * m[1] * m[11] - m[4] * m[3] * m[9] -
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:330:35: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  330 |             m[4] * m[1] * m[11] - m[4] * m[3] * m[9] -
+      |                                   ^~~~~~~~~~~~~~~~~~
+      |                                   (                 )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:331:13: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  331 |             m[8] * m[1] * m[7] + m[8] * m[3] * m[5]
+      |             ^~~~~~~~~~~~~~~~~~
+      |             (                 )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:331:34: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  331 |             m[8] * m[1] * m[7] + m[8] * m[3] * m[5]
+      |                                  ^~~~~~~~~~~~~~~~~~
+      |                                  (                 )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:335:13: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  335 |             m[0] * m[5] * m[10] - m[0] * m[6] * m[9] -
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:335:35: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  335 |             m[0] * m[5] * m[10] - m[0] * m[6] * m[9] -
+      |                                   ^~~~~~~~~~~~~~~~~~
+      |                                   (                 )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:336:13: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  336 |             m[4] * m[1] * m[10] + m[4] * m[2] * m[9] +
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             (                  )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:336:35: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  336 |             m[4] * m[1] * m[10] + m[4] * m[2] * m[9] +
+      |                                   ^~~~~~~~~~~~~~~~~~
+      |                                   (                 )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:337:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  337 |             m[8] * m[1] * m[6] - m[8] * m[2] * m[5]
+      |             ^~~~~~~~~~~~~~~~~~
+      |             (                 )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:337:34: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  337 |             m[8] * m[1] * m[6] - m[8] * m[2] * m[5]
+      |                                  ^~~~~~~~~~~~~~~~~~
+      |                                  (                 )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:341:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  341 |             m[0] * inv[0] + m[1] * inv[4] + m[2] * inv[8] +
+      |             ^~~~~~~~~~~~~
+      |             (            )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:341:29: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  341 |             m[0] * inv[0] + m[1] * inv[4] + m[2] * inv[8] +
+      |                             ^~~~~~~~~~~~~
+      |                             (            )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:341:45: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  341 |             m[0] * inv[0] + m[1] * inv[4] + m[2] * inv[8] +
+      |                                             ^~~~~~~~~~~~~
+      |                                             (            )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:342:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  342 |             m[3] * inv[12];
+      |             ^~~~~~~~~~~~~~~
+      |             (             )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:448:21: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  448 |         return data[col * 4 + row];
+      |                     ^~~~~~~
+      |                     (      )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/mat4.cc:496:5: warning: function 'get_component_multiply_sum' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  495 |     float
+      |     static 
+  496 |     get_component_multiply_sum(const v4& lhs, const v4& rhs)
+      |     ^
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/numeric.h:68:20: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+   68 |         return f + (t - f) * scale;
+      |                    ^~~~~~~~~~~~~~~~
+      |                    (              )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:68:20: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+   68 |             return x * x + y * y + z * z;
+      |                    ^~~~~
+      |                    (    )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:68:28: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+   68 |             return x * x + y * y + z * z;
+      |                            ^~~~~
+      |                            (    )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:68:36: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+   68 |             return x * x + y * y + z * z;
+      |                                    ^~~~~~
+      |                                    (    )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:95:9: warning: 'eu::n3::operator-' shadows method with the same name in class 'v3' [bugprone-derived-method-shadowing-base-method]
+   95 |         constexpr n3 operator-() const
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:55:9: note: previous definition of 'operator-' is here
+   55 |         v3 operator-() const;
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:110:9: warning: constructor does not initialize these bases: v3 [cppcoreguidelines-pro-type-member-init]
+  110 |         constexpr n3(float a, float b, float c)
+      |         ^
+  111 |             : v3(a, b, c)
+      |               v3(),
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:117:9: warning: constructor does not initialize these bases: v3 [cppcoreguidelines-pro-type-member-init]
+  117 |         constexpr explicit n3(const v3& v)
+      |         ^
+  118 |             : v3(v)
+      |               v3(),
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+-->
+</body>
+</html>

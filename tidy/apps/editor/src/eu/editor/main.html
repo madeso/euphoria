@@ -1,0 +1,721 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>apps/editor/src/eu/editor/main.cc</title>
+</head>
+<body>
+<h1>apps/editor/src/eu/editor/main.cc</h1>
+<span id='misc-use-internal-linkage'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;label&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>apps/editor/src/eu/editor/main.cc 32 : 10</i></p>
+<pre>
+   32 |     void label(const char* label)
+      |          ^
+      |     static 
+</pre>
+<span id='misc-const-correctness'>&nbsp;</span>
+<hr>
+<h3>warning: variable &#39;fullWidth&#39; of type &#39;float&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>apps/editor/src/eu/editor/main.cc 35 : 9</i></p>
+<pre>
+   35 |         float fullWidth = ImGui::GetContentRegionAvail().x;
+      |         ^
+      |               const 
+</pre>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for local variable &#39;fullWidth&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>apps/editor/src/eu/editor/main.cc 35 : 15</i></p>
+<pre>
+   35 |         float fullWidth = ImGui::GetContentRegionAvail().x;
+      |               ^~~~~~~~~
+      |               full_width
+   36 |         float itemWidth = fullWidth * 0.6f;
+      |                           ~~~~~~~~~
+      |                           full_width
+   37 |         ImVec2 textSize = ImGui::CalcTextSize(label);
+   38 |         ImRect textRect;
+   39 |         textRect.Min = ImGui::GetCursorScreenPos();
+   40 |         textRect.Max = textRect.Min;
+   41 |         textRect.Max.x += fullWidth - itemWidth;
+      |                           ~~~~~~~~~
+      |                           full_width
+</pre>
+<hr>
+<h3>warning: variable &#39;itemWidth&#39; of type &#39;float&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>apps/editor/src/eu/editor/main.cc 36 : 9</i></p>
+<pre>
+   36 |         float itemWidth = fullWidth * 0.6f;
+      |         ^
+      |               const 
+</pre>
+<hr>
+<h3>warning: invalid case style for local variable &#39;itemWidth&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>apps/editor/src/eu/editor/main.cc 36 : 15</i></p>
+<pre>
+   36 |         float itemWidth = fullWidth * 0.6f;
+      |               ^~~~~~~~~
+      |               item_width
+   37 |         ImVec2 textSize = ImGui::CalcTextSize(label);
+   38 |         ImRect textRect;
+   39 |         textRect.Min = ImGui::GetCursorScreenPos();
+   40 |         textRect.Max = textRect.Min;
+   41 |         textRect.Max.x += fullWidth - itemWidth;
+      |                                       ~~~~~~~~~
+      |                                       item_width
+</pre>
+<hr>
+<h3>warning: variable &#39;textSize&#39; of type &#39;ImVec2&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>apps/editor/src/eu/editor/main.cc 37 : 9</i></p>
+<pre>
+   37 |         ImVec2 textSize = ImGui::CalcTextSize(label);
+      |         ^
+      |                const 
+</pre>
+<hr>
+<h3>warning: invalid case style for local variable &#39;textSize&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>apps/editor/src/eu/editor/main.cc 37 : 16</i></p>
+<pre>
+   37 |         ImVec2 textSize = ImGui::CalcTextSize(label);
+      |                ^~~~~~~~
+      |                text_size
+   38 |         ImRect textRect;
+   39 |         textRect.Min = ImGui::GetCursorScreenPos();
+   40 |         textRect.Max = textRect.Min;
+   41 |         textRect.Max.x += fullWidth - itemWidth;
+   42 |         textRect.Max.y += textSize.y;
+      |                           ~~~~~~~~
+      |                           text_size
+   43 | 
+   44 |         ImGui::AlignTextToFramePadding();
+   45 |         textRect.Min.y += window-&gt;DC.CurrLineTextBaseOffset;
+   46 |         textRect.Max.y += window-&gt;DC.CurrLineTextBaseOffset;
+   47 | 
+   48 |         ImGui::ItemSize(textRect);
+   49 |         if (ImGui::ItemAdd(textRect, window-&gt;GetID(label)))
+   50 |         {
+   51 |             const float ellipsis_max = 3.0f;
+   52 |             ImGui::RenderTextEllipsis(ImGui::GetWindowDrawList(), textRect.Min, textRect.Max, ellipsis_max, label, nullptr, &amp;textSize);
+      |                                                                                                                              ~~~~~~~~
+      |                                                                                                                              text_size
+</pre>
+<hr>
+<h3>warning: invalid case style for local variable &#39;textRect&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>apps/editor/src/eu/editor/main.cc 38 : 16</i></p>
+<pre>
+   38 |         ImRect textRect;
+      |                ^~~~~~~~
+      |                text_rect
+   39 |         textRect.Min = ImGui::GetCursorScreenPos();
+      |         ~~~~~~~~
+      |         text_rect
+   40 |         textRect.Max = textRect.Min;
+      |         ~~~~~~~~       ~~~~~~~~
+      |         text_rect      text_rect
+   41 |         textRect.Max.x += fullWidth - itemWidth;
+      |         ~~~~~~~~
+      |         text_rect
+   42 |         textRect.Max.y += textSize.y;
+      |         ~~~~~~~~
+      |         text_rect
+   43 | 
+   44 |         ImGui::AlignTextToFramePadding();
+   45 |         textRect.Min.y += window-&gt;DC.CurrLineTextBaseOffset;
+      |         ~~~~~~~~
+      |         text_rect
+   46 |         textRect.Max.y += window-&gt;DC.CurrLineTextBaseOffset;
+      |         ~~~~~~~~
+      |         text_rect
+   47 | 
+   48 |         ImGui::ItemSize(textRect);
+      |                         ~~~~~~~~
+      |                         text_rect
+   49 |         if (ImGui::ItemAdd(textRect, window-&gt;GetID(label)))
+      |                            ~~~~~~~~
+      |                            text_rect
+   50 |         {
+   51 |             const float ellipsis_max = 3.0f;
+   52 |             ImGui::RenderTextEllipsis(ImGui::GetWindowDrawList(), textRect.Min, textRect.Max, ellipsis_max, label, nullptr, &amp;textSize);
+      |                                                                   ~~~~~~~~      ~~~~~~~~
+      |                                                                   text_rect     text_rect
+</pre>
+<span id='google-readability-braces-around-statements'>&nbsp;</span>
+<span id='readability-braces-around-statements'>&nbsp;</span>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
+<p><i>apps/editor/src/eu/editor/main.cc 54 : 76</i></p>
+<pre>
+   54 |             if (textRect.GetWidth() &lt; textSize.x &amp;&amp; ImGui::IsItemHovered())
+      |                                                                            ^
+      |                                                                             {
+   55 |                 ImGui::SetTooltip(&quot;%s&quot;, label);
+      |                                                
+</pre>
+<hr>
+<h3>warning: function &#39;centered_button&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>apps/editor/src/eu/editor/main.cc 61 : 10</i></p>
+<pre>
+   61 |     bool centered_button(const char* label)
+      |          ^
+      |     static 
+</pre>
+<hr>
+<h3>warning: function &#39;chunk_from_embed&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>apps/editor/src/eu/editor/main.cc 73 : 17</i></p>
+<pre>
+   73 | eu::MemoryChunk chunk_from_embed(const embedded_binary&amp; binary)
+      |                 ^
+      | static 
+</pre>
+<span id='readability-use-concise-preprocessor-directives'>&nbsp;</span>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifdef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>apps/editor/src/eu/editor/main.cc 92 : 2</i></p>
+<pre>
+   92 | #if defined(__APPLE__)
+      |  ^~~~~~~~~~~~~~~~~~~~~
+      |  ifdef __APPLE__
+</pre>
+<span id='readability-implicit-bool-conversion'>&nbsp;</span>
+<hr>
+<h3>warning: implicit conversion &#39;SDL_Window *&#39; (aka &#39;struct SDL_Window *&#39;) -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/editor/src/eu/editor/main.cc 121 : 10</i></p>
+<pre>
+  121 |     if (!window) {
+      |         ~^     
+      |                 == nullptr
+</pre>
+<hr>
+<h3>warning: invalid case style for local pointer &#39;glContext&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>apps/editor/src/eu/editor/main.cc 126 : 11</i></p>
+<pre>
+  126 |     auto* glContext = SDL_GL_CreateContext(window);
+      |           ^~~~~~~~~
+      |           gl_context
+  127 |     SDL_GetWindowSize(window, &amp;window_width, &amp;window_height);
+  128 |     if (!glContext) {
+      |          ~~~~~~~~~
+      |          gl_context
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;struct SDL_GLContextState *&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/editor/src/eu/editor/main.cc 128 : 10</i></p>
+<pre>
+  128 |     if (!glContext) {
+      |         ~^        
+      |                    == nullptr
+</pre>
+<hr>
+<h3>warning: pointee of variable &#39;font&#39; of type &#39;ImFont *&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>apps/editor/src/eu/editor/main.cc 164 : 5</i></p>
+<pre>
+  164 |     ImFont* font = io.Fonts-&gt;AddFontFromMemoryTTF(
+      |     ^     
+      |            const
+</pre>
+<span id='cppcoreguidelines-pro-type-const-cast'>&nbsp;</span>
+<hr>
+<h3>warning: do not use const_cast to remove const qualifier</h3>
+<code>[cppcoreguidelines-pro-type-const-cast]</code>
+<p><i>apps/editor/src/eu/editor/main.cc 165 : 9</i></p>
+<pre>
+  165 |         const_cast&lt;void*&gt;(static_cast&lt;const void*&gt;(OPENSANS_REGULAR_TTF_data)),
+      |         ^
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;bool&#39; -&gt; &#39;int&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>apps/editor/src/eu/editor/main.cc 181 : 16</i></p>
+<pre>
+  181 |         while (SDL_PollEvent(&amp;e) != 0)
+      |                ^
+      |                static_cast&lt;int&gt;()
+</pre>
+<hr>
+<h3>warning: variable &#39;cmd&#39; of type &#39;eu::render:: RenderCommand&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>apps/editor/src/eu/editor/main.cc 226 : 13</i></p>
+<pre>
+  226 |             eu::render::RenderCommand cmd {.states = &amp;states, .render = &amp;render, .size = {.width = window_width, .height = window_height} };
+      |             ^
+      |                                       const 
+</pre>
+<hr>
+<h3>warning: invalid case style for global constant &#39;OPENSANS_REGULAR_TTF_size&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>build/apps/editor/OpenSans-Regular.ttf.h 7 : 27</i></p>
+<pre>
+    7 | static const unsigned int OPENSANS_REGULAR_TTF_size = 130832;
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |                           opensans_regular_ttf_size
+</pre>
+<hr>
+<h3>warning: invalid case style for global constant &#39;OPENSANS_REGULAR_TTF_data&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>build/apps/editor/OpenSans-Regular.ttf.h 8 : 27</i></p>
+<pre>
+    8 | static const unsigned int OPENSANS_REGULAR_TTF_data[130832/4] =
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |                           opensans_regular_ttf_data
+</pre>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;OPENSANS_REGULAR_TTF&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>build/apps/editor/OpenSans-Regular.ttf.h 2738 : 27</i></p>
+<pre>
+ 2738 | constexpr embedded_binary OPENSANS_REGULAR_TTF = embedded_binary{OPENSANS_REGULAR_TTF_data, OPENSANS_REGULAR_TTF_size};
+      |                           ^~~~~~~~~~~~~~~~~~~~
+      |                           opensans_regular_ttf
+</pre>
+<span id='modernize-use-nodiscard'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;is_valid&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/core/src/eu/core/image.h 27 : 5</i></p>
+<pre>
+   27 |     bool is_valid() const;
+      |     ^
+      |     [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;get_pixel&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/core/src/eu/core/image.h 53 : 5</i></p>
+<pre>
+   53 |     PixelColor get_pixel(int x, int y) const;
+      |     ^
+      |     [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;mouse_to_world&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/render/src/eu/render/canvas.h 99 : 5</i></p>
+<pre>
+   99 |     v2 mouse_to_world(const v2&amp; p) const;
+      |     ^
+      |     [[nodiscard]] 
+</pre>
+<span id='cppcoreguidelines-special-member-functions'>&nbsp;</span>
+<hr>
+<h3>warning: class &#39;RenderLayer2&#39; defines a destructor but does not define a copy constructor, a copy assignment operator, a move constructor or a move assignment operator</h3>
+<code>[cppcoreguidelines-special-member-functions]</code>
+<p><i>libs/render/src/eu/render/canvas.h 102 : 8</i></p>
+<pre>
+  102 | struct RenderLayer2 : Layer
+      |        ^
+</pre>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;MAX_TEXTURES_SUPPORTED&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/constants.h 7 : 23</i></p>
+<pre>
+    7 | constexpr std::size_t MAX_TEXTURES_SUPPORTED = 16;
+      |                       ^~~~~~~~~~~~~~~~~~~~~~
+      |                       max_textures_supported
+</pre>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;ALMOST_ZERO&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/constants.h 11 : 17</i></p>
+<pre>
+   11 | constexpr float ALMOST_ZERO = 0.01f;
+      |                 ^~~~~~~~~~~
+      |                 almost_zero
+   12 | /// if alpha goes above this limit, it is no longer considered transparent
+   13 | constexpr float ALPHA_TRANSPARENCY_LIMIT = 1.0f - ALMOST_ZERO;
+      |                                                   ~~~~~~~~~~~
+      |                                                   almost_zero
+</pre>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;ALPHA_TRANSPARENCY_LIMIT&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/constants.h 13 : 17</i></p>
+<pre>
+   13 | constexpr float ALPHA_TRANSPARENCY_LIMIT = 1.0f - ALMOST_ZERO;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                 alpha_transparency_limit
+</pre>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;OUTLINE_SCALE&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/constants.h 15 : 17</i></p>
+<pre>
+   15 | constexpr float OUTLINE_SCALE = 1.1f;
+      |                 ^~~~~~~~~~~~~
+      |                 outline_scale
+</pre>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;BLUR_SAMPLES&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/constants.h 17 : 15</i></p>
+<pre>
+   17 | constexpr int BLUR_SAMPLES = 10;
+      |               ^~~~~~~~~~~~
+      |               blur_samples
+</pre>
+<hr>
+<h3>warning: function &#39;get_line_height&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/render/src/eu/render/font.h 171 : 9</i></p>
+<pre>
+  171 |         constexpr float get_line_height() const
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Buffer&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 30 : 6</i></p>
+<pre>
+   30 |             Buffer,
+      |             ^~~~~~
+      |             buffer
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Shader&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 31 : 6</i></p>
+<pre>
+   31 |             Shader,
+      |             ^~~~~~
+      |             shader
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Program&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 32 : 6</i></p>
+<pre>
+   32 |             Program,
+      |             ^~~~~~~
+      |             program
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;VertexArray&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 33 : 6</i></p>
+<pre>
+   33 |             VertexArray,
+      |             ^~~~~~~~~~~
+      |             vertex_array
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Query&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 34 : 6</i></p>
+<pre>
+   34 |             Query,
+      |             ^~~~~
+      |             query
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;ProgramPipeline&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 35 : 6</i></p>
+<pre>
+   35 |             ProgramPipeline,
+      |             ^~~~~~~~~~~~~~~
+      |             program_pipeline
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Sampler&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 36 : 6</i></p>
+<pre>
+   36 |             Sampler,
+      |             ^~~~~~~
+      |             sampler
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Texture&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 37 : 6</i></p>
+<pre>
+   37 |             Texture,
+      |             ^~~~~~~
+      |             texture
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;RenderBuffer&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 38 : 6</i></p>
+<pre>
+   38 |             RenderBuffer,
+      |             ^~~~~~~~~~~~
+      |             render_buffer
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;FrameBuffer&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 39 : 6</i></p>
+<pre>
+   39 |             FrameBuffer
+      |             ^~~~~~~~~~~
+      |             frame_buffer
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/apps/editor/src/eu/editor/main.cc:32:10: warning: function 'label' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+   32 |     void label(const char* label)
+      |          ^
+      |     static 
+/home/runner/work/euphoria/euphoria/apps/editor/src/eu/editor/main.cc:35:9: warning: variable 'fullWidth' of type 'float' can be declared 'const' [misc-const-correctness]
+   35 |         float fullWidth = ImGui::GetContentRegionAvail().x;
+      |         ^
+      |               const 
+/home/runner/work/euphoria/euphoria/apps/editor/src/eu/editor/main.cc:35:15: warning: invalid case style for local variable 'fullWidth' [readability-identifier-naming]
+   35 |         float fullWidth = ImGui::GetContentRegionAvail().x;
+      |               ^~~~~~~~~
+      |               full_width
+   36 |         float itemWidth = fullWidth * 0.6f;
+      |                           ~~~~~~~~~
+      |                           full_width
+   37 |         ImVec2 textSize = ImGui::CalcTextSize(label);
+   38 |         ImRect textRect;
+   39 |         textRect.Min = ImGui::GetCursorScreenPos();
+   40 |         textRect.Max = textRect.Min;
+   41 |         textRect.Max.x += fullWidth - itemWidth;
+      |                           ~~~~~~~~~
+      |                           full_width
+/home/runner/work/euphoria/euphoria/apps/editor/src/eu/editor/main.cc:36:9: warning: variable 'itemWidth' of type 'float' can be declared 'const' [misc-const-correctness]
+   36 |         float itemWidth = fullWidth * 0.6f;
+      |         ^
+      |               const 
+/home/runner/work/euphoria/euphoria/apps/editor/src/eu/editor/main.cc:36:15: warning: invalid case style for local variable 'itemWidth' [readability-identifier-naming]
+   36 |         float itemWidth = fullWidth * 0.6f;
+      |               ^~~~~~~~~
+      |               item_width
+   37 |         ImVec2 textSize = ImGui::CalcTextSize(label);
+   38 |         ImRect textRect;
+   39 |         textRect.Min = ImGui::GetCursorScreenPos();
+   40 |         textRect.Max = textRect.Min;
+   41 |         textRect.Max.x += fullWidth - itemWidth;
+      |                                       ~~~~~~~~~
+      |                                       item_width
+/home/runner/work/euphoria/euphoria/apps/editor/src/eu/editor/main.cc:37:9: warning: variable 'textSize' of type 'ImVec2' can be declared 'const' [misc-const-correctness]
+   37 |         ImVec2 textSize = ImGui::CalcTextSize(label);
+      |         ^
+      |                const 
+/home/runner/work/euphoria/euphoria/apps/editor/src/eu/editor/main.cc:37:16: warning: invalid case style for local variable 'textSize' [readability-identifier-naming]
+   37 |         ImVec2 textSize = ImGui::CalcTextSize(label);
+      |                ^~~~~~~~
+      |                text_size
+   38 |         ImRect textRect;
+   39 |         textRect.Min = ImGui::GetCursorScreenPos();
+   40 |         textRect.Max = textRect.Min;
+   41 |         textRect.Max.x += fullWidth - itemWidth;
+   42 |         textRect.Max.y += textSize.y;
+      |                           ~~~~~~~~
+      |                           text_size
+   43 | 
+   44 |         ImGui::AlignTextToFramePadding();
+   45 |         textRect.Min.y += window->DC.CurrLineTextBaseOffset;
+   46 |         textRect.Max.y += window->DC.CurrLineTextBaseOffset;
+   47 | 
+   48 |         ImGui::ItemSize(textRect);
+   49 |         if (ImGui::ItemAdd(textRect, window->GetID(label)))
+   50 |         {
+   51 |             const float ellipsis_max = 3.0f;
+   52 |             ImGui::RenderTextEllipsis(ImGui::GetWindowDrawList(), textRect.Min, textRect.Max, ellipsis_max, label, nullptr, &textSize);
+      |                                                                                                                              ~~~~~~~~
+      |                                                                                                                              text_size
+/home/runner/work/euphoria/euphoria/apps/editor/src/eu/editor/main.cc:38:16: warning: invalid case style for local variable 'textRect' [readability-identifier-naming]
+   38 |         ImRect textRect;
+      |                ^~~~~~~~
+      |                text_rect
+   39 |         textRect.Min = ImGui::GetCursorScreenPos();
+      |         ~~~~~~~~
+      |         text_rect
+   40 |         textRect.Max = textRect.Min;
+      |         ~~~~~~~~       ~~~~~~~~
+      |         text_rect      text_rect
+   41 |         textRect.Max.x += fullWidth - itemWidth;
+      |         ~~~~~~~~
+      |         text_rect
+   42 |         textRect.Max.y += textSize.y;
+      |         ~~~~~~~~
+      |         text_rect
+   43 | 
+   44 |         ImGui::AlignTextToFramePadding();
+   45 |         textRect.Min.y += window->DC.CurrLineTextBaseOffset;
+      |         ~~~~~~~~
+      |         text_rect
+   46 |         textRect.Max.y += window->DC.CurrLineTextBaseOffset;
+      |         ~~~~~~~~
+      |         text_rect
+   47 | 
+   48 |         ImGui::ItemSize(textRect);
+      |                         ~~~~~~~~
+      |                         text_rect
+   49 |         if (ImGui::ItemAdd(textRect, window->GetID(label)))
+      |                            ~~~~~~~~
+      |                            text_rect
+   50 |         {
+   51 |             const float ellipsis_max = 3.0f;
+   52 |             ImGui::RenderTextEllipsis(ImGui::GetWindowDrawList(), textRect.Min, textRect.Max, ellipsis_max, label, nullptr, &textSize);
+      |                                                                   ~~~~~~~~      ~~~~~~~~
+      |                                                                   text_rect     text_rect
+/home/runner/work/euphoria/euphoria/apps/editor/src/eu/editor/main.cc:54:76: warning: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements]
+   54 |             if (textRect.GetWidth() < textSize.x && ImGui::IsItemHovered())
+      |                                                                            ^
+      |                                                                             {
+   55 |                 ImGui::SetTooltip("%s", label);
+      |                                                
+/home/runner/work/euphoria/euphoria/apps/editor/src/eu/editor/main.cc:61:10: warning: function 'centered_button' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+   61 |     bool centered_button(const char* label)
+      |          ^
+      |     static 
+/home/runner/work/euphoria/euphoria/apps/editor/src/eu/editor/main.cc:73:17: warning: function 'chunk_from_embed' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+   73 | eu::MemoryChunk chunk_from_embed(const embedded_binary& binary)
+      |                 ^
+      | static 
+/home/runner/work/euphoria/euphoria/apps/editor/src/eu/editor/main.cc:92:2: warning: preprocessor condition can be written more concisely using '#ifdef' [readability-use-concise-preprocessor-directives]
+   92 | #if defined(__APPLE__)
+      |  ^~~~~~~~~~~~~~~~~~~~~
+      |  ifdef __APPLE__
+/home/runner/work/euphoria/euphoria/apps/editor/src/eu/editor/main.cc:121:10: warning: implicit conversion 'SDL_Window *' (aka 'struct SDL_Window *') -> 'bool' [readability-implicit-bool-conversion]
+  121 |     if (!window) {
+      |         ~^     
+      |                 == nullptr
+/home/runner/work/euphoria/euphoria/apps/editor/src/eu/editor/main.cc:126:11: warning: invalid case style for local pointer 'glContext' [readability-identifier-naming]
+  126 |     auto* glContext = SDL_GL_CreateContext(window);
+      |           ^~~~~~~~~
+      |           gl_context
+  127 |     SDL_GetWindowSize(window, &window_width, &window_height);
+  128 |     if (!glContext) {
+      |          ~~~~~~~~~
+      |          gl_context
+/home/runner/work/euphoria/euphoria/apps/editor/src/eu/editor/main.cc:128:10: warning: implicit conversion 'struct SDL_GLContextState *' -> 'bool' [readability-implicit-bool-conversion]
+  128 |     if (!glContext) {
+      |         ~^        
+      |                    == nullptr
+/home/runner/work/euphoria/euphoria/apps/editor/src/eu/editor/main.cc:164:5: warning: pointee of variable 'font' of type 'ImFont *' can be declared 'const' [misc-const-correctness]
+  164 |     ImFont* font = io.Fonts->AddFontFromMemoryTTF(
+      |     ^     
+      |            const
+/home/runner/work/euphoria/euphoria/apps/editor/src/eu/editor/main.cc:165:9: warning: do not use const_cast to remove const qualifier [cppcoreguidelines-pro-type-const-cast]
+  165 |         const_cast<void*>(static_cast<const void*>(OPENSANS_REGULAR_TTF_data)),
+      |         ^
+/home/runner/work/euphoria/euphoria/apps/editor/src/eu/editor/main.cc:181:16: warning: implicit conversion 'bool' -> 'int' [readability-implicit-bool-conversion]
+  181 |         while (SDL_PollEvent(&e) != 0)
+      |                ^
+      |                static_cast<int>()
+/home/runner/work/euphoria/euphoria/apps/editor/src/eu/editor/main.cc:226:13: warning: variable 'cmd' of type 'eu::render::RenderCommand' can be declared 'const' [misc-const-correctness]
+  226 |             eu::render::RenderCommand cmd {.states = &states, .render = &render, .size = {.width = window_width, .height = window_height} };
+      |             ^
+      |                                       const 
+/home/runner/work/euphoria/euphoria/build/apps/editor/OpenSans-Regular.ttf.h:7:27: warning: invalid case style for global constant 'OPENSANS_REGULAR_TTF_size' [readability-identifier-naming]
+    7 | static const unsigned int OPENSANS_REGULAR_TTF_size = 130832;
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |                           opensans_regular_ttf_size
+/home/runner/work/euphoria/euphoria/build/apps/editor/OpenSans-Regular.ttf.h:8:27: warning: invalid case style for global constant 'OPENSANS_REGULAR_TTF_data' [readability-identifier-naming]
+    8 | static const unsigned int OPENSANS_REGULAR_TTF_data[130832/4] =
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |                           opensans_regular_ttf_data
+/home/runner/work/euphoria/euphoria/build/apps/editor/OpenSans-Regular.ttf.h:2738:27: warning: invalid case style for constexpr variable 'OPENSANS_REGULAR_TTF' [readability-identifier-naming]
+ 2738 | constexpr embedded_binary OPENSANS_REGULAR_TTF = embedded_binary{OPENSANS_REGULAR_TTF_data, OPENSANS_REGULAR_TTF_size};
+      |                           ^~~~~~~~~~~~~~~~~~~~
+      |                           opensans_regular_ttf
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.h:27:5: warning: function 'is_valid' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   27 |     bool is_valid() const;
+      |     ^
+      |     [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.h:53:5: warning: function 'get_pixel' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   53 |     PixelColor get_pixel(int x, int y) const;
+      |     ^
+      |     [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/canvas.h:99:5: warning: function 'mouse_to_world' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   99 |     v2 mouse_to_world(const v2& p) const;
+      |     ^
+      |     [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/canvas.h:102:8: warning: class 'RenderLayer2' defines a destructor but does not define a copy constructor, a copy assignment operator, a move constructor or a move assignment operator [cppcoreguidelines-special-member-functions]
+  102 | struct RenderLayer2 : Layer
+      |        ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/constants.h:7:23: warning: invalid case style for constexpr variable 'MAX_TEXTURES_SUPPORTED' [readability-identifier-naming]
+    7 | constexpr std::size_t MAX_TEXTURES_SUPPORTED = 16;
+      |                       ^~~~~~~~~~~~~~~~~~~~~~
+      |                       max_textures_supported
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/constants.h:11:17: warning: invalid case style for constexpr variable 'ALMOST_ZERO' [readability-identifier-naming]
+   11 | constexpr float ALMOST_ZERO = 0.01f;
+      |                 ^~~~~~~~~~~
+      |                 almost_zero
+   12 | /// if alpha goes above this limit, it is no longer considered transparent
+   13 | constexpr float ALPHA_TRANSPARENCY_LIMIT = 1.0f - ALMOST_ZERO;
+      |                                                   ~~~~~~~~~~~
+      |                                                   almost_zero
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/constants.h:13:17: warning: invalid case style for constexpr variable 'ALPHA_TRANSPARENCY_LIMIT' [readability-identifier-naming]
+   13 | constexpr float ALPHA_TRANSPARENCY_LIMIT = 1.0f - ALMOST_ZERO;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                 alpha_transparency_limit
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/constants.h:15:17: warning: invalid case style for constexpr variable 'OUTLINE_SCALE' [readability-identifier-naming]
+   15 | constexpr float OUTLINE_SCALE = 1.1f;
+      |                 ^~~~~~~~~~~~~
+      |                 outline_scale
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/constants.h:17:15: warning: invalid case style for constexpr variable 'BLUR_SAMPLES' [readability-identifier-naming]
+   17 | constexpr int BLUR_SAMPLES = 10;
+      |               ^~~~~~~~~~~~
+      |               blur_samples
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.h:171:9: warning: function 'get_line_height' should be marked [[nodiscard]] [modernize-use-nodiscard]
+  171 |         constexpr float get_line_height() const
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:30:6: warning: invalid case style for scoped enum constant 'Buffer' [readability-identifier-naming]
+   30 |             Buffer,
+      |             ^~~~~~
+      |             buffer
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:31:6: warning: invalid case style for scoped enum constant 'Shader' [readability-identifier-naming]
+   31 |             Shader,
+      |             ^~~~~~
+      |             shader
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:32:6: warning: invalid case style for scoped enum constant 'Program' [readability-identifier-naming]
+   32 |             Program,
+      |             ^~~~~~~
+      |             program
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:33:6: warning: invalid case style for scoped enum constant 'VertexArray' [readability-identifier-naming]
+   33 |             VertexArray,
+      |             ^~~~~~~~~~~
+      |             vertex_array
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:34:6: warning: invalid case style for scoped enum constant 'Query' [readability-identifier-naming]
+   34 |             Query,
+      |             ^~~~~
+      |             query
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:35:6: warning: invalid case style for scoped enum constant 'ProgramPipeline' [readability-identifier-naming]
+   35 |             ProgramPipeline,
+      |             ^~~~~~~~~~~~~~~
+      |             program_pipeline
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:36:6: warning: invalid case style for scoped enum constant 'Sampler' [readability-identifier-naming]
+   36 |             Sampler,
+      |             ^~~~~~~
+      |             sampler
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:37:6: warning: invalid case style for scoped enum constant 'Texture' [readability-identifier-naming]
+   37 |             Texture,
+      |             ^~~~~~~
+      |             texture
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:38:6: warning: invalid case style for scoped enum constant 'RenderBuffer' [readability-identifier-naming]
+   38 |             RenderBuffer,
+      |             ^~~~~~~~~~~~
+      |             render_buffer
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:39:6: warning: invalid case style for scoped enum constant 'FrameBuffer' [readability-identifier-naming]
+   39 |             FrameBuffer
+      |             ^~~~~~~~~~~
+      |             frame_buffer
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+-->
+</body>
+</html>

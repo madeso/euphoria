@@ -1,0 +1,222 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/core/src/eu/core/vertex_layout.cc</title>
+</head>
+<body>
+<h1>libs/core/src/eu/core/vertex_layout.cc</h1>
+<span id='misc-use-internal-linkage'>&nbsp;</span>
+<hr>
+<h3>warning: struct &#39;VertexTypeList&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/core/src/eu/core/vertex_layout.cc 28 : 8</i></p>
+<pre>
+   28 | struct VertexTypeList
+      |        ^
+</pre>
+<span id='modernize-use-designated-initializers'>&nbsp;</span>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;value_type&#39; (aka &#39;eu::core:: CompiledVertexElement&#39;)</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/vertex_layout.cc 62 : 19</i></p>
+<pre>
+   62 |                         list.push_back({e.type, e.name, found-&gt;second});
+      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                         .type=  .name=  .index=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/vertex_layout.h 55 : 1</i></p>
+<pre>
+   55 | struct CompiledVertexElement
+      | ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;value_type&#39; (aka &#39;eu::core:: CompiledVertexElement&#39;)</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/vertex_layout.cc 70 : 18</i></p>
+<pre>
+   70 |                 list.push_back({instance_prop-&gt;type, instance_prop-&gt;name, start_index.value_or(l.next_index)});
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                 .type=               .name=               .index=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/vertex_layout.h 55 : 1</i></p>
+<pre>
+   55 | struct CompiledVertexElement
+      | ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;CompiledShaderVertexAttributes&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/vertex_layout.cc 73 : 9</i></p>
+<pre>
+   73 |         return {list, l.debug_types};
+      |                ^~~~~~~~~~~~~~~~~~~~~
+      |                 .elements= .debug_types=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/vertex_layout.h 72 : 1</i></p>
+<pre>
+   72 | struct CompiledShaderVertexAttributes
+      | ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;value_type&#39; (aka &#39;eu::core:: CompiledVertexElementNoName&#39;)</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/vertex_layout.cc 84 : 18</i></p>
+<pre>
+   84 |                 list.push_back({first, second});
+      |                                ^~~~~~~~~~~~~~~
+      |                                 .type= .index=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/vertex_layout.h 63 : 1</i></p>
+<pre>
+   63 | struct CompiledVertexElementNoName
+      | ^
+</pre>
+<span id='modernize-use-ranges'>&nbsp;</span>
+<hr>
+<h3>warning: use a ranges version of this algorithm</h3>
+<code>[modernize-use-ranges]</code>
+<p><i>libs/core/src/eu/core/vertex_layout.cc 87 : 2</i></p>
+<pre>
+   87 |         std::sort(
+      |         ^~~~~~~~~
+      |         std::ranges::sort
+   88 |                 list.begin(),
+      |                 ~~~~~~~~~~~~
+      |                 list
+   89 |                 list.end(),
+      |                 ~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;CompiledGeomVertexAttributes&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/vertex_layout.cc 96 : 9</i></p>
+<pre>
+   96 |         return {list, l.debug_types};
+      |                ^~~~~~~~~~~~~~~~~~~~~
+      |                 .elements= .debug_types=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/vertex_layout.h 79 : 1</i></p>
+<pre>
+   79 | struct CompiledGeomVertexAttributes
+      | ^
+</pre>
+<hr>
+<h3>warning: function &#39;calculate_shader_attribute_size&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/core/src/eu/core/vertex_layout.cc 99 : 5</i></p>
+<pre>
+   99 | int calculate_shader_attribute_size(const VertexType&amp;)
+      |     ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;compile_vertex_type_list&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/core/src/eu/core/vertex_layout.cc 104 : 24</i></p>
+<pre>
+  104 | CompiledVertexTypeList compile_vertex_type_list(const VertexTypeList&amp; list)
+      |                        ^
+      | static 
+</pre>
+<span id='readability-container-contains'>&nbsp;</span>
+<hr>
+<h3>warning: use &#39;contains&#39; to check for membership</h3>
+<code>[readability-container-contains]</code>
+<p><i>libs/core/src/eu/core/vertex_layout.cc 119 : 15</i></p>
+<pre>
+  119 |                 if (indices.find(type) != indices.end())
+      |                             ^~~~ ~~~~~~~~~~~~~~~~~~~~~~
+      |                             contains type)
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;CompiledVertexTypeList&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/vertex_layout.cc 128 : 9</i></p>
+<pre>
+  128 |         return {indices, {list.indices.begin(), list.indices.end()}, next_index};
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                 .indices=.debug_types=                               .next_index=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/vertex_layout.h 86 : 1</i></p>
+<pre>
+   86 | struct CompiledVertexTypeList
+      | ^
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/vertex_layout.cc:28:8: warning: struct 'VertexTypeList' can be moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+   28 | struct VertexTypeList
+      |        ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/vertex_layout.cc:62:19: warning: use designated initializer list to initialize 'value_type' (aka 'eu::core::CompiledVertexElement') [modernize-use-designated-initializers]
+   62 |                         list.push_back({e.type, e.name, found->second});
+      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                         .type=  .name=  .index=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/vertex_layout.h:55:1: note: aggregate type is defined here
+   55 | struct CompiledVertexElement
+      | ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/vertex_layout.cc:70:18: warning: use designated initializer list to initialize 'value_type' (aka 'eu::core::CompiledVertexElement') [modernize-use-designated-initializers]
+   70 |                 list.push_back({instance_prop->type, instance_prop->name, start_index.value_or(l.next_index)});
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                 .type=               .name=               .index=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/vertex_layout.h:55:1: note: aggregate type is defined here
+   55 | struct CompiledVertexElement
+      | ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/vertex_layout.cc:73:9: warning: use designated initializer list to initialize 'CompiledShaderVertexAttributes' [modernize-use-designated-initializers]
+   73 |         return {list, l.debug_types};
+      |                ^~~~~~~~~~~~~~~~~~~~~
+      |                 .elements= .debug_types=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/vertex_layout.h:72:1: note: aggregate type is defined here
+   72 | struct CompiledShaderVertexAttributes
+      | ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/vertex_layout.cc:84:18: warning: use designated initializer list to initialize 'value_type' (aka 'eu::core::CompiledVertexElementNoName') [modernize-use-designated-initializers]
+   84 |                 list.push_back({first, second});
+      |                                ^~~~~~~~~~~~~~~
+      |                                 .type= .index=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/vertex_layout.h:63:1: note: aggregate type is defined here
+   63 | struct CompiledVertexElementNoName
+      | ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/vertex_layout.cc:87:2: warning: use a ranges version of this algorithm [modernize-use-ranges]
+   87 |         std::sort(
+      |         ^~~~~~~~~
+      |         std::ranges::sort
+   88 |                 list.begin(),
+      |                 ~~~~~~~~~~~~
+      |                 list
+   89 |                 list.end(),
+      |                 ~~~~~~~~~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/vertex_layout.cc:96:9: warning: use designated initializer list to initialize 'CompiledGeomVertexAttributes' [modernize-use-designated-initializers]
+   96 |         return {list, l.debug_types};
+      |                ^~~~~~~~~~~~~~~~~~~~~
+      |                 .elements= .debug_types=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/vertex_layout.h:79:1: note: aggregate type is defined here
+   79 | struct CompiledGeomVertexAttributes
+      | ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/vertex_layout.cc:99:5: warning: function 'calculate_shader_attribute_size' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+   99 | int calculate_shader_attribute_size(const VertexType&)
+      |     ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/vertex_layout.cc:104:24: warning: function 'compile_vertex_type_list' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  104 | CompiledVertexTypeList compile_vertex_type_list(const VertexTypeList& list)
+      |                        ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/vertex_layout.cc:119:15: warning: use 'contains' to check for membership [readability-container-contains]
+  119 |                 if (indices.find(type) != indices.end())
+      |                             ^~~~ ~~~~~~~~~~~~~~~~~~~~~~
+      |                             contains type)
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/vertex_layout.cc:128:9: warning: use designated initializer list to initialize 'CompiledVertexTypeList' [modernize-use-designated-initializers]
+  128 |         return {indices, {list.indices.begin(), list.indices.end()}, next_index};
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                 .indices=.debug_types=                               .next_index=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/vertex_layout.h:86:1: note: aggregate type is defined here
+   86 | struct CompiledVertexTypeList
+      | ^
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+-->
+</body>
+</html>

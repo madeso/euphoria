@@ -1,0 +1,1139 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/core/src/eu/core/geom.builder.cc</title>
+</head>
+<body>
+<h1>libs/core/src/eu/core/geom.builder.cc</h1>
+<span id='misc-use-internal-linkage'>&nbsp;</span>
+<hr>
+<h3>warning: struct &#39;Combo&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 15 : 8</i></p>
+<pre>
+   15 | struct Combo
+      |        ^
+</pre>
+<hr>
+<h3>warning: function &#39;operator==&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 31 : 6</i></p>
+<pre>
+   31 | bool operator==(const Combo&amp; lhs, const Combo&amp; rhs)
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;from_to&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 232 : 4</i></p>
+<pre>
+  232 | v3 from_to(const v3&amp; f, const v3&amp; t)
+      |    ^
+      | static 
+</pre>
+<span id='cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'>&nbsp;</span>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 272 : 28</i></p>
+<pre>
+  272 |                         const v3 pos = positions[c.position];
+      |                                                 ^~~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 273 : 60</i></p>
+<pre>
+  273 |                         const v2 text = texcoords.empty() ? v2(0, 0) : texcoords[c.texture];
+      |                                                                                 ^~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 274 : 106</i></p>
+<pre>
+  274 |                         const v3 col = lin_colors.empty() ? v3{missing_color.r, missing_color.g, missing_color.b} : lin_colors[c.color];
+      |                                                                                                                               ^~~~~~~~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 275 : 56</i></p>
+<pre>
+  275 |                         const n3 normal = normals.empty() == false ? normals[c.normal] : kk::up;
+      |                                                                             ^~~~~~~~~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 285 : 40</i></p>
+<pre>
+  285 |                 const auto v0 = convert_vert(src_face[0]);
+      |                                                      ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 295 : 41</i></p>
+<pre>
+  295 |                         const auto v1 = convert_vert(src_face[triangle_base]);
+      |                                                              ^~~~~~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 296 : 41</i></p>
+<pre>
+  296 |                         const auto v2 = convert_vert(src_face[triangle_base+1]);
+      |                                                              ^~~~~~~~~~~~~~~~~
+</pre>
+<span id='modernize-use-designated-initializers'>&nbsp;</span>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Face&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 299 : 32</i></p>
+<pre>
+  299 |                         final_tris.emplace_back(Face{v0, v1, v2});
+      |                                                     ^~~~~~~~~~~~
+      |                                                      .a= .b= .c=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.h 21 : 1</i></p>
+<pre>
+   21 | struct Face
+      | ^
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 375 : 42</i></p>
+<pre>
+  375 |                 const auto v0 = Vertex{b.foa_position(p[0].pos, pd), no, b.foa_text_coord(p[0].tex, td), ci};
+      |                                                        ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 375 : 78</i></p>
+<pre>
+  375 |                 const auto v0 = Vertex{b.foa_position(p[0].pos, pd), no, b.foa_text_coord(p[0].tex, td), ci};
+      |                                                                                            ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 376 : 42</i></p>
+<pre>
+  376 |                 const auto v1 = Vertex{b.foa_position(p[1].pos, pd), no, b.foa_text_coord(p[1].tex, td), ci};
+      |                                                        ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 376 : 78</i></p>
+<pre>
+  376 |                 const auto v1 = Vertex{b.foa_position(p[1].pos, pd), no, b.foa_text_coord(p[1].tex, td), ci};
+      |                                                                                            ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 377 : 42</i></p>
+<pre>
+  377 |                 const auto v2 = Vertex{b.foa_position(p[2].pos, pd), no, b.foa_text_coord(p[2].tex, td), ci};
+      |                                                        ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 377 : 78</i></p>
+<pre>
+  377 |                 const auto v2 = Vertex{b.foa_position(p[2].pos, pd), no, b.foa_text_coord(p[2].tex, td), ci};
+      |                                                                                            ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 378 : 42</i></p>
+<pre>
+  378 |                 const auto v3 = Vertex{b.foa_position(p[3].pos, pd), no, b.foa_text_coord(p[3].tex, td), ci};
+      |                                                        ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 378 : 78</i></p>
+<pre>
+  378 |                 const auto v3 = Vertex{b.foa_position(p[3].pos, pd), no, b.foa_text_coord(p[3].tex, td), ci};
+      |                                                                                            ^~~
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 402 : 6</i></p>
+<pre>
+  402 |                         Pt{{-hx, -hy, -hz}, {0.0f, 0.0f}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=            .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 403 : 6</i></p>
+<pre>
+  403 |                         Pt{{hx, -hy, -hz}, {x * ts, 0.0f}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=           .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 404 : 6</i></p>
+<pre>
+  404 |                         Pt{{hx, hy, -hz}, {x * ts, y * ts}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=          .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 405 : 6</i></p>
+<pre>
+  405 |                         Pt{{-hx, hy, -hz}, {0.0f, y * ts}}
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=           .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 412 : 6</i></p>
+<pre>
+  412 |                         Pt{{-hx, -hy, hz}, {0.0f, 0.0f}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=           .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 413 : 6</i></p>
+<pre>
+  413 |                         Pt{{-hx, hy, hz}, {0.0f, y * ts}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=          .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 414 : 6</i></p>
+<pre>
+  414 |                         Pt{{hx, hy, hz}, {x * ts, y * ts}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=         .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 415 : 6</i></p>
+<pre>
+  415 |                         Pt{{hx, -hy, hz}, {x * ts, 0.0f}}
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=          .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 422 : 6</i></p>
+<pre>
+  422 |                         Pt{{-hx, hy, -hz}, {y * ts, 0.0f}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=           .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 423 : 6</i></p>
+<pre>
+  423 |                         Pt{{-hx, hy, hz}, {y * ts, z * ts}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=          .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 424 : 6</i></p>
+<pre>
+  424 |                         Pt{{-hx, -hy, hz}, {0.0f, z * ts}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=           .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 425 : 6</i></p>
+<pre>
+  425 |                         Pt{{-hx, -hy, -hz}, {0.0f, 0.0f}}
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=            .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 432 : 6</i></p>
+<pre>
+  432 |                         Pt{{hx, hy, hz}, {z * ts, y * ts}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=         .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 433 : 6</i></p>
+<pre>
+  433 |                         Pt{{hx, hy, -hz}, {0.0f, y * ts}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=          .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 434 : 6</i></p>
+<pre>
+  434 |                         Pt{{hx, -hy, -hz}, {0.0f, 0.0f}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=           .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 435 : 6</i></p>
+<pre>
+  435 |                         Pt{{hx, -hy, hz}, {z * ts, 0.0f}}
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=          .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 442 : 6</i></p>
+<pre>
+  442 |                         Pt{{-hx, -hy, -hz}, {0.0f, 0.0f}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=            .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 443 : 6</i></p>
+<pre>
+  443 |                         Pt{{-hx, -hy, hz}, {0.0f, z * ts}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=           .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 444 : 6</i></p>
+<pre>
+  444 |                         Pt{{hx, -hy, hz}, {x * ts, z * ts}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=          .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 445 : 6</i></p>
+<pre>
+  445 |                         Pt{{hx, -hy, -hz}, {x * ts, 0.0f}}
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=           .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 452 : 6</i></p>
+<pre>
+  452 |                         Pt{{-hx, hy, -hz}, {0.0f, 0.0f}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=           .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 453 : 6</i></p>
+<pre>
+  453 |                         Pt{{hx, hy, -hz}, {x * ts, 0.0f}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=          .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 454 : 6</i></p>
+<pre>
+  454 |                         Pt{{hx, hy, hz}, {x * ts, z * ts}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=         .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 455 : 6</i></p>
+<pre>
+  455 |                         Pt{{-hx, hy, hz}, {0.0f, z * ts}}
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=          .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 476 : 6</i></p>
+<pre>
+  476 |                         Pt{{-hx, 0.0f, -hz}, {0.0f, 0.0f}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=             .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 477 : 6</i></p>
+<pre>
+  477 |                         Pt{{hx, 0.0f, -hz}, {x * ts, 0.0f}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=            .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 478 : 6</i></p>
+<pre>
+  478 |                         Pt{{hx, 0.0f, hz}, {x * ts, z * ts}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=           .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 479 : 6</i></p>
+<pre>
+  479 |                         Pt{{-hx, 0.0f, hz}, {0.0f, z * ts}}
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=            .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 506 : 6</i></p>
+<pre>
+  506 |                         Pt{{-hx, -hy, hz}, {0.0f, 0.0f}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=           .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 507 : 6</i></p>
+<pre>
+  507 |                         Pt{{hx, -hy, hz}, {ts, 0.0f}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=          .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 508 : 6</i></p>
+<pre>
+  508 |                         Pt{{hx, hy, hz}, {ts, ts}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=         .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 509 : 6</i></p>
+<pre>
+  509 |                         Pt{{-hx, hy, hz}, {0.0f, ts}}
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=          .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 518 : 7</i></p>
+<pre>
+  518 |                                 Pt{{-hx, -hy, hz}, {0.0f, 0.0f}},
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                    .pos=           .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 519 : 7</i></p>
+<pre>
+  519 |                                 Pt{{-hx, hy, hz}, {0.0f, ts}},
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                    .pos=          .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 520 : 7</i></p>
+<pre>
+  520 |                                 Pt{{hx, hy, hz}, {ts, ts}},
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                                    .pos=         .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 521 : 7</i></p>
+<pre>
+  521 |                                 Pt{{hx, -hy, hz}, {ts, 0.0f}}
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                    .pos=          .tex=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/geom.builder.cc 362 : 2</i></p>
+<pre>
+  362 |         struct Pt
+      |         ^
+</pre>
+<span id='readability-math-missing-parentheses'>&nbsp;</span>
+<hr>
+<h3>warning: &#39;/&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 550 : 26</i></p>
+<pre>
+  550 |                 const auto lat_angle = pi / 2 - float_from_int(latitude_index) * delta_lat;
+      |                                        ^~~~~~
+      |                                        (     )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 550 : 35</i></p>
+<pre>
+  550 |                 const auto lat_angle = pi / 2 - float_from_int(latitude_index) * delta_lat;
+      |                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                 (                                         )
+</pre>
+<span id='modernize-use-integer-sign-comparison'>&nbsp;</span>
+<hr>
+<h3>warning: comparison between &#39;signed&#39; and &#39;unsigned&#39; integers</h3>
+<code>[modernize-use-integer-sign-comparison]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 578 : 33</i></p>
+<pre>
+   11 |         for (Index latitude_index = 0; latitude_index &lt; static_cast&lt;Index&gt;(latitude_count); ++latitude_index)
+      |                                        ^              ~~~~~~~~~~~~~~~~~~~~~              ~
+      |                                        std::cmp_less( ,                                  )
+</pre>
+<hr>
+<h3>warning: comparison between &#39;signed&#39; and &#39;unsigned&#39; integers</h3>
+<code>[modernize-use-integer-sign-comparison]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 580 : 35</i></p>
+<pre>
+  580 |                 for (Index longitude_index = 0; longitude_index &lt; static_cast&lt;Index&gt;(longitude_count); ++longitude_index)
+      |                                                 ^               ~~~~~~~~~~~~~~~~~~~~~               ~
+      |                                                 std::cmp_less(  ,                                   )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 582 : 20</i></p>
+<pre>
+  582 |                         const auto k1 = latitude_index * (static_cast&lt;Index&gt;(longitude_count) + 1) + longitude_index;
+      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                         (                                                         )
+</pre>
+<hr>
+<h3>warning: comparison between &#39;signed&#39; and &#39;unsigned&#39; integers</h3>
+<code>[modernize-use-integer-sign-comparison]</code>
+<p><i>libs/core/src/eu/core/geom.builder.cc 602 : 8</i></p>
+<pre>
+  602 |                         if (latitude_index != static_cast&lt;Index&gt;(latitude_count - 1))
+      |                             ^              ~~~~~~~~~~~~~~~~~~~~~~                  ~
+      |                             std::cmp_not_equal( ,                                  )
+</pre>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;In&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/core/src/eu/core/geom.builder.h 31 : 2</i></p>
+<pre>
+   31 |         In,
+      |         ^~
+      |         in
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Out&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/core/src/eu/core/geom.builder.h 32 : 2</i></p>
+<pre>
+   32 |         Out
+      |         ^~~
+      |         out
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:15:8: warning: struct 'Combo' can be moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+   15 | struct Combo
+      |        ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:31:6: warning: function 'operator==' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+   31 | bool operator==(const Combo& lhs, const Combo& rhs)
+      |      ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:232:4: warning: function 'from_to' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  232 | v3 from_to(const v3& f, const v3& t)
+      |    ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:272:28: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+  272 |                         const v3 pos = positions[c.position];
+      |                                                 ^~~~~~~~~~~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:273:60: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+  273 |                         const v2 text = texcoords.empty() ? v2(0, 0) : texcoords[c.texture];
+      |                                                                                 ^~~~~~~~~~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:274:106: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+  274 |                         const v3 col = lin_colors.empty() ? v3{missing_color.r, missing_color.g, missing_color.b} : lin_colors[c.color];
+      |                                                                                                                               ^~~~~~~~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:275:56: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+  275 |                         const n3 normal = normals.empty() == false ? normals[c.normal] : kk::up;
+      |                                                                             ^~~~~~~~~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:285:40: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+  285 |                 const auto v0 = convert_vert(src_face[0]);
+      |                                                      ^~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:295:41: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+  295 |                         const auto v1 = convert_vert(src_face[triangle_base]);
+      |                                                              ^~~~~~~~~~~~~~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:296:41: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+  296 |                         const auto v2 = convert_vert(src_face[triangle_base+1]);
+      |                                                              ^~~~~~~~~~~~~~~~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:299:32: warning: use designated initializer list to initialize 'Face' [modernize-use-designated-initializers]
+  299 |                         final_tris.emplace_back(Face{v0, v1, v2});
+      |                                                     ^~~~~~~~~~~~
+      |                                                      .a= .b= .c=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.h:21:1: note: aggregate type is defined here
+   21 | struct Face
+      | ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:375:42: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+  375 |                 const auto v0 = Vertex{b.foa_position(p[0].pos, pd), no, b.foa_text_coord(p[0].tex, td), ci};
+      |                                                        ^~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:375:78: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+  375 |                 const auto v0 = Vertex{b.foa_position(p[0].pos, pd), no, b.foa_text_coord(p[0].tex, td), ci};
+      |                                                                                            ^~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:376:42: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+  376 |                 const auto v1 = Vertex{b.foa_position(p[1].pos, pd), no, b.foa_text_coord(p[1].tex, td), ci};
+      |                                                        ^~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:376:78: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+  376 |                 const auto v1 = Vertex{b.foa_position(p[1].pos, pd), no, b.foa_text_coord(p[1].tex, td), ci};
+      |                                                                                            ^~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:377:42: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+  377 |                 const auto v2 = Vertex{b.foa_position(p[2].pos, pd), no, b.foa_text_coord(p[2].tex, td), ci};
+      |                                                        ^~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:377:78: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+  377 |                 const auto v2 = Vertex{b.foa_position(p[2].pos, pd), no, b.foa_text_coord(p[2].tex, td), ci};
+      |                                                                                            ^~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:378:42: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+  378 |                 const auto v3 = Vertex{b.foa_position(p[3].pos, pd), no, b.foa_text_coord(p[3].tex, td), ci};
+      |                                                        ^~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:378:78: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+  378 |                 const auto v3 = Vertex{b.foa_position(p[3].pos, pd), no, b.foa_text_coord(p[3].tex, td), ci};
+      |                                                                                            ^~~
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:402:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  402 |                         Pt{{-hx, -hy, -hz}, {0.0f, 0.0f}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=            .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:403:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  403 |                         Pt{{hx, -hy, -hz}, {x * ts, 0.0f}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=           .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:404:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  404 |                         Pt{{hx, hy, -hz}, {x * ts, y * ts}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=          .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:405:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  405 |                         Pt{{-hx, hy, -hz}, {0.0f, y * ts}}
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=           .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:412:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  412 |                         Pt{{-hx, -hy, hz}, {0.0f, 0.0f}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=           .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:413:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  413 |                         Pt{{-hx, hy, hz}, {0.0f, y * ts}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=          .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:414:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  414 |                         Pt{{hx, hy, hz}, {x * ts, y * ts}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=         .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:415:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  415 |                         Pt{{hx, -hy, hz}, {x * ts, 0.0f}}
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=          .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:422:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  422 |                         Pt{{-hx, hy, -hz}, {y * ts, 0.0f}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=           .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:423:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  423 |                         Pt{{-hx, hy, hz}, {y * ts, z * ts}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=          .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:424:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  424 |                         Pt{{-hx, -hy, hz}, {0.0f, z * ts}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=           .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:425:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  425 |                         Pt{{-hx, -hy, -hz}, {0.0f, 0.0f}}
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=            .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:432:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  432 |                         Pt{{hx, hy, hz}, {z * ts, y * ts}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=         .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:433:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  433 |                         Pt{{hx, hy, -hz}, {0.0f, y * ts}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=          .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:434:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  434 |                         Pt{{hx, -hy, -hz}, {0.0f, 0.0f}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=           .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:435:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  435 |                         Pt{{hx, -hy, hz}, {z * ts, 0.0f}}
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=          .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:442:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  442 |                         Pt{{-hx, -hy, -hz}, {0.0f, 0.0f}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=            .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:443:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  443 |                         Pt{{-hx, -hy, hz}, {0.0f, z * ts}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=           .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:444:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  444 |                         Pt{{hx, -hy, hz}, {x * ts, z * ts}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=          .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:445:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  445 |                         Pt{{hx, -hy, -hz}, {x * ts, 0.0f}}
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=           .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:452:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  452 |                         Pt{{-hx, hy, -hz}, {0.0f, 0.0f}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=           .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:453:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  453 |                         Pt{{hx, hy, -hz}, {x * ts, 0.0f}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=          .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:454:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  454 |                         Pt{{hx, hy, hz}, {x * ts, z * ts}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=         .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:455:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  455 |                         Pt{{-hx, hy, hz}, {0.0f, z * ts}}
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=          .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:476:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  476 |                         Pt{{-hx, 0.0f, -hz}, {0.0f, 0.0f}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=             .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:477:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  477 |                         Pt{{hx, 0.0f, -hz}, {x * ts, 0.0f}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=            .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:478:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  478 |                         Pt{{hx, 0.0f, hz}, {x * ts, z * ts}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=           .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:479:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  479 |                         Pt{{-hx, 0.0f, hz}, {0.0f, z * ts}}
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=            .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:506:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  506 |                         Pt{{-hx, -hy, hz}, {0.0f, 0.0f}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=           .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:507:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  507 |                         Pt{{hx, -hy, hz}, {ts, 0.0f}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=          .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:508:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  508 |                         Pt{{hx, hy, hz}, {ts, ts}},
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=         .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:509:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  509 |                         Pt{{-hx, hy, hz}, {0.0f, ts}}
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                            .pos=          .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:518:7: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  518 |                                 Pt{{-hx, -hy, hz}, {0.0f, 0.0f}},
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                    .pos=           .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:519:7: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  519 |                                 Pt{{-hx, hy, hz}, {0.0f, ts}},
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                    .pos=          .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:520:7: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  520 |                                 Pt{{hx, hy, hz}, {ts, ts}},
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                                    .pos=         .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:521:7: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
+  521 |                                 Pt{{hx, -hy, hz}, {ts, 0.0f}}
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                    .pos=          .tex=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
+  362 |         struct Pt
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:550:26: warning: '/' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  550 |                 const auto lat_angle = pi / 2 - float_from_int(latitude_index) * delta_lat;
+      |                                        ^~~~~~
+      |                                        (     )
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:550:35: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  550 |                 const auto lat_angle = pi / 2 - float_from_int(latitude_index) * delta_lat;
+      |                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                 (                                         )
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:578:33: warning: comparison between 'signed' and 'unsigned' integers [modernize-use-integer-sign-comparison]
+   11 |         for (Index latitude_index = 0; latitude_index < static_cast<Index>(latitude_count); ++latitude_index)
+      |                                        ^              ~~~~~~~~~~~~~~~~~~~~~              ~
+      |                                        std::cmp_less( ,                                  )
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:580:35: warning: comparison between 'signed' and 'unsigned' integers [modernize-use-integer-sign-comparison]
+  580 |                 for (Index longitude_index = 0; longitude_index < static_cast<Index>(longitude_count); ++longitude_index)
+      |                                                 ^               ~~~~~~~~~~~~~~~~~~~~~               ~
+      |                                                 std::cmp_less(  ,                                   )
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:582:20: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  582 |                         const auto k1 = latitude_index * (static_cast<Index>(longitude_count) + 1) + longitude_index;
+      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                         (                                                         )
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:602:8: warning: comparison between 'signed' and 'unsigned' integers [modernize-use-integer-sign-comparison]
+  602 |                         if (latitude_index != static_cast<Index>(latitude_count - 1))
+      |                             ^              ~~~~~~~~~~~~~~~~~~~~~~                  ~
+      |                             std::cmp_not_equal( ,                                  )
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.h:31:2: warning: invalid case style for scoped enum constant 'In' [readability-identifier-naming]
+   31 |         In,
+      |         ^~
+      |         in
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.h:32:2: warning: invalid case style for scoped enum constant 'Out' [readability-identifier-naming]
+   32 |         Out
+      |         ^~~
+      |         out
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+-->
+</body>
+</html>

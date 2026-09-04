@@ -1,0 +1,40 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/io/src/eu/io/file.cc</title>
+</head>
+<body>
+<h1>libs/io/src/eu/io/file.cc</h1>
+<span id='misc-use-internal-linkage'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;tstring_from_stream&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/io/src/eu/io/file.cc 9 : 26</i></p>
+<pre>
+    9 | std::basic_string&lt;TChar&gt; tstring_from_stream(std::basic_istream&lt;TChar&gt;&amp; handle)
+      |                          ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;tstring_from_file&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/io/src/eu/io/file.cc 22 : 26</i></p>
+<pre>
+   22 | std::basic_string&lt;TChar&gt; tstring_from_file(const std::string&amp; path, std::basic_string&lt;TChar&gt; err)
+      |                          ^
+      | static 
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/io/src/eu/io/file.cc:9:26: warning: function 'tstring_from_stream' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+    9 | std::basic_string<TChar> tstring_from_stream(std::basic_istream<TChar>& handle)
+      |                          ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/io/src/eu/io/file.cc:22:26: warning: function 'tstring_from_file' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+   22 | std::basic_string<TChar> tstring_from_file(const std::string& path, std::basic_string<TChar> err)
+      |                          ^
+      | static 
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+-->
+</body>
+</html>

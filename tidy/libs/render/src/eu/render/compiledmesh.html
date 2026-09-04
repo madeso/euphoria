@@ -1,0 +1,154 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/render/src/eu/render/compiledmesh.cc</title>
+</head>
+<body>
+<h1>libs/render/src/eu/render/compiledmesh.cc</h1>
+<span id='cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'>&nbsp;</span>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/render/src/eu/render/compiledmesh.cc 52 : 65</i></p>
+<pre>
+   52 |             for (std::size_t geom_index = 0; geom_index &lt; meshes[mesh_index].geoms.size(); geom_index += 1)
+      |                                                                 ^~~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/render/src/eu/render/compiledmesh.cc 54 : 24</i></p>
+<pre>
+   54 |                  meshes[mesh_index].geoms[geom_index]-&gt;transform = trans * compiled_mesh-&gt;meshes[mesh_index].transform;
+      |                        ^~~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/render/src/eu/render/compiledmesh.cc 54 : 42</i></p>
+<pre>
+   54 |                  meshes[mesh_index].geoms[geom_index]-&gt;transform = trans * compiled_mesh-&gt;meshes[mesh_index].transform;
+      |                                          ^~~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/render/src/eu/render/compiledmesh.cc 54 : 97</i></p>
+<pre>
+   54 |                  meshes[mesh_index].geoms[geom_index]-&gt;transform = trans * compiled_mesh-&gt;meshes[mesh_index].transform;
+      |                                                                                                 ^~~~~~~~~~~~
+</pre>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;UP&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/space.h 6 : 16</i></p>
+<pre>
+    6 | constexpr auto UP = v3(0.0f, 1.0f, 0.0f);
+      |                ^~
+      |                up
+</pre>
+<span id='modernize-use-nodiscard'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;get_local_axis&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/render/src/eu/render/world.h 99 : 2</i></p>
+<pre>
+   99 |         LocalAxis get_local_axis() const;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<span id='modernize-use-designated-initializers'>&nbsp;</span>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Ypr&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/render/src/eu/render/world.h 155 : 17</i></p>
+<pre>
+  155 |         Ypr rotation = {0.0_rad, 0.0_rad, 0.0_rad};
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                         .yaw=    .pitch=  .roll=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/base/src/eu/base/axisangle.h 32 : 5</i></p>
+<pre>
+   32 |     struct Ypr
+      |     ^
+</pre>
+<span id='google-runtime-float'>&nbsp;</span>
+<hr>
+<h3>warning: &#39;long double&#39; type from literal suffix &#39;L&#39; is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/render/src/eu/render/world.h 155 : 18</i></p>
+<pre>
+  155 |         Ypr rotation = {0.0_rad, 0.0_rad, 0.0_rad};
+      |                         ^
+</pre>
+<hr>
+<h3>warning: &#39;long double&#39; type from literal suffix &#39;L&#39; is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/render/src/eu/render/world.h 155 : 27</i></p>
+<pre>
+  155 |         Ypr rotation = {0.0_rad, 0.0_rad, 0.0_rad};
+      |                                  ^
+</pre>
+<hr>
+<h3>warning: &#39;long double&#39; type from literal suffix &#39;L&#39; is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/render/src/eu/render/world.h 155 : 36</i></p>
+<pre>
+  155 |         Ypr rotation = {0.0_rad, 0.0_rad, 0.0_rad};
+      |                                           ^
+</pre>
+<hr>
+<h3>warning: &#39;long double&#39; type from literal suffix &#39;L&#39; is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/render/src/eu/render/world.h 156 : 11</i></p>
+<pre>
+  156 |         An fov = 10.0_deg;
+      |                  ^
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/compiledmesh.cc:52:65: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   52 |             for (std::size_t geom_index = 0; geom_index < meshes[mesh_index].geoms.size(); geom_index += 1)
+      |                                                                 ^~~~~~~~~~~~
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/compiledmesh.cc:54:24: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   54 |                  meshes[mesh_index].geoms[geom_index]->transform = trans * compiled_mesh->meshes[mesh_index].transform;
+      |                        ^~~~~~~~~~~~
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/compiledmesh.cc:54:42: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   54 |                  meshes[mesh_index].geoms[geom_index]->transform = trans * compiled_mesh->meshes[mesh_index].transform;
+      |                                          ^~~~~~~~~~~~
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/compiledmesh.cc:54:97: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   54 |                  meshes[mesh_index].geoms[geom_index]->transform = trans * compiled_mesh->meshes[mesh_index].transform;
+      |                                                                                                 ^~~~~~~~~~~~
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/space.h:6:16: warning: invalid case style for constexpr variable 'UP' [readability-identifier-naming]
+    6 | constexpr auto UP = v3(0.0f, 1.0f, 0.0f);
+      |                ^~
+      |                up
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/world.h:99:2: warning: function 'get_local_axis' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   99 |         LocalAxis get_local_axis() const;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/world.h:155:17: warning: use designated initializer list to initialize 'Ypr' [modernize-use-designated-initializers]
+  155 |         Ypr rotation = {0.0_rad, 0.0_rad, 0.0_rad};
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                         .yaw=    .pitch=  .roll=
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/axisangle.h:32:5: note: aggregate type is defined here
+   32 |     struct Ypr
+      |     ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/world.h:155:18: warning: 'long double' type from literal suffix 'L' is not portable and should not be used [google-runtime-float]
+  155 |         Ypr rotation = {0.0_rad, 0.0_rad, 0.0_rad};
+      |                         ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/world.h:155:27: warning: 'long double' type from literal suffix 'L' is not portable and should not be used [google-runtime-float]
+  155 |         Ypr rotation = {0.0_rad, 0.0_rad, 0.0_rad};
+      |                                  ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/world.h:155:36: warning: 'long double' type from literal suffix 'L' is not portable and should not be used [google-runtime-float]
+  155 |         Ypr rotation = {0.0_rad, 0.0_rad, 0.0_rad};
+      |                                           ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/world.h:156:11: warning: 'long double' type from literal suffix 'L' is not portable and should not be used [google-runtime-float]
+  156 |         An fov = 10.0_deg;
+      |                  ^
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+-->
+</body>
+</html>

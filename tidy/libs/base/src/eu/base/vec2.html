@@ -1,0 +1,248 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/base/src/eu/base/vec2.cc</title>
+</head>
+<body>
+<h1>libs/base/src/eu/base/vec2.cc</h1>
+<span id='google-runtime-float'>&nbsp;</span>
+<hr>
+<h3>warning: &#39;long double&#39; type is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/base/src/eu/base/angle.h 128 : 33</i></p>
+<pre>
+  128 |     constexpr An operator&quot;&quot;_deg(long double d)
+      |                                 ^
+</pre>
+<hr>
+<h3>warning: &#39;long double&#39; type is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/base/src/eu/base/angle.h 134 : 33</i></p>
+<pre>
+  134 |     constexpr An operator&quot;&quot;_rad(long double r)
+      |                                 ^
+</pre>
+<span id='readability-math-missing-parentheses'>&nbsp;</span>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/numeric.h 68 : 20</i></p>
+<pre>
+   68 |         return f + (t - f) * scale;
+      |                    ^~~~~~~~~~~~~~~~
+      |                    (              )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/vec2.cc 39 : 26</i></p>
+<pre>
+   39 |         const float nx = x * cos(a) - y * sin(a);
+      |                          ^~~~~~~~~~
+      |                          (         )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/vec2.cc 39 : 39</i></p>
+<pre>
+   39 |         const float nx = x * cos(a) - y * sin(a);
+      |                                       ^~~~~~~~~~~
+      |                                       (         )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/vec2.cc 40 : 26</i></p>
+<pre>
+   40 |         const float ny = x * sin(a) + y * cos(a);
+      |                          ^~~~~~~~~~
+      |                          (         )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/vec2.cc 40 : 39</i></p>
+<pre>
+   40 |         const float ny = x * sin(a) + y * cos(a);
+      |                                       ^~~~~~~~~~~
+      |                                       (         )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/vec2.cc 73 : 16</i></p>
+<pre>
+   73 |         return x * x + y * y;
+      |                ^~~~~
+      |                (    )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/vec2.cc 73 : 24</i></p>
+<pre>
+   73 |         return x * x + y * y;
+      |                        ^~~~~~
+      |                        (    )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/vec2.cc 150 : 26</i></p>
+<pre>
+  150 |         const float nx = x * cos(a) - y * sin(a);
+      |                          ^~~~~~~~~~
+      |                          (         )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/vec2.cc 150 : 39</i></p>
+<pre>
+  150 |         const float nx = x * cos(a) - y * sin(a);
+      |                                       ^~~~~~~~~~~
+      |                                       (         )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/vec2.cc 151 : 26</i></p>
+<pre>
+  151 |         const float ny = x * sin(a) + y * cos(a);
+      |                          ^~~~~~~~~~
+      |                          (         )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/vec2.cc 151 : 39</i></p>
+<pre>
+  151 |         const float ny = x * sin(a) + y * cos(a);
+      |                                       ^~~~~~~~~~~
+      |                                       (         )
+</pre>
+<span id='misc-use-internal-linkage'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;length_squared_from&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/base/src/eu/base/vec2.cc 168 : 5</i></p>
+<pre>
+  167 |     float
+      |     static 
+  168 |     length_squared_from(const n2&amp; n)
+      |     ^
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/vec2.cc 170 : 16</i></p>
+<pre>
+  170 |         return n.x * n.x + n.y * n.y;
+      |                ^~~~~~~~~
+      |                (        )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/vec2.cc 170 : 28</i></p>
+<pre>
+  170 |         return n.x * n.x + n.y * n.y;
+      |                            ^~~~~~~~~~
+      |                            (        )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/vec2.cc 250 : 16</i></p>
+<pre>
+  250 |         return lhs.x * rhs.x + lhs.y * rhs.y;
+      |                ^~~~~~~~~~~~~
+      |                (            )
+</pre>
+<hr>
+<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
+<code>[readability-math-missing-parentheses]</code>
+<p><i>libs/base/src/eu/base/vec2.cc 250 : 32</i></p>
+<pre>
+  250 |         return lhs.x * rhs.x + lhs.y * rhs.y;
+      |                                ^~~~~~~~~~~~~~
+      |                                (            )
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/angle.h:128:33: warning: 'long double' type is not portable and should not be used [google-runtime-float]
+  128 |     constexpr An operator""_deg(long double d)
+      |                                 ^
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/angle.h:134:33: warning: 'long double' type is not portable and should not be used [google-runtime-float]
+  134 |     constexpr An operator""_rad(long double r)
+      |                                 ^
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/numeric.h:68:20: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+   68 |         return f + (t - f) * scale;
+      |                    ^~~~~~~~~~~~~~~~
+      |                    (              )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec2.cc:39:26: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+   39 |         const float nx = x * cos(a) - y * sin(a);
+      |                          ^~~~~~~~~~
+      |                          (         )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec2.cc:39:39: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+   39 |         const float nx = x * cos(a) - y * sin(a);
+      |                                       ^~~~~~~~~~~
+      |                                       (         )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec2.cc:40:26: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+   40 |         const float ny = x * sin(a) + y * cos(a);
+      |                          ^~~~~~~~~~
+      |                          (         )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec2.cc:40:39: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+   40 |         const float ny = x * sin(a) + y * cos(a);
+      |                                       ^~~~~~~~~~~
+      |                                       (         )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec2.cc:73:16: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+   73 |         return x * x + y * y;
+      |                ^~~~~
+      |                (    )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec2.cc:73:24: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+   73 |         return x * x + y * y;
+      |                        ^~~~~~
+      |                        (    )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec2.cc:150:26: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  150 |         const float nx = x * cos(a) - y * sin(a);
+      |                          ^~~~~~~~~~
+      |                          (         )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec2.cc:150:39: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  150 |         const float nx = x * cos(a) - y * sin(a);
+      |                                       ^~~~~~~~~~~
+      |                                       (         )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec2.cc:151:26: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  151 |         const float ny = x * sin(a) + y * cos(a);
+      |                          ^~~~~~~~~~
+      |                          (         )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec2.cc:151:39: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  151 |         const float ny = x * sin(a) + y * cos(a);
+      |                                       ^~~~~~~~~~~
+      |                                       (         )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec2.cc:168:5: warning: function 'length_squared_from' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  167 |     float
+      |     static 
+  168 |     length_squared_from(const n2& n)
+      |     ^
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec2.cc:170:16: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  170 |         return n.x * n.x + n.y * n.y;
+      |                ^~~~~~~~~
+      |                (        )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec2.cc:170:28: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  170 |         return n.x * n.x + n.y * n.y;
+      |                            ^~~~~~~~~~
+      |                            (        )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec2.cc:250:16: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  250 |         return lhs.x * rhs.x + lhs.y * rhs.y;
+      |                ^~~~~~~~~~~~~
+      |                (            )
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec2.cc:250:32: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
+  250 |         return lhs.x * rhs.x + lhs.y * rhs.y;
+      |                                ^~~~~~~~~~~~~~
+      |                                (            )
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+-->
+</body>
+</html>

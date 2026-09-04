@@ -1,0 +1,151 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/tests/src/eu/tests/equaler.cc</title>
+</head>
+<body>
+<h1>libs/tests/src/eu/tests/equaler.cc</h1>
+<span id='readability-avoid-unconditional-preprocessor-if'>&nbsp;</span>
+<hr>
+<h3>warning: preprocessor condition is always &#39;false&#39;, consider removing both the condition and its contents</h3>
+<code>[readability-avoid-unconditional-preprocessor-if]</code>
+<p><i>libs/tests/src/eu/tests/equaler.cc 6 : 2</i></p>
+<pre>
+    6 | #if 0
+      |  ^
+</pre>
+<span id='readability-braces-around-statements'>&nbsp;</span>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<p><i>libs/tests/src/eu/tests/equaler.h 62 : 13</i></p>
+<pre>
+   62 |                         if (same) return FalseString::True();
+      |                                  ^                           
+      |                                   {
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<p><i>libs/tests/src/eu/tests/equaler.h 72 : 13</i></p>
+<pre>
+   72 |                         if (same) return FalseString::True();
+      |                                  ^                           
+      |                                   {
+</pre>
+<span id='cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'>&nbsp;</span>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/tests/src/eu/tests/equaler.h 77 : 33</i></p>
+<pre>
+   77 |                            &lt;&lt; diff_index &lt;&lt; &quot; (&quot; &lt;&lt; l[diff_index] &lt;&lt; &quot; vs &quot; &lt;&lt; r[diff_index] &lt;&lt; &quot;)&quot;;
+      |                                                      ^~~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/tests/src/eu/tests/equaler.h 77 : 60</i></p>
+<pre>
+   77 |                            &lt;&lt; diff_index &lt;&lt; &quot; (&quot; &lt;&lt; l[diff_index] &lt;&lt; &quot; vs &quot; &lt;&lt; r[diff_index] &lt;&lt; &quot;)&quot;;
+      |                                                                                 ^~~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<p><i>libs/tests/src/eu/tests/equaler.h 88 : 14</i></p>
+<pre>
+   88 |                         if (close) return FalseString::True();
+      |                                   ^                           
+      |                                    {
+</pre>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for class method &#39;False&#39;; cannot be fixed because &#39;false&#39; would conflict with a keyword</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/tests/src/eu/tests/false_string.h 14 : 9</i></p>
+<pre>
+   14 |         False(const std::string&amp; text);
+      |         ^
+</pre>
+<hr>
+<h3>warning: invalid case style for class method &#39;True&#39;; cannot be fixed because &#39;true&#39; would conflict with a keyword</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/tests/src/eu/tests/false_string.h 18 : 9</i></p>
+<pre>
+   18 |         True();
+      |         ^
+</pre>
+<span id='modernize-use-nodiscard'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;IsTrue&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/tests/src/eu/tests/false_string.h 20 : 9</i></p>
+<pre>
+   20 |         bool
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: invalid case style for public method &#39;IsTrue&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/tests/src/eu/tests/false_string.h 21 : 9</i></p>
+<pre>
+   21 |         IsTrue() const;
+      |         ^~~~~~
+      |         is_true
+</pre>
+<hr>
+<h3>warning: invalid case style for class method &#39;Combine&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/tests/src/eu/tests/false_string.h 27 : 9</i></p>
+<pre>
+   27 |         Combine(const FalseString&amp; lhs, const FalseString&amp; rhs);
+      |         ^~~~~~~
+      |         combine
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/equaler.cc:6:2: warning: preprocessor condition is always 'false', consider removing both the condition and its contents [readability-avoid-unconditional-preprocessor-if]
+    6 | #if 0
+      |  ^
+/home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/equaler.h:62:13: warning: statement should be inside braces [readability-braces-around-statements]
+   62 |                         if (same) return FalseString::True();
+      |                                  ^                           
+      |                                   {
+/home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/equaler.h:72:13: warning: statement should be inside braces [readability-braces-around-statements]
+   72 |                         if (same) return FalseString::True();
+      |                                  ^                           
+      |                                   {
+/home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/equaler.h:77:33: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   77 |                            << diff_index << " (" << l[diff_index] << " vs " << r[diff_index] << ")";
+      |                                                      ^~~~~~~~~~~~
+/home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/equaler.h:77:60: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   77 |                            << diff_index << " (" << l[diff_index] << " vs " << r[diff_index] << ")";
+      |                                                                                 ^~~~~~~~~~~~
+/home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/equaler.h:88:14: warning: statement should be inside braces [readability-braces-around-statements]
+   88 |                         if (close) return FalseString::True();
+      |                                   ^                           
+      |                                    {
+/home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/false_string.h:14:9: warning: invalid case style for class method 'False'; cannot be fixed because 'false' would conflict with a keyword [readability-identifier-naming]
+   14 |         False(const std::string& text);
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/false_string.h:18:9: warning: invalid case style for class method 'True'; cannot be fixed because 'true' would conflict with a keyword [readability-identifier-naming]
+   18 |         True();
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/false_string.h:20:9: warning: function 'IsTrue' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   20 |         bool
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/false_string.h:21:9: warning: invalid case style for public method 'IsTrue' [readability-identifier-naming]
+   21 |         IsTrue() const;
+      |         ^~~~~~
+      |         is_true
+/home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/false_string.h:27:9: warning: invalid case style for class method 'Combine' [readability-identifier-naming]
+   27 |         Combine(const FalseString& lhs, const FalseString& rhs);
+      |         ^~~~~~~
+      |         combine
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+-->
+</body>
+</html>

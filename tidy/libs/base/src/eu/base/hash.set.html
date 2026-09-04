@@ -1,0 +1,77 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/base/src/eu/base/hash.set.cc</title>
+</head>
+<body>
+<h1>libs/base/src/eu/base/hash.set.cc</h1>
+<span id='modernize-use-nodiscard'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;combine&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/base/src/eu/base/hash.set.h 16 : 5</i></p>
+<pre>
+   16 |     HshSt combine(const Hsh&amp; h) const;
+      |     ^
+      |     [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;contains&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/base/src/eu/base/hash.set.h 18 : 5</i></p>
+<pre>
+   18 |     bool contains(const Hsh&amp; h) const;
+      |     ^
+      |     [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;is&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/base/src/eu/base/hash.set.h 19 : 5</i></p>
+<pre>
+   19 |     bool is(const HshSt&amp; h) const;
+      |     ^
+      |     [[nodiscard]] 
+</pre>
+<span id='cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'>&nbsp;</span>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/base/src/eu/base/hash.string.h 19 : 68</i></p>
+<pre>
+   19 |     { return str.empty() ? hash : hash64(str.substr(1), (hash ^ str[0]) * 0x100000001b3); }
+      |                                                                    ^~~
+</pre>
+<span id='readability-avoid-const-params-in-decls'>&nbsp;</span>
+<hr>
+<h3>warning: parameter &#39;h&#39; is const-qualified in the function declaration; const-qualification of parameters only has an effect in function definitions</h3>
+<code>[readability-avoid-const-params-in-decls]</code>
+<p><i>libs/base/src/eu/base/hash.string.h 102 : 25</i></p>
+<pre>
+  102 | std::string string_from(const Hsh h);
+      |                         ^~~~~
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/hash.set.h:16:5: warning: function 'combine' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   16 |     HshSt combine(const Hsh& h) const;
+      |     ^
+      |     [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/hash.set.h:18:5: warning: function 'contains' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   18 |     bool contains(const Hsh& h) const;
+      |     ^
+      |     [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/hash.set.h:19:5: warning: function 'is' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   19 |     bool is(const HshSt& h) const;
+      |     ^
+      |     [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/hash.string.h:19:68: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+   19 |     { return str.empty() ? hash : hash64(str.substr(1), (hash ^ str[0]) * 0x100000001b3); }
+      |                                                                    ^~~
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/hash.string.h:102:25: warning: parameter 'h' is const-qualified in the function declaration; const-qualification of parameters only has an effect in function definitions [readability-avoid-const-params-in-decls]
+  102 | std::string string_from(const Hsh h);
+      |                         ^~~~~
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+-->
+</body>
+</html>

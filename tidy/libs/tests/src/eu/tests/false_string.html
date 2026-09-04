@@ -1,0 +1,110 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/tests/src/eu/tests/false_string.cc</title>
+</head>
+<body>
+<h1>libs/tests/src/eu/tests/false_string.cc</h1>
+<span id='bugprone-unchecked-optional-access'>&nbsp;</span>
+<hr>
+<h3>warning: unchecked access to optional value</h3>
+<code>[bugprone-unchecked-optional-access]</code>
+<p><i>libs/tests/src/eu/tests/false_string.cc 40 : 41</i></p>
+<pre>
+   40 |             return FalseString::False( *lhs.reason + &quot;\n&quot; + *rhs.reason );
+      |                                         ^~~~~~~~~~
+</pre>
+<hr>
+<h3>warning: unchecked access to optional value</h3>
+<code>[bugprone-unchecked-optional-access]</code>
+<p><i>libs/tests/src/eu/tests/false_string.cc 40 : 62</i></p>
+<pre>
+   40 |             return FalseString::False( *lhs.reason + &quot;\n&quot; + *rhs.reason );
+      |                                                              ^~~~~~~~~~
+</pre>
+<hr>
+<h3>warning: unchecked access to optional value</h3>
+<code>[bugprone-unchecked-optional-access]</code>
+<p><i>libs/tests/src/eu/tests/false_string.cc 61 : 19</i></p>
+<pre>
+   61 |             s &lt;&lt; *f.reason;
+      |                   ^~~~~~~~
+</pre>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for class method &#39;False&#39;; cannot be fixed because &#39;false&#39; would conflict with a keyword</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/tests/src/eu/tests/false_string.h 14 : 9</i></p>
+<pre>
+   14 |         False(const std::string&amp; text);
+      |         ^
+</pre>
+<hr>
+<h3>warning: invalid case style for class method &#39;True&#39;; cannot be fixed because &#39;true&#39; would conflict with a keyword</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/tests/src/eu/tests/false_string.h 18 : 9</i></p>
+<pre>
+   18 |         True();
+      |         ^
+</pre>
+<span id='modernize-use-nodiscard'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;IsTrue&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/tests/src/eu/tests/false_string.h 20 : 9</i></p>
+<pre>
+   20 |         bool
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: invalid case style for public method &#39;IsTrue&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/tests/src/eu/tests/false_string.h 21 : 9</i></p>
+<pre>
+   21 |         IsTrue() const;
+      |         ^~~~~~
+      |         is_true
+</pre>
+<hr>
+<h3>warning: invalid case style for class method &#39;Combine&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/tests/src/eu/tests/false_string.h 27 : 9</i></p>
+<pre>
+   27 |         Combine(const FalseString&amp; lhs, const FalseString&amp; rhs);
+      |         ^~~~~~~
+      |         combine
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/false_string.cc:40:41: warning: unchecked access to optional value [bugprone-unchecked-optional-access]
+   40 |             return FalseString::False( *lhs.reason + "\n" + *rhs.reason );
+      |                                         ^~~~~~~~~~
+/home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/false_string.cc:40:62: warning: unchecked access to optional value [bugprone-unchecked-optional-access]
+   40 |             return FalseString::False( *lhs.reason + "\n" + *rhs.reason );
+      |                                                              ^~~~~~~~~~
+/home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/false_string.cc:61:19: warning: unchecked access to optional value [bugprone-unchecked-optional-access]
+   61 |             s << *f.reason;
+      |                   ^~~~~~~~
+/home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/false_string.h:14:9: warning: invalid case style for class method 'False'; cannot be fixed because 'false' would conflict with a keyword [readability-identifier-naming]
+   14 |         False(const std::string& text);
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/false_string.h:18:9: warning: invalid case style for class method 'True'; cannot be fixed because 'true' would conflict with a keyword [readability-identifier-naming]
+   18 |         True();
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/false_string.h:20:9: warning: function 'IsTrue' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   20 |         bool
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/false_string.h:21:9: warning: invalid case style for public method 'IsTrue' [readability-identifier-naming]
+   21 |         IsTrue() const;
+      |         ^~~~~~
+      |         is_true
+/home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/false_string.h:27:9: warning: invalid case style for class method 'Combine' [readability-identifier-naming]
+   27 |         Combine(const FalseString& lhs, const FalseString& rhs);
+      |         ^~~~~~~
+      |         combine
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+-->
+</body>
+</html>

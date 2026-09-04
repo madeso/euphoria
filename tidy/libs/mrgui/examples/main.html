@@ -1,0 +1,547 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/mrgui/examples/main.cc</title>
+</head>
+<body>
+<h1>libs/mrgui/examples/main.cc</h1>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for global constant &#39;OPENSANS_REGULAR_TTF_size&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>build/libs/mrgui/OpenSans-Regular.ttf.h 7 : 27</i></p>
+<pre>
+    7 | static const unsigned int OPENSANS_REGULAR_TTF_size = 130832;
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |                           opensans_regular_ttf_size
+</pre>
+<hr>
+<h3>warning: invalid case style for global constant &#39;OPENSANS_REGULAR_TTF_data&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>build/libs/mrgui/OpenSans-Regular.ttf.h 8 : 27</i></p>
+<pre>
+    8 | static const unsigned int OPENSANS_REGULAR_TTF_data[130832/4] =
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |                           opensans_regular_ttf_data
+</pre>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;OPENSANS_REGULAR_TTF&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>build/libs/mrgui/OpenSans-Regular.ttf.h 2738 : 27</i></p>
+<pre>
+ 2738 | constexpr embedded_binary OPENSANS_REGULAR_TTF = embedded_binary{OPENSANS_REGULAR_TTF_data, OPENSANS_REGULAR_TTF_size};
+      |                           ^~~~~~~~~~~~~~~~~~~~
+      |                           opensans_regular_ttf
+</pre>
+<hr>
+<h3>warning: invalid case style for global constant &#39;SPRITESHEET_PNG_size&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>build/libs/mrgui/spritesheet.png.h 7 : 27</i></p>
+<pre>
+    7 | static const unsigned int SPRITESHEET_PNG_size = 55757;
+      |                           ^~~~~~~~~~~~~~~~~~~~
+      |                           spritesheet_png_size
+</pre>
+<hr>
+<h3>warning: invalid case style for global constant &#39;SPRITESHEET_PNG_data&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>build/libs/mrgui/spritesheet.png.h 8 : 27</i></p>
+<pre>
+    8 | static const unsigned int SPRITESHEET_PNG_data[55760/4] =
+      |                           ^~~~~~~~~~~~~~~~~~~~
+      |                           spritesheet_png_data
+</pre>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;SPRITESHEET_PNG&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>build/libs/mrgui/spritesheet.png.h 1174 : 27</i></p>
+<pre>
+ 1174 | constexpr embedded_binary SPRITESHEET_PNG = embedded_binary{SPRITESHEET_PNG_data, SPRITESHEET_PNG_size};
+      |                           ^~~~~~~~~~~~~~~
+      |                           spritesheet_png
+</pre>
+<hr>
+<h3>warning: invalid case style for global constant &#39;UV_TEXTURE_PNG_size&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>build/libs/mrgui/uv-texture.png.h 7 : 27</i></p>
+<pre>
+    7 | static const unsigned int UV_TEXTURE_PNG_size = 8609;
+      |                           ^~~~~~~~~~~~~~~~~~~
+      |                           uv_texture_png_size
+</pre>
+<hr>
+<h3>warning: invalid case style for global constant &#39;UV_TEXTURE_PNG_data&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>build/libs/mrgui/uv-texture.png.h 8 : 27</i></p>
+<pre>
+    8 | static const unsigned int UV_TEXTURE_PNG_data[8612/4] =
+      |                           ^~~~~~~~~~~~~~~~~~~
+      |                           uv_texture_png_data
+</pre>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;UV_TEXTURE_PNG&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>build/libs/mrgui/uv-texture.png.h 192 : 27</i></p>
+<pre>
+  192 | constexpr embedded_binary UV_TEXTURE_PNG = embedded_binary{UV_TEXTURE_PNG_data, UV_TEXTURE_PNG_size};
+      |                           ^~~~~~~~~~~~~~
+      |                           uv_texture_png
+</pre>
+<span id='modernize-use-nodiscard'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;is_valid&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/core/src/eu/core/image.h 27 : 5</i></p>
+<pre>
+   27 |     bool is_valid() const;
+      |     ^
+      |     [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;get_pixel&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/core/src/eu/core/image.h 53 : 5</i></p>
+<pre>
+   53 |     PixelColor get_pixel(int x, int y) const;
+      |     ^
+      |     [[nodiscard]] 
+</pre>
+<span id='misc-use-internal-linkage'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;chunk_from_embed&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/mrgui/examples/main.cc 38 : 17</i></p>
+<pre>
+   38 | eu::MemoryChunk chunk_from_embed(const embedded_binary&amp; binary)
+      |                 ^
+      | static 
+</pre>
+<span id='readability-use-concise-preprocessor-directives'>&nbsp;</span>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifdef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>libs/mrgui/examples/main.cc 54 : 2</i></p>
+<pre>
+   54 | #if defined(__APPLE__)
+      |  ^~~~~~~~~~~~~~~~~~~~~
+      |  ifdef __APPLE__
+</pre>
+<span id='readability-implicit-bool-conversion'>&nbsp;</span>
+<hr>
+<h3>warning: implicit conversion &#39;SDL_Window *&#39; (aka &#39;struct SDL_Window *&#39;) -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>libs/mrgui/examples/main.cc 83 : 10</i></p>
+<pre>
+   83 |     if (!window) {
+      |         ~^     
+      |                 == nullptr
+</pre>
+<hr>
+<h3>warning: invalid case style for local pointer &#39;glContext&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/mrgui/examples/main.cc 88 : 11</i></p>
+<pre>
+   88 |     auto* glContext = SDL_GL_CreateContext(window);
+      |           ^~~~~~~~~
+      |           gl_context
+   89 |     SDL_GetWindowSize(window, &amp;window_width, &amp;window_height);
+   90 |     if (!glContext) {
+      |          ~~~~~~~~~
+      |          gl_context
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;struct SDL_GLContextState *&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>libs/mrgui/examples/main.cc 90 : 10</i></p>
+<pre>
+   90 |     if (!glContext) {
+      |         ~^        
+      |                    == nullptr
+</pre>
+<span id='misc-const-correctness'>&nbsp;</span>
+<hr>
+<h3>warning: variable &#39;idstack&#39; of type &#39;IdStack&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>libs/mrgui/examples/main.cc 119 : 5</i></p>
+<pre>
+  119 |     IdStack idstack;
+      |     ^
+      |             const 
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;bool&#39; -&gt; &#39;int&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i>libs/mrgui/examples/main.cc 136 : 16</i></p>
+<pre>
+  136 |         while (SDL_PollEvent(&amp;e) != 0)
+      |                ^
+      |                static_cast&lt;int&gt;()
+</pre>
+<hr>
+<h3>warning: variable &#39;c&#39; of type &#39;char&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>libs/mrgui/examples/main.cc 166 : 17</i></p>
+<pre>
+  166 |                 char c = e.text.text[0];
+      |                 ^
+      |                      const 
+</pre>
+<span id='google-readability-braces-around-statements'>&nbsp;</span>
+<span id='readability-braces-around-statements'>&nbsp;</span>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
+<p><i>libs/mrgui/examples/main.cc 167 : 39</i></p>
+<pre>
+  167 |                 if ((c &amp; 0xFF80) == 0)
+      |                                       ^
+      |                                        {
+  168 |                     uistate.keychar = static_cast&lt;char&gt;(c &amp; 0x7f);
+      |                                                                   
+</pre>
+<hr>
+<h3>warning: variable &#39;cmd&#39; of type &#39;eu::render:: RenderCommand&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i>libs/mrgui/examples/main.cc 180 : 13</i></p>
+<pre>
+  180 |             eu::render::RenderCommand cmd {.states = &amp;states, .render = &amp;render, .size = {.width = window_width, .height = window_height} };
+      |             ^
+      |                                       const 
+</pre>
+<hr>
+<h3>warning: function &#39;mouse_to_world&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/render/src/eu/render/canvas.h 99 : 5</i></p>
+<pre>
+   99 |     v2 mouse_to_world(const v2&amp; p) const;
+      |     ^
+      |     [[nodiscard]] 
+</pre>
+<span id='cppcoreguidelines-special-member-functions'>&nbsp;</span>
+<hr>
+<h3>warning: class &#39;RenderLayer2&#39; defines a destructor but does not define a copy constructor, a copy assignment operator, a move constructor or a move assignment operator</h3>
+<code>[cppcoreguidelines-special-member-functions]</code>
+<p><i>libs/render/src/eu/render/canvas.h 102 : 8</i></p>
+<pre>
+  102 | struct RenderLayer2 : Layer
+      |        ^
+</pre>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;MAX_TEXTURES_SUPPORTED&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/constants.h 7 : 23</i></p>
+<pre>
+    7 | constexpr std::size_t MAX_TEXTURES_SUPPORTED = 16;
+      |                       ^~~~~~~~~~~~~~~~~~~~~~
+      |                       max_textures_supported
+</pre>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;ALMOST_ZERO&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/constants.h 11 : 17</i></p>
+<pre>
+   11 | constexpr float ALMOST_ZERO = 0.01f;
+      |                 ^~~~~~~~~~~
+      |                 almost_zero
+   12 | /// if alpha goes above this limit, it is no longer considered transparent
+   13 | constexpr float ALPHA_TRANSPARENCY_LIMIT = 1.0f - ALMOST_ZERO;
+      |                                                   ~~~~~~~~~~~
+      |                                                   almost_zero
+</pre>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;ALPHA_TRANSPARENCY_LIMIT&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/constants.h 13 : 17</i></p>
+<pre>
+   13 | constexpr float ALPHA_TRANSPARENCY_LIMIT = 1.0f - ALMOST_ZERO;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                 alpha_transparency_limit
+</pre>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;OUTLINE_SCALE&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/constants.h 15 : 17</i></p>
+<pre>
+   15 | constexpr float OUTLINE_SCALE = 1.1f;
+      |                 ^~~~~~~~~~~~~
+      |                 outline_scale
+</pre>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;BLUR_SAMPLES&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/constants.h 17 : 15</i></p>
+<pre>
+   17 | constexpr int BLUR_SAMPLES = 10;
+      |               ^~~~~~~~~~~~
+      |               blur_samples
+</pre>
+<hr>
+<h3>warning: function &#39;get_line_height&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/render/src/eu/render/font.h 171 : 9</i></p>
+<pre>
+  171 |         constexpr float get_line_height() const
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Buffer&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 30 : 6</i></p>
+<pre>
+   30 |             Buffer,
+      |             ^~~~~~
+      |             buffer
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Shader&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 31 : 6</i></p>
+<pre>
+   31 |             Shader,
+      |             ^~~~~~
+      |             shader
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Program&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 32 : 6</i></p>
+<pre>
+   32 |             Program,
+      |             ^~~~~~~
+      |             program
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;VertexArray&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 33 : 6</i></p>
+<pre>
+   33 |             VertexArray,
+      |             ^~~~~~~~~~~
+      |             vertex_array
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Query&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 34 : 6</i></p>
+<pre>
+   34 |             Query,
+      |             ^~~~~
+      |             query
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;ProgramPipeline&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 35 : 6</i></p>
+<pre>
+   35 |             ProgramPipeline,
+      |             ^~~~~~~~~~~~~~~
+      |             program_pipeline
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Sampler&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 36 : 6</i></p>
+<pre>
+   36 |             Sampler,
+      |             ^~~~~~~
+      |             sampler
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Texture&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 37 : 6</i></p>
+<pre>
+   37 |             Texture,
+      |             ^~~~~~~
+      |             texture
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;RenderBuffer&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 38 : 6</i></p>
+<pre>
+   38 |             RenderBuffer,
+      |             ^~~~~~~~~~~~
+      |             render_buffer
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;FrameBuffer&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 39 : 6</i></p>
+<pre>
+   39 |             FrameBuffer
+      |             ^~~~~~~~~~~
+      |             frame_buffer
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/build/libs/mrgui/OpenSans-Regular.ttf.h:7:27: warning: invalid case style for global constant 'OPENSANS_REGULAR_TTF_size' [readability-identifier-naming]
+    7 | static const unsigned int OPENSANS_REGULAR_TTF_size = 130832;
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |                           opensans_regular_ttf_size
+/home/runner/work/euphoria/euphoria/build/libs/mrgui/OpenSans-Regular.ttf.h:8:27: warning: invalid case style for global constant 'OPENSANS_REGULAR_TTF_data' [readability-identifier-naming]
+    8 | static const unsigned int OPENSANS_REGULAR_TTF_data[130832/4] =
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |                           opensans_regular_ttf_data
+/home/runner/work/euphoria/euphoria/build/libs/mrgui/OpenSans-Regular.ttf.h:2738:27: warning: invalid case style for constexpr variable 'OPENSANS_REGULAR_TTF' [readability-identifier-naming]
+ 2738 | constexpr embedded_binary OPENSANS_REGULAR_TTF = embedded_binary{OPENSANS_REGULAR_TTF_data, OPENSANS_REGULAR_TTF_size};
+      |                           ^~~~~~~~~~~~~~~~~~~~
+      |                           opensans_regular_ttf
+/home/runner/work/euphoria/euphoria/build/libs/mrgui/spritesheet.png.h:7:27: warning: invalid case style for global constant 'SPRITESHEET_PNG_size' [readability-identifier-naming]
+    7 | static const unsigned int SPRITESHEET_PNG_size = 55757;
+      |                           ^~~~~~~~~~~~~~~~~~~~
+      |                           spritesheet_png_size
+/home/runner/work/euphoria/euphoria/build/libs/mrgui/spritesheet.png.h:8:27: warning: invalid case style for global constant 'SPRITESHEET_PNG_data' [readability-identifier-naming]
+    8 | static const unsigned int SPRITESHEET_PNG_data[55760/4] =
+      |                           ^~~~~~~~~~~~~~~~~~~~
+      |                           spritesheet_png_data
+/home/runner/work/euphoria/euphoria/build/libs/mrgui/spritesheet.png.h:1174:27: warning: invalid case style for constexpr variable 'SPRITESHEET_PNG' [readability-identifier-naming]
+ 1174 | constexpr embedded_binary SPRITESHEET_PNG = embedded_binary{SPRITESHEET_PNG_data, SPRITESHEET_PNG_size};
+      |                           ^~~~~~~~~~~~~~~
+      |                           spritesheet_png
+/home/runner/work/euphoria/euphoria/build/libs/mrgui/uv-texture.png.h:7:27: warning: invalid case style for global constant 'UV_TEXTURE_PNG_size' [readability-identifier-naming]
+    7 | static const unsigned int UV_TEXTURE_PNG_size = 8609;
+      |                           ^~~~~~~~~~~~~~~~~~~
+      |                           uv_texture_png_size
+/home/runner/work/euphoria/euphoria/build/libs/mrgui/uv-texture.png.h:8:27: warning: invalid case style for global constant 'UV_TEXTURE_PNG_data' [readability-identifier-naming]
+    8 | static const unsigned int UV_TEXTURE_PNG_data[8612/4] =
+      |                           ^~~~~~~~~~~~~~~~~~~
+      |                           uv_texture_png_data
+/home/runner/work/euphoria/euphoria/build/libs/mrgui/uv-texture.png.h:192:27: warning: invalid case style for constexpr variable 'UV_TEXTURE_PNG' [readability-identifier-naming]
+  192 | constexpr embedded_binary UV_TEXTURE_PNG = embedded_binary{UV_TEXTURE_PNG_data, UV_TEXTURE_PNG_size};
+      |                           ^~~~~~~~~~~~~~
+      |                           uv_texture_png
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.h:27:5: warning: function 'is_valid' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   27 |     bool is_valid() const;
+      |     ^
+      |     [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.h:53:5: warning: function 'get_pixel' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   53 |     PixelColor get_pixel(int x, int y) const;
+      |     ^
+      |     [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/mrgui/examples/main.cc:38:17: warning: function 'chunk_from_embed' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+   38 | eu::MemoryChunk chunk_from_embed(const embedded_binary& binary)
+      |                 ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/mrgui/examples/main.cc:54:2: warning: preprocessor condition can be written more concisely using '#ifdef' [readability-use-concise-preprocessor-directives]
+   54 | #if defined(__APPLE__)
+      |  ^~~~~~~~~~~~~~~~~~~~~
+      |  ifdef __APPLE__
+/home/runner/work/euphoria/euphoria/libs/mrgui/examples/main.cc:83:10: warning: implicit conversion 'SDL_Window *' (aka 'struct SDL_Window *') -> 'bool' [readability-implicit-bool-conversion]
+   83 |     if (!window) {
+      |         ~^     
+      |                 == nullptr
+/home/runner/work/euphoria/euphoria/libs/mrgui/examples/main.cc:88:11: warning: invalid case style for local pointer 'glContext' [readability-identifier-naming]
+   88 |     auto* glContext = SDL_GL_CreateContext(window);
+      |           ^~~~~~~~~
+      |           gl_context
+   89 |     SDL_GetWindowSize(window, &window_width, &window_height);
+   90 |     if (!glContext) {
+      |          ~~~~~~~~~
+      |          gl_context
+/home/runner/work/euphoria/euphoria/libs/mrgui/examples/main.cc:90:10: warning: implicit conversion 'struct SDL_GLContextState *' -> 'bool' [readability-implicit-bool-conversion]
+   90 |     if (!glContext) {
+      |         ~^        
+      |                    == nullptr
+/home/runner/work/euphoria/euphoria/libs/mrgui/examples/main.cc:119:5: warning: variable 'idstack' of type 'IdStack' can be declared 'const' [misc-const-correctness]
+  119 |     IdStack idstack;
+      |     ^
+      |             const 
+/home/runner/work/euphoria/euphoria/libs/mrgui/examples/main.cc:136:16: warning: implicit conversion 'bool' -> 'int' [readability-implicit-bool-conversion]
+  136 |         while (SDL_PollEvent(&e) != 0)
+      |                ^
+      |                static_cast<int>()
+/home/runner/work/euphoria/euphoria/libs/mrgui/examples/main.cc:166:17: warning: variable 'c' of type 'char' can be declared 'const' [misc-const-correctness]
+  166 |                 char c = e.text.text[0];
+      |                 ^
+      |                      const 
+/home/runner/work/euphoria/euphoria/libs/mrgui/examples/main.cc:167:39: warning: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements]
+  167 |                 if ((c & 0xFF80) == 0)
+      |                                       ^
+      |                                        {
+  168 |                     uistate.keychar = static_cast<char>(c & 0x7f);
+      |                                                                   
+/home/runner/work/euphoria/euphoria/libs/mrgui/examples/main.cc:180:13: warning: variable 'cmd' of type 'eu::render::RenderCommand' can be declared 'const' [misc-const-correctness]
+  180 |             eu::render::RenderCommand cmd {.states = &states, .render = &render, .size = {.width = window_width, .height = window_height} };
+      |             ^
+      |                                       const 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/canvas.h:99:5: warning: function 'mouse_to_world' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   99 |     v2 mouse_to_world(const v2& p) const;
+      |     ^
+      |     [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/canvas.h:102:8: warning: class 'RenderLayer2' defines a destructor but does not define a copy constructor, a copy assignment operator, a move constructor or a move assignment operator [cppcoreguidelines-special-member-functions]
+  102 | struct RenderLayer2 : Layer
+      |        ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/constants.h:7:23: warning: invalid case style for constexpr variable 'MAX_TEXTURES_SUPPORTED' [readability-identifier-naming]
+    7 | constexpr std::size_t MAX_TEXTURES_SUPPORTED = 16;
+      |                       ^~~~~~~~~~~~~~~~~~~~~~
+      |                       max_textures_supported
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/constants.h:11:17: warning: invalid case style for constexpr variable 'ALMOST_ZERO' [readability-identifier-naming]
+   11 | constexpr float ALMOST_ZERO = 0.01f;
+      |                 ^~~~~~~~~~~
+      |                 almost_zero
+   12 | /// if alpha goes above this limit, it is no longer considered transparent
+   13 | constexpr float ALPHA_TRANSPARENCY_LIMIT = 1.0f - ALMOST_ZERO;
+      |                                                   ~~~~~~~~~~~
+      |                                                   almost_zero
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/constants.h:13:17: warning: invalid case style for constexpr variable 'ALPHA_TRANSPARENCY_LIMIT' [readability-identifier-naming]
+   13 | constexpr float ALPHA_TRANSPARENCY_LIMIT = 1.0f - ALMOST_ZERO;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                 alpha_transparency_limit
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/constants.h:15:17: warning: invalid case style for constexpr variable 'OUTLINE_SCALE' [readability-identifier-naming]
+   15 | constexpr float OUTLINE_SCALE = 1.1f;
+      |                 ^~~~~~~~~~~~~
+      |                 outline_scale
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/constants.h:17:15: warning: invalid case style for constexpr variable 'BLUR_SAMPLES' [readability-identifier-naming]
+   17 | constexpr int BLUR_SAMPLES = 10;
+      |               ^~~~~~~~~~~~
+      |               blur_samples
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.h:171:9: warning: function 'get_line_height' should be marked [[nodiscard]] [modernize-use-nodiscard]
+  171 |         constexpr float get_line_height() const
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:30:6: warning: invalid case style for scoped enum constant 'Buffer' [readability-identifier-naming]
+   30 |             Buffer,
+      |             ^~~~~~
+      |             buffer
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:31:6: warning: invalid case style for scoped enum constant 'Shader' [readability-identifier-naming]
+   31 |             Shader,
+      |             ^~~~~~
+      |             shader
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:32:6: warning: invalid case style for scoped enum constant 'Program' [readability-identifier-naming]
+   32 |             Program,
+      |             ^~~~~~~
+      |             program
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:33:6: warning: invalid case style for scoped enum constant 'VertexArray' [readability-identifier-naming]
+   33 |             VertexArray,
+      |             ^~~~~~~~~~~
+      |             vertex_array
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:34:6: warning: invalid case style for scoped enum constant 'Query' [readability-identifier-naming]
+   34 |             Query,
+      |             ^~~~~
+      |             query
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:35:6: warning: invalid case style for scoped enum constant 'ProgramPipeline' [readability-identifier-naming]
+   35 |             ProgramPipeline,
+      |             ^~~~~~~~~~~~~~~
+      |             program_pipeline
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:36:6: warning: invalid case style for scoped enum constant 'Sampler' [readability-identifier-naming]
+   36 |             Sampler,
+      |             ^~~~~~~
+      |             sampler
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:37:6: warning: invalid case style for scoped enum constant 'Texture' [readability-identifier-naming]
+   37 |             Texture,
+      |             ^~~~~~~
+      |             texture
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:38:6: warning: invalid case style for scoped enum constant 'RenderBuffer' [readability-identifier-naming]
+   38 |             RenderBuffer,
+      |             ^~~~~~~~~~~~
+      |             render_buffer
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:39:6: warning: invalid case style for scoped enum constant 'FrameBuffer' [readability-identifier-naming]
+   39 |             FrameBuffer
+      |             ^~~~~~~~~~~
+      |             frame_buffer
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+-->
+</body>
+</html>

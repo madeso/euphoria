@@ -1,0 +1,395 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/render/src/eu/render/texture.cc</title>
+</head>
+<body>
+<h1>libs/render/src/eu/render/texture.cc</h1>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Buffer&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 30 : 6</i></p>
+<pre>
+   30 |             Buffer,
+      |             ^~~~~~
+      |             buffer
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Shader&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 31 : 6</i></p>
+<pre>
+   31 |             Shader,
+      |             ^~~~~~
+      |             shader
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Program&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 32 : 6</i></p>
+<pre>
+   32 |             Program,
+      |             ^~~~~~~
+      |             program
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;VertexArray&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 33 : 6</i></p>
+<pre>
+   33 |             VertexArray,
+      |             ^~~~~~~~~~~
+      |             vertex_array
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Query&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 34 : 6</i></p>
+<pre>
+   34 |             Query,
+      |             ^~~~~
+      |             query
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;ProgramPipeline&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 35 : 6</i></p>
+<pre>
+   35 |             ProgramPipeline,
+      |             ^~~~~~~~~~~~~~~
+      |             program_pipeline
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Sampler&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 36 : 6</i></p>
+<pre>
+   36 |             Sampler,
+      |             ^~~~~~~
+      |             sampler
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Texture&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 37 : 6</i></p>
+<pre>
+   37 |             Texture,
+      |             ^~~~~~~
+      |             texture
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;RenderBuffer&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 38 : 6</i></p>
+<pre>
+   38 |             RenderBuffer,
+      |             ^~~~~~~~~~~~
+      |             render_buffer
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;FrameBuffer&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/opengl_utils.h 39 : 6</i></p>
+<pre>
+   39 |             FrameBuffer
+      |             ^~~~~~~~~~~
+      |             frame_buffer
+</pre>
+<span id='modernize-use-designated-initializers'>&nbsp;</span>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;MinMagFilter&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/render/src/eu/render/texture.cc 73 : 42</i></p>
+<pre>
+   73 |                 case TextureRenderStyle::pixel: return {GL_NEAREST, GL_NEAREST};
+      |                                                        ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                         .min=       .mag=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/render/src/eu/render/texture.cc 62 : 2</i></p>
+<pre>
+   62 |         struct MinMagFilter
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;MinMagFilter&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/render/src/eu/render/texture.cc 74 : 43</i></p>
+<pre>
+   74 |                 case TextureRenderStyle::linear: return {GL_LINEAR, GL_LINEAR};
+      |                                                         ^~~~~~~~~~~~~~~~~~~~~~
+      |                                                          .min=      .mag=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/render/src/eu/render/texture.cc 62 : 2</i></p>
+<pre>
+   62 |         struct MinMagFilter
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;MinMagFilter&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/render/src/eu/render/texture.cc 75 : 43</i></p>
+<pre>
+   75 |                 case TextureRenderStyle::mipmap: return {GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR};
+      |                                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                          .min=                    .mag=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/render/src/eu/render/texture.cc 62 : 2</i></p>
+<pre>
+   62 |         struct MinMagFilter
+      |         ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;MinMagFilter&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/render/src/eu/render/texture.cc 76 : 56</i></p>
+<pre>
+   76 |                 default: DIE(&quot;Invalid texture render style&quot;); return {GL_NEAREST, GL_NEAREST};
+      |                                                                      ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                       .min=       .mag=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/render/src/eu/render/texture.cc 62 : 2</i></p>
+<pre>
+   62 |         struct MinMagFilter
+      |         ^
+</pre>
+<span id='misc-use-internal-linkage'>&nbsp;</span>
+<hr>
+<h3>warning: struct &#39;PixelData&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/render/src/eu/render/texture.cc 168 : 8</i></p>
+<pre>
+  168 | struct PixelData
+      |        ^
+</pre>
+<span id='cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'>&nbsp;</span>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/render/src/eu/render/texture.cc 254 : 14</i></p>
+<pre>
+  254 |                         pixel_data[index]
+      |                                   ^~~~~~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/render/src/eu/render/texture.cc 285 : 33</i></p>
+<pre>
+  285 |         const auto image_width = parsed[0].width;
+      |                                        ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/render/src/eu/render/texture.cc 286 : 34</i></p>
+<pre>
+  286 |         const auto image_height = parsed[0].height;
+      |                                         ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/render/src/eu/render/texture.cc 328 : 10</i></p>
+<pre>
+  328 |                         parsed[0].pixel_data,
+      |                               ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/render/src/eu/render/texture.cc 329 : 10</i></p>
+<pre>
+  329 |                         parsed[1].pixel_data,
+      |                               ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/render/src/eu/render/texture.cc 330 : 10</i></p>
+<pre>
+  330 |                         parsed[2].pixel_data,
+      |                               ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/render/src/eu/render/texture.cc 331 : 10</i></p>
+<pre>
+  331 |                         parsed[3].pixel_data,
+      |                               ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/render/src/eu/render/texture.cc 332 : 10</i></p>
+<pre>
+  332 |                         parsed[4].pixel_data,
+      |                               ^~~
+</pre>
+<hr>
+<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
+<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
+<p><i>libs/render/src/eu/render/texture.cc 333 : 10</i></p>
+<pre>
+  333 |                         parsed[5].pixel_data
+      |                               ^~~
+</pre>
+<hr>
+<h3>warning: function &#39;create_fbo&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/render/src/eu/render/texture.cc 346 : 14</i></p>
+<pre>
+  346 | unsigned int create_fbo()
+      |              ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;determine_fbo_internal_format&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/render/src/eu/render/texture.cc 386 : 8</i></p>
+<pre>
+  386 | GLenum determine_fbo_internal_format(DepthBits depth, bool add_stencil)
+      |        ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;internal_format_from_color_bpp&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/render/src/eu/render/texture.cc 400 : 3</i></p>
+<pre>
+  400 | R internal_format_from_color_bpp(ColorBitsPerPixel texture_bits, Transparency trans)
+      |   ^
+      | static 
+</pre>
+<hr>
+<h3>warning: struct &#39;FrameBufferBuilder&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/render/src/eu/render/texture.cc 418 : 8</i></p>
+<pre>
+  418 | struct FrameBufferBuilder
+      |        ^
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:30:6: warning: invalid case style for scoped enum constant 'Buffer' [readability-identifier-naming]
+   30 |             Buffer,
+      |             ^~~~~~
+      |             buffer
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:31:6: warning: invalid case style for scoped enum constant 'Shader' [readability-identifier-naming]
+   31 |             Shader,
+      |             ^~~~~~
+      |             shader
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:32:6: warning: invalid case style for scoped enum constant 'Program' [readability-identifier-naming]
+   32 |             Program,
+      |             ^~~~~~~
+      |             program
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:33:6: warning: invalid case style for scoped enum constant 'VertexArray' [readability-identifier-naming]
+   33 |             VertexArray,
+      |             ^~~~~~~~~~~
+      |             vertex_array
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:34:6: warning: invalid case style for scoped enum constant 'Query' [readability-identifier-naming]
+   34 |             Query,
+      |             ^~~~~
+      |             query
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:35:6: warning: invalid case style for scoped enum constant 'ProgramPipeline' [readability-identifier-naming]
+   35 |             ProgramPipeline,
+      |             ^~~~~~~~~~~~~~~
+      |             program_pipeline
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:36:6: warning: invalid case style for scoped enum constant 'Sampler' [readability-identifier-naming]
+   36 |             Sampler,
+      |             ^~~~~~~
+      |             sampler
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:37:6: warning: invalid case style for scoped enum constant 'Texture' [readability-identifier-naming]
+   37 |             Texture,
+      |             ^~~~~~~
+      |             texture
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:38:6: warning: invalid case style for scoped enum constant 'RenderBuffer' [readability-identifier-naming]
+   38 |             RenderBuffer,
+      |             ^~~~~~~~~~~~
+      |             render_buffer
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h:39:6: warning: invalid case style for scoped enum constant 'FrameBuffer' [readability-identifier-naming]
+   39 |             FrameBuffer
+      |             ^~~~~~~~~~~
+      |             frame_buffer
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:73:42: warning: use designated initializer list to initialize 'MinMagFilter' [modernize-use-designated-initializers]
+   73 |                 case TextureRenderStyle::pixel: return {GL_NEAREST, GL_NEAREST};
+      |                                                        ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                         .min=       .mag=
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:62:2: note: aggregate type is defined here
+   62 |         struct MinMagFilter
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:74:43: warning: use designated initializer list to initialize 'MinMagFilter' [modernize-use-designated-initializers]
+   74 |                 case TextureRenderStyle::linear: return {GL_LINEAR, GL_LINEAR};
+      |                                                         ^~~~~~~~~~~~~~~~~~~~~~
+      |                                                          .min=      .mag=
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:62:2: note: aggregate type is defined here
+   62 |         struct MinMagFilter
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:75:43: warning: use designated initializer list to initialize 'MinMagFilter' [modernize-use-designated-initializers]
+   75 |                 case TextureRenderStyle::mipmap: return {GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR};
+      |                                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                          .min=                    .mag=
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:62:2: note: aggregate type is defined here
+   62 |         struct MinMagFilter
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:76:56: warning: use designated initializer list to initialize 'MinMagFilter' [modernize-use-designated-initializers]
+   76 |                 default: DIE("Invalid texture render style"); return {GL_NEAREST, GL_NEAREST};
+      |                                                                      ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                       .min=       .mag=
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:62:2: note: aggregate type is defined here
+   62 |         struct MinMagFilter
+      |         ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:168:8: warning: struct 'PixelData' can be moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  168 | struct PixelData
+      |        ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:254:14: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+  254 |                         pixel_data[index]
+      |                                   ^~~~~~~
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:285:33: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+  285 |         const auto image_width = parsed[0].width;
+      |                                        ^~~
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:286:34: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+  286 |         const auto image_height = parsed[0].height;
+      |                                         ^~~
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:328:10: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+  328 |                         parsed[0].pixel_data,
+      |                               ^~~
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:329:10: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+  329 |                         parsed[1].pixel_data,
+      |                               ^~~
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:330:10: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+  330 |                         parsed[2].pixel_data,
+      |                               ^~~
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:331:10: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+  331 |                         parsed[3].pixel_data,
+      |                               ^~~
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:332:10: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+  332 |                         parsed[4].pixel_data,
+      |                               ^~~
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:333:10: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
+  333 |                         parsed[5].pixel_data
+      |                               ^~~
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:346:14: warning: function 'create_fbo' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  346 | unsigned int create_fbo()
+      |              ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:386:8: warning: function 'determine_fbo_internal_format' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  386 | GLenum determine_fbo_internal_format(DepthBits depth, bool add_stencil)
+      |        ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:400:3: warning: function 'internal_format_from_color_bpp' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  400 | R internal_format_from_color_bpp(ColorBitsPerPixel texture_bits, Transparency trans)
+      |   ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:418:8: warning: struct 'FrameBufferBuilder' can be moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  418 | struct FrameBufferBuilder
+      |        ^
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+-->
+</body>
+</html>

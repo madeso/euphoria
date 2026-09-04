@@ -1,0 +1,2702 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/core/src/eu/core/color.test.cc</title>
+</head>
+<body>
+<h1>libs/core/src/eu/core/color.test.cc</h1>
+<span id='cppcoreguidelines-macro-to-enum'>&nbsp;</span>
+<span id='modernize-macro-to-enum'>&nbsp;</span>
+<hr>
+<h3>warning: replace macro with enum</h3>
+<code>[cppcoreguidelines-macro-to-enum,modernize-macro-to-enum]</code>
+<p><i>build/_deps/catch2-build/generated-includes/catch2/catch_user_config.hpp 239 : 1</i></p>
+<pre>
+  239 | #define CATCH_CONFIG_CONSOLE_WIDTH 80
+      | ^~~~~~~
+      |                                    =
+  240 | 
+</pre>
+<hr>
+<h3>warning: macro &#39;CATCH_CONFIG_CONSOLE_WIDTH&#39; defines an integral constant; prefer an enum instead</h3>
+<code>[cppcoreguidelines-macro-to-enum,modernize-macro-to-enum]</code>
+<p><i>build/_deps/catch2-build/generated-includes/catch2/catch_user_config.hpp 239 : 9</i></p>
+<pre>
+  239 | #define CATCH_CONFIG_CONSOLE_WIDTH 80
+      |         ^
+</pre>
+<span id='cppcoreguidelines-special-member-functions'>&nbsp;</span>
+<hr>
+<h3>warning: class &#39;ScopedMessage&#39; defines a destructor, a copy constructor and a move constructor but does not define a copy assignment operator or a move assignment operator</h3>
+<code>[cppcoreguidelines-special-member-functions]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_message.hpp 65 : 11</i></p>
+<pre>
+   65 |     class ScopedMessage {
+      |           ^
+</pre>
+<hr>
+<h3>warning: class &#39;Capturer&#39; defines a destructor, a copy constructor and a copy assignment operator but does not define a move constructor or a move assignment operator</h3>
+<code>[cppcoreguidelines-special-member-functions]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_message.hpp 76 : 11</i></p>
+<pre>
+   76 |     class Capturer {
+      |           ^
+</pre>
+<span id='cppcoreguidelines-pro-type-member-init'>&nbsp;</span>
+<hr>
+<h3>warning: constructor does not initialize these fields: durationInSeconds</h3>
+<code>[cppcoreguidelines-pro-type-member-init]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_section_info.hpp 34 : 12</i></p>
+<pre>
+   34 |     struct SectionEndInfo {
+      |            ^
+   35 |         SectionInfo sectionInfo;
+   36 |         Counts prevAssertions;
+   37 |         double durationInSeconds;
+      |                                 
+      |                                 {}
+</pre>
+<span id='readability-use-concise-preprocessor-directives'>&nbsp;</span>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifndef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_test_macros.hpp 170 : 4</i></p>
+<pre>
+  170 |   #if !defined(CATCH_CONFIG_RUNTIME_STATIC_REQUIRE)
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |    ifndef CATCH_CONFIG_RUNTIME_STATIC_REQUIRE
+</pre>
+<span id='modernize-use-nodiscard'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;getElapsedNanoseconds&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_timer.hpp 19 : 9</i></p>
+<pre>
+   19 |         auto getElapsedNanoseconds() const -&gt; uint64_t;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;getElapsedMicroseconds&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_timer.hpp 20 : 9</i></p>
+<pre>
+   20 |         auto getElapsedMicroseconds() const -&gt; uint64_t;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;getElapsedMilliseconds&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_timer.hpp 21 : 9</i></p>
+<pre>
+   21 |         auto getElapsedMilliseconds() const -&gt; unsigned int;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;getElapsedSeconds&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_timer.hpp 22 : 9</i></p>
+<pre>
+   22 |         auto getElapsedSeconds() const -&gt; double;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<span id='modernize-use-constraints'>&nbsp;</span>
+<hr>
+<h3>warning: use C++20 requires constraints instead of enable_if</h3>
+<code>[modernize-use-constraints]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_tostring.hpp 77 : 9</i></p>
+<pre>
+   77 |         std::enable_if_t&lt;
+      |         ^~~~~~~~~~~~~~~~~
+      |         std::string
+   78 |             !std::is_enum&lt;T&gt;::value &amp;&amp; !std::is_base_of&lt;std::exception, T&gt;::value,
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   79 |         std::string&gt; convertUnstreamable( T const&amp; ) {
+      |         ~~~~~~~~~~~~
+      |                                                      requires (!std::is_enum&lt;T&gt;::value &amp;&amp; !std::is_base_of&lt;std::exception, T&gt;::value) 
+</pre>
+<span id='modernize-type-traits'>&nbsp;</span>
+<hr>
+<h3>warning: use c++17 style variable templates</h3>
+<code>[modernize-type-traits]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_tostring.hpp 78 : 14</i></p>
+<pre>
+</pre>
+<hr>
+<h3>warning: use c++17 style variable templates</h3>
+<code>[modernize-type-traits]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_tostring.hpp 78 : 41</i></p>
+<pre>
+</pre>
+<hr>
+<h3>warning: use C++20 requires constraints instead of enable_if</h3>
+<code>[modernize-use-constraints]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_tostring.hpp 83 : 9</i></p>
+<pre>
+   83 |         std::enable_if_t&lt;
+      |         ^~~~~~~~~~~~~~~~~
+      |         std::string
+   84 |             !std::is_enum&lt;T&gt;::value &amp;&amp; std::is_base_of&lt;std::exception, T&gt;::value,
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   85 |          std::string&gt; convertUnstreamable(T const&amp; ex) {
+      |          ~~~~~~~~~~~~
+      |                                                        requires (!std::is_enum&lt;T&gt;::value &amp;&amp; std::is_base_of&lt;std::exception, T&gt;::value) 
+</pre>
+<hr>
+<h3>warning: use c++17 style variable templates</h3>
+<code>[modernize-type-traits]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_tostring.hpp 84 : 14</i></p>
+<pre>
+</pre>
+<hr>
+<h3>warning: use c++17 style variable templates</h3>
+<code>[modernize-type-traits]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_tostring.hpp 84 : 40</i></p>
+<pre>
+</pre>
+<hr>
+<h3>warning: use C++20 requires constraints instead of enable_if</h3>
+<code>[modernize-use-constraints]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_tostring.hpp 91 : 9</i></p>
+<pre>
+   91 |         std::enable_if_t&lt;
+      |         ^~~~~~~~~~~~~~~~~
+      |         std::string
+   92 |             std::is_enum&lt;T&gt;::value,
+      |             ~~~~~~~~~~~~~~~~~~~~~~~
+   93 |         std::string&gt; convertUnstreamable( T const&amp; value ) {
+      |         ~~~~~~~~~~~~
+      |                                                            requires std::is_enum&lt;T&gt;::value 
+</pre>
+<hr>
+<h3>warning: use c++17 style variable templates</h3>
+<code>[modernize-type-traits]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_tostring.hpp 92 : 13</i></p>
+<pre>
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifdef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_tostring.hpp 97 : 2</i></p>
+<pre>
+   97 | #if defined(_MANAGED)
+      |  ^~~~~~~~~~~~~~~~~~~~
+      |  ifdef _MANAGED
+</pre>
+<hr>
+<h3>warning: use C++20 requires constraints instead of enable_if</h3>
+<code>[modernize-use-constraints]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_tostring.hpp 116 : 9</i></p>
+<pre>
+  116 |         std::enable_if_t&lt;::Catch::Detail::IsStreamInsertable_v&lt;Fake&gt;, std::string&gt;
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         std::string
+  117 |             convert(const Fake&amp; value) {
+      |                                        requires (::Catch::Detail::IsStreamInsertable_v&lt;Fake&gt;) 
+</pre>
+<hr>
+<h3>warning: use C++20 requires constraints instead of enable_if</h3>
+<code>[modernize-use-constraints]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_tostring.hpp 127 : 9</i></p>
+<pre>
+  127 |         std::enable_if_t&lt;!::Catch::Detail::IsStreamInsertable_v&lt;Fake&gt;, std::string&gt;
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         std::string
+  128 |             convert( const Fake&amp; value ) {
+      |                                          requires (!::Catch::Detail::IsStreamInsertable_v&lt;Fake&gt;) 
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifndef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_tostring.hpp 129 : 2</i></p>
+<pre>
+  129 | #if !defined(CATCH_CONFIG_FALLBACK_STRINGIFIER)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_CONFIG_FALLBACK_STRINGIFIER
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifdef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_tostring.hpp 157 : 2</i></p>
+<pre>
+  157 | #if defined(_MANAGED)
+      |  ^~~~~~~~~~~~~~~~~~~~
+      |  ifdef _MANAGED
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifdef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_tostring.hpp 189 : 2</i></p>
+<pre>
+  189 | #if defined(CATCH_CONFIG_WCHAR)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef CATCH_CONFIG_WCHAR
+</pre>
+<span id='readability-qualified-auto'>&nbsp;</span>
+<hr>
+<h3>warning: &#39;auto reinterpreted&#39; can be declared as &#39;const auto *reinterpreted&#39;</h3>
+<code>[readability-qualified-auto]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_tostring.hpp 222 : 13</i></p>
+<pre>
+  222 |             auto reinterpreted = reinterpret_cast&lt;char const*&gt;(str);
+      |             ^~~~
+      |             const auto *
+</pre>
+<hr>
+<h3>warning: &#39;auto reinterpreted&#39; can be declared as &#39;const auto *reinterpreted&#39;</h3>
+<code>[readability-qualified-auto]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_tostring.hpp 230 : 13</i></p>
+<pre>
+  230 |             auto reinterpreted = reinterpret_cast&lt;char const*&gt;(str);
+      |             ^~~~
+      |             const auto *
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifdef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_tostring.hpp 236 : 2</i></p>
+<pre>
+  236 | #if defined(CATCH_CONFIG_CPP17_BYTE)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef CATCH_CONFIG_CPP17_BYTE
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifdef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_tostring.hpp 331 : 2</i></p>
+<pre>
+  331 | #if defined(_MANAGED)
+      |  ^~~~~~~~~~~~~~~~~~~~
+      |  ifdef _MANAGED
+</pre>
+<span id='google-readability-braces-around-statements'>&nbsp;</span>
+<span id='readability-braces-around-statements'>&nbsp;</span>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_tostring.hpp 347 : 54</i></p>
+<pre>
+  347 |                 for (++first; first != last; ++first)
+      |                                                      ^
+      |                                                       {
+  348 |                     rss &lt;&lt; &quot;, &quot; &lt;&lt; ::Catch::Detail::stringify(*first);
+      |                                                                       
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifdef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_tostring.hpp 361 : 2</i></p>
+<pre>
+  361 | #if defined(CATCH_CONFIG_ENABLE_ALL_STRINGMAKERS)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef CATCH_CONFIG_ENABLE_ALL_STRINGMAKERS
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifdef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_tostring.hpp 369 : 2</i></p>
+<pre>
+  369 | #if defined(CATCH_CONFIG_ENABLE_PAIR_STRINGMAKER)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef CATCH_CONFIG_ENABLE_PAIR_STRINGMAKER
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifdef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_tostring.hpp 413 : 2</i></p>
+<pre>
+  413 | #if defined(CATCH_CONFIG_ENABLE_TUPLE_STRINGMAKER)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef CATCH_CONFIG_ENABLE_TUPLE_STRINGMAKER
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_tostring.hpp 511 : 24</i></p>
+<pre>
+  511 |             if( first )
+      |                        ^
+      |                         {
+  512 |                 first = false;
+  513 |             else
+      |             } 
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_tostring.hpp 513 : 17</i></p>
+<pre>
+  513 |             else
+      |                 ^
+      |                  {
+  514 |                 rss &lt;&lt; &quot;, &quot;;
+      |                             
+</pre>
+<span id='readability-duplicate-include'>&nbsp;</span>
+<hr>
+<h3>warning: duplicate include</h3>
+<code>[readability-duplicate-include]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_tostring.hpp 539 : 1</i></p>
+<pre>
+  538 | // Separate std::chrono::duration specialization
+      |                                                 
+  539 | #include &lt;ctime&gt;
+      | ^~~~~~~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning: function &#39;total&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_totals.hpp 19 : 9</i></p>
+<pre>
+   19 |         std::uint64_t total() const;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;allPassed&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_totals.hpp 20 : 9</i></p>
+<pre>
+   20 |         bool allPassed() const;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;allOk&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_totals.hpp 21 : 9</i></p>
+<pre>
+   21 |         bool allOk() const;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;delta&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>build/_deps/catch2-src/src/catch2/catch_totals.hpp 34 : 9</i></p>
+<pre>
+   34 |         Totals delta( Totals const&amp; prevTotals ) const;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: class &#39;ITestInvoker&#39; defines a destructor but does not define a copy constructor, a copy assignment operator, a move constructor or a move assignment operator</h3>
+<code>[cppcoreguidelines-special-member-functions]</code>
+<p><i>build/_deps/catch2-src/src/catch2/interfaces/catch_interfaces_test_invoker.hpp 13 : 11</i></p>
+<pre>
+   13 |     class ITestInvoker {
+      |           ^
+</pre>
+<hr>
+<h3>warning: class &#39;AssertionHandler&#39; defines a non-default destructor but does not define a copy constructor, a copy assignment operator, a move constructor or a move assignment operator</h3>
+<code>[cppcoreguidelines-special-member-functions]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_assertion_handler.hpp 26 : 11</i></p>
+<pre>
+   26 |     class AssertionHandler {
+      |           ^
+</pre>
+<span id='cppcoreguidelines-avoid-const-or-ref-data-members'>&nbsp;</span>
+<hr>
+<h3>warning: member &#39;m_resultCapture&#39; of type &#39;RunContext &amp;&#39; is a reference</h3>
+<code>[cppcoreguidelines-avoid-const-or-ref-data-members]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_assertion_handler.hpp 33 : 21</i></p>
+<pre>
+   33 |         RunContext&amp; m_resultCapture;
+      |                     ^
+</pre>
+<hr>
+<h3>warning: function &#39;allowThrows&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_assertion_handler.hpp 67 : 9</i></p>
+<pre>
+   67 |         auto allowThrows() const -&gt; bool;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<span id='modernize-concat-nested-namespaces'>&nbsp;</span>
+<hr>
+<h3>warning: nested namespaces can be concatenated</h3>
+<code>[modernize-concat-nested-namespaces]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_compare_traits.hpp 15 : 1</i></p>
+<pre>
+   15 | namespace Catch {
+      | ^~~~~~~~~~~~~~~~~
+   16 |     namespace Detail {
+      |     ~~~~~~~~~~~~~~~~
+      |     namespace Catch::Detail
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifdef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_compare_traits.hpp 31 : 2</i></p>
+<pre>
+   31 | #if defined( __clang__ )
+      |  ^~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef __clang__
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifdef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_compare_traits.hpp 67 : 2</i></p>
+<pre>
+   67 | #if defined( __clang__ )
+      |  ^~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef __clang__
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifdef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_compiler_capabilities.hpp 77 : 2</i></p>
+<pre>
+   77 | #if defined(__NVCOMPILER)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef __NVCOMPILER
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifdef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_compiler_capabilities.hpp 102 : 2</i></p>
+<pre>
+  102 | #if defined(__clang__)
+      |  ^~~~~~~~~~~~~~~~~~~~~
+      |  ifdef __clang__
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifdef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_compiler_capabilities.hpp 189 : 2</i></p>
+<pre>
+  189 | #if defined(__ANDROID__)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef __ANDROID__
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifdef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_compiler_capabilities.hpp 195 : 2</i></p>
+<pre>
+  195 | #if defined(__MINGW32__)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef __MINGW32__
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifdef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_compiler_capabilities.hpp 201 : 2</i></p>
+<pre>
+  201 | #if defined(__ORBIS__)
+      |  ^~~~~~~~~~~~~~~~~~~~~
+      |  ifdef __ORBIS__
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifdef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_compiler_capabilities.hpp 277 : 2</i></p>
+<pre>
+  277 | #if defined(__BORLANDC__)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef __BORLANDC__
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifndef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_compiler_capabilities.hpp 292 : 2</i></p>
+<pre>
+  292 | #if !defined(_GLIBCXX_USE_C99_MATH_TR1)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef _GLIBCXX_USE_C99_MATH_TR1
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifdef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_compiler_capabilities.hpp 297 : 2</i></p>
+<pre>
+  297 | #if defined(__has_include)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef __has_include
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifdef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_compiler_capabilities.hpp 367 : 2</i></p>
+<pre>
+  367 | #if defined(CATCH_CONFIG_EXPERIMENTAL_REDIRECT)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef CATCH_CONFIG_EXPERIMENTAL_REDIRECT
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifndef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_compiler_capabilities.hpp 412 : 2</i></p>
+<pre>
+  412 | #if !defined(CATCH_INTERNAL_START_WARNINGS_SUPPRESSION)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_INTERNAL_START_WARNINGS_SUPPRESSION
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifndef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_compiler_capabilities.hpp 415 : 2</i></p>
+<pre>
+  415 | #if !defined(CATCH_INTERNAL_STOP_WARNINGS_SUPPRESSION)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_INTERNAL_STOP_WARNINGS_SUPPRESSION
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifndef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_compiler_capabilities.hpp 418 : 2</i></p>
+<pre>
+  418 | #if !defined(CATCH_INTERNAL_SUPPRESS_PARENTHESES_WARNINGS)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_INTERNAL_SUPPRESS_PARENTHESES_WARNINGS
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifndef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_compiler_capabilities.hpp 421 : 2</i></p>
+<pre>
+  421 | #if !defined(CATCH_INTERNAL_SUPPRESS_GLOBALS_WARNINGS)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_INTERNAL_SUPPRESS_GLOBALS_WARNINGS
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifndef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_compiler_capabilities.hpp 424 : 2</i></p>
+<pre>
+  424 | #if !defined(CATCH_INTERNAL_SUPPRESS_UNUSED_RESULT)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_INTERNAL_SUPPRESS_UNUSED_RESULT
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifndef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_compiler_capabilities.hpp 427 : 2</i></p>
+<pre>
+  427 | #if !defined(CATCH_INTERNAL_SUPPRESS_UNUSED_VARIABLE_WARNINGS)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_INTERNAL_SUPPRESS_UNUSED_VARIABLE_WARNINGS
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifndef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_compiler_capabilities.hpp 430 : 2</i></p>
+<pre>
+  430 | #if !defined(CATCH_INTERNAL_SUPPRESS_USELESS_CAST_WARNINGS)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_INTERNAL_SUPPRESS_USELESS_CAST_WARNINGS
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifndef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_compiler_capabilities.hpp 433 : 2</i></p>
+<pre>
+  433 | #if !defined(CATCH_INTERNAL_SUPPRESS_ZERO_VARIADIC_WARNINGS)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_INTERNAL_SUPPRESS_ZERO_VARIADIC_WARNINGS
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifndef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_compiler_capabilities.hpp 436 : 2</i></p>
+<pre>
+  436 | #if !defined( CATCH_INTERNAL_SUPPRESS_UNUSED_TEMPLATE_WARNINGS )
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_INTERNAL_SUPPRESS_UNUSED_TEMPLATE_WARNINGS
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifndef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_compiler_capabilities.hpp 439 : 2</i></p>
+<pre>
+  439 | #if !defined( CATCH_INTERNAL_SUPPRESS_COMMA_WARNINGS )
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_INTERNAL_SUPPRESS_COMMA_WARNINGS
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifndef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_compiler_capabilities.hpp 442 : 2</i></p>
+<pre>
+  442 | #if !defined( CATCH_INTERNAL_SUPPRESS_SHADOW_WARNINGS )
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_INTERNAL_SUPPRESS_SHADOW_WARNINGS
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifndef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_compiler_capabilities.hpp 445 : 2</i></p>
+<pre>
+  445 | #if !defined( CATCH_INTERNAL_SUPPRESS_COUNTER_WARNINGS )
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_INTERNAL_SUPPRESS_COUNTER_WARNINGS
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifdef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_compiler_capabilities.hpp 456 : 2</i></p>
+<pre>
+  456 | #if defined(CATCH_CONFIG_DISABLE_EXCEPTIONS)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef CATCH_CONFIG_DISABLE_EXCEPTIONS
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifdef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_config_wchar.hpp 25 : 2</i></p>
+<pre>
+   25 | #if defined(__DJGPP__)
+      |  ^~~~~~~~~~~~~~~~~~~~~
+      |  ifdef __DJGPP__
+</pre>
+<hr>
+<h3>warning: use c++17 style variable templates</h3>
+<code>[modernize-type-traits]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 151 : 34</i></p>
+<pre>
+  151 |                                  std::is_arithmetic&lt;T&gt;::value ||
+      |                                  ^                    ~~~~~~~
+      |                                                    _v
+</pre>
+<hr>
+<h3>warning: use c++17 style variable templates</h3>
+<code>[modernize-type-traits]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 152 : 38</i></p>
+<pre>
+  152 |                                      std::is_enum&lt;T&gt;::value&gt; {};
+      |                                      ^              ~~~~~~~
+      |                                                  _v
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifdef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 154 : 2</i></p>
+<pre>
+  154 | #if defined( CATCH_CONFIG_CPP20_COMPARE_OVERLOADS )
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef CATCH_CONFIG_CPP20_COMPARE_OVERLOADS
+</pre>
+<hr>
+<h3>warning: class &#39;ITransientExpression&#39; defines a default destructor, a copy constructor and a copy assignment operator but does not define a move constructor or a move assignment operator</h3>
+<code>[cppcoreguidelines-special-member-functions]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 166 : 11</i></p>
+<pre>
+  166 |     class ITransientExpression {
+      |           ^
+</pre>
+<hr>
+<h3>warning: function &#39;isBinaryExpression&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 174 : 9</i></p>
+<pre>
+  174 |         constexpr auto isBinaryExpression() const -&gt; bool { return m_isBinaryExpression; }
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;getResult&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 175 : 9</i></p>
+<pre>
+  175 |         constexpr auto getResult() const -&gt; bool { return m_result; }
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<span id='misc-override-with-different-visibility'>&nbsp;</span>
+<hr>
+<h3>warning: visibility of function &#39;streamReconstructedExpression&#39; is changed from public in class &#39;ITransientExpression&#39; to private</h3>
+<code>[misc-override-with-different-visibility]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 201 : 14</i></p>
+<pre>
+  201 |         void streamReconstructedExpression( std::ostream &amp;os ) const override {
+      |              ^
+</pre>
+<p>function declared here as public</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 177 : 22</i></p>
+<pre>
+  177 |         virtual void streamReconstructedExpression( std::ostream&amp; os ) const;
+      |                      ^
+</pre>
+<span id='readability-const-return-type'>&nbsp;</span>
+<hr>
+<h3>warning: return type &#39;const BinaryExpr&lt;LhsT, const RhsT &amp;&gt;&#39; is &#39;const&#39;-qualified at the top level, which may reduce code readability without improving const correctness</h3>
+<code>[readability-const-return-type]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 215 : 9</i></p>
+<pre>
+  215 |         auto operator &amp;&amp; ( T ) const -&gt; BinaryExpr&lt;LhsT, RhsT const&amp;&gt; const {
+      |         ^
+</pre>
+<hr>
+<h3>warning: return type &#39;const BinaryExpr&lt;LhsT, const RhsT &amp;&gt;&#39; is &#39;const&#39;-qualified at the top level, which may reduce code readability without improving const correctness</h3>
+<code>[readability-const-return-type]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 222 : 9</i></p>
+<pre>
+  222 |         auto operator || ( T ) const -&gt; BinaryExpr&lt;LhsT, RhsT const&amp;&gt; const {
+      |         ^
+</pre>
+<hr>
+<h3>warning: return type &#39;const BinaryExpr&lt;LhsT, const RhsT &amp;&gt;&#39; is &#39;const&#39;-qualified at the top level, which may reduce code readability without improving const correctness</h3>
+<code>[readability-const-return-type]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 229 : 9</i></p>
+<pre>
+  229 |         auto operator == ( T ) const -&gt; BinaryExpr&lt;LhsT, RhsT const&amp;&gt; const {
+      |         ^
+</pre>
+<hr>
+<h3>warning: return type &#39;const BinaryExpr&lt;LhsT, const RhsT &amp;&gt;&#39; is &#39;const&#39;-qualified at the top level, which may reduce code readability without improving const correctness</h3>
+<code>[readability-const-return-type]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 236 : 9</i></p>
+<pre>
+  236 |         auto operator != ( T ) const -&gt; BinaryExpr&lt;LhsT, RhsT const&amp;&gt; const {
+      |         ^
+</pre>
+<hr>
+<h3>warning: return type &#39;const BinaryExpr&lt;LhsT, const RhsT &amp;&gt;&#39; is &#39;const&#39;-qualified at the top level, which may reduce code readability without improving const correctness</h3>
+<code>[readability-const-return-type]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 243 : 9</i></p>
+<pre>
+  243 |         auto operator &gt; ( T ) const -&gt; BinaryExpr&lt;LhsT, RhsT const&amp;&gt; const {
+      |         ^
+</pre>
+<hr>
+<h3>warning: return type &#39;const BinaryExpr&lt;LhsT, const RhsT &amp;&gt;&#39; is &#39;const&#39;-qualified at the top level, which may reduce code readability without improving const correctness</h3>
+<code>[readability-const-return-type]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 250 : 9</i></p>
+<pre>
+  250 |         auto operator &lt; ( T ) const -&gt; BinaryExpr&lt;LhsT, RhsT const&amp;&gt; const {
+      |         ^
+</pre>
+<hr>
+<h3>warning: return type &#39;const BinaryExpr&lt;LhsT, const RhsT &amp;&gt;&#39; is &#39;const&#39;-qualified at the top level, which may reduce code readability without improving const correctness</h3>
+<code>[readability-const-return-type]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 257 : 9</i></p>
+<pre>
+  257 |         auto operator &gt;= ( T ) const -&gt; BinaryExpr&lt;LhsT, RhsT const&amp;&gt; const {
+      |         ^
+</pre>
+<hr>
+<h3>warning: return type &#39;const BinaryExpr&lt;LhsT, const RhsT &amp;&gt;&#39; is &#39;const&#39;-qualified at the top level, which may reduce code readability without improving const correctness</h3>
+<code>[readability-const-return-type]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 264 : 9</i></p>
+<pre>
+  264 |         auto operator &lt;= ( T ) const -&gt; BinaryExpr&lt;LhsT, RhsT const&amp;&gt; const {
+      |         ^
+</pre>
+<hr>
+<h3>warning: visibility of function &#39;streamReconstructedExpression&#39; is changed from public in class &#39;ITransientExpression&#39; to private</h3>
+<code>[misc-override-with-different-visibility]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 275 : 14</i></p>
+<pre>
+  275 |         void streamReconstructedExpression( std::ostream &amp;os ) const override {
+      |              ^
+</pre>
+<p>function declared here as public</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 177 : 22</i></p>
+<pre>
+  177 |         virtual void streamReconstructedExpression( std::ostream&amp; os ) const;
+      |                      ^
+</pre>
+<span id='cppcoreguidelines-missing-std-forward'>&nbsp;</span>
+<hr>
+<h3>warning: forwarding reference parameter &#39;rhs&#39; is never forwarded inside the function body</h3>
+<code>[cppcoreguidelines-missing-std-forward]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 341 : 9</i></p>
+<pre>
+  341 |         CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR( eq, == )
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 295 : 62</i></p>
+<pre>
+  295 |     constexpr friend auto operator op( ExprLhs&amp;&amp; lhs, RhsT&amp;&amp; rhs )             \
+      |                                                              ^
+</pre>
+<span id='cppcoreguidelines-rvalue-reference-param-not-moved'>&nbsp;</span>
+<hr>
+<h3>warning: rvalue reference parameter &#39;lhs&#39; is never moved from inside the function body</h3>
+<code>[cppcoreguidelines-rvalue-reference-param-not-moved]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 341 : 9</i></p>
+<pre>
+  341 |         CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR( eq, == )
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 295 : 50</i></p>
+<pre>
+  295 |     constexpr friend auto operator op( ExprLhs&amp;&amp; lhs, RhsT&amp;&amp; rhs )             \
+      |                                                  ^
+</pre>
+<hr>
+<h3>warning: use C++20 requires constraints instead of enable_if</h3>
+<code>[modernize-use-constraints]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 341 : 9</i></p>
+<pre>
+  341 |         CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR( eq, == )
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 296 : 12</i></p>
+<pre>
+  296 |         -&gt; std::enable_if_t&lt;                                                   \
+      |            ^
+</pre>
+<hr>
+<h3>warning: use c++17 style variable templates</h3>
+<code>[modernize-type-traits]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 341 : 9</i></p>
+<pre>
+  341 |         CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR( eq, == )
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 297 : 13</i></p>
+<pre>
+  297 |             Detail::conjunction&lt;Detail::is_##id##_comparable&lt;LhsT, RhsT&gt;,      \
+      |             ^
+</pre>
+<hr>
+<h3>warning: forwarding reference parameter &#39;rhs&#39; is never forwarded inside the function body</h3>
+<code>[cppcoreguidelines-missing-std-forward]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 342 : 9</i></p>
+<pre>
+  342 |         CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR( ne, != )
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 295 : 62</i></p>
+<pre>
+  295 |     constexpr friend auto operator op( ExprLhs&amp;&amp; lhs, RhsT&amp;&amp; rhs )             \
+      |                                                              ^
+</pre>
+<hr>
+<h3>warning: rvalue reference parameter &#39;lhs&#39; is never moved from inside the function body</h3>
+<code>[cppcoreguidelines-rvalue-reference-param-not-moved]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 342 : 9</i></p>
+<pre>
+  342 |         CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR( ne, != )
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 295 : 50</i></p>
+<pre>
+  295 |     constexpr friend auto operator op( ExprLhs&amp;&amp; lhs, RhsT&amp;&amp; rhs )             \
+      |                                                  ^
+</pre>
+<hr>
+<h3>warning: use C++20 requires constraints instead of enable_if</h3>
+<code>[modernize-use-constraints]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 342 : 9</i></p>
+<pre>
+  342 |         CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR( ne, != )
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 296 : 12</i></p>
+<pre>
+  296 |         -&gt; std::enable_if_t&lt;                                                   \
+      |            ^
+</pre>
+<hr>
+<h3>warning: use c++17 style variable templates</h3>
+<code>[modernize-type-traits]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 342 : 9</i></p>
+<pre>
+  342 |         CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR( ne, != )
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 297 : 13</i></p>
+<pre>
+  297 |             Detail::conjunction&lt;Detail::is_##id##_comparable&lt;LhsT, RhsT&gt;,      \
+      |             ^
+</pre>
+<hr>
+<h3>warning: forwarding reference parameter &#39;rhs&#39; is never forwarded inside the function body</h3>
+<code>[cppcoreguidelines-missing-std-forward]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 391 : 9</i></p>
+<pre>
+  391 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( lt, &lt; )
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 349 : 62</i></p>
+<pre>
+  349 |     constexpr friend auto operator op( ExprLhs&amp;&amp; lhs, RhsT&amp;&amp; rhs )             \
+      |                                                              ^
+</pre>
+<hr>
+<h3>warning: rvalue reference parameter &#39;lhs&#39; is never moved from inside the function body</h3>
+<code>[cppcoreguidelines-rvalue-reference-param-not-moved]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 391 : 9</i></p>
+<pre>
+  391 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( lt, &lt; )
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 349 : 50</i></p>
+<pre>
+  349 |     constexpr friend auto operator op( ExprLhs&amp;&amp; lhs, RhsT&amp;&amp; rhs )             \
+      |                                                  ^
+</pre>
+<hr>
+<h3>warning: use C++20 requires constraints instead of enable_if</h3>
+<code>[modernize-use-constraints]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 391 : 9</i></p>
+<pre>
+  391 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( lt, &lt; )
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 350 : 12</i></p>
+<pre>
+  350 |         -&gt; std::enable_if_t&lt;                                                   \
+      |            ^
+</pre>
+<hr>
+<h3>warning: use c++17 style variable templates</h3>
+<code>[modernize-type-traits]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 391 : 9</i></p>
+<pre>
+  391 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( lt, &lt; )
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 351 : 13</i></p>
+<pre>
+  351 |             Detail::conjunction&lt;Detail::is_##id##_comparable&lt;LhsT, RhsT&gt;,      \
+      |             ^
+</pre>
+<hr>
+<h3>warning: forwarding reference parameter &#39;rhs&#39; is never forwarded inside the function body</h3>
+<code>[cppcoreguidelines-missing-std-forward]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 392 : 9</i></p>
+<pre>
+  392 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( le, &lt;= )
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 349 : 62</i></p>
+<pre>
+  349 |     constexpr friend auto operator op( ExprLhs&amp;&amp; lhs, RhsT&amp;&amp; rhs )             \
+      |                                                              ^
+</pre>
+<hr>
+<h3>warning: rvalue reference parameter &#39;lhs&#39; is never moved from inside the function body</h3>
+<code>[cppcoreguidelines-rvalue-reference-param-not-moved]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 392 : 9</i></p>
+<pre>
+  392 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( le, &lt;= )
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 349 : 50</i></p>
+<pre>
+  349 |     constexpr friend auto operator op( ExprLhs&amp;&amp; lhs, RhsT&amp;&amp; rhs )             \
+      |                                                  ^
+</pre>
+<hr>
+<h3>warning: use C++20 requires constraints instead of enable_if</h3>
+<code>[modernize-use-constraints]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 392 : 9</i></p>
+<pre>
+  392 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( le, &lt;= )
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 350 : 12</i></p>
+<pre>
+  350 |         -&gt; std::enable_if_t&lt;                                                   \
+      |            ^
+</pre>
+<hr>
+<h3>warning: use c++17 style variable templates</h3>
+<code>[modernize-type-traits]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 392 : 9</i></p>
+<pre>
+  392 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( le, &lt;= )
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 351 : 13</i></p>
+<pre>
+  351 |             Detail::conjunction&lt;Detail::is_##id##_comparable&lt;LhsT, RhsT&gt;,      \
+      |             ^
+</pre>
+<hr>
+<h3>warning: forwarding reference parameter &#39;rhs&#39; is never forwarded inside the function body</h3>
+<code>[cppcoreguidelines-missing-std-forward]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 393 : 9</i></p>
+<pre>
+  393 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( gt, &gt; )
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 349 : 62</i></p>
+<pre>
+  349 |     constexpr friend auto operator op( ExprLhs&amp;&amp; lhs, RhsT&amp;&amp; rhs )             \
+      |                                                              ^
+</pre>
+<hr>
+<h3>warning: rvalue reference parameter &#39;lhs&#39; is never moved from inside the function body</h3>
+<code>[cppcoreguidelines-rvalue-reference-param-not-moved]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 393 : 9</i></p>
+<pre>
+  393 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( gt, &gt; )
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 349 : 50</i></p>
+<pre>
+  349 |     constexpr friend auto operator op( ExprLhs&amp;&amp; lhs, RhsT&amp;&amp; rhs )             \
+      |                                                  ^
+</pre>
+<hr>
+<h3>warning: use C++20 requires constraints instead of enable_if</h3>
+<code>[modernize-use-constraints]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 393 : 9</i></p>
+<pre>
+  393 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( gt, &gt; )
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 350 : 12</i></p>
+<pre>
+  350 |         -&gt; std::enable_if_t&lt;                                                   \
+      |            ^
+</pre>
+<hr>
+<h3>warning: use c++17 style variable templates</h3>
+<code>[modernize-type-traits]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 393 : 9</i></p>
+<pre>
+  393 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( gt, &gt; )
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 351 : 13</i></p>
+<pre>
+  351 |             Detail::conjunction&lt;Detail::is_##id##_comparable&lt;LhsT, RhsT&gt;,      \
+      |             ^
+</pre>
+<hr>
+<h3>warning: forwarding reference parameter &#39;rhs&#39; is never forwarded inside the function body</h3>
+<code>[cppcoreguidelines-missing-std-forward]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 394 : 9</i></p>
+<pre>
+  394 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( ge, &gt;= )
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 349 : 62</i></p>
+<pre>
+  349 |     constexpr friend auto operator op( ExprLhs&amp;&amp; lhs, RhsT&amp;&amp; rhs )             \
+      |                                                              ^
+</pre>
+<hr>
+<h3>warning: rvalue reference parameter &#39;lhs&#39; is never moved from inside the function body</h3>
+<code>[cppcoreguidelines-rvalue-reference-param-not-moved]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 394 : 9</i></p>
+<pre>
+  394 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( ge, &gt;= )
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 349 : 50</i></p>
+<pre>
+  349 |     constexpr friend auto operator op( ExprLhs&amp;&amp; lhs, RhsT&amp;&amp; rhs )             \
+      |                                                  ^
+</pre>
+<hr>
+<h3>warning: use C++20 requires constraints instead of enable_if</h3>
+<code>[modernize-use-constraints]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 394 : 9</i></p>
+<pre>
+  394 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( ge, &gt;= )
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 350 : 12</i></p>
+<pre>
+  350 |         -&gt; std::enable_if_t&lt;                                                   \
+      |            ^
+</pre>
+<hr>
+<h3>warning: use c++17 style variable templates</h3>
+<code>[modernize-type-traits]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 394 : 9</i></p>
+<pre>
+  394 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( ge, &gt;= )
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 351 : 13</i></p>
+<pre>
+  351 |             Detail::conjunction&lt;Detail::is_##id##_comparable&lt;LhsT, RhsT&gt;,      \
+      |             ^
+</pre>
+<hr>
+<h3>warning: forwarding reference parameter &#39;rhs&#39; is never forwarded inside the function body</h3>
+<code>[cppcoreguidelines-missing-std-forward]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 416 : 9</i></p>
+<pre>
+  416 |         CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR(|)
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 401 : 62</i></p>
+<pre>
+  401 |     constexpr friend auto operator op( ExprLhs&amp;&amp; lhs, RhsT&amp;&amp; rhs )             \
+      |                                                              ^
+</pre>
+<hr>
+<h3>warning: rvalue reference parameter &#39;lhs&#39; is never moved from inside the function body</h3>
+<code>[cppcoreguidelines-rvalue-reference-param-not-moved]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 416 : 9</i></p>
+<pre>
+  416 |         CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR(|)
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 401 : 50</i></p>
+<pre>
+  401 |     constexpr friend auto operator op( ExprLhs&amp;&amp; lhs, RhsT&amp;&amp; rhs )             \
+      |                                                  ^
+</pre>
+<hr>
+<h3>warning: use C++20 requires constraints instead of enable_if</h3>
+<code>[modernize-use-constraints]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 416 : 9</i></p>
+<pre>
+  416 |         CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR(|)
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 402 : 12</i></p>
+<pre>
+  402 |         -&gt; std::enable_if_t&lt;                                                   \
+      |            ^
+</pre>
+<hr>
+<h3>warning: forwarding reference parameter &#39;rhs&#39; is never forwarded inside the function body</h3>
+<code>[cppcoreguidelines-missing-std-forward]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 417 : 9</i></p>
+<pre>
+  417 |         CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR(&amp;)
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 401 : 62</i></p>
+<pre>
+  401 |     constexpr friend auto operator op( ExprLhs&amp;&amp; lhs, RhsT&amp;&amp; rhs )             \
+      |                                                              ^
+</pre>
+<hr>
+<h3>warning: rvalue reference parameter &#39;lhs&#39; is never moved from inside the function body</h3>
+<code>[cppcoreguidelines-rvalue-reference-param-not-moved]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 417 : 9</i></p>
+<pre>
+  417 |         CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR(&amp;)
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 401 : 50</i></p>
+<pre>
+  401 |     constexpr friend auto operator op( ExprLhs&amp;&amp; lhs, RhsT&amp;&amp; rhs )             \
+      |                                                  ^
+</pre>
+<hr>
+<h3>warning: use C++20 requires constraints instead of enable_if</h3>
+<code>[modernize-use-constraints]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 417 : 9</i></p>
+<pre>
+  417 |         CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR(&amp;)
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 402 : 12</i></p>
+<pre>
+  402 |         -&gt; std::enable_if_t&lt;                                                   \
+      |            ^
+</pre>
+<hr>
+<h3>warning: forwarding reference parameter &#39;rhs&#39; is never forwarded inside the function body</h3>
+<code>[cppcoreguidelines-missing-std-forward]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 418 : 9</i></p>
+<pre>
+  418 |         CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR(^)
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 401 : 62</i></p>
+<pre>
+  401 |     constexpr friend auto operator op( ExprLhs&amp;&amp; lhs, RhsT&amp;&amp; rhs )             \
+      |                                                              ^
+</pre>
+<hr>
+<h3>warning: rvalue reference parameter &#39;lhs&#39; is never moved from inside the function body</h3>
+<code>[cppcoreguidelines-rvalue-reference-param-not-moved]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 418 : 9</i></p>
+<pre>
+  418 |         CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR(^)
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 401 : 50</i></p>
+<pre>
+  401 |     constexpr friend auto operator op( ExprLhs&amp;&amp; lhs, RhsT&amp;&amp; rhs )             \
+      |                                                  ^
+</pre>
+<hr>
+<h3>warning: use C++20 requires constraints instead of enable_if</h3>
+<code>[modernize-use-constraints]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 418 : 9</i></p>
+<pre>
+  418 |         CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR(^)
+      |         ^
+</pre>
+<p>expanded from macro &#39;CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 402 : 12</i></p>
+<pre>
+  402 |         -&gt; std::enable_if_t&lt;                                                   \
+      |            ^
+</pre>
+<hr>
+<h3>warning: rvalue reference parameter &#39;&#39; is never moved from inside the function body</h3>
+<code>[cppcoreguidelines-rvalue-reference-param-not-moved]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 423 : 45</i></p>
+<pre>
+  423 |         friend auto operator &amp;&amp; ( ExprLhs &amp;&amp;, RhsT &amp;&amp; ) -&gt; BinaryExpr&lt;LhsT, RhsT const&amp;&gt; {
+      |                                             ^
+</pre>
+<hr>
+<h3>warning: rvalue reference parameter &#39;&#39; is never moved from inside the function body</h3>
+<code>[cppcoreguidelines-rvalue-reference-param-not-moved]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 430 : 45</i></p>
+<pre>
+  430 |         friend auto operator || ( ExprLhs &amp;&amp;, RhsT &amp;&amp; ) -&gt; BinaryExpr&lt;LhsT, RhsT const&amp;&gt; {
+      |                                             ^
+</pre>
+<hr>
+<h3>warning: function &#39;makeUnaryExpr&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 436 : 9</i></p>
+<pre>
+  436 |         constexpr auto makeUnaryExpr() const -&gt; UnaryExpr&lt;LhsT&gt; {
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: use C++20 requires constraints instead of enable_if</h3>
+<code>[modernize-use-constraints]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 443 : 19</i></p>
+<pre>
+  442 |         template &lt;typename T,
+      |                             ~
+  443 |                   std::enable_if_t&lt;!capture_by_value&lt;Detail::RemoveCVRef_t&lt;T&gt;&gt;::value,
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  444 |                       int&gt; = 0&gt;
+      |                       ~~~~~~~~
+  445 |         constexpr friend auto operator &lt;= ( Decomposer &amp;&amp;, T &amp;&amp; lhs ) -&gt; ExprLhs&lt;T const&amp;&gt; {
+      |                                                                                            requires (!capture_by_value&lt;Detail::RemoveCVRef_t&lt;T&gt;&gt;::value) 
+</pre>
+<hr>
+<h3>warning: rvalue reference parameter &#39;&#39; is never moved from inside the function body</h3>
+<code>[cppcoreguidelines-rvalue-reference-param-not-moved]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 445 : 58</i></p>
+<pre>
+  445 |         constexpr friend auto operator &lt;= ( Decomposer &amp;&amp;, T &amp;&amp; lhs ) -&gt; ExprLhs&lt;T const&amp;&gt; {
+      |                                                          ^
+</pre>
+<hr>
+<h3>warning: forwarding reference parameter &#39;lhs&#39; is never forwarded inside the function body</h3>
+<code>[cppcoreguidelines-missing-std-forward]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 445 : 65</i></p>
+<pre>
+  445 |         constexpr friend auto operator &lt;= ( Decomposer &amp;&amp;, T &amp;&amp; lhs ) -&gt; ExprLhs&lt;T const&amp;&gt; {
+      |                                                                 ^
+</pre>
+<hr>
+<h3>warning: use C++20 requires constraints instead of enable_if</h3>
+<code>[modernize-use-constraints]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 450 : 19</i></p>
+<pre>
+  449 |         template &lt;typename T,
+      |                             ~
+  450 |                   std::enable_if_t&lt;capture_by_value&lt;T&gt;::value, int&gt; = 0&gt;
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  451 |         constexpr friend auto operator &lt;= ( Decomposer &amp;&amp;, T value ) -&gt; ExprLhs&lt;T&gt; {
+      |                                                                                    requires capture_by_value&lt;T&gt;::value 
+</pre>
+<hr>
+<h3>warning: rvalue reference parameter &#39;&#39; is never moved from inside the function body</h3>
+<code>[cppcoreguidelines-rvalue-reference-param-not-moved]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_decomposer.hpp 451 : 58</i></p>
+<pre>
+  451 |         constexpr friend auto operator &lt;= ( Decomposer &amp;&amp;, T value ) -&gt; ExprLhs&lt;T&gt; {
+      |                                                          ^
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifndef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_deprecation_macro.hpp 13 : 2</i></p>
+<pre>
+   13 | #if !defined( CATCH_CONFIG_NO_DEPRECATION_ANNOTATIONS )
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_CONFIG_NO_DEPRECATION_ANNOTATIONS
+</pre>
+<hr>
+<h3>warning: nested namespaces can be concatenated</h3>
+<code>[modernize-concat-nested-namespaces]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_enum_info.hpp 17 : 1</i></p>
+<pre>
+   17 | namespace Catch {
+      | ^~~~~~~~~~~~~~~~~
+   18 |     namespace Detail {
+      |     ~~~~~~~~~~~~~~~~
+      |     namespace Catch::Detail
+</pre>
+<hr>
+<h3>warning: function &#39;lookup&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_enum_info.hpp 24 : 13</i></p>
+<pre>
+   24 |             StringRef lookup( int64_t value ) const;
+      |             ^
+      |             [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_enum_info.hpp 38 : 44</i></p>
+<pre>
+   38 |             for ( auto enumValue : values )
+      |                                            ^
+      |                                             {
+   39 |                 intValues.push_back( static_cast&lt;int64_t&gt;( enumValue ) );
+      |                                                                          
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifndef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_lifetimebound.hpp 12 : 2</i></p>
+<pre>
+   12 | #if !defined( __has_cpp_attribute )
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef __has_cpp_attribute
+</pre>
+<hr>
+<h3>warning: nested namespaces can be concatenated</h3>
+<code>[modernize-concat-nested-namespaces]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_logical_traits.hpp 13 : 1</i></p>
+<pre>
+   13 | namespace Catch {
+      | ^~~~~~~~~~~~~~~~~
+   14 | namespace Detail {
+      | ~~~~~~~~~~~~~~~~
+      | namespace Catch::Detail
+</pre>
+<hr>
+<h3>warning: nested namespaces can be concatenated</h3>
+<code>[modernize-concat-nested-namespaces]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_noncopyable.hpp 11 : 1</i></p>
+<pre>
+   11 | namespace Catch {
+      | ^~~~~~~~~~~~~~~~~
+   12 |     namespace Detail {
+      |     ~~~~~~~~~~~~~~~~
+      |     namespace Catch::Detail
+   13 | 
+   14 |         //! Deriving classes become noncopyable and nonmovable
+   15 |         class NonCopyable {
+   16 |         public:
+   17 |             NonCopyable( NonCopyable const&amp; ) = delete;
+   18 |             NonCopyable( NonCopyable&amp;&amp; ) = delete;
+   19 |             NonCopyable&amp; operator=( NonCopyable const&amp; ) = delete;
+   20 |             NonCopyable&amp; operator=( NonCopyable&amp;&amp; ) = delete;
+   21 | 
+   22 |         protected:
+   23 |             NonCopyable() noexcept = default;
+   24 |         };
+   25 | 
+   26 |     } // namespace Detail
+      |     ~~~~~~~~~~~~~~~~~~~~~
+      |     } // namespace Catch::Detail
+</pre>
+<hr>
+<h3>warning: class &#39;NonCopyable&#39; defines a copy constructor, a copy assignment operator, a move constructor and a move assignment operator but does not define a destructor</h3>
+<code>[cppcoreguidelines-special-member-functions]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_noncopyable.hpp 15 : 15</i></p>
+<pre>
+   15 |         class NonCopyable {
+      |               ^
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifndef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_preprocessor_internal_stringify.hpp 13 : 2</i></p>
+<pre>
+   13 | #if !defined(CATCH_CONFIG_DISABLE_STRINGIFICATION)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_CONFIG_DISABLE_STRINGIFICATION
+</pre>
+<span id='cppcoreguidelines-use-enum-class'>&nbsp;</span>
+<hr>
+<h3>warning: enum &#39;OfType&#39; is unscoped, use &#39;enum class&#39; instead</h3>
+<code>[cppcoreguidelines-use-enum-class]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_result_type.hpp 14 : 29</i></p>
+<pre>
+   14 |     struct ResultWas { enum OfType {
+      |                             ^
+</pre>
+<span id='google-readability-todo'>&nbsp;</span>
+<hr>
+<h3>warning: missing username/bug in TODO</h3>
+<code>[google-readability-todo]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_result_type.hpp 19 : 9</i></p>
+<pre>
+   19 |         // TODO: Should explicit skip be considered &quot;not OK&quot; (cf. isOk)? I.e., should it have the failure bit?
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         // TODO: runner - Should explicit skip be considered &quot;not OK&quot; (cf. isOk)? I.e., should it have the failure bit?
+</pre>
+<hr>
+<h3>warning: enum &#39;Flags&#39; is unscoped, use &#39;enum class&#39; instead</h3>
+<code>[cppcoreguidelines-use-enum-class]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_result_type.hpp 43 : 37</i></p>
+<pre>
+   43 |     struct ResultDisposition { enum Flags {
+      |                                     ^
+</pre>
+<hr>
+<h3>warning: class &#39;ReusableStringStream&#39; defines a destructor but does not define a copy constructor, a copy assignment operator, a move constructor or a move assignment operator</h3>
+<code>[cppcoreguidelines-special-member-functions]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_reusable_string_stream.hpp 20 : 11</i></p>
+<pre>
+   20 |     class ReusableStringStream : Detail::NonCopyable {
+      |           ^
+</pre>
+<hr>
+<h3>warning: function &#39;str&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_reusable_string_stream.hpp 28 : 9</i></p>
+<pre>
+   28 |         std::string str() const;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: class &#39;Section&#39; defines a destructor but does not define a copy constructor, a copy assignment operator, a move constructor or a move assignment operator</h3>
+<code>[cppcoreguidelines-special-member-functions]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_section.hpp 21 : 11</i></p>
+<pre>
+   21 |     class Section : Detail::NonCopyable {
+      |           ^
+</pre>
+<span id='readability-avoid-const-params-in-decls'>&nbsp;</span>
+<hr>
+<h3>warning: parameter 3 is const-qualified in the function declaration; const-qualification of parameters only has an effect in function definitions</h3>
+<code>[readability-avoid-const-params-in-decls]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_section.hpp 26 : 30</i></p>
+<pre>
+   26 |                  const char* const = nullptr );
+      |                              ^~~~~
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifndef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_section.hpp 42 : 2</i></p>
+<pre>
+   42 | #if !defined(CATCH_CONFIG_EXPERIMENTAL_STATIC_ANALYSIS_SUPPORT)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_CONFIG_EXPERIMENTAL_STATIC_ANALYSIS_SUPPORT
+</pre>
+<span id='modernize-return-braced-init-list'>&nbsp;</span>
+<hr>
+<h3>warning: avoid repeating the return type from the declaration; use a braced initializer list instead</h3>
+<code>[modernize-return-braced-init-list]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_stream_end_stop.hpp 20 : 56</i></p>
+<pre>
+   20 |         constexpr StringRef operator+() const { return StringRef(); }
+      |                                                        ^~~~~~~~~~~
+      |                                                        {}
+</pre>
+<span id='bugprone-return-const-ref-from-parameter'>&nbsp;</span>
+<hr>
+<h3>warning: returning a constant reference parameter may cause use-after-free when the parameter is constructed from a temporary</h3>
+<code>[bugprone-return-const-ref-from-parameter]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_stream_end_stop.hpp 24 : 20</i></p>
+<pre>
+   24 |             return value;
+      |                    ^~~~~
+</pre>
+<hr>
+<h3>warning: avoid repeating the return type from the declaration; use a braced initializer list instead</h3>
+<code>[modernize-return-braced-init-list]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_stringref.hpp 55 : 20</i></p>
+<pre>
+   55 |             return std::string(m_start, m_size);
+      |                    ^
+</pre>
+<span id='readability-redundant-access-specifiers'>&nbsp;</span>
+<hr>
+<h3>warning: redundant access specifier has the same accessibility as the previous access specifier</h3>
+<code>[readability-redundant-access-specifiers]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_stringref.hpp 58 : 5</i></p>
+<pre>
+   58 |     public: // operators
+      |     ^~~~~~~
+</pre>
+<p>previously declared here</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_stringref.hpp 37 : 5</i></p>
+<pre>
+   37 |     public: // construction
+      |     ^
+</pre>
+<hr>
+<h3>warning: redundant access specifier has the same accessibility as the previous access specifier</h3>
+<code>[readability-redundant-access-specifiers]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_stringref.hpp 74 : 5</i></p>
+<pre>
+   74 |     public: // named queries
+      |     ^~~~~~~
+</pre>
+<p>previously declared here</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_stringref.hpp 37 : 5</i></p>
+<pre>
+   37 |     public: // construction
+      |     ^
+</pre>
+<hr>
+<h3>warning: function &#39;empty&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_stringref.hpp 75 : 9</i></p>
+<pre>
+   75 |         constexpr auto empty() const noexcept -&gt; bool {
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;size&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_stringref.hpp 78 : 9</i></p>
+<pre>
+   78 |         constexpr auto size() const noexcept -&gt; size_type {
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;substr&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_stringref.hpp 85 : 9</i></p>
+<pre>
+   85 |         constexpr StringRef substr(size_type start, size_type length) const noexcept {
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: avoid repeating the return type from the declaration; use a braced initializer list instead</h3>
+<code>[modernize-return-braced-init-list]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_stringref.hpp 88 : 24</i></p>
+<pre>
+   88 |                 return StringRef(m_start + start, (shortened_size &lt; length) ? shortened_size : length);
+      |                        ^~~~~~~~~~                                                                    ~
+      |                        {                                                                             }
+</pre>
+<hr>
+<h3>warning: avoid repeating the return type from the declaration; use a braced initializer list instead</h3>
+<code>[modernize-return-braced-init-list]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_stringref.hpp 90 : 24</i></p>
+<pre>
+   90 |                 return StringRef();
+      |                        ^~~~~~~~~~~
+      |                        {}
+</pre>
+<hr>
+<h3>warning: function &#39;data&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_stringref.hpp 95 : 9</i></p>
+<pre>
+   95 |         constexpr char const* data() const noexcept CATCH_ATTR_LIFETIMEBOUND {
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;begin&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_stringref.hpp 99 : 9</i></p>
+<pre>
+   99 |         constexpr const_iterator begin() const { return m_start; }
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;end&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_stringref.hpp 100 : 9</i></p>
+<pre>
+  100 |         constexpr const_iterator end() const { return m_start + m_size; }
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;compare&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_stringref.hpp 113 : 9</i></p>
+<pre>
+  113 |         int compare( StringRef rhs ) const;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: avoid repeating the return type from the declaration; use a braced initializer list instead</h3>
+<code>[modernize-return-braced-init-list]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_stringref.hpp 118 : 16</i></p>
+<pre>
+  118 |         return StringRef( rawChars, size );
+      |                ^~~~~~~~~~                ~
+      |                {                         }
+</pre>
+<hr>
+<h3>warning: avoid repeating the return type from the declaration; use a braced initializer list instead</h3>
+<code>[modernize-return-braced-init-list]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_stringref.hpp 123 : 12</i></p>
+<pre>
+  123 |     return Catch::StringRef( rawChars, size );
+      |            ^~~~~~~~~~~~~~~~~                ~
+      |            {                                }
+</pre>
+<hr>
+<h3>warning: nested namespaces can be concatenated</h3>
+<code>[modernize-concat-nested-namespaces]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_test_macro_impl.hpp 17 : 1</i></p>
+<pre>
+   17 | namespace Catch {
+      | ^~~~~~~~~~~~~~~~~
+   18 |     namespace Detail {
+      |     ~~~~~~~~~~~~~~~~
+      |     namespace Catch::Detail
+   19 |         // Defined in catch_run_context.cpp, where the thread-local data lives.
+   20 |         bool lastAssertionPassed();
+   21 |     }
+   22 | }
+      | ~
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifndef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_test_macro_impl.hpp 30 : 2</i></p>
+<pre>
+   30 | #if !defined(CATCH_CONFIG_DISABLE)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_CONFIG_DISABLE
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifdef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_test_registry.hpp 93 : 2</i></p>
+<pre>
+   93 | #if defined(CATCH_CONFIG_DISABLE)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef CATCH_CONFIG_DISABLE
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifndef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_test_registry.hpp 106 : 2</i></p>
+<pre>
+  106 | #if !defined(CATCH_CONFIG_EXPERIMENTAL_STATIC_ANALYSIS_SUPPORT)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_CONFIG_EXPERIMENTAL_STATIC_ANALYSIS_SUPPORT
+</pre>
+<hr>
+<h3>warning: nested namespaces can be concatenated</h3>
+<code>[modernize-concat-nested-namespaces]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_ptr.hpp 16 : 1</i></p>
+<pre>
+   16 | namespace Catch {
+      | ^~~~~~~~~~~~~~~~~
+   17 | namespace Detail {
+      | ~~~~~~~~~~~~~~~~
+      | namespace Catch::Detail
+</pre>
+<hr>
+<h3>warning: use C++20 requires constraints instead of enable_if</h3>
+<code>[modernize-use-constraints]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_ptr.hpp 34 : 31</i></p>
+<pre>
+   34 |         template &lt;typename U, typename = std::enable_if_t&lt;std::is_base_of&lt;T, U&gt;::value&gt;&gt;
+      |                             ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   35 |         unique_ptr(unique_ptr&lt;U&gt;&amp;&amp; from):
+      |                                         
+      |                                         requires std::is_base_of&lt;T, U&gt;::value 
+</pre>
+<hr>
+<h3>warning: use c++17 style variable templates</h3>
+<code>[modernize-type-traits]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_ptr.hpp 34 : 59</i></p>
+<pre>
+</pre>
+<hr>
+<h3>warning: rvalue reference parameter &#39;from&#39; is never moved from inside the function body</h3>
+<code>[cppcoreguidelines-rvalue-reference-param-not-moved]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_ptr.hpp 35 : 36</i></p>
+<pre>
+   35 |         unique_ptr(unique_ptr&lt;U&gt;&amp;&amp; from):
+      |                                    ^
+</pre>
+<hr>
+<h3>warning: use C++20 requires constraints instead of enable_if</h3>
+<code>[modernize-use-constraints]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_ptr.hpp 39 : 31</i></p>
+<pre>
+   39 |         template &lt;typename U, typename = std::enable_if_t&lt;std::is_base_of&lt;T, U&gt;::value&gt;&gt;
+      |                             ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   40 |         unique_ptr&amp; operator=(unique_ptr&lt;U&gt;&amp;&amp; from) {
+      |                                                     requires std::is_base_of&lt;T, U&gt;::value 
+</pre>
+<hr>
+<h3>warning: use c++17 style variable templates</h3>
+<code>[modernize-type-traits]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_ptr.hpp 39 : 59</i></p>
+<pre>
+</pre>
+<hr>
+<h3>warning: rvalue reference parameter &#39;from&#39; is never moved from inside the function body</h3>
+<code>[cppcoreguidelines-rvalue-reference-param-not-moved]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_ptr.hpp 40 : 47</i></p>
+<pre>
+   40 |         unique_ptr&amp; operator=(unique_ptr&lt;U&gt;&amp;&amp; from) {
+      |                                               ^
+</pre>
+<hr>
+<h3>warning: function &#39;get&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_ptr.hpp 81 : 9</i></p>
+<pre>
+   81 |         T const* get() const { return m_ptr; }
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<span id='cppcoreguidelines-noexcept-swap'>&nbsp;</span>
+<hr>
+<h3>warning: swap functions should be marked noexcept</h3>
+<code>[cppcoreguidelines-noexcept-swap]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_ptr.hpp 98 : 21</i></p>
+<pre>
+   98 |         friend void swap(unique_ptr&amp; lhs, unique_ptr&amp; rhs) {
+      |                     ^
+      |                                                             noexcept 
+</pre>
+<hr>
+<h3>warning: forwarding reference parameter &#39;args&#39; is never forwarded inside the function body</h3>
+<code>[cppcoreguidelines-missing-std-forward]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_ptr.hpp 110 : 41</i></p>
+<pre>
+  110 |     unique_ptr&lt;T&gt; make_unique(Args&amp;&amp;... args) {
+      |                                         ^
+</pre>
+<hr>
+<h3>warning: nested namespaces can be concatenated</h3>
+<code>[modernize-concat-nested-namespaces]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unreachable.hpp 32 : 1</i></p>
+<pre>
+   32 | namespace Catch {
+      | ^~~~~~~~~~~~~~~~~
+   33 |     namespace Detail {
+      |     ~~~~~~~~~~~~~~~~
+      |     namespace Catch::Detail
+</pre>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifdef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unreachable.hpp 37 : 6</i></p>
+<pre>
+   37 | #    if defined( NDEBUG )
+      |      ^~~~~~~~~~~~~~~~~~~~
+      |      ifdef NDEBUG
+</pre>
+<hr>
+<h3>warning: nested namespaces can be concatenated</h3>
+<code>[modernize-concat-nested-namespaces]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_void_type.hpp 12 : 1</i></p>
+<pre>
+   12 | namespace Catch {
+      | ^~~~~~~~~~~~~~~~~
+   13 |     namespace Detail {
+      |     ~~~~~~~~~~~~~~~~
+      |     namespace Catch::Detail
+   14 | 
+   15 |         template &lt;typename...&gt;
+   16 |         struct make_void { using type = void; };
+   17 | 
+   18 |         template &lt;typename... Ts&gt;
+   19 |         using void_t = typename make_void&lt;Ts...&gt;::type;
+   20 | 
+   21 |     } // namespace Detail
+      |     ~~~~~~~~~~~~~~~~~~~~~
+      |     } // namespace Catch::Detail
+   22 | } // namespace Catch
+      | ~~~~~~~~~~~~~~~~~~~~
+</pre>
+<span id='readability-redundant-typename'>&nbsp;</span>
+<hr>
+<h3>warning: redundant &#39;typename&#39;</h3>
+<code>[readability-redundant-typename]</code>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_void_type.hpp 19 : 24</i></p>
+<pre>
+   19 |         using void_t = typename make_void&lt;Ts...&gt;::type;
+      |                        ^~~~~~~~
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-build/generated-includes/catch2/catch_user_config.hpp:239:1: warning: replace macro with enum [cppcoreguidelines-macro-to-enum,modernize-macro-to-enum]
+  239 | #define CATCH_CONFIG_CONSOLE_WIDTH 80
+      | ^~~~~~~
+      |                                    =
+  240 | 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-build/generated-includes/catch2/catch_user_config.hpp:239:9: warning: macro 'CATCH_CONFIG_CONSOLE_WIDTH' defines an integral constant; prefer an enum instead [cppcoreguidelines-macro-to-enum,modernize-macro-to-enum]
+  239 | #define CATCH_CONFIG_CONSOLE_WIDTH 80
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_message.hpp:65:11: warning: class 'ScopedMessage' defines a destructor, a copy constructor and a move constructor but does not define a copy assignment operator or a move assignment operator [cppcoreguidelines-special-member-functions]
+   65 |     class ScopedMessage {
+      |           ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_message.hpp:76:11: warning: class 'Capturer' defines a destructor, a copy constructor and a copy assignment operator but does not define a move constructor or a move assignment operator [cppcoreguidelines-special-member-functions]
+   76 |     class Capturer {
+      |           ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_section_info.hpp:34:12: warning: constructor does not initialize these fields: durationInSeconds [cppcoreguidelines-pro-type-member-init]
+   34 |     struct SectionEndInfo {
+      |            ^
+   35 |         SectionInfo sectionInfo;
+   36 |         Counts prevAssertions;
+   37 |         double durationInSeconds;
+      |                                 
+      |                                 {}
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_test_macros.hpp:170:4: warning: preprocessor condition can be written more concisely using '#ifndef' [readability-use-concise-preprocessor-directives]
+  170 |   #if !defined(CATCH_CONFIG_RUNTIME_STATIC_REQUIRE)
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |    ifndef CATCH_CONFIG_RUNTIME_STATIC_REQUIRE
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_timer.hpp:19:9: warning: function 'getElapsedNanoseconds' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   19 |         auto getElapsedNanoseconds() const -> uint64_t;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_timer.hpp:20:9: warning: function 'getElapsedMicroseconds' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   20 |         auto getElapsedMicroseconds() const -> uint64_t;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_timer.hpp:21:9: warning: function 'getElapsedMilliseconds' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   21 |         auto getElapsedMilliseconds() const -> unsigned int;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_timer.hpp:22:9: warning: function 'getElapsedSeconds' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   22 |         auto getElapsedSeconds() const -> double;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_tostring.hpp:77:9: warning: use C++20 requires constraints instead of enable_if [modernize-use-constraints]
+   77 |         std::enable_if_t<
+      |         ^~~~~~~~~~~~~~~~~
+      |         std::string
+   78 |             !std::is_enum<T>::value && !std::is_base_of<std::exception, T>::value,
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   79 |         std::string> convertUnstreamable( T const& ) {
+      |         ~~~~~~~~~~~~
+      |                                                      requires (!std::is_enum<T>::value && !std::is_base_of<std::exception, T>::value) 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_tostring.hpp:78:14: warning: use c++17 style variable templates [modernize-type-traits]
+note: this fix will not be applied because it overlaps with another fix
+   78 |             !std::is_enum<T>::value && !std::is_base_of<std::exception, T>::value,
+      |              ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_tostring.hpp:78:41: warning: use c++17 style variable templates [modernize-type-traits]
+note: this fix will not be applied because it overlaps with another fix
+   78 |             !std::is_enum<T>::value && !std::is_base_of<std::exception, T>::value,
+      |                                         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_tostring.hpp:83:9: warning: use C++20 requires constraints instead of enable_if [modernize-use-constraints]
+   83 |         std::enable_if_t<
+      |         ^~~~~~~~~~~~~~~~~
+      |         std::string
+   84 |             !std::is_enum<T>::value && std::is_base_of<std::exception, T>::value,
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   85 |          std::string> convertUnstreamable(T const& ex) {
+      |          ~~~~~~~~~~~~
+      |                                                        requires (!std::is_enum<T>::value && std::is_base_of<std::exception, T>::value) 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_tostring.hpp:84:14: warning: use c++17 style variable templates [modernize-type-traits]
+note: this fix will not be applied because it overlaps with another fix
+   84 |             !std::is_enum<T>::value && std::is_base_of<std::exception, T>::value,
+      |              ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_tostring.hpp:84:40: warning: use c++17 style variable templates [modernize-type-traits]
+note: this fix will not be applied because it overlaps with another fix
+   84 |             !std::is_enum<T>::value && std::is_base_of<std::exception, T>::value,
+      |                                        ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_tostring.hpp:91:9: warning: use C++20 requires constraints instead of enable_if [modernize-use-constraints]
+   91 |         std::enable_if_t<
+      |         ^~~~~~~~~~~~~~~~~
+      |         std::string
+   92 |             std::is_enum<T>::value,
+      |             ~~~~~~~~~~~~~~~~~~~~~~~
+   93 |         std::string> convertUnstreamable( T const& value ) {
+      |         ~~~~~~~~~~~~
+      |                                                            requires std::is_enum<T>::value 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_tostring.hpp:92:13: warning: use c++17 style variable templates [modernize-type-traits]
+note: this fix will not be applied because it overlaps with another fix
+   92 |             std::is_enum<T>::value,
+      |             ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_tostring.hpp:97:2: warning: preprocessor condition can be written more concisely using '#ifdef' [readability-use-concise-preprocessor-directives]
+   97 | #if defined(_MANAGED)
+      |  ^~~~~~~~~~~~~~~~~~~~
+      |  ifdef _MANAGED
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_tostring.hpp:116:9: warning: use C++20 requires constraints instead of enable_if [modernize-use-constraints]
+  116 |         std::enable_if_t<::Catch::Detail::IsStreamInsertable_v<Fake>, std::string>
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         std::string
+  117 |             convert(const Fake& value) {
+      |                                        requires (::Catch::Detail::IsStreamInsertable_v<Fake>) 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_tostring.hpp:127:9: warning: use C++20 requires constraints instead of enable_if [modernize-use-constraints]
+  127 |         std::enable_if_t<!::Catch::Detail::IsStreamInsertable_v<Fake>, std::string>
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         std::string
+  128 |             convert( const Fake& value ) {
+      |                                          requires (!::Catch::Detail::IsStreamInsertable_v<Fake>) 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_tostring.hpp:129:2: warning: preprocessor condition can be written more concisely using '#ifndef' [readability-use-concise-preprocessor-directives]
+  129 | #if !defined(CATCH_CONFIG_FALLBACK_STRINGIFIER)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_CONFIG_FALLBACK_STRINGIFIER
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_tostring.hpp:157:2: warning: preprocessor condition can be written more concisely using '#ifdef' [readability-use-concise-preprocessor-directives]
+  157 | #if defined(_MANAGED)
+      |  ^~~~~~~~~~~~~~~~~~~~
+      |  ifdef _MANAGED
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_tostring.hpp:189:2: warning: preprocessor condition can be written more concisely using '#ifdef' [readability-use-concise-preprocessor-directives]
+  189 | #if defined(CATCH_CONFIG_WCHAR)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef CATCH_CONFIG_WCHAR
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_tostring.hpp:222:13: warning: 'auto reinterpreted' can be declared as 'const auto *reinterpreted' [readability-qualified-auto]
+  222 |             auto reinterpreted = reinterpret_cast<char const*>(str);
+      |             ^~~~
+      |             const auto *
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_tostring.hpp:230:13: warning: 'auto reinterpreted' can be declared as 'const auto *reinterpreted' [readability-qualified-auto]
+  230 |             auto reinterpreted = reinterpret_cast<char const*>(str);
+      |             ^~~~
+      |             const auto *
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_tostring.hpp:236:2: warning: preprocessor condition can be written more concisely using '#ifdef' [readability-use-concise-preprocessor-directives]
+  236 | #if defined(CATCH_CONFIG_CPP17_BYTE)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef CATCH_CONFIG_CPP17_BYTE
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_tostring.hpp:331:2: warning: preprocessor condition can be written more concisely using '#ifdef' [readability-use-concise-preprocessor-directives]
+  331 | #if defined(_MANAGED)
+      |  ^~~~~~~~~~~~~~~~~~~~
+      |  ifdef _MANAGED
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_tostring.hpp:347:54: warning: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements]
+  347 |                 for (++first; first != last; ++first)
+      |                                                      ^
+      |                                                       {
+  348 |                     rss << ", " << ::Catch::Detail::stringify(*first);
+      |                                                                       
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_tostring.hpp:361:2: warning: preprocessor condition can be written more concisely using '#ifdef' [readability-use-concise-preprocessor-directives]
+  361 | #if defined(CATCH_CONFIG_ENABLE_ALL_STRINGMAKERS)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef CATCH_CONFIG_ENABLE_ALL_STRINGMAKERS
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_tostring.hpp:369:2: warning: preprocessor condition can be written more concisely using '#ifdef' [readability-use-concise-preprocessor-directives]
+  369 | #if defined(CATCH_CONFIG_ENABLE_PAIR_STRINGMAKER)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef CATCH_CONFIG_ENABLE_PAIR_STRINGMAKER
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_tostring.hpp:413:2: warning: preprocessor condition can be written more concisely using '#ifdef' [readability-use-concise-preprocessor-directives]
+  413 | #if defined(CATCH_CONFIG_ENABLE_TUPLE_STRINGMAKER)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef CATCH_CONFIG_ENABLE_TUPLE_STRINGMAKER
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_tostring.hpp:511:24: warning: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements]
+  511 |             if( first )
+      |                        ^
+      |                         {
+  512 |                 first = false;
+  513 |             else
+      |             } 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_tostring.hpp:513:17: warning: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements]
+  513 |             else
+      |                 ^
+      |                  {
+  514 |                 rss << ", ";
+      |                             
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_tostring.hpp:539:1: warning: duplicate include [readability-duplicate-include]
+  538 | // Separate std::chrono::duration specialization
+      |                                                 
+  539 | #include <ctime>
+      | ^~~~~~~~~~~~~~~~
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_totals.hpp:19:9: warning: function 'total' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   19 |         std::uint64_t total() const;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_totals.hpp:20:9: warning: function 'allPassed' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   20 |         bool allPassed() const;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_totals.hpp:21:9: warning: function 'allOk' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   21 |         bool allOk() const;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_totals.hpp:34:9: warning: function 'delta' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   34 |         Totals delta( Totals const& prevTotals ) const;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/interfaces/catch_interfaces_test_invoker.hpp:13:11: warning: class 'ITestInvoker' defines a destructor but does not define a copy constructor, a copy assignment operator, a move constructor or a move assignment operator [cppcoreguidelines-special-member-functions]
+   13 |     class ITestInvoker {
+      |           ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_assertion_handler.hpp:26:11: warning: class 'AssertionHandler' defines a non-default destructor but does not define a copy constructor, a copy assignment operator, a move constructor or a move assignment operator [cppcoreguidelines-special-member-functions]
+   26 |     class AssertionHandler {
+      |           ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_assertion_handler.hpp:33:21: warning: member 'm_resultCapture' of type 'RunContext &' is a reference [cppcoreguidelines-avoid-const-or-ref-data-members]
+   33 |         RunContext& m_resultCapture;
+      |                     ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_assertion_handler.hpp:67:9: warning: function 'allowThrows' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   67 |         auto allowThrows() const -> bool;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_compare_traits.hpp:15:1: warning: nested namespaces can be concatenated [modernize-concat-nested-namespaces]
+   15 | namespace Catch {
+      | ^~~~~~~~~~~~~~~~~
+   16 |     namespace Detail {
+      |     ~~~~~~~~~~~~~~~~
+      |     namespace Catch::Detail
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_compare_traits.hpp:31:2: warning: preprocessor condition can be written more concisely using '#ifdef' [readability-use-concise-preprocessor-directives]
+   31 | #if defined( __clang__ )
+      |  ^~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef __clang__
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_compare_traits.hpp:67:2: warning: preprocessor condition can be written more concisely using '#ifdef' [readability-use-concise-preprocessor-directives]
+   67 | #if defined( __clang__ )
+      |  ^~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef __clang__
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_compiler_capabilities.hpp:77:2: warning: preprocessor condition can be written more concisely using '#ifdef' [readability-use-concise-preprocessor-directives]
+   77 | #if defined(__NVCOMPILER)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef __NVCOMPILER
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_compiler_capabilities.hpp:102:2: warning: preprocessor condition can be written more concisely using '#ifdef' [readability-use-concise-preprocessor-directives]
+  102 | #if defined(__clang__)
+      |  ^~~~~~~~~~~~~~~~~~~~~
+      |  ifdef __clang__
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_compiler_capabilities.hpp:189:2: warning: preprocessor condition can be written more concisely using '#ifdef' [readability-use-concise-preprocessor-directives]
+  189 | #if defined(__ANDROID__)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef __ANDROID__
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_compiler_capabilities.hpp:195:2: warning: preprocessor condition can be written more concisely using '#ifdef' [readability-use-concise-preprocessor-directives]
+  195 | #if defined(__MINGW32__)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef __MINGW32__
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_compiler_capabilities.hpp:201:2: warning: preprocessor condition can be written more concisely using '#ifdef' [readability-use-concise-preprocessor-directives]
+  201 | #if defined(__ORBIS__)
+      |  ^~~~~~~~~~~~~~~~~~~~~
+      |  ifdef __ORBIS__
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_compiler_capabilities.hpp:277:2: warning: preprocessor condition can be written more concisely using '#ifdef' [readability-use-concise-preprocessor-directives]
+  277 | #if defined(__BORLANDC__)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef __BORLANDC__
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_compiler_capabilities.hpp:292:2: warning: preprocessor condition can be written more concisely using '#ifndef' [readability-use-concise-preprocessor-directives]
+  292 | #if !defined(_GLIBCXX_USE_C99_MATH_TR1)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef _GLIBCXX_USE_C99_MATH_TR1
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_compiler_capabilities.hpp:297:2: warning: preprocessor condition can be written more concisely using '#ifdef' [readability-use-concise-preprocessor-directives]
+  297 | #if defined(__has_include)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef __has_include
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_compiler_capabilities.hpp:367:2: warning: preprocessor condition can be written more concisely using '#ifdef' [readability-use-concise-preprocessor-directives]
+  367 | #if defined(CATCH_CONFIG_EXPERIMENTAL_REDIRECT)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef CATCH_CONFIG_EXPERIMENTAL_REDIRECT
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_compiler_capabilities.hpp:412:2: warning: preprocessor condition can be written more concisely using '#ifndef' [readability-use-concise-preprocessor-directives]
+  412 | #if !defined(CATCH_INTERNAL_START_WARNINGS_SUPPRESSION)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_INTERNAL_START_WARNINGS_SUPPRESSION
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_compiler_capabilities.hpp:415:2: warning: preprocessor condition can be written more concisely using '#ifndef' [readability-use-concise-preprocessor-directives]
+  415 | #if !defined(CATCH_INTERNAL_STOP_WARNINGS_SUPPRESSION)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_INTERNAL_STOP_WARNINGS_SUPPRESSION
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_compiler_capabilities.hpp:418:2: warning: preprocessor condition can be written more concisely using '#ifndef' [readability-use-concise-preprocessor-directives]
+  418 | #if !defined(CATCH_INTERNAL_SUPPRESS_PARENTHESES_WARNINGS)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_INTERNAL_SUPPRESS_PARENTHESES_WARNINGS
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_compiler_capabilities.hpp:421:2: warning: preprocessor condition can be written more concisely using '#ifndef' [readability-use-concise-preprocessor-directives]
+  421 | #if !defined(CATCH_INTERNAL_SUPPRESS_GLOBALS_WARNINGS)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_INTERNAL_SUPPRESS_GLOBALS_WARNINGS
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_compiler_capabilities.hpp:424:2: warning: preprocessor condition can be written more concisely using '#ifndef' [readability-use-concise-preprocessor-directives]
+  424 | #if !defined(CATCH_INTERNAL_SUPPRESS_UNUSED_RESULT)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_INTERNAL_SUPPRESS_UNUSED_RESULT
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_compiler_capabilities.hpp:427:2: warning: preprocessor condition can be written more concisely using '#ifndef' [readability-use-concise-preprocessor-directives]
+  427 | #if !defined(CATCH_INTERNAL_SUPPRESS_UNUSED_VARIABLE_WARNINGS)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_INTERNAL_SUPPRESS_UNUSED_VARIABLE_WARNINGS
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_compiler_capabilities.hpp:430:2: warning: preprocessor condition can be written more concisely using '#ifndef' [readability-use-concise-preprocessor-directives]
+  430 | #if !defined(CATCH_INTERNAL_SUPPRESS_USELESS_CAST_WARNINGS)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_INTERNAL_SUPPRESS_USELESS_CAST_WARNINGS
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_compiler_capabilities.hpp:433:2: warning: preprocessor condition can be written more concisely using '#ifndef' [readability-use-concise-preprocessor-directives]
+  433 | #if !defined(CATCH_INTERNAL_SUPPRESS_ZERO_VARIADIC_WARNINGS)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_INTERNAL_SUPPRESS_ZERO_VARIADIC_WARNINGS
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_compiler_capabilities.hpp:436:2: warning: preprocessor condition can be written more concisely using '#ifndef' [readability-use-concise-preprocessor-directives]
+  436 | #if !defined( CATCH_INTERNAL_SUPPRESS_UNUSED_TEMPLATE_WARNINGS )
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_INTERNAL_SUPPRESS_UNUSED_TEMPLATE_WARNINGS
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_compiler_capabilities.hpp:439:2: warning: preprocessor condition can be written more concisely using '#ifndef' [readability-use-concise-preprocessor-directives]
+  439 | #if !defined( CATCH_INTERNAL_SUPPRESS_COMMA_WARNINGS )
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_INTERNAL_SUPPRESS_COMMA_WARNINGS
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_compiler_capabilities.hpp:442:2: warning: preprocessor condition can be written more concisely using '#ifndef' [readability-use-concise-preprocessor-directives]
+  442 | #if !defined( CATCH_INTERNAL_SUPPRESS_SHADOW_WARNINGS )
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_INTERNAL_SUPPRESS_SHADOW_WARNINGS
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_compiler_capabilities.hpp:445:2: warning: preprocessor condition can be written more concisely using '#ifndef' [readability-use-concise-preprocessor-directives]
+  445 | #if !defined( CATCH_INTERNAL_SUPPRESS_COUNTER_WARNINGS )
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_INTERNAL_SUPPRESS_COUNTER_WARNINGS
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_compiler_capabilities.hpp:456:2: warning: preprocessor condition can be written more concisely using '#ifdef' [readability-use-concise-preprocessor-directives]
+  456 | #if defined(CATCH_CONFIG_DISABLE_EXCEPTIONS)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef CATCH_CONFIG_DISABLE_EXCEPTIONS
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_config_wchar.hpp:25:2: warning: preprocessor condition can be written more concisely using '#ifdef' [readability-use-concise-preprocessor-directives]
+   25 | #if defined(__DJGPP__)
+      |  ^~~~~~~~~~~~~~~~~~~~~
+      |  ifdef __DJGPP__
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:151:34: warning: use c++17 style variable templates [modernize-type-traits]
+  151 |                                  std::is_arithmetic<T>::value ||
+      |                                  ^                    ~~~~~~~
+      |                                                    _v
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:152:38: warning: use c++17 style variable templates [modernize-type-traits]
+  152 |                                      std::is_enum<T>::value> {};
+      |                                      ^              ~~~~~~~
+      |                                                  _v
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:154:2: warning: preprocessor condition can be written more concisely using '#ifdef' [readability-use-concise-preprocessor-directives]
+  154 | #if defined( CATCH_CONFIG_CPP20_COMPARE_OVERLOADS )
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef CATCH_CONFIG_CPP20_COMPARE_OVERLOADS
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:166:11: warning: class 'ITransientExpression' defines a default destructor, a copy constructor and a copy assignment operator but does not define a move constructor or a move assignment operator [cppcoreguidelines-special-member-functions]
+  166 |     class ITransientExpression {
+      |           ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:174:9: warning: function 'isBinaryExpression' should be marked [[nodiscard]] [modernize-use-nodiscard]
+  174 |         constexpr auto isBinaryExpression() const -> bool { return m_isBinaryExpression; }
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:175:9: warning: function 'getResult' should be marked [[nodiscard]] [modernize-use-nodiscard]
+  175 |         constexpr auto getResult() const -> bool { return m_result; }
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:201:14: warning: visibility of function 'streamReconstructedExpression' is changed from public in class 'ITransientExpression' to private [misc-override-with-different-visibility]
+  201 |         void streamReconstructedExpression( std::ostream &os ) const override {
+      |              ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:177:22: note: function declared here as public
+  177 |         virtual void streamReconstructedExpression( std::ostream& os ) const;
+      |                      ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:215:9: warning: return type 'const BinaryExpr<LhsT, const RhsT &>' is 'const'-qualified at the top level, which may reduce code readability without improving const correctness [readability-const-return-type]
+  215 |         auto operator && ( T ) const -> BinaryExpr<LhsT, RhsT const&> const {
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:222:9: warning: return type 'const BinaryExpr<LhsT, const RhsT &>' is 'const'-qualified at the top level, which may reduce code readability without improving const correctness [readability-const-return-type]
+  222 |         auto operator || ( T ) const -> BinaryExpr<LhsT, RhsT const&> const {
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:229:9: warning: return type 'const BinaryExpr<LhsT, const RhsT &>' is 'const'-qualified at the top level, which may reduce code readability without improving const correctness [readability-const-return-type]
+  229 |         auto operator == ( T ) const -> BinaryExpr<LhsT, RhsT const&> const {
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:236:9: warning: return type 'const BinaryExpr<LhsT, const RhsT &>' is 'const'-qualified at the top level, which may reduce code readability without improving const correctness [readability-const-return-type]
+  236 |         auto operator != ( T ) const -> BinaryExpr<LhsT, RhsT const&> const {
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:243:9: warning: return type 'const BinaryExpr<LhsT, const RhsT &>' is 'const'-qualified at the top level, which may reduce code readability without improving const correctness [readability-const-return-type]
+  243 |         auto operator > ( T ) const -> BinaryExpr<LhsT, RhsT const&> const {
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:250:9: warning: return type 'const BinaryExpr<LhsT, const RhsT &>' is 'const'-qualified at the top level, which may reduce code readability without improving const correctness [readability-const-return-type]
+  250 |         auto operator < ( T ) const -> BinaryExpr<LhsT, RhsT const&> const {
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:257:9: warning: return type 'const BinaryExpr<LhsT, const RhsT &>' is 'const'-qualified at the top level, which may reduce code readability without improving const correctness [readability-const-return-type]
+  257 |         auto operator >= ( T ) const -> BinaryExpr<LhsT, RhsT const&> const {
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:264:9: warning: return type 'const BinaryExpr<LhsT, const RhsT &>' is 'const'-qualified at the top level, which may reduce code readability without improving const correctness [readability-const-return-type]
+  264 |         auto operator <= ( T ) const -> BinaryExpr<LhsT, RhsT const&> const {
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:275:14: warning: visibility of function 'streamReconstructedExpression' is changed from public in class 'ITransientExpression' to private [misc-override-with-different-visibility]
+  275 |         void streamReconstructedExpression( std::ostream &os ) const override {
+      |              ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:177:22: note: function declared here as public
+  177 |         virtual void streamReconstructedExpression( std::ostream& os ) const;
+      |                      ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:341:9: warning: forwarding reference parameter 'rhs' is never forwarded inside the function body [cppcoreguidelines-missing-std-forward]
+  341 |         CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR( eq, == )
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:295:62: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR'
+  295 |     constexpr friend auto operator op( ExprLhs&& lhs, RhsT&& rhs )             \
+      |                                                              ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:341:9: warning: rvalue reference parameter 'lhs' is never moved from inside the function body [cppcoreguidelines-rvalue-reference-param-not-moved]
+  341 |         CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR( eq, == )
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:295:50: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR'
+  295 |     constexpr friend auto operator op( ExprLhs&& lhs, RhsT&& rhs )             \
+      |                                                  ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:341:9: warning: use C++20 requires constraints instead of enable_if [modernize-use-constraints]
+  341 |         CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR( eq, == )
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:296:12: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR'
+  296 |         -> std::enable_if_t<                                                   \
+      |            ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:341:9: warning: use c++17 style variable templates [modernize-type-traits]
+  341 |         CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR( eq, == )
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:297:13: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR'
+  297 |             Detail::conjunction<Detail::is_##id##_comparable<LhsT, RhsT>,      \
+      |             ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:342:9: warning: forwarding reference parameter 'rhs' is never forwarded inside the function body [cppcoreguidelines-missing-std-forward]
+  342 |         CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR( ne, != )
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:295:62: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR'
+  295 |     constexpr friend auto operator op( ExprLhs&& lhs, RhsT&& rhs )             \
+      |                                                              ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:342:9: warning: rvalue reference parameter 'lhs' is never moved from inside the function body [cppcoreguidelines-rvalue-reference-param-not-moved]
+  342 |         CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR( ne, != )
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:295:50: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR'
+  295 |     constexpr friend auto operator op( ExprLhs&& lhs, RhsT&& rhs )             \
+      |                                                  ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:342:9: warning: use C++20 requires constraints instead of enable_if [modernize-use-constraints]
+  342 |         CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR( ne, != )
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:296:12: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR'
+  296 |         -> std::enable_if_t<                                                   \
+      |            ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:342:9: warning: use c++17 style variable templates [modernize-type-traits]
+  342 |         CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR( ne, != )
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:297:13: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_EQUALITY_OPERATOR'
+  297 |             Detail::conjunction<Detail::is_##id##_comparable<LhsT, RhsT>,      \
+      |             ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:391:9: warning: forwarding reference parameter 'rhs' is never forwarded inside the function body [cppcoreguidelines-missing-std-forward]
+  391 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( lt, < )
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:349:62: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR'
+  349 |     constexpr friend auto operator op( ExprLhs&& lhs, RhsT&& rhs )             \
+      |                                                              ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:391:9: warning: rvalue reference parameter 'lhs' is never moved from inside the function body [cppcoreguidelines-rvalue-reference-param-not-moved]
+  391 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( lt, < )
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:349:50: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR'
+  349 |     constexpr friend auto operator op( ExprLhs&& lhs, RhsT&& rhs )             \
+      |                                                  ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:391:9: warning: use C++20 requires constraints instead of enable_if [modernize-use-constraints]
+  391 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( lt, < )
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:350:12: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR'
+  350 |         -> std::enable_if_t<                                                   \
+      |            ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:391:9: warning: use c++17 style variable templates [modernize-type-traits]
+  391 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( lt, < )
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:351:13: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR'
+  351 |             Detail::conjunction<Detail::is_##id##_comparable<LhsT, RhsT>,      \
+      |             ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:392:9: warning: forwarding reference parameter 'rhs' is never forwarded inside the function body [cppcoreguidelines-missing-std-forward]
+  392 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( le, <= )
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:349:62: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR'
+  349 |     constexpr friend auto operator op( ExprLhs&& lhs, RhsT&& rhs )             \
+      |                                                              ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:392:9: warning: rvalue reference parameter 'lhs' is never moved from inside the function body [cppcoreguidelines-rvalue-reference-param-not-moved]
+  392 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( le, <= )
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:349:50: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR'
+  349 |     constexpr friend auto operator op( ExprLhs&& lhs, RhsT&& rhs )             \
+      |                                                  ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:392:9: warning: use C++20 requires constraints instead of enable_if [modernize-use-constraints]
+  392 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( le, <= )
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:350:12: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR'
+  350 |         -> std::enable_if_t<                                                   \
+      |            ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:392:9: warning: use c++17 style variable templates [modernize-type-traits]
+  392 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( le, <= )
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:351:13: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR'
+  351 |             Detail::conjunction<Detail::is_##id##_comparable<LhsT, RhsT>,      \
+      |             ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:393:9: warning: forwarding reference parameter 'rhs' is never forwarded inside the function body [cppcoreguidelines-missing-std-forward]
+  393 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( gt, > )
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:349:62: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR'
+  349 |     constexpr friend auto operator op( ExprLhs&& lhs, RhsT&& rhs )             \
+      |                                                              ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:393:9: warning: rvalue reference parameter 'lhs' is never moved from inside the function body [cppcoreguidelines-rvalue-reference-param-not-moved]
+  393 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( gt, > )
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:349:50: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR'
+  349 |     constexpr friend auto operator op( ExprLhs&& lhs, RhsT&& rhs )             \
+      |                                                  ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:393:9: warning: use C++20 requires constraints instead of enable_if [modernize-use-constraints]
+  393 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( gt, > )
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:350:12: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR'
+  350 |         -> std::enable_if_t<                                                   \
+      |            ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:393:9: warning: use c++17 style variable templates [modernize-type-traits]
+  393 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( gt, > )
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:351:13: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR'
+  351 |             Detail::conjunction<Detail::is_##id##_comparable<LhsT, RhsT>,      \
+      |             ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:394:9: warning: forwarding reference parameter 'rhs' is never forwarded inside the function body [cppcoreguidelines-missing-std-forward]
+  394 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( ge, >= )
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:349:62: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR'
+  349 |     constexpr friend auto operator op( ExprLhs&& lhs, RhsT&& rhs )             \
+      |                                                              ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:394:9: warning: rvalue reference parameter 'lhs' is never moved from inside the function body [cppcoreguidelines-rvalue-reference-param-not-moved]
+  394 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( ge, >= )
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:349:50: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR'
+  349 |     constexpr friend auto operator op( ExprLhs&& lhs, RhsT&& rhs )             \
+      |                                                  ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:394:9: warning: use C++20 requires constraints instead of enable_if [modernize-use-constraints]
+  394 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( ge, >= )
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:350:12: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR'
+  350 |         -> std::enable_if_t<                                                   \
+      |            ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:394:9: warning: use c++17 style variable templates [modernize-type-traits]
+  394 |         CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR( ge, >= )
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:351:13: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_COMPARISON_OPERATOR'
+  351 |             Detail::conjunction<Detail::is_##id##_comparable<LhsT, RhsT>,      \
+      |             ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:416:9: warning: forwarding reference parameter 'rhs' is never forwarded inside the function body [cppcoreguidelines-missing-std-forward]
+  416 |         CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR(|)
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:401:62: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR'
+  401 |     constexpr friend auto operator op( ExprLhs&& lhs, RhsT&& rhs )             \
+      |                                                              ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:416:9: warning: rvalue reference parameter 'lhs' is never moved from inside the function body [cppcoreguidelines-rvalue-reference-param-not-moved]
+  416 |         CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR(|)
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:401:50: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR'
+  401 |     constexpr friend auto operator op( ExprLhs&& lhs, RhsT&& rhs )             \
+      |                                                  ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:416:9: warning: use C++20 requires constraints instead of enable_if [modernize-use-constraints]
+  416 |         CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR(|)
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:402:12: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR'
+  402 |         -> std::enable_if_t<                                                   \
+      |            ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:417:9: warning: forwarding reference parameter 'rhs' is never forwarded inside the function body [cppcoreguidelines-missing-std-forward]
+  417 |         CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR(&)
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:401:62: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR'
+  401 |     constexpr friend auto operator op( ExprLhs&& lhs, RhsT&& rhs )             \
+      |                                                              ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:417:9: warning: rvalue reference parameter 'lhs' is never moved from inside the function body [cppcoreguidelines-rvalue-reference-param-not-moved]
+  417 |         CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR(&)
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:401:50: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR'
+  401 |     constexpr friend auto operator op( ExprLhs&& lhs, RhsT&& rhs )             \
+      |                                                  ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:417:9: warning: use C++20 requires constraints instead of enable_if [modernize-use-constraints]
+  417 |         CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR(&)
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:402:12: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR'
+  402 |         -> std::enable_if_t<                                                   \
+      |            ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:418:9: warning: forwarding reference parameter 'rhs' is never forwarded inside the function body [cppcoreguidelines-missing-std-forward]
+  418 |         CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR(^)
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:401:62: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR'
+  401 |     constexpr friend auto operator op( ExprLhs&& lhs, RhsT&& rhs )             \
+      |                                                              ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:418:9: warning: rvalue reference parameter 'lhs' is never moved from inside the function body [cppcoreguidelines-rvalue-reference-param-not-moved]
+  418 |         CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR(^)
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:401:50: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR'
+  401 |     constexpr friend auto operator op( ExprLhs&& lhs, RhsT&& rhs )             \
+      |                                                  ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:418:9: warning: use C++20 requires constraints instead of enable_if [modernize-use-constraints]
+  418 |         CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR(^)
+      |         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:402:12: note: expanded from macro 'CATCH_INTERNAL_DEFINE_EXPRESSION_OPERATOR'
+  402 |         -> std::enable_if_t<                                                   \
+      |            ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:423:45: warning: rvalue reference parameter '' is never moved from inside the function body [cppcoreguidelines-rvalue-reference-param-not-moved]
+  423 |         friend auto operator && ( ExprLhs &&, RhsT && ) -> BinaryExpr<LhsT, RhsT const&> {
+      |                                             ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:430:45: warning: rvalue reference parameter '' is never moved from inside the function body [cppcoreguidelines-rvalue-reference-param-not-moved]
+  430 |         friend auto operator || ( ExprLhs &&, RhsT && ) -> BinaryExpr<LhsT, RhsT const&> {
+      |                                             ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:436:9: warning: function 'makeUnaryExpr' should be marked [[nodiscard]] [modernize-use-nodiscard]
+  436 |         constexpr auto makeUnaryExpr() const -> UnaryExpr<LhsT> {
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:443:19: warning: use C++20 requires constraints instead of enable_if [modernize-use-constraints]
+  442 |         template <typename T,
+      |                             ~
+  443 |                   std::enable_if_t<!capture_by_value<Detail::RemoveCVRef_t<T>>::value,
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  444 |                       int> = 0>
+      |                       ~~~~~~~~
+  445 |         constexpr friend auto operator <= ( Decomposer &&, T && lhs ) -> ExprLhs<T const&> {
+      |                                                                                            requires (!capture_by_value<Detail::RemoveCVRef_t<T>>::value) 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:445:58: warning: rvalue reference parameter '' is never moved from inside the function body [cppcoreguidelines-rvalue-reference-param-not-moved]
+  445 |         constexpr friend auto operator <= ( Decomposer &&, T && lhs ) -> ExprLhs<T const&> {
+      |                                                          ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:445:65: warning: forwarding reference parameter 'lhs' is never forwarded inside the function body [cppcoreguidelines-missing-std-forward]
+  445 |         constexpr friend auto operator <= ( Decomposer &&, T && lhs ) -> ExprLhs<T const&> {
+      |                                                                 ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:450:19: warning: use C++20 requires constraints instead of enable_if [modernize-use-constraints]
+  449 |         template <typename T,
+      |                             ~
+  450 |                   std::enable_if_t<capture_by_value<T>::value, int> = 0>
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  451 |         constexpr friend auto operator <= ( Decomposer &&, T value ) -> ExprLhs<T> {
+      |                                                                                    requires capture_by_value<T>::value 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_decomposer.hpp:451:58: warning: rvalue reference parameter '' is never moved from inside the function body [cppcoreguidelines-rvalue-reference-param-not-moved]
+  451 |         constexpr friend auto operator <= ( Decomposer &&, T value ) -> ExprLhs<T> {
+      |                                                          ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_deprecation_macro.hpp:13:2: warning: preprocessor condition can be written more concisely using '#ifndef' [readability-use-concise-preprocessor-directives]
+   13 | #if !defined( CATCH_CONFIG_NO_DEPRECATION_ANNOTATIONS )
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_CONFIG_NO_DEPRECATION_ANNOTATIONS
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_enum_info.hpp:17:1: warning: nested namespaces can be concatenated [modernize-concat-nested-namespaces]
+   17 | namespace Catch {
+      | ^~~~~~~~~~~~~~~~~
+   18 |     namespace Detail {
+      |     ~~~~~~~~~~~~~~~~
+      |     namespace Catch::Detail
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_enum_info.hpp:24:13: warning: function 'lookup' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   24 |             StringRef lookup( int64_t value ) const;
+      |             ^
+      |             [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_enum_info.hpp:38:44: warning: statement should be inside braces [google-readability-braces-around-statements,readability-braces-around-statements]
+   38 |             for ( auto enumValue : values )
+      |                                            ^
+      |                                             {
+   39 |                 intValues.push_back( static_cast<int64_t>( enumValue ) );
+      |                                                                          
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_lifetimebound.hpp:12:2: warning: preprocessor condition can be written more concisely using '#ifndef' [readability-use-concise-preprocessor-directives]
+   12 | #if !defined( __has_cpp_attribute )
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef __has_cpp_attribute
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_logical_traits.hpp:13:1: warning: nested namespaces can be concatenated [modernize-concat-nested-namespaces]
+   13 | namespace Catch {
+      | ^~~~~~~~~~~~~~~~~
+   14 | namespace Detail {
+      | ~~~~~~~~~~~~~~~~
+      | namespace Catch::Detail
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_noncopyable.hpp:11:1: warning: nested namespaces can be concatenated [modernize-concat-nested-namespaces]
+   11 | namespace Catch {
+      | ^~~~~~~~~~~~~~~~~
+   12 |     namespace Detail {
+      |     ~~~~~~~~~~~~~~~~
+      |     namespace Catch::Detail
+   13 | 
+   14 |         //! Deriving classes become noncopyable and nonmovable
+   15 |         class NonCopyable {
+   16 |         public:
+   17 |             NonCopyable( NonCopyable const& ) = delete;
+   18 |             NonCopyable( NonCopyable&& ) = delete;
+   19 |             NonCopyable& operator=( NonCopyable const& ) = delete;
+   20 |             NonCopyable& operator=( NonCopyable&& ) = delete;
+   21 | 
+   22 |         protected:
+   23 |             NonCopyable() noexcept = default;
+   24 |         };
+   25 | 
+   26 |     } // namespace Detail
+      |     ~~~~~~~~~~~~~~~~~~~~~
+      |     } // namespace Catch::Detail
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_noncopyable.hpp:15:15: warning: class 'NonCopyable' defines a copy constructor, a copy assignment operator, a move constructor and a move assignment operator but does not define a destructor [cppcoreguidelines-special-member-functions]
+   15 |         class NonCopyable {
+      |               ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_preprocessor_internal_stringify.hpp:13:2: warning: preprocessor condition can be written more concisely using '#ifndef' [readability-use-concise-preprocessor-directives]
+   13 | #if !defined(CATCH_CONFIG_DISABLE_STRINGIFICATION)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_CONFIG_DISABLE_STRINGIFICATION
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_result_type.hpp:14:29: warning: enum 'OfType' is unscoped, use 'enum class' instead [cppcoreguidelines-use-enum-class]
+   14 |     struct ResultWas { enum OfType {
+      |                             ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_result_type.hpp:19:9: warning: missing username/bug in TODO [google-readability-todo]
+   19 |         // TODO: Should explicit skip be considered "not OK" (cf. isOk)? I.e., should it have the failure bit?
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         // TODO: runner - Should explicit skip be considered "not OK" (cf. isOk)? I.e., should it have the failure bit?
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_result_type.hpp:43:37: warning: enum 'Flags' is unscoped, use 'enum class' instead [cppcoreguidelines-use-enum-class]
+   43 |     struct ResultDisposition { enum Flags {
+      |                                     ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_reusable_string_stream.hpp:20:11: warning: class 'ReusableStringStream' defines a destructor but does not define a copy constructor, a copy assignment operator, a move constructor or a move assignment operator [cppcoreguidelines-special-member-functions]
+   20 |     class ReusableStringStream : Detail::NonCopyable {
+      |           ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_reusable_string_stream.hpp:28:9: warning: function 'str' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   28 |         std::string str() const;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_section.hpp:21:11: warning: class 'Section' defines a destructor but does not define a copy constructor, a copy assignment operator, a move constructor or a move assignment operator [cppcoreguidelines-special-member-functions]
+   21 |     class Section : Detail::NonCopyable {
+      |           ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_section.hpp:26:30: warning: parameter 3 is const-qualified in the function declaration; const-qualification of parameters only has an effect in function definitions [readability-avoid-const-params-in-decls]
+   26 |                  const char* const = nullptr );
+      |                              ^~~~~
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_section.hpp:42:2: warning: preprocessor condition can be written more concisely using '#ifndef' [readability-use-concise-preprocessor-directives]
+   42 | #if !defined(CATCH_CONFIG_EXPERIMENTAL_STATIC_ANALYSIS_SUPPORT)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_CONFIG_EXPERIMENTAL_STATIC_ANALYSIS_SUPPORT
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_stream_end_stop.hpp:20:56: warning: avoid repeating the return type from the declaration; use a braced initializer list instead [modernize-return-braced-init-list]
+   20 |         constexpr StringRef operator+() const { return StringRef(); }
+      |                                                        ^~~~~~~~~~~
+      |                                                        {}
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_stream_end_stop.hpp:24:20: warning: returning a constant reference parameter may cause use-after-free when the parameter is constructed from a temporary [bugprone-return-const-ref-from-parameter]
+   24 |             return value;
+      |                    ^~~~~
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_stringref.hpp:55:20: warning: avoid repeating the return type from the declaration; use a braced initializer list instead [modernize-return-braced-init-list]
+   55 |             return std::string(m_start, m_size);
+      |                    ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_stringref.hpp:58:5: warning: redundant access specifier has the same accessibility as the previous access specifier [readability-redundant-access-specifiers]
+   58 |     public: // operators
+      |     ^~~~~~~
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_stringref.hpp:37:5: note: previously declared here
+   37 |     public: // construction
+      |     ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_stringref.hpp:74:5: warning: redundant access specifier has the same accessibility as the previous access specifier [readability-redundant-access-specifiers]
+   74 |     public: // named queries
+      |     ^~~~~~~
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_stringref.hpp:37:5: note: previously declared here
+   37 |     public: // construction
+      |     ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_stringref.hpp:75:9: warning: function 'empty' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   75 |         constexpr auto empty() const noexcept -> bool {
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_stringref.hpp:78:9: warning: function 'size' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   78 |         constexpr auto size() const noexcept -> size_type {
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_stringref.hpp:85:9: warning: function 'substr' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   85 |         constexpr StringRef substr(size_type start, size_type length) const noexcept {
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_stringref.hpp:88:24: warning: avoid repeating the return type from the declaration; use a braced initializer list instead [modernize-return-braced-init-list]
+   88 |                 return StringRef(m_start + start, (shortened_size < length) ? shortened_size : length);
+      |                        ^~~~~~~~~~                                                                    ~
+      |                        {                                                                             }
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_stringref.hpp:90:24: warning: avoid repeating the return type from the declaration; use a braced initializer list instead [modernize-return-braced-init-list]
+   90 |                 return StringRef();
+      |                        ^~~~~~~~~~~
+      |                        {}
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_stringref.hpp:95:9: warning: function 'data' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   95 |         constexpr char const* data() const noexcept CATCH_ATTR_LIFETIMEBOUND {
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_stringref.hpp:99:9: warning: function 'begin' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   99 |         constexpr const_iterator begin() const { return m_start; }
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_stringref.hpp:100:9: warning: function 'end' should be marked [[nodiscard]] [modernize-use-nodiscard]
+  100 |         constexpr const_iterator end() const { return m_start + m_size; }
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_stringref.hpp:113:9: warning: function 'compare' should be marked [[nodiscard]] [modernize-use-nodiscard]
+  113 |         int compare( StringRef rhs ) const;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_stringref.hpp:118:16: warning: avoid repeating the return type from the declaration; use a braced initializer list instead [modernize-return-braced-init-list]
+  118 |         return StringRef( rawChars, size );
+      |                ^~~~~~~~~~                ~
+      |                {                         }
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_stringref.hpp:123:12: warning: avoid repeating the return type from the declaration; use a braced initializer list instead [modernize-return-braced-init-list]
+  123 |     return Catch::StringRef( rawChars, size );
+      |            ^~~~~~~~~~~~~~~~~                ~
+      |            {                                }
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_test_macro_impl.hpp:17:1: warning: nested namespaces can be concatenated [modernize-concat-nested-namespaces]
+   17 | namespace Catch {
+      | ^~~~~~~~~~~~~~~~~
+   18 |     namespace Detail {
+      |     ~~~~~~~~~~~~~~~~
+      |     namespace Catch::Detail
+   19 |         // Defined in catch_run_context.cpp, where the thread-local data lives.
+   20 |         bool lastAssertionPassed();
+   21 |     }
+   22 | }
+      | ~
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_test_macro_impl.hpp:30:2: warning: preprocessor condition can be written more concisely using '#ifndef' [readability-use-concise-preprocessor-directives]
+   30 | #if !defined(CATCH_CONFIG_DISABLE)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_CONFIG_DISABLE
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_test_registry.hpp:93:2: warning: preprocessor condition can be written more concisely using '#ifdef' [readability-use-concise-preprocessor-directives]
+   93 | #if defined(CATCH_CONFIG_DISABLE)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifdef CATCH_CONFIG_DISABLE
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_test_registry.hpp:106:2: warning: preprocessor condition can be written more concisely using '#ifndef' [readability-use-concise-preprocessor-directives]
+  106 | #if !defined(CATCH_CONFIG_EXPERIMENTAL_STATIC_ANALYSIS_SUPPORT)
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |  ifndef CATCH_CONFIG_EXPERIMENTAL_STATIC_ANALYSIS_SUPPORT
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_ptr.hpp:16:1: warning: nested namespaces can be concatenated [modernize-concat-nested-namespaces]
+   16 | namespace Catch {
+      | ^~~~~~~~~~~~~~~~~
+   17 | namespace Detail {
+      | ~~~~~~~~~~~~~~~~
+      | namespace Catch::Detail
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_ptr.hpp:34:31: warning: use C++20 requires constraints instead of enable_if [modernize-use-constraints]
+   34 |         template <typename U, typename = std::enable_if_t<std::is_base_of<T, U>::value>>
+      |                             ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   35 |         unique_ptr(unique_ptr<U>&& from):
+      |                                         
+      |                                         requires std::is_base_of<T, U>::value 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_ptr.hpp:34:59: warning: use c++17 style variable templates [modernize-type-traits]
+note: this fix will not be applied because it overlaps with another fix
+   34 |         template <typename U, typename = std::enable_if_t<std::is_base_of<T, U>::value>>
+      |                                                           ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_ptr.hpp:35:36: warning: rvalue reference parameter 'from' is never moved from inside the function body [cppcoreguidelines-rvalue-reference-param-not-moved]
+   35 |         unique_ptr(unique_ptr<U>&& from):
+      |                                    ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_ptr.hpp:39:31: warning: use C++20 requires constraints instead of enable_if [modernize-use-constraints]
+   39 |         template <typename U, typename = std::enable_if_t<std::is_base_of<T, U>::value>>
+      |                             ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   40 |         unique_ptr& operator=(unique_ptr<U>&& from) {
+      |                                                     requires std::is_base_of<T, U>::value 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_ptr.hpp:39:59: warning: use c++17 style variable templates [modernize-type-traits]
+note: this fix will not be applied because it overlaps with another fix
+   39 |         template <typename U, typename = std::enable_if_t<std::is_base_of<T, U>::value>>
+      |                                                           ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_ptr.hpp:40:47: warning: rvalue reference parameter 'from' is never moved from inside the function body [cppcoreguidelines-rvalue-reference-param-not-moved]
+   40 |         unique_ptr& operator=(unique_ptr<U>&& from) {
+      |                                               ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_ptr.hpp:81:9: warning: function 'get' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   81 |         T const* get() const { return m_ptr; }
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_ptr.hpp:98:21: warning: swap functions should be marked noexcept [cppcoreguidelines-noexcept-swap]
+   98 |         friend void swap(unique_ptr& lhs, unique_ptr& rhs) {
+      |                     ^
+      |                                                             noexcept 
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unique_ptr.hpp:110:41: warning: forwarding reference parameter 'args' is never forwarded inside the function body [cppcoreguidelines-missing-std-forward]
+  110 |     unique_ptr<T> make_unique(Args&&... args) {
+      |                                         ^
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unreachable.hpp:32:1: warning: nested namespaces can be concatenated [modernize-concat-nested-namespaces]
+   32 | namespace Catch {
+      | ^~~~~~~~~~~~~~~~~
+   33 |     namespace Detail {
+      |     ~~~~~~~~~~~~~~~~
+      |     namespace Catch::Detail
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_unreachable.hpp:37:6: warning: preprocessor condition can be written more concisely using '#ifdef' [readability-use-concise-preprocessor-directives]
+   37 | #    if defined( NDEBUG )
+      |      ^~~~~~~~~~~~~~~~~~~~
+      |      ifdef NDEBUG
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_void_type.hpp:12:1: warning: nested namespaces can be concatenated [modernize-concat-nested-namespaces]
+   12 | namespace Catch {
+      | ^~~~~~~~~~~~~~~~~
+   13 |     namespace Detail {
+      |     ~~~~~~~~~~~~~~~~
+      |     namespace Catch::Detail
+   14 | 
+   15 |         template <typename...>
+   16 |         struct make_void { using type = void; };
+   17 | 
+   18 |         template <typename... Ts>
+   19 |         using void_t = typename make_void<Ts...>::type;
+   20 | 
+   21 |     } // namespace Detail
+      |     ~~~~~~~~~~~~~~~~~~~~~
+      |     } // namespace Catch::Detail
+   22 | } // namespace Catch
+      | ~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_void_type.hpp:19:24: warning: redundant 'typename' [readability-redundant-typename]
+   19 |         using void_t = typename make_void<Ts...>::type;
+      |                        ^~~~~~~~
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+-->
+</body>
+</html>

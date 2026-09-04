@@ -1,0 +1,321 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/render/src/eu/render/postproc.internal.cc</title>
+</head>
+<body>
+<h1>libs/render/src/eu/render/postproc.internal.cc</h1>
+<span id='cppcoreguidelines-pro-type-member-init'>&nbsp;</span>
+<hr>
+<h3>warning: constructor does not initialize these fields: world, window_size, camera, renderer</h3>
+<code>[cppcoreguidelines-pro-type-member-init]</code>
+<p><i>libs/render/src/eu/render/postproc.h 26 : 8</i></p>
+<pre>
+   26 | struct PostProcArg
+      |        ^
+   27 | {
+   28 |         const World* world;
+      |                           
+      |                           {}
+   29 |         Size window_size;
+      |                         
+      |                         {}
+   30 |     Rect final_rect;
+   31 |         const Camera* camera;
+      |                             
+      |                             {}
+   32 |         Renderer* renderer;
+      |                           
+      |                           {}
+</pre>
+<span id='modernize-use-nodiscard'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;enabled&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/render/src/eu/render/postproc.h 126 : 2</i></p>
+<pre>
+  126 |         bool enabled() const;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<span id='readability-avoid-const-params-in-decls'>&nbsp;</span>
+<hr>
+<h3>warning: parameter &#39;size&#39; is const-qualified in the function declaration; const-qualification of parameters only has an effect in function definitions</h3>
+<code>[readability-avoid-const-params-in-decls]</code>
+<p><i>libs/render/src/eu/render/postproc.internal.h 47 : 14</i></p>
+<pre>
+   47 |         RenderWorld(const Size size, RealizeShader* re_sh, ExtractShader* ex_sh, PingPongBlurShader* ping_sh, int msaa_samples, bool* h, float* e);
+      |                     ^~~~~
+</pre>
+<span id='modernize-use-designated-initializers'>&nbsp;</span>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Size&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/render/src/eu/render/render_settings.h 48 : 31</i></p>
+<pre>
+   48 |         Size shadow_map_resolution = {2048, 2048};
+      |                                      ^~~~~~~~~~~~
+      |                                       .width= .height=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/base/src/eu/base/size.h 10 : 5</i></p>
+<pre>
+   10 |     struct Size
+      |     ^
+</pre>
+<hr>
+<h3>warning: constructor does not initialize these fields: directional_shadow_clip_from_world</h3>
+<code>[cppcoreguidelines-pro-type-member-init]</code>
+<p><i>libs/render/src/eu/render/renderer.h 24 : 8</i></p>
+<pre>
+   24 | struct ShadowContext
+      |        ^
+   25 | {
+   26 |         FrameBuffer* directional_shadow_map = nullptr;
+   27 |         m4 directional_shadow_clip_from_world;
+      |                                              
+      |                                              {}
+</pre>
+<hr>
+<h3>warning: function &#39;make_unlit_material&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/render/src/eu/render/renderer.h 48 : 2</i></p>
+<pre>
+   48 |         std::shared_ptr&lt;UnlitMaterial&gt; make_unlit_material() const;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;make_default_material&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/render/src/eu/render/renderer.h 49 : 2</i></p>
+<pre>
+   49 |         std::shared_ptr&lt;DefaultMaterial&gt; make_default_material() const;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;make_invert_effect&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/render/src/eu/render/renderer.h 54 : 2</i></p>
+<pre>
+   54 |         std::shared_ptr&lt;FactorEffect&gt; make_invert_effect() const;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;make_grayscale_effect&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/render/src/eu/render/renderer.h 55 : 2</i></p>
+<pre>
+   55 |         std::shared_ptr&lt;FactorEffect&gt; make_grayscale_effect() const;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;make_damage_effect&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/render/src/eu/render/renderer.h 56 : 2</i></p>
+<pre>
+   56 |         std::shared_ptr&lt;FactorEffect&gt; make_damage_effect() const;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: function &#39;make_blur_effect&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/render/src/eu/render/renderer.h 57 : 2</i></p>
+<pre>
+   57 |         std::shared_ptr&lt;FactorEffect&gt; make_blur_effect() const;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Uniform&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/shader_resource.h 31 : 2</i></p>
+<pre>
+   31 |         Uniform,
+      |         ^~~~~~~
+      |         uniform
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Instanced_mat4&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/shader_resource.h 34 : 2</i></p>
+<pre>
+   34 |         Instanced_mat4
+      |         ^~~~~~~~~~~~~~
+      |         instanced_mat4
+</pre>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;UP&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/space.h 6 : 16</i></p>
+<pre>
+    6 | constexpr auto UP = v3(0.0f, 1.0f, 0.0f);
+      |                ^~
+      |                up
+</pre>
+<hr>
+<h3>warning: function &#39;get_local_axis&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/render/src/eu/render/world.h 99 : 2</i></p>
+<pre>
+   99 |         LocalAxis get_local_axis() const;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Ypr&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/render/src/eu/render/world.h 155 : 17</i></p>
+<pre>
+  155 |         Ypr rotation = {0.0_rad, 0.0_rad, 0.0_rad};
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                         .yaw=    .pitch=  .roll=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/base/src/eu/base/axisangle.h 32 : 5</i></p>
+<pre>
+   32 |     struct Ypr
+      |     ^
+</pre>
+<span id='google-runtime-float'>&nbsp;</span>
+<hr>
+<h3>warning: &#39;long double&#39; type from literal suffix &#39;L&#39; is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/render/src/eu/render/world.h 155 : 18</i></p>
+<pre>
+  155 |         Ypr rotation = {0.0_rad, 0.0_rad, 0.0_rad};
+      |                         ^
+</pre>
+<hr>
+<h3>warning: &#39;long double&#39; type from literal suffix &#39;L&#39; is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/render/src/eu/render/world.h 155 : 27</i></p>
+<pre>
+  155 |         Ypr rotation = {0.0_rad, 0.0_rad, 0.0_rad};
+      |                                  ^
+</pre>
+<hr>
+<h3>warning: &#39;long double&#39; type from literal suffix &#39;L&#39; is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/render/src/eu/render/world.h 155 : 36</i></p>
+<pre>
+  155 |         Ypr rotation = {0.0_rad, 0.0_rad, 0.0_rad};
+      |                                           ^
+</pre>
+<hr>
+<h3>warning: &#39;long double&#39; type from literal suffix &#39;L&#39; is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/render/src/eu/render/world.h 156 : 11</i></p>
+<pre>
+  156 |         An fov = 10.0_deg;
+      |                  ^
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/postproc.h:26:8: warning: constructor does not initialize these fields: world, window_size, camera, renderer [cppcoreguidelines-pro-type-member-init]
+   26 | struct PostProcArg
+      |        ^
+   27 | {
+   28 |         const World* world;
+      |                           
+      |                           {}
+   29 |         Size window_size;
+      |                         
+      |                         {}
+   30 |     Rect final_rect;
+   31 |         const Camera* camera;
+      |                             
+      |                             {}
+   32 |         Renderer* renderer;
+      |                           
+      |                           {}
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/postproc.h:126:2: warning: function 'enabled' should be marked [[nodiscard]] [modernize-use-nodiscard]
+  126 |         bool enabled() const;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/postproc.internal.h:47:14: warning: parameter 'size' is const-qualified in the function declaration; const-qualification of parameters only has an effect in function definitions [readability-avoid-const-params-in-decls]
+   47 |         RenderWorld(const Size size, RealizeShader* re_sh, ExtractShader* ex_sh, PingPongBlurShader* ping_sh, int msaa_samples, bool* h, float* e);
+      |                     ^~~~~
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/render_settings.h:48:31: warning: use designated initializer list to initialize 'Size' [modernize-use-designated-initializers]
+   48 |         Size shadow_map_resolution = {2048, 2048};
+      |                                      ^~~~~~~~~~~~
+      |                                       .width= .height=
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/size.h:10:5: note: aggregate type is defined here
+   10 |     struct Size
+      |     ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/renderer.h:24:8: warning: constructor does not initialize these fields: directional_shadow_clip_from_world [cppcoreguidelines-pro-type-member-init]
+   24 | struct ShadowContext
+      |        ^
+   25 | {
+   26 |         FrameBuffer* directional_shadow_map = nullptr;
+   27 |         m4 directional_shadow_clip_from_world;
+      |                                              
+      |                                              {}
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/renderer.h:48:2: warning: function 'make_unlit_material' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   48 |         std::shared_ptr<UnlitMaterial> make_unlit_material() const;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/renderer.h:49:2: warning: function 'make_default_material' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   49 |         std::shared_ptr<DefaultMaterial> make_default_material() const;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/renderer.h:54:2: warning: function 'make_invert_effect' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   54 |         std::shared_ptr<FactorEffect> make_invert_effect() const;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/renderer.h:55:2: warning: function 'make_grayscale_effect' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   55 |         std::shared_ptr<FactorEffect> make_grayscale_effect() const;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/renderer.h:56:2: warning: function 'make_damage_effect' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   56 |         std::shared_ptr<FactorEffect> make_damage_effect() const;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/renderer.h:57:2: warning: function 'make_blur_effect' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   57 |         std::shared_ptr<FactorEffect> make_blur_effect() const;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader_resource.h:31:2: warning: invalid case style for scoped enum constant 'Uniform' [readability-identifier-naming]
+   31 |         Uniform,
+      |         ^~~~~~~
+      |         uniform
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader_resource.h:34:2: warning: invalid case style for scoped enum constant 'Instanced_mat4' [readability-identifier-naming]
+   34 |         Instanced_mat4
+      |         ^~~~~~~~~~~~~~
+      |         instanced_mat4
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/space.h:6:16: warning: invalid case style for constexpr variable 'UP' [readability-identifier-naming]
+    6 | constexpr auto UP = v3(0.0f, 1.0f, 0.0f);
+      |                ^~
+      |                up
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/world.h:99:2: warning: function 'get_local_axis' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   99 |         LocalAxis get_local_axis() const;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/world.h:155:17: warning: use designated initializer list to initialize 'Ypr' [modernize-use-designated-initializers]
+  155 |         Ypr rotation = {0.0_rad, 0.0_rad, 0.0_rad};
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                         .yaw=    .pitch=  .roll=
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/axisangle.h:32:5: note: aggregate type is defined here
+   32 |     struct Ypr
+      |     ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/world.h:155:18: warning: 'long double' type from literal suffix 'L' is not portable and should not be used [google-runtime-float]
+  155 |         Ypr rotation = {0.0_rad, 0.0_rad, 0.0_rad};
+      |                         ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/world.h:155:27: warning: 'long double' type from literal suffix 'L' is not portable and should not be used [google-runtime-float]
+  155 |         Ypr rotation = {0.0_rad, 0.0_rad, 0.0_rad};
+      |                                  ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/world.h:155:36: warning: 'long double' type from literal suffix 'L' is not portable and should not be used [google-runtime-float]
+  155 |         Ypr rotation = {0.0_rad, 0.0_rad, 0.0_rad};
+      |                                           ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/world.h:156:11: warning: 'long double' type from literal suffix 'L' is not portable and should not be used [google-runtime-float]
+  156 |         An fov = 10.0_deg;
+      |                  ^
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+-->
+</body>
+</html>

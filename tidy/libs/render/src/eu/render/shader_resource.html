@@ -1,0 +1,591 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/render/src/eu/render/shader_resource.cc</title>
+</head>
+<body>
+<h1>libs/render/src/eu/render/shader_resource.cc</h1>
+<span id='google-runtime-float'>&nbsp;</span>
+<hr>
+<h3>warning: &#39;long double&#39; type from literal suffix &#39;L&#39; is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/render/src/eu/render/camera.h 16 : 11</i></p>
+<pre>
+   16 |         An fov = 45.0_deg;
+      |                  ^
+</pre>
+<span id='modernize-use-designated-initializers'>&nbsp;</span>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Ypr&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/render/src/eu/render/camera.h 22 : 23</i></p>
+<pre>
+   22 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                         .yaw=    .pitch=  .roll=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/base/src/eu/base/axisangle.h 32 : 5</i></p>
+<pre>
+   32 |     struct Ypr
+      |     ^
+</pre>
+<hr>
+<h3>warning: &#39;long double&#39; type from literal suffix &#39;L&#39; is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/render/src/eu/render/camera.h 22 : 25</i></p>
+<pre>
+   22 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                         ^
+</pre>
+<hr>
+<h3>warning: &#39;long double&#39; type from literal suffix &#39;L&#39; is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/render/src/eu/render/camera.h 22 : 34</i></p>
+<pre>
+   22 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                                  ^
+</pre>
+<hr>
+<h3>warning: &#39;long double&#39; type from literal suffix &#39;L&#39; is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/render/src/eu/render/camera.h 22 : 43</i></p>
+<pre>
+   22 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                                           ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Ypr&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/render/src/eu/render/camera.h 35 : 23</i></p>
+<pre>
+   35 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                         .yaw=    .pitch=  .roll=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/base/src/eu/base/axisangle.h 32 : 5</i></p>
+<pre>
+   32 |     struct Ypr
+      |     ^
+</pre>
+<hr>
+<h3>warning: &#39;long double&#39; type from literal suffix &#39;L&#39; is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/render/src/eu/render/camera.h 35 : 25</i></p>
+<pre>
+   35 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                         ^
+</pre>
+<hr>
+<h3>warning: &#39;long double&#39; type from literal suffix &#39;L&#39; is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/render/src/eu/render/camera.h 35 : 34</i></p>
+<pre>
+   35 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                                  ^
+</pre>
+<hr>
+<h3>warning: &#39;long double&#39; type from literal suffix &#39;L&#39; is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/render/src/eu/render/camera.h 35 : 43</i></p>
+<pre>
+   35 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                                           ^
+</pre>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;MAX_TEXTURES_SUPPORTED&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/constants.h 7 : 23</i></p>
+<pre>
+    7 | constexpr std::size_t MAX_TEXTURES_SUPPORTED = 16;
+      |                       ^~~~~~~~~~~~~~~~~~~~~~
+      |                       max_textures_supported
+</pre>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;ALMOST_ZERO&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/constants.h 11 : 17</i></p>
+<pre>
+   11 | constexpr float ALMOST_ZERO = 0.01f;
+      |                 ^~~~~~~~~~~
+      |                 almost_zero
+   12 | /// if alpha goes above this limit, it is no longer considered transparent
+   13 | constexpr float ALPHA_TRANSPARENCY_LIMIT = 1.0f - ALMOST_ZERO;
+      |                                                   ~~~~~~~~~~~
+      |                                                   almost_zero
+</pre>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;ALPHA_TRANSPARENCY_LIMIT&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/constants.h 13 : 17</i></p>
+<pre>
+   13 | constexpr float ALPHA_TRANSPARENCY_LIMIT = 1.0f - ALMOST_ZERO;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                 alpha_transparency_limit
+</pre>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;OUTLINE_SCALE&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/constants.h 15 : 17</i></p>
+<pre>
+   15 | constexpr float OUTLINE_SCALE = 1.1f;
+      |                 ^~~~~~~~~~~~~
+      |                 outline_scale
+</pre>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;BLUR_SAMPLES&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/constants.h 17 : 15</i></p>
+<pre>
+   17 | constexpr int BLUR_SAMPLES = 10;
+      |               ^~~~~~~~~~~~
+      |               blur_samples
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Size&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/render/src/eu/render/render_settings.h 48 : 31</i></p>
+<pre>
+   48 |         Size shadow_map_resolution = {2048, 2048};
+      |                                      ^~~~~~~~~~~~
+      |                                       .width= .height=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/base/src/eu/base/size.h 10 : 5</i></p>
+<pre>
+   10 |     struct Size
+      |     ^
+</pre>
+<span id='misc-use-internal-linkage'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;get_uniform&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/render/src/eu/render/shader_resource.cc 124 : 24</i></p>
+<pre>
+  124 | std::optional&lt;Uniform&gt; get_uniform(
+      |                        ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;get_vertex_types&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/render/src/eu/render/shader_resource.cc 287 : 16</i></p>
+<pre>
+  287 | BaseShaderData get_vertex_types(const std::array&lt;const core::ShaderVertexAttributes*, count&gt;&amp; vas)
+      |                ^
+      | static 
+</pre>
+<hr>
+<h3>warning: struct &#39;LoadedShader&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/render/src/eu/render/shader_resource.cc 308 : 8</i></p>
+<pre>
+  308 | struct LoadedShader
+      |        ^
+</pre>
+<hr>
+<h3>warning: function &#39;get_instance_start_index&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/render/src/eu/render/shader_resource.cc 319 : 20</i></p>
+<pre>
+  319 | std::optional&lt;int&gt; get_instance_start_index(const LoadedShader* shader)
+      |                    ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;load_shader&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/render/src/eu/render/shader_resource.cc 338 : 14</i></p>
+<pre>
+  338 | LoadedShader load_shader(DEBUG_LABEL_ARG_MANY const BaseShaderData&amp; base_layout, const ShaderSource_withLayout&amp; source, TransformSource model_source, const LoadedShader* instance_base = nullptr)
+      |              ^
+      | static 
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;core:: InstanceProp&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/render/src/eu/render/shader_resource.cc 348 : 37</i></p>
+<pre>
+  348 |                 instance_prop = core::InstanceProp{core::VertexType::instance_transform, &quot;u_world_from_local&quot;};
+      |                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                    .type=                                .name=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/vertex_layout.h 95 : 1</i></p>
+<pre>
+   95 | struct InstanceProp
+      | ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;ShaderSource_withLayout&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/render/src/eu/render/shader_resource.cc 377 : 52</i></p>
+<pre>
+  377 |         const auto skybox_shader = ShaderSource_withLayout{
+      |                                                           ^
+  378 |         core::ShaderVertexAttributes{{core::VertexType::position3, &quot;a_position&quot;}}, skybox_source.vertex, skybox_source.fragment
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         .layout=                                                                   .vertex=              .fragment=
+  379 |         };
+      |         ~
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/render/src/eu/render/shader.source.h 31 : 1</i></p>
+<pre>
+   31 | struct ShaderSource_withLayout
+      | ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;const value_type&#39; (aka &#39;const eu::core:: VertexElementDescription&#39;)</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/render/src/eu/render/shader_resource.cc 378 : 38</i></p>
+<pre>
+  378 |         core::ShaderVertexAttributes{{core::VertexType::position3, &quot;a_position&quot;}}, skybox_source.vertex, skybox_source.fragment
+      |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                       .type=                       .name=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/vertex_layout.h 42 : 1</i></p>
+<pre>
+   42 | struct VertexElementDescription
+      | ^
+</pre>
+<span id='readability-avoid-unconditional-preprocessor-if'>&nbsp;</span>
+<hr>
+<h3>warning: preprocessor condition is always &#39;false&#39;, consider removing both the condition and its contents</h3>
+<code>[readability-avoid-unconditional-preprocessor-if]</code>
+<p><i>libs/render/src/eu/render/shader_resource.cc 433 : 2</i></p>
+<pre>
+  433 | #if 0
+      |  ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;LoadedShader_Unlit_Container&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/render/src/eu/render/shader_resource.cc 534 : 57</i></p>
+<pre>
+  534 |                 .unlit_shader_container = LoadedShader_Unlit_Container{
+      |                                                                       ^
+  535 |                         loaded_unlit.geom_layout,
+      |                         ~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                         .geom_layout=
+  536 |                         LoadedShader_Unlit{TransformSource::Uniform, std::move(loaded_unlit.program), desc},
+      |                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                         .default_shader=
+  537 |                         LoadedShader_Unlit{TransformSource::Uniform, std::move(loaded_unlit_transparency.program), desc}
+      |                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                         .transparency_shader=
+  538 |                 },
+      |                 ~
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/render/src/eu/render/material.h 14 : 1</i></p>
+<pre>
+   14 | struct LoadedShader_Unlit_Container;
+      | ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;LoadedShader_Default_Container&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/render/src/eu/render/shader_resource.cc 539 : 61</i></p>
+<pre>
+  539 |                 .default_shader_container = LoadedShader_Default_Container{
+      |                                                                           ^
+  540 |                         loaded_default.geom_layout,
+      |                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                         .geom_layout=
+  541 |                         LoadedShader_Default{TransformSource::Uniform, std::move(loaded_default.program), settings, desc},
+      |                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                         .default_shader=
+  542 |                         LoadedShader_Default{TransformSource::Uniform, std::move(loaded_default_transparency.program), settings, desc},
+      |                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                         .transparency_shader=
+  543 |                         LoadedShader_Default{TransformSource::Instanced_mat4, std::move(loaded_default_instanced.program), settings, desc}
+      |                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                         .default_shader_instance=
+  544 |                 },
+      |                 ~
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/render/src/eu/render/material.h 13 : 1</i></p>
+<pre>
+   13 | struct LoadedShader_Default_Container;
+      | ^
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Uniform&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/shader_resource.h 31 : 2</i></p>
+<pre>
+   31 |         Uniform,
+      |         ^~~~~~~
+      |         uniform
+</pre>
+<hr>
+<h3>warning: invalid case style for scoped enum constant &#39;Instanced_mat4&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/shader_resource.h 34 : 2</i></p>
+<pre>
+   34 |         Instanced_mat4
+      |         ^~~~~~~~~~~~~~
+      |         instanced_mat4
+</pre>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;UP&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/space.h 6 : 16</i></p>
+<pre>
+    6 | constexpr auto UP = v3(0.0f, 1.0f, 0.0f);
+      |                ^~
+      |                up
+</pre>
+<span id='modernize-use-nodiscard'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;get_local_axis&#39; should be marked [[nodiscard]]</h3>
+<code>[modernize-use-nodiscard]</code>
+<p><i>libs/render/src/eu/render/world.h 99 : 2</i></p>
+<pre>
+   99 |         LocalAxis get_local_axis() const;
+      |         ^
+      |         [[nodiscard]] 
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Ypr&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/render/src/eu/render/world.h 155 : 17</i></p>
+<pre>
+  155 |         Ypr rotation = {0.0_rad, 0.0_rad, 0.0_rad};
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                         .yaw=    .pitch=  .roll=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/base/src/eu/base/axisangle.h 32 : 5</i></p>
+<pre>
+   32 |     struct Ypr
+      |     ^
+</pre>
+<hr>
+<h3>warning: &#39;long double&#39; type from literal suffix &#39;L&#39; is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/render/src/eu/render/world.h 155 : 18</i></p>
+<pre>
+  155 |         Ypr rotation = {0.0_rad, 0.0_rad, 0.0_rad};
+      |                         ^
+</pre>
+<hr>
+<h3>warning: &#39;long double&#39; type from literal suffix &#39;L&#39; is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/render/src/eu/render/world.h 155 : 27</i></p>
+<pre>
+  155 |         Ypr rotation = {0.0_rad, 0.0_rad, 0.0_rad};
+      |                                  ^
+</pre>
+<hr>
+<h3>warning: &#39;long double&#39; type from literal suffix &#39;L&#39; is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/render/src/eu/render/world.h 155 : 36</i></p>
+<pre>
+  155 |         Ypr rotation = {0.0_rad, 0.0_rad, 0.0_rad};
+      |                                           ^
+</pre>
+<hr>
+<h3>warning: &#39;long double&#39; type from literal suffix &#39;L&#39; is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/render/src/eu/render/world.h 156 : 11</i></p>
+<pre>
+  156 |         An fov = 10.0_deg;
+      |                  ^
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/camera.h:16:11: warning: 'long double' type from literal suffix 'L' is not portable and should not be used [google-runtime-float]
+   16 |         An fov = 45.0_deg;
+      |                  ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/camera.h:22:23: warning: use designated initializer list to initialize 'Ypr' [modernize-use-designated-initializers]
+   22 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                         .yaw=    .pitch=  .roll=
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/axisangle.h:32:5: note: aggregate type is defined here
+   32 |     struct Ypr
+      |     ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/camera.h:22:25: warning: 'long double' type from literal suffix 'L' is not portable and should not be used [google-runtime-float]
+   22 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                         ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/camera.h:22:34: warning: 'long double' type from literal suffix 'L' is not portable and should not be used [google-runtime-float]
+   22 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                                  ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/camera.h:22:43: warning: 'long double' type from literal suffix 'L' is not portable and should not be used [google-runtime-float]
+   22 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                                           ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/camera.h:35:23: warning: use designated initializer list to initialize 'Ypr' [modernize-use-designated-initializers]
+   35 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                         .yaw=    .pitch=  .roll=
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/axisangle.h:32:5: note: aggregate type is defined here
+   32 |     struct Ypr
+      |     ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/camera.h:35:25: warning: 'long double' type from literal suffix 'L' is not portable and should not be used [google-runtime-float]
+   35 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                         ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/camera.h:35:34: warning: 'long double' type from literal suffix 'L' is not portable and should not be used [google-runtime-float]
+   35 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                                  ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/camera.h:35:43: warning: 'long double' type from literal suffix 'L' is not portable and should not be used [google-runtime-float]
+   35 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                                           ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/constants.h:7:23: warning: invalid case style for constexpr variable 'MAX_TEXTURES_SUPPORTED' [readability-identifier-naming]
+    7 | constexpr std::size_t MAX_TEXTURES_SUPPORTED = 16;
+      |                       ^~~~~~~~~~~~~~~~~~~~~~
+      |                       max_textures_supported
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/constants.h:11:17: warning: invalid case style for constexpr variable 'ALMOST_ZERO' [readability-identifier-naming]
+   11 | constexpr float ALMOST_ZERO = 0.01f;
+      |                 ^~~~~~~~~~~
+      |                 almost_zero
+   12 | /// if alpha goes above this limit, it is no longer considered transparent
+   13 | constexpr float ALPHA_TRANSPARENCY_LIMIT = 1.0f - ALMOST_ZERO;
+      |                                                   ~~~~~~~~~~~
+      |                                                   almost_zero
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/constants.h:13:17: warning: invalid case style for constexpr variable 'ALPHA_TRANSPARENCY_LIMIT' [readability-identifier-naming]
+   13 | constexpr float ALPHA_TRANSPARENCY_LIMIT = 1.0f - ALMOST_ZERO;
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                 alpha_transparency_limit
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/constants.h:15:17: warning: invalid case style for constexpr variable 'OUTLINE_SCALE' [readability-identifier-naming]
+   15 | constexpr float OUTLINE_SCALE = 1.1f;
+      |                 ^~~~~~~~~~~~~
+      |                 outline_scale
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/constants.h:17:15: warning: invalid case style for constexpr variable 'BLUR_SAMPLES' [readability-identifier-naming]
+   17 | constexpr int BLUR_SAMPLES = 10;
+      |               ^~~~~~~~~~~~
+      |               blur_samples
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/render_settings.h:48:31: warning: use designated initializer list to initialize 'Size' [modernize-use-designated-initializers]
+   48 |         Size shadow_map_resolution = {2048, 2048};
+      |                                      ^~~~~~~~~~~~
+      |                                       .width= .height=
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/size.h:10:5: note: aggregate type is defined here
+   10 |     struct Size
+      |     ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader_resource.cc:124:24: warning: function 'get_uniform' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  124 | std::optional<Uniform> get_uniform(
+      |                        ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader_resource.cc:287:16: warning: function 'get_vertex_types' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  287 | BaseShaderData get_vertex_types(const std::array<const core::ShaderVertexAttributes*, count>& vas)
+      |                ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader_resource.cc:308:8: warning: struct 'LoadedShader' can be moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  308 | struct LoadedShader
+      |        ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader_resource.cc:319:20: warning: function 'get_instance_start_index' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  319 | std::optional<int> get_instance_start_index(const LoadedShader* shader)
+      |                    ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader_resource.cc:338:14: warning: function 'load_shader' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+  338 | LoadedShader load_shader(DEBUG_LABEL_ARG_MANY const BaseShaderData& base_layout, const ShaderSource_withLayout& source, TransformSource model_source, const LoadedShader* instance_base = nullptr)
+      |              ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader_resource.cc:348:37: warning: use designated initializer list to initialize 'core::InstanceProp' [modernize-use-designated-initializers]
+  348 |                 instance_prop = core::InstanceProp{core::VertexType::instance_transform, "u_world_from_local"};
+      |                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                    .type=                                .name=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/vertex_layout.h:95:1: note: aggregate type is defined here
+   95 | struct InstanceProp
+      | ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader_resource.cc:377:52: warning: use designated initializer list to initialize 'ShaderSource_withLayout' [modernize-use-designated-initializers]
+  377 |         const auto skybox_shader = ShaderSource_withLayout{
+      |                                                           ^
+  378 |         core::ShaderVertexAttributes{{core::VertexType::position3, "a_position"}}, skybox_source.vertex, skybox_source.fragment
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         .layout=                                                                   .vertex=              .fragment=
+  379 |         };
+      |         ~
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.source.h:31:1: note: aggregate type is defined here
+   31 | struct ShaderSource_withLayout
+      | ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader_resource.cc:378:38: warning: use designated initializer list to initialize 'const value_type' (aka 'const eu::core::VertexElementDescription') [modernize-use-designated-initializers]
+  378 |         core::ShaderVertexAttributes{{core::VertexType::position3, "a_position"}}, skybox_source.vertex, skybox_source.fragment
+      |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                       .type=                       .name=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/vertex_layout.h:42:1: note: aggregate type is defined here
+   42 | struct VertexElementDescription
+      | ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader_resource.cc:433:2: warning: preprocessor condition is always 'false', consider removing both the condition and its contents [readability-avoid-unconditional-preprocessor-if]
+  433 | #if 0
+      |  ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader_resource.cc:534:57: warning: use designated initializer list to initialize 'LoadedShader_Unlit_Container' [modernize-use-designated-initializers]
+  534 |                 .unlit_shader_container = LoadedShader_Unlit_Container{
+      |                                                                       ^
+  535 |                         loaded_unlit.geom_layout,
+      |                         ~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                         .geom_layout=
+  536 |                         LoadedShader_Unlit{TransformSource::Uniform, std::move(loaded_unlit.program), desc},
+      |                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                         .default_shader=
+  537 |                         LoadedShader_Unlit{TransformSource::Uniform, std::move(loaded_unlit_transparency.program), desc}
+      |                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                         .transparency_shader=
+  538 |                 },
+      |                 ~
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/material.h:14:1: note: aggregate type is defined here
+   14 | struct LoadedShader_Unlit_Container;
+      | ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader_resource.cc:539:61: warning: use designated initializer list to initialize 'LoadedShader_Default_Container' [modernize-use-designated-initializers]
+  539 |                 .default_shader_container = LoadedShader_Default_Container{
+      |                                                                           ^
+  540 |                         loaded_default.geom_layout,
+      |                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                         .geom_layout=
+  541 |                         LoadedShader_Default{TransformSource::Uniform, std::move(loaded_default.program), settings, desc},
+      |                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                         .default_shader=
+  542 |                         LoadedShader_Default{TransformSource::Uniform, std::move(loaded_default_transparency.program), settings, desc},
+      |                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                         .transparency_shader=
+  543 |                         LoadedShader_Default{TransformSource::Instanced_mat4, std::move(loaded_default_instanced.program), settings, desc}
+      |                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                         .default_shader_instance=
+  544 |                 },
+      |                 ~
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/material.h:13:1: note: aggregate type is defined here
+   13 | struct LoadedShader_Default_Container;
+      | ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader_resource.h:31:2: warning: invalid case style for scoped enum constant 'Uniform' [readability-identifier-naming]
+   31 |         Uniform,
+      |         ^~~~~~~
+      |         uniform
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader_resource.h:34:2: warning: invalid case style for scoped enum constant 'Instanced_mat4' [readability-identifier-naming]
+   34 |         Instanced_mat4
+      |         ^~~~~~~~~~~~~~
+      |         instanced_mat4
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/space.h:6:16: warning: invalid case style for constexpr variable 'UP' [readability-identifier-naming]
+    6 | constexpr auto UP = v3(0.0f, 1.0f, 0.0f);
+      |                ^~
+      |                up
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/world.h:99:2: warning: function 'get_local_axis' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   99 |         LocalAxis get_local_axis() const;
+      |         ^
+      |         [[nodiscard]] 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/world.h:155:17: warning: use designated initializer list to initialize 'Ypr' [modernize-use-designated-initializers]
+  155 |         Ypr rotation = {0.0_rad, 0.0_rad, 0.0_rad};
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                         .yaw=    .pitch=  .roll=
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/axisangle.h:32:5: note: aggregate type is defined here
+   32 |     struct Ypr
+      |     ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/world.h:155:18: warning: 'long double' type from literal suffix 'L' is not portable and should not be used [google-runtime-float]
+  155 |         Ypr rotation = {0.0_rad, 0.0_rad, 0.0_rad};
+      |                         ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/world.h:155:27: warning: 'long double' type from literal suffix 'L' is not portable and should not be used [google-runtime-float]
+  155 |         Ypr rotation = {0.0_rad, 0.0_rad, 0.0_rad};
+      |                                  ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/world.h:155:36: warning: 'long double' type from literal suffix 'L' is not portable and should not be used [google-runtime-float]
+  155 |         Ypr rotation = {0.0_rad, 0.0_rad, 0.0_rad};
+      |                                           ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/world.h:156:11: warning: 'long double' type from literal suffix 'L' is not portable and should not be used [google-runtime-float]
+  156 |         An fov = 10.0_deg;
+      |                  ^
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+-->
+</body>
+</html>

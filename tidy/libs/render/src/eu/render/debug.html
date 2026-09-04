@@ -1,0 +1,186 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/render/src/eu/render/debug.cc</title>
+</head>
+<body>
+<h1>libs/render/src/eu/render/debug.cc</h1>
+<span id='google-runtime-float'>&nbsp;</span>
+<hr>
+<h3>warning: &#39;long double&#39; type from literal suffix &#39;L&#39; is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/render/src/eu/render/camera.h 16 : 11</i></p>
+<pre>
+   16 |         An fov = 45.0_deg;
+      |                  ^
+</pre>
+<span id='modernize-use-designated-initializers'>&nbsp;</span>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Ypr&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/render/src/eu/render/camera.h 22 : 23</i></p>
+<pre>
+   22 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                         .yaw=    .pitch=  .roll=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/base/src/eu/base/axisangle.h 32 : 5</i></p>
+<pre>
+   32 |     struct Ypr
+      |     ^
+</pre>
+<hr>
+<h3>warning: &#39;long double&#39; type from literal suffix &#39;L&#39; is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/render/src/eu/render/camera.h 22 : 25</i></p>
+<pre>
+   22 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                         ^
+</pre>
+<hr>
+<h3>warning: &#39;long double&#39; type from literal suffix &#39;L&#39; is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/render/src/eu/render/camera.h 22 : 34</i></p>
+<pre>
+   22 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                                  ^
+</pre>
+<hr>
+<h3>warning: &#39;long double&#39; type from literal suffix &#39;L&#39; is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/render/src/eu/render/camera.h 22 : 43</i></p>
+<pre>
+   22 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                                           ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;Ypr&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/render/src/eu/render/camera.h 35 : 23</i></p>
+<pre>
+   35 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                         .yaw=    .pitch=  .roll=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/base/src/eu/base/axisangle.h 32 : 5</i></p>
+<pre>
+   32 |     struct Ypr
+      |     ^
+</pre>
+<hr>
+<h3>warning: &#39;long double&#39; type from literal suffix &#39;L&#39; is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/render/src/eu/render/camera.h 35 : 25</i></p>
+<pre>
+   35 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                         ^
+</pre>
+<hr>
+<h3>warning: &#39;long double&#39; type from literal suffix &#39;L&#39; is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/render/src/eu/render/camera.h 35 : 34</i></p>
+<pre>
+   35 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                                  ^
+</pre>
+<hr>
+<h3>warning: &#39;long double&#39; type from literal suffix &#39;L&#39; is not portable and should not be used</h3>
+<code>[google-runtime-float]</code>
+<p><i>libs/render/src/eu/render/camera.h 35 : 43</i></p>
+<pre>
+   35 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                                           ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;DebugLine&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/render/src/eu/render/debug.cc 10 : 30</i></p>
+<pre>
+   10 |         lines.emplace_back(DebugLine{from, to, color});
+      |                                     ^~~~~~~~~~~~~~~~~
+      |                                      .from=.to=.color=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/render/src/eu/render/debug.h 14 : 1</i></p>
+<pre>
+   14 | struct DebugLine
+      | ^
+</pre>
+<span id='misc-use-internal-linkage'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;world_from_ndc&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/render/src/eu/render/debug.cc 13 : 4</i></p>
+<pre>
+   13 | v3 world_from_ndc(const CompiledCamera&amp; camera, const v3&amp; ndc)
+      |    ^
+      | static 
+</pre>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for constexpr variable &#39;UP&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i>libs/render/src/eu/render/space.h 6 : 16</i></p>
+<pre>
+    6 | constexpr auto UP = v3(0.0f, 1.0f, 0.0f);
+      |                ^~
+      |                up
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/camera.h:16:11: warning: 'long double' type from literal suffix 'L' is not portable and should not be used [google-runtime-float]
+   16 |         An fov = 45.0_deg;
+      |                  ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/camera.h:22:23: warning: use designated initializer list to initialize 'Ypr' [modernize-use-designated-initializers]
+   22 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                         .yaw=    .pitch=  .roll=
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/axisangle.h:32:5: note: aggregate type is defined here
+   32 |     struct Ypr
+      |     ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/camera.h:22:25: warning: 'long double' type from literal suffix 'L' is not portable and should not be used [google-runtime-float]
+   22 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                         ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/camera.h:22:34: warning: 'long double' type from literal suffix 'L' is not portable and should not be used [google-runtime-float]
+   22 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                                  ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/camera.h:22:43: warning: 'long double' type from literal suffix 'L' is not portable and should not be used [google-runtime-float]
+   22 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                                           ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/camera.h:35:23: warning: use designated initializer list to initialize 'Ypr' [modernize-use-designated-initializers]
+   35 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                         .yaw=    .pitch=  .roll=
+/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/axisangle.h:32:5: note: aggregate type is defined here
+   32 |     struct Ypr
+      |     ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/camera.h:35:25: warning: 'long double' type from literal suffix 'L' is not portable and should not be used [google-runtime-float]
+   35 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                         ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/camera.h:35:34: warning: 'long double' type from literal suffix 'L' is not portable and should not be used [google-runtime-float]
+   35 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                                  ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/camera.h:35:43: warning: 'long double' type from literal suffix 'L' is not portable and should not be used [google-runtime-float]
+   35 |     Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+      |                                           ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/debug.cc:10:30: warning: use designated initializer list to initialize 'DebugLine' [modernize-use-designated-initializers]
+   10 |         lines.emplace_back(DebugLine{from, to, color});
+      |                                     ^~~~~~~~~~~~~~~~~
+      |                                      .from=.to=.color=
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/debug.h:14:1: note: aggregate type is defined here
+   14 | struct DebugLine
+      | ^
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/debug.cc:13:4: warning: function 'world_from_ndc' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+   13 | v3 world_from_ndc(const CompiledCamera& camera, const v3& ndc)
+      |    ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/space.h:6:16: warning: invalid case style for constexpr variable 'UP' [readability-identifier-naming]
+    6 | constexpr auto UP = v3(0.0f, 1.0f, 0.0f);
+      |                ^~
+      |                up
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+-->
+</body>
+</html>

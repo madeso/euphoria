@@ -1,0 +1,98 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/core/src/eu/core/uniform_buffer.cc</title>
+</head>
+<body>
+<h1>libs/core/src/eu/core/uniform_buffer.cc</h1>
+<span id='misc-use-internal-linkage'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;size_of&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/core/src/eu/core/uniform_buffer.cc 9 : 5</i></p>
+<pre>
+    9 | int size_of(const UniformProp&amp; prop, bool align)
+      |     ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;calculate_alignment_bytes&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/core/src/eu/core/uniform_buffer.cc 29 : 5</i></p>
+<pre>
+   29 | int calculate_alignment_bytes(int current_size, const UniformProp&amp; prop)
+      |     ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;source_from&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i>libs/core/src/eu/core/uniform_buffer.cc 43 : 13</i></p>
+<pre>
+   43 | std::string source_from(const std::string&amp; name, const UniformBufferDescription&amp; desc)
+      |             ^
+      | static 
+</pre>
+<span id='modernize-use-designated-initializers'>&nbsp;</span>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;UniformProp&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/uniform_buffer.cc 79 : 32</i></p>
+<pre>
+   79 |         props.emplace_back(UniformProp{target, type, name, array_count});
+      |                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                        .target=.type=.name=.array_count=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/uniform_buffer.h 41 : 1</i></p>
+<pre>
+   41 | struct UniformProp
+      | ^
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;CompiledUniformProp&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i>libs/core/src/eu/core/uniform_buffer.cc 93 : 15</i></p>
+<pre>
+   93 |                 *p.target = {target.size, p.type, p.array_count};
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                              .offset=     .type=  .array_count=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i>libs/core/src/eu/core/uniform_buffer.h 32 : 1</i></p>
+<pre>
+   32 | struct CompiledUniformProp
+      | ^
+</pre>
+<!--
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/uniform_buffer.cc:9:5: warning: function 'size_of' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+    9 | int size_of(const UniformProp& prop, bool align)
+      |     ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/uniform_buffer.cc:29:5: warning: function 'calculate_alignment_bytes' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+   29 | int calculate_alignment_bytes(int current_size, const UniformProp& prop)
+      |     ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/uniform_buffer.cc:43:13: warning: function 'source_from' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
+   43 | std::string source_from(const std::string& name, const UniformBufferDescription& desc)
+      |             ^
+      | static 
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/uniform_buffer.cc:79:32: warning: use designated initializer list to initialize 'UniformProp' [modernize-use-designated-initializers]
+   79 |         props.emplace_back(UniformProp{target, type, name, array_count});
+      |                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                        .target=.type=.name=.array_count=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/uniform_buffer.h:41:1: note: aggregate type is defined here
+   41 | struct UniformProp
+      | ^
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/uniform_buffer.cc:93:15: warning: use designated initializer list to initialize 'CompiledUniformProp' [modernize-use-designated-initializers]
+   93 |                 *p.target = {target.size, p.type, p.array_count};
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                              .offset=     .type=  .array_count=
+/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/uniform_buffer.h:32:1: note: aggregate type is defined here
+   32 | struct CompiledUniformProp
+      | ^
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+-->
+</body>
+</html>
