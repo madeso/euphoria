@@ -158,6 +158,7 @@
    68 |             return x * x + y * y + z * z;
       |                                    ^~~~~~
       |                                    (    )
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
 /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:95:9: warning: 'eu::n3::operator-' shadows method with the same name in class 'v3' [bugprone-derived-method-shadowing-base-method]
    95 |         constexpr n3 operator-() const
       |         ^
@@ -174,7 +175,6 @@
       |         ^
   118 |             : v3(v)
       |               v3(),
-Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
 -->
 </body>
 </html>

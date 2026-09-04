@@ -25,13 +25,13 @@
       |                         ^~~~~
 </pre>
 <!--
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
 /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/hash.string.h:19:68: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
    19 |     { return str.empty() ? hash : hash64(str.substr(1), (hash ^ str[0]) * 0x100000001b3); }
       |                                                                    ^~~
 /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/hash.string.h:102:25: warning: parameter 'h' is const-qualified in the function declaration; const-qualification of parameters only has an effect in function definitions [readability-avoid-const-params-in-decls]
   102 | std::string string_from(const Hsh h);
       |                         ^~~~~
-Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
 -->
 </body>
 </html>

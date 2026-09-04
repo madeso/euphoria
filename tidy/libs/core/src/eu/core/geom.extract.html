@@ -98,6 +98,7 @@
    48 | void push2(ByteBuffer* vv, const v2& p)
       |      ^
       | static 
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
 /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.extract.cc:54:6: warning: function 'push3' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
    54 | void push3(ByteBuffer* vv, const v3& p)
       |      ^
@@ -119,7 +120,6 @@
 /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.extract.h:19:2: warning: invalid case style for scoped enum constant 'Float'; cannot be fixed because 'float' would conflict with a keyword [readability-identifier-naming]
    19 |         Float
       |         ^
-Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
 -->
 </body>
 </html>

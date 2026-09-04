@@ -120,6 +120,7 @@
       |     [[nodiscard]] 
 </pre>
 <!--
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
 /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.cc:12:13: warning: function 'bytes_from_size' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
    12 | std::size_t bytes_from_size(int width, int height, int bpp)
       |             ^
@@ -164,7 +165,6 @@
    53 |     PixelColor get_pixel(int x, int y) const;
       |     ^
       |     [[nodiscard]] 
-Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
 -->
 </body>
 </html>

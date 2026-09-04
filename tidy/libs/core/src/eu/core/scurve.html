@@ -63,7 +63,6 @@
       |                                                        (                      )
 </pre>
 <!--
-Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
 /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/scurve.cc:11:7: warning: function 'square' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
    11 | float square(float x)
       |       ^
@@ -88,6 +87,7 @@ Use -header-filter=.* or leave it as default to display errors from all non-syst
    43 |                 ((1 - threshold) * (x - 1)) / (1 - x - slope * (threshold - x) + machine_epsilon) + 1
       |                                                        ^~~~~~~~~~~~~~~~~~~~~~~
       |                                                        (                      )
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
 -->
 </body>
 </html>

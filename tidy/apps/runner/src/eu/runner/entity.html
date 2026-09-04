@@ -181,6 +181,7 @@
       |            ^
 </pre>
 <!--
+Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
 /home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/entity.cc:37:13: warning: implicit conversion 'World *' -> 'bool' [readability-implicit-bool-conversion]
    37 |         if (world)
       |             ^    
@@ -259,7 +260,6 @@
 /home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/entity.h:174:12: warning: class 'WorldSystem' defines a default destructor, a copy constructor, a copy assignment operator and a move assignment operator but does not define a move constructor [cppcoreguidelines-special-member-functions]
   174 |     struct WorldSystem
       |            ^
-Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
 -->
 </body>
 </html>
