@@ -29,22 +29,22 @@ namespace eu
 
         std::array<uint8_t, 16> data
         {
-            static_cast<std::uint8_t>((g.Data1 >> 24) & 0xff),
-            static_cast<std::uint8_t>((g.Data1 >> 16) & 0xff),
-            static_cast<std::uint8_t>((g.Data1 >>  8) & 0xff),
-            static_cast<std::uint8_t>((g.Data1      ) & 0xff),
-            static_cast<std::uint8_t>((g.Data2 >> 8 ) & 0xff),
-            static_cast<std::uint8_t>((g.Data2      ) & 0xff),
-            static_cast<std::uint8_t>((g.Data3 >> 8 ) & 0xff),
-            static_cast<std::uint8_t>((g.Data3      ) & 0xff),
-            static_cast<std::uint8_t>( g.Data4[0]           ),
-            static_cast<std::uint8_t>( g.Data4[1]           ),
-            static_cast<std::uint8_t>( g.Data4[2]           ),
-            static_cast<std::uint8_t>( g.Data4[3]           ),
-            static_cast<std::uint8_t>( g.Data4[4]           ),
-            static_cast<std::uint8_t>( g.Data4[5]           ),
-            static_cast<std::uint8_t>( g.Data4[6]           ),
-            static_cast<std::uint8_t>( g.Data4[7]           )
+            static_cast<uint8_t>((g.Data1 >> 24) & 0xff),
+            static_cast<uint8_t>((g.Data1 >> 16) & 0xff),
+            static_cast<uint8_t>((g.Data1 >>  8) & 0xff),
+            static_cast<uint8_t>((g.Data1      ) & 0xff),
+            static_cast<uint8_t>((g.Data2 >> 8 ) & 0xff),
+            static_cast<uint8_t>((g.Data2      ) & 0xff),
+            static_cast<uint8_t>((g.Data3 >> 8 ) & 0xff),
+            static_cast<uint8_t>((g.Data3      ) & 0xff),
+            static_cast<uint8_t>( g.Data4[0]           ),
+            static_cast<uint8_t>( g.Data4[1]           ),
+            static_cast<uint8_t>( g.Data4[2]           ),
+            static_cast<uint8_t>( g.Data4[3]           ),
+            static_cast<uint8_t>( g.Data4[4]           ),
+            static_cast<uint8_t>( g.Data4[5]           ),
+            static_cast<uint8_t>( g.Data4[6]           ),
+            static_cast<uint8_t>( g.Data4[7]           )
         };
         
         return Guid{data};
