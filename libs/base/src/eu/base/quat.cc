@@ -270,7 +270,7 @@ namespace eu
         z = w1z2 + z1w2 + x1y2 - y1x2;
     }
 
-    Q Q::look_in_direction(const n3& dir, const n3& up)
+    Q Q::look_in_direction(const n3& dir, const n3&)
     {
         // todo(Gustav): does this function work as expected?
         const v3 in = kk::in;
