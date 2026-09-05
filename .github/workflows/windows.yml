@@ -33,10 +33,10 @@ jobs:
 
         - name: Build
           shell: bash
-          working-directory: ${{github.workspace}}/build/euphoria
+          working-directory: ${{github.workspace}}/build/vs2022/
           run: cmake --build . --config ${{matrix.build_type}}
 
         - name: Test
           shell: bash
-          working-directory: ${{github.workspace}}/build
+          working-directory: ${{github.workspace}}/build/
           run: ctest -C ${{matrix.build_type}}
