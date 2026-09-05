@@ -6,6 +6,11 @@
 </head>
 <body>
 <h1>libs/base/src/eu/base/hash.string.cc</h1>
+<h2>Files</h2>
+<ul>
+<li>2: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/hash.string.h</li>
+</ul>
+<h2>Warnings</h2>
 <span id='cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'>&nbsp;</span>
 <hr>
 <h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
@@ -25,7 +30,6 @@
       |                         ^~~~~
 </pre>
 <!--
-Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
 /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/hash.string.h:19:68: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
    19 |     { return str.empty() ? hash : hash64(str.substr(1), (hash ^ str[0]) * 0x100000001b3); }
       |                                                                    ^~~

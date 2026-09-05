@@ -6,6 +6,14 @@
 </head>
 <body>
 <h1>libs/mrgui/src/eu/mrgui/widgets.cc</h1>
+<h2>Files</h2>
+<ul>
+<li>22: /home/runner/work/euphoria/euphoria/libs/mrgui/src/eu/mrgui/widgets.cc</li>
+<li>2: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.h</li>
+<li>2: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/canvas.h</li>
+<li>1: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.h</li>
+</ul>
+<h2>Warnings</h2>
 <span id='modernize-use-nodiscard'>&nbsp;</span>
 <hr>
 <h3>warning: function &#39;is_valid&#39; should be marked [[nodiscard]]</h3>
@@ -221,9 +229,12 @@
 <span id='modernize-avoid-c-style-cast'>&nbsp;</span>
 <hr>
 <h3>warning: C-style casts are discouraged; use static_cast</h3>
+<p> this fix will not be applied because it overlaps with another fix</p>
 <code>[google-readability-casting,modernize-avoid-c-style-cast]</code>
 <p><i>libs/mrgui/src/eu/mrgui/widgets.cc 398 : 79</i></p>
 <pre>
+  398 |                 if (text_state.state.cursor &gt; 0 &amp;&amp; text_state.state.cursor &lt;= (int)val-&gt;size()) {
+      |                                                                               ^
 </pre>
 <hr>
 <h3>warning: variable &#39;substr&#39; of type &#39;std:: string&#39; (aka &#39;basic_string&lt;char&gt;&#39;) can be declared &#39;const&#39;</h3>
@@ -372,7 +383,6 @@ note: this fix will not be applied because it overlaps with another fix
   171 |         constexpr float get_line_height() const
       |         ^
       |         [[nodiscard]] 
-Use -header-filter=.* or leave it as default to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
 -->
 </body>
 </html>
