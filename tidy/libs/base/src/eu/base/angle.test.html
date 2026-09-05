@@ -10,7 +10,6 @@
 <ul>
 <li>2: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/angle.h</li>
 <li>1: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/angle.test.cc</li>
-<li>1: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/numeric.h</li>
 </ul>
 <h2>Warnings</h2>
 <span id='google-runtime-float'>&nbsp;</span>
@@ -38,16 +37,6 @@
    29 |     const auto a = 0.0_rad;
       |                    ^
 </pre>
-<span id='readability-math-missing-parentheses'>&nbsp;</span>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/numeric.h 68 : 20</i></p>
-<pre>
-   68 |         return f + (t - f) * scale;
-      |                    ^~~~~~~~~~~~~~~~
-      |                    (              )
-</pre>
 <!--
 /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/angle.h:128:33: warning: 'long double' type is not portable and should not be used [google-runtime-float]
   128 |     constexpr An operator""_deg(long double d)
@@ -58,10 +47,6 @@
 /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/angle.test.cc:29:20: warning: 'long double' type from literal suffix 'L' is not portable and should not be used [google-runtime-float]
    29 |     const auto a = 0.0_rad;
       |                    ^
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/numeric.h:68:20: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   68 |         return f + (t - f) * scale;
-      |                    ^~~~~~~~~~~~~~~~
-      |                    (              )
 -->
 </body>
 </html>

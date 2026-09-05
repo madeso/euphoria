@@ -8,7 +8,7 @@
 <h1>libs/core/src/eu/core/image.cc</h1>
 <h2>Files</h2>
 <ul>
-<li>11: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.cc</li>
+<li>9: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.cc</li>
 <li>2: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.h</li>
 </ul>
 <h2>Warnings</h2>
@@ -21,16 +21,6 @@
    12 | std::size_t bytes_from_size(int width, int height, int bpp)
       |             ^
       | static 
-</pre>
-<span id='readability-math-missing-parentheses'>&nbsp;</span>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/core/src/eu/core/image.cc 44 : 24</i></p>
-<pre>
-   44 |     const int index = (y * width + x) * 4;
-      |                        ^~~~~~~~~
-      |                        (        )
 </pre>
 <span id='cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'>&nbsp;</span>
 <hr>
@@ -64,15 +54,6 @@
 <pre>
    48 |     data[index + 3] = a;
       |         ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/core/src/eu/core/image.cc 60 : 25</i></p>
-<pre>
-   60 |     const auto index = (y * width + x) * 4;
-      |                         ^~~~~~~~~
-      |                         (        )
 </pre>
 <hr>
 <h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
@@ -130,10 +111,6 @@
    12 | std::size_t bytes_from_size(int width, int height, int bpp)
       |             ^
       | static 
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.cc:44:24: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   44 |     const int index = (y * width + x) * 4;
-      |                        ^~~~~~~~~
-      |                        (        )
 /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.cc:45:9: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
    45 |     data[index + 0] = r;
       |         ^~~~~~~~~~~
@@ -146,10 +123,6 @@
 /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.cc:48:9: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
    48 |     data[index + 3] = a;
       |         ^~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.cc:60:25: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   60 |     const auto index = (y * width + x) * 4;
-      |                         ^~~~~~~~~
-      |                         (        )
 /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.cc:62:18: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
    62 |         .r = data[index + 0],
       |                  ^~~~~~~~~~~

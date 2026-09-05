@@ -8,7 +8,7 @@
 <h1>libs/imgui/src/eu/imgui/ui.cc</h1>
 <h2>Files</h2>
 <ul>
-<li>41: /home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc</li>
+<li>27: /home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc</li>
 <li>6: /home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.h</li>
 </ul>
 <h2>Warnings</h2>
@@ -103,16 +103,6 @@
   357 |         const auto t = (*gamma - min_gamma) / (gamma_range);
       |                                               ^           ~
 </pre>
-<span id='readability-math-missing-parentheses'>&nbsp;</span>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/imgui/src/eu/imgui/ui.cc 366 : 23</i></p>
-<pre>
-  366 |         *gamma = min_gamma + perceptual * gamma_range;
-      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~
-      |                              (                       )
-</pre>
 <hr>
 <h3>warning: function &#39;length2&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -123,24 +113,6 @@
       | static 
 </pre>
 <hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/imgui/src/eu/imgui/ui.cc 398 : 12</i></p>
-<pre>
-  398 |     return v.x* v.x + v.y * v.y;
-      |            ^~~~~~~~
-      |            (       )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/imgui/src/eu/imgui/ui.cc 398 : 23</i></p>
-<pre>
-  398 |     return v.x* v.x + v.y * v.y;
-      |                       ^~~~~~~~~~
-      |                       (        )
-</pre>
-<hr>
 <h3>warning: function &#39;length&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
 <p><i>libs/imgui/src/eu/imgui/ui.cc 401 : 7</i></p>
@@ -148,24 +120,6 @@
   401 | float length(const ImVec2&amp; v)
       |       ^
       | static 
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/imgui/src/eu/imgui/ui.cc 403 : 22</i></p>
-<pre>
-  403 |     return std::sqrt(v.x * v.x + v.y * v.y);
-      |                      ^~~~~~~~~
-      |                      (        )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/imgui/src/eu/imgui/ui.cc 403 : 34</i></p>
-<pre>
-  403 |     return std::sqrt(v.x * v.x + v.y * v.y);
-      |                                  ^~~~~~~~~~
-      |                                  (        )
 </pre>
 <hr>
 <h3>warning: function &#39;normalize&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
@@ -193,24 +147,6 @@
   415 | float dot(const ImVec2&amp; lhs, const ImVec2&amp; rhs)
       |       ^
       | static 
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/imgui/src/eu/imgui/ui.cc 417 : 12</i></p>
-<pre>
-  417 |     return lhs.x * rhs.x + lhs.y * rhs.y;
-      |            ^~~~~~~~~~~~~
-      |            (            )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/imgui/src/eu/imgui/ui.cc 417 : 28</i></p>
-<pre>
-  417 |     return lhs.x * rhs.x + lhs.y * rhs.y;
-      |                            ^~~~~~~~~~~~~~
-      |                            (            )
 </pre>
 <hr>
 <h3>warning: function &#39;is_positive&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
@@ -249,15 +185,6 @@
       |                  ^
 </pre>
 <hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/imgui/src/eu/imgui/ui.cc 451 : 37</i></p>
-<pre>
-  451 |             const float a = a_min + (static_cast&lt;float&gt;(i) / static_cast&lt;float&gt;(num_segments)) * (a_max - a_min);
-      |                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                     (                                                                           )
-</pre>
-<hr>
 <h3>warning: invalid case style for function &#39;dl_PathArcTo&#39;</h3>
 <code>[readability-identifier-naming]</code>
 <p><i>libs/imgui/src/eu/imgui/ui.cc 456 : 10</i></p>
@@ -285,24 +212,6 @@
       | static 
 </pre>
 <hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/imgui/src/eu/imgui/ui.cc 489 : 64</i></p>
-<pre>
-  489 |     ImVec2 size = ImGui::CalcItemSize(size_arg, label_size.x + style.FramePadding.x * 2.0f, label_size.y + style.FramePadding.y * 2.0f);
-      |                                                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                                                (                          )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/imgui/src/eu/imgui/ui.cc 489 : 108</i></p>
-<pre>
-  489 |     ImVec2 size = ImGui::CalcItemSize(size_arg, label_size.x + style.FramePadding.x * 2.0f, label_size.y + style.FramePadding.y * 2.0f);
-      |                                                                                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                                                                                            (                          )
-</pre>
-<hr>
 <h3>warning: function &#39;gear_icon&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
 <p><i>libs/imgui/src/eu/imgui/ui.cc 494 : 6</i></p>
@@ -310,24 +219,6 @@
   494 | bool gear_icon(const char* const label, float* drag, const ImVec2&amp; size)
       |      ^
       | static 
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/imgui/src/eu/imgui/ui.cc 552 : 62</i></p>
-<pre>
-  552 |                 const auto new_ang = ang  - *initial_angle + static_cast&lt;float&gt;(turns) * 360.0f;
-      |                                                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                                              (                                 )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/imgui/src/eu/imgui/ui.cc 553 : 41</i></p>
-<pre>
-  553 |                 const auto val = orig + (new_ang / 360.0f) * one_turn;
-      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                         (                            )
 </pre>
 <span id='readability-implicit-bool-conversion'>&nbsp;</span>
 <hr>
@@ -347,24 +238,6 @@
   615 |     float w_items = ImMax(0.0f, ImGui::CalcItemWidth() - style.ItemInnerSpacing.x * (6 - 1) - gear_size.x * 3);
       |     ^
       |           const 
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/imgui/src/eu/imgui/ui.cc 615 : 58</i></p>
-<pre>
-  615 |     float w_items = ImMax(0.0f, ImGui::CalcItemWidth() - style.ItemInnerSpacing.x * (6 - 1) - gear_size.x * 3);
-      |                                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                                          (                                 )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/imgui/src/eu/imgui/ui.cc 615 : 95</i></p>
-<pre>
-  615 |     float w_items = ImMax(0.0f, ImGui::CalcItemWidth() - style.ItemInnerSpacing.x * (6 - 1) - gear_size.x * 3);
-      |                                                                                               ^~~~~~~~~~~~~~~~
-      |                                                                                               (              )
 </pre>
 <hr>
 <h3>warning: loop variable name &#39;i&#39; is too short, expected at least 2 characters</h3>
@@ -478,34 +351,14 @@
 /home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:357:40: warning: redundant parentheses around expression [readability-redundant-parentheses]
   357 |         const auto t = (*gamma - min_gamma) / (gamma_range);
       |                                               ^           ~
-/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:366:23: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  366 |         *gamma = min_gamma + perceptual * gamma_range;
-      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~
-      |                              (                       )
 /home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:396:7: warning: function 'length2' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
   396 | float length2(const ImVec2& v)
       |       ^
       | static 
-/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:398:12: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  398 |     return v.x* v.x + v.y * v.y;
-      |            ^~~~~~~~
-      |            (       )
-/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:398:23: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  398 |     return v.x* v.x + v.y * v.y;
-      |                       ^~~~~~~~~~
-      |                       (        )
 /home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:401:7: warning: function 'length' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
   401 | float length(const ImVec2& v)
       |       ^
       | static 
-/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:403:22: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  403 |     return std::sqrt(v.x * v.x + v.y * v.y);
-      |                      ^~~~~~~~~
-      |                      (        )
-/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:403:34: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  403 |     return std::sqrt(v.x * v.x + v.y * v.y);
-      |                                  ^~~~~~~~~~
-      |                                  (        )
 /home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:406:8: warning: function 'normalize' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
   406 | ImVec2 normalize(const ImVec2& v, float len)
       |        ^
@@ -518,14 +371,6 @@
   415 | float dot(const ImVec2& lhs, const ImVec2& rhs)
       |       ^
       | static 
-/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:417:12: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  417 |     return lhs.x * rhs.x + lhs.y * rhs.y;
-      |            ^~~~~~~~~~~~~
-      |            (            )
-/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:417:28: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  417 |     return lhs.x * rhs.x + lhs.y * rhs.y;
-      |                            ^~~~~~~~~~~~~~
-      |                            (            )
 /home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:419:6: warning: function 'is_positive' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
   419 | bool is_positive(float f)
       |      ^
@@ -540,10 +385,6 @@
 /home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:449:18: warning: loop variable name 'i' is too short, expected at least 2 characters [readability-identifier-length]
   449 |         for (int i = 0; i <= num_segments; i++)
       |                  ^
-/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:451:37: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  451 |             const float a = a_min + (static_cast<float>(i) / static_cast<float>(num_segments)) * (a_max - a_min);
-      |                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                     (                                                                           )
 /home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:456:10: warning: invalid case style for function 'dl_PathArcTo' [readability-identifier-naming]
   456 |     void dl_PathArcTo(ImDrawList* dl, const ImVec2& center, float radius, float a_min, float a_max, int num_segments, float ang)
       |          ^~~~~~~~~~~~
@@ -556,26 +397,10 @@
   485 | ImVec2 calc_button_size(const char* const label, const ImVec2& size_arg = ImVec2(0,0))
       |        ^
       | static 
-/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:489:64: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  489 |     ImVec2 size = ImGui::CalcItemSize(size_arg, label_size.x + style.FramePadding.x * 2.0f, label_size.y + style.FramePadding.y * 2.0f);
-      |                                                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                                                (                          )
-/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:489:108: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  489 |     ImVec2 size = ImGui::CalcItemSize(size_arg, label_size.x + style.FramePadding.x * 2.0f, label_size.y + style.FramePadding.y * 2.0f);
-      |                                                                                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                                                                                            (                          )
 /home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:494:6: warning: function 'gear_icon' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
   494 | bool gear_icon(const char* const label, float* drag, const ImVec2& size)
       |      ^
       | static 
-/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:552:62: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  552 |                 const auto new_ang = ang  - *initial_angle + static_cast<float>(turns) * 360.0f;
-      |                                                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                                              (                                 )
-/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:553:41: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  553 |                 const auto val = orig + (new_ang / 360.0f) * one_turn;
-      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                         (                            )
 /home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:555:21: warning: implicit conversion 'float *' -> 'bool' [readability-implicit-bool-conversion]
   555 |                 if (drag)
       |                     ^   
@@ -584,14 +409,6 @@
   615 |     float w_items = ImMax(0.0f, ImGui::CalcItemWidth() - style.ItemInnerSpacing.x * (6 - 1) - gear_size.x * 3);
       |     ^
       |           const 
-/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:615:58: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  615 |     float w_items = ImMax(0.0f, ImGui::CalcItemWidth() - style.ItemInnerSpacing.x * (6 - 1) - gear_size.x * 3);
-      |                                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                                          (                                 )
-/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:615:95: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  615 |     float w_items = ImMax(0.0f, ImGui::CalcItemWidth() - style.ItemInnerSpacing.x * (6 - 1) - gear_size.x * 3);
-      |                                                                                               ^~~~~~~~~~~~~~~~
-      |                                                                                               (              )
 /home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:616:14: warning: loop variable name 'i' is too short, expected at least 2 characters [readability-identifier-length]
   616 |     for (int i=0; i<3; i+=1)
       |              ^

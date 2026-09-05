@@ -8,7 +8,7 @@
 <h1>libs/render/src/eu/render/canvas.cc</h1>
 <h2>Files</h2>
 <ul>
-<li>13: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/canvas.cc</li>
+<li>12: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/canvas.cc</li>
 <li>10: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h</li>
 <li>5: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/constants.h</li>
 <li>2: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/canvas.h</li>
@@ -61,16 +61,6 @@
       | static 
   320 | extended_viewport
       | ^
-</pre>
-<span id='readability-math-missing-parentheses'>&nbsp;</span>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/render/src/eu/render/canvas.cc 352 : 22</i></p>
-<pre>
-  352 |         return lhs + t * (rhs - lhs);
-      |                      ^~~~~~~~~~~~~~~~
-      |                      (              )
 </pre>
 <hr>
 <h3>warning: function &#39;lerp&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
@@ -319,10 +309,6 @@
       | static 
   320 | extended_viewport
       | ^
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/canvas.cc:352:22: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  352 |         return lhs + t * (rhs - lhs);
-      |                      ^~~~~~~~~~~~~~~~
-      |                      (              )
 /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/canvas.cc:372:1: warning: function 'lerp' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
   371 | ViewportDef
       | static 

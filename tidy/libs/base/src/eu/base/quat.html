@@ -8,10 +8,9 @@
 <h1>libs/base/src/eu/base/quat.cc</h1>
 <h2>Files</h2>
 <ul>
-<li>23: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/quat.cc</li>
-<li>7: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h</li>
+<li>4: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h</li>
 <li>2: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/angle.h</li>
-<li>1: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/numeric.h</li>
+<li>2: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/quat.cc</li>
 </ul>
 <h2>Warnings</h2>
 <span id='google-runtime-float'>&nbsp;</span>
@@ -31,124 +30,6 @@
   134 |     constexpr An operator&quot;&quot;_rad(long double r)
       |                                 ^
 </pre>
-<span id='readability-math-missing-parentheses'>&nbsp;</span>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/numeric.h 68 : 20</i></p>
-<pre>
-   68 |         return f + (t - f) * scale;
-      |                    ^~~~~~~~~~~~~~~~
-      |                    (              )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/quat.cc 48 : 13</i></p>
-<pre>
-   48 |             cy * cp * cr + sy * sp * sr,
-      |             ^~~~~~~~~~~~
-      |             (           )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/quat.cc 48 : 28</i></p>
-<pre>
-   48 |             cy * cp * cr + sy * sp * sr,
-      |                            ^~~~~~~~~~~~~
-      |                            (           )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/quat.cc 50 : 19</i></p>
-<pre>
-   50 |                 -(cy * sp * cr + sy * cp * sr),
-      |                   ^~~~~~~~~~~~
-      |                   (           )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/quat.cc 50 : 34</i></p>
-<pre>
-   50 |                 -(cy * sp * cr + sy * cp * sr),
-      |                                  ^~~~~~~~~~~~~
-      |                                  (           )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/quat.cc 51 : 17</i></p>
-<pre>
-   51 |                 cy * sp * sr - sy * cp * cr,
-      |                 ^~~~~~~~~~~~
-      |                 (           )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/quat.cc 51 : 32</i></p>
-<pre>
-   51 |                 cy * sp * sr - sy * cp * cr,
-      |                                ^~~~~~~~~~~~~
-      |                                (           )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/quat.cc 52 : 17</i></p>
-<pre>
-   52 |                 cy * cp * sr - sy * sp * cr
-      |                 ^~~~~~~~~~~~
-      |                 (           )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/quat.cc 52 : 32</i></p>
-<pre>
-   52 |                 cy * cp * sr - sy * sp * cr
-      |                                ^~~~~~~~~~~~
-      |                                (           )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/quat.cc 108 : 25</i></p>
-<pre>
-  108 |         const auto l2 = x * x + y * y + z * z + w * w;
-      |                         ^~~~~
-      |                         (    )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/quat.cc 108 : 33</i></p>
-<pre>
-  108 |         const auto l2 = x * x + y * y + z * z + w * w;
-      |                                 ^~~~~
-      |                                 (    )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/quat.cc 108 : 41</i></p>
-<pre>
-  108 |         const auto l2 = x * x + y * y + z * z + w * w;
-      |                                         ^~~~~
-      |                                         (    )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/quat.cc 108 : 49</i></p>
-<pre>
-  108 |         const auto l2 = x * x + y * y + z * z + w * w;
-      |                                                 ^~~~~~
-      |                                                 (    )
-</pre>
 <span id='misc-use-internal-linkage'>&nbsp;</span>
 <hr>
 <h3>warning: function &#39;add&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
@@ -159,51 +40,6 @@
       |       ^
       |     static 
 </pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/quat.cc 187 : 38</i></p>
-<pre>
-  187 |         const float cos_half_theta = qa.w * qb.w + qa.x * qb.x + qa.y * qb.y + qa.z * qb.z;
-      |                                      ^~~~~~~~~~~
-      |                                      (          )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/quat.cc 187 : 52</i></p>
-<pre>
-  187 |         const float cos_half_theta = qa.w * qb.w + qa.x * qb.x + qa.y * qb.y + qa.z * qb.z;
-      |                                                    ^~~~~~~~~~~
-      |                                                    (          )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/quat.cc 187 : 66</i></p>
-<pre>
-  187 |         const float cos_half_theta = qa.w * qb.w + qa.x * qb.x + qa.y * qb.y + qa.z * qb.z;
-      |                                                                  ^~~~~~~~~~~
-      |                                                                  (          )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/quat.cc 187 : 80</i></p>
-<pre>
-  187 |         const float cos_half_theta = qa.w * qb.w + qa.x * qb.x + qa.y * qb.y + qa.z * qb.z;
-      |                                                                                ^~~~~~~~~~~~
-      |                                                                                (          )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/quat.cc 195 : 54</i></p>
-<pre>
-  195 |         const auto sin_half_theta = std::sqrt(1.0f - cos_half_theta * cos_half_theta);
-      |                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                                      (                              )
-</pre>
 <span id='readability-redundant-parentheses'>&nbsp;</span>
 <hr>
 <h3>warning: redundant parentheses around expression</h3>
@@ -212,69 +48,6 @@
 <pre>
   284 |         if (cabs(dot_value - (1.0f)) &lt; 0.000001f)
       |                              ^    ~
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/quat.cc 309 : 16</i></p>
-<pre>
-  309 |         return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z + lhs.w * rhs.w;
-      |                ^~~~~~~~~~~~~
-      |                (            )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/quat.cc 309 : 32</i></p>
-<pre>
-  309 |         return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z + lhs.w * rhs.w;
-      |                                ^~~~~~~~~~~~~
-      |                                (            )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/quat.cc 309 : 48</i></p>
-<pre>
-  309 |         return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z + lhs.w * rhs.w;
-      |                                                ^~~~~~~~~~~~~
-      |                                                (            )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/quat.cc 309 : 64</i></p>
-<pre>
-  309 |         return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z + lhs.w * rhs.w;
-      |                                                                ^~~~~~~~~~~~~~
-      |                                                                (            )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/vec3.h 68 : 20</i></p>
-<pre>
-   68 |             return x * x + y * y + z * z;
-      |                    ^~~~~
-      |                    (    )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/vec3.h 68 : 28</i></p>
-<pre>
-   68 |             return x * x + y * y + z * z;
-      |                            ^~~~~
-      |                            (    )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/vec3.h 68 : 36</i></p>
-<pre>
-   68 |             return x * x + y * y + z * z;
-      |                                    ^~~~~~
-      |                                    (    )
 </pre>
 <span id='bugprone-derived-method-shadowing-base-method'>&nbsp;</span>
 <hr>
@@ -319,113 +92,13 @@
 /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/angle.h:134:33: warning: 'long double' type is not portable and should not be used [google-runtime-float]
   134 |     constexpr An operator""_rad(long double r)
       |                                 ^
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/numeric.h:68:20: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   68 |         return f + (t - f) * scale;
-      |                    ^~~~~~~~~~~~~~~~
-      |                    (              )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/quat.cc:48:13: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   48 |             cy * cp * cr + sy * sp * sr,
-      |             ^~~~~~~~~~~~
-      |             (           )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/quat.cc:48:28: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   48 |             cy * cp * cr + sy * sp * sr,
-      |                            ^~~~~~~~~~~~~
-      |                            (           )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/quat.cc:50:19: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   50 |                 -(cy * sp * cr + sy * cp * sr),
-      |                   ^~~~~~~~~~~~
-      |                   (           )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/quat.cc:50:34: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   50 |                 -(cy * sp * cr + sy * cp * sr),
-      |                                  ^~~~~~~~~~~~~
-      |                                  (           )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/quat.cc:51:17: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   51 |                 cy * sp * sr - sy * cp * cr,
-      |                 ^~~~~~~~~~~~
-      |                 (           )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/quat.cc:51:32: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   51 |                 cy * sp * sr - sy * cp * cr,
-      |                                ^~~~~~~~~~~~~
-      |                                (           )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/quat.cc:52:17: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   52 |                 cy * cp * sr - sy * sp * cr
-      |                 ^~~~~~~~~~~~
-      |                 (           )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/quat.cc:52:32: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   52 |                 cy * cp * sr - sy * sp * cr
-      |                                ^~~~~~~~~~~~
-      |                                (           )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/quat.cc:108:25: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  108 |         const auto l2 = x * x + y * y + z * z + w * w;
-      |                         ^~~~~
-      |                         (    )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/quat.cc:108:33: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  108 |         const auto l2 = x * x + y * y + z * z + w * w;
-      |                                 ^~~~~
-      |                                 (    )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/quat.cc:108:41: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  108 |         const auto l2 = x * x + y * y + z * z + w * w;
-      |                                         ^~~~~
-      |                                         (    )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/quat.cc:108:49: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  108 |         const auto l2 = x * x + y * y + z * z + w * w;
-      |                                                 ^~~~~~
-      |                                                 (    )
 /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/quat.cc:166:7: warning: function 'add' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
   166 |     Q add(const Q& lhs, const Q& rhs)
       |       ^
       |     static 
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/quat.cc:187:38: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  187 |         const float cos_half_theta = qa.w * qb.w + qa.x * qb.x + qa.y * qb.y + qa.z * qb.z;
-      |                                      ^~~~~~~~~~~
-      |                                      (          )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/quat.cc:187:52: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  187 |         const float cos_half_theta = qa.w * qb.w + qa.x * qb.x + qa.y * qb.y + qa.z * qb.z;
-      |                                                    ^~~~~~~~~~~
-      |                                                    (          )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/quat.cc:187:66: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  187 |         const float cos_half_theta = qa.w * qb.w + qa.x * qb.x + qa.y * qb.y + qa.z * qb.z;
-      |                                                                  ^~~~~~~~~~~
-      |                                                                  (          )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/quat.cc:187:80: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  187 |         const float cos_half_theta = qa.w * qb.w + qa.x * qb.x + qa.y * qb.y + qa.z * qb.z;
-      |                                                                                ^~~~~~~~~~~~
-      |                                                                                (          )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/quat.cc:195:54: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  195 |         const auto sin_half_theta = std::sqrt(1.0f - cos_half_theta * cos_half_theta);
-      |                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                                      (                              )
 /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/quat.cc:284:30: warning: redundant parentheses around expression [readability-redundant-parentheses]
   284 |         if (cabs(dot_value - (1.0f)) < 0.000001f)
       |                              ^    ~
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/quat.cc:309:16: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  309 |         return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z + lhs.w * rhs.w;
-      |                ^~~~~~~~~~~~~
-      |                (            )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/quat.cc:309:32: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  309 |         return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z + lhs.w * rhs.w;
-      |                                ^~~~~~~~~~~~~
-      |                                (            )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/quat.cc:309:48: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  309 |         return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z + lhs.w * rhs.w;
-      |                                                ^~~~~~~~~~~~~
-      |                                                (            )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/quat.cc:309:64: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  309 |         return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z + lhs.w * rhs.w;
-      |                                                                ^~~~~~~~~~~~~~
-      |                                                                (            )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:68:20: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   68 |             return x * x + y * y + z * z;
-      |                    ^~~~~
-      |                    (    )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:68:28: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   68 |             return x * x + y * y + z * z;
-      |                            ^~~~~
-      |                            (    )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:68:36: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   68 |             return x * x + y * y + z * z;
-      |                                    ^~~~~~
-      |                                    (    )
 /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:95:9: warning: 'eu::n3::operator-' shadows method with the same name in class 'v3' [bugprone-derived-method-shadowing-base-method]
    95 |         constexpr n3 operator-() const
       |         ^

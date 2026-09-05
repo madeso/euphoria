@@ -8,10 +8,9 @@
 <h1>libs/base/src/eu/base/quat.test.cc</h1>
 <h2>Files</h2>
 <ul>
-<li>7: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h</li>
+<li>4: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h</li>
 <li>3: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/quat.test.cc</li>
 <li>2: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/angle.h</li>
-<li>1: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/numeric.h</li>
 <li>1: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/axisangle.h</li>
 </ul>
 <h2>Warnings</h2>
@@ -31,16 +30,6 @@
 <pre>
   134 |     constexpr An operator&quot;&quot;_rad(long double r)
       |                                 ^
-</pre>
-<span id='readability-math-missing-parentheses'>&nbsp;</span>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/numeric.h 68 : 20</i></p>
-<pre>
-   68 |         return f + (t - f) * scale;
-      |                    ^~~~~~~~~~~~~~~~
-      |                    (              )
 </pre>
 <span id='modernize-use-designated-initializers'>&nbsp;</span>
 <hr>
@@ -73,33 +62,6 @@
 <pre>
   224 |     const auto q75 = Q::from(rha(kk::up, 67.5_deg));
       |                                          ^
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/vec3.h 68 : 20</i></p>
-<pre>
-   68 |             return x * x + y * y + z * z;
-      |                    ^~~~~
-      |                    (    )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/vec3.h 68 : 28</i></p>
-<pre>
-   68 |             return x * x + y * y + z * z;
-      |                            ^~~~~
-      |                            (    )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/vec3.h 68 : 36</i></p>
-<pre>
-   68 |             return x * x + y * y + z * z;
-      |                                    ^~~~~~
-      |                                    (    )
 </pre>
 <span id='bugprone-derived-method-shadowing-base-method'>&nbsp;</span>
 <hr>
@@ -144,10 +106,6 @@
 /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/angle.h:134:33: warning: 'long double' type is not portable and should not be used [google-runtime-float]
   134 |     constexpr An operator""_rad(long double r)
       |                                 ^
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/numeric.h:68:20: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   68 |         return f + (t - f) * scale;
-      |                    ^~~~~~~~~~~~~~~~
-      |                    (              )
 /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/quat.test.cc:186:37: warning: use designated initializer list to initialize 'Ypr' [modernize-use-designated-initializers]
   186 |                 const auto ypr = Ypr{yaw, pitch, roll};
       |                                     ^~~~~~~~~~~~~~~~~~
@@ -161,18 +119,6 @@
 /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/quat.test.cc:224:42: warning: 'long double' type from literal suffix 'L' is not portable and should not be used [google-runtime-float]
   224 |     const auto q75 = Q::from(rha(kk::up, 67.5_deg));
       |                                          ^
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:68:20: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   68 |             return x * x + y * y + z * z;
-      |                    ^~~~~
-      |                    (    )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:68:28: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   68 |             return x * x + y * y + z * z;
-      |                            ^~~~~
-      |                            (    )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:68:36: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   68 |             return x * x + y * y + z * z;
-      |                                    ^~~~~~
-      |                                    (    )
 /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:95:9: warning: 'eu::n3::operator-' shadows method with the same name in class 'v3' [bugprone-derived-method-shadowing-base-method]
    95 |         constexpr n3 operator-() const
       |         ^

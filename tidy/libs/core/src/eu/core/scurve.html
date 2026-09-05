@@ -8,7 +8,7 @@
 <h1>libs/core/src/eu/core/scurve.cc</h1>
 <h2>Files</h2>
 <ul>
-<li>6: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/scurve.cc</li>
+<li>1: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/scurve.cc</li>
 </ul>
 <h2>Warnings</h2>
 <span id='misc-use-internal-linkage'>&nbsp;</span>
@@ -21,77 +21,11 @@
       |       ^
       | static 
 </pre>
-<span id='readability-math-missing-parentheses'>&nbsp;</span>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/core/src/eu/core/scurve.cc 24 : 42</i></p>
-<pre>
-   24 |                 return x &lt; 0.5f ? -0.5f * (2.0f * x * (2.0f * x - 2.0f)) : 2.0f * (square(x - 0.5f)) + 0.5f;
-      |                                                        ^~~~~~~~
-      |                                                        (       )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/core/src/eu/core/scurve.cc 24 : 62</i></p>
-<pre>
-   24 |                 return x &lt; 0.5f ? -0.5f * (2.0f * x * (2.0f * x - 2.0f)) : 2.0f * (square(x - 0.5f)) + 0.5f;
-      |                                                                            ^~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                                                            (                        )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/core/src/eu/core/scurve.cc 42 : 24</i></p>
-<pre>
-   42 |                 threshold * x / (x + slope * (threshold - x) + machine_epsilon) :
-      |                                      ^~~~~~~~~~~~~~~~~~~~~~~
-      |                                      (                      )
-</pre>
-<hr>
-<h3>warning: &#39;/&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/core/src/eu/core/scurve.cc 43 : 3</i></p>
-<pre>
-   43 |                 ((1 - threshold) * (x - 1)) / (1 - x - slope * (threshold - x) + machine_epsilon) + 1
-      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                 (                                                                                )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/core/src/eu/core/scurve.cc 43 : 42</i></p>
-<pre>
-   43 |                 ((1 - threshold) * (x - 1)) / (1 - x - slope * (threshold - x) + machine_epsilon) + 1
-      |                                                        ^~~~~~~~~~~~~~~~~~~~~~~
-      |                                                        (                      )
-</pre>
 <!--
 /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/scurve.cc:11:7: warning: function 'square' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
    11 | float square(float x)
       |       ^
       | static 
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/scurve.cc:24:42: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   24 |                 return x < 0.5f ? -0.5f * (2.0f * x * (2.0f * x - 2.0f)) : 2.0f * (square(x - 0.5f)) + 0.5f;
-      |                                                        ^~~~~~~~
-      |                                                        (       )
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/scurve.cc:24:62: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   24 |                 return x < 0.5f ? -0.5f * (2.0f * x * (2.0f * x - 2.0f)) : 2.0f * (square(x - 0.5f)) + 0.5f;
-      |                                                                            ^~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                                                            (                        )
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/scurve.cc:42:24: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   42 |                 threshold * x / (x + slope * (threshold - x) + machine_epsilon) :
-      |                                      ^~~~~~~~~~~~~~~~~~~~~~~
-      |                                      (                      )
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/scurve.cc:43:3: warning: '/' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   43 |                 ((1 - threshold) * (x - 1)) / (1 - x - slope * (threshold - x) + machine_epsilon) + 1
-      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                 (                                                                                )
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/scurve.cc:43:42: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   43 |                 ((1 - threshold) * (x - 1)) / (1 - x - slope * (threshold - x) + machine_epsilon) + 1
-      |                                                        ^~~~~~~~~~~~~~~~~~~~~~~
-      |                                                        (                      )
 -->
 </body>
 </html>

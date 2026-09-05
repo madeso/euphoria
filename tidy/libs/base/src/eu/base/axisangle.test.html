@@ -8,11 +8,10 @@
 <h1>libs/base/src/eu/base/axisangle.test.cc</h1>
 <h2>Files</h2>
 <ul>
-<li>7: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h</li>
+<li>4: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h</li>
 <li>2: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/angle.h</li>
 <li>1: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/axisangle.test.cc</li>
 <li>1: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/axisangle.h</li>
-<li>1: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/numeric.h</li>
 </ul>
 <h2>Warnings</h2>
 <span id='google-runtime-float'>&nbsp;</span>
@@ -47,43 +46,6 @@
 <pre>
    32 |     struct Ypr
       |     ^
-</pre>
-<span id='readability-math-missing-parentheses'>&nbsp;</span>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/numeric.h 68 : 20</i></p>
-<pre>
-   68 |         return f + (t - f) * scale;
-      |                    ^~~~~~~~~~~~~~~~
-      |                    (              )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/vec3.h 68 : 20</i></p>
-<pre>
-   68 |             return x * x + y * y + z * z;
-      |                    ^~~~~
-      |                    (    )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/vec3.h 68 : 28</i></p>
-<pre>
-   68 |             return x * x + y * y + z * z;
-      |                            ^~~~~
-      |                            (    )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/vec3.h 68 : 36</i></p>
-<pre>
-   68 |             return x * x + y * y + z * z;
-      |                                    ^~~~~~
-      |                                    (    )
 </pre>
 <span id='bugprone-derived-method-shadowing-base-method'>&nbsp;</span>
 <hr>
@@ -135,22 +97,6 @@
 /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/axisangle.h:32:5: note: aggregate type is defined here
    32 |     struct Ypr
       |     ^
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/numeric.h:68:20: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   68 |         return f + (t - f) * scale;
-      |                    ^~~~~~~~~~~~~~~~
-      |                    (              )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:68:20: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   68 |             return x * x + y * y + z * z;
-      |                    ^~~~~
-      |                    (    )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:68:28: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   68 |             return x * x + y * y + z * z;
-      |                            ^~~~~
-      |                            (    )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:68:36: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   68 |             return x * x + y * y + z * z;
-      |                                    ^~~~~~
-      |                                    (    )
 /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:95:9: warning: 'eu::n3::operator-' shadows method with the same name in class 'v3' [bugprone-derived-method-shadowing-base-method]
    95 |         constexpr n3 operator-() const
       |         ^

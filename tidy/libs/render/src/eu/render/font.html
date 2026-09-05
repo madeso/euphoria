@@ -8,7 +8,7 @@
 <h1>libs/render/src/eu/render/font.cc</h1>
 <h2>Files</h2>
 <ul>
-<li>14: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.cc</li>
+<li>10: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.cc</li>
 <li>9: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h</li>
 <li>6: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.h</li>
 <li>2: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.h</li>
@@ -136,25 +136,6 @@
    49 |     construct_character_rects
       |     ^
 </pre>
-<span id='readability-math-missing-parentheses'>&nbsp;</span>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/render/src/eu/render/font.cc 64 : 64</i></p>
-<pre>
-   64 |         const stbrp_coord uv_right = uv_left + packed_rect.w - half_margin * 2;
-      |                                                                ^~~~~~~~~~~~~~~~
-      |                                                                (              )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/render/src/eu/render/font.cc 66 : 81</i></p>
-<pre>
-   66 |         const stbrp_coord uv_top = uv_bottom + std::max&lt;int&gt;(1, packed_rect.h - half_margin * 2);
-      |                                                                                 ^~~~~~~~~~~~~~~~
-      |                                                                                 (              )
-</pre>
 <hr>
 <h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
 <code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
@@ -162,24 +143,6 @@
 <pre>
   137 |                 stbrp_rect&amp; r = packed_rects[index];
       |                                             ^~~~~~~
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/render/src/eu/render/font.cc 139 : 43</i></p>
-<pre>
-  139 |                 r.w = glyph.image.width + half_margin * 2;
-      |                                           ^~~~~~~~~~~~~~~~
-      |                                           (              )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/render/src/eu/render/font.cc 140 : 44</i></p>
-<pre>
-  140 |                 r.h = glyph.image.height + half_margin * 2;
-      |                                            ^~~~~~~~~~~~~~~~
-      |                                            (              )
 </pre>
 <hr>
 <h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
@@ -375,25 +338,9 @@
       |     static 
    49 |     construct_character_rects
       |     ^
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.cc:64:64: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   64 |         const stbrp_coord uv_right = uv_left + packed_rect.w - half_margin * 2;
-      |                                                                ^~~~~~~~~~~~~~~~
-      |                                                                (              )
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.cc:66:81: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   66 |         const stbrp_coord uv_top = uv_bottom + std::max<int>(1, packed_rect.h - half_margin * 2);
-      |                                                                                 ^~~~~~~~~~~~~~~~
-      |                                                                                 (              )
 /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.cc:137:45: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
   137 |                 stbrp_rect& r = packed_rects[index];
       |                                             ^~~~~~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.cc:139:43: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  139 |                 r.w = glyph.image.width + half_margin * 2;
-      |                                           ^~~~~~~~~~~~~~~~
-      |                                           (              )
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.cc:140:44: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  140 |                 r.h = glyph.image.height + half_margin * 2;
-      |                                            ^~~~~~~~~~~~~~~~
-      |                                            (              )
 /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.cc:156:54: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
   156 |             const stbrp_rect& src_rect = packed_rects[rect_index];
       |                                                      ^~~~~~~~~~~~

@@ -9,8 +9,8 @@
 <h2>Files</h2>
 <ul>
 <li>9: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h</li>
-<li>5: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/loadedfont.cc</li>
 <li>2: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.h</li>
+<li>2: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/loadedfont.cc</li>
 </ul>
 <h2>Warnings</h2>
 <span id='modernize-use-nodiscard'>&nbsp;</span>
@@ -41,16 +41,6 @@
    22 |     struct FontData
       |            ^
 </pre>
-<span id='readability-math-missing-parentheses'>&nbsp;</span>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/core/src/eu/core/loadedfont.cc 115 : 51</i></p>
-<pre>
-  115 |                         const auto alpha = bitmap[ch.image.width * y + x];
-      |                                                   ^~~~~~~~~~~~~~~~~~
-      |                                                   (                 )
-</pre>
 <span id='readability-avoid-unconditional-preprocessor-if'>&nbsp;</span>
 <hr>
 <h3>warning: preprocessor condition is always &#39;false&#39;, consider removing both the condition and its contents</h3>
@@ -59,24 +49,6 @@
 <pre>
   212 | #if 0
       |  ^
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/core/src/eu/core/loadedfont.cc 267 : 42</i></p>
-<pre>
-  267 |         glyph.bearing_y = int_from_float(s * static_cast&lt;float&gt;(image.height) + image_bearing_y);
-      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                          (                                   )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/core/src/eu/core/loadedfont.cc 269 : 40</i></p>
-<pre>
-  269 |         glyph.advance = int_from_float(s * static_cast&lt;float&gt;(image.width) + image_advance);
-      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                        (                                  )
 </pre>
 <span id='cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'>&nbsp;</span>
 <hr>
@@ -163,21 +135,9 @@
 /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/loadedfont.cc:22:12: warning: struct 'FontData' can be moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
    22 |     struct FontData
       |            ^
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/loadedfont.cc:115:51: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  115 |                         const auto alpha = bitmap[ch.image.width * y + x];
-      |                                                   ^~~~~~~~~~~~~~~~~~
-      |                                                   (                 )
 /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/loadedfont.cc:212:2: warning: preprocessor condition is always 'false', consider removing both the condition and its contents [readability-avoid-unconditional-preprocessor-if]
   212 | #if 0
       |  ^
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/loadedfont.cc:267:42: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  267 |         glyph.bearing_y = int_from_float(s * static_cast<float>(image.height) + image_bearing_y);
-      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                          (                                   )
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/loadedfont.cc:269:40: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  269 |         glyph.advance = int_from_float(s * static_cast<float>(image.width) + image_advance);
-      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                        (                                  )
 /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:77:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
    77 |                             ( std::to_integer<CodePointInt>(buffer[0] & ~mask2) << 6) |
       |                                                                   ^~~

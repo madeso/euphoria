@@ -8,7 +8,7 @@
 <h1>libs/core/src/eu/core/geom.builder.cc</h1>
 <h2>Files</h2>
 <ul>
-<li>97: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc</li>
+<li>94: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc</li>
 <li>2: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.h</li>
 <li>1: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.h</li>
 </ul>
@@ -717,25 +717,6 @@
   362 |         struct Pt
       |         ^
 </pre>
-<span id='readability-math-missing-parentheses'>&nbsp;</span>
-<hr>
-<h3>warning: &#39;/&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/core/src/eu/core/geom.builder.cc 550 : 26</i></p>
-<pre>
-  550 |                 const auto lat_angle = pi / 2 - float_from_int(latitude_index) * delta_lat;
-      |                                        ^~~~~~
-      |                                        (     )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/core/src/eu/core/geom.builder.cc 550 : 35</i></p>
-<pre>
-  550 |                 const auto lat_angle = pi / 2 - float_from_int(latitude_index) * delta_lat;
-      |                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                                 (                                         )
-</pre>
 <span id='modernize-use-integer-sign-comparison'>&nbsp;</span>
 <hr>
 <h3>warning: comparison between &#39;signed&#39; and &#39;unsigned&#39; integers</h3>
@@ -754,15 +735,6 @@
   580 |                 for (Index longitude_index = 0; longitude_index &lt; static_cast&lt;Index&gt;(longitude_count); ++longitude_index)
       |                                                 ^               ~~~~~~~~~~~~~~~~~~~~~               ~
       |                                                 std::cmp_less(  ,                                   )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/core/src/eu/core/geom.builder.cc 582 : 20</i></p>
-<pre>
-  582 |                         const auto k1 = latitude_index * (static_cast&lt;Index&gt;(longitude_count) + 1) + longitude_index;
-      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                         (                                                         )
 </pre>
 <hr>
 <h3>warning: comparison between &#39;signed&#39; and &#39;unsigned&#39; integers</h3>
@@ -1108,14 +1080,6 @@
 /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:362:2: note: aggregate type is defined here
   362 |         struct Pt
       |         ^
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:550:26: warning: '/' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  550 |                 const auto lat_angle = pi / 2 - float_from_int(latitude_index) * delta_lat;
-      |                                        ^~~~~~
-      |                                        (     )
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:550:35: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  550 |                 const auto lat_angle = pi / 2 - float_from_int(latitude_index) * delta_lat;
-      |                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                                 (                                         )
 /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:578:33: warning: comparison between 'signed' and 'unsigned' integers [modernize-use-integer-sign-comparison]
    11 |         for (Index latitude_index = 0; latitude_index < static_cast<Index>(latitude_count); ++latitude_index)
       |                                        ^              ~~~~~~~~~~~~~~~~~~~~~              ~
@@ -1124,10 +1088,6 @@
   580 |                 for (Index longitude_index = 0; longitude_index < static_cast<Index>(longitude_count); ++longitude_index)
       |                                                 ^               ~~~~~~~~~~~~~~~~~~~~~               ~
       |                                                 std::cmp_less(  ,                                   )
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:582:20: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-  582 |                         const auto k1 = latitude_index * (static_cast<Index>(longitude_count) + 1) + longitude_index;
-      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                         (                                                         )
 /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:602:8: warning: comparison between 'signed' and 'unsigned' integers [modernize-use-integer-sign-comparison]
   602 |                         if (latitude_index != static_cast<Index>(latitude_count - 1))
       |                             ^              ~~~~~~~~~~~~~~~~~~~~~~                  ~

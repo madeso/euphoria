@@ -8,10 +8,8 @@
 <h1>libs/base/src/eu/base/axisangle.cc</h1>
 <h2>Files</h2>
 <ul>
-<li>7: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h</li>
+<li>4: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h</li>
 <li>2: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/angle.h</li>
-<li>1: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/axisangle.cc</li>
-<li>1: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/numeric.h</li>
 </ul>
 <h2>Warnings</h2>
 <span id='google-runtime-float'>&nbsp;</span>
@@ -30,52 +28,6 @@
 <pre>
   134 |     constexpr An operator&quot;&quot;_rad(long double r)
       |                                 ^
-</pre>
-<span id='readability-math-missing-parentheses'>&nbsp;</span>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;-&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/axisangle.cc 20 : 56</i></p>
-<pre>
-   20 |         const auto sin_a = clamp_zero(std::sqrt(1.0f - cos_a * cos_a), 1, 0.0005f);
-      |                                                        ^~~~~~~~~~~~~~
-      |                                                        (            )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/numeric.h 68 : 20</i></p>
-<pre>
-   68 |         return f + (t - f) * scale;
-      |                    ^~~~~~~~~~~~~~~~
-      |                    (              )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/vec3.h 68 : 20</i></p>
-<pre>
-   68 |             return x * x + y * y + z * z;
-      |                    ^~~~~
-      |                    (    )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/vec3.h 68 : 28</i></p>
-<pre>
-   68 |             return x * x + y * y + z * z;
-      |                            ^~~~~
-      |                            (    )
-</pre>
-<hr>
-<h3>warning: &#39;*&#39; has higher precedence than &#39;+&#39;; add parentheses to explicitly specify the order of operations</h3>
-<code>[readability-math-missing-parentheses]</code>
-<p><i>libs/base/src/eu/base/vec3.h 68 : 36</i></p>
-<pre>
-   68 |             return x * x + y * y + z * z;
-      |                                    ^~~~~~
-      |                                    (    )
 </pre>
 <span id='bugprone-derived-method-shadowing-base-method'>&nbsp;</span>
 <hr>
@@ -120,26 +72,6 @@
 /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/angle.h:134:33: warning: 'long double' type is not portable and should not be used [google-runtime-float]
   134 |     constexpr An operator""_rad(long double r)
       |                                 ^
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/axisangle.cc:20:56: warning: '*' has higher precedence than '-'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   20 |         const auto sin_a = clamp_zero(std::sqrt(1.0f - cos_a * cos_a), 1, 0.0005f);
-      |                                                        ^~~~~~~~~~~~~~
-      |                                                        (            )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/numeric.h:68:20: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   68 |         return f + (t - f) * scale;
-      |                    ^~~~~~~~~~~~~~~~
-      |                    (              )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:68:20: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   68 |             return x * x + y * y + z * z;
-      |                    ^~~~~
-      |                    (    )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:68:28: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   68 |             return x * x + y * y + z * z;
-      |                            ^~~~~
-      |                            (    )
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:68:36: warning: '*' has higher precedence than '+'; add parentheses to explicitly specify the order of operations [readability-math-missing-parentheses]
-   68 |             return x * x + y * y + z * z;
-      |                                    ^~~~~~
-      |                                    (    )
 /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/vec3.h:95:9: warning: 'eu::n3::operator-' shadows method with the same name in class 'v3' [bugprone-derived-method-shadowing-base-method]
    95 |         constexpr n3 operator-() const
       |         ^
