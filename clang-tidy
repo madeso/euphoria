@@ -18,6 +18,7 @@ performance-
 
 cppcoreguidelines-*
 -cppcoreguidelines-pro-bounds-array-to-pointer-decay
+-cppcoreguidelines-pro-bounds-avoid-unchecked-container-access
 
 # ignore all gsl related settings, that is just ugly, fix the language instead!
 -cppcoreguidelines-pro-bounds-constant-array-index
