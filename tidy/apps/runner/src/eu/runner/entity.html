@@ -8,7 +8,7 @@
 <h1>apps/runner/src/eu/runner/entity.cc</h1>
 <h2>Files</h2>
 <ul>
-<li>14: /home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/entity.h</li>
+<li>12: /home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/entity.h</li>
 <li>4: /home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/entity.cc</li>
 </ul>
 <h2>Warnings</h2>
@@ -74,23 +74,6 @@
    50 |             auto&amp; systems = stages[C(s.stage)];
       |                                    ~
       |                                    c
-</pre>
-<span id='cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'>&nbsp;</span>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>apps/runner/src/eu/runner/entity.h 50 : 29</i></p>
-<pre>
-   50 |             auto&amp; systems = stages[C(s.stage)];
-      |                             ^~~~~~~~~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>apps/runner/src/eu/runner/entity.h 61 : 29</i></p>
-<pre>
-   61 |             auto&amp; systems = stages[C(stage)];
-      |                             ^~~~~~~~~~~~~~~~
 </pre>
 <span id='cppcoreguidelines-special-member-functions'>&nbsp;</span>
 <hr>
@@ -223,12 +206,6 @@
    50 |             auto& systems = stages[C(s.stage)];
       |                                    ~
       |                                    c
-/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/entity.h:50:29: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   50 |             auto& systems = stages[C(s.stage)];
-      |                             ^~~~~~~~~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/entity.h:61:29: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   61 |             auto& systems = stages[C(stage)];
-      |                             ^~~~~~~~~~~~~~~~
 /home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/entity.h:69:12: warning: class 'Entity' defines a copy constructor, a copy assignment operator, a move constructor and a move assignment operator but does not define a destructor [cppcoreguidelines-special-member-functions]
    69 |     struct Entity
       |            ^

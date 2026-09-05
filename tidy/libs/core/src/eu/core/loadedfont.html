@@ -8,7 +8,6 @@
 <h1>libs/core/src/eu/core/loadedfont.cc</h1>
 <h2>Files</h2>
 <ul>
-<li>9: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h</li>
 <li>2: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.h</li>
 <li>2: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/loadedfont.cc</li>
 </ul>
@@ -50,79 +49,6 @@
   212 | #if 0
       |  ^
 </pre>
-<span id='cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'>&nbsp;</span>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/utf8.h 77 : 67</i></p>
-<pre>
-   77 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[0] &amp; ~mask2) &lt;&lt; 6) |
-      |                                                                   ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/utf8.h 78 : 67</i></p>
-<pre>
-   78 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[1] &amp; ~mask1) &lt;&lt; 0)
-      |                                                                   ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/utf8.h 84 : 67</i></p>
-<pre>
-   84 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[0] &amp; ~mask3) &lt;&lt; 12) |
-      |                                                                   ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/utf8.h 85 : 67</i></p>
-<pre>
-   85 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[1] &amp; ~mask1) &lt;&lt; 6 ) |
-      |                                                                   ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/utf8.h 86 : 67</i></p>
-<pre>
-   86 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[2] &amp; ~mask1) &lt;&lt; 0 )
-      |                                                                   ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/utf8.h 92 : 67</i></p>
-<pre>
-   92 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[0] &amp; ~mask4) &lt;&lt; 18) |
-      |                                                                   ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/utf8.h 93 : 67</i></p>
-<pre>
-   93 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[1] &amp; ~mask1) &lt;&lt; 12) |
-      |                                                                   ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/utf8.h 94 : 67</i></p>
-<pre>
-   94 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[2] &amp; ~mask1) &lt;&lt; 6 ) |
-      |                                                                   ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/utf8.h 95 : 67</i></p>
-<pre>
-   95 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[3] &amp; ~mask1) &lt;&lt; 0 )
-      |                                                                   ^~~
-</pre>
 <!--
 /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.h:27:5: warning: function 'is_valid' should be marked [[nodiscard]] [modernize-use-nodiscard]
    27 |     bool is_valid() const;
@@ -138,33 +64,6 @@
 /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/loadedfont.cc:212:2: warning: preprocessor condition is always 'false', consider removing both the condition and its contents [readability-avoid-unconditional-preprocessor-if]
   212 | #if 0
       |  ^
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:77:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   77 |                             ( std::to_integer<CodePointInt>(buffer[0] & ~mask2) << 6) |
-      |                                                                   ^~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:78:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   78 |                             ( std::to_integer<CodePointInt>(buffer[1] & ~mask1) << 0)
-      |                                                                   ^~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:84:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   84 |                             ( std::to_integer<CodePointInt>(buffer[0] & ~mask3) << 12) |
-      |                                                                   ^~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:85:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   85 |                             ( std::to_integer<CodePointInt>(buffer[1] & ~mask1) << 6 ) |
-      |                                                                   ^~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:86:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   86 |                             ( std::to_integer<CodePointInt>(buffer[2] & ~mask1) << 0 )
-      |                                                                   ^~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:92:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   92 |                             ( std::to_integer<CodePointInt>(buffer[0] & ~mask4) << 18) |
-      |                                                                   ^~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:93:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   93 |                             ( std::to_integer<CodePointInt>(buffer[1] & ~mask1) << 12) |
-      |                                                                   ^~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:94:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   94 |                             ( std::to_integer<CodePointInt>(buffer[2] & ~mask1) << 6 ) |
-      |                                                                   ^~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:95:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   95 |                             ( std::to_integer<CodePointInt>(buffer[3] & ~mask1) << 0 )
-      |                                                                   ^~~
 -->
 </body>
 </html>

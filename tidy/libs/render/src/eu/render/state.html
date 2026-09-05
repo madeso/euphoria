@@ -9,8 +9,8 @@
 <h2>Files</h2>
 <ul>
 <li>10: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h</li>
-<li>6: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/state.cc</li>
 <li>5: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/constants.h</li>
+<li>4: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/state.cc</li>
 </ul>
 <h2>Warnings</h2>
 <span id='readability-identifier-naming'>&nbsp;</span>
@@ -190,23 +190,6 @@
       |        ^
       | static 
 </pre>
-<span id='cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'>&nbsp;</span>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/state.cc 241 : 42</i></p>
-<pre>
-  241 |         if (should_change(&amp;states-&gt;texture_bound[sizet_from_int(slot)], texture))
-      |                                                 ^~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/state.cc 251 : 42</i></p>
-<pre>
-  251 |         if (should_change(&amp;states-&gt;texture_bound[sizet_from_int(slot)], texture))
-      |                                                 ^~~~~~~~~~~~~~~~~~~~~~
-</pre>
 <!--
 /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/constants.h:7:23: warning: invalid case style for constexpr variable 'MAX_TEXTURES_SUPPORTED' [readability-identifier-naming]
     7 | constexpr std::size_t MAX_TEXTURES_SUPPORTED = 16;
@@ -288,12 +271,6 @@
    58 | GLenum enum_from_sa (StencilAction sa)
       |        ^
       | static 
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/state.cc:241:42: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  241 |         if (should_change(&states->texture_bound[sizet_from_int(slot)], texture))
-      |                                                 ^~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/state.cc:251:42: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  251 |         if (should_change(&states->texture_bound[sizet_from_int(slot)], texture))
-      |                                                 ^~~~~~~~~~~~~~~~~~~~~~
 -->
 </body>
 </html>

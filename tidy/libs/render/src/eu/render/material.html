@@ -9,11 +9,11 @@
 <h2>Files</h2>
 <ul>
 <li>9: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/camera.h</li>
-<li>9: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/material.cc</li>
 <li>7: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/renderer.h</li>
 <li>6: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/world.h</li>
 <li>5: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/constants.h</li>
 <li>3: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/axisangle.h</li>
+<li>3: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/material.cc</li>
 <li>2: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/postproc.h</li>
 <li>2: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader_resource.h</li>
 <li>1: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/render_settings.h</li>
@@ -186,55 +186,6 @@
   119 | std::shared_ptr&lt;Texture2d&gt; get_or_black(Assets* assets, std::shared_ptr&lt;Texture2d&gt; t)
       |                            ^
       | static 
-</pre>
-<span id='cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'>&nbsp;</span>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/material.cc 172 : 36</i></p>
-<pre>
-  172 |                                                   ? lights.directional_lights[sizet_from_int(index)]
-      |                                                                              ^~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/material.cc 174 : 44</i></p>
-<pre>
-  174 |                 const auto&amp; u = shader.directional_lights[sizet_from_int(index)];
-      |                                                          ^~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/material.cc 184 : 25</i></p>
-<pre>
-  184 |                         ? lights.point_lights[sizet_from_int(index)]
-      |                                              ^~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/material.cc 187 : 38</i></p>
-<pre>
-  187 |                 const auto&amp; u = shader.point_lights[sizet_from_int(index)];
-      |                                                    ^~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/material.cc 196 : 95</i></p>
-<pre>
-  196 |                 const auto&amp; p = sizet_from_int(index) &lt; lights.frustum_lights.size() ? lights.frustum_lights[sizet_from_int(index)]
-      |                                                                                                             ^~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/material.cc 198 : 40</i></p>
-<pre>
-  198 |                 const auto&amp; u = shader.frustum_lights[sizet_from_int(index)];
-      |                                                      ^~~~~~~~~~~~~~~~~~~~~~~
 </pre>
 <span id='cppcoreguidelines-pro-type-member-init'>&nbsp;</span>
 <hr>
@@ -506,24 +457,6 @@
   119 | std::shared_ptr<Texture2d> get_or_black(Assets* assets, std::shared_ptr<Texture2d> t)
       |                            ^
       | static 
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/material.cc:172:36: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  172 |                                                   ? lights.directional_lights[sizet_from_int(index)]
-      |                                                                              ^~~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/material.cc:174:44: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  174 |                 const auto& u = shader.directional_lights[sizet_from_int(index)];
-      |                                                          ^~~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/material.cc:184:25: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  184 |                         ? lights.point_lights[sizet_from_int(index)]
-      |                                              ^~~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/material.cc:187:38: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  187 |                 const auto& u = shader.point_lights[sizet_from_int(index)];
-      |                                                    ^~~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/material.cc:196:95: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  196 |                 const auto& p = sizet_from_int(index) < lights.frustum_lights.size() ? lights.frustum_lights[sizet_from_int(index)]
-      |                                                                                                             ^~~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/material.cc:198:40: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  198 |                 const auto& u = shader.frustum_lights[sizet_from_int(index)];
-      |                                                      ^~~~~~~~~~~~~~~~~~~~~~~
 /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/postproc.h:26:8: warning: constructor does not initialize these fields: world, window_size, camera, renderer [cppcoreguidelines-pro-type-member-init]
    26 | struct PostProcArg
       |        ^

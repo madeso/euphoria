@@ -8,7 +8,7 @@
 <h1>libs/core/src/eu/core/geom.builder.cc</h1>
 <h2>Files</h2>
 <ul>
-<li>94: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc</li>
+<li>79: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc</li>
 <li>2: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.h</li>
 <li>1: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.h</li>
 </ul>
@@ -40,63 +40,6 @@
       |    ^
       | static 
 </pre>
-<span id='cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'>&nbsp;</span>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/geom.builder.cc 272 : 28</i></p>
-<pre>
-  272 |                         const v3 pos = positions[c.position];
-      |                                                 ^~~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/geom.builder.cc 273 : 60</i></p>
-<pre>
-  273 |                         const v2 text = texcoords.empty() ? v2(0, 0) : texcoords[c.texture];
-      |                                                                                 ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/geom.builder.cc 274 : 106</i></p>
-<pre>
-  274 |                         const v3 col = lin_colors.empty() ? v3{missing_color.r, missing_color.g, missing_color.b} : lin_colors[c.color];
-      |                                                                                                                               ^~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/geom.builder.cc 275 : 56</i></p>
-<pre>
-  275 |                         const n3 normal = normals.empty() == false ? normals[c.normal] : kk::up;
-      |                                                                             ^~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/geom.builder.cc 285 : 40</i></p>
-<pre>
-  285 |                 const auto v0 = convert_vert(src_face[0]);
-      |                                                      ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/geom.builder.cc 295 : 41</i></p>
-<pre>
-  295 |                         const auto v1 = convert_vert(src_face[triangle_base]);
-      |                                                              ^~~~~~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/geom.builder.cc 296 : 41</i></p>
-<pre>
-  296 |                         const auto v2 = convert_vert(src_face[triangle_base+1]);
-      |                                                              ^~~~~~~~~~~~~~~~~
-</pre>
 <span id='modernize-use-designated-initializers'>&nbsp;</span>
 <hr>
 <h3>warning: use designated initializer list to initialize &#39;Face&#39;</h3>
@@ -112,70 +55,6 @@
 <pre>
    21 | struct Face
       | ^
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/geom.builder.cc 375 : 42</i></p>
-<pre>
-  375 |                 const auto v0 = Vertex{b.foa_position(p[0].pos, pd), no, b.foa_text_coord(p[0].tex, td), ci};
-      |                                                        ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/geom.builder.cc 375 : 78</i></p>
-<pre>
-  375 |                 const auto v0 = Vertex{b.foa_position(p[0].pos, pd), no, b.foa_text_coord(p[0].tex, td), ci};
-      |                                                                                            ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/geom.builder.cc 376 : 42</i></p>
-<pre>
-  376 |                 const auto v1 = Vertex{b.foa_position(p[1].pos, pd), no, b.foa_text_coord(p[1].tex, td), ci};
-      |                                                        ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/geom.builder.cc 376 : 78</i></p>
-<pre>
-  376 |                 const auto v1 = Vertex{b.foa_position(p[1].pos, pd), no, b.foa_text_coord(p[1].tex, td), ci};
-      |                                                                                            ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/geom.builder.cc 377 : 42</i></p>
-<pre>
-  377 |                 const auto v2 = Vertex{b.foa_position(p[2].pos, pd), no, b.foa_text_coord(p[2].tex, td), ci};
-      |                                                        ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/geom.builder.cc 377 : 78</i></p>
-<pre>
-  377 |                 const auto v2 = Vertex{b.foa_position(p[2].pos, pd), no, b.foa_text_coord(p[2].tex, td), ci};
-      |                                                                                            ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/geom.builder.cc 378 : 42</i></p>
-<pre>
-  378 |                 const auto v3 = Vertex{b.foa_position(p[3].pos, pd), no, b.foa_text_coord(p[3].tex, td), ci};
-      |                                                        ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/geom.builder.cc 378 : 78</i></p>
-<pre>
-  378 |                 const auto v3 = Vertex{b.foa_position(p[3].pos, pd), no, b.foa_text_coord(p[3].tex, td), ci};
-      |                                                                                            ^~~
 </pre>
 <hr>
 <h3>warning: use designated initializer list to initialize &#39;Pt&#39;</h3>
@@ -776,27 +655,6 @@
   232 | v3 from_to(const v3& f, const v3& t)
       |    ^
       | static 
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:272:28: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  272 |                         const v3 pos = positions[c.position];
-      |                                                 ^~~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:273:60: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  273 |                         const v2 text = texcoords.empty() ? v2(0, 0) : texcoords[c.texture];
-      |                                                                                 ^~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:274:106: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  274 |                         const v3 col = lin_colors.empty() ? v3{missing_color.r, missing_color.g, missing_color.b} : lin_colors[c.color];
-      |                                                                                                                               ^~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:275:56: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  275 |                         const n3 normal = normals.empty() == false ? normals[c.normal] : kk::up;
-      |                                                                             ^~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:285:40: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  285 |                 const auto v0 = convert_vert(src_face[0]);
-      |                                                      ^~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:295:41: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  295 |                         const auto v1 = convert_vert(src_face[triangle_base]);
-      |                                                              ^~~~~~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:296:41: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  296 |                         const auto v2 = convert_vert(src_face[triangle_base+1]);
-      |                                                              ^~~~~~~~~~~~~~~~~
 /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:299:32: warning: use designated initializer list to initialize 'Face' [modernize-use-designated-initializers]
   299 |                         final_tris.emplace_back(Face{v0, v1, v2});
       |                                                     ^~~~~~~~~~~~
@@ -804,30 +662,6 @@
 /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.h:21:1: note: aggregate type is defined here
    21 | struct Face
       | ^
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:375:42: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  375 |                 const auto v0 = Vertex{b.foa_position(p[0].pos, pd), no, b.foa_text_coord(p[0].tex, td), ci};
-      |                                                        ^~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:375:78: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  375 |                 const auto v0 = Vertex{b.foa_position(p[0].pos, pd), no, b.foa_text_coord(p[0].tex, td), ci};
-      |                                                                                            ^~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:376:42: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  376 |                 const auto v1 = Vertex{b.foa_position(p[1].pos, pd), no, b.foa_text_coord(p[1].tex, td), ci};
-      |                                                        ^~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:376:78: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  376 |                 const auto v1 = Vertex{b.foa_position(p[1].pos, pd), no, b.foa_text_coord(p[1].tex, td), ci};
-      |                                                                                            ^~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:377:42: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  377 |                 const auto v2 = Vertex{b.foa_position(p[2].pos, pd), no, b.foa_text_coord(p[2].tex, td), ci};
-      |                                                        ^~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:377:78: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  377 |                 const auto v2 = Vertex{b.foa_position(p[2].pos, pd), no, b.foa_text_coord(p[2].tex, td), ci};
-      |                                                                                            ^~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:378:42: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  378 |                 const auto v3 = Vertex{b.foa_position(p[3].pos, pd), no, b.foa_text_coord(p[3].tex, td), ci};
-      |                                                        ^~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:378:78: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  378 |                 const auto v3 = Vertex{b.foa_position(p[3].pos, pd), no, b.foa_text_coord(p[3].tex, td), ci};
-      |                                                                                            ^~~
 /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.cc:402:6: warning: use designated initializer list to initialize 'Pt' [modernize-use-designated-initializers]
   402 |                         Pt{{-hx, -hy, -hz}, {0.0f, 0.0f}},
       |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

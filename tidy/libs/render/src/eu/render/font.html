@@ -8,8 +8,7 @@
 <h1>libs/render/src/eu/render/font.cc</h1>
 <h2>Files</h2>
 <ul>
-<li>10: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.cc</li>
-<li>9: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h</li>
+<li>8: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.cc</li>
 <li>6: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.h</li>
 <li>2: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.h</li>
 <li>2: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/canvas.h</li>
@@ -33,79 +32,6 @@
    53 |     PixelColor get_pixel(int x, int y) const;
       |     ^
       |     [[nodiscard]] 
-</pre>
-<span id='cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'>&nbsp;</span>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/utf8.h 77 : 67</i></p>
-<pre>
-   77 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[0] &amp; ~mask2) &lt;&lt; 6) |
-      |                                                                   ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/utf8.h 78 : 67</i></p>
-<pre>
-   78 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[1] &amp; ~mask1) &lt;&lt; 0)
-      |                                                                   ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/utf8.h 84 : 67</i></p>
-<pre>
-   84 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[0] &amp; ~mask3) &lt;&lt; 12) |
-      |                                                                   ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/utf8.h 85 : 67</i></p>
-<pre>
-   85 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[1] &amp; ~mask1) &lt;&lt; 6 ) |
-      |                                                                   ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/utf8.h 86 : 67</i></p>
-<pre>
-   86 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[2] &amp; ~mask1) &lt;&lt; 0 )
-      |                                                                   ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/utf8.h 92 : 67</i></p>
-<pre>
-   92 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[0] &amp; ~mask4) &lt;&lt; 18) |
-      |                                                                   ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/utf8.h 93 : 67</i></p>
-<pre>
-   93 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[1] &amp; ~mask1) &lt;&lt; 12) |
-      |                                                                   ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/utf8.h 94 : 67</i></p>
-<pre>
-   94 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[2] &amp; ~mask1) &lt;&lt; 6 ) |
-      |                                                                   ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/utf8.h 95 : 67</i></p>
-<pre>
-   95 |                             ( std::to_integer&lt;CodePointInt&gt;(buffer[3] &amp; ~mask1) &lt;&lt; 0 )
-      |                                                                   ^~~
 </pre>
 <hr>
 <h3>warning: function &#39;mouse_to_world&#39; should be marked [[nodiscard]]</h3>
@@ -135,22 +61,6 @@
       |     static 
    49 |     construct_character_rects
       |     ^
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/font.cc 137 : 45</i></p>
-<pre>
-  137 |                 stbrp_rect&amp; r = packed_rects[index];
-      |                                             ^~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/font.cc 156 : 54</i></p>
-<pre>
-  156 |             const stbrp_rect&amp; src_rect = packed_rects[rect_index];
-      |                                                      ^~~~~~~~~~~~
 </pre>
 <span id='misc-const-correctness'>&nbsp;</span>
 <hr>
@@ -299,33 +209,6 @@
    53 |     PixelColor get_pixel(int x, int y) const;
       |     ^
       |     [[nodiscard]] 
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:77:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   77 |                             ( std::to_integer<CodePointInt>(buffer[0] & ~mask2) << 6) |
-      |                                                                   ^~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:78:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   78 |                             ( std::to_integer<CodePointInt>(buffer[1] & ~mask1) << 0)
-      |                                                                   ^~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:84:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   84 |                             ( std::to_integer<CodePointInt>(buffer[0] & ~mask3) << 12) |
-      |                                                                   ^~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:85:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   85 |                             ( std::to_integer<CodePointInt>(buffer[1] & ~mask1) << 6 ) |
-      |                                                                   ^~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:86:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   86 |                             ( std::to_integer<CodePointInt>(buffer[2] & ~mask1) << 0 )
-      |                                                                   ^~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:92:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   92 |                             ( std::to_integer<CodePointInt>(buffer[0] & ~mask4) << 18) |
-      |                                                                   ^~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:93:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   93 |                             ( std::to_integer<CodePointInt>(buffer[1] & ~mask1) << 12) |
-      |                                                                   ^~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:94:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   94 |                             ( std::to_integer<CodePointInt>(buffer[2] & ~mask1) << 6 ) |
-      |                                                                   ^~~
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/utf8.h:95:67: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   95 |                             ( std::to_integer<CodePointInt>(buffer[3] & ~mask1) << 0 )
-      |                                                                   ^~~
 /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/canvas.h:99:5: warning: function 'mouse_to_world' should be marked [[nodiscard]] [modernize-use-nodiscard]
    99 |     v2 mouse_to_world(const v2& p) const;
       |     ^
@@ -338,12 +221,6 @@
       |     static 
    49 |     construct_character_rects
       |     ^
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.cc:137:45: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  137 |                 stbrp_rect& r = packed_rects[index];
-      |                                             ^~~~~~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.cc:156:54: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  156 |             const stbrp_rect& src_rect = packed_rects[rect_index];
-      |                                                      ^~~~~~~~~~~~
 /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.cc:186:13: warning: variable 'dest' of type 'std::shared_ptr<Glyph>' can be declared 'const' [misc-const-correctness]
   186 |             std::shared_ptr<Glyph> dest
       |             ^

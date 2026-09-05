@@ -8,14 +8,12 @@
 <h1>libs/core/src/eu/core/vertex_layout.test.cc</h1>
 <h2>Files</h2>
 <ul>
-<li>34: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/vertex_layout.test.cc</li>
+<li>33: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/vertex_layout.test.cc</li>
 <li>33: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/vertex_layout.h</li>
-<li>10: /home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/vectorequals.h</li>
+<li>8: /home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/vectorequals.h</li>
 <li>7: /home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/vectortostring.h</li>
-<li>5: /home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/equaler.h</li>
 <li>5: /home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/false_string.h</li>
-<li>1: /home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/catch_test_macros.hpp</li>
-<li>1: /home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/internal/catch_test_macro_impl.hpp</li>
+<li>3: /home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/equaler.h</li>
 </ul>
 <h2>Warnings</h2>
 <span id='modernize-use-designated-initializers'>&nbsp;</span>
@@ -138,27 +136,6 @@
 <pre>
    42 | struct VertexElementDescription
       | ^
-</pre>
-<span id='cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'>&nbsp;</span>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/core/src/eu/core/vertex_layout.test.cc 152 : 13</i></p>
-<pre>
-  152 |         REQUIRE(one[0] == VertexType::normal3);
-      |                    ^
-</pre>
-<p>expanded from macro &#39;REQUIRE&#39;</p>
-<p><i>build/_deps/catch2-src/src/catch2/catch_test_macros.hpp 134 : 92</i></p>
-<pre>
-  134 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( &quot;REQUIRE&quot;, Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-</pre>
-<p>expanded from macro &#39;INTERNAL_CATCH_TEST&#39;</p>
-<p><i>build/_deps/catch2-src/src/catch2/internal/catch_test_macro_impl.hpp 56 : 70</i></p>
-<pre>
-   56 |             catchAssertionHandler.handleExpr( Catch::Decomposer() &lt;= __VA_ARGS__ ); /* NOLINT(bugprone-chained-comparison) */ \
-      |                                                                      ^~~~~~~~~~~
 </pre>
 <hr>
 <h3>warning: use designated initializer list to initialize &#39;const value_type&#39; (aka &#39;const eu::core:: VertexElementDescription&#39;)</h3>
@@ -555,22 +532,6 @@
       |                                   {
 </pre>
 <hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/tests/src/eu/tests/equaler.h 77 : 33</i></p>
-<pre>
-   77 |                            &lt;&lt; diff_index &lt;&lt; &quot; (&quot; &lt;&lt; l[diff_index] &lt;&lt; &quot; vs &quot; &lt;&lt; r[diff_index] &lt;&lt; &quot;)&quot;;
-      |                                                      ^~~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/tests/src/eu/tests/equaler.h 77 : 60</i></p>
-<pre>
-   77 |                            &lt;&lt; diff_index &lt;&lt; &quot; (&quot; &lt;&lt; l[diff_index] &lt;&lt; &quot; vs &quot; &lt;&lt; r[diff_index] &lt;&lt; &quot;)&quot;;
-      |                                                                                 ^~~~~~~~~~~~
-</pre>
-<hr>
 <h3>warning: statement should be inside braces</h3>
 <code>[readability-braces-around-statements]</code>
 <p><i>libs/tests/src/eu/tests/equaler.h 88 : 14</i></p>
@@ -673,22 +634,6 @@
 <pre>
    47 |         for(size_t i =0; i &lt; size; i+=1)
       |                    ^
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/tests/src/eu/tests/vectorequals.h 49 : 48</i></p>
-<pre>
-   49 |             const FalseString equals = Compare(lhs[i], rhs[i]);
-      |                                                ^~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/tests/src/eu/tests/vectorequals.h 49 : 56</i></p>
-<pre>
-   49 |             const FalseString equals = Compare(lhs[i], rhs[i]);
-      |                                                        ^~~~~~
 </pre>
 <hr>
 <h3>warning: statement should be inside braces</h3>
@@ -850,15 +795,6 @@
 /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/vertex_layout.h:42:1: note: aggregate type is defined here
    42 | struct VertexElementDescription
       | ^
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/vertex_layout.test.cc:152:13: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  152 |         REQUIRE(one[0] == VertexType::normal3);
-      |                    ^
-/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/catch_test_macros.hpp:134:92: note: expanded from macro 'REQUIRE'
-  134 |   #define REQUIRE( ... ) INTERNAL_CATCH_TEST( "REQUIRE", Catch::ResultDisposition::Normal, __VA_ARGS__  )
-      |                                                                                            ^~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/build/_deps/catch2-src/src/catch2/../catch2/internal/catch_test_macro_impl.hpp:56:70: note: expanded from macro 'INTERNAL_CATCH_TEST'
-   56 |             catchAssertionHandler.handleExpr( Catch::Decomposer() <= __VA_ARGS__ ); /* NOLINT(bugprone-chained-comparison) */ \
-      |                                                                      ^~~~~~~~~~~
 /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/vertex_layout.test.cc:158:3: warning: use designated initializer list to initialize 'const value_type' (aka 'const eu::core::VertexElementDescription') [modernize-use-designated-initializers]
   158 |                 {VertexType::position3, "aPos"},
       |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1042,12 +978,6 @@
    72 |                         if (same) return FalseString::True();
       |                                  ^                           
       |                                   {
-/home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/equaler.h:77:33: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   77 |                            << diff_index << " (" << l[diff_index] << " vs " << r[diff_index] << ")";
-      |                                                      ^~~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/equaler.h:77:60: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   77 |                            << diff_index << " (" << l[diff_index] << " vs " << r[diff_index] << ")";
-      |                                                                                 ^~~~~~~~~~~~
 /home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/equaler.h:88:14: warning: statement should be inside braces [readability-braces-around-statements]
    88 |                         if (close) return FalseString::True();
       |                                   ^                           
@@ -1099,12 +1029,6 @@
 /home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/vectorequals.h:47:20: warning: loop variable name 'i' is too short, expected at least 2 characters [readability-identifier-length]
    47 |         for(size_t i =0; i < size; i+=1)
       |                    ^
-/home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/vectorequals.h:49:48: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   49 |             const FalseString equals = Compare(lhs[i], rhs[i]);
-      |                                                ^~~~~~
-/home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/vectorequals.h:49:56: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   49 |             const FalseString equals = Compare(lhs[i], rhs[i]);
-      |                                                        ^~~~~~
 /home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/vectorequals.h:67:42: warning: statement should be inside braces [readability-braces-around-statements]
    67 |                     if(oneliner == false) ss << "  ";
       |                                          ^           

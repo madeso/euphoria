@@ -8,7 +8,7 @@
 <h1>apps/runner/src/eu/runner/main.cc</h1>
 <h2>Files</h2>
 <ul>
-<li>61: /home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc</li>
+<li>49: /home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc</li>
 <li>12: /home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/entity.h</li>
 <li>10: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h</li>
 <li>9: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/camera.h</li>
@@ -17,12 +17,10 @@
 <li>6: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/world.h</li>
 <li>5: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/constants.h</li>
 <li>4: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/axisangle.h</li>
-<li>3: /usr/include/c++/15/variant</li>
 <li>2: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.h</li>
 <li>2: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.h</li>
 <li>2: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/canvas.h</li>
 <li>2: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/postproc.h</li>
-<li>1: /usr/include/x86_64-linux-gnu/c++/15/bits/c++config.h</li>
 <li>1: /home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.h</li>
 <li>1: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.h</li>
 <li>1: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/render_settings.h</li>
@@ -195,95 +193,6 @@
    88 | struct Level
       |        ^
 </pre>
-<span id='cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'>&nbsp;</span>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>apps/runner/src/eu/runner/main.cc 104 : 45</i></p>
-<pre>
-  104 |                 const auto key = node.args()[0].as_string();
-      |                                             ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>apps/runner/src/eu/runner/main.cc 105 : 46</i></p>
-<pre>
-  105 |                 const auto file = node.args()[1].as_string();
-      |                                              ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>apps/runner/src/eu/runner/main.cc 114 : 43</i></p>
-<pre>
-  114 |                 const auto x = node.args()[0].as_number().as&lt;float&gt;();
-      |                                           ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>apps/runner/src/eu/runner/main.cc 115 : 43</i></p>
-<pre>
-  115 |                 const auto y = node.args()[1].as_number().as&lt;float&gt;();
-      |                                           ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>apps/runner/src/eu/runner/main.cc 116 : 43</i></p>
-<pre>
-  116 |                 const auto z = node.args()[2].as_number().as&lt;float&gt;();
-      |                                           ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>apps/runner/src/eu/runner/main.cc 121 : 43</i></p>
-<pre>
-  121 |                 const auto x = node.args()[0].as_number().as&lt;float&gt;();
-      |                                           ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>apps/runner/src/eu/runner/main.cc 122 : 43</i></p>
-<pre>
-  122 |                 const auto y = node.args()[1].as_number().as&lt;float&gt;();
-      |                                           ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>apps/runner/src/eu/runner/main.cc 123 : 43</i></p>
-<pre>
-  123 |                 const auto z = node.args()[2].as_number().as&lt;float&gt;();
-      |                                           ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>apps/runner/src/eu/runner/main.cc 128 : 43</i></p>
-<pre>
-  128 |                 const auto x = node.args()[0].as_number().as&lt;float&gt;();
-      |                                           ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>apps/runner/src/eu/runner/main.cc 129 : 43</i></p>
-<pre>
-  129 |                 const auto y = node.args()[1].as_number().as&lt;float&gt;();
-      |                                           ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>apps/runner/src/eu/runner/main.cc 130 : 43</i></p>
-<pre>
-  130 |                 const auto z = node.args()[2].as_number().as&lt;float&gt;();
-      |                                           ^~~
-</pre>
 <span id='modernize-use-designated-initializers'>&nbsp;</span>
 <hr>
 <h3>warning: use designated initializer list to initialize &#39;Ypr&#39;</h3>
@@ -386,14 +295,6 @@
   257 |         if (mesh &amp;&amp; input &amp;&amp; input-&gt;get_current_frame().binds[0].current &gt; 0.5f)
       |                     ^
       |                     (     != nullptr)
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>apps/runner/src/eu/runner/main.cc 257 : 62</i></p>
-<pre>
-  257 |         if (mesh &amp;&amp; input &amp;&amp; input-&gt;get_current_frame().binds[0].current &gt; 0.5f)
-      |                                                              ^~~
 </pre>
 <hr>
 <h3>warning: implicit conversion &#39;MeshSpatialComponent *&#39; -&gt; &#39;bool&#39;</h3>
@@ -546,48 +447,21 @@
       |     ^
 </pre>
 <hr>
-<h3>note: frame #0: unhandled exception of type &#39;bad_variant_access&#39; may be thrown in function &#39;__throw_bad_variant_access&#39; here</h3>
-<p><i>../../../../../usr/include/c++/15/variant 1420 : 7</i></p>
+<h3>note: frame #0: unhandled exception of type &#39;TypeError&#39; may be thrown in function &#39;as_string&#39; here</h3>
+<p><i>libs/kdl/src/eu/kdl/kdl.h 247 : 13</i></p>
 <pre>
- 1420 |       _GLIBCXX_THROW_OR_ABORT(bad_variant_access(__reasons[__n % 4u]));
-      |       ^
-</pre>
-<p>expanded from macro &#39;_GLIBCXX_THROW_OR_ABORT&#39;</p>
-<p><i>../../../../../usr/include/x86_64-linux-gnu/c++/15/bits/c++config.h 262 : 42</i></p>
-<pre>
-  262 | #  define _GLIBCXX_THROW_OR_ABORT(_EXC) (throw (_EXC))
-      |                                          ^
+  247 |             throw TypeError{&quot;Value is not a string&quot;};
+      |             ^
 </pre>
 <hr>
-<h3>note: frame #1: function &#39;get&lt;3UL, std::monostate, bool, eu::kdl::Number, std:: basic_string&lt;char&gt;&gt;&#39; calls function &#39;__throw_bad_variant_access&#39; here</h3>
-<p><i>../../../../../usr/include/c++/15/variant 1814 : 2</i></p>
-<pre>
- 1814 |         __throw_bad_variant_access(__v.valueless_by_exception());
-      |         ^
-</pre>
-<hr>
-<h3>note: frame #2: function &#39;get&lt;std::basic_string&lt;char&gt;, std::monostate, bool, eu::kdl::Number, std::basic_string&lt;char&gt;&gt;&#39; calls function &#39;get&lt;3UL, std::monostate, bool, eu::kdl::Number, std:: basic_string&lt;char&gt;&gt;&#39; here</h3>
-<p><i>../../../../../usr/include/c++/15/variant 1173 : 14</i></p>
-<pre>
- 1173 |       return std::get&lt;__n&gt;(__v);
-      |              ^
-</pre>
-<hr>
-<h3>note: frame #3: function &#39;as_string&#39; calls function &#39;get&lt;std::basic_string&lt;char&gt;, std::monostate, bool, eu::kdl::Number, std:: basic_string&lt;char&gt;&gt;&#39; here</h3>
-<p><i>libs/kdl/src/eu/kdl/kdl.h 245 : 20</i></p>
-<pre>
-  245 |             return std::get&lt;std::string&gt;(m_value);
-      |                    ^
-</pre>
-<hr>
-<h3>note: frame #4: function &#39;load&#39; calls function &#39;as_string&#39; here</h3>
+<h3>note: frame #1: function &#39;load&#39; calls function &#39;as_string&#39; here</h3>
 <p><i>apps/runner/src/eu/runner/main.cc 104 : 34</i></p>
 <pre>
   104 |                 const auto key = node.args()[0].as_string();
       |                                  ^
 </pre>
 <hr>
-<h3>note: frame #5: function &#39;main&#39; calls function &#39;load&#39; here</h3>
+<h3>note: frame #2: function &#39;main&#39; calls function &#39;load&#39; here</h3>
 <p><i>apps/runner/src/eu/runner/main.cc 740 : 9</i></p>
 <pre>
   740 |         level.load(&quot;level.kdl&quot;, &amp;render_world, material, renderer.default_geom_layout());
@@ -1326,39 +1200,6 @@
 /home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:88:8: warning: struct 'Level' can be moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
    88 | struct Level
       |        ^
-/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:104:45: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  104 |                 const auto key = node.args()[0].as_string();
-      |                                             ^~~
-/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:105:46: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  105 |                 const auto file = node.args()[1].as_string();
-      |                                              ^~~
-/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:114:43: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  114 |                 const auto x = node.args()[0].as_number().as<float>();
-      |                                           ^~~
-/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:115:43: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  115 |                 const auto y = node.args()[1].as_number().as<float>();
-      |                                           ^~~
-/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:116:43: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  116 |                 const auto z = node.args()[2].as_number().as<float>();
-      |                                           ^~~
-/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:121:43: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  121 |                 const auto x = node.args()[0].as_number().as<float>();
-      |                                           ^~~
-/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:122:43: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  122 |                 const auto y = node.args()[1].as_number().as<float>();
-      |                                           ^~~
-/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:123:43: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  123 |                 const auto z = node.args()[2].as_number().as<float>();
-      |                                           ^~~
-/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:128:43: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  128 |                 const auto x = node.args()[0].as_number().as<float>();
-      |                                           ^~~
-/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:129:43: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  129 |                 const auto y = node.args()[1].as_number().as<float>();
-      |                                           ^~~
-/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:130:43: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  130 |                 const auto z = node.args()[2].as_number().as<float>();
-      |                                           ^~~
 /home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:138:92: warning: use designated initializer list to initialize 'Ypr' [modernize-use-designated-initializers]
   138 |                     car.set_transform(eu::render::transform_from_rotation(offset + pos, Ypr{0_deg, 0_deg, 0_deg}));
       |                                                                                            ^~~~~~~~~~~~~~~~~~~~~
@@ -1400,9 +1241,6 @@
   257 |         if (mesh && input && input->get_current_frame().binds[0].current > 0.5f)
       |                     ^
       |                     (     != nullptr)
-/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:257:62: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  257 |         if (mesh && input && input->get_current_frame().binds[0].current > 0.5f)
-      |                                                              ^~~
 /home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:262:13: warning: implicit conversion 'MeshSpatialComponent *' -> 'bool' [readability-implicit-bool-conversion]
   262 |         if (mesh)
       |             ^   
@@ -1465,25 +1303,13 @@
 /home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:489:5: warning: an exception may be thrown in function 'main' which should not throw exceptions [bugprone-exception-escape]
   489 | int main(int, char**)
       |     ^
-/usr/bin/../lib/gcc/x86_64-linux-gnu/15/../../../../include/c++/15/variant:1420:7: note: frame #0: unhandled exception of type 'bad_variant_access' may be thrown in function '__throw_bad_variant_access' here
- 1420 |       _GLIBCXX_THROW_OR_ABORT(bad_variant_access(__reasons[__n % 4u]));
-      |       ^
-/usr/lib/gcc/x86_64-linux-gnu/15/../../../../include/x86_64-linux-gnu/c++/15/bits/c++config.h:262:42: note: expanded from macro '_GLIBCXX_THROW_OR_ABORT'
-  262 | #  define _GLIBCXX_THROW_OR_ABORT(_EXC) (throw (_EXC))
-      |                                          ^
-/usr/bin/../lib/gcc/x86_64-linux-gnu/15/../../../../include/c++/15/variant:1814:2: note: frame #1: function 'get<3UL, std::monostate, bool, eu::kdl::Number, std::basic_string<char>>' calls function '__throw_bad_variant_access' here
- 1814 |         __throw_bad_variant_access(__v.valueless_by_exception());
-      |         ^
-/usr/bin/../lib/gcc/x86_64-linux-gnu/15/../../../../include/c++/15/variant:1173:14: note: frame #2: function 'get<std::basic_string<char>, std::monostate, bool, eu::kdl::Number, std::basic_string<char>>' calls function 'get<3UL, std::monostate, bool, eu::kdl::Number, std::basic_string<char>>' here
- 1173 |       return std::get<__n>(__v);
-      |              ^
-/home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.h:245:20: note: frame #3: function 'as_string' calls function 'get<std::basic_string<char>, std::monostate, bool, eu::kdl::Number, std::basic_string<char>>' here
-  245 |             return std::get<std::string>(m_value);
-      |                    ^
-/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:104:34: note: frame #4: function 'load' calls function 'as_string' here
+/home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.h:247:13: note: frame #0: unhandled exception of type 'TypeError' may be thrown in function 'as_string' here
+  247 |             throw TypeError{"Value is not a string"};
+      |             ^
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:104:34: note: frame #1: function 'load' calls function 'as_string' here
   104 |                 const auto key = node.args()[0].as_string();
       |                                  ^
-/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:740:9: note: frame #5: function 'main' calls function 'load' here
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:740:9: note: frame #2: function 'main' calls function 'load' here
   740 |         level.load("level.kdl", &render_world, material, renderer.default_geom_layout());
       |         ^
 /home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:515:2: warning: preprocessor condition can be written more concisely using '#ifdef' [readability-use-concise-preprocessor-directives]

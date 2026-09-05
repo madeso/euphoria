@@ -12,7 +12,6 @@
 <li>6: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/world.h</li>
 <li>1: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.extract.h</li>
 <li>1: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/space.h</li>
-<li>1: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/world.cc</li>
 <li>1: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/axisangle.h</li>
 </ul>
 <h2>Warnings</h2>
@@ -124,15 +123,6 @@
       |                ^~
       |                up
 </pre>
-<span id='cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'>&nbsp;</span>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/world.cc 240 : 99</i></p>
-<pre>
-  240 |                         GL_ARRAY_BUFFER, 0, glsizeiptr_from_sizet(sizeof(m4) * step_size), &amp;instanced.world_from_locals[start_index]
-      |                                                                                                                        ^~~~~~~~~~~~~
-</pre>
 <span id='modernize-use-nodiscard'>&nbsp;</span>
 <hr>
 <h3>warning: function &#39;get_local_axis&#39; should be marked [[nodiscard]]</h3>
@@ -240,9 +230,6 @@
     6 | constexpr auto UP = v3(0.0f, 1.0f, 0.0f);
       |                ^~
       |                up
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/world.cc:240:99: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  240 |                         GL_ARRAY_BUFFER, 0, glsizeiptr_from_sizet(sizeof(m4) * step_size), &instanced.world_from_locals[start_index]
-      |                                                                                                                        ^~~~~~~~~~~~~
 /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/world.h:99:2: warning: function 'get_local_axis' should be marked [[nodiscard]] [modernize-use-nodiscard]
    99 |         LocalAxis get_local_axis() const;
       |         ^

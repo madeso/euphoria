@@ -8,9 +8,9 @@
 <h1>libs/render/src/eu/render/postproc.cc</h1>
 <h2>Files</h2>
 <ul>
-<li>13: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/postproc.cc</li>
 <li>10: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h</li>
 <li>9: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/camera.h</li>
+<li>7: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/postproc.cc</li>
 <li>7: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/renderer.h</li>
 <li>6: /home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.h</li>
 <li>6: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/world.h</li>
@@ -329,15 +329,6 @@
    23 | struct BloomRender
       | ^
 </pre>
-<span id='cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'>&nbsp;</span>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/postproc.cc 107 : 75</i></p>
-<pre>
-  107 |             *arg.camera, window_size, arg.world-&gt;lights.directional_lights[0], arg.renderer-&gt;settings, *arg.world
-      |                                                                           ^~~
-</pre>
 <hr>
 <h3>warning: use designated initializer list to initialize &#39;const Size&#39;</h3>
 <code>[modernize-use-designated-initializers]</code>
@@ -367,46 +358,6 @@
 <pre>
    10 |     struct Size
       |     ^
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/postproc.cc 188 : 57</i></p>
-<pre>
-  188 |                                 auto bound = BoundFbo{bloom_render-&gt;ping_pong_buffer[target_index]};
-      |                                                                                     ^~~~~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/postproc.cc 207 : 47</i></p>
-<pre>
-  207 |                                                                                                   : bloom_render-&gt;ping_pong_buffer[source_index];
-      |                                                                                                                                   ^~~~~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/postproc.cc 248 : 118</i></p>
-<pre>
-  248 |                         bind_texture_2d(arg.renderer-&gt;pimpl-&gt;states, container-&gt;tex_blurred_bloom_uniform, *bloom_render-&gt;ping_pong_buffer[last_bloom_blur_index]);
-      |                                                                                                                                           ^~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/postproc.cc 265 : 74</i></p>
-<pre>
-  265 |         imgui::imgui_image(&quot;ping-pong A&quot;, *bloom_render-&gt;ping_pong_buffer[0], cache, imgui::ImageShader::TonemapAndGamma);
-      |                                                                          ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/postproc.cc 266 : 74</i></p>
-<pre>
-  266 |         imgui::imgui_image(&quot;ping-pong B&quot;, *bloom_render-&gt;ping_pong_buffer[1], cache, imgui::ImageShader::TonemapAndGamma);
-      |                                                                          ^~~
 </pre>
 <hr>
 <h3>warning: use designated initializer list to initialize &#39;const BuildArg&#39;</h3>
@@ -790,9 +741,6 @@
 /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/postproc.internal.h:23:1: note: aggregate type is defined here
    23 | struct BloomRender
       | ^
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/postproc.cc:107:75: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  107 |             *arg.camera, window_size, arg.world->lights.directional_lights[0], arg.renderer->settings, *arg.world
-      |                                                                           ^~~
 /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/postproc.cc:111:19: warning: use designated initializer list to initialize 'const Size' [modernize-use-designated-initializers]
   111 |                 set_gl_viewport({shadow_buffer->size.width, shadow_buffer->size.height});
       |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -807,21 +755,6 @@
 /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/size.h:10:5: note: aggregate type is defined here
    10 |     struct Size
       |     ^
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/postproc.cc:188:57: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  188 |                                 auto bound = BoundFbo{bloom_render->ping_pong_buffer[target_index]};
-      |                                                                                     ^~~~~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/postproc.cc:207:47: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  207 |                                                                                                   : bloom_render->ping_pong_buffer[source_index];
-      |                                                                                                                                   ^~~~~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/postproc.cc:248:118: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  248 |                         bind_texture_2d(arg.renderer->pimpl->states, container->tex_blurred_bloom_uniform, *bloom_render->ping_pong_buffer[last_bloom_blur_index]);
-      |                                                                                                                                           ^~~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/postproc.cc:265:74: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  265 |         imgui::imgui_image("ping-pong A", *bloom_render->ping_pong_buffer[0], cache, imgui::ImageShader::TonemapAndGamma);
-      |                                                                          ^~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/postproc.cc:266:74: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  266 |         imgui::imgui_image("ping-pong B", *bloom_render->ping_pong_buffer[1], cache, imgui::ImageShader::TonemapAndGamma);
-      |                                                                          ^~~
 /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/postproc.cc:395:14: warning: use designated initializer list to initialize 'const BuildArg' [modernize-use-designated-initializers]
   395 |                                 e->build({&compiled, arg.window_size});
       |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~

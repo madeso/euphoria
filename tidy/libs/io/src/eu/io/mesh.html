@@ -8,7 +8,7 @@
 <h1>libs/io/src/eu/io/mesh.cc</h1>
 <h2>Files</h2>
 <ul>
-<li>49: /home/runner/work/euphoria/euphoria/libs/io/src/eu/io/mesh.cc</li>
+<li>35: /home/runner/work/euphoria/euphoria/libs/io/src/eu/io/mesh.cc</li>
 <li>2: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/geom.builder.h</li>
 </ul>
 <h2>Warnings</h2>
@@ -155,15 +155,6 @@
    88 |     for (cgltf_size i = 0; i &lt; accessor.count; ++i)
       |                     ^
 </pre>
-<span id='cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'>&nbsp;</span>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/io/src/eu/io/mesh.cc 90 : 60</i></p>
-<pre>
-   90 |         cgltf_accessor_read_float(&amp;accessor, i, &amp;outScalars[i * component_count], component_count);
-      |                                                            ^~~~~~~~~~~~~~~~~~~~~
-</pre>
 <hr>
 <h3>warning: function &#39;extract_mesh_from_attribute&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -269,102 +260,6 @@
   122 |     for (std::size_t i = 0; i &lt; acessorCount; ++i)
       |                      ^
 </pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/io/src/eu/io/mesh.cc 128 : 43</i></p>
-<pre>
-  128 |             outMesh.add_position(v3(values[index + 0], values[index + 1], values[index + 2])
-      |                                           ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/io/src/eu/io/mesh.cc 128 : 62</i></p>
-<pre>
-  128 |             outMesh.add_position(v3(values[index + 0], values[index + 1], values[index + 2])
-      |                                                              ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/io/src/eu/io/mesh.cc 128 : 81</i></p>
-<pre>
-  128 |             outMesh.add_position(v3(values[index + 0], values[index + 1], values[index + 2])
-      |                                                                                 ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/io/src/eu/io/mesh.cc 133 : 45</i></p>
-<pre>
-  133 |             outMesh.add_text_coord(v2(values[index + 0], 1-values[index + 1]));
-      |                                             ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/io/src/eu/io/mesh.cc 133 : 66</i></p>
-<pre>
-  133 |             outMesh.add_text_coord(v2(values[index + 0], 1-values[index + 1]));
-      |                                                                  ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/io/src/eu/io/mesh.cc 136 : 41</i></p>
-<pre>
-  136 |             outMesh.add_weight(v4(values[index + 0], values[index + 1], values[index + 2], values[index + 3]));
-      |                                         ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/io/src/eu/io/mesh.cc 136 : 60</i></p>
-<pre>
-  136 |             outMesh.add_weight(v4(values[index + 0], values[index + 1], values[index + 2], values[index + 3]));
-      |                                                            ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/io/src/eu/io/mesh.cc 136 : 79</i></p>
-<pre>
-  136 |             outMesh.add_weight(v4(values[index + 0], values[index + 1], values[index + 2], values[index + 3]));
-      |                                                                               ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/io/src/eu/io/mesh.cc 136 : 98</i></p>
-<pre>
-  136 |             outMesh.add_weight(v4(values[index + 0], values[index + 1], values[index + 2], values[index + 3]));
-      |                                                                                                  ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/io/src/eu/io/mesh.cc 140 : 42</i></p>
-<pre>
-  140 |             const auto normal = v3(values[index + 0], values[index + 1], values[index + 2]);
-      |                                          ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/io/src/eu/io/mesh.cc 140 : 61</i></p>
-<pre>
-  140 |             const auto normal = v3(values[index + 0], values[index + 1], values[index + 2]);
-      |                                                             ^~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/io/src/eu/io/mesh.cc 140 : 80</i></p>
-<pre>
-  140 |             const auto normal = v3(values[index + 0], values[index + 1], values[index + 2]);
-      |                                                                                ^~~~~~~~~~~
-</pre>
 <span id='bugprone-incorrect-roundings'>&nbsp;</span>
 <hr>
 <h3>warning: casting (double + 0.5) to integer leads to incorrect rounding; consider using lround (#include &lt;cmath&gt;) instead</h3>
@@ -373,14 +268,6 @@
 <pre>
   150 |                     const auto found = static_cast&lt;int&gt;(values[index + ii] + 0.5f);
       |                                                         ^
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/io/src/eu/io/mesh.cc 150 : 63</i></p>
-<pre>
-  150 |                     const auto found = static_cast&lt;int&gt;(values[index + ii] + 0.5f);
-      |                                                               ^~~~~~~~~~~~
 </pre>
 <hr>
 <h3>warning: function &#39;vert&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
@@ -610,9 +497,6 @@
 /home/runner/work/euphoria/euphoria/libs/io/src/eu/io/mesh.cc:88:21: warning: loop variable name 'i' is too short, expected at least 2 characters [readability-identifier-length]
    88 |     for (cgltf_size i = 0; i < accessor.count; ++i)
       |                     ^
-/home/runner/work/euphoria/euphoria/libs/io/src/eu/io/mesh.cc:90:60: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   90 |         cgltf_accessor_read_float(&accessor, i, &outScalars[i * component_count], component_count);
-      |                                                            ^~~~~~~~~~~~~~~~~~~~~
 /home/runner/work/euphoria/euphoria/libs/io/src/eu/io/mesh.cc:95:6: warning: function 'extract_mesh_from_attribute' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
    95 | void extract_mesh_from_attribute(
       |      ^
@@ -673,48 +557,9 @@
 /home/runner/work/euphoria/euphoria/libs/io/src/eu/io/mesh.cc:122:22: warning: loop variable name 'i' is too short, expected at least 2 characters [readability-identifier-length]
   122 |     for (std::size_t i = 0; i < acessorCount; ++i)
       |                      ^
-/home/runner/work/euphoria/euphoria/libs/io/src/eu/io/mesh.cc:128:43: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  128 |             outMesh.add_position(v3(values[index + 0], values[index + 1], values[index + 2])
-      |                                           ^~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/io/src/eu/io/mesh.cc:128:62: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  128 |             outMesh.add_position(v3(values[index + 0], values[index + 1], values[index + 2])
-      |                                                              ^~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/io/src/eu/io/mesh.cc:128:81: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  128 |             outMesh.add_position(v3(values[index + 0], values[index + 1], values[index + 2])
-      |                                                                                 ^~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/io/src/eu/io/mesh.cc:133:45: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  133 |             outMesh.add_text_coord(v2(values[index + 0], 1-values[index + 1]));
-      |                                             ^~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/io/src/eu/io/mesh.cc:133:66: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  133 |             outMesh.add_text_coord(v2(values[index + 0], 1-values[index + 1]));
-      |                                                                  ^~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/io/src/eu/io/mesh.cc:136:41: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  136 |             outMesh.add_weight(v4(values[index + 0], values[index + 1], values[index + 2], values[index + 3]));
-      |                                         ^~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/io/src/eu/io/mesh.cc:136:60: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  136 |             outMesh.add_weight(v4(values[index + 0], values[index + 1], values[index + 2], values[index + 3]));
-      |                                                            ^~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/io/src/eu/io/mesh.cc:136:79: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  136 |             outMesh.add_weight(v4(values[index + 0], values[index + 1], values[index + 2], values[index + 3]));
-      |                                                                               ^~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/io/src/eu/io/mesh.cc:136:98: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  136 |             outMesh.add_weight(v4(values[index + 0], values[index + 1], values[index + 2], values[index + 3]));
-      |                                                                                                  ^~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/io/src/eu/io/mesh.cc:140:42: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  140 |             const auto normal = v3(values[index + 0], values[index + 1], values[index + 2]);
-      |                                          ^~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/io/src/eu/io/mesh.cc:140:61: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  140 |             const auto normal = v3(values[index + 0], values[index + 1], values[index + 2]);
-      |                                                             ^~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/io/src/eu/io/mesh.cc:140:80: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  140 |             const auto normal = v3(values[index + 0], values[index + 1], values[index + 2]);
-      |                                                                                ^~~~~~~~~~~
 /home/runner/work/euphoria/euphoria/libs/io/src/eu/io/mesh.cc:150:57: warning: casting (double + 0.5) to integer leads to incorrect rounding; consider using lround (#include <cmath>) instead [bugprone-incorrect-roundings]
   150 |                     const auto found = static_cast<int>(values[index + ii] + 0.5f);
       |                                                         ^
-/home/runner/work/euphoria/euphoria/libs/io/src/eu/io/mesh.cc:150:63: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  150 |                     const auto found = static_cast<int>(values[index + ii] + 0.5f);
-      |                                                               ^~~~~~~~~~~~
 /home/runner/work/euphoria/euphoria/libs/io/src/eu/io/mesh.cc:171:20: warning: function 'vert' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
   171 | core::geom::Vertex vert(std::size_t index)
       |                    ^

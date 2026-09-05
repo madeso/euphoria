@@ -8,7 +8,7 @@
 <h1>libs/render/src/eu/render/shader.source.cc</h1>
 <h2>Files</h2>
 <ul>
-<li>24: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.source.cc</li>
+<li>9: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.source.cc</li>
 <li>4: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/vertex_layout.h</li>
 <li>2: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.source.h</li>
 </ul>
@@ -23,39 +23,6 @@
       |                             ^
       | static 
 </pre>
-<span id='cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'>&nbsp;</span>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/shader.source.cc 51 : 6</i></p>
-<pre>
-   51 |         data[&quot;is_horizontal&quot;] = options.blur == BlurType::horizontal;
-      |             ^~~~~~~~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/shader.source.cc 52 : 6</i></p>
-<pre>
-   52 |         data[&quot;is_vertical&quot;] = options.blur == BlurType::vertical;
-      |             ^~~~~~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/shader.source.cc 53 : 6</i></p>
-<pre>
-   53 |         data[&quot;sample_count&quot;] = fmt::format(&quot;{}&quot;, options.sample_count);
-      |             ^~~~~~~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/shader.source.cc 54 : 6</i></p>
-<pre>
-   54 |         data[&quot;is_gauss&quot;] = options.is_gauss == IsGauss::yes;
-      |             ^~~~~~~~~~~~
-</pre>
 <hr>
 <h3>warning: function &#39;generate&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -66,86 +33,6 @@
       | static 
 </pre>
 <hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/shader.source.cc 64 : 6</i></p>
-<pre>
-   64 |         data[&quot;use_lights&quot;] = options.use_lights;
-      |             ^~~~~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/shader.source.cc 65 : 6</i></p>
-<pre>
-   65 |         data[&quot;use_blinn_phong&quot;] = options.use_blinn_phong;
-      |             ^~~~~~~~~~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/shader.source.cc 66 : 6</i></p>
-<pre>
-   66 |         data[&quot;use_texture&quot;] = options.use_texture;
-      |             ^~~~~~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/shader.source.cc 67 : 6</i></p>
-<pre>
-   67 |         data[&quot;number_of_directional_lights&quot;] = fmt::format(&quot;{}&quot;, options.number_of_directional_lights);
-      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/shader.source.cc 68 : 6</i></p>
-<pre>
-   68 |         data[&quot;number_of_point_lights&quot;] = fmt::format(&quot;{}&quot;, options.number_of_point_lights);
-      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/shader.source.cc 69 : 6</i></p>
-<pre>
-   69 |         data[&quot;number_of_frustum_lights&quot;] = fmt::format(&quot;{}&quot;, options.number_of_frustum_lights);
-      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/shader.source.cc 70 : 6</i></p>
-<pre>
-   70 |         data[&quot;transparent_cutoff&quot;] = options.transparent_cutoff;
-      |             ^~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/shader.source.cc 71 : 6</i></p>
-<pre>
-   71 |         data[&quot;use_instancing&quot;] = options.use_instancing;
-      |             ^~~~~~~~~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/shader.source.cc 72 : 6</i></p>
-<pre>
-   72 |         data[&quot;uniform_buffer_source&quot;] = uniform_buffer_source;
-      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/shader.source.cc 73 : 6</i></p>
-<pre>
-   73 |         data[&quot;only_depth&quot;] = options.only_depth;
-      |             ^~~~~~~~~~~~~~
-</pre>
-<hr>
 <h3>warning: function &#39;generate&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
 <p><i>libs/render/src/eu/render/shader.source.cc 78 : 13</i></p>
@@ -153,14 +40,6 @@
    78 | std::string generate(std::string_view str, const std::string&amp; uniform_buffer_source)
       |             ^
       | static 
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/shader.source.cc 83 : 6</i></p>
-<pre>
-   83 |         data[&quot;uniform_buffer_source&quot;] = uniform_buffer_source;
-      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
 </pre>
 <span id='modernize-use-designated-initializers'>&nbsp;</span>
 <hr>
@@ -272,59 +151,14 @@
    33 | kainjow::mustache::mustache load_mustache(std::string_view str)
       |                             ^
       | static 
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.source.cc:51:6: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   51 |         data["is_horizontal"] = options.blur == BlurType::horizontal;
-      |             ^~~~~~~~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.source.cc:52:6: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   52 |         data["is_vertical"] = options.blur == BlurType::vertical;
-      |             ^~~~~~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.source.cc:53:6: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   53 |         data["sample_count"] = fmt::format("{}", options.sample_count);
-      |             ^~~~~~~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.source.cc:54:6: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   54 |         data["is_gauss"] = options.is_gauss == IsGauss::yes;
-      |             ^~~~~~~~~~~~
 /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.source.cc:59:13: warning: function 'generate' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
    59 | std::string generate(std::string_view str, const ShaderOptions& options, const std::string& uniform_buffer_source)
       |             ^
       | static 
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.source.cc:64:6: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   64 |         data["use_lights"] = options.use_lights;
-      |             ^~~~~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.source.cc:65:6: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   65 |         data["use_blinn_phong"] = options.use_blinn_phong;
-      |             ^~~~~~~~~~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.source.cc:66:6: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   66 |         data["use_texture"] = options.use_texture;
-      |             ^~~~~~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.source.cc:67:6: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   67 |         data["number_of_directional_lights"] = fmt::format("{}", options.number_of_directional_lights);
-      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.source.cc:68:6: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   68 |         data["number_of_point_lights"] = fmt::format("{}", options.number_of_point_lights);
-      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.source.cc:69:6: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   69 |         data["number_of_frustum_lights"] = fmt::format("{}", options.number_of_frustum_lights);
-      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.source.cc:70:6: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   70 |         data["transparent_cutoff"] = options.transparent_cutoff;
-      |             ^~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.source.cc:71:6: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   71 |         data["use_instancing"] = options.use_instancing;
-      |             ^~~~~~~~~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.source.cc:72:6: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   72 |         data["uniform_buffer_source"] = uniform_buffer_source;
-      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.source.cc:73:6: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   73 |         data["only_depth"] = options.only_depth;
-      |             ^~~~~~~~~~~~~~
 /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.source.cc:78:13: warning: function 'generate' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
    78 | std::string generate(std::string_view str, const std::string& uniform_buffer_source)
       |             ^
       | static 
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.source.cc:83:6: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   83 |         data["uniform_buffer_source"] = uniform_buffer_source;
-      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
 /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/shader.source.cc:90:45: warning: use designated initializer list to initialize 'const value_type' (aka 'const eu::core::VertexElementDescription') [modernize-use-designated-initializers]
    90 |         auto layout = core::ShaderVertexAttributes{{core::VertexType::position3, "a_position"}, {core::VertexType::color3, "a_color"}};
       |                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

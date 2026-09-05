@@ -9,44 +9,10 @@
 <h2>Files</h2>
 <ul>
 <li>6: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/world.h</li>
-<li>4: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/compiledmesh.cc</li>
 <li>1: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/space.h</li>
 <li>1: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/axisangle.h</li>
 </ul>
 <h2>Warnings</h2>
-<span id='cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'>&nbsp;</span>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/compiledmesh.cc 52 : 65</i></p>
-<pre>
-   52 |             for (std::size_t geom_index = 0; geom_index &lt; meshes[mesh_index].geoms.size(); geom_index += 1)
-      |                                                                 ^~~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/compiledmesh.cc 54 : 24</i></p>
-<pre>
-   54 |                  meshes[mesh_index].geoms[geom_index]-&gt;transform = trans * compiled_mesh-&gt;meshes[mesh_index].transform;
-      |                        ^~~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/compiledmesh.cc 54 : 42</i></p>
-<pre>
-   54 |                  meshes[mesh_index].geoms[geom_index]-&gt;transform = trans * compiled_mesh-&gt;meshes[mesh_index].transform;
-      |                                          ^~~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/compiledmesh.cc 54 : 97</i></p>
-<pre>
-   54 |                  meshes[mesh_index].geoms[geom_index]-&gt;transform = trans * compiled_mesh-&gt;meshes[mesh_index].transform;
-      |                                                                                                 ^~~~~~~~~~~~
-</pre>
 <span id='readability-identifier-naming'>&nbsp;</span>
 <hr>
 <h3>warning: invalid case style for constexpr variable &#39;UP&#39;</h3>
@@ -117,18 +83,6 @@
       |                  ^
 </pre>
 <!--
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/compiledmesh.cc:52:65: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   52 |             for (std::size_t geom_index = 0; geom_index < meshes[mesh_index].geoms.size(); geom_index += 1)
-      |                                                                 ^~~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/compiledmesh.cc:54:24: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   54 |                  meshes[mesh_index].geoms[geom_index]->transform = trans * compiled_mesh->meshes[mesh_index].transform;
-      |                        ^~~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/compiledmesh.cc:54:42: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   54 |                  meshes[mesh_index].geoms[geom_index]->transform = trans * compiled_mesh->meshes[mesh_index].transform;
-      |                                          ^~~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/compiledmesh.cc:54:97: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   54 |                  meshes[mesh_index].geoms[geom_index]->transform = trans * compiled_mesh->meshes[mesh_index].transform;
-      |                                                                                                 ^~~~~~~~~~~~
 /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/space.h:6:16: warning: invalid case style for constexpr variable 'UP' [readability-identifier-naming]
     6 | constexpr auto UP = v3(0.0f, 1.0f, 0.0f);
       |                ^~

@@ -8,7 +8,7 @@
 <h1>libs/render/src/eu/render/texture.cc</h1>
 <h2>Files</h2>
 <ul>
-<li>22: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc</li>
+<li>13: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc</li>
 <li>10: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h</li>
 </ul>
 <h2>Warnings</h2>
@@ -173,79 +173,6 @@
   168 | struct PixelData
       |        ^
 </pre>
-<span id='cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'>&nbsp;</span>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/texture.cc 254 : 14</i></p>
-<pre>
-  254 |                         pixel_data[index]
-      |                                   ^~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/texture.cc 285 : 33</i></p>
-<pre>
-  285 |         const auto image_width = parsed[0].width;
-      |                                        ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/texture.cc 286 : 34</i></p>
-<pre>
-  286 |         const auto image_height = parsed[0].height;
-      |                                         ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/texture.cc 328 : 10</i></p>
-<pre>
-  328 |                         parsed[0].pixel_data,
-      |                               ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/texture.cc 329 : 10</i></p>
-<pre>
-  329 |                         parsed[1].pixel_data,
-      |                               ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/texture.cc 330 : 10</i></p>
-<pre>
-  330 |                         parsed[2].pixel_data,
-      |                               ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/texture.cc 331 : 10</i></p>
-<pre>
-  331 |                         parsed[3].pixel_data,
-      |                               ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/texture.cc 332 : 10</i></p>
-<pre>
-  332 |                         parsed[4].pixel_data,
-      |                               ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/render/src/eu/render/texture.cc 333 : 10</i></p>
-<pre>
-  333 |                         parsed[5].pixel_data
-      |                               ^~~
-</pre>
 <hr>
 <h3>warning: function &#39;create_fbo&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -353,33 +280,6 @@
 /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:168:8: warning: struct 'PixelData' can be moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
   168 | struct PixelData
       |        ^
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:254:14: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  254 |                         pixel_data[index]
-      |                                   ^~~~~~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:285:33: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  285 |         const auto image_width = parsed[0].width;
-      |                                        ^~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:286:34: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  286 |         const auto image_height = parsed[0].height;
-      |                                         ^~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:328:10: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  328 |                         parsed[0].pixel_data,
-      |                               ^~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:329:10: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  329 |                         parsed[1].pixel_data,
-      |                               ^~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:330:10: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  330 |                         parsed[2].pixel_data,
-      |                               ^~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:331:10: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  331 |                         parsed[3].pixel_data,
-      |                               ^~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:332:10: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  332 |                         parsed[4].pixel_data,
-      |                               ^~~
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:333:10: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  333 |                         parsed[5].pixel_data
-      |                               ^~~
 /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/texture.cc:346:14: warning: function 'create_fbo' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
   346 | unsigned int create_fbo()
       |              ^

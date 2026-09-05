@@ -8,7 +8,7 @@
 <h1>libs/kdl/src/eu/kdl/kdl.cc</h1>
 <h2>Files</h2>
 <ul>
-<li>24: /home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.cc</li>
+<li>22: /home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.cc</li>
 <li>2: /home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.h</li>
 <li>1: /home/runner/work/euphoria/euphoria/external/kdl/include/kdl/common.h</li>
 </ul>
@@ -106,23 +106,6 @@
    73 |                 if (!kdl_finish_emitting_children(emitter)) throw EmitterError{};
       |                                                            ^                     
       |                                                             {
-</pre>
-<span id='cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'>&nbsp;</span>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/kdl/src/eu/kdl/kdl.cc 120 : 39</i></p>
-<pre>
-  120 |         auto const&amp; node = doc.nodes()[0];
-      |                                       ^~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/kdl/src/eu/kdl/kdl.cc 122 : 31</i></p>
-<pre>
-  122 |             return node.args()[0];
-      |                               ^~~
 </pre>
 <hr>
 <h3>warning: C-style casts are discouraged; use static_cast/const_cast/reinterpret_cast</h3>
@@ -304,12 +287,6 @@
    73 |                 if (!kdl_finish_emitting_children(emitter)) throw EmitterError{};
       |                                                            ^                     
       |                                                             {
-/home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.cc:120:39: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  120 |         auto const& node = doc.nodes()[0];
-      |                                       ^~~
-/home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.cc:122:31: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-  122 |             return node.args()[0];
-      |                               ^~~
 /home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.cc:139:33: warning: C-style casts are discouraged; use static_cast/const_cast/reinterpret_cast [google-readability-casting,modernize-avoid-c-style-cast]
   139 |                 result.number = (kdl_number)v;
       |                                 ^

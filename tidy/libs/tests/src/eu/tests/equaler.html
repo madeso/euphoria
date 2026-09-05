@@ -8,8 +8,8 @@
 <h1>libs/tests/src/eu/tests/equaler.cc</h1>
 <h2>Files</h2>
 <ul>
-<li>5: /home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/equaler.h</li>
 <li>5: /home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/false_string.h</li>
+<li>3: /home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/equaler.h</li>
 <li>1: /home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/equaler.cc</li>
 </ul>
 <h2>Warnings</h2>
@@ -40,23 +40,6 @@
    72 |                         if (same) return FalseString::True();
       |                                  ^                           
       |                                   {
-</pre>
-<span id='cppcoreguidelines-pro-bounds-avoid-unchecked-container-access'>&nbsp;</span>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/tests/src/eu/tests/equaler.h 77 : 33</i></p>
-<pre>
-   77 |                            &lt;&lt; diff_index &lt;&lt; &quot; (&quot; &lt;&lt; l[diff_index] &lt;&lt; &quot; vs &quot; &lt;&lt; r[diff_index] &lt;&lt; &quot;)&quot;;
-      |                                                      ^~~~~~~~~~~~
-</pre>
-<hr>
-<h3>warning: possibly unsafe &#39;operator[]&#39;, consider bounds-safe alternatives</h3>
-<code>[cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]</code>
-<p><i>libs/tests/src/eu/tests/equaler.h 77 : 60</i></p>
-<pre>
-   77 |                            &lt;&lt; diff_index &lt;&lt; &quot; (&quot; &lt;&lt; l[diff_index] &lt;&lt; &quot; vs &quot; &lt;&lt; r[diff_index] &lt;&lt; &quot;)&quot;;
-      |                                                                                 ^~~~~~~~~~~~
 </pre>
 <hr>
 <h3>warning: statement should be inside braces</h3>
@@ -124,12 +107,6 @@
    72 |                         if (same) return FalseString::True();
       |                                  ^                           
       |                                   {
-/home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/equaler.h:77:33: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   77 |                            << diff_index << " (" << l[diff_index] << " vs " << r[diff_index] << ")";
-      |                                                      ^~~~~~~~~~~~
-/home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/equaler.h:77:60: warning: possibly unsafe 'operator[]', consider bounds-safe alternatives [cppcoreguidelines-pro-bounds-avoid-unchecked-container-access]
-   77 |                            << diff_index << " (" << l[diff_index] << " vs " << r[diff_index] << ")";
-      |                                                                                 ^~~~~~~~~~~~
 /home/runner/work/euphoria/euphoria/libs/tests/src/eu/tests/equaler.h:88:14: warning: statement should be inside braces [readability-braces-around-statements]
    88 |                         if (close) return FalseString::True();
       |                                   ^                           
