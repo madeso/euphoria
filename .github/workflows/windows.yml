@@ -26,10 +26,6 @@ jobs:
           run: |
                 cmake --help
 
-        - name: Install cpp dependencies
-          run: |
-                dotnet run --project .\tools\buildtools\Workbench\ -- build install --compiler ${{matrix.os}} --platform ${{matrix.platform}}
-
         - name: Configure
           working-directory: ${{github.workspace}}
           run: |
