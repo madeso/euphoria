@@ -130,6 +130,8 @@ readability-identifier-naming
 
 END_CHECKS
 
+HeaderFilterRegex: '(libs)|(apps)'
+
 "CheckOptions": [
     // todo(Gustav): enable this again
     {"key": "readability-identifier-length.MinimumVariableNameLength",         "value": "0"},
