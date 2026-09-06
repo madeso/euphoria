@@ -447,18 +447,18 @@
       |     ^
 </pre>
 <hr>
-<h3>note: frame #0: unhandled exception of type &#39;TypeError&#39; may be thrown in function &#39;as_string&#39; here</h3>
-<p><i>libs/kdl/src/eu/kdl/kdl.h 247 : 13</i></p>
+<h3>note: frame #0: unhandled exception of type &#39;std:: runtime_error&#39; may be thrown in function &#39;as&lt;float&gt;&#39; here</h3>
+<p><i>libs/kdl/src/eu/kdl/kdl.h 104 : 13</i></p>
 <pre>
-  247 |             throw TypeError{&quot;Value is not a string&quot;};
+  104 |             throw std::runtime_error(&quot;Number is stored as a string.&quot;);
       |             ^
 </pre>
 <hr>
-<h3>note: frame #1: function &#39;load&#39; calls function &#39;as_string&#39; here</h3>
-<p><i>apps/runner/src/eu/runner/main.cc 104 : 34</i></p>
+<h3>note: frame #1: function &#39;load&#39; calls function &#39;as&lt;float&gt;&#39; here</h3>
+<p><i>apps/runner/src/eu/runner/main.cc 114 : 32</i></p>
 <pre>
-  104 |                 const auto key = node.args()[0].as_string();
-      |                                  ^
+  114 |                 const auto x = node.args()[0].as_number().as&lt;float&gt;();
+      |                                ^
 </pre>
 <hr>
 <h3>note: frame #2: function &#39;main&#39; calls function &#39;load&#39; here</h3>
@@ -1303,12 +1303,12 @@
 /home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:489:5: warning: an exception may be thrown in function 'main' which should not throw exceptions [bugprone-exception-escape]
   489 | int main(int, char**)
       |     ^
-/home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.h:247:13: note: frame #0: unhandled exception of type 'TypeError' may be thrown in function 'as_string' here
-  247 |             throw TypeError{"Value is not a string"};
+/home/runner/work/euphoria/euphoria/libs/kdl/src/eu/kdl/kdl.h:104:13: note: frame #0: unhandled exception of type 'std::runtime_error' may be thrown in function 'as<float>' here
+  104 |             throw std::runtime_error("Number is stored as a string.");
       |             ^
-/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:104:34: note: frame #1: function 'load' calls function 'as_string' here
-  104 |                 const auto key = node.args()[0].as_string();
-      |                                  ^
+/home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:114:32: note: frame #1: function 'load' calls function 'as<float>' here
+  114 |                 const auto x = node.args()[0].as_number().as<float>();
+      |                                ^
 /home/runner/work/euphoria/euphoria/apps/runner/src/eu/runner/main.cc:740:9: note: frame #2: function 'main' calls function 'load' here
   740 |         level.load("level.kdl", &render_world, material, renderer.default_geom_layout());
       |         ^
