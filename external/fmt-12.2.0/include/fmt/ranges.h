@@ -517,7 +517,8 @@ struct formatter<
   FMT_CONSTEXPR formatter() {
     if FMT_CONSTEXPR20 (range_format_kind<R, Char>::value != range_format::set)
       return;
-    range_formatter_.set_brackets(detail::string_literal<Char, '{'>{},
+    
+    else range_formatter_.set_brackets(detail::string_literal<Char, '{'>{},
                                   detail::string_literal<Char, '}'>{});
   }
 
