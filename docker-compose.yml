@@ -1,0 +1,7 @@
+services:        
+    euphoria:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: euphoria
+        tty: true

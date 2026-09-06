@@ -1,0 +1,5 @@
+build/
+.github/
+graveyard/
+.git
+tools/buildtools/Workbench/bin/
