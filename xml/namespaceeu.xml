@@ -269,14 +269,14 @@
       <member refid="group__math_1gaa3e88f63b802a9db740a821f312e6556" kind="function"><name>operator&gt;</name></member>
       <member refid="group__math_1gaf8448b714bf16cc794b4a29bfac33e6a" kind="function"><name>operator&gt;=</name></member>
       <member refid="group__math_1ga0bade92aadaac348c9d69c311012401c" kind="function"><name>lerp_angle</name></member>
-      <memberdef kind="function" id="namespaceeu_1ae5c200f096fbdba113bc48c6e7eb3c37" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1a22a35cf51257939a13d26dac4d64641e" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1An" kindref="compound">An</ref></type>
         <definition>An eu::operator&quot;&quot;_deg</definition>
-        <argsstring>(unsigned long long d)</argsstring>
+        <argsstring>(unsigned long long int d)</argsstring>
         <name>operator&quot;&quot;_deg</name>
         <qualifiedname>eu::operator&quot;&quot;_deg</qualifiedname>
         <param>
-          <type>unsigned long long</type>
+          <type>unsigned long long int</type>
           <declname>d</declname>
         </param>
         <briefdescription>

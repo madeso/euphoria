@@ -153,6 +153,82 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/vec3.h" line="134" column="22" bodyfile="libs/base/src/eu/base/vec3.h" bodystart="134" bodyend="-1"/>
       </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1kk_1a9ebe3e4afc4ee24a7e5d215d45f13f4b" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t eu::kk::max_textures_supported</definition>
+        <argsstring></argsstring>
+        <name>max_textures_supported</name>
+        <qualifiedname>eu::kk::max_textures_supported</qualifiedname>
+        <initializer>= 16</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/constants.h" line="7" column="23" bodyfile="libs/render/src/eu/render/constants.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1kk_1a36492684b45938af1c32f3f85d83be88" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>float</type>
+        <definition>float eu::kk::almost_zero</definition>
+        <argsstring></argsstring>
+        <name>almost_zero</name>
+        <qualifiedname>eu::kk::almost_zero</qualifiedname>
+        <initializer>= 0.01f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/constants.h" line="11" column="17" bodyfile="libs/render/src/eu/render/constants.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1kk_1a88c092cba1462f22e702c2c427ce469a" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>float</type>
+        <definition>float eu::kk::alpha_transparency_limit</definition>
+        <argsstring></argsstring>
+        <name>alpha_transparency_limit</name>
+        <qualifiedname>eu::kk::alpha_transparency_limit</qualifiedname>
+        <initializer>= 1.0f - <ref refid="namespaceeu_1_1kk_1a36492684b45938af1c32f3f85d83be88" kindref="member">almost_zero</ref></initializer>
+        <briefdescription>
+<para>if alpha goes above this limit, it is no longer considered transparent </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/constants.h" line="13" column="17" bodyfile="libs/render/src/eu/render/constants.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1kk_1aa626d16ea38da0d0626bd5640e3d7930" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>float</type>
+        <definition>float eu::kk::outline_scale</definition>
+        <argsstring></argsstring>
+        <name>outline_scale</name>
+        <qualifiedname>eu::kk::outline_scale</qualifiedname>
+        <initializer>= 1.1f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/constants.h" line="15" column="17" bodyfile="libs/render/src/eu/render/constants.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeu_1_1kk_1abebee3e331acb506c0e9c14fe5415217" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>int</type>
+        <definition>int eu::kk::blur_samples</definition>
+        <argsstring></argsstring>
+        <name>blur_samples</name>
+        <qualifiedname>eu::kk::blur_samples</qualifiedname>
+        <initializer>= 10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/constants.h" line="17" column="15" bodyfile="libs/render/src/eu/render/constants.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
     </sectiondef>
     <briefdescription>
     </briefdescription>

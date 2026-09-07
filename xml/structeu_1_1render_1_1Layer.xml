@@ -36,7 +36,7 @@
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeu_1_1render_1_1Layer_1aeb8b243abd94f3b72e4fbc8169bf52b2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1Layer_1aeb8b243abd94f3b72e4fbc8169bf52b2" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v2" kindref="compound">v2</ref></type>
         <definition>v2 eu::render::Layer::mouse_to_world</definition>
         <argsstring>(const v2 &amp;p) const</argsstring>
@@ -52,7 +52,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/canvas.h" line="99" column="8"/>
+        <location file="libs/render/src/eu/render/canvas.h" line="99" column="9"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

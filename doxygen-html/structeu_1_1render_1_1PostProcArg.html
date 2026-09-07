@@ -72,11 +72,11 @@ $(function() { codefold.init(); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a996b104e553d746ea3b2c3620ec90fb7" id="r_a996b104e553d746ea3b2c3620ec90fb7"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structeu_1_1render_1_1World.html">World</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a996b104e553d746ea3b2c3620ec90fb7">world</a></td></tr>
-<tr class="memitem:a7bb5a8b752af2a98b01af7f38302d00e" id="r_a7bb5a8b752af2a98b01af7f38302d00e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1Size.html">Size</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7bb5a8b752af2a98b01af7f38302d00e">window_size</a></td></tr>
-<tr class="memitem:a35e1e140d3fbb42e82e9760904ef019d" id="r_a35e1e140d3fbb42e82e9760904ef019d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1Rect.html">Rect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35e1e140d3fbb42e82e9760904ef019d">final_rect</a></td></tr>
-<tr class="memitem:ad657592510232f09cc22537c48306793" id="r_ad657592510232f09cc22537c48306793"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structeu_1_1render_1_1Camera.html">Camera</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad657592510232f09cc22537c48306793">camera</a></td></tr>
-<tr class="memitem:afa2f789336e85a43f64cc496adfd0db5" id="r_afa2f789336e85a43f64cc496adfd0db5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1render_1_1Renderer.html">Renderer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa2f789336e85a43f64cc496adfd0db5">renderer</a></td></tr>
+<tr class="memitem:a996b104e553d746ea3b2c3620ec90fb7" id="r_a996b104e553d746ea3b2c3620ec90fb7"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structeu_1_1render_1_1World.html">World</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a996b104e553d746ea3b2c3620ec90fb7">world</a> = nullptr</td></tr>
+<tr class="memitem:a7bb5a8b752af2a98b01af7f38302d00e" id="r_a7bb5a8b752af2a98b01af7f38302d00e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1Size.html">Size</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7bb5a8b752af2a98b01af7f38302d00e">window_size</a> = {.width = 0, .height = 0}</td></tr>
+<tr class="memitem:a35e1e140d3fbb42e82e9760904ef019d" id="r_a35e1e140d3fbb42e82e9760904ef019d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1Rect.html">Rect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35e1e140d3fbb42e82e9760904ef019d">final_rect</a> = {}</td></tr>
+<tr class="memitem:ad657592510232f09cc22537c48306793" id="r_ad657592510232f09cc22537c48306793"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structeu_1_1render_1_1Camera.html">Camera</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad657592510232f09cc22537c48306793">camera</a> = nullptr</td></tr>
+<tr class="memitem:afa2f789336e85a43f64cc496adfd0db5" id="r_afa2f789336e85a43f64cc496adfd0db5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1render_1_1Renderer.html">Renderer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa2f789336e85a43f64cc496adfd0db5">renderer</a> = nullptr</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Arguments for rendering a post-processing effect. </p>
@@ -90,7 +90,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="structeu_1_1render_1_1Camera.html">Camera</a>* eu::render::PostProcArg::camera</td>
+          <td class="memname">const <a class="el" href="structeu_1_1render_1_1Camera.html">Camera</a>* eu::render::PostProcArg::camera = nullptr</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -106,7 +106,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structeu_1_1Rect.html">Rect</a> eu::render::PostProcArg::final_rect</td>
+          <td class="memname"><a class="el" href="structeu_1_1Rect.html">Rect</a> eu::render::PostProcArg::final_rect = {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -122,7 +122,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structeu_1_1render_1_1Renderer.html">Renderer</a>* eu::render::PostProcArg::renderer</td>
+          <td class="memname"><a class="el" href="structeu_1_1render_1_1Renderer.html">Renderer</a>* eu::render::PostProcArg::renderer = nullptr</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -138,7 +138,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structeu_1_1Size.html">Size</a> eu::render::PostProcArg::window_size</td>
+          <td class="memname"><a class="el" href="structeu_1_1Size.html">Size</a> eu::render::PostProcArg::window_size = {.width = 0, .height = 0}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -154,7 +154,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="structeu_1_1render_1_1World.html">World</a>* eu::render::PostProcArg::world</td>
+          <td class="memname">const <a class="el" href="structeu_1_1render_1_1World.html">World</a>* eu::render::PostProcArg::world = nullptr</td>
         </tr>
       </table>
 </div><div class="memdoc">

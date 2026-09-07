@@ -25,6 +25,7 @@
         <argsstring></argsstring>
         <name>directional_shadow_clip_from_world</name>
         <qualifiedname>eu::render::ShadowContext::directional_shadow_clip_from_world</qualifiedname>
+        <initializer>= <ref refid="group__math_1ga5957f0b19a66d6e1123f22d681e726e0" kindref="member">m4_identity</ref></initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>

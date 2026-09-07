@@ -82,7 +82,7 @@ Inheritance diagram for eu::render::RenderWorld:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a757d48467fa322426ed0cd42a5030ab6" id="r_a757d48467fa322426ed0cd42a5030ab6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a757d48467fa322426ed0cd42a5030ab6">RenderWorld</a> (const <a class="el" href="structeu_1_1Size.html">Size</a> size, <a class="el" href="structeu_1_1render_1_1RealizeShader.html">RealizeShader</a> *re_sh, <a class="el" href="structeu_1_1render_1_1ExtractShader.html">ExtractShader</a> *ex_sh, <a class="el" href="structeu_1_1render_1_1PingPongBlurShader.html">PingPongBlurShader</a> *ping_sh, int msaa_samples, bool *h, float *e)</td></tr>
+<tr class="memitem:ae912131371dd0ef9e84a1dacfbdb944b" id="r_ae912131371dd0ef9e84a1dacfbdb944b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae912131371dd0ef9e84a1dacfbdb944b">RenderWorld</a> (const <a class="el" href="structeu_1_1Size.html">Size</a> &amp;size, <a class="el" href="structeu_1_1render_1_1RealizeShader.html">RealizeShader</a> *re_sh, <a class="el" href="structeu_1_1render_1_1ExtractShader.html">ExtractShader</a> *ex_sh, <a class="el" href="structeu_1_1render_1_1PingPongBlurShader.html">PingPongBlurShader</a> *ping_sh, int msaa_samples, bool *h, float *e)</td></tr>
 <tr class="memitem:ace02fdde73cf6bd1d6643e43abd17e33" id="r_ace02fdde73cf6bd1d6643e43abd17e33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace02fdde73cf6bd1d6643e43abd17e33">update</a> (const <a class="el" href="structeu_1_1render_1_1PostProcArg.html">PostProcArg</a> &amp;arg)</td></tr>
 <tr class="memitem:ad9cc968b3615dcf798ef77dc1ac59912" id="r_ad9cc968b3615dcf798ef77dc1ac59912"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9cc968b3615dcf798ef77dc1ac59912">render</a> (const <a class="el" href="structeu_1_1render_1_1PostProcArg.html">PostProcArg</a> &amp;arg) override</td></tr>
 <tr class="memitem:a283e637309965024a00646c07ed2db77" id="r_a283e637309965024a00646c07ed2db77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a283e637309965024a00646c07ed2db77">gui</a> (<a class="el" href="structeu_1_1imgui_1_1ImguiShaderCache.html">imgui::ImguiShaderCache</a> *cache)</td></tr>
@@ -102,17 +102,17 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a0386ab35356bfb0734b68474e89bd645" id="r_a0386ab35356bfb0734b68474e89bd645"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structeu_1_1render_1_1FrameBuffer.html">FrameBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0386ab35356bfb0734b68474e89bd645">msaa_buffer</a></td></tr>
 <tr class="memitem:aae5ecb312a8e221c8fdd6ff65a7eaf67" id="r_aae5ecb312a8e221c8fdd6ff65a7eaf67"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structeu_1_1render_1_1FrameBuffer.html">FrameBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aae5ecb312a8e221c8fdd6ff65a7eaf67">realized_buffer</a></td></tr>
 <tr class="memitem:a40e9a21c2025825f48f5cac619947552" id="r_a40e9a21c2025825f48f5cac619947552"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structeu_1_1render_1_1FrameBuffer.html">FrameBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40e9a21c2025825f48f5cac619947552">shadow_buffer</a></td></tr>
-<tr class="memitem:ae5764b9e9bd8a429bf3b3f5ce41ee5bd" id="r_ae5764b9e9bd8a429bf3b3f5ce41ee5bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1render_1_1RealizeShader.html">RealizeShader</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5764b9e9bd8a429bf3b3f5ce41ee5bd">realize_shader</a></td></tr>
+<tr class="memitem:ae5764b9e9bd8a429bf3b3f5ce41ee5bd" id="r_ae5764b9e9bd8a429bf3b3f5ce41ee5bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1render_1_1RealizeShader.html">RealizeShader</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5764b9e9bd8a429bf3b3f5ce41ee5bd">realize_shader</a> = nullptr</td></tr>
 <tr class="memitem:aca8a59cf2ff8039db64c469166a5e52d" id="r_aca8a59cf2ff8039db64c469166a5e52d"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="structeu_1_1render_1_1BloomRender.html">BloomRender</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aca8a59cf2ff8039db64c469166a5e52d">bloom_render</a></td></tr>
-<tr class="memitem:a28e477bdaa6a7af7247029289405c4d0" id="r_a28e477bdaa6a7af7247029289405c4d0"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28e477bdaa6a7af7247029289405c4d0">last_bloom_blur_index</a></td></tr>
+<tr class="memitem:a28e477bdaa6a7af7247029289405c4d0" id="r_a28e477bdaa6a7af7247029289405c4d0"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28e477bdaa6a7af7247029289405c4d0">last_bloom_blur_index</a> = 0</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A source that "just" renders the world. </p>
 
 <p class="definition">Definition at line <a class="el" href="postproc_8internal_8h_source.html#l00033">33</a> of file <a class="el" href="postproc_8internal_8h_source.html">postproc.internal.h</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a757d48467fa322426ed0cd42a5030ab6" name="a757d48467fa322426ed0cd42a5030ab6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a757d48467fa322426ed0cd42a5030ab6">&#9670;&#160;</a></span>RenderWorld()</h2>
+<a id="ae912131371dd0ef9e84a1dacfbdb944b" name="ae912131371dd0ef9e84a1dacfbdb944b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae912131371dd0ef9e84a1dacfbdb944b">&#9670;&#160;</a></span>RenderWorld()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -120,7 +120,7 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">eu::render::RenderWorld::RenderWorld </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structeu_1_1Size.html">Size</a></td>          <td class="paramname"><span class="paramname"><em>size</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="structeu_1_1Size.html">Size</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>size</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -259,7 +259,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::size_t eu::render::RenderWorld::last_bloom_blur_index</td>
+          <td class="memname">std::size_t eu::render::RenderWorld::last_bloom_blur_index = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -291,7 +291,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structeu_1_1render_1_1RealizeShader.html">RealizeShader</a>* eu::render::RenderWorld::realize_shader</td>
+          <td class="memname"><a class="el" href="structeu_1_1render_1_1RealizeShader.html">RealizeShader</a>* eu::render::RenderWorld::realize_shader = nullptr</td>
         </tr>
       </table>
 </div><div class="memdoc">

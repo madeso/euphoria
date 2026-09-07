@@ -170,7 +170,7 @@
         </inbodydescription>
         <location file="libs/render/src/eu/render/renderer.h" line="46" column="6"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a48c61e596ec3b70086b2350b2994a5bd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a48c61e596ec3b70086b2350b2994a5bd" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1UnlitMaterial" kindref="compound">UnlitMaterial</ref> &gt;</type>
         <definition>std::shared_ptr&lt; UnlitMaterial &gt; eu::render::Renderer::make_unlit_material</definition>
         <argsstring>() const</argsstring>
@@ -182,9 +182,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="48" column="17"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="48" column="18"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a4d493a1c79a32e0f663ef4142a38075a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a4d493a1c79a32e0f663ef4142a38075a" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1DefaultMaterial" kindref="compound">DefaultMaterial</ref> &gt;</type>
         <definition>std::shared_ptr&lt; DefaultMaterial &gt; eu::render::Renderer::make_default_material</definition>
         <argsstring>() const</argsstring>
@@ -196,7 +196,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="49" column="17"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="49" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a5e14a019529bc30d1cf222ea78ab6f56" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1CompiledGeomVertexAttributes" kindref="compound">core::CompiledGeomVertexAttributes</ref></type>
@@ -226,62 +226,6 @@
         </inbodydescription>
         <location file="libs/render/src/eu/render/renderer.h" line="52" column="37"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a28a5fb38eb7a942745517e4a16e31395" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1FactorEffect" kindref="compound">FactorEffect</ref> &gt;</type>
-        <definition>std::shared_ptr&lt; FactorEffect &gt; eu::render::Renderer::make_invert_effect</definition>
-        <argsstring>() const</argsstring>
-        <name>make_invert_effect</name>
-        <qualifiedname>eu::render::Renderer::make_invert_effect</qualifiedname>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="54" column="17"/>
-      </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a39b992c8704ccd976e38ed00044b6816" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1FactorEffect" kindref="compound">FactorEffect</ref> &gt;</type>
-        <definition>std::shared_ptr&lt; FactorEffect &gt; eu::render::Renderer::make_grayscale_effect</definition>
-        <argsstring>() const</argsstring>
-        <name>make_grayscale_effect</name>
-        <qualifiedname>eu::render::Renderer::make_grayscale_effect</qualifiedname>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="55" column="17"/>
-      </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a7c8b89eb68b3ea264c3e68c5488a4fb2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1FactorEffect" kindref="compound">FactorEffect</ref> &gt;</type>
-        <definition>std::shared_ptr&lt; FactorEffect &gt; eu::render::Renderer::make_damage_effect</definition>
-        <argsstring>() const</argsstring>
-        <name>make_damage_effect</name>
-        <qualifiedname>eu::render::Renderer::make_damage_effect</qualifiedname>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="56" column="17"/>
-      </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a402b5a90ae844d430493e557d1aa894f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1FactorEffect" kindref="compound">FactorEffect</ref> &gt;</type>
-        <definition>std::shared_ptr&lt; FactorEffect &gt; eu::render::Renderer::make_blur_effect</definition>
-        <argsstring>() const</argsstring>
-        <name>make_blur_effect</name>
-        <qualifiedname>eu::render::Renderer::make_blur_effect</qualifiedname>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="57" column="17"/>
-      </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a5a8a427e91e67011a7651c7af5530c22" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1Skybox" kindref="compound">Skybox</ref></type>
         <definition>Skybox eu::render::Renderer::make_skybox</definition>
@@ -298,7 +242,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="59" column="9"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="54" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a4bc0ed77c627dcf7d3b6aecce53baaea" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -313,7 +257,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="62" column="7"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="57" column="7"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1a1237cad9b3f85985a7a5216206171f1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -342,7 +286,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="65" column="6"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="60" column="6"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1Renderer_1af32c692c18d3e01135ea16e3a660e862" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -366,7 +310,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/renderer.h" line="67" column="6"/>
+        <location file="libs/render/src/eu/render/renderer.h" line="62" column="6"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -416,17 +360,13 @@
         <link refid="structeu_1_1render_1_1ShaderSource"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/renderer.h" line="32" column="1" bodyfile="libs/render/src/eu/render/renderer.h" bodystart="33" bodyend="68"/>
+    <location file="libs/render/src/eu/render/renderer.h" line="32" column="1" bodyfile="libs/render/src/eu/render/renderer.h" bodystart="33" bodyend="63"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1Renderer_1a20f70b738cc6fd2a275c78cff9f858c3" prot="public" virt="non-virtual"><scope>eu::render::Renderer</scope><name>assets</name></member>
       <member refid="structeu_1_1render_1_1Renderer_1a33dc1544737bdfc949d50e79460e6b0e" prot="public" virt="non-virtual"><scope>eu::render::Renderer</scope><name>debug</name></member>
       <member refid="structeu_1_1render_1_1Renderer_1a4a832ca6cb425e046826cdaf1bdbc2da" prot="public" virt="non-virtual"><scope>eu::render::Renderer</scope><name>default_geom_layout</name></member>
       <member refid="structeu_1_1render_1_1Renderer_1a4bc0ed77c627dcf7d3b6aecce53baaea" prot="public" virt="non-virtual"><scope>eu::render::Renderer</scope><name>is_loaded</name></member>
-      <member refid="structeu_1_1render_1_1Renderer_1a402b5a90ae844d430493e557d1aa894f" prot="public" virt="non-virtual"><scope>eu::render::Renderer</scope><name>make_blur_effect</name></member>
-      <member refid="structeu_1_1render_1_1Renderer_1a7c8b89eb68b3ea264c3e68c5488a4fb2" prot="public" virt="non-virtual"><scope>eu::render::Renderer</scope><name>make_damage_effect</name></member>
       <member refid="structeu_1_1render_1_1Renderer_1a4d493a1c79a32e0f663ef4142a38075a" prot="public" virt="non-virtual"><scope>eu::render::Renderer</scope><name>make_default_material</name></member>
-      <member refid="structeu_1_1render_1_1Renderer_1a39b992c8704ccd976e38ed00044b6816" prot="public" virt="non-virtual"><scope>eu::render::Renderer</scope><name>make_grayscale_effect</name></member>
-      <member refid="structeu_1_1render_1_1Renderer_1a28a5fb38eb7a942745517e4a16e31395" prot="public" virt="non-virtual"><scope>eu::render::Renderer</scope><name>make_invert_effect</name></member>
       <member refid="structeu_1_1render_1_1Renderer_1a5a8a427e91e67011a7651c7af5530c22" prot="public" virt="non-virtual"><scope>eu::render::Renderer</scope><name>make_skybox</name></member>
       <member refid="structeu_1_1render_1_1Renderer_1a48c61e596ec3b70086b2350b2994a5bd" prot="public" virt="non-virtual"><scope>eu::render::Renderer</scope><name>make_unlit_material</name></member>
       <member refid="structeu_1_1render_1_1Renderer_1ae4b6bfdf39ba8a4c1ae74366a659eca4" prot="public" virt="non-virtual"><scope>eu::render::Renderer</scope><name>operator=</name></member>

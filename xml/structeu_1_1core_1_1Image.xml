@@ -66,7 +66,7 @@
         </inbodydescription>
         <location file="libs/core/src/eu/core/image.h" line="24" column="5"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1core_1_1Image_1a6144fe013dbe81adc6d71622a4baf21f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1core_1_1Image_1a6144fe013dbe81adc6d71622a4baf21f" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool eu::core::Image::is_valid</definition>
         <argsstring>() const</argsstring>
@@ -79,7 +79,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/eu/core/image.h" line="27" column="10"/>
+        <location file="libs/core/src/eu/core/image.h" line="27" column="11"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1core_1_1Image_1a5e47e29c4c120109e84b7db26cba0e48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -253,7 +253,7 @@
         </inbodydescription>
         <location file="libs/core/src/eu/core/image.h" line="47" column="10"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1core_1_1Image_1a1932a15141a0e3fbd3dcb3595a75b8d4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1core_1_1Image_1a1932a15141a0e3fbd3dcb3595a75b8d4" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1PixelColor" kindref="compound">PixelColor</ref></type>
         <definition>PixelColor eu::core::Image::get_pixel</definition>
         <argsstring>(int x, int y) const</argsstring>
@@ -294,7 +294,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/eu/core/image.h" line="53" column="16"/>
+        <location file="libs/core/src/eu/core/image.h" line="53" column="17"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

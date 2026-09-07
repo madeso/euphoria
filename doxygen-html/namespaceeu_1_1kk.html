@@ -76,8 +76,88 @@ Variables</h2></td></tr>
 <tr class="memitem:a6e54f67d8cb003752fe8645dacbb1eb6" id="r_a6e54f67d8cb003752fe8645dacbb1eb6"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structeu_1_1n3.html">n3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e54f67d8cb003752fe8645dacbb1eb6">left</a> = -<a class="el" href="#a092a844a36479f5ed40c7f5513387bd2">x_axis</a></td></tr>
 <tr class="memitem:a445b3000562a36bb65b64581099c8ebb" id="r_a445b3000562a36bb65b64581099c8ebb"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structeu_1_1n3.html">n3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a445b3000562a36bb65b64581099c8ebb">in</a> = -<a class="el" href="#a53b5f139d5966af1696a66cb130d9fde">z_axis</a></td></tr>
 <tr class="memitem:aa3fab5254fb43f0591354fb31cc5bcc9" id="r_aa3fab5254fb43f0591354fb31cc5bcc9"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structeu_1_1n3.html">n3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3fab5254fb43f0591354fb31cc5bcc9">out</a> = <a class="el" href="#a53b5f139d5966af1696a66cb130d9fde">z_axis</a></td></tr>
+<tr class="memitem:a9ebe3e4afc4ee24a7e5d215d45f13f4b" id="r_a9ebe3e4afc4ee24a7e5d215d45f13f4b"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ebe3e4afc4ee24a7e5d215d45f13f4b">max_textures_supported</a> = 16</td></tr>
+<tr class="memitem:a36492684b45938af1c32f3f85d83be88" id="r_a36492684b45938af1c32f3f85d83be88"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36492684b45938af1c32f3f85d83be88">almost_zero</a> = 0.01f</td></tr>
+<tr class="memitem:a88c092cba1462f22e702c2c427ce469a" id="r_a88c092cba1462f22e702c2c427ce469a"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a88c092cba1462f22e702c2c427ce469a">alpha_transparency_limit</a> = 1.0f - <a class="el" href="#a36492684b45938af1c32f3f85d83be88">almost_zero</a></td></tr>
+<tr class="memdesc:a88c092cba1462f22e702c2c427ce469a"><td class="mdescLeft">&#160;</td><td class="mdescRight">if alpha goes above this limit, it is no longer considered transparent  <br /></td></tr>
+<tr class="memitem:aa626d16ea38da0d0626bd5640e3d7930" id="r_aa626d16ea38da0d0626bd5640e3d7930"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa626d16ea38da0d0626bd5640e3d7930">outline_scale</a> = 1.1f</td></tr>
+<tr class="memitem:abebee3e331acb506c0e9c14fe5415217" id="r_abebee3e331acb506c0e9c14fe5415217"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abebee3e331acb506c0e9c14fe5415217">blur_samples</a> = 10</td></tr>
 </table>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
+<a id="a36492684b45938af1c32f3f85d83be88" name="a36492684b45938af1c32f3f85d83be88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36492684b45938af1c32f3f85d83be88">&#9670;&#160;</a></span>almost_zero</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float eu::kk::almost_zero = 0.01f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00011">11</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
+
+</div>
+</div>
+<a id="a88c092cba1462f22e702c2c427ce469a" name="a88c092cba1462f22e702c2c427ce469a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88c092cba1462f22e702c2c427ce469a">&#9670;&#160;</a></span>alpha_transparency_limit</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float eu::kk::alpha_transparency_limit = 1.0f - <a class="el" href="#a36492684b45938af1c32f3f85d83be88">almost_zero</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>if alpha goes above this limit, it is no longer considered transparent </p>
+
+<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00013">13</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
+
+</div>
+</div>
+<a id="abebee3e331acb506c0e9c14fe5415217" name="abebee3e331acb506c0e9c14fe5415217"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abebee3e331acb506c0e9c14fe5415217">&#9670;&#160;</a></span>blur_samples</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int eu::kk::blur_samples = 10</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00017">17</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
+
+</div>
+</div>
 <a id="abfabb2c7479e4e377c2aa9a3d8a70c5f" name="abfabb2c7479e4e377c2aa9a3d8a70c5f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abfabb2c7479e4e377c2aa9a3d8a70c5f">&#9670;&#160;</a></span>down</h2>
 
@@ -174,6 +254,30 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a9ebe3e4afc4ee24a7e5d215d45f13f4b" name="a9ebe3e4afc4ee24a7e5d215d45f13f4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ebe3e4afc4ee24a7e5d215d45f13f4b">&#9670;&#160;</a></span>max_textures_supported</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t eu::kk::max_textures_supported = 16</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00007">7</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
+
+</div>
+</div>
 <a id="aa3fab5254fb43f0591354fb31cc5bcc9" name="aa3fab5254fb43f0591354fb31cc5bcc9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa3fab5254fb43f0591354fb31cc5bcc9">&#9670;&#160;</a></span>out</h2>
 
@@ -195,6 +299,30 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00134">134</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
+
+</div>
+</div>
+<a id="aa626d16ea38da0d0626bd5640e3d7930" name="aa626d16ea38da0d0626bd5640e3d7930"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa626d16ea38da0d0626bd5640e3d7930">&#9670;&#160;</a></span>outline_scale</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float eu::kk::outline_scale = 1.1f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00015">15</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
 
 </div>
 </div>

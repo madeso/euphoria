@@ -10,6 +10,7 @@
         <argsstring></argsstring>
         <name>world</name>
         <qualifiedname>eu::render::PostProcArg::world</qualifiedname>
+        <initializer>= nullptr</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -24,13 +25,14 @@
         <argsstring></argsstring>
         <name>window_size</name>
         <qualifiedname>eu::render::PostProcArg::window_size</qualifiedname>
+        <initializer>= {.width = 0, .height = 0}</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="29" column="6" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="29" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="29" column="6" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="29" bodyend="29"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1PostProcArg_1a35e1e140d3fbb42e82e9760904ef019d" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1Rect" kindref="compound">Rect</ref></type>
@@ -38,13 +40,14 @@
         <argsstring></argsstring>
         <name>final_rect</name>
         <qualifiedname>eu::render::PostProcArg::final_rect</qualifiedname>
+        <initializer>= {}</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/postproc.h" line="30" column="10" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="30" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/postproc.h" line="30" column="10" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="30" bodyend="30"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1PostProcArg_1ad657592510232f09cc22537c48306793" prot="public" static="no" mutable="no">
         <type>const <ref refid="structeu_1_1render_1_1Camera" kindref="compound">Camera</ref> *</type>
@@ -52,6 +55,7 @@
         <argsstring></argsstring>
         <name>camera</name>
         <qualifiedname>eu::render::PostProcArg::camera</qualifiedname>
+        <initializer>= nullptr</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -66,6 +70,7 @@
         <argsstring></argsstring>
         <name>renderer</name>
         <qualifiedname>eu::render::PostProcArg::renderer</qualifiedname>
+        <initializer>= nullptr</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>

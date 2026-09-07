@@ -55,7 +55,75 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/canvas.h" line="108" column="5"/>
+        <location file="libs/render/src/eu/render/canvas.h" line="107" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1RenderLayer2_1a3127abe8e227185ff5248b3b542b4a3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::RenderLayer2::RenderLayer2</definition>
+        <argsstring>(RenderLayer2 &amp;&amp;)=delete</argsstring>
+        <name>RenderLayer2</name>
+        <qualifiedname>eu::render::RenderLayer2::RenderLayer2</qualifiedname>
+        <param>
+          <type>RenderLayer2 &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/canvas.h" line="109" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1RenderLayer2_1a27d336421c05eb8ad651e88f991d2fd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::render::RenderLayer2::RenderLayer2</definition>
+        <argsstring>(const RenderLayer2 &amp;)=delete</argsstring>
+        <name>RenderLayer2</name>
+        <qualifiedname>eu::render::RenderLayer2::RenderLayer2</qualifiedname>
+        <param>
+          <type>const RenderLayer2 &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/canvas.h" line="110" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1RenderLayer2_1a32fd34422987a7628c58e728f9cf5119" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::RenderLayer2::operator=</definition>
+        <argsstring>(RenderLayer2 &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>eu::render::RenderLayer2::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1render_1_1RenderLayer2_1adca13917faf54524ccfb850b94d6f76f" kindref="member">RenderLayer2</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/canvas.h" line="111" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1render_1_1RenderLayer2_1ac896c2c5c425a9727092c7eecd31e44c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::render::RenderLayer2::operator=</definition>
+        <argsstring>(const RenderLayer2 &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>eu::render::RenderLayer2::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1RenderLayer2_1adca13917faf54524ccfb850b94d6f76f" kindref="member">RenderLayer2</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/canvas.h" line="112" column="10"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -155,11 +223,15 @@
         <link refid="structeu_1_1render_1_1Uniform"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/canvas.h" line="102" column="1" bodyfile="libs/render/src/eu/render/canvas.h" bodystart="103" bodyend="109"/>
+    <location file="libs/render/src/eu/render/canvas.h" line="102" column="1" bodyfile="libs/render/src/eu/render/canvas.h" bodystart="103" bodyend="113"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1RenderLayer2_1a24e23416081e947b84ce62063c85879d" prot="public" virt="non-virtual"><scope>eu::render::RenderLayer2</scope><name>batch</name></member>
       <member refid="structeu_1_1render_1_1Layer_1aeb8b243abd94f3b72e4fbc8169bf52b2" prot="public" virt="non-virtual"><scope>eu::render::RenderLayer2</scope><name>mouse_to_world</name></member>
+      <member refid="structeu_1_1render_1_1RenderLayer2_1a32fd34422987a7628c58e728f9cf5119" prot="public" virt="non-virtual"><scope>eu::render::RenderLayer2</scope><name>operator=</name></member>
+      <member refid="structeu_1_1render_1_1RenderLayer2_1ac896c2c5c425a9727092c7eecd31e44c" prot="public" virt="non-virtual"><scope>eu::render::RenderLayer2</scope><name>operator=</name></member>
       <member refid="structeu_1_1render_1_1RenderLayer2_1adca13917faf54524ccfb850b94d6f76f" prot="public" virt="non-virtual"><scope>eu::render::RenderLayer2</scope><name>RenderLayer2</name></member>
+      <member refid="structeu_1_1render_1_1RenderLayer2_1a3127abe8e227185ff5248b3b542b4a3f" prot="public" virt="non-virtual"><scope>eu::render::RenderLayer2</scope><name>RenderLayer2</name></member>
+      <member refid="structeu_1_1render_1_1RenderLayer2_1a27d336421c05eb8ad651e88f991d2fd9" prot="public" virt="non-virtual"><scope>eu::render::RenderLayer2</scope><name>RenderLayer2</name></member>
       <member refid="structeu_1_1render_1_1Layer_1a43998af14c83059bc86fda1d01b0b7f5" prot="public" virt="non-virtual"><scope>eu::render::RenderLayer2</scope><name>screen</name></member>
       <member refid="structeu_1_1render_1_1Layer_1a7c89993da5c98c4c33005592aa910ecf" prot="public" virt="non-virtual"><scope>eu::render::RenderLayer2</scope><name>viewport_aabb_in_worldspace</name></member>
       <member refid="structeu_1_1render_1_1RenderLayer2_1aed677563090903c6dce3e7590eba3aee" prot="public" virt="non-virtual"><scope>eu::render::RenderLayer2</scope><name>~RenderLayer2</name></member>

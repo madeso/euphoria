@@ -297,97 +297,6 @@
       <member refid="group__render_1gac2414627ce6884064c21ae9b773b3b72" kind="typedef"><name>StencilOp</name></member>
     </sectiondef>
     <sectiondef kind="var">
-      <memberdef kind="variable" id="namespaceeu_1_1render_1ad1e3a302bde920dcc4d7714570d5838d" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>std::size_t</type>
-        <definition>std::size_t eu::render::MAX_TEXTURES_SUPPORTED</definition>
-        <argsstring></argsstring>
-        <name>MAX_TEXTURES_SUPPORTED</name>
-        <qualifiedname>eu::render::MAX_TEXTURES_SUPPORTED</qualifiedname>
-        <initializer>= 16</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/render/src/eu/render/constants.h" line="7" column="23" bodyfile="libs/render/src/eu/render/constants.h" bodystart="7" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="namespaceeu_1_1render_1a09db2372293ec938678ad34b8fb26625" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>float</type>
-        <definition>float eu::render::ALMOST_ZERO</definition>
-        <argsstring></argsstring>
-        <name>ALMOST_ZERO</name>
-        <qualifiedname>eu::render::ALMOST_ZERO</qualifiedname>
-        <initializer>= 0.01f</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/render/src/eu/render/constants.h" line="11" column="17" bodyfile="libs/render/src/eu/render/constants.h" bodystart="11" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="namespaceeu_1_1render_1a03c8a414127b669c13e4b0dfdabf24cc" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>float</type>
-        <definition>float eu::render::ALPHA_TRANSPARENCY_LIMIT</definition>
-        <argsstring></argsstring>
-        <name>ALPHA_TRANSPARENCY_LIMIT</name>
-        <qualifiedname>eu::render::ALPHA_TRANSPARENCY_LIMIT</qualifiedname>
-        <initializer>= 1.0f - <ref refid="namespaceeu_1_1render_1a09db2372293ec938678ad34b8fb26625" kindref="member">ALMOST_ZERO</ref></initializer>
-        <briefdescription>
-<para>if alpha goes above this limit, it is no longer considered transparent </para>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/render/src/eu/render/constants.h" line="13" column="17" bodyfile="libs/render/src/eu/render/constants.h" bodystart="13" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="namespaceeu_1_1render_1a44e5de34a6276044970f6d46b5ae3e5a" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>float</type>
-        <definition>float eu::render::OUTLINE_SCALE</definition>
-        <argsstring></argsstring>
-        <name>OUTLINE_SCALE</name>
-        <qualifiedname>eu::render::OUTLINE_SCALE</qualifiedname>
-        <initializer>= 1.1f</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/render/src/eu/render/constants.h" line="15" column="17" bodyfile="libs/render/src/eu/render/constants.h" bodystart="15" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="namespaceeu_1_1render_1a199d0ae92641f907f213eb798a652d03" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>int</type>
-        <definition>int eu::render::BLUR_SAMPLES</definition>
-        <argsstring></argsstring>
-        <name>BLUR_SAMPLES</name>
-        <qualifiedname>eu::render::BLUR_SAMPLES</qualifiedname>
-        <initializer>= 10</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/render/src/eu/render/constants.h" line="17" column="15" bodyfile="libs/render/src/eu/render/constants.h" bodystart="17" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="namespaceeu_1_1render_1a94b089347dc1ac56631b49728fb85d2d" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>auto</type>
-        <definition>auto eu::render::UP</definition>
-        <argsstring></argsstring>
-        <name>UP</name>
-        <qualifiedname>eu::render::UP</qualifiedname>
-        <initializer>= <ref refid="structeu_1_1v3" kindref="compound">v3</ref>(0.0f, 1.0f, 0.0f)</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/render/src/eu/render/space.h" line="6" column="16" bodyfile="libs/render/src/eu/render/space.h" bodystart="6" bodyend="-1"/>
-      </memberdef>
       <member refid="group__texture_1gac79b1d9294cd27d6bd858386a5d3b0b9" kind="variable"><name>cubemap_size</name></member>
     </sectiondef>
     <sectiondef kind="func">
@@ -416,7 +325,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/canvas.h" line="156" column="14" declfile="libs/render/src/eu/render/canvas.h" declline="156" declcolumn="14"/>
+        <location file="libs/render/src/eu/render/canvas.h" line="160" column="14" declfile="libs/render/src/eu/render/canvas.h" declline="160" declcolumn="14"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1ae247cae0f80ca3530679bc0e2d1029e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1RenderLayer3" kindref="compound">RenderLayer3</ref></type>
@@ -438,7 +347,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/canvas.h" line="157" column="14" declfile="libs/render/src/eu/render/canvas.h" declline="157" declcolumn="14"/>
+        <location file="libs/render/src/eu/render/canvas.h" line="161" column="14" declfile="libs/render/src/eu/render/canvas.h" declline="161" declcolumn="14"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1ab1e912efe3db44511600992ea7927c54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1Layer" kindref="compound">Layer</ref></type>
@@ -460,7 +369,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/canvas.h" line="158" column="7" declfile="libs/render/src/eu/render/canvas.h" declline="158" declcolumn="7"/>
+        <location file="libs/render/src/eu/render/canvas.h" line="162" column="7" declfile="libs/render/src/eu/render/canvas.h" declline="162" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1a316fe11add3c979a7c29ddda7dc1496f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1RenderLayer2" kindref="compound">RenderLayer2</ref></type>
@@ -482,7 +391,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/canvas.h" line="160" column="14" declfile="libs/render/src/eu/render/canvas.h" declline="160" declcolumn="14"/>
+        <location file="libs/render/src/eu/render/canvas.h" line="164" column="14" declfile="libs/render/src/eu/render/canvas.h" declline="164" declcolumn="14"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1a806f6ea26afb7507dba8baad30622628" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1RenderLayer3" kindref="compound">RenderLayer3</ref></type>
@@ -504,7 +413,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/canvas.h" line="161" column="14" declfile="libs/render/src/eu/render/canvas.h" declline="161" declcolumn="14"/>
+        <location file="libs/render/src/eu/render/canvas.h" line="165" column="14" declfile="libs/render/src/eu/render/canvas.h" declline="165" declcolumn="14"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1ac5ad467a0e1aca4c0c59105d5c11eea3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1Layer" kindref="compound">Layer</ref></type>
@@ -526,7 +435,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/canvas.h" line="162" column="7" declfile="libs/render/src/eu/render/canvas.h" declline="162" declcolumn="7"/>
+        <location file="libs/render/src/eu/render/canvas.h" line="166" column="7" declfile="libs/render/src/eu/render/canvas.h" declline="166" declcolumn="7"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1render_1ad6303530478636ae6eb52564cb840397" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1CompiledMesh" kindref="compound">CompiledMesh</ref></type>
@@ -1003,7 +912,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/space.h" line="17" column="15" declfile="libs/render/src/eu/render/space.h" declline="17" declcolumn="15"/>
+        <location file="libs/render/src/eu/render/space.h" line="15" column="15" declfile="libs/render/src/eu/render/space.h" declline="15" declcolumn="15"/>
       </memberdef>
       <member refid="group__render_1ga5bb1733b57b1d0b9e47e84e2d36e02c3" kind="function"><name>bind_texture_2d</name></member>
       <member refid="group__render_1gaade6a54d64cd6ed1b5f737e428e37d11" kind="function"><name>bind_texture_2d</name></member>

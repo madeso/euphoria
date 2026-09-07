@@ -186,9 +186,9 @@
         </inbodydescription>
         <location file="libs/render/src/eu/render/state.h" line="137" column="15" bodyfile="libs/render/src/eu/render/state.h" bodystart="137" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeu_1_1render_1_1State_1a59a945469daba5e10d6b145b7652fa48" prot="public" static="no" mutable="no">
-        <type>std::array&lt; std::optional&lt; unsigned int &gt;, <ref refid="namespaceeu_1_1render_1ad1e3a302bde920dcc4d7714570d5838d" kindref="member">MAX_TEXTURES_SUPPORTED</ref> &gt;</type>
-        <definition>std::array&lt;std::optional&lt;unsigned int&gt;, MAX_TEXTURES_SUPPORTED&gt; eu::render::State::texture_bound</definition>
+      <memberdef kind="variable" id="structeu_1_1render_1_1State_1aa98edde9b0f0b982d3a797c20455ba06" prot="public" static="no" mutable="no">
+        <type>std::array&lt; std::optional&lt; unsigned int &gt;, <ref refid="namespaceeu_1_1kk_1a9ebe3e4afc4ee24a7e5d215d45f13f4b" kindref="member">kk::max_textures_supported</ref> &gt;</type>
+        <definition>std::array&lt;std::optional&lt;unsigned int&gt;, kk::max_textures_supported&gt; eu::render::State::texture_bound</definition>
         <argsstring></argsstring>
         <name>texture_bound</name>
         <qualifiedname>eu::render::State::texture_bound</qualifiedname>
@@ -221,7 +221,7 @@
       <member refid="structeu_1_1render_1_1State_1ae464f2be64178cd1c1afd1eb491bb5d2" prot="public" virt="non-virtual"><scope>eu::render::State</scope><name>stencil_mask</name></member>
       <member refid="structeu_1_1render_1_1State_1af139d5c26ea50316f024ba20f6f54dc8" prot="public" virt="non-virtual"><scope>eu::render::State</scope><name>stencil_op</name></member>
       <member refid="structeu_1_1render_1_1State_1af196fb078198797c942fec6a64231779" prot="public" virt="non-virtual"><scope>eu::render::State</scope><name>stencil_test</name></member>
-      <member refid="structeu_1_1render_1_1State_1a59a945469daba5e10d6b145b7652fa48" prot="public" virt="non-virtual"><scope>eu::render::State</scope><name>texture_bound</name></member>
+      <member refid="structeu_1_1render_1_1State_1aa98edde9b0f0b982d3a797c20455ba06" prot="public" virt="non-virtual"><scope>eu::render::State</scope><name>texture_bound</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

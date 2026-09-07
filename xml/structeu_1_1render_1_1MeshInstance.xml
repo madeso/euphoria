@@ -79,7 +79,7 @@
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeu_1_1render_1_1MeshInstance_1a4142ec8109bd5f673b8e15bdefd7edd2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1MeshInstance_1a4142ec8109bd5f673b8e15bdefd7edd2" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1LocalAxis" kindref="compound">LocalAxis</ref></type>
         <definition>LocalAxis eu::render::MeshInstance::get_local_axis</definition>
         <argsstring>() const</argsstring>
@@ -91,7 +91,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="99" column="11"/>
+        <location file="libs/render/src/eu/render/world.h" line="99" column="12"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

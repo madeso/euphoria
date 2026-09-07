@@ -157,7 +157,7 @@
         <argsstring></argsstring>
         <name>shadow_map_resolution</name>
         <qualifiedname>eu::render::RenderSettings::shadow_map_resolution</qualifiedname>
-        <initializer>= {2048, 2048}</initializer>
+        <initializer>= {.width = 2048, .height = 2048}</initializer>
         <briefdescription>
 <para>The resolution of the shadow map. </para>
         </briefdescription>

@@ -1102,10 +1102,6 @@
     <member refid="structeu_1_1render_1_1Renderer_1a4d493a1c79a32e0f663ef4142a38075a" kind="function"><name>make_default_material</name></member>
     <member refid="structeu_1_1render_1_1Renderer_1a5e14a019529bc30d1cf222ea78ab6f56" kind="function"><name>unlit_geom_layout</name></member>
     <member refid="structeu_1_1render_1_1Renderer_1a4a832ca6cb425e046826cdaf1bdbc2da" kind="function"><name>default_geom_layout</name></member>
-    <member refid="structeu_1_1render_1_1Renderer_1a28a5fb38eb7a942745517e4a16e31395" kind="function"><name>make_invert_effect</name></member>
-    <member refid="structeu_1_1render_1_1Renderer_1a39b992c8704ccd976e38ed00044b6816" kind="function"><name>make_grayscale_effect</name></member>
-    <member refid="structeu_1_1render_1_1Renderer_1a7c8b89eb68b3ea264c3e68c5488a4fb2" kind="function"><name>make_damage_effect</name></member>
-    <member refid="structeu_1_1render_1_1Renderer_1a402b5a90ae844d430493e557d1aa894f" kind="function"><name>make_blur_effect</name></member>
     <member refid="structeu_1_1render_1_1Renderer_1a5a8a427e91e67011a7651c7af5530c22" kind="function"><name>make_skybox</name></member>
     <member refid="structeu_1_1render_1_1Renderer_1a4bc0ed77c627dcf7d3b6aecce53baaea" kind="function"><name>is_loaded</name></member>
     <member refid="structeu_1_1render_1_1Renderer_1a1237cad9b3f85985a7a5216206171f1a" kind="function"><name>render_world</name></member>
@@ -1123,6 +1119,10 @@
     <member refid="structeu_1_1render_1_1RenderLayer2_1a24e23416081e947b84ce62063c85879d" kind="variable"><name>batch</name></member>
     <member refid="structeu_1_1render_1_1RenderLayer2_1adca13917faf54524ccfb850b94d6f76f" kind="function"><name>RenderLayer2</name></member>
     <member refid="structeu_1_1render_1_1RenderLayer2_1aed677563090903c6dce3e7590eba3aee" kind="function"><name>~RenderLayer2</name></member>
+    <member refid="structeu_1_1render_1_1RenderLayer2_1a3127abe8e227185ff5248b3b542b4a3f" kind="function"><name>RenderLayer2</name></member>
+    <member refid="structeu_1_1render_1_1RenderLayer2_1a27d336421c05eb8ad651e88f991d2fd9" kind="function"><name>RenderLayer2</name></member>
+    <member refid="structeu_1_1render_1_1RenderLayer2_1a32fd34422987a7628c58e728f9cf5119" kind="function"><name>operator=</name></member>
+    <member refid="structeu_1_1render_1_1RenderLayer2_1ac896c2c5c425a9727092c7eecd31e44c" kind="function"><name>operator=</name></member>
   </compound>
   <compound refid="structeu_1_1render_1_1RenderLayer3" kind="struct"><name>eu::render::RenderLayer3</name>
     <member refid="structeu_1_1render_1_1RenderLayer3_1a9fd528a4e8e93daab05c38ad73a0d958" kind="function"><name>RenderLayer3</name></member>
@@ -1168,7 +1168,7 @@
     <member refid="structeu_1_1render_1_1RenderWorld_1ae5764b9e9bd8a429bf3b3f5ce41ee5bd" kind="variable"><name>realize_shader</name></member>
     <member refid="structeu_1_1render_1_1RenderWorld_1aca8a59cf2ff8039db64c469166a5e52d" kind="variable"><name>bloom_render</name></member>
     <member refid="structeu_1_1render_1_1RenderWorld_1a28e477bdaa6a7af7247029289405c4d0" kind="variable"><name>last_bloom_blur_index</name></member>
-    <member refid="structeu_1_1render_1_1RenderWorld_1a757d48467fa322426ed0cd42a5030ab6" kind="function"><name>RenderWorld</name></member>
+    <member refid="structeu_1_1render_1_1RenderWorld_1ae912131371dd0ef9e84a1dacfbdb944b" kind="function"><name>RenderWorld</name></member>
     <member refid="structeu_1_1render_1_1RenderWorld_1ace02fdde73cf6bd1d6643e43abd17e33" kind="function"><name>update</name></member>
     <member refid="structeu_1_1render_1_1RenderWorld_1ad9cc968b3615dcf798ef77dc1ac59912" kind="function"><name>render</name></member>
     <member refid="structeu_1_1render_1_1RenderWorld_1a283e637309965024a00646c07ed2db77" kind="function"><name>gui</name></member>
@@ -1355,7 +1355,7 @@
     <member refid="structeu_1_1render_1_1State_1a311c7c596ce697be36183c6267584409" kind="variable"><name>stencil_func</name></member>
     <member refid="structeu_1_1render_1_1State_1af139d5c26ea50316f024ba20f6f54dc8" kind="variable"><name>stencil_op</name></member>
     <member refid="structeu_1_1render_1_1State_1ad9cb90bbcf704dc0341e64fb31c4cbde" kind="variable"><name>active_texture</name></member>
-    <member refid="structeu_1_1render_1_1State_1a59a945469daba5e10d6b145b7652fa48" kind="variable"><name>texture_bound</name></member>
+    <member refid="structeu_1_1render_1_1State_1aa98edde9b0f0b982d3a797c20455ba06" kind="variable"><name>texture_bound</name></member>
   </compound>
   <compound refid="structeu_1_1render_1_1StateChanger" kind="struct"><name>eu::render::StateChanger</name>
     <member refid="structeu_1_1render_1_1StateChanger_1a97c47d93b2e6df6d7bc556d8d8b23e62" kind="variable"><name>states</name></member>
@@ -1658,7 +1658,7 @@
     <member refid="group__math_1gaa3e88f63b802a9db740a821f312e6556" kind="function"><name>operator&gt;</name></member>
     <member refid="group__math_1gaf8448b714bf16cc794b4a29bfac33e6a" kind="function"><name>operator&gt;=</name></member>
     <member refid="group__math_1ga0bade92aadaac348c9d69c311012401c" kind="function"><name>lerp_angle</name></member>
-    <member refid="namespaceeu_1ae5c200f096fbdba113bc48c6e7eb3c37" kind="function"><name>operator&quot;&quot;_deg</name></member>
+    <member refid="namespaceeu_1a22a35cf51257939a13d26dac4d64641e" kind="function"><name>operator&quot;&quot;_deg</name></member>
     <member refid="namespaceeu_1a6f405a1d20ba38a084adf47b536ccb08" kind="function"><name>operator&quot;&quot;_deg</name></member>
     <member refid="namespaceeu_1a3abd15344887686dec8f63c16c48664e" kind="function"><name>operator&quot;&quot;_rad</name></member>
     <member refid="group__math_1ga1a4ab59cbac3b18a87a0d490dff83143" kind="function"><name>rha</name></member>
@@ -1833,16 +1833,16 @@
     <member refid="namespaceeu_1_1imgui_1a6887d690e8c91852b12a0aef78d2111fa7fa3b767c460b54a2be4d49030b349c7" kind="enumvalue"><name>no</name></member>
     <member refid="namespaceeu_1_1imgui_1a6887d690e8c91852b12a0aef78d2111faa6105c0a611b41b08f1209506350279e" kind="enumvalue"><name>yes</name></member>
     <member refid="namespaceeu_1_1imgui_1a502392178a28af7e2f21f36456f7ed43" kind="enum"><name>ImageShader</name></member>
-    <member refid="namespaceeu_1_1imgui_1a502392178a28af7e2f21f36456f7ed43a6adf97f83acf6453d4a6a4b1070f3754" kind="enumvalue"><name>None</name></member>
-    <member refid="namespaceeu_1_1imgui_1a502392178a28af7e2f21f36456f7ed43a800cc94407ac56dd99c5f89eb5c8f72a" kind="enumvalue"><name>TonemapAndGamma</name></member>
-    <member refid="namespaceeu_1_1imgui_1a502392178a28af7e2f21f36456f7ed43ad747460882e26f688d85286a817fb2d6" kind="enumvalue"><name>DepthOrtho</name></member>
+    <member refid="namespaceeu_1_1imgui_1a502392178a28af7e2f21f36456f7ed43a334c4a4c42fdb79d7ebc3e73b517e6f8" kind="enumvalue"><name>none</name></member>
+    <member refid="namespaceeu_1_1imgui_1a502392178a28af7e2f21f36456f7ed43a65cae4f1e6026f7494a9bb1349984db5" kind="enumvalue"><name>tonemap_and_gamma</name></member>
+    <member refid="namespaceeu_1_1imgui_1a502392178a28af7e2f21f36456f7ed43ad2b4cce50ba282d161baa6826f0aeab0" kind="enumvalue"><name>depth_ortho</name></member>
     <member refid="namespaceeu_1_1imgui_1a78b11aa78f2ad17f6b073cf346e64850" kind="function"><name>imgui_s_curve_editor</name></member>
     <member refid="namespaceeu_1_1imgui_1a420ae25b84de7554562a2b45086d01fa" kind="function"><name>imgui_text</name></member>
     <member refid="namespaceeu_1_1imgui_1a16ec0dc141f3a5c138f01887ee7b3b98" kind="function"><name>imgui_image</name></member>
     <member refid="namespaceeu_1_1imgui_1ab76823a0cdc47913592393872d8445ac" kind="function"><name>simple_gamma_slider</name></member>
-    <member refid="namespaceeu_1_1imgui_1aac726e31c001bea8566a1019d8ef58f6" kind="function"><name>drag</name></member>
-    <member refid="namespaceeu_1_1imgui_1a4b040bce31b42a8492fd5b8e9d3c7635" kind="function"><name>drag</name></member>
-    <member refid="namespaceeu_1_1imgui_1a14ca8b8ecb008694b753a5c7fbc29020" kind="function"><name>gear</name></member>
+    <member refid="namespaceeu_1_1imgui_1a25deb46cd40f718cd9fc56ac8d883207" kind="function"><name>drag</name></member>
+    <member refid="namespaceeu_1_1imgui_1af0288431818b8d61edc215ad5d0ec7f8" kind="function"><name>drag</name></member>
+    <member refid="namespaceeu_1_1imgui_1a71b22944824462e3666e064332b08a19" kind="function"><name>gear</name></member>
   </compound>
   <compound refid="namespaceeu_1_1io" kind="namespace"><name>eu::io</name>
     <member refid="namespaceeu_1_1io_1af1eaadaf42c3183baed23e8545e34ed6" kind="function"><name>string_from_file</name></member>
@@ -1877,6 +1877,11 @@
     <member refid="namespaceeu_1_1kk_1a6e54f67d8cb003752fe8645dacbb1eb6" kind="variable"><name>left</name></member>
     <member refid="namespaceeu_1_1kk_1a445b3000562a36bb65b64581099c8ebb" kind="variable"><name>in</name></member>
     <member refid="namespaceeu_1_1kk_1aa3fab5254fb43f0591354fb31cc5bcc9" kind="variable"><name>out</name></member>
+    <member refid="namespaceeu_1_1kk_1a9ebe3e4afc4ee24a7e5d215d45f13f4b" kind="variable"><name>max_textures_supported</name></member>
+    <member refid="namespaceeu_1_1kk_1a36492684b45938af1c32f3f85d83be88" kind="variable"><name>almost_zero</name></member>
+    <member refid="namespaceeu_1_1kk_1a88c092cba1462f22e702c2c427ce469a" kind="variable"><name>alpha_transparency_limit</name></member>
+    <member refid="namespaceeu_1_1kk_1aa626d16ea38da0d0626bd5640e3d7930" kind="variable"><name>outline_scale</name></member>
+    <member refid="namespaceeu_1_1kk_1abebee3e331acb506c0e9c14fe5415217" kind="variable"><name>blur_samples</name></member>
   </compound>
   <compound refid="namespaceeu_1_1log" kind="namespace"><name>eu::log</name>
     <member refid="namespaceeu_1_1log_1a643960e2f05465dc8fbdf5229e4e934d" kind="function"><name>get_global_logger</name></member>
@@ -1928,12 +1933,6 @@
     <member refid="group__render_1ga7e2c947b3161d42b9b1360f266b56c88" kind="typedef"><name>BlendMode</name></member>
     <member refid="group__render_1ga43fb2392c6b77e1684dc495d4b77c461" kind="typedef"><name>StencilFunc</name></member>
     <member refid="group__render_1gac2414627ce6884064c21ae9b773b3b72" kind="typedef"><name>StencilOp</name></member>
-    <member refid="namespaceeu_1_1render_1ad1e3a302bde920dcc4d7714570d5838d" kind="variable"><name>MAX_TEXTURES_SUPPORTED</name></member>
-    <member refid="namespaceeu_1_1render_1a09db2372293ec938678ad34b8fb26625" kind="variable"><name>ALMOST_ZERO</name></member>
-    <member refid="namespaceeu_1_1render_1a03c8a414127b669c13e4b0dfdabf24cc" kind="variable"><name>ALPHA_TRANSPARENCY_LIMIT</name></member>
-    <member refid="namespaceeu_1_1render_1a44e5de34a6276044970f6d46b5ae3e5a" kind="variable"><name>OUTLINE_SCALE</name></member>
-    <member refid="namespaceeu_1_1render_1a199d0ae92641f907f213eb798a652d03" kind="variable"><name>BLUR_SAMPLES</name></member>
-    <member refid="namespaceeu_1_1render_1a94b089347dc1ac56631b49728fb85d2d" kind="variable"><name>UP</name></member>
     <member refid="group__texture_1gac79b1d9294cd27d6bd858386a5d3b0b9" kind="variable"><name>cubemap_size</name></member>
     <member refid="group__render_1gadbbc30dc5b709d2c5378943ea468c5a4" kind="function"><name>create_vectors</name></member>
     <member refid="group__render_1ga294fc5bce51cf7db33bfcfbed0d0afc1" kind="function"><name>create_view_from_world_mat</name></member>
@@ -2359,8 +2358,8 @@
     <member refid="group__render_1gga6ebb0c1fbb5227cfb8bbd4fea1a9cb86a1a9028fd802c481a99491a418ca2fe86" kind="enumvalue"><name>vec4</name></member>
     <member refid="group__render_1gga6ebb0c1fbb5227cfb8bbd4fea1a9cb86abe14b41eb96410ea28b32bc138d885ae" kind="enumvalue"><name>mat4</name></member>
     <member refid="group__render_1ga1fe12b86dc08bb46cf98f0cec5b3e7fd" kind="enum"><name>TransformSource</name></member>
-    <member refid="group__render_1gga1fe12b86dc08bb46cf98f0cec5b3e7fdaf19516d11f2946f894070e92fcb56b6d" kind="enumvalue"><name>Uniform</name></member>
-    <member refid="group__render_1gga1fe12b86dc08bb46cf98f0cec5b3e7fda4bea50b56977df9fca1533e78fce2728" kind="enumvalue"><name>Instanced_mat4</name></member>
+    <member refid="group__render_1gga1fe12b86dc08bb46cf98f0cec5b3e7fdaa489ffed938ef1b9e86889bc413501ee" kind="enumvalue"><name>uniform</name></member>
+    <member refid="group__render_1gga1fe12b86dc08bb46cf98f0cec5b3e7fdaee09148c42f266eedc20cbf60b3a7828" kind="enumvalue"><name>instanced_mat4</name></member>
     <member refid="group__render_1ga0259d27836d6b0923021ed4759c2494f" kind="enum"><name>PostProcSetup</name></member>
     <member refid="group__render_1gga0259d27836d6b0923021ed4759c2494fa334c4a4c42fdb79d7ebc3e73b517e6f8" kind="enumvalue"><name>none</name></member>
     <member refid="group__render_1gga0259d27836d6b0923021ed4759c2494fa742f32c65ffd18b766fa307f8de2d47d" kind="enumvalue"><name>factor</name></member>

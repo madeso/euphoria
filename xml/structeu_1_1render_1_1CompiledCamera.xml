@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/camera.h" line="43" column="4" bodyfile="libs/render/src/eu/render/camera.h" bodystart="43" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/camera.h" line="53" column="4" bodyfile="libs/render/src/eu/render/camera.h" bodystart="53" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1CompiledCamera_1ad9db74f17eb4fc7d59ab4f7f079bc76e" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/camera.h" line="46" column="4" bodyfile="libs/render/src/eu/render/camera.h" bodystart="46" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/camera.h" line="56" column="4" bodyfile="libs/render/src/eu/render/camera.h" bodystart="56" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1CompiledCamera_1a677e20bd80a1015e7a41c8be6808d2cf" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
@@ -46,7 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/camera.h" line="47" column="4" bodyfile="libs/render/src/eu/render/camera.h" bodystart="47" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/camera.h" line="57" column="4" bodyfile="libs/render/src/eu/render/camera.h" bodystart="57" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1CompiledCamera_1aa48b5f22991d392533dc06eb72ea2ee2" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
@@ -60,7 +60,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/camera.h" line="48" column="4" bodyfile="libs/render/src/eu/render/camera.h" bodystart="48" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/camera.h" line="58" column="4" bodyfile="libs/render/src/eu/render/camera.h" bodystart="58" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -101,7 +101,7 @@
         <link refid="structeu_1_1v3"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/camera.h" line="40" column="1" bodyfile="libs/render/src/eu/render/camera.h" bodystart="41" bodyend="49"/>
+    <location file="libs/render/src/eu/render/camera.h" line="50" column="1" bodyfile="libs/render/src/eu/render/camera.h" bodystart="51" bodyend="59"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1CompiledCamera_1a8c1cd7ed96b49790112ab7ccce705aed" prot="public" virt="non-virtual"><scope>eu::render::CompiledCamera</scope><name>clip_from_view</name></member>
       <member refid="structeu_1_1render_1_1CompiledCamera_1aa48b5f22991d392533dc06eb72ea2ee2" prot="public" virt="non-virtual"><scope>eu::render::CompiledCamera</scope><name>in</name></member>

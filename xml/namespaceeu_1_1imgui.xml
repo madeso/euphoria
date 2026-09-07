@@ -37,22 +37,22 @@
         <type></type>
         <name>ImageShader</name>
         <qualifiedname>eu::imgui::ImageShader</qualifiedname>
-        <enumvalue id="namespaceeu_1_1imgui_1a502392178a28af7e2f21f36456f7ed43a6adf97f83acf6453d4a6a4b1070f3754" prot="public">
-          <name>None</name>
+        <enumvalue id="namespaceeu_1_1imgui_1a502392178a28af7e2f21f36456f7ed43a334c4a4c42fdb79d7ebc3e73b517e6f8" prot="public">
+          <name>none</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
-        <enumvalue id="namespaceeu_1_1imgui_1a502392178a28af7e2f21f36456f7ed43a800cc94407ac56dd99c5f89eb5c8f72a" prot="public">
-          <name>TonemapAndGamma</name>
+        <enumvalue id="namespaceeu_1_1imgui_1a502392178a28af7e2f21f36456f7ed43a65cae4f1e6026f7494a9bb1349984db5" prot="public">
+          <name>tonemap_and_gamma</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
-        <enumvalue id="namespaceeu_1_1imgui_1a502392178a28af7e2f21f36456f7ed43ad747460882e26f688d85286a817fb2d6" prot="public">
-          <name>DepthOrtho</name>
+        <enumvalue id="namespaceeu_1_1imgui_1a502392178a28af7e2f21f36456f7ed43ad2b4cce50ba282d161baa6826f0aeab0" prot="public">
+          <name>depth_ortho</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
@@ -191,14 +191,14 @@
         </inbodydescription>
         <location file="libs/imgui/src/eu/imgui/ui.h" line="42" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="42" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1imgui_1aac726e31c001bea8566a1019d8ef58f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1imgui_1a25deb46cd40f718cd9fc56ac8d883207" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool eu::imgui::drag</definition>
-        <argsstring>(const char *const label, v3 *drag)</argsstring>
+        <argsstring>(const char *label, v3 *drag)</argsstring>
         <name>drag</name>
         <qualifiedname>eu::imgui::drag</qualifiedname>
         <param>
-          <type>const char *const</type>
+          <type>const char *</type>
           <declname>label</declname>
         </param>
         <param>
@@ -213,14 +213,14 @@
         </inbodydescription>
         <location file="libs/imgui/src/eu/imgui/ui.h" line="44" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="44" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1imgui_1a4b040bce31b42a8492fd5b8e9d3c7635" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1imgui_1af0288431818b8d61edc215ad5d0ec7f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool eu::imgui::drag</definition>
-        <argsstring>(const char *const label, Ypr *drag)</argsstring>
+        <argsstring>(const char *label, Ypr *drag)</argsstring>
         <name>drag</name>
         <qualifiedname>eu::imgui::drag</qualifiedname>
         <param>
-          <type>const char *const</type>
+          <type>const char *</type>
           <declname>label</declname>
         </param>
         <param>
@@ -235,14 +235,14 @@
         </inbodydescription>
         <location file="libs/imgui/src/eu/imgui/ui.h" line="45" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="45" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1imgui_1a14ca8b8ecb008694b753a5c7fbc29020" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1_1imgui_1a71b22944824462e3666e064332b08a19" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool eu::imgui::gear</definition>
-        <argsstring>(const char *const label, v3 *drag)</argsstring>
+        <argsstring>(const char *label, v3 *drag)</argsstring>
         <name>gear</name>
         <qualifiedname>eu::imgui::gear</qualifiedname>
         <param>
-          <type>const char *const</type>
+          <type>const char *</type>
           <declname>label</declname>
         </param>
         <param>

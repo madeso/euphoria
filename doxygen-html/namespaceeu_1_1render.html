@@ -274,8 +274,8 @@ Enumerations</h2></td></tr>
 <tr class="memitem:a110246396ea32c9b0868c3522036fa55" id="r_a110246396ea32c9b0868c3522036fa55"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a110246396ea32c9b0868c3522036fa55">IsGauss</a> { <a class="el" href="#a110246396ea32c9b0868c3522036fa55a7fa3b767c460b54a2be4d49030b349c7">no</a>
 , <a class="el" href="#a110246396ea32c9b0868c3522036fa55aa6105c0a611b41b08f1209506350279e">yes</a>
  }</td></tr>
-<tr class="memitem:ga1fe12b86dc08bb46cf98f0cec5b3e7fd" id="r_ga1fe12b86dc08bb46cf98f0cec5b3e7fd"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__render.html#ga1fe12b86dc08bb46cf98f0cec5b3e7fd">TransformSource</a> { <a class="el" href="group__render.html#gga1fe12b86dc08bb46cf98f0cec5b3e7fdaf19516d11f2946f894070e92fcb56b6d">TransformSource::Uniform</a>
-, <a class="el" href="group__render.html#gga1fe12b86dc08bb46cf98f0cec5b3e7fda4bea50b56977df9fca1533e78fce2728">TransformSource::Instanced_mat4</a>
+<tr class="memitem:ga1fe12b86dc08bb46cf98f0cec5b3e7fd" id="r_ga1fe12b86dc08bb46cf98f0cec5b3e7fd"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__render.html#ga1fe12b86dc08bb46cf98f0cec5b3e7fd">TransformSource</a> { <a class="el" href="group__render.html#gga1fe12b86dc08bb46cf98f0cec5b3e7fdaa489ffed938ef1b9e86889bc413501ee">TransformSource::uniform</a>
+, <a class="el" href="group__render.html#gga1fe12b86dc08bb46cf98f0cec5b3e7fdaee09148c42f266eedc20cbf60b3a7828">TransformSource::instanced_mat4</a>
  }</td></tr>
 <tr class="memdesc:ga1fe12b86dc08bb46cf98f0cec5b3e7fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum describing on how the model transform is provided.  <a href="group__render.html#ga1fe12b86dc08bb46cf98f0cec5b3e7fd">More...</a><br /></td></tr>
 <tr class="memitem:ga0259d27836d6b0923021ed4759c2494f" id="r_ga0259d27836d6b0923021ed4759c2494f"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__render.html#ga0259d27836d6b0923021ed4759c2494f">PostProcSetup</a> { <a class="el" href="group__render.html#gga0259d27836d6b0923021ed4759c2494fa334c4a4c42fdb79d7ebc3e73b517e6f8">PostProcSetup::none</a> = 0
@@ -463,13 +463,6 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ad1e3a302bde920dcc4d7714570d5838d" id="r_ad1e3a302bde920dcc4d7714570d5838d"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad1e3a302bde920dcc4d7714570d5838d">MAX_TEXTURES_SUPPORTED</a> = 16</td></tr>
-<tr class="memitem:a09db2372293ec938678ad34b8fb26625" id="r_a09db2372293ec938678ad34b8fb26625"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a09db2372293ec938678ad34b8fb26625">ALMOST_ZERO</a> = 0.01f</td></tr>
-<tr class="memitem:a03c8a414127b669c13e4b0dfdabf24cc" id="r_a03c8a414127b669c13e4b0dfdabf24cc"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03c8a414127b669c13e4b0dfdabf24cc">ALPHA_TRANSPARENCY_LIMIT</a> = 1.0f - <a class="el" href="#a09db2372293ec938678ad34b8fb26625">ALMOST_ZERO</a></td></tr>
-<tr class="memdesc:a03c8a414127b669c13e4b0dfdabf24cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">if alpha goes above this limit, it is no longer considered transparent  <br /></td></tr>
-<tr class="memitem:a44e5de34a6276044970f6d46b5ae3e5a" id="r_a44e5de34a6276044970f6d46b5ae3e5a"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44e5de34a6276044970f6d46b5ae3e5a">OUTLINE_SCALE</a> = 1.1f</td></tr>
-<tr class="memitem:a199d0ae92641f907f213eb798a652d03" id="r_a199d0ae92641f907f213eb798a652d03"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a199d0ae92641f907f213eb798a652d03">BLUR_SAMPLES</a> = 10</td></tr>
-<tr class="memitem:a94b089347dc1ac56631b49728fb85d2d" id="r_a94b089347dc1ac56631b49728fb85d2d"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94b089347dc1ac56631b49728fb85d2d">UP</a> = <a class="el" href="structeu_1_1v3.html">v3</a>(0.0f, 1.0f, 0.0f)</td></tr>
 <tr class="memitem:gac79b1d9294cd27d6bd858386a5d3b0b9" id="r_gac79b1d9294cd27d6bd858386a5d3b0b9"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__texture.html#gac79b1d9294cd27d6bd858386a5d3b0b9">cubemap_size</a> = 6</td></tr>
 <tr class="memdesc:gac79b1d9294cd27d6bd858386a5d3b0b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">0=right(x+), 1=left(x-), 2=top(y+), 3=bottom(y-), 4=front(z+), 5=back(z-)  <br /></td></tr>
 </table>
@@ -1280,153 +1273,6 @@ Internal function, should only be available in debug builds </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
-<a id="a09db2372293ec938678ad34b8fb26625" name="a09db2372293ec938678ad34b8fb26625"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09db2372293ec938678ad34b8fb26625">&#9670;&#160;</a></span>ALMOST_ZERO</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float eu::render::ALMOST_ZERO = 0.01f</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00011">11</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
-
-</div>
-</div>
-<a id="a03c8a414127b669c13e4b0dfdabf24cc" name="a03c8a414127b669c13e4b0dfdabf24cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03c8a414127b669c13e4b0dfdabf24cc">&#9670;&#160;</a></span>ALPHA_TRANSPARENCY_LIMIT</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float eu::render::ALPHA_TRANSPARENCY_LIMIT = 1.0f - <a class="el" href="#a09db2372293ec938678ad34b8fb26625">ALMOST_ZERO</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>if alpha goes above this limit, it is no longer considered transparent </p>
-
-<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00013">13</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
-
-</div>
-</div>
-<a id="a199d0ae92641f907f213eb798a652d03" name="a199d0ae92641f907f213eb798a652d03"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a199d0ae92641f907f213eb798a652d03">&#9670;&#160;</a></span>BLUR_SAMPLES</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int eu::render::BLUR_SAMPLES = 10</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00017">17</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
-
-</div>
-</div>
-<a id="ad1e3a302bde920dcc4d7714570d5838d" name="ad1e3a302bde920dcc4d7714570d5838d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1e3a302bde920dcc4d7714570d5838d">&#9670;&#160;</a></span>MAX_TEXTURES_SUPPORTED</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::size_t eu::render::MAX_TEXTURES_SUPPORTED = 16</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00007">7</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
-
-</div>
-</div>
-<a id="a44e5de34a6276044970f6d46b5ae3e5a" name="a44e5de34a6276044970f6d46b5ae3e5a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44e5de34a6276044970f6d46b5ae3e5a">&#9670;&#160;</a></span>OUTLINE_SCALE</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float eu::render::OUTLINE_SCALE = 1.1f</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00015">15</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
-
-</div>
-</div>
-<a id="a94b089347dc1ac56631b49728fb85d2d" name="a94b089347dc1ac56631b49728fb85d2d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94b089347dc1ac56631b49728fb85d2d">&#9670;&#160;</a></span>UP</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto eu::render::UP = <a class="el" href="structeu_1_1v3.html">v3</a>(0.0f, 1.0f, 0.0f)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="space_8h_source.html#l00006">6</a> of file <a class="el" href="space_8h_source.html">space.h</a>.</p>
 
 </div>
 </div>

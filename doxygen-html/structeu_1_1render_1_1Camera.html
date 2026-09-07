@@ -76,7 +76,7 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a35cbe89b5a82e7c74a81747fefa57777" id="r_a35cbe89b5a82e7c74a81747fefa57777"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35cbe89b5a82e7c74a81747fefa57777">near</a> = 0.1f</td></tr>
 <tr class="memitem:a8c48a5851ffe121998374838518ce4eb" id="r_a8c48a5851ffe121998374838518ce4eb"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c48a5851ffe121998374838518ce4eb">far</a> = 100.0f</td></tr>
 <tr class="memitem:a3084f57c20d8b30dcb7dc052f13bd7c6" id="r_a3084f57c20d8b30dcb7dc052f13bd7c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1v3.html">v3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3084f57c20d8b30dcb7dc052f13bd7c6">position</a> = <a class="el" href="structeu_1_1v3.html">v3</a>{0.0f, 0.0f, 0.0f}</td></tr>
-<tr class="memitem:a90c46ecc72ab95e0bd033e80d3998d6f" id="r_a90c46ecc72ab95e0bd033e80d3998d6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1Ypr.html">Ypr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90c46ecc72ab95e0bd033e80d3998d6f">rotation</a> = <a class="el" href="structeu_1_1Ypr.html">Ypr</a>{ 0.0_rad, 0.0_rad, 0.0_rad }</td></tr>
+<tr class="memitem:a90c46ecc72ab95e0bd033e80d3998d6f" id="r_a90c46ecc72ab95e0bd033e80d3998d6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1Ypr.html">Ypr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90c46ecc72ab95e0bd033e80d3998d6f">rotation</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The current perspective camera representation. </p>
@@ -154,11 +154,18 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structeu_1_1Ypr.html">Ypr</a> eu::render::Camera::rotation = <a class="el" href="structeu_1_1Ypr.html">Ypr</a>{ 0.0_rad, 0.0_rad, 0.0_rad }</td>
+          <td class="memname"><a class="el" href="structeu_1_1Ypr.html">Ypr</a> eu::render::Camera::rotation</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code hl_struct" href="structeu_1_1Ypr.html">Ypr</a></div>
+<div class="line">    {</div>
+<div class="line">        .yaw = 0.0_rad,</div>
+<div class="line">        .pitch = 0.0_rad,</div>
+<div class="line">        .roll = 0.0_rad</div>
+<div class="line">    }</div>
+<div class="ttc" id="astructeu_1_1Ypr_html"><div class="ttname"><a href="structeu_1_1Ypr.html">eu::Ypr</a></div><div class="ttdoc">yaw + pitch + roll</div><div class="ttdef"><b>Definition</b> <a href="axisangle_8h_source.html#l00032">axisangle.h:33</a></div></div>
+</div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="camera_8h_source.html#l00022">22</a> of file <a class="el" href="camera_8h_source.html">camera.h</a>.</p>
 
 </div>

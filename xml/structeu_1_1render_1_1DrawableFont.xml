@@ -61,7 +61,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/font.h" line="176" column="25" bodyfile="libs/render/src/eu/render/font.h" bodystart="176" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/font.h" line="177" column="25" bodyfile="libs/render/src/eu/render/font.h" bodystart="177" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1DrawableFont_1a350c48aaccd5995a73b3fb5ae8e3eb70" prot="public" static="no" mutable="no">
         <type><ref refid="namespaceeu_1_1render_1a35077967058935cfe1bef1a282602960" kindref="member">CharToGlyphMap</ref></type>
@@ -75,7 +75,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/font.h" line="177" column="24" bodyfile="libs/render/src/eu/render/font.h" bodystart="177" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/font.h" line="178" column="24" bodyfile="libs/render/src/eu/render/font.h" bodystart="178" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1DrawableFont_1a09f0d7dcd14c643794a6dd990e47c8b4" prot="public" static="no" mutable="no">
         <type><ref refid="namespaceeu_1_1core_1a3cf39335b672a096d106a459999efb40" kindref="member">core::KerningMap</ref></type>
@@ -89,7 +89,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/font.h" line="178" column="26" bodyfile="libs/render/src/eu/render/font.h" bodystart="178" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/font.h" line="179" column="26" bodyfile="libs/render/src/eu/render/font.h" bodystart="179" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1DrawableFont_1a4d6f867a2ce2c88699bf7ccaa4d000ef" prot="public" static="no" mutable="no">
         <type>std::map&lt; std::string, int &gt;</type>
@@ -103,11 +103,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/font.h" line="179" column="18" bodyfile="libs/render/src/eu/render/font.h" bodystart="179" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/font.h" line="180" column="18" bodyfile="libs/render/src/eu/render/font.h" bodystart="180" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeu_1_1render_1_1DrawableFont_1ab031702788763798ef95b6be23cc4e29" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1DrawableFont_1ab031702788763798ef95b6be23cc4e29" prot="public" static="no" nodiscard="yes" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>float</type>
         <definition>float eu::render::DrawableFont::get_line_height</definition>
         <argsstring>() const</argsstring>
@@ -119,7 +119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/font.h" line="171" column="25" bodyfile="libs/render/src/eu/render/font.h" bodystart="171" bodyend="174"/>
+        <location file="libs/render/src/eu/render/font.h" line="172" column="26" bodyfile="libs/render/src/eu/render/font.h" bodystart="172" bodyend="175"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1DrawableFont_1a5709fb211250efd86e72ff1b781f3819" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type></type>
@@ -137,7 +137,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/font.h" line="181" column="18"/>
+        <location file="libs/render/src/eu/render/font.h" line="182" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1DrawableFont_1ac9800181fea13730568035046fd9f886" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -163,7 +163,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/font.h" line="188" column="9"/>
+        <location file="libs/render/src/eu/render/font.h" line="189" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1render_1_1DrawableFont_1ad6f92ff0d0ef4aba5b149f566e16f7b9" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1render_1_1ListOfTextDrawCommands" kindref="compound">ListOfTextDrawCommands</ref></type>
@@ -185,14 +185,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/font.h" line="195" column="33"/>
+        <location file="libs/render/src/eu/render/font.h" line="196" column="33"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/render/src/eu/render/font.h" line="166" column="5" bodyfile="libs/render/src/eu/render/font.h" bodystart="167" bodyend="197"/>
+    <location file="libs/render/src/eu/render/font.h" line="166" column="5" bodyfile="libs/render/src/eu/render/font.h" bodystart="167" bodyend="198"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1DrawableFont_1acbd622580acdb706101d91443a0b6c44" prot="public" virt="non-virtual"><scope>eu::render::DrawableFont</scope><name>ascent</name></member>
       <member refid="structeu_1_1render_1_1DrawableFont_1a350c48aaccd5995a73b3fb5ae8e3eb70" prot="public" virt="non-virtual"><scope>eu::render::DrawableFont</scope><name>char_to_glyph</name></member>

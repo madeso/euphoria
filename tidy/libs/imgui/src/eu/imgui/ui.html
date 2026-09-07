@@ -9,7 +9,6 @@
 <h2>Files</h2>
 <ul>
 <li>27: /home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc</li>
-<li>6: /home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.h</li>
 </ul>
 <h2>Warnings</h2>
 <span id='misc-use-internal-linkage'>&nbsp;</span>
@@ -207,7 +206,7 @@
 <code>[misc-use-internal-linkage]</code>
 <p><i>libs/imgui/src/eu/imgui/ui.cc 485 : 8</i></p>
 <pre>
-  485 | ImVec2 calc_button_size(const char* const label, const ImVec2&amp; size_arg = ImVec2(0,0))
+  485 | ImVec2 calc_button_size(const char* label, const ImVec2&amp; size_arg = ImVec2(0,0))
       |        ^
       | static 
 </pre>
@@ -216,7 +215,7 @@
 <code>[misc-use-internal-linkage]</code>
 <p><i>libs/imgui/src/eu/imgui/ui.cc 494 : 6</i></p>
 <pre>
-  494 | bool gear_icon(const char* const label, float* drag, const ImVec2&amp; size)
+  494 | bool gear_icon(const char* label, float* drag, const ImVec2&amp; size)
       |      ^
       | static 
 </pre>
@@ -259,58 +258,6 @@
       |                        {
   627 |                 ImGui::SameLine(0, style.ItemInnerSpacing.x);
       |                                                              
-</pre>
-<hr>
-<h3>warning: invalid case style for scoped enum constant &#39;None&#39;</h3>
-<code>[readability-identifier-naming]</code>
-<p><i>libs/imgui/src/eu/imgui/ui.h 34 : 2</i></p>
-<pre>
-   34 |         None,
-      |         ^~~~
-      |         none
-</pre>
-<hr>
-<h3>warning: invalid case style for scoped enum constant &#39;TonemapAndGamma&#39;</h3>
-<code>[readability-identifier-naming]</code>
-<p><i>libs/imgui/src/eu/imgui/ui.h 35 : 2</i></p>
-<pre>
-   35 |         TonemapAndGamma,
-      |         ^~~~~~~~~~~~~~~
-      |         tonemap_and_gamma
-</pre>
-<hr>
-<h3>warning: invalid case style for scoped enum constant &#39;DepthOrtho&#39;</h3>
-<code>[readability-identifier-naming]</code>
-<p><i>libs/imgui/src/eu/imgui/ui.h 36 : 2</i></p>
-<pre>
-   36 |         DepthOrtho
-      |         ^~~~~~~~~~
-      |         depth_ortho
-</pre>
-<span id='readability-avoid-const-params-in-decls'>&nbsp;</span>
-<hr>
-<h3>warning: parameter &#39;label&#39; is const-qualified in the function declaration; const-qualification of parameters only has an effect in function definitions</h3>
-<code>[readability-avoid-const-params-in-decls]</code>
-<p><i>libs/imgui/src/eu/imgui/ui.h 44 : 23</i></p>
-<pre>
-   44 | bool drag(const char* const label, v3* drag);
-      |                       ^~~~~
-</pre>
-<hr>
-<h3>warning: parameter &#39;label&#39; is const-qualified in the function declaration; const-qualification of parameters only has an effect in function definitions</h3>
-<code>[readability-avoid-const-params-in-decls]</code>
-<p><i>libs/imgui/src/eu/imgui/ui.h 45 : 23</i></p>
-<pre>
-   45 | bool drag(const char* const label, Ypr* drag);
-      |                       ^~~~~
-</pre>
-<hr>
-<h3>warning: parameter &#39;label&#39; is const-qualified in the function declaration; const-qualification of parameters only has an effect in function definitions</h3>
-<code>[readability-avoid-const-params-in-decls]</code>
-<p><i>libs/imgui/src/eu/imgui/ui.h 47 : 23</i></p>
-<pre>
-   47 | bool gear(const char* const label, v3* drag);
-      |                       ^~~~~
 </pre>
 <!--
 /home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:64:6: warning: function 'imgui_destroy_shader' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
@@ -394,11 +341,11 @@
       |          ^~~~~~~~~~~~
       |          dl_add_circle
 /home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:485:8: warning: function 'calc_button_size' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
-  485 | ImVec2 calc_button_size(const char* const label, const ImVec2& size_arg = ImVec2(0,0))
+  485 | ImVec2 calc_button_size(const char* label, const ImVec2& size_arg = ImVec2(0,0))
       |        ^
       | static 
 /home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:494:6: warning: function 'gear_icon' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
-  494 | bool gear_icon(const char* const label, float* drag, const ImVec2& size)
+  494 | bool gear_icon(const char* label, float* drag, const ImVec2& size)
       |      ^
       | static 
 /home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.cc:555:21: warning: implicit conversion 'float *' -> 'bool' [readability-implicit-bool-conversion]
@@ -418,27 +365,6 @@
       |                        {
   627 |                 ImGui::SameLine(0, style.ItemInnerSpacing.x);
       |                                                              
-/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.h:34:2: warning: invalid case style for scoped enum constant 'None' [readability-identifier-naming]
-   34 |         None,
-      |         ^~~~
-      |         none
-/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.h:35:2: warning: invalid case style for scoped enum constant 'TonemapAndGamma' [readability-identifier-naming]
-   35 |         TonemapAndGamma,
-      |         ^~~~~~~~~~~~~~~
-      |         tonemap_and_gamma
-/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.h:36:2: warning: invalid case style for scoped enum constant 'DepthOrtho' [readability-identifier-naming]
-   36 |         DepthOrtho
-      |         ^~~~~~~~~~
-      |         depth_ortho
-/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.h:44:23: warning: parameter 'label' is const-qualified in the function declaration; const-qualification of parameters only has an effect in function definitions [readability-avoid-const-params-in-decls]
-   44 | bool drag(const char* const label, v3* drag);
-      |                       ^~~~~
-/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.h:45:23: warning: parameter 'label' is const-qualified in the function declaration; const-qualification of parameters only has an effect in function definitions [readability-avoid-const-params-in-decls]
-   45 | bool drag(const char* const label, Ypr* drag);
-      |                       ^~~~~
-/home/runner/work/euphoria/euphoria/libs/imgui/src/eu/imgui/ui.h:47:23: warning: parameter 'label' is const-qualified in the function declaration; const-qualification of parameters only has an effect in function definitions [readability-avoid-const-params-in-decls]
-   47 | bool gear(const char* const label, v3* drag);
-      |                       ^~~~~
 -->
 </body>
 </html>

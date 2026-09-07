@@ -1046,7 +1046,7 @@
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="n">SET_DEBUG_LABEL_NAMED</span><span class="p">(</span><span class="n">vertex_shader</span><span class="p">,</span><span class="w"> </span><span class="n">DebugLabelFor</span><span class="o">::</span><span class="n">Shader</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">&quot;SHADER {} VERT&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">debug_label</span><span class="p">));</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="n">SET_DEBUG_LABEL_NAMED</span><span class="p">(</span><span class="n">vertex_shader</span><span class="p">,</span><span class="w"> </span><span class="n">DebugLabelFor</span><span class="o">::</span><span class="n">shader</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">&quot;SHADER {} VERT&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">debug_label</span><span class="p">));</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l106" href="#l106">106</a></td>
@@ -1123,7 +1123,7 @@
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="n">SET_DEBUG_LABEL_NAMED</span><span class="p">(</span><span class="n">fragment_shader</span><span class="p">,</span><span class="w"> </span><span class="n">DebugLabelFor</span><span class="o">::</span><span class="n">Shader</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">&quot;SHADER {} FRAG&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">debug_label</span><span class="p">));</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="n">SET_DEBUG_LABEL_NAMED</span><span class="p">(</span><span class="n">fragment_shader</span><span class="p">,</span><span class="w"> </span><span class="n">DebugLabelFor</span><span class="o">::</span><span class="n">shader</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">&quot;SHADER {} FRAG&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">debug_label</span><span class="p">));</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l117" href="#l117">117</a></td>
@@ -1403,7 +1403,7 @@
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="n">SET_DEBUG_LABEL_NAMED</span><span class="p">(</span><span class="n">shader_program</span><span class="p">,</span><span class="w"> </span><span class="n">DebugLabelFor</span><span class="o">::</span><span class="n">Program</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">&quot;PROGRAM {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">debug_label</span><span class="p">));</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="n">SET_DEBUG_LABEL_NAMED</span><span class="p">(</span><span class="n">shader_program</span><span class="p">,</span><span class="w"> </span><span class="n">DebugLabelFor</span><span class="o">::</span><span class="n">program</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">&quot;PROGRAM {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">debug_label</span><span class="p">));</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l157" href="#l157">157</a></td>
@@ -2635,7 +2635,7 @@
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="n">ASSERT</span><span class="p">(</span><span class="n">uniform_list</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">MAX_TEXTURES_SUPPORTED</span><span class="p">);</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="n">ASSERT</span><span class="p">(</span><span class="n">uniform_list</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">kk</span><span class="o">::</span><span class="n">max_textures_supported</span><span class="p">);</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l333" href="#l333">333</a></td>
@@ -3001,7 +3001,7 @@
         <hr class="block-separator"/>
         <footer class="text-center">
           Created using <a href="http://gcovr.com/en/8.6">GCOVR (Version 8.6)</a>
-          at 2026-09-07 10:24:58
+          at 2026-09-07 12:38:14
         </footer>
       </div>
     </div>

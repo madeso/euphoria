@@ -125,16 +125,16 @@
         <type></type>
         <name>TransformSource</name>
         <qualifiedname>eu::render::TransformSource</qualifiedname>
-        <enumvalue id="group__render_1gga1fe12b86dc08bb46cf98f0cec5b3e7fdaf19516d11f2946f894070e92fcb56b6d" prot="public">
-          <name>Uniform</name>
+        <enumvalue id="group__render_1gga1fe12b86dc08bb46cf98f0cec5b3e7fdaa489ffed938ef1b9e86889bc413501ee" prot="public">
+          <name>uniform</name>
           <briefdescription>
 <para>the model source is provided as a mat4 uniform. </para>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
-        <enumvalue id="group__render_1gga1fe12b86dc08bb46cf98f0cec5b3e7fda4bea50b56977df9fca1533e78fce2728" prot="public">
-          <name>Instanced_mat4</name>
+        <enumvalue id="group__render_1gga1fe12b86dc08bb46cf98f0cec5b3e7fdaee09148c42f266eedc20cbf60b3a7828" prot="public">
+          <name>instanced_mat4</name>
           <briefdescription>
 <para>the model source is provided as a (instanced) mat4 attribute </para>
           </briefdescription>
@@ -694,7 +694,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/camera.h" line="55" column="15" declfile="libs/render/src/eu/render/camera.h" declline="55" declcolumn="15"/>
+        <location file="libs/render/src/eu/render/camera.h" line="65" column="15" declfile="libs/render/src/eu/render/camera.h" declline="65" declcolumn="15"/>
       </memberdef>
       <memberdef kind="function" id="group__render_1ga294fc5bce51cf7db33bfcfbed0d0afc1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>m4</type>
@@ -716,7 +716,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/camera.h" line="58" column="4" declfile="libs/render/src/eu/render/camera.h" declline="58" declcolumn="4"/>
+        <location file="libs/render/src/eu/render/camera.h" line="68" column="4" declfile="libs/render/src/eu/render/camera.h" declline="68" declcolumn="4"/>
       </memberdef>
       <memberdef kind="function" id="group__render_1ga49f20d8d8f4cf168bca0b9802eebbbee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>CompiledCamera</type>
@@ -738,7 +738,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/camera.h" line="61" column="16" declfile="libs/render/src/eu/render/camera.h" declline="61" declcolumn="16"/>
+        <location file="libs/render/src/eu/render/camera.h" line="71" column="16" declfile="libs/render/src/eu/render/camera.h" declline="71" declcolumn="16"/>
       </memberdef>
       <memberdef kind="function" id="group__render_1ga883d2f846df7773f611674c3eb6427be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>CompiledCamera</type>
@@ -760,7 +760,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/camera.h" line="64" column="16" declfile="libs/render/src/eu/render/camera.h" declline="64" declcolumn="16"/>
+        <location file="libs/render/src/eu/render/camera.h" line="74" column="16" declfile="libs/render/src/eu/render/camera.h" declline="74" declcolumn="16"/>
       </memberdef>
       <memberdef kind="function" id="group__render_1ga4251ff9323bf6a869c634d6559de3f42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>v2</type>
@@ -787,7 +787,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/camera.h" line="68" column="4" declfile="libs/render/src/eu/render/camera.h" declline="68" declcolumn="4"/>
+        <location file="libs/render/src/eu/render/camera.h" line="78" column="4" declfile="libs/render/src/eu/render/camera.h" declline="78" declcolumn="4"/>
       </memberdef>
       <memberdef kind="function" id="group__render_1ga6a8ef58e235dd04c1bb6c5848bff8ce9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>

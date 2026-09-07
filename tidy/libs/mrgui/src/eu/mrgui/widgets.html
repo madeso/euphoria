@@ -9,30 +9,8 @@
 <h2>Files</h2>
 <ul>
 <li>22: /home/runner/work/euphoria/euphoria/libs/mrgui/src/eu/mrgui/widgets.cc</li>
-<li>2: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.h</li>
-<li>2: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/canvas.h</li>
-<li>1: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.h</li>
 </ul>
 <h2>Warnings</h2>
-<span id='modernize-use-nodiscard'>&nbsp;</span>
-<hr>
-<h3>warning: function &#39;is_valid&#39; should be marked [[nodiscard]]</h3>
-<code>[modernize-use-nodiscard]</code>
-<p><i>libs/core/src/eu/core/image.h 27 : 5</i></p>
-<pre>
-   27 |     bool is_valid() const;
-      |     ^
-      |     [[nodiscard]] 
-</pre>
-<hr>
-<h3>warning: function &#39;get_pixel&#39; should be marked [[nodiscard]]</h3>
-<code>[modernize-use-nodiscard]</code>
-<p><i>libs/core/src/eu/core/image.h 53 : 5</i></p>
-<pre>
-   53 |     PixelColor get_pixel(int x, int y) const;
-      |     ^
-      |     [[nodiscard]] 
-</pre>
 <span id='misc-use-internal-linkage'>&nbsp;</span>
 <hr>
 <h3>warning: function &#39;hash&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
@@ -245,42 +223,7 @@
       |                     ^
       |                                 const 
 </pre>
-<hr>
-<h3>warning: function &#39;mouse_to_world&#39; should be marked [[nodiscard]]</h3>
-<code>[modernize-use-nodiscard]</code>
-<p><i>libs/render/src/eu/render/canvas.h 99 : 5</i></p>
-<pre>
-   99 |     v2 mouse_to_world(const v2&amp; p) const;
-      |     ^
-      |     [[nodiscard]] 
-</pre>
-<span id='cppcoreguidelines-special-member-functions'>&nbsp;</span>
-<hr>
-<h3>warning: class &#39;RenderLayer2&#39; defines a destructor but does not define a copy constructor, a copy assignment operator, a move constructor or a move assignment operator</h3>
-<code>[cppcoreguidelines-special-member-functions]</code>
-<p><i>libs/render/src/eu/render/canvas.h 102 : 8</i></p>
-<pre>
-  102 | struct RenderLayer2 : Layer
-      |        ^
-</pre>
-<hr>
-<h3>warning: function &#39;get_line_height&#39; should be marked [[nodiscard]]</h3>
-<code>[modernize-use-nodiscard]</code>
-<p><i>libs/render/src/eu/render/font.h 171 : 9</i></p>
-<pre>
-  171 |         constexpr float get_line_height() const
-      |         ^
-      |         [[nodiscard]] 
-</pre>
 <!--
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.h:27:5: warning: function 'is_valid' should be marked [[nodiscard]] [modernize-use-nodiscard]
-   27 |     bool is_valid() const;
-      |     ^
-      |     [[nodiscard]] 
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.h:53:5: warning: function 'get_pixel' should be marked [[nodiscard]] [modernize-use-nodiscard]
-   53 |     PixelColor get_pixel(int x, int y) const;
-      |     ^
-      |     [[nodiscard]] 
 /home/runner/work/euphoria/euphoria/libs/mrgui/src/eu/mrgui/widgets.cc:16:9: warning: function 'hash' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
    16 |     u32 hash(unsigned char* str, std::size_t length, u32 seed)
       |         ^
@@ -372,17 +315,6 @@ note: this fix will not be applied because it overlaps with another fix
   399 |                     std::string substr = val->substr(0, text_state.state.cursor);
       |                     ^
       |                                 const 
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/canvas.h:99:5: warning: function 'mouse_to_world' should be marked [[nodiscard]] [modernize-use-nodiscard]
-   99 |     v2 mouse_to_world(const v2& p) const;
-      |     ^
-      |     [[nodiscard]] 
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/canvas.h:102:8: warning: class 'RenderLayer2' defines a destructor but does not define a copy constructor, a copy assignment operator, a move constructor or a move assignment operator [cppcoreguidelines-special-member-functions]
-  102 | struct RenderLayer2 : Layer
-      |        ^
-/home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.h:171:9: warning: function 'get_line_height' should be marked [[nodiscard]] [modernize-use-nodiscard]
-  171 |         constexpr float get_line_height() const
-      |         ^
-      |         [[nodiscard]] 
 -->
 </body>
 </html>

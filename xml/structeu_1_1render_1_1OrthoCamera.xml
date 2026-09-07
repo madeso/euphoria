@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/camera.h" line="28" column="7" bodyfile="libs/render/src/eu/render/camera.h" bodystart="28" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/camera.h" line="33" column="7" bodyfile="libs/render/src/eu/render/camera.h" bodystart="33" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1OrthoCamera_1a339751b8a7ad82f6e2b1382525ba38ac" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/camera.h" line="30" column="7" bodyfile="libs/render/src/eu/render/camera.h" bodystart="30" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/camera.h" line="35" column="7" bodyfile="libs/render/src/eu/render/camera.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1OrthoCamera_1a1d8b5f9c4ca71ffd13793e40e5e55406" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/camera.h" line="31" column="7" bodyfile="libs/render/src/eu/render/camera.h" bodystart="31" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/camera.h" line="36" column="7" bodyfile="libs/render/src/eu/render/camera.h" bodystart="36" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1OrthoCamera_1a5768e451c806dad8d524304248cd311b" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
@@ -62,7 +62,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/camera.h" line="33" column="4" bodyfile="libs/render/src/eu/render/camera.h" bodystart="33" bodyend="33"/>
+        <location file="libs/render/src/eu/render/camera.h" line="38" column="4" bodyfile="libs/render/src/eu/render/camera.h" bodystart="38" bodyend="38"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1OrthoCamera_1aa5441d5633574bf246a916a1308bb0de" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1Ypr" kindref="compound">Ypr</ref></type>
@@ -70,14 +70,19 @@
         <argsstring></argsstring>
         <name>rotation</name>
         <qualifiedname>eu::render::OrthoCamera::rotation</qualifiedname>
-        <initializer>= <ref refid="structeu_1_1Ypr" kindref="compound">Ypr</ref>{ 0.0_rad, 0.0_rad, 0.0_rad }</initializer>
+        <initializer>= <ref refid="structeu_1_1Ypr" kindref="compound">Ypr</ref>
+    {
+        .yaw = 0.0_rad,
+        .pitch = 0.0_rad,
+        .roll = 0.0_rad
+    }</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/camera.h" line="35" column="9" bodyfile="libs/render/src/eu/render/camera.h" bodystart="35" bodyend="35"/>
+        <location file="libs/render/src/eu/render/camera.h" line="40" column="9" bodyfile="libs/render/src/eu/render/camera.h" bodystart="40" bodyend="45"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -114,7 +119,7 @@
         <link refid="structeu_1_1v3"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/camera.h" line="26" column="1" bodyfile="libs/render/src/eu/render/camera.h" bodystart="27" bodyend="36"/>
+    <location file="libs/render/src/eu/render/camera.h" line="31" column="1" bodyfile="libs/render/src/eu/render/camera.h" bodystart="32" bodyend="46"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1OrthoCamera_1a1d8b5f9c4ca71ffd13793e40e5e55406" prot="public" virt="non-virtual"><scope>eu::render::OrthoCamera</scope><name>far</name></member>
       <member refid="structeu_1_1render_1_1OrthoCamera_1a339751b8a7ad82f6e2b1382525ba38ac" prot="public" virt="non-virtual"><scope>eu::render::OrthoCamera</scope><name>near</name></member>

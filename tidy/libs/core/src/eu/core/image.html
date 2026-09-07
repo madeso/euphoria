@@ -8,7 +8,6 @@
 <h1>libs/core/src/eu/core/image.cc</h1>
 <h2>Files</h2>
 <ul>
-<li>2: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.h</li>
 <li>1: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.cc</li>
 </ul>
 <h2>Warnings</h2>
@@ -22,38 +21,11 @@
       |             ^
       | static 
 </pre>
-<span id='modernize-use-nodiscard'>&nbsp;</span>
-<hr>
-<h3>warning: function &#39;is_valid&#39; should be marked [[nodiscard]]</h3>
-<code>[modernize-use-nodiscard]</code>
-<p><i>libs/core/src/eu/core/image.h 27 : 5</i></p>
-<pre>
-   27 |     bool is_valid() const;
-      |     ^
-      |     [[nodiscard]] 
-</pre>
-<hr>
-<h3>warning: function &#39;get_pixel&#39; should be marked [[nodiscard]]</h3>
-<code>[modernize-use-nodiscard]</code>
-<p><i>libs/core/src/eu/core/image.h 53 : 5</i></p>
-<pre>
-   53 |     PixelColor get_pixel(int x, int y) const;
-      |     ^
-      |     [[nodiscard]] 
-</pre>
 <!--
 /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.cc:12:13: warning: function 'bytes_from_size' can be made static or moved into an anonymous namespace to enforce internal linkage [misc-use-internal-linkage]
    12 | std::size_t bytes_from_size(int width, int height, int bpp)
       |             ^
       | static 
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.h:27:5: warning: function 'is_valid' should be marked [[nodiscard]] [modernize-use-nodiscard]
-   27 |     bool is_valid() const;
-      |     ^
-      |     [[nodiscard]] 
-/home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.h:53:5: warning: function 'get_pixel' should be marked [[nodiscard]] [modernize-use-nodiscard]
-   53 |     PixelColor get_pixel(int x, int y) const;
-      |     ^
-      |     [[nodiscard]] 
 -->
 </body>
 </html>

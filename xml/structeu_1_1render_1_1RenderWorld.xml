@@ -95,6 +95,7 @@
         <argsstring></argsstring>
         <name>realize_shader</name>
         <qualifiedname>eu::render::RenderWorld::realize_shader</qualifiedname>
+        <initializer>= nullptr</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -123,6 +124,7 @@
         <argsstring></argsstring>
         <name>last_bloom_blur_index</name>
         <qualifiedname>eu::render::RenderWorld::last_bloom_blur_index</qualifiedname>
+        <initializer>= 0</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -133,14 +135,14 @@
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeu_1_1render_1_1RenderWorld_1a757d48467fa322426ed0cd42a5030ab6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1RenderWorld_1ae912131371dd0ef9e84a1dacfbdb944b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>eu::render::RenderWorld::RenderWorld</definition>
-        <argsstring>(const Size size, RealizeShader *re_sh, ExtractShader *ex_sh, PingPongBlurShader *ping_sh, int msaa_samples, bool *h, float *e)</argsstring>
+        <argsstring>(const Size &amp;size, RealizeShader *re_sh, ExtractShader *ex_sh, PingPongBlurShader *ping_sh, int msaa_samples, bool *h, float *e)</argsstring>
         <name>RenderWorld</name>
         <qualifiedname>eu::render::RenderWorld::RenderWorld</qualifiedname>
         <param>
-          <type>const <ref refid="structeu_1_1Size" kindref="compound">Size</ref></type>
+          <type>const <ref refid="structeu_1_1Size" kindref="compound">Size</ref> &amp;</type>
           <declname>size</declname>
         </param>
         <param>
@@ -300,7 +302,7 @@
       <member refid="structeu_1_1render_1_1RenderSource_1a7ab0a91ffe9aedba48886c6f530eaf1e" prot="public" virt="non-virtual"><scope>eu::render::RenderWorld</scope><name>RenderSource</name></member>
       <member refid="structeu_1_1render_1_1RenderSource_1a84600af6eae80c301b3f781f115947e5" prot="public" virt="non-virtual"><scope>eu::render::RenderWorld</scope><name>RenderSource</name></member>
       <member refid="structeu_1_1render_1_1RenderSource_1a47d4e8a8f60cf01dea5c215e9e5906db" prot="public" virt="non-virtual"><scope>eu::render::RenderWorld</scope><name>RenderSource</name></member>
-      <member refid="structeu_1_1render_1_1RenderWorld_1a757d48467fa322426ed0cd42a5030ab6" prot="public" virt="non-virtual"><scope>eu::render::RenderWorld</scope><name>RenderWorld</name></member>
+      <member refid="structeu_1_1render_1_1RenderWorld_1ae912131371dd0ef9e84a1dacfbdb944b" prot="public" virt="non-virtual"><scope>eu::render::RenderWorld</scope><name>RenderWorld</name></member>
       <member refid="structeu_1_1render_1_1RenderWorld_1a40e9a21c2025825f48f5cac619947552" prot="public" virt="non-virtual"><scope>eu::render::RenderWorld</scope><name>shadow_buffer</name></member>
       <member refid="structeu_1_1render_1_1RenderWorld_1ace02fdde73cf6bd1d6643e43abd17e33" prot="public" virt="non-virtual"><scope>eu::render::RenderWorld</scope><name>update</name></member>
       <member refid="structeu_1_1render_1_1RenderWorld_1a1ed3e603b854ae68738efbd6dc17d542" prot="public" virt="non-virtual"><scope>eu::render::RenderWorld</scope><name>use_hdr</name></member>

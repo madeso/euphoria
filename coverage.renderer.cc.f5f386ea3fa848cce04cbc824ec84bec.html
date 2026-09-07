@@ -1564,7 +1564,7 @@
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">					</span><span class="o">=</span><span class="w"> </span><span class="n">RenderContext</span><span class="p">{</span><span class="n">TransformSource</span><span class="o">::</span><span class="n">Uniform</span><span class="p">,</span><span class="w"> </span><span class="n">UseTransparency</span><span class="o">::</span><span class="n">no</span><span class="p">,</span><span class="w"> </span><span class="n">settings</span><span class="p">.</span><span class="n">gamma</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">shadow_context</span><span class="p">};</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">					</span><span class="o">=</span><span class="w"> </span><span class="n">RenderContext</span><span class="p">{</span><span class="n">TransformSource</span><span class="o">::</span><span class="n">uniform</span><span class="p">,</span><span class="w"> </span><span class="n">UseTransparency</span><span class="o">::</span><span class="n">no</span><span class="p">,</span><span class="w"> </span><span class="n">settings</span><span class="p">.</span><span class="n">gamma</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">shadow_context</span><span class="p">};</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l193" href="#l193">193</a></td>
@@ -1851,7 +1851,7 @@
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">				</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">not_transparent_context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RenderContext</span><span class="p">{</span><span class="n">TransformSource</span><span class="o">::</span><span class="n">Instanced_mat4</span><span class="p">,</span><span class="w"> </span><span class="n">UseTransparency</span><span class="o">::</span><span class="n">no</span><span class="p">,</span><span class="w"> </span><span class="n">settings</span><span class="p">.</span><span class="n">gamma</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">shadow_context</span><span class="p">};</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">				</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">not_transparent_context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RenderContext</span><span class="p">{</span><span class="n">TransformSource</span><span class="o">::</span><span class="n">instanced_mat4</span><span class="p">,</span><span class="w"> </span><span class="n">UseTransparency</span><span class="o">::</span><span class="n">no</span><span class="p">,</span><span class="w"> </span><span class="n">settings</span><span class="p">.</span><span class="n">gamma</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">shadow_context</span><span class="p">};</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l234" href="#l234">234</a></td>
@@ -2327,7 +2327,7 @@
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">			</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">transparent_context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RenderContext</span><span class="p">{</span><span class="n">TransformSource</span><span class="o">::</span><span class="n">Uniform</span><span class="p">,</span><span class="w"> </span><span class="n">UseTransparency</span><span class="o">::</span><span class="n">yes</span><span class="p">,</span><span class="w"> </span><span class="n">settings</span><span class="p">.</span><span class="n">gamma</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">shadow_context</span><span class="p">};</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">			</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">transparent_context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RenderContext</span><span class="p">{</span><span class="n">TransformSource</span><span class="o">::</span><span class="n">uniform</span><span class="p">,</span><span class="w"> </span><span class="n">UseTransparency</span><span class="o">::</span><span class="n">yes</span><span class="p">,</span><span class="w"> </span><span class="n">settings</span><span class="p">.</span><span class="n">gamma</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">shadow_context</span><span class="p">};</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l302" href="#l302">302</a></td>
@@ -2579,7 +2579,7 @@
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">				</span><span class="k">const</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="n">small_scale_mat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">from_scale</span><span class="p">(</span><span class="n">v3</span><span class="p">{</span><span class="n">OUTLINE_SCALE</span><span class="p">,</span><span class="w"> </span><span class="n">OUTLINE_SCALE</span><span class="p">,</span><span class="w"> </span><span class="n">OUTLINE_SCALE</span><span class="p">});</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">				</span><span class="k">const</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="n">small_scale_mat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">from_scale</span><span class="p">(</span><span class="n">v3</span><span class="p">{</span><span class="w"> </span><span class="n">kk</span><span class="o">::</span><span class="n">outline_scale</span><span class="p">,</span><span class="w"> </span><span class="n">kk</span><span class="o">::</span><span class="n">outline_scale</span><span class="p">,</span><span class="w"> </span><span class="n">kk</span><span class="o">::</span><span class="n">outline_scale</span><span class="p">});</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l338" href="#l338">338</a></td>
@@ -3239,7 +3239,7 @@
         <hr class="block-separator"/>
         <footer class="text-center">
           Created using <a href="http://gcovr.com/en/8.6">GCOVR (Version 8.6)</a>
-          at 2026-09-07 10:24:58
+          at 2026-09-07 12:38:14
         </footer>
       </div>
     </div>
