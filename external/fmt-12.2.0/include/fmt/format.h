@@ -1214,12 +1214,14 @@ FMT_CONSTEXPR20 FMT_INLINE void write2digits(Char* out, size_t value) {
 
 template <typename Char>
 FMT_INLINE void write2digits_i(Char* out, size_t value) {
-  if (std::is_same<Char, char>::value && !FMT_OPTIMIZE_SIZE) {
+  if FMT_CONSTEXPR20 (std::is_same<Char, char>::value && !FMT_OPTIMIZE_SIZE) {
     memcpy(out, digits2_i(value), 2);
     return;
   }
-  *out++ = static_cast<Char>(digits2_i(value)[0]);
-  *out = static_cast<Char>(digits2_i(value)[1]);
+  else {
+    *out++ = static_cast<Char>(digits2_i(value)[0]);
+    *out = static_cast<Char>(digits2_i(value)[1]);
+  }
 }
 
 // Formats a decimal unsigned integer value writing to out pointing to a buffer
