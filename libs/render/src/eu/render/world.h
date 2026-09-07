@@ -96,7 +96,7 @@ struct MeshInstance
     m4 transform = m4_identity;
 	Billboarding billboarding = Billboarding::none;	 ///< if not none, rotation is ignored
 
-	LocalAxis get_local_axis() const;
+	[[nodiscard]] LocalAxis get_local_axis() const;
 };
 
 m4 transform_from_rotation(const v3& position, const Ypr& ypr);
@@ -152,7 +152,12 @@ CameraVectors create_vectors(const DirectionalLight& p);
 struct FrustumLight
 {
 	v3 position = {0.0f, 0.0f, 0.0f};
-	Ypr rotation = {0.0_rad, 0.0_rad, 0.0_rad};
+	Ypr rotation =
+    {
+	    .yaw = 0.0_rad,
+        .pitch = 0.0_rad,
+        .roll = 0.0_rad
+	};
 	An fov = 10.0_deg;
 	float aspect = 1.0;
 

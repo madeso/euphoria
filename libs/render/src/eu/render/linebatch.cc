@@ -93,7 +93,7 @@ LineDrawer::LineDrawer()
 	shader.use();
 
 	glBindVertexArray(va);
-	SET_DEBUG_LABEL_NAMED(va, DebugLabelFor::VertexArray, "VERT line batch"sv);
+	SET_DEBUG_LABEL_NAMED(va, DebugLabelFor::vertex_array, "VERT line batch"sv);
 
 	constexpr auto attributes_per_vertex = 2;
 	constexpr auto float_per_attribute = 3;
@@ -104,7 +104,7 @@ LineDrawer::LineDrawer()
 	constexpr auto max_indices = vertices_per_line * max_lines;
 
 	glBindBuffer(GL_ARRAY_BUFFER, vb);
-	SET_DEBUG_LABEL_NAMED(vb, DebugLabelFor::Buffer, "ARR BUF line batch"sv);
+	SET_DEBUG_LABEL_NAMED(vb, DebugLabelFor::buffer, "ARR BUF line batch"sv);
 	glBufferData(GL_ARRAY_BUFFER, vertex_size * max_vertices, nullptr, GL_DYNAMIC_DRAW);
 
 	auto relative_offset = [](unsigned int i)
@@ -136,7 +136,7 @@ LineDrawer::LineDrawer()
 	ASSERT(max_indices == indices.size());
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ib);
-	SET_DEBUG_LABEL_NAMED(ib, DebugLabelFor::Buffer, "IND BUF line batch"sv);
+	SET_DEBUG_LABEL_NAMED(ib, DebugLabelFor::buffer, "IND BUF line batch"sv);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, max_indices * sizeof(u32), indices.data(), GL_STATIC_DRAW);
 }
 

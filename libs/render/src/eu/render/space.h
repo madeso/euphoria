@@ -3,8 +3,6 @@
 namespace eu::render
 {
 
-constexpr auto UP = v3(0.0f, 1.0f, 0.0f);
-
 /// A temporary view of the local space of a camera.
 struct CameraVectors
 {

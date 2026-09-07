@@ -139,7 +139,7 @@ Texture2d::Texture2d(DEBUG_LABEL_ARG_MANY const void* pixel_data, unsigned int p
 {
 	// todo(Gustav): use states
 	glBindTexture(GL_TEXTURE_2D, id);
-    SET_DEBUG_LABEL_NAMED(id, DebugLabelFor::Texture, fmt::format("TEXTURE2d {}", debug_label));
+    SET_DEBUG_LABEL_NAMED(id, DebugLabelFor::texture, fmt::format("TEXTURE2d {}", debug_label));
 
 	set_texture_wrap(GL_TEXTURE_2D, te, std::nullopt);
 
@@ -238,7 +238,7 @@ TextureCubemap::TextureCubemap(DEBUG_LABEL_ARG_MANY const std::array<void*, cube
 {
 	// todo(Gustav): use states
 	glBindTexture(GL_TEXTURE_CUBE_MAP, id);
-	SET_DEBUG_LABEL_NAMED(id, DebugLabelFor::Texture, fmt::format("TEXTURE CUBEMAP {}", debug_label));
+	SET_DEBUG_LABEL_NAMED(id, DebugLabelFor::texture, fmt::format("TEXTURE CUBEMAP {}", debug_label));
 
 	for (size_t index = 0; index < cubemap_size; index += 1)
 	{
@@ -519,7 +519,7 @@ std::shared_ptr<FrameBuffer> FrameBufferBuilder::build(DEBUG_LABEL_ARG_SINGLE) c
 	// setup texture
 	const GLenum target = is_msaa ? GL_TEXTURE_2D_MULTISAMPLE : GL_TEXTURE_2D;
 	glBindTexture(target, fbo->id);
-	SET_DEBUG_LABEL_NAMED(fbo->id, DebugLabelFor::Texture, fmt::format("TEXTURE FRAMEBUFFER {}", debug_label));
+	SET_DEBUG_LABEL_NAMED(fbo->id, DebugLabelFor::texture, fmt::format("TEXTURE FRAMEBUFFER {}", debug_label));
 	if (is_msaa == false)
 	{
 		// msaa neither support min/mag filters nor texture wrapping
@@ -558,7 +558,7 @@ std::shared_ptr<FrameBuffer> FrameBufferBuilder::build(DEBUG_LABEL_ARG_SINGLE) c
 
 	// setup fbo
 	auto bound = BoundFbo{fbo};
-	SET_DEBUG_LABEL_NAMED(fbo->fbo, DebugLabelFor::FrameBuffer, fmt::format("FBO {}", debug_label));
+	SET_DEBUG_LABEL_NAMED(fbo->fbo, DebugLabelFor::frame_buffer, fmt::format("FBO {}", debug_label));
 	constexpr GLint mipmap_level = 0;
 	glFramebufferTexture2D(GL_FRAMEBUFFER, color_bits_per_pixel == ColorBitsPerPixel::use_depth? GL_DEPTH_ATTACHMENT : GL_COLOR_ATTACHMENT0, target, fbo->id, mipmap_level);
 
@@ -576,7 +576,7 @@ std::shared_ptr<FrameBuffer> FrameBufferBuilder::build(DEBUG_LABEL_ARG_SINGLE) c
 		glGenRenderbuffers(1, &fbo->rbo);
 		ASSERT(fbo->rbo != 0);
 		glBindRenderbuffer(GL_RENDERBUFFER, fbo->rbo);
-		SET_DEBUG_LABEL_NAMED(fbo->rbo, DebugLabelFor::RenderBuffer, fmt::format("TEXTURE RENDBUFF {}", debug_label));
+		SET_DEBUG_LABEL_NAMED(fbo->rbo, DebugLabelFor::render_buffer, fmt::format("TEXTURE RENDBUFF {}", debug_label));
 
 		if (is_msaa)
 		{

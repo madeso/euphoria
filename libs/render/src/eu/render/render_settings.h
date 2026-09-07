@@ -45,7 +45,7 @@ struct RenderSettings
 
 	/// The resolution of the shadow map.
 	/// The renderer needs to restart when this value has changed.
-	Size shadow_map_resolution = {2048, 2048};
+	Size shadow_map_resolution = {.width = 2048, .height = 2048};
 
 	/// Use a tight fit shadow map.
 	/// The renderer doesn't need to restart when this value has changed.

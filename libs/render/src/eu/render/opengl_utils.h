@@ -27,16 +27,16 @@ void set_gl_viewport(const Rect& r);
 
 	enum class DebugLabelFor
 	{
-	    Buffer,
-	    Shader,
-	    Program,
-	    VertexArray,
-	    Query,
-	    ProgramPipeline,
-	    Sampler,
-	    Texture,
-	    RenderBuffer,
-	    FrameBuffer
+	    buffer,
+	    shader,
+	    program,
+	    vertex_array,
+	    query,
+	    program_pipeline,
+	    sampler,
+	    texture,
+	    render_buffer,
+	    frame_buffer
 	};
 
 	void set_gl_debug_label(DebugLabelFor type, GLuint object, const std::string& label);

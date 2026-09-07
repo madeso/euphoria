@@ -75,7 +75,7 @@ void UnlitMaterial::apply_lights(const RenderContext&, const Lights&, const Rend
 bool UnlitMaterial::is_transparent() const
 {
 	// todo(Gustav): improve transparency
-	return alpha < ALPHA_TRANSPARENCY_LIMIT;
+	return alpha < kk::alpha_transparency_limit;
 }
 
 DefaultMaterial::DefaultMaterial(const ShaderResource& resource)
@@ -228,7 +228,7 @@ void DefaultMaterial::apply_lights(
 bool DefaultMaterial::is_transparent() const
 {
 	// todo(Gustav): improve transparency
-	return alpha < ALPHA_TRANSPARENCY_LIMIT;
+	return alpha < kk::alpha_transparency_limit;
 }
 
 }  //  namespace eu::render

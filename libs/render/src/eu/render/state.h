@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include "eu/render/constants.h"
 
@@ -135,7 +135,7 @@ struct State
 	std::optional<StencilOp> stencil_op;
 
 	std::optional<int> active_texture;
-	std::array<std::optional<unsigned int>, MAX_TEXTURES_SUPPORTED> texture_bound;
+	std::array<std::optional<unsigned int>, kk::max_textures_supported> texture_bound;
 };
 
 

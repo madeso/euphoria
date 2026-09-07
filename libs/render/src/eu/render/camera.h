@@ -19,7 +19,12 @@ struct Camera
 
 	v3 position = v3{0.0f, 0.0f, 0.0f};
 
-    Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+    Ypr rotation = Ypr
+    {
+        .yaw = 0.0_rad,
+        .pitch = 0.0_rad,
+        .roll = 0.0_rad
+    };
 };
 
 /// A orthographic camera representation.
@@ -32,7 +37,12 @@ struct OrthoCamera
 
 	v3 position = v3{0.0f, 0.0f, 0.0f};
 
-    Ypr rotation = Ypr{ 0.0_rad, 0.0_rad, 0.0_rad };
+    Ypr rotation = Ypr
+    {
+        .yaw = 0.0_rad,
+        .pitch = 0.0_rad,
+        .roll = 0.0_rad
+    };
 };
 
 /// A "compiled" camera for use in rendering

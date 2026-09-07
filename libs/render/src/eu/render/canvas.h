@@ -96,7 +96,7 @@ struct Layer
     Rect viewport_aabb_in_worldspace;
     Rect screen;
 
-    v2 mouse_to_world(const v2& p) const;
+    [[nodiscard]] v2 mouse_to_world(const v2& p) const;
 };
 
 struct RenderLayer2 : Layer
@@ -104,8 +104,12 @@ struct RenderLayer2 : Layer
     SpriteBatch* batch;
 
     RenderLayer2(const Layer& l, SpriteBatch* batch);
-
     ~RenderLayer2();
+
+    RenderLayer2(RenderLayer2&&) = delete;
+    RenderLayer2(const RenderLayer2&) = delete;
+    void operator=(RenderLayer2&&) = delete;
+    void operator=(const RenderLayer2&) = delete;
 };
 
 struct RenderLayer3 : Layer

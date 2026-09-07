@@ -40,11 +40,11 @@ struct RenderWorld : RenderSource
 	std::shared_ptr<FrameBuffer> msaa_buffer;
 	std::shared_ptr<FrameBuffer> realized_buffer;
 	std::shared_ptr<FrameBuffer> shadow_buffer;
-	RealizeShader* realize_shader;
+	RealizeShader* realize_shader = nullptr;
 	std::optional<BloomRender> bloom_render;
-	std::size_t last_bloom_blur_index;
+	std::size_t last_bloom_blur_index = 0;
 
-	RenderWorld(const Size size, RealizeShader* re_sh, ExtractShader* ex_sh, PingPongBlurShader* ping_sh, int msaa_samples, bool* h, float* e);
+	RenderWorld(const Size& size, RealizeShader* re_sh, ExtractShader* ex_sh, PingPongBlurShader* ping_sh, int msaa_samples, bool* h, float* e);
 
 	void update(const PostProcArg& arg);
 

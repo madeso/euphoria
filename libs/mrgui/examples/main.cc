@@ -35,9 +35,13 @@ using namespace eu::mrgui;
 
 ENABLE_HIGH_PERFORMANCE_GRAPHICS
 
-eu::MemoryChunk chunk_from_embed(const embedded_binary& binary)
+static eu::MemoryChunk chunk_from_embed(const embedded_binary& binary)
 {
-    return { .bytes = reinterpret_cast<const char*>(binary.data), .size = binary.size };
+    return
+    {
+        .bytes = reinterpret_cast<const char*>(binary.data),
+        .size = binary.size
+    };
 }
 
 int  main(int, char**)
@@ -51,7 +55,7 @@ int  main(int, char**)
     }
 
 
-#if defined(__APPLE__)
+#ifdef __APPLE__
     // GL 3.2 Core + GLSL 150
     const char* glsl_version = "#version 150";
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG);	// Always required on Mac
@@ -80,14 +84,14 @@ int  main(int, char**)
 
     SDL_Window* window = SDL_CreateWindow("mrgui sample",
         window_width, window_height, SDL_WINDOW_OPENGL | SDL_WINDOW_HIGH_PIXEL_DENSITY | SDL_WINDOW_RESIZABLE);
-    if (!window) {
+    if (window == nullptr) {
         LOG_ERR("Error creating window: {}", SDL_GetError());
         return -1;
     }
     
-    auto* glContext = SDL_GL_CreateContext(window);
+    auto* gl_context = SDL_GL_CreateContext(window);
     SDL_GetWindowSize(window, &window_width, &window_height);
-    if (!glContext) {
+    if (gl_context == nullptr) {
         LOG_ERR("Error creating gl context: {}", SDL_GetError());
         return -1;
     }
@@ -116,7 +120,7 @@ int  main(int, char**)
     eu::render::Render2 render{ &states };
 
     UiState uistate;
-    IdStack idstack;
+    const IdStack idstack;
     eu::render::DrawableFont font{chunk_from_embed(OPENSANS_REGULAR_TTF)};
 
     const auto sample_texture = eu::render::load_image_from_embedded(SEND_DEBUG_LABEL_MANY("uv-texture.png") UV_TEXTURE_PNG,
@@ -133,7 +137,7 @@ int  main(int, char**)
     {
         // events
         SDL_Event e;
-        while (SDL_PollEvent(&e) != 0)
+        while (SDL_PollEvent(&e))
         {
             switch (e.type)
             {
@@ -162,10 +166,12 @@ int  main(int, char**)
                 break;
             case SDL_EVENT_TEXT_INPUT:
                 {
-                // todo(Gustav): handle unicode
-                char c = e.text.text[0];
-                if ((c & 0xFF80) == 0)
-                    uistate.keychar = static_cast<char>(c & 0x7f);
+                    // todo(Gustav): handle unicode
+                    const char first_char = e.text.text[0];
+                    if ((first_char & 0xFF80) == 0)
+                    {
+                        uistate.keychar = static_cast<char>(first_char & 0x7f);
+                    }
                 }
                 break;
             case SDL_EVENT_QUIT: running = false; break;
@@ -177,7 +183,7 @@ int  main(int, char**)
 
         // render
         {
-            eu::render::RenderCommand cmd {.states = &states, .render = &render, .size = {.width = window_width, .height = window_height} };
+            const eu::render::RenderCommand cmd {.states = &states, .render = &render, .size = {.width = window_width, .height = window_height} };
 
             // todo(Gustav): provide a pixel layout
             const auto screen = eu::render::LayoutData{ .style = eu::render::ViewportStyle::extended,
@@ -232,7 +238,7 @@ int  main(int, char**)
     }
 
     LOG_INFO("Shutting down");
-    SDL_GL_DestroyContext(glContext);
+    SDL_GL_DestroyContext(gl_context);
     SDL_DestroyWindow(window);
     SDL_Quit();
 

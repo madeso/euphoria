@@ -58,7 +58,7 @@ LoadedShader_OnlyDepth::LoadedShader_OnlyDepth(
 	: program(std::move(p))
 	, geom_layout(std::move(l))
 	, world_from_local_uni(
-		  model_source == TransformSource::Uniform ? std::optional<Uniform>{program->get_uniform("u_world_from_local")}
+		  model_source == TransformSource::uniform ? std::optional<Uniform>{program->get_uniform("u_world_from_local")}
 												   : std::nullopt
 	  )
 {
@@ -74,7 +74,7 @@ LoadedShader_Unlit::LoadedShader_Unlit(
 	, tint_color_uni(program->get_uniform("u_material.diffuse_tint"))
 	, tex_diffuse_uniform(program->get_uniform("u_material.diffuse_tex"))
 	, world_from_local_uni(
-		  model_source == TransformSource::Uniform ? std::optional<Uniform>{program->get_uniform("u_world_from_local")} : std::nullopt
+		  model_source == TransformSource::uniform ? std::optional<Uniform>{program->get_uniform("u_world_from_local")} : std::nullopt
 	  )
 {
 	setup_textures(program.get(), {&tex_diffuse_uniform});
@@ -167,7 +167,7 @@ LoadedShader_Default::LoadedShader_Default(
 	, shininess_uni(program->get_uniform("u_material.shininess"))
 	, emissive_factor_uni(program->get_uniform("u_material.emissive_factor"))
 	, world_from_local_uni(
-		  model_source == TransformSource::Uniform ? std::optional<Uniform>{program->get_uniform("u_world_from_local")} : std::nullopt
+		  model_source == TransformSource::uniform ? std::optional<Uniform>{program->get_uniform("u_world_from_local")} : std::nullopt
 	  )
 	, view_position_uni(program->get_uniform("u_view_position"))
 	, light_ambient_color_uni(program->get_uniform("u_ambient_light"))
@@ -218,9 +218,9 @@ const LoadedShader_Default& shader_from_container(const LoadedShader_Default_Con
 {
 	switch (rc.model_source)
 	{
-	case TransformSource::Uniform:
+	case TransformSource::uniform:
 		return rc.use_transparency == UseTransparency::yes ? container.transparency_shader : container.default_shader;
-	case TransformSource::Instanced_mat4:
+	case TransformSource::instanced_mat4:
 		ASSERT(rc.use_transparency == UseTransparency::no);	 // not currently supporting instanced transparency
 		return container.default_shader_instance;
 	default: ASSERT(false && "unhandled"); return container.default_shader;
@@ -344,11 +344,11 @@ LoadedShader load_shader(DEBUG_LABEL_ARG_MANY const BaseShaderData& base_layout,
 	std::optional<int> start_index = std::nullopt;
 	switch (model_source)
 	{
-	case TransformSource::Instanced_mat4:
+	case TransformSource::instanced_mat4:
 		instance_prop = core::InstanceProp{core::VertexType::instance_transform, "u_world_from_local"};
 		start_index = get_instance_start_index(instance_base);
 		break;
-	case TransformSource::Uniform: break;
+	case TransformSource::uniform: break;
 	default: ASSERT(false && "unhandled ModelSource");
 	}
 
@@ -399,28 +399,28 @@ ShaderResource load_shaders(const Assets& assets, const CameraUniformBuffer& des
 		USE_DEBUG_LABEL_MANY("unlit")
 		global_shader_data,
 		load_shader_source(default_shader_source, unlit_shader_options.with_transparent_cutoff(), desc.setup.source),
-		TransformSource::Uniform
+		TransformSource::uniform
 	);
 	auto loaded_default = load_shader(
 		USE_DEBUG_LABEL_MANY("default")
 		global_shader_data,
 		load_shader_source(default_shader_source, default_shader_options.with_transparent_cutoff(), desc.setup.source),
-		TransformSource::Uniform
+		TransformSource::uniform
 	);
 	auto loaded_default_instanced = load_shader(
 		USE_DEBUG_LABEL_MANY("default instanced")
 		global_shader_data,
 		load_shader_source(default_shader_source, default_shader_options.with_transparent_cutoff().with_instanced_mat4(), desc.setup.source),
-		TransformSource::Instanced_mat4
+		TransformSource::instanced_mat4
 	);
 
 	auto loaded_unlit_transparency = load_shader(
 		USE_DEBUG_LABEL_MANY("unlit transparency")
-		global_shader_data, load_shader_source(default_shader_source, unlit_shader_options, desc.setup.source), TransformSource::Uniform
+		global_shader_data, load_shader_source(default_shader_source, unlit_shader_options, desc.setup.source), TransformSource::uniform
 	);
 	auto loaded_default_transparency = load_shader(
 		USE_DEBUG_LABEL_MANY("default transparency")
-		global_shader_data, load_shader_source(default_shader_source, default_shader_options, desc.setup.source), TransformSource::Uniform
+		global_shader_data, load_shader_source(default_shader_source, default_shader_options, desc.setup.source), TransformSource::uniform
 	);
 
 	// todo(Gustav): should the asserts here be runtime errors? currently all setups are compile-time...
@@ -466,7 +466,7 @@ ShaderResource load_shaders(const Assets& assets, const CameraUniformBuffer& des
 		std::make_shared<ShaderProgram>(
 			USE_DEBUG_LABEL_MANY("pp blur vert")
 			std::string{PP_VERT_GLSL},
-			generate_blur(PP_BLUR_FRAG_GLSL, {BlurType::vertical, BLUR_SAMPLES, use_gauss}),
+			generate_blur(PP_BLUR_FRAG_GLSL, {BlurType::vertical, blur_samples, use_gauss}),
 			full_screen.layout
 		),
 		PostProcSetup::factor
@@ -475,7 +475,7 @@ ShaderResource load_shaders(const Assets& assets, const CameraUniformBuffer& des
 		std::make_shared<ShaderProgram>(
 			USE_DEBUG_LABEL_MANY("pp blur hor")
 			std::string{PP_VERT_GLSL},
-			generate_blur(PP_BLUR_FRAG_GLSL, {BlurType::horizontal, BLUR_SAMPLES, use_gauss}),
+			generate_blur(PP_BLUR_FRAG_GLSL, {BlurType::horizontal, blur_samples, use_gauss}),
 			full_screen.layout
 		),
 		PostProcSetup::factor | PostProcSetup::resolution
@@ -504,28 +504,28 @@ ShaderResource load_shaders(const Assets& assets, const CameraUniformBuffer& des
 	)};
 
 	auto loaded_single_color = load_shader(
-		USE_DEBUG_LABEL_MANY("single color") global_shader_data, single_color_shader, TransformSource::Uniform
+		USE_DEBUG_LABEL_MANY("single color") global_shader_data, single_color_shader, TransformSource::uniform
 	);
 	auto loaded_depth_transform_uniform = load_shader(
-		USE_DEBUG_LABEL_MANY("depth transform uniform") global_shader_data, depth_transform_uniform, TransformSource::Uniform
+		USE_DEBUG_LABEL_MANY("depth transform uniform") global_shader_data, depth_transform_uniform, TransformSource::uniform
 	);
 	auto loaded_depth_transform_instanced_mat4 = load_shader(
-		USE_DEBUG_LABEL_MANY("depth transform instanced") global_shader_data, depth_transform_instanced_mat4, TransformSource::Instanced_mat4, &loaded_default_instanced
+		USE_DEBUG_LABEL_MANY("depth transform instanced") global_shader_data, depth_transform_instanced_mat4, TransformSource::instanced_mat4, &loaded_default_instanced
 	);
 	auto loaded_skybox_shader
-		= load_shader(USE_DEBUG_LABEL_MANY("skybox"){}, skybox_shader, TransformSource::Uniform);
+		= load_shader(USE_DEBUG_LABEL_MANY("skybox"){}, skybox_shader, TransformSource::uniform);
 
 
 	return ShaderResource{
 		// todo(Gustav): not really happy with sending "the same" argument twice, loaded_X.program and loaded_X.geom_layout
 		.single_color_shader = LoadedShader_SingleColor{std::move(loaded_single_color.program), loaded_single_color.geom_layout, desc},
 		.depth_transform_uniform = LoadedShader_OnlyDepth{
-			TransformSource::Uniform, std::move(loaded_depth_transform_uniform.program),
+			TransformSource::uniform, std::move(loaded_depth_transform_uniform.program),
 			loaded_depth_transform_uniform.geom_layout,
 			desc
 		},
 		.depth_transform_instanced_mat4 = LoadedShader_OnlyDepth{
-			TransformSource::Instanced_mat4,
+			TransformSource::instanced_mat4,
 			std::move(loaded_depth_transform_instanced_mat4.program),
 			loaded_depth_transform_instanced_mat4.geom_layout,
 			desc
@@ -533,14 +533,14 @@ ShaderResource load_shaders(const Assets& assets, const CameraUniformBuffer& des
 		.skybox_shader = LoadedShader_Skybox{std::move(loaded_skybox_shader.program), loaded_skybox_shader.geom_layout, desc},
 		.unlit_shader_container = LoadedShader_Unlit_Container{
 			loaded_unlit.geom_layout,
-			LoadedShader_Unlit{TransformSource::Uniform, std::move(loaded_unlit.program), desc},
-			LoadedShader_Unlit{TransformSource::Uniform, std::move(loaded_unlit_transparency.program), desc}
+			LoadedShader_Unlit{TransformSource::uniform, std::move(loaded_unlit.program), desc},
+			LoadedShader_Unlit{TransformSource::uniform, std::move(loaded_unlit_transparency.program), desc}
 		},
 		.default_shader_container = LoadedShader_Default_Container{
 			loaded_default.geom_layout,
-			LoadedShader_Default{TransformSource::Uniform, std::move(loaded_default.program), settings, desc},
-			LoadedShader_Default{TransformSource::Uniform, std::move(loaded_default_transparency.program), settings, desc},
-			LoadedShader_Default{TransformSource::Instanced_mat4, std::move(loaded_default_instanced.program), settings, desc}
+			LoadedShader_Default{TransformSource::uniform, std::move(loaded_default.program), settings, desc},
+			LoadedShader_Default{TransformSource::uniform, std::move(loaded_default_transparency.program), settings, desc},
+			LoadedShader_Default{TransformSource::instanced_mat4, std::move(loaded_default_instanced.program), settings, desc}
 		},
 		// .pp_invert = pp_invert,
 		// .pp_grayscale = pp_grayscale,

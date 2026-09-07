@@ -102,7 +102,7 @@ void load_shader_source(
 )
 {
 	const auto vertex_shader = glCreateShader(GL_VERTEX_SHADER);
-	SET_DEBUG_LABEL_NAMED(vertex_shader, DebugLabelFor::Shader, fmt::format("SHADER {} VERT", debug_label));
+	SET_DEBUG_LABEL_NAMED(vertex_shader, DebugLabelFor::shader, fmt::format("SHADER {} VERT", debug_label));
 	upload_shader_source(vertex_shader, vertex_source);
 	glCompileShader(vertex_shader);
 	const auto vertex_ok = check_shader_compilation_error("vertex", vertex_shader);
@@ -113,7 +113,7 @@ void load_shader_source(
 	}
 
 	const auto fragment_shader = glCreateShader(GL_FRAGMENT_SHADER);
-	SET_DEBUG_LABEL_NAMED(fragment_shader, DebugLabelFor::Shader, fmt::format("SHADER {} FRAG", debug_label));
+	SET_DEBUG_LABEL_NAMED(fragment_shader, DebugLabelFor::shader, fmt::format("SHADER {} FRAG", debug_label));
 	upload_shader_source(fragment_shader, fragment_source);
 	glCompileShader(fragment_shader);
 	const auto fragment_ok = check_shader_compilation_error("fragment", fragment_shader);
@@ -153,7 +153,7 @@ ShaderProgram::ShaderProgram(
 	: shader_program(glCreateProgram())
 	, debug_vertex_types(layout.debug_types)
 {
-	SET_DEBUG_LABEL_NAMED(shader_program, DebugLabelFor::Program, fmt::format("PROGRAM {}", debug_label));
+	SET_DEBUG_LABEL_NAMED(shader_program, DebugLabelFor::program, fmt::format("PROGRAM {}", debug_label));
 	load_shader_source(USE_DEBUG_LABEL_MANY(debug_label) this, vertex_source, fragment_source, layout);
 }
 
@@ -329,7 +329,7 @@ void ShaderProgram::setup_uniform_block(const core::UniformBufferSetup& setup) /
 
 void setup_textures(ShaderProgram* shader, const std::vector<Uniform*>& uniform_list)
 {
-	ASSERT(uniform_list.size() <= MAX_TEXTURES_SUPPORTED);
+	ASSERT(uniform_list.size() <= kk::max_textures_supported);
 
 	shader->use();
 

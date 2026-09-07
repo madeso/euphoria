@@ -219,16 +219,16 @@ GLenum glenum_from_object_type(DebugLabelFor type)
 {
     switch (type)
     {
-	case DebugLabelFor::Buffer: return GL_BUFFER;
-	case DebugLabelFor::Shader: return GL_SHADER;
-	case DebugLabelFor::Program: return GL_PROGRAM;
-	case DebugLabelFor::VertexArray: return GL_VERTEX_ARRAY;
-	case DebugLabelFor::Query: return GL_QUERY;
-	case DebugLabelFor::ProgramPipeline: return GL_PROGRAM_PIPELINE;
-	case DebugLabelFor::Sampler: return GL_SAMPLER;
-	case DebugLabelFor::Texture: return GL_TEXTURE;
-	case DebugLabelFor::RenderBuffer: return GL_RENDERBUFFER;
-	case DebugLabelFor::FrameBuffer: return GL_FRAMEBUFFER;
+	case DebugLabelFor::buffer: return GL_BUFFER;
+	case DebugLabelFor::shader: return GL_SHADER;
+	case DebugLabelFor::program: return GL_PROGRAM;
+	case DebugLabelFor::vertex_array: return GL_VERTEX_ARRAY;
+	case DebugLabelFor::query: return GL_QUERY;
+	case DebugLabelFor::program_pipeline: return GL_PROGRAM_PIPELINE;
+	case DebugLabelFor::sampler: return GL_SAMPLER;
+	case DebugLabelFor::texture: return GL_TEXTURE;
+	case DebugLabelFor::render_buffer: return GL_RENDERBUFFER;
+	case DebugLabelFor::frame_buffer: return GL_FRAMEBUFFER;
     default:                          return GL_NONE;
     }
 }

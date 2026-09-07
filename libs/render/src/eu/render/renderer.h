@@ -24,7 +24,7 @@ struct RendererPimpl;
 struct ShadowContext
 {
 	FrameBuffer* directional_shadow_map = nullptr;
-	m4 directional_shadow_clip_from_world;
+	m4 directional_shadow_clip_from_world = m4_identity;
 };
 
 
@@ -45,16 +45,11 @@ struct Renderer
 	void operator=(const Renderer&) = delete;
 	void operator=(Renderer&&) = delete;
 
-	std::shared_ptr<UnlitMaterial> make_unlit_material() const;
-	std::shared_ptr<DefaultMaterial> make_default_material() const;
+	[[nodiscard]] std::shared_ptr<UnlitMaterial> make_unlit_material() const;
+	[[nodiscard]] std::shared_ptr<DefaultMaterial> make_default_material() const;
 
 	[[nodiscard]] core::CompiledGeomVertexAttributes unlit_geom_layout() const;
 	[[nodiscard]] core::CompiledGeomVertexAttributes default_geom_layout() const;
-
-	std::shared_ptr<FactorEffect> make_invert_effect() const;
-	std::shared_ptr<FactorEffect> make_grayscale_effect() const;
-	std::shared_ptr<FactorEffect> make_damage_effect() const;
-	std::shared_ptr<FactorEffect> make_blur_effect() const;
 
 	[[nodiscard]] Skybox make_skybox(std::shared_ptr<TextureCubemap> texture) const;
 

@@ -53,7 +53,7 @@ void Effect::set_enabled(bool n)
 // todo(Gustav): should this be a user config option? evaluate higher/lower bits, probably 16 or 32 since it needs to be floating point for hdr
 constexpr ColorBitsPerPixel render_world_color_bits_per_pixel = ColorBitsPerPixel::use_16;
 
-std::optional<BloomRender> build_bloom(const Size& size, ExtractShader* sh, PingPongBlurShader* ping_sh)
+static std::optional<BloomRender> build_bloom(const Size& size, ExtractShader* sh, PingPongBlurShader* ping_sh)
 {
 	if (sh == nullptr) { return std::nullopt; }
 
@@ -62,10 +62,16 @@ std::optional<BloomRender> build_bloom(const Size& size, ExtractShader* sh, Ping
 	auto ping_one = build_simple_framebuffer(USE_DEBUG_LABEL_MANY("ping-pong bloom buffer one") size);
 	auto ping_two = build_simple_framebuffer(USE_DEBUG_LABEL_MANY("ping-pong bloom buffer two") size);
 
-	return BloomRender{sh, bloom_buffer, ping_sh, {ping_one, ping_two}};
+	return BloomRender
+    {
+	    .extract_shader = sh,
+        .bloom_buffer = bloom_buffer,
+        .ping_pong_shader = ping_sh,
+        .ping_pong_buffer = {ping_one, ping_two}
+	};
 }
 
-RenderWorld::RenderWorld(const Size size, RealizeShader* re_sh, ExtractShader* ex_sh, PingPongBlurShader* ping_sh, int msaa_samples, bool* h, float* e)
+RenderWorld::RenderWorld(const Size& size, RealizeShader* re_sh, ExtractShader* ex_sh, PingPongBlurShader* ping_sh, int msaa_samples, bool* h, float* e)
 	: window_size(size)
 	, use_hdr(h)
 	, exposure(e)
@@ -108,7 +114,10 @@ void RenderWorld::update(const PostProcArg& arg)
         );
 
 		auto bound = BoundFbo{shadow_buffer};
-		set_gl_viewport({shadow_buffer->size.width, shadow_buffer->size.height});
+		set_gl_viewport({
+            .width = shadow_buffer->size.width,
+            .height = shadow_buffer->size.height
+		});
 		arg.renderer->render_shadows(shadow_size, *arg.world, compiled_shadow_camera);
 	}
 
@@ -125,7 +134,10 @@ void RenderWorld::update(const PostProcArg& arg)
 		};
 
 		auto bound = BoundFbo{msaa_buffer};
-		set_gl_viewport({msaa_buffer->size.width, msaa_buffer->size.height});
+		set_gl_viewport({
+            .width = msaa_buffer->size.width,
+            .height = msaa_buffer->size.height
+		});
 		arg.renderer->render_world(window_size, *arg.world, compile(*arg.camera, window_size), shadow_context);
 	}
 
@@ -260,10 +272,10 @@ void RenderWorld::gui(imgui::ImguiShaderCache* cache)
 #if FF_HAS(EU_DEBUG_RUNNER)
 	if (bloom_render && bloom_render->bloom_buffer)
 	{
-        imgui::imgui_image("bloom buffer", *bloom_render->bloom_buffer, cache, imgui::ImageShader::TonemapAndGamma);
+        imgui::imgui_image("bloom buffer", *bloom_render->bloom_buffer, cache, imgui::ImageShader::tonemap_and_gamma);
 
-        imgui::imgui_image("ping-pong A", *bloom_render->ping_pong_buffer[0], cache, imgui::ImageShader::TonemapAndGamma);
-        imgui::imgui_image("ping-pong B", *bloom_render->ping_pong_buffer[1], cache, imgui::ImageShader::TonemapAndGamma);
+        imgui::imgui_image("ping-pong A", *bloom_render->ping_pong_buffer[0], cache, imgui::ImageShader::tonemap_and_gamma);
+        imgui::imgui_image("ping-pong B", *bloom_render->ping_pong_buffer[1], cache, imgui::ImageShader::tonemap_and_gamma);
 	}
 #endif
 }
@@ -392,7 +404,10 @@ void EffectStack::render(const PostProcArg& arg)
 		{
 			if (e->is_enabled)
 			{
-				e->build({&compiled, arg.window_size});
+				e->build({
+                    .builder = &compiled,
+                    .window_size = arg.window_size
+				});
 			}
 		}
 	}
@@ -459,7 +474,7 @@ float FactorEffect::get_factor() const
 void FactorEffect::set_factor(float f)
 {
 	factor = f;
-	set_enabled(factor > ALMOST_ZERO);
+	set_enabled(factor > kk::almost_zero);
 }
 
 
@@ -568,7 +583,7 @@ void SimpleEffect::update(float dt)
 	time += dt;
 }
 
-v2 v2_from_size(const Size& s)
+static v2 v2_from_size(const Size& s)
 {
         return { float_from_int(s.width), float_from_int(s.height) };
 }
@@ -751,34 +766,5 @@ void BlurEffect::build(const BuildArg& arg)
 	// done
 	arg.builder->last_source = target_h;
 }
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Renderer
-#if 0
-std::shared_ptr<FactorEffect> Renderer::make_invert_effect() const
-{
-	return std::make_shared<SimpleEffect>("Invert", pimpl->shaders_resources.pp_invert);
-}
-
-std::shared_ptr<FactorEffect> Renderer::make_grayscale_effect() const
-{
-	return std::make_shared<SimpleEffect>("Grayscale", pimpl->shaders_resources.pp_grayscale);
-}
-
-std::shared_ptr<FactorEffect> Renderer::make_damage_effect() const
-{
-	auto r = std::make_shared<SimpleEffect>("Damage", pimpl->shaders_resources.pp_damage);
-	r->add_float_drag_prop("u_vignette_radius", 0.13f, 0.01f);
-	r->add_float_slider_prop("u_vignette_smoothness", 1.0f, 0.001f, 1.0f);
-	r->add_float_slider_prop("u_vignette_darkening", 1.0f, 0.0f, 1.0f);
-	r->add_float_drag_prop("u_noise_scale", 25.0f, 1.0f);
-	return r;
-}
-
-std::shared_ptr<FactorEffect> Renderer::make_blur_effect() const
-{
-	return std::make_shared<BlurEffect>("Blur", pimpl->shaders_resources.pp_blurv, pimpl->shaders_resources.pp_blurh);
-}
-#endif
 
 }  //  namespace eu::render

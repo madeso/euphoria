@@ -28,10 +28,10 @@ struct Assets;
 enum class TransformSource
 {
 	/// the model source is provided as a mat4 uniform.
-	Uniform,
+	uniform,
 
 	/// the model source is provided as a (instanced) mat4 attribute
-	Instanced_mat4
+	instanced_mat4
 };
 
 /// "Global state" for the shaders describing the state of the camera.

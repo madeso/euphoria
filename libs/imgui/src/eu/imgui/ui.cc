@@ -244,13 +244,13 @@ static void draw_imgui_image(const render::FrameBuffer& img, const ImVec2& image
 	// set shader
 	switch (shader)
 	{
-	case ImageShader::TonemapAndGamma:
+	case ImageShader::tonemap_and_gamma:
 		draw_list->AddCallback(im_draw_callback_linear_to_gamma, &cache->linear_to_gamma_shader);
 		break;
-	case ImageShader::DepthOrtho:
+	case ImageShader::depth_ortho:
 		draw_list->AddCallback(im_draw_callback_depth_ortho, &cache->depth_ortho_shader);
 		break;
-	case ImageShader::None:
+	case ImageShader::none:
 		// no shader
 		break;
 	}
@@ -259,7 +259,7 @@ static void draw_imgui_image(const render::FrameBuffer& img, const ImVec2& image
 	ImGui::ImageWithBg(img.id, image_size, uv0, uv1, border_col);
 
 	// reset shader
-	if (shader != ImageShader::None)
+	if (shader != ImageShader::none)
 	{
 		draw_list->AddCallback(ImDrawCallback_ResetRenderState, nullptr);
 	}
@@ -368,12 +368,12 @@ bool simple_gamma_slider(const char* label, float* gamma, float curve, float min
 }
 
 
-bool drag(const char* const label, v3* drag)
+bool drag(const char* label, v3* drag)
 {
     return ImGui::DragFloat3(label, drag->get_data_ptr());
 }
 
-bool drag(const char* const label, Ypr* drag)
+bool drag(const char* label, Ypr* drag)
 {
     float angles[3] = {
         drag->yaw.as_degrees(),
@@ -482,7 +482,7 @@ namespace
     }
 }
 
-ImVec2 calc_button_size(const char* const label, const ImVec2& size_arg = ImVec2(0,0))
+ImVec2 calc_button_size(const char* label, const ImVec2& size_arg = ImVec2(0,0))
 {
     const auto style = ImGui::GetStyle();
     const ImVec2 label_size = ImGui::CalcTextSize(label, nullptr, true);
@@ -491,7 +491,7 @@ ImVec2 calc_button_size(const char* const label, const ImVec2& size_arg = ImVec2
 }
 
 // https://anttweakbar.sourceforge.io/doc/tools_anttweakbar_rotoslider.html
-bool gear_icon(const char* const label, float* drag, const ImVec2& size)
+bool gear_icon(const char* label, float* drag, const ImVec2& size)
 {
     static std::optional<GearState> state = std::nullopt;
 
@@ -601,9 +601,9 @@ bool gear_icon(const char* const label, float* drag, const ImVec2& size)
     return changed;
 }
 
-bool gear(const char* const label, v3* drag)
+bool gear(const char* label, v3* drag)
 {
-    constexpr const char* const gear_string = ".";
+    constexpr const char* gear_string = ".";
     const auto gear_size = calc_button_size(gear_string);
 
     auto& style = ImGui::GetStyle();

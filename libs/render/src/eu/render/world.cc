@@ -61,11 +61,11 @@ std::shared_ptr<CompiledGeom> compile_geom(DEBUG_LABEL_ARG_MANY const core::Geom
 
 	const auto vao = create_vertex_array();
 	glBindVertexArray(vao);
-	SET_DEBUG_LABEL_NAMED(vao, DebugLabelFor::VertexArray, fmt::format("VERT {}", debug_label));
+	SET_DEBUG_LABEL_NAMED(vao, DebugLabelFor::vertex_array, fmt::format("VERT {}", debug_label));
 
 	const auto vbo = create_buffer();
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	SET_DEBUG_LABEL_NAMED(vbo, DebugLabelFor::Buffer, fmt::format("ARR BUF {}", debug_label));
+	SET_DEBUG_LABEL_NAMED(vbo, DebugLabelFor::buffer, fmt::format("ARR BUF {}", debug_label));
 	glBufferData(GL_ARRAY_BUFFER, glsizeiptr_from_sizet(ex.data.size()), ex.data.data(), GL_STATIC_DRAW);
 
 	const auto get_type = [](const core::ExtractedAttribute& extracted) -> GLenum
@@ -100,7 +100,7 @@ std::shared_ptr<CompiledGeom> compile_geom(DEBUG_LABEL_ARG_MANY const core::Geom
 
 	const auto ebo = create_buffer();
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
-	SET_DEBUG_LABEL_NAMED(ebo, DebugLabelFor::Buffer, fmt::format("IND BUF {}", debug_label));
+	SET_DEBUG_LABEL_NAMED(ebo, DebugLabelFor::buffer, fmt::format("IND BUF {}", debug_label));
 
 	glBufferData(
 		GL_ELEMENT_ARRAY_BUFFER,
@@ -133,11 +133,11 @@ std::shared_ptr<CompiledGeom_TransformInstance> compile_geom_with_transform_inst
 
 	const auto vao = create_vertex_array();
 	glBindVertexArray(vao);
-	SET_DEBUG_LABEL_NAMED(vao, DebugLabelFor::VertexArray, fmt::format("VERT (in) {}", debug_label));
+	SET_DEBUG_LABEL_NAMED(vao, DebugLabelFor::vertex_array, fmt::format("VERT (in) {}", debug_label));
 
 	const auto vbo = create_buffer();
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	SET_DEBUG_LABEL_NAMED(vbo, DebugLabelFor::Buffer, fmt::format("ARR BUF (in) {}", debug_label));
+	SET_DEBUG_LABEL_NAMED(vbo, DebugLabelFor::buffer, fmt::format("ARR BUF (in) {}", debug_label));
 	glBufferData(GL_ARRAY_BUFFER, glsizeiptr_from_sizet(ex.data.size()), ex.data.data(), GL_STATIC_DRAW);
 
 	const auto get_type = [](const core::ExtractedAttribute& extracted) -> GLenum
@@ -173,7 +173,7 @@ std::shared_ptr<CompiledGeom_TransformInstance> compile_geom_with_transform_inst
 	// todo(Gustav): is dynamic draw correct?
 	const auto instance_vbo = create_buffer();
 	glBindBuffer(GL_ARRAY_BUFFER, instance_vbo);
-	SET_DEBUG_LABEL_NAMED(instance_vbo, DebugLabelFor::Buffer, fmt::format("ARRAY BUF (trans in) {}", debug_label));
+	SET_DEBUG_LABEL_NAMED(instance_vbo, DebugLabelFor::buffer, fmt::format("ARRAY BUF (trans in) {}", debug_label));
 	constexpr auto instance_size = sizeof(float) * 16;
 	glBufferData(GL_ARRAY_BUFFER, glsizeiptr_from_sizet(instance_size * max_instances), nullptr, GL_DYNAMIC_DRAW);
 
@@ -194,7 +194,7 @@ std::shared_ptr<CompiledGeom_TransformInstance> compile_geom_with_transform_inst
 
 	const auto ebo = create_buffer();
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
-	SET_DEBUG_LABEL_NAMED(ebo, DebugLabelFor::Buffer, fmt::format("IND BUF (in) {}", debug_label));
+	SET_DEBUG_LABEL_NAMED(ebo, DebugLabelFor::buffer, fmt::format("IND BUF (in) {}", debug_label));
 	glBufferData(
 		GL_ELEMENT_ARRAY_BUFFER,
 		glsizeiptr_from_sizet(sizeof(u32) * ex.indices.size()),

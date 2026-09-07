@@ -24,7 +24,7 @@ struct Image
     Image();
 
     /// Returns true if the image has valid dimensions and data.
-    bool is_valid() const;
+    [[nodiscard]] bool is_valid() const;
 
     /// Initializes the image with the specified dimensions and alpha support.
     /// @param w The width of the image.
@@ -50,7 +50,7 @@ struct Image
     /// @param x The x-coordinate of the pixel.
     /// @param y The y-coordinate of the pixel.
     /// @return The color at the pixel as a PixelColor struct. If out of bounds, returns {0,0,0,0}.
-    PixelColor get_pixel(int x, int y) const;
+    [[nodiscard]] PixelColor get_pixel(int x, int y) const;
 };
 
 /// Copies pixel data from a source image to a destination image at specified coordinates.

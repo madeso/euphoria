@@ -189,7 +189,7 @@ void Renderer::render_world(const Size& window_size, const World& world, const C
 			for (const auto& mesh: world.meshes)
 			{
 				const auto not_transparent_context
-					= RenderContext{TransformSource::Uniform, UseTransparency::no, settings.gamma, &shadow_context};
+					= RenderContext{TransformSource::uniform, UseTransparency::no, settings.gamma, &shadow_context};
 
 				if (mesh->material->is_transparent())
 				{
@@ -230,7 +230,7 @@ void Renderer::render_world(const Size& window_size, const World& world, const C
 			SCOPED_DEBUG_GROUP("render instances"sv);
 			for (const auto& instance: world.instances)
 			{
-				const auto not_transparent_context = RenderContext{TransformSource::Instanced_mat4, UseTransparency::no, settings.gamma, &shadow_context};
+				const auto not_transparent_context = RenderContext{TransformSource::instanced_mat4, UseTransparency::no, settings.gamma, &shadow_context};
 
 				StateChanger{pimpl->states}
 					.depth_test(true)
@@ -298,7 +298,7 @@ void Renderer::render_world(const Size& window_size, const World& world, const C
 		SCOPED_DEBUG_GROUP("render transparent meshes"sv);
 		for (auto& transparent_mesh: transparent_meshes)
 		{
-			const auto transparent_context = RenderContext{TransformSource::Uniform, UseTransparency::yes, settings.gamma, &shadow_context};
+			const auto transparent_context = RenderContext{TransformSource::uniform, UseTransparency::yes, settings.gamma, &shadow_context};
 
 			const auto& mesh = transparent_mesh.mesh;
 			StateChanger{pimpl->states}
@@ -334,7 +334,7 @@ void Renderer::render_world(const Size& window_size, const World& world, const C
 					.stencil_func(Compare::not_equal, 1, 0xFF)
 					.stencil_mask(0x00)
 					.depth_test(false);
-				const m4 small_scale_mat = m4::from_scale(v3{OUTLINE_SCALE, OUTLINE_SCALE, OUTLINE_SCALE});
+				const m4 small_scale_mat = m4::from_scale(v3{ kk::outline_scale, kk::outline_scale, kk::outline_scale});
 
 				auto& shader = pimpl->shaders_resources.single_color_shader;
 				shader.program->use();

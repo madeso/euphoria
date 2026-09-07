@@ -120,7 +120,7 @@ ADD_DEFAULT_FORMATTER(eu::An, std::string, eu::string_from);
 
 namespace eu
 {
-    constexpr An operator""_deg(unsigned long long d)
+    constexpr An operator""_deg(unsigned long long int d)
     {
         return An::from_degrees(static_cast<float>(d));
     }

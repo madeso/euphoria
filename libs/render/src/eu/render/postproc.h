@@ -25,11 +25,11 @@ struct RenderWorld;
 /// Arguments for rendering a post-processing effect.
 struct PostProcArg
 {
-	const World* world;
-	Size window_size;
-    Rect final_rect;
-	const Camera* camera;
-	Renderer* renderer;
+	const World* world = nullptr;
+	Size window_size = {.width = 0, .height = 0};
+    Rect final_rect = {};
+	const Camera* camera = nullptr;
+	Renderer* renderer = nullptr;
 };
 
 /// A source that can be rendered to a framebuffer or a screen.
@@ -123,7 +123,7 @@ struct Effect
 	virtual void update(float dt) = 0;
 	virtual void gui() = 0;
 
-	bool enabled() const;
+	[[nodiscard]] bool enabled() const;
 
    protected:
 

@@ -1,20 +1,20 @@
 #pragma once
 
-namespace eu::render
+namespace eu::kk
 {
 
-// OpenGL should support atleast 16 textures
-constexpr std::size_t MAX_TEXTURES_SUPPORTED = 16;
+// OpenGL should support at least 16 textures
+constexpr std::size_t max_textures_supported = 16;
 
-// todo(Gustav): move theese to some (render) settings
+// todo(Gustav): move these to some (render) settings
 
-constexpr float ALMOST_ZERO = 0.01f;
+constexpr float almost_zero = 0.01f;
 /// if alpha goes above this limit, it is no longer considered transparent
-constexpr float ALPHA_TRANSPARENCY_LIMIT = 1.0f - ALMOST_ZERO;
+constexpr float alpha_transparency_limit = 1.0f - almost_zero;
 
-constexpr float OUTLINE_SCALE = 1.1f;
+constexpr float outline_scale = 1.1f;
 
-constexpr int BLUR_SAMPLES = 10;
+constexpr int blur_samples = 10;
 
 }
 

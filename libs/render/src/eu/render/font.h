@@ -168,7 +168,8 @@ namespace eu::render
         float ascent = 0;
         float descent = 0;
         float line_gap = 0;
-        constexpr float get_line_height() const
+        
+        [[nodiscard]] constexpr float get_line_height() const
         {
             return ascent - descent + line_gap;
         }

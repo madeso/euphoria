@@ -30,7 +30,7 @@ UniformBuffer::UniformBuffer(DEBUG_LABEL_ARG_MANY const core::UniformBufferSetup
 	: id(create_buffer())
 {
 	auto bound = BoundUniformBuffer{this};
-	SET_DEBUG_LABEL_NAMED(id, DebugLabelFor::Buffer, fmt::format("UNI B {}", debug_label));
+	SET_DEBUG_LABEL_NAMED(id, DebugLabelFor::buffer, fmt::format("UNI B {}", debug_label));
 
 	// Changed to a dynamic draw due to:
 	//	Using glBufferSubData(...) to update a GL_STATIC_DRAW buffer
