@@ -11,96 +11,11 @@
 <li>10: /home/runner/work/euphoria/euphoria/libs/mrgui/examples/main.cc</li>
 <li>10: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h</li>
 <li>5: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/constants.h</li>
-<li>3: /home/runner/work/euphoria/euphoria/build/libs/mrgui/OpenSans-Regular.ttf.h</li>
-<li>3: /home/runner/work/euphoria/euphoria/build/libs/mrgui/spritesheet.png.h</li>
-<li>3: /home/runner/work/euphoria/euphoria/build/libs/mrgui/uv-texture.png.h</li>
 <li>2: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.h</li>
 <li>2: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/canvas.h</li>
 <li>1: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.h</li>
 </ul>
 <h2>Warnings</h2>
-<span id='readability-identifier-naming'>&nbsp;</span>
-<hr>
-<h3>warning: invalid case style for global constant &#39;OPENSANS_REGULAR_TTF_size&#39;</h3>
-<code>[readability-identifier-naming]</code>
-<p><i>build/libs/mrgui/OpenSans-Regular.ttf.h 7 : 27</i></p>
-<pre>
-    7 | static const unsigned int OPENSANS_REGULAR_TTF_size = 130832;
-      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~
-      |                           opensans_regular_ttf_size
-</pre>
-<hr>
-<h3>warning: invalid case style for global constant &#39;OPENSANS_REGULAR_TTF_data&#39;</h3>
-<code>[readability-identifier-naming]</code>
-<p><i>build/libs/mrgui/OpenSans-Regular.ttf.h 8 : 27</i></p>
-<pre>
-    8 | static const unsigned int OPENSANS_REGULAR_TTF_data[130832/4] =
-      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~
-      |                           opensans_regular_ttf_data
-</pre>
-<hr>
-<h3>warning: invalid case style for constexpr variable &#39;OPENSANS_REGULAR_TTF&#39;</h3>
-<code>[readability-identifier-naming]</code>
-<p><i>build/libs/mrgui/OpenSans-Regular.ttf.h 2738 : 27</i></p>
-<pre>
- 2738 | constexpr embedded_binary OPENSANS_REGULAR_TTF = embedded_binary{OPENSANS_REGULAR_TTF_data, OPENSANS_REGULAR_TTF_size};
-      |                           ^~~~~~~~~~~~~~~~~~~~
-      |                           opensans_regular_ttf
-</pre>
-<hr>
-<h3>warning: invalid case style for global constant &#39;SPRITESHEET_PNG_size&#39;</h3>
-<code>[readability-identifier-naming]</code>
-<p><i>build/libs/mrgui/spritesheet.png.h 7 : 27</i></p>
-<pre>
-    7 | static const unsigned int SPRITESHEET_PNG_size = 55757;
-      |                           ^~~~~~~~~~~~~~~~~~~~
-      |                           spritesheet_png_size
-</pre>
-<hr>
-<h3>warning: invalid case style for global constant &#39;SPRITESHEET_PNG_data&#39;</h3>
-<code>[readability-identifier-naming]</code>
-<p><i>build/libs/mrgui/spritesheet.png.h 8 : 27</i></p>
-<pre>
-    8 | static const unsigned int SPRITESHEET_PNG_data[55760/4] =
-      |                           ^~~~~~~~~~~~~~~~~~~~
-      |                           spritesheet_png_data
-</pre>
-<hr>
-<h3>warning: invalid case style for constexpr variable &#39;SPRITESHEET_PNG&#39;</h3>
-<code>[readability-identifier-naming]</code>
-<p><i>build/libs/mrgui/spritesheet.png.h 1174 : 27</i></p>
-<pre>
- 1174 | constexpr embedded_binary SPRITESHEET_PNG = embedded_binary{SPRITESHEET_PNG_data, SPRITESHEET_PNG_size};
-      |                           ^~~~~~~~~~~~~~~
-      |                           spritesheet_png
-</pre>
-<hr>
-<h3>warning: invalid case style for global constant &#39;UV_TEXTURE_PNG_size&#39;</h3>
-<code>[readability-identifier-naming]</code>
-<p><i>build/libs/mrgui/uv-texture.png.h 7 : 27</i></p>
-<pre>
-    7 | static const unsigned int UV_TEXTURE_PNG_size = 8609;
-      |                           ^~~~~~~~~~~~~~~~~~~
-      |                           uv_texture_png_size
-</pre>
-<hr>
-<h3>warning: invalid case style for global constant &#39;UV_TEXTURE_PNG_data&#39;</h3>
-<code>[readability-identifier-naming]</code>
-<p><i>build/libs/mrgui/uv-texture.png.h 8 : 27</i></p>
-<pre>
-    8 | static const unsigned int UV_TEXTURE_PNG_data[8612/4] =
-      |                           ^~~~~~~~~~~~~~~~~~~
-      |                           uv_texture_png_data
-</pre>
-<hr>
-<h3>warning: invalid case style for constexpr variable &#39;UV_TEXTURE_PNG&#39;</h3>
-<code>[readability-identifier-naming]</code>
-<p><i>build/libs/mrgui/uv-texture.png.h 192 : 27</i></p>
-<pre>
-  192 | constexpr embedded_binary UV_TEXTURE_PNG = embedded_binary{UV_TEXTURE_PNG_data, UV_TEXTURE_PNG_size};
-      |                           ^~~~~~~~~~~~~~
-      |                           uv_texture_png
-</pre>
 <span id='modernize-use-nodiscard'>&nbsp;</span>
 <hr>
 <h3>warning: function &#39;is_valid&#39; should be marked [[nodiscard]]</h3>
@@ -150,6 +65,7 @@
       |         ~^     
       |                 == nullptr
 </pre>
+<span id='readability-identifier-naming'>&nbsp;</span>
 <hr>
 <h3>warning: invalid case style for local pointer &#39;glContext&#39;</h3>
 <code>[readability-identifier-naming]</code>
@@ -389,42 +305,6 @@
       |             frame_buffer
 </pre>
 <!--
-/home/runner/work/euphoria/euphoria/build/libs/mrgui/OpenSans-Regular.ttf.h:7:27: warning: invalid case style for global constant 'OPENSANS_REGULAR_TTF_size' [readability-identifier-naming]
-    7 | static const unsigned int OPENSANS_REGULAR_TTF_size = 130832;
-      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~
-      |                           opensans_regular_ttf_size
-/home/runner/work/euphoria/euphoria/build/libs/mrgui/OpenSans-Regular.ttf.h:8:27: warning: invalid case style for global constant 'OPENSANS_REGULAR_TTF_data' [readability-identifier-naming]
-    8 | static const unsigned int OPENSANS_REGULAR_TTF_data[130832/4] =
-      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~
-      |                           opensans_regular_ttf_data
-/home/runner/work/euphoria/euphoria/build/libs/mrgui/OpenSans-Regular.ttf.h:2738:27: warning: invalid case style for constexpr variable 'OPENSANS_REGULAR_TTF' [readability-identifier-naming]
- 2738 | constexpr embedded_binary OPENSANS_REGULAR_TTF = embedded_binary{OPENSANS_REGULAR_TTF_data, OPENSANS_REGULAR_TTF_size};
-      |                           ^~~~~~~~~~~~~~~~~~~~
-      |                           opensans_regular_ttf
-/home/runner/work/euphoria/euphoria/build/libs/mrgui/spritesheet.png.h:7:27: warning: invalid case style for global constant 'SPRITESHEET_PNG_size' [readability-identifier-naming]
-    7 | static const unsigned int SPRITESHEET_PNG_size = 55757;
-      |                           ^~~~~~~~~~~~~~~~~~~~
-      |                           spritesheet_png_size
-/home/runner/work/euphoria/euphoria/build/libs/mrgui/spritesheet.png.h:8:27: warning: invalid case style for global constant 'SPRITESHEET_PNG_data' [readability-identifier-naming]
-    8 | static const unsigned int SPRITESHEET_PNG_data[55760/4] =
-      |                           ^~~~~~~~~~~~~~~~~~~~
-      |                           spritesheet_png_data
-/home/runner/work/euphoria/euphoria/build/libs/mrgui/spritesheet.png.h:1174:27: warning: invalid case style for constexpr variable 'SPRITESHEET_PNG' [readability-identifier-naming]
- 1174 | constexpr embedded_binary SPRITESHEET_PNG = embedded_binary{SPRITESHEET_PNG_data, SPRITESHEET_PNG_size};
-      |                           ^~~~~~~~~~~~~~~
-      |                           spritesheet_png
-/home/runner/work/euphoria/euphoria/build/libs/mrgui/uv-texture.png.h:7:27: warning: invalid case style for global constant 'UV_TEXTURE_PNG_size' [readability-identifier-naming]
-    7 | static const unsigned int UV_TEXTURE_PNG_size = 8609;
-      |                           ^~~~~~~~~~~~~~~~~~~
-      |                           uv_texture_png_size
-/home/runner/work/euphoria/euphoria/build/libs/mrgui/uv-texture.png.h:8:27: warning: invalid case style for global constant 'UV_TEXTURE_PNG_data' [readability-identifier-naming]
-    8 | static const unsigned int UV_TEXTURE_PNG_data[8612/4] =
-      |                           ^~~~~~~~~~~~~~~~~~~
-      |                           uv_texture_png_data
-/home/runner/work/euphoria/euphoria/build/libs/mrgui/uv-texture.png.h:192:27: warning: invalid case style for constexpr variable 'UV_TEXTURE_PNG' [readability-identifier-naming]
-  192 | constexpr embedded_binary UV_TEXTURE_PNG = embedded_binary{UV_TEXTURE_PNG_data, UV_TEXTURE_PNG_size};
-      |                           ^~~~~~~~~~~~~~
-      |                           uv_texture_png
 /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.h:27:5: warning: function 'is_valid' should be marked [[nodiscard]] [modernize-use-nodiscard]
    27 |     bool is_valid() const;
       |     ^

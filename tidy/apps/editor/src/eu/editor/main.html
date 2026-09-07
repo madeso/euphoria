@@ -11,7 +11,6 @@
 <li>19: /home/runner/work/euphoria/euphoria/apps/editor/src/eu/editor/main.cc</li>
 <li>10: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/opengl_utils.h</li>
 <li>5: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/constants.h</li>
-<li>3: /home/runner/work/euphoria/euphoria/build/apps/editor/OpenSans-Regular.ttf.h</li>
 <li>2: /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.h</li>
 <li>2: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/canvas.h</li>
 <li>1: /home/runner/work/euphoria/euphoria/libs/render/src/eu/render/font.h</li>
@@ -268,33 +267,6 @@
   226 |             eu::render::RenderCommand cmd {.states = &amp;states, .render = &amp;render, .size = {.width = window_width, .height = window_height} };
       |             ^
       |                                       const 
-</pre>
-<hr>
-<h3>warning: invalid case style for global constant &#39;OPENSANS_REGULAR_TTF_size&#39;</h3>
-<code>[readability-identifier-naming]</code>
-<p><i>build/apps/editor/OpenSans-Regular.ttf.h 7 : 27</i></p>
-<pre>
-    7 | static const unsigned int OPENSANS_REGULAR_TTF_size = 130832;
-      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~
-      |                           opensans_regular_ttf_size
-</pre>
-<hr>
-<h3>warning: invalid case style for global constant &#39;OPENSANS_REGULAR_TTF_data&#39;</h3>
-<code>[readability-identifier-naming]</code>
-<p><i>build/apps/editor/OpenSans-Regular.ttf.h 8 : 27</i></p>
-<pre>
-    8 | static const unsigned int OPENSANS_REGULAR_TTF_data[130832/4] =
-      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~
-      |                           opensans_regular_ttf_data
-</pre>
-<hr>
-<h3>warning: invalid case style for constexpr variable &#39;OPENSANS_REGULAR_TTF&#39;</h3>
-<code>[readability-identifier-naming]</code>
-<p><i>build/apps/editor/OpenSans-Regular.ttf.h 2738 : 27</i></p>
-<pre>
- 2738 | constexpr embedded_binary OPENSANS_REGULAR_TTF = embedded_binary{OPENSANS_REGULAR_TTF_data, OPENSANS_REGULAR_TTF_size};
-      |                           ^~~~~~~~~~~~~~~~~~~~
-      |                           opensans_regular_ttf
 </pre>
 <span id='modernize-use-nodiscard'>&nbsp;</span>
 <hr>
@@ -631,18 +603,6 @@
   226 |             eu::render::RenderCommand cmd {.states = &states, .render = &render, .size = {.width = window_width, .height = window_height} };
       |             ^
       |                                       const 
-/home/runner/work/euphoria/euphoria/build/apps/editor/OpenSans-Regular.ttf.h:7:27: warning: invalid case style for global constant 'OPENSANS_REGULAR_TTF_size' [readability-identifier-naming]
-    7 | static const unsigned int OPENSANS_REGULAR_TTF_size = 130832;
-      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~
-      |                           opensans_regular_ttf_size
-/home/runner/work/euphoria/euphoria/build/apps/editor/OpenSans-Regular.ttf.h:8:27: warning: invalid case style for global constant 'OPENSANS_REGULAR_TTF_data' [readability-identifier-naming]
-    8 | static const unsigned int OPENSANS_REGULAR_TTF_data[130832/4] =
-      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~
-      |                           opensans_regular_ttf_data
-/home/runner/work/euphoria/euphoria/build/apps/editor/OpenSans-Regular.ttf.h:2738:27: warning: invalid case style for constexpr variable 'OPENSANS_REGULAR_TTF' [readability-identifier-naming]
- 2738 | constexpr embedded_binary OPENSANS_REGULAR_TTF = embedded_binary{OPENSANS_REGULAR_TTF_data, OPENSANS_REGULAR_TTF_size};
-      |                           ^~~~~~~~~~~~~~~~~~~~
-      |                           opensans_regular_ttf
 /home/runner/work/euphoria/euphoria/libs/core/src/eu/core/image.h:27:5: warning: function 'is_valid' should be marked [[nodiscard]] [modernize-use-nodiscard]
    27 |     bool is_valid() const;
       |     ^
