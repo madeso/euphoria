@@ -134,7 +134,10 @@ readability-identifier-naming
 
 END_CHECKS
 
+// only include include euphoria libs and apps 
 HeaderFilterRegex: '(libs)|(apps)'
+// but not if they are generated
+ExcludeHeaderFilterRegex: '(build/libs)|(build/apps)'
 
 "CheckOptions": [
     // todo(Gustav): enable this again
