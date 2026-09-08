@@ -9,28 +9,10 @@
 <h2>Files</h2>
 <ul>
 <li>8: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/rect.h</li>
-<li>2: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/angle.h</li>
 <li>1: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/range.h</li>
 <li>1: /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/rect.cc</li>
 </ul>
 <h2>Warnings</h2>
-<span id='google-runtime-float'>&nbsp;</span>
-<hr>
-<h3>warning: &#39;long double&#39; type is not portable and should not be used</h3>
-<code>[google-runtime-float]</code>
-<p><i>libs/base/src/eu/base/angle.h 128 : 33</i></p>
-<pre>
-  128 |     constexpr An operator&quot;&quot;_deg(long double d)
-      |                                 ^
-</pre>
-<hr>
-<h3>warning: &#39;long double&#39; type is not portable and should not be used</h3>
-<code>[google-runtime-float]</code>
-<p><i>libs/base/src/eu/base/angle.h 134 : 33</i></p>
-<pre>
-  134 |     constexpr An operator&quot;&quot;_rad(long double r)
-      |                                 ^
-</pre>
 <span id='modernize-type-traits'>&nbsp;</span>
 <hr>
 <h3>warning: use c++17 style variable templates</h3>
@@ -125,12 +107,6 @@
       |         [[nodiscard]] 
 </pre>
 <!--
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/angle.h:128:33: warning: 'long double' type is not portable and should not be used [google-runtime-float]
-  128 |     constexpr An operator""_deg(long double d)
-      |                                 ^
-/home/runner/work/euphoria/euphoria/libs/base/src/eu/base/angle.h:134:33: warning: 'long double' type is not portable and should not be used [google-runtime-float]
-  134 |     constexpr An operator""_rad(long double r)
-      |                                 ^
 /home/runner/work/euphoria/euphoria/libs/base/src/eu/base/range.h:70:23: warning: use c++17 style variable templates [modernize-type-traits]
    70 |         if constexpr (std::is_unsigned<T>::value)
       |                       ^                  ~~~~~~~
