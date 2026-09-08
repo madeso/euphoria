@@ -128,6 +128,13 @@ readability-identifier-naming
 # perhaps later???
 -readability-math-missing-parentheses
 
+# false positive...
+# warning: 'long double' type from literal suffix 'L' is not portable and should not be used
+# Only the following parameter lists are allowed on literal operators:
+# ( long double ) 	(3)
+# https://en.cppreference.com/cpp/language/user_literal
+-google-runtime-float
+
 #################################################################################
 # the checks attribute ends here...
 # just regular (yaml) .clang-tidy settings from now on (with lines starting with // stripped away)
