@@ -148,7 +148,7 @@ jobs:
 
 
         - name: Display clang-tidy
-          run: dotnet run --project ./tools/buildtools/Workbench/ -- clang tidy libs apps --html docs/generated/tidy/
+          run: dotnet run --project ./tools/buildtools/Workbench/ -- clang tidy libs apps --html-merged --html docs/generated/tidy/
 
 
         - name: Generate coverage badges
