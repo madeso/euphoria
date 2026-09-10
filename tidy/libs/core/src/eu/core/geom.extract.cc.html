@@ -1,0 +1,80 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/core/src/eu/core/geom.extract.cc</title>
+</head>
+<body>
+<h1>libs/core/src/eu/core/geom.extract.cc</h1>
+<span id='misc-use-internal-linkage'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;compile_indices&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="geom.extract.cc.html">libs/core/src/eu/core/geom.extract.cc</a> 16 : 18</i></p>
+<pre>
+   16 | std::vector&lt;u32&gt; compile_indices(const Geom&amp; geom)
+      |                  ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;push_float&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="geom.extract.cc.html">libs/core/src/eu/core/geom.extract.cc</a> 32 : 6</i></p>
+<pre>
+   32 | void push_float(ByteBuffer* vv, float f)
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;push2&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="geom.extract.cc.html">libs/core/src/eu/core/geom.extract.cc</a> 48 : 6</i></p>
+<pre>
+   48 | void push2(ByteBuffer* vv, const v2&amp; p)
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;push3&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="geom.extract.cc.html">libs/core/src/eu/core/geom.extract.cc</a> 54 : 6</i></p>
+<pre>
+   54 | void push3(ByteBuffer* vv, const v3&amp; p)
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;push4&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="geom.extract.cc.html">libs/core/src/eu/core/geom.extract.cc</a> 61 : 6</i></p>
+<pre>
+   61 | void push4(ByteBuffer* vv, const v4&amp; p)
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: struct &#39;BufferData&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="geom.extract.cc.html">libs/core/src/eu/core/geom.extract.cc</a> 69 : 8</i></p>
+<pre>
+   69 | struct BufferData
+      |        ^
+</pre>
+<span id='modernize-use-designated-initializers'>&nbsp;</span>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;ExtractedGeom&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i><a href="geom.extract.cc.html">libs/core/src/eu/core/geom.extract.cc</a> 135 : 9</i></p>
+<pre>
+  135 |         return {vertices, bytes_per_vertex, attribute_descriptions.attributes, indices, face_size};
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                 .data=    .stride=          .attributes=                       .indices=.face_size=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i><a href="geom.extract.h.html">libs/core/src/eu/core/geom.extract.h</a> 31 : 1</i></p>
+<pre>
+   31 | struct ExtractedGeom
+      | ^
+</pre>
+</body>
+</html>

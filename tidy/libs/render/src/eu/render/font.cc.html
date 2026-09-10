@@ -1,0 +1,103 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/render/src/eu/render/font.cc</title>
+</head>
+<body>
+<h1>libs/render/src/eu/render/font.cc</h1>
+<span id='misc-use-internal-linkage'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;construct_character_rects&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="font.cc.html">libs/render/src/eu/render/font.cc</a> 49 : 5</i></p>
+<pre>
+   48 |     std::pair&lt;Rect, Rect&gt;
+      |     static 
+   49 |     construct_character_rects
+      |     ^
+</pre>
+<span id='misc-const-correctness'>&nbsp;</span>
+<hr>
+<h3>warning: variable &#39;dest&#39; of type &#39;std:: shared_ptr&lt;Glyph&gt;&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i><a href="font.cc.html">libs/render/src/eu/render/font.cc</a> 186 : 13</i></p>
+<pre>
+  186 |             std::shared_ptr&lt;Glyph&gt; dest
+      |             ^
+      |                                    const 
+</pre>
+<span id='modernize-make-shared'>&nbsp;</span>
+<hr>
+<h3>warning: use std:: make_shared instead</h3>
+<code>[modernize-make-shared]</code>
+<p><i><a href="font.cc.html">libs/render/src/eu/render/font.cc</a> 186 : 36</i></p>
+<pre>
+  186 |             std::shared_ptr&lt;Glyph&gt; dest
+      |                                    ^~~~
+  187 |             (
+  188 |                 new Glyph
+      |                 ~~~~~~~~~
+  189 |                 (
+      |                 ~
+  190 |                     sprite_and_texture_rects.first,
+  191 |                     sprite_and_texture_rects.second,
+  192 |                     src_char.code_point,
+  193 |                     static_cast&lt;float&gt;(src_char.advance) / src_char.size
+  194 |                 )
+      |                 ~
+</pre>
+<span id='readability-convert-member-functions-to-static'>&nbsp;</span>
+<hr>
+<h3>warning: method &#39;draw_background&#39; can be made static</h3>
+<code>[readability-convert-member-functions-to-static]</code>
+<p><i><a href="font.cc.html">libs/render/src/eu/render/font.cc</a> 215 : 19</i></p>
+<pre>
+  215 |     DrawableFont::draw_background
+      |                   ^
+  216 |     (
+  217 |         SpriteBatch* renderer,
+  218 |         float alpha,
+  219 |         const Rect&amp; where
+  220 |     ) const
+      |       ~~~~~
+</pre>
+<span id='cppcoreguidelines-avoid-const-or-ref-data-members'>&nbsp;</span>
+<hr>
+<h3>warning: member &#39;font&#39; of type &#39;const DrawableFont &amp;&#39; is a reference</h3>
+<code>[cppcoreguidelines-avoid-const-or-ref-data-members]</code>
+<p><i><a href="font.cc.html">libs/render/src/eu/render/font.cc</a> 277 : 29</i></p>
+<pre>
+  277 |         const DrawableFont&amp; font;
+      |                             ^
+</pre>
+<span id='readability-avoid-unconditional-preprocessor-if'>&nbsp;</span>
+<hr>
+<h3>warning: preprocessor condition is always &#39;false&#39;, consider removing both the condition and its contents</h3>
+<code>[readability-avoid-unconditional-preprocessor-if]</code>
+<p><i><a href="font.cc.html">libs/render/src/eu/render/font.cc</a> 312 : 2</i></p>
+<pre>
+  312 | #if 0
+      |  ^
+</pre>
+<hr>
+<h3>warning: variable &#39;ch&#39; of type &#39;std:: shared_ptr&lt;Glyph&gt;&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i><a href="font.cc.html">libs/render/src/eu/render/font.cc</a> 363 : 17</i></p>
+<pre>
+  363 |                 std::shared_ptr&lt;Glyph&gt; ch = it-&gt;second;
+      |                 ^
+      |                                        const 
+</pre>
+<hr>
+<h3>warning: function &#39;get_offset&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="font.cc.html">libs/render/src/eu/render/font.cc</a> 468 : 5</i></p>
+<pre>
+  467 |     v2
+      |     static 
+  468 |     get_offset(Align alignment, const Rect&amp; extent)
+      |     ^
+</pre>
+</body>
+</html>

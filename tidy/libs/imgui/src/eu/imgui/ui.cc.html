@@ -1,0 +1,258 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/imgui/src/eu/imgui/ui.cc</title>
+</head>
+<body>
+<h1>libs/imgui/src/eu/imgui/ui.cc</h1>
+<span id='misc-use-internal-linkage'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;imgui_destroy_shader&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 64 : 6</i></p>
+<pre>
+   64 | void imgui_destroy_shader(ImguiShaderProgram* bd)
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;imgui_load_shader&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 75 : 20</i></p>
+<pre>
+   75 | ImguiShaderProgram imgui_load_shader(const char* glsl_version_string, const char* vertex_shader, const char* fragment_shader)
+      |                    ^
+      | static 
+</pre>
+<span id='misc-const-correctness'>&nbsp;</span>
+<hr>
+<h3>warning: pointee of variable &#39;vertex_shader_with_version&#39; of type &#39;const GLchar *[2]&#39; (aka &#39;const char *[2]&#39;) can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 78 : 2</i></p>
+<pre>
+   78 |         const GLchar* vertex_shader_with_version[2] = {glsl_version_string, vertex_shader};
+      |         ^           
+      |                      const
+</pre>
+<hr>
+<h3>warning: pointee of variable &#39;fragment_shader_with_version&#39; of type &#39;const GLchar *[2]&#39; (aka &#39;const char *[2]&#39;) can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 87 : 2</i></p>
+<pre>
+   87 |         const GLchar* fragment_shader_with_version[2] = {glsl_version_string, fragment_shader};
+      |         ^           
+      |                      const
+</pre>
+<hr>
+<h3>warning: function &#39;imgui_set_shared_shader_params&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 197 : 6</i></p>
+<pre>
+  197 | void imgui_set_shared_shader_params(ImguiShaderProgram* prog)
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: pointee of variable &#39;draw_data&#39; of type &#39;ImDrawData *&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 199 : 2</i></p>
+<pre>
+  199 |         ImDrawData* draw_data = ImGui::GetDrawData();
+      |         ^         
+      |                    const
+</pre>
+<hr>
+<h3>warning: function &#39;im_draw_callback_linear_to_gamma&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 217 : 6</i></p>
+<pre>
+  217 | void im_draw_callback_linear_to_gamma(const ImDrawList*, const ImDrawCmd* cmd)
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;im_draw_callback_depth_ortho&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 224 : 6</i></p>
+<pre>
+  224 | void im_draw_callback_depth_ortho(const ImDrawList*, const ImDrawCmd* cmd)
+      |      ^
+      | static 
+</pre>
+<span id='readability-redundant-parentheses'>&nbsp;</span>
+<hr>
+<h3>warning: redundant parentheses around expression</h3>
+<code>[readability-redundant-parentheses]</code>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 280 : 53</i></p>
+<pre>
+  280 |         const auto uv0 = ImVec2{region.x / texture_size.x, (flipped_region_y) / texture_size.y};
+      |                                                            ^                ~
+</pre>
+<hr>
+<h3>warning: redundant parentheses around expression</h3>
+<code>[readability-redundant-parentheses]</code>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 357 : 40</i></p>
+<pre>
+  357 |         const auto t = (*gamma - min_gamma) / (gamma_range);
+      |                                               ^           ~
+</pre>
+<hr>
+<h3>warning: function &#39;length2&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 396 : 7</i></p>
+<pre>
+  396 | float length2(const ImVec2&amp; v)
+      |       ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;length&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 401 : 7</i></p>
+<pre>
+  401 | float length(const ImVec2&amp; v)
+      |       ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;normalize&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 406 : 8</i></p>
+<pre>
+  406 | ImVec2 normalize(const ImVec2&amp; v, float len)
+      |        ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;normalize&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 410 : 8</i></p>
+<pre>
+  410 | ImVec2 normalize(const ImVec2&amp; v)
+      |        ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;dot&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 415 : 7</i></p>
+<pre>
+  415 | float dot(const ImVec2&amp; lhs, const ImVec2&amp; rhs)
+      |       ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;is_positive&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 419 : 6</i></p>
+<pre>
+  419 | bool is_positive(float f)
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: struct &#39;GearState&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 424 : 8</i></p>
+<pre>
+  424 | struct GearState
+      |        ^
+</pre>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for function &#39;dl_PathArcToN&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 438 : 10</i></p>
+<pre>
+  438 |     void dl_PathArcToN(ImDrawList* dl, const ImVec2&amp; center, float radius, float a_min, float a_max, int num_segments, float ang)
+      |          ^~~~~~~~~~~~~
+      |          dl_path_arc_to_n
+</pre>
+<span id='readability-identifier-length'>&nbsp;</span>
+<hr>
+<h3>warning: loop variable name &#39;i&#39; is too short, expected at least 2 characters</h3>
+<code>[readability-identifier-length]</code>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 449 : 18</i></p>
+<pre>
+  449 |         for (int i = 0; i &lt;= num_segments; i++)
+      |                  ^
+</pre>
+<hr>
+<h3>warning: invalid case style for function &#39;dl_PathArcTo&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 456 : 10</i></p>
+<pre>
+  456 |     void dl_PathArcTo(ImDrawList* dl, const ImVec2&amp; center, float radius, float a_min, float a_max, int num_segments, float ang)
+      |          ^~~~~~~~~~~~
+      |          dl_path_arc_to
+</pre>
+<hr>
+<h3>warning: invalid case style for function &#39;dl_AddCircle&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 467 : 10</i></p>
+<pre>
+  467 |     void dl_AddCircle(ImDrawList* dl, const ImVec2&amp; center, float radius, ImU32 col, int num_segments, float thickness, float ang)
+      |          ^~~~~~~~~~~~
+      |          dl_add_circle
+</pre>
+<hr>
+<h3>warning: function &#39;calc_button_size&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 485 : 8</i></p>
+<pre>
+  485 | ImVec2 calc_button_size(const char* label, const ImVec2&amp; size_arg = ImVec2(0,0))
+      |        ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;gear_icon&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 494 : 6</i></p>
+<pre>
+  494 | bool gear_icon(const char* label, float* drag, const ImVec2&amp; size)
+      |      ^
+      | static 
+</pre>
+<span id='readability-implicit-bool-conversion'>&nbsp;</span>
+<hr>
+<h3>warning: implicit conversion &#39;float *&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 555 : 21</i></p>
+<pre>
+  555 |                 if (drag)
+      |                     ^   
+      |                          != nullptr
+</pre>
+<hr>
+<h3>warning: variable &#39;w_items&#39; of type &#39;float&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 615 : 5</i></p>
+<pre>
+  615 |     float w_items = ImMax(0.0f, ImGui::CalcItemWidth() - style.ItemInnerSpacing.x * (6 - 1) - gear_size.x * 3);
+      |     ^
+      |           const 
+</pre>
+<hr>
+<h3>warning: loop variable name &#39;i&#39; is too short, expected at least 2 characters</h3>
+<code>[readability-identifier-length]</code>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 616 : 14</i></p>
+<pre>
+  616 |     for (int i=0; i&lt;3; i+=1)
+      |              ^
+</pre>
+<span id='google-readability-braces-around-statements'>&nbsp;</span>
+<span id='readability-braces-around-statements'>&nbsp;</span>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 626 : 23</i></p>
+<pre>
+  626 |             if (i &gt; 0)
+      |                       ^
+      |                        {
+  627 |                 ImGui::SameLine(0, style.ItemInnerSpacing.x);
+      |                                                              
+</pre>
+</body>
+</html>

@@ -1,0 +1,79 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/tests/src/eu/tests/vectortostring.h</title>
+</head>
+<body>
+<h1>libs/tests/src/eu/tests/vectortostring.h</h1>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for global function &#39;VectorToString&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i><a href="vectortostring.h.html">libs/tests/src/eu/tests/vectortostring.h</a> 16 : 5</i></p>
+<pre>
+   16 |     VectorToString
+      |     ^~~~~~~~~~~~~~
+      |     vector_to_string
+</pre>
+<span id='misc-const-correctness'>&nbsp;</span>
+<hr>
+<h3>warning: variable &#39;newline&#39; of type &#39;std:: string&#39; (aka &#39;basic_string&lt;char&gt;&#39;) can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i><a href="vectortostring.h.html">libs/tests/src/eu/tests/vectortostring.h</a> 26 : 9</i></p>
+<pre>
+   26 |         std::string newline = one_line ? &quot;&quot; : &quot;\n&quot;;
+      |         ^
+      |                     const 
+</pre>
+<span id='google-readability-braces-around-statements'>&nbsp;</span>
+<span id='readability-braces-around-statements'>&nbsp;</span>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
+<p><i><a href="vectortostring.h.html">libs/tests/src/eu/tests/vectortostring.h</a> 32 : 22</i></p>
+<pre>
+   32 |             if(first) first = false;
+      |                      ^
+      |                       {
+   33 |             else ss &lt;&lt; &quot;, &quot; &lt;&lt; newline;
+      |             } 
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
+<p><i><a href="vectortostring.h.html">libs/tests/src/eu/tests/vectortostring.h</a> 33 : 17</i></p>
+<pre>
+   33 |             else ss &lt;&lt; &quot;, &quot; &lt;&lt; newline;
+      |                 ^                      
+      |                  {
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<p><i><a href="vectortostring.h.html">libs/tests/src/eu/tests/vectortostring.h</a> 38 : 23</i></p>
+<pre>
+   38 |         if(!v.empty()) ss &lt;&lt; newline;
+      |                       ^              
+      |                        {
+</pre>
+<hr>
+<h3>warning: invalid case style for global function &#39;VectorToStringEx&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i><a href="vectortostring.h.html">libs/tests/src/eu/tests/vectortostring.h</a> 51 : 5</i></p>
+<pre>
+   51 |     VectorToStringEx(const std::vector&lt;T&gt;&amp; v, TConverter converter)
+      |     ^~~~~~~~~~~~~~~~
+      |     vector_to_string_ex
+</pre>
+<hr>
+<h3>warning: invalid case style for global function &#39;VectorToString&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i><a href="vectortostring.h.html">libs/tests/src/eu/tests/vectortostring.h</a> 74 : 5</i></p>
+<pre>
+   74 |     VectorToString(const std::vector&lt;T&gt;&amp; v, TConverter converter)
+      |     ^~~~~~~~~~~~~~
+      |     vector_to_string
+</pre>
+</body>
+</html>

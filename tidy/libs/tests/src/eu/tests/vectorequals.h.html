@@ -1,0 +1,98 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/tests/src/eu/tests/vectorequals.h</title>
+</head>
+<body>
+<h1>libs/tests/src/eu/tests/vectorequals.h</h1>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for global function &#39;VectorEquals&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i><a href="vectorequals.h.html">libs/tests/src/eu/tests/vectorequals.h</a> 26 : 5</i></p>
+<pre>
+   26 |     VectorEquals
+      |     ^~~~~~~~~~~~
+      |     vector_equals
+</pre>
+<hr>
+<h3>warning: invalid case style for parameter &#39;ToString&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i><a href="vectorequals.h.html">libs/tests/src/eu/tests/vectorequals.h</a> 30 : 19</i></p>
+<pre>
+   30 |         TToString ToString,
+      |                   ^~~~~~~~
+      |                   to_string
+   31 |         TCompare Compare
+   32 |     )
+   33 |     {
+   34 |         auto size_equal = FalseString::True();
+   35 |         if(lhs.size() != rhs.size())
+   36 |         {
+   37 |             std::ostringstream ss;
+   38 |             ss &lt;&lt; &quot;Size mismatch: &quot;
+   39 |                 &lt;&lt; lhs.size()
+   40 |                 &lt;&lt; &quot; vs &quot;
+   41 |                 &lt;&lt; rhs.size();
+   42 |             ss &lt;&lt; VectorToString(lhs, ToString) &lt;&lt; &quot; &quot; &lt;&lt; VectorToString(rhs, ToString);
+      |                                       ~~~~~~~~                                ~~~~~~~~
+      |                                       to_string                               to_string
+</pre>
+<hr>
+<h3>warning: invalid case style for parameter &#39;Compare&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i><a href="vectorequals.h.html">libs/tests/src/eu/tests/vectorequals.h</a> 31 : 18</i></p>
+<pre>
+   31 |         TCompare Compare
+      |                  ^~~~~~~
+      |                  compare
+</pre>
+<span id='readability-identifier-length'>&nbsp;</span>
+<hr>
+<h3>warning: loop variable name &#39;i&#39; is too short, expected at least 2 characters</h3>
+<code>[readability-identifier-length]</code>
+<p><i><a href="vectorequals.h.html">libs/tests/src/eu/tests/vectorequals.h</a> 47 : 20</i></p>
+<pre>
+   47 |         for(size_t i =0; i &lt; size; i+=1)
+      |                    ^
+</pre>
+<span id='readability-braces-around-statements'>&nbsp;</span>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<p><i><a href="vectorequals.h.html">libs/tests/src/eu/tests/vectorequals.h</a> 67 : 42</i></p>
+<pre>
+   67 |                     if(oneliner == false) ss &lt;&lt; &quot;  &quot;;
+      |                                          ^           
+      |                                           {
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<p><i><a href="vectorequals.h.html">libs/tests/src/eu/tests/vectorequals.h</a> 69 : 33</i></p>
+<pre>
+   69 |                     if(oneliner) ss &lt;&lt; &quot; &quot;;
+      |                                 ^          
+      |                                  {
+</pre>
+<span id='bugprone-unchecked-optional-access'>&nbsp;</span>
+<hr>
+<h3>warning: unchecked access to optional value</h3>
+<code>[bugprone-unchecked-optional-access]</code>
+<p><i><a href="vectorequals.h.html">libs/tests/src/eu/tests/vectorequals.h</a> 76 : 25</i></p>
+<pre>
+   76 |                     &lt;&lt; *equals.reason;
+      |                         ^~~~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning: invalid case style for global function &#39;VectorEquals&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<p><i><a href="vectorequals.h.html">libs/tests/src/eu/tests/vectorequals.h</a> 90 : 17</i></p>
+<pre>
+   90 |     FalseString VectorEquals
+      |                 ^~~~~~~~~~~~
+      |                 vector_equals
+</pre>
+</body>
+</html>

@@ -1,0 +1,40 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/assert/src/eu/assert/assert.cc</title>
+</head>
+<body>
+<h1>libs/assert/src/eu/assert/assert.cc</h1>
+<span id='misc-const-correctness'>&nbsp;</span>
+<hr>
+<h3>warning: pointee of variable &#39;begin&#39; of type &#39;char *&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<p><i><a href="assert.cc.html">libs/assert/src/eu/assert/assert.cc</a> 86 : 17</i></p>
+<pre>
+   86 |                 char* begin = end;
+      |                 ^   
+      |                      const
+</pre>
+<span id='misc-use-internal-linkage'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;should_throw_variable&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="assert.cc.html">libs/assert/src/eu/assert/assert.cc</a> 124 : 5</i></p>
+<pre>
+  123 |     bool&amp;
+      |     static 
+  124 |     should_throw_variable()
+      |     ^
+</pre>
+<span id='bugprone-exception-copy-constructor-throws'>&nbsp;</span>
+<hr>
+<h3>warning: thrown exception type is not nothrow copy constructible</h3>
+<code>[bugprone-exception-copy-constructor-throws]</code>
+<p><i><a href="assert.cc.html">libs/assert/src/eu/assert/assert.cc</a> 171 : 19</i></p>
+<pre>
+  171 |             throw std::move(message);
+      |                   ^
+</pre>
+</body>
+</html>

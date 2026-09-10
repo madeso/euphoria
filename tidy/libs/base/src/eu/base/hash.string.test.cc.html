@@ -1,0 +1,165 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/base/src/eu/base/hash.string.test.cc</title>
+</head>
+<body>
+<h1>libs/base/src/eu/base/hash.string.test.cc</h1>
+<span id='bugprone-throwing-static-initialization'>&nbsp;</span>
+<hr>
+<h3>warning: initialization of &#39;globalRegistrar8&#39; with static storage duration may throw an exception that cannot be caught</h3>
+<code>[bugprone-throwing-static-initialization]</code>
+<p><i><a href="hash.string.test.cc.html">libs/base/src/eu/base/hash.string.test.cc</a> 43 : 1</i></p>
+<pre>
+   43 | TEMPLATE_TEST_CASE(&quot;hs-comparing string views&quot;, &quot;[hash]&quot;, Hsh, HshO)
+      | ^
+</pre>
+<p>expanded from macro &#39;TEMPLATE_TEST_CASE&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/catch_template_test_macros.hpp 76 : 39</i></p>
+<pre>
+   76 |     #define TEMPLATE_TEST_CASE( ... ) INTERNAL_CATCH_TEMPLATE_TEST_CASE( __VA_ARGS__ )
+      |                                       ^
+</pre>
+<p>expanded from macro &#39;INTERNAL_CATCH_TEMPLATE_TEST_CASE&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_template_test_registry.hpp 104 : 9</i></p>
+<pre>
+  104 |         INTERNAL_CATCH_TEMPLATE_TEST_CASE_2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEMPLATE_TEST_ ), INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEMPLATE_TEST_ ), Name, Tags, typename TestType, __VA_ARGS__ )
+      |         ^
+</pre>
+<p> (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)</p>
+<p>expanded from macro &#39;INTERNAL_CATCH_TEMPLATE_TEST_CASE_2&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_template_test_registry.hpp 93 : 30</i></p>
+<pre>
+   93 |             static const int INTERNAL_CATCH_UNIQUE_NAME( globalRegistrar ) = [](){\
+      |                              ^
+</pre>
+<p>expanded from macro &#39;INTERNAL_CATCH_UNIQUE_NAME_LINE&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 25 : 55</i></p>
+<pre>
+   25 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+</pre>
+<p> expanded from here</p>
+<p>expanded from macro &#39;INTERNAL_CATCH_UNIQUE_NAME_LINE2&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 24 : 56</i></p>
+<pre>
+   24 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+</pre>
+<p>possibly throwing constructor declared here</p>
+<p><i><a href="hash.string.test.cc.html">libs/base/src/eu/base/hash.string.test.cc</a> 43 : 1</i></p>
+<pre>
+   43 | TEMPLATE_TEST_CASE(&quot;hs-comparing string views&quot;, &quot;[hash]&quot;, Hsh, HshO)
+      | ^
+</pre>
+<p>expanded from macro &#39;TEMPLATE_TEST_CASE&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/catch_template_test_macros.hpp 76 : 39</i></p>
+<pre>
+   76 |     #define TEMPLATE_TEST_CASE( ... ) INTERNAL_CATCH_TEMPLATE_TEST_CASE( __VA_ARGS__ )
+      |                                       ^
+</pre>
+<p>expanded from macro &#39;INTERNAL_CATCH_TEMPLATE_TEST_CASE&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_template_test_registry.hpp 104 : 46</i></p>
+<pre>
+  104 |         INTERNAL_CATCH_TEMPLATE_TEST_CASE_2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEMPLATE_TEST_ ), INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEMPLATE_TEST_ ), Name, Tags, typename TestType, __VA_ARGS__ )
+      |                                              ^
+</pre>
+<p>expanded from macro &#39;INTERNAL_CATCH_UNIQUE_NAME&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 28 : 46</i></p>
+<pre>
+   28 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+</pre>
+<p>expanded from macro &#39;INTERNAL_CATCH_UNIQUE_NAME_LINE&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 25 : 55</i></p>
+<pre>
+   25 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+</pre>
+<p> expanded from here</p>
+<p>expanded from macro &#39;INTERNAL_CATCH_UNIQUE_NAME_LINE2&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 24 : 56</i></p>
+<pre>
+   24 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+</pre>
+<hr>
+<h3>warning: initialization of &#39;globalRegistrar16&#39; with static storage duration may throw an exception that cannot be caught</h3>
+<code>[bugprone-throwing-static-initialization]</code>
+<p><i><a href="hash.string.test.cc.html">libs/base/src/eu/base/hash.string.test.cc</a> 110 : 1</i></p>
+<pre>
+  110 | TEMPLATE_TEST_CASE(&quot;hs-comparing string views&quot;, &quot;[hash]&quot;, (std::map&lt;HshO, int&gt;), (std::unordered_map&lt;HshO, int&gt;))
+      | ^
+</pre>
+<p>expanded from macro &#39;TEMPLATE_TEST_CASE&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/catch_template_test_macros.hpp 76 : 39</i></p>
+<pre>
+   76 |     #define TEMPLATE_TEST_CASE( ... ) INTERNAL_CATCH_TEMPLATE_TEST_CASE( __VA_ARGS__ )
+      |                                       ^
+</pre>
+<p>expanded from macro &#39;INTERNAL_CATCH_TEMPLATE_TEST_CASE&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_template_test_registry.hpp 104 : 9</i></p>
+<pre>
+  104 |         INTERNAL_CATCH_TEMPLATE_TEST_CASE_2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEMPLATE_TEST_ ), INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEMPLATE_TEST_ ), Name, Tags, typename TestType, __VA_ARGS__ )
+      |         ^
+</pre>
+<p> (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)</p>
+<p>expanded from macro &#39;INTERNAL_CATCH_TEMPLATE_TEST_CASE_2&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_template_test_registry.hpp 93 : 30</i></p>
+<pre>
+   93 |             static const int INTERNAL_CATCH_UNIQUE_NAME( globalRegistrar ) = [](){\
+      |                              ^
+</pre>
+<p>expanded from macro &#39;INTERNAL_CATCH_UNIQUE_NAME_LINE&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 25 : 55</i></p>
+<pre>
+   25 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+</pre>
+<p> expanded from here</p>
+<p>expanded from macro &#39;INTERNAL_CATCH_UNIQUE_NAME_LINE2&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 24 : 56</i></p>
+<pre>
+   24 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+</pre>
+<p>possibly throwing constructor declared here</p>
+<p><i><a href="hash.string.test.cc.html">libs/base/src/eu/base/hash.string.test.cc</a> 110 : 1</i></p>
+<pre>
+  110 | TEMPLATE_TEST_CASE(&quot;hs-comparing string views&quot;, &quot;[hash]&quot;, (std::map&lt;HshO, int&gt;), (std::unordered_map&lt;HshO, int&gt;))
+      | ^
+</pre>
+<p>expanded from macro &#39;TEMPLATE_TEST_CASE&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/catch_template_test_macros.hpp 76 : 39</i></p>
+<pre>
+   76 |     #define TEMPLATE_TEST_CASE( ... ) INTERNAL_CATCH_TEMPLATE_TEST_CASE( __VA_ARGS__ )
+      |                                       ^
+</pre>
+<p>expanded from macro &#39;INTERNAL_CATCH_TEMPLATE_TEST_CASE&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_template_test_registry.hpp 104 : 46</i></p>
+<pre>
+  104 |         INTERNAL_CATCH_TEMPLATE_TEST_CASE_2( INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEMPLATE_TEST_ ), INTERNAL_CATCH_UNIQUE_NAME( CATCH2_INTERNAL_TEMPLATE_TEST_ ), Name, Tags, typename TestType, __VA_ARGS__ )
+      |                                              ^
+</pre>
+<p>expanded from macro &#39;INTERNAL_CATCH_UNIQUE_NAME&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 28 : 46</i></p>
+<pre>
+   28 | #  define INTERNAL_CATCH_UNIQUE_NAME( name ) INTERNAL_CATCH_UNIQUE_NAME_LINE( name, __COUNTER__ )
+      |                                              ^
+</pre>
+<p>expanded from macro &#39;INTERNAL_CATCH_UNIQUE_NAME_LINE&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 25 : 55</i></p>
+<pre>
+   25 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE( name, line ) INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line )
+      |                                                       ^
+</pre>
+<p> expanded from here</p>
+<p>expanded from macro &#39;INTERNAL_CATCH_UNIQUE_NAME_LINE2&#39;</p>
+<p><i>build/_deps/catch2-src/src/catch2/internal/catch_unique_name.hpp 24 : 56</i></p>
+<pre>
+   24 | #define INTERNAL_CATCH_UNIQUE_NAME_LINE2( name, line ) name##line
+      |                                                        ^
+</pre>
+</body>
+</html>

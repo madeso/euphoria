@@ -1,0 +1,191 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/base/src/eu/base/colors.cc</title>
+</head>
+<body>
+<h1>libs/base/src/eu/base/colors.cc</h1>
+<span id='misc-use-internal-linkage'>&nbsp;</span>
+<hr>
+<h3>warning: struct &#39;MaxSaturationCoefficients&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="colors.cc.html">libs/base/src/eu/base/colors.cc</a> 57 : 8</i></p>
+<pre>
+   57 | struct MaxSaturationCoefficients
+      |        ^
+</pre>
+<hr>
+<h3>warning: function &#39;compute_max_saturation&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="colors.cc.html">libs/base/src/eu/base/colors.cc</a> 72 : 7</i></p>
+<pre>
+   72 | float compute_max_saturation(float a, float b)
+      |       ^
+      | static 
+</pre>
+<hr>
+<h3>warning: struct &#39;Lc&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="colors.cc.html">libs/base/src/eu/base/colors.cc</a> 164 : 8</i></p>
+<pre>
+  164 | struct Lc
+      |        ^
+</pre>
+<hr>
+<h3>warning: function &#39;find_cusp&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="colors.cc.html">libs/base/src/eu/base/colors.cc</a> 173 : 4</i></p>
+<pre>
+  173 | Lc find_cusp(float a, float b)
+      |    ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;find_gamut_intersection&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="colors.cc.html">libs/base/src/eu/base/colors.cc</a> 191 : 7</i></p>
+<pre>
+  191 | float find_gamut_intersection(float a, float b, float big_l1, float big_c1, float big_l0)
+      |       ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;clamp&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="colors.cc.html">libs/base/src/eu/base/colors.cc</a> 274 : 7</i></p>
+<pre>
+  274 | float clamp(float x, float min, float max)
+      |       ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;sgn&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="colors.cc.html">libs/base/src/eu/base/colors.cc</a> 290 : 7</i></p>
+<pre>
+  290 | float sgn(float x)
+      |       ^
+      | static 
+</pre>
+<span id='modernize-use-designated-initializers'>&nbsp;</span>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;const OkLab&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i><a href="colors.cc.html">libs/base/src/eu/base/colors.cc</a> 403 : 27</i></p>
+<pre>
+  403 |         return linear_from_oklab({big_l_clipped, big_c_clipped * a_prim, big_c_clipped * b_prim});
+      |                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                   .l=            .a=                     .b=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i><a href="colors.h.html">libs/base/src/eu/base/colors.h</a> 66 : 1</i></p>
+<pre>
+   66 | struct OkLab
+      | ^
+</pre>
+<hr>
+<h3>warning: struct &#39;St&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="colors.cc.html">libs/base/src/eu/base/colors.cc</a> 496 : 8</i></p>
+<pre>
+  496 | struct St
+      |        ^
+</pre>
+<hr>
+<h3>warning: function &#39;toe&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="colors.cc.html">libs/base/src/eu/base/colors.cc</a> 503 : 7</i></p>
+<pre>
+  503 | float toe(float x)
+      |       ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;toe_inv&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="colors.cc.html">libs/base/src/eu/base/colors.cc</a> 512 : 7</i></p>
+<pre>
+  512 | float toe_inv(float x)
+      |       ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;st_from_cusp&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="colors.cc.html">libs/base/src/eu/base/colors.cc</a> 520 : 4</i></p>
+<pre>
+  520 | St st_from_cusp(const Lc&amp; cusp)
+      |    ^
+      | static 
+</pre>
+<hr>
+<h3>warning: use designated initializer list to initialize &#39;const OkLab&#39;</h3>
+<code>[modernize-use-designated-initializers]</code>
+<p><i><a href="colors.cc.html">libs/base/src/eu/base/colors.cc</a> 566 : 37</i></p>
+<pre>
+  566 |         const auto rgb = linear_from_oklab({big_l, big_c * a_prim, big_c * b_prim});
+      |                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                             .l=    .a=             .b=
+</pre>
+<p>aggregate type is defined here</p>
+<p><i><a href="colors.h.html">libs/base/src/eu/base/colors.h</a> 66 : 1</i></p>
+<pre>
+   66 | struct OkLab
+      | ^
+</pre>
+<span id='modernize-min-max-use-initializer-list'>&nbsp;</span>
+<hr>
+<h3>warning: do not use nested &#39;std:: max&#39; calls, use an initializer list instead</h3>
+<code>[modernize-min-max-use-initializer-list]</code>
+<p><i><a href="colors.cc.html">libs/base/src/eu/base/colors.cc</a> 599 : 39</i></p>
+<pre>
+  599 |         const auto scale_big_l = cbrtf(1.f / std::max(std::max(rgb_scale.r, rgb_scale.g), std::max(rgb_scale.b, 0.f)));
+      |                                              ^        ~~~~~~~~~                        ~  ~~~~~~~~~                ~
+      |                                                       {                                                            }
+</pre>
+<hr>
+<h3>warning: function &#39;get_st_mid&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="colors.cc.html">libs/base/src/eu/base/colors.cc</a> 619 : 4</i></p>
+<pre>
+  619 | St get_st_mid(float a_prim, float b_prim)
+      |    ^
+      | static 
+</pre>
+<hr>
+<h3>warning: struct &#39;Cs&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="colors.cc.html">libs/base/src/eu/base/colors.cc</a> 642 : 8</i></p>
+<pre>
+  642 | struct Cs
+      |        ^
+</pre>
+<hr>
+<h3>warning: function &#39;get_cs&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<p><i><a href="colors.cc.html">libs/base/src/eu/base/colors.cc</a> 649 : 4</i></p>
+<pre>
+  649 | Cs get_cs(float big_l, float a_prim, float b_prim)
+      |    ^
+      | static 
+</pre>
+<span id='readability-redundant-parentheses'>&nbsp;</span>
+<hr>
+<h3>warning: redundant parentheses around expression</h3>
+<code>[readability-redundant-parentheses]</code>
+<p><i><a href="colors.cc.html">libs/base/src/eu/base/colors.cc</a> 731 : 28</i></p>
+<pre>
+  731 |                         const auto k_2 = (1.f - (k_1) / (c_max - c_mid));
+      |                                                 ^   ~
+</pre>
+<hr>
+<h3>warning: redundant parentheses around expression</h3>
+<code>[readability-redundant-parentheses]</code>
+<p><i><a href="colors.cc.html">libs/base/src/eu/base/colors.cc</a> 775 : 27</i></p>
+<pre>
+  775 |                 const auto k_2 = (1.f - (k_1) / (big_c_max - big_c_mid));
+      |                                         ^   ~
+</pre>
+</body>
+</html>
