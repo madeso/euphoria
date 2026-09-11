@@ -10,6 +10,9 @@
 <hr>
 <h3>warning: pointee of variable &#39;begin&#39; of type &#39;char *&#39; can be declared &#39;const&#39;</h3>
 <code>[misc-const-correctness]</code>
+<ul>
+<li>Found in <a href="assert.cc.html">libs/assert/src/eu/assert/assert.cc</a></li>
+</ul>
 <p><i><a href="assert.cc.html">libs/assert/src/eu/assert/assert.cc</a> 86 : 17</i></p>
 <pre>
    86 |                 char* begin = end;
@@ -20,6 +23,9 @@
 <hr>
 <h3>warning: function &#39;should_throw_variable&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="assert.cc.html">libs/assert/src/eu/assert/assert.cc</a></li>
+</ul>
 <p><i><a href="assert.cc.html">libs/assert/src/eu/assert/assert.cc</a> 124 : 5</i></p>
 <pre>
   123 |     bool&amp;
@@ -31,6 +37,9 @@
 <hr>
 <h3>warning: thrown exception type is not nothrow copy constructible</h3>
 <code>[bugprone-exception-copy-constructor-throws]</code>
+<ul>
+<li>Found in <a href="assert.cc.html">libs/assert/src/eu/assert/assert.cc</a></li>
+</ul>
 <p><i><a href="assert.cc.html">libs/assert/src/eu/assert/assert.cc</a> 171 : 19</i></p>
 <pre>
   171 |             throw std::move(message);

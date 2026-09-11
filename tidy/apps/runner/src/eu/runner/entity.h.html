@@ -10,6 +10,10 @@
 <hr>
 <h3>warning: invalid case style for constexpr function &#39;C&#39;</h3>
 <code>[readability-identifier-naming]</code>
+<ul>
+<li>Found in <a href="entity.cc.html">apps/runner/src/eu/runner/entity.cc</a></li>
+<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
+</ul>
 <p><i><a href="entity.h.html">apps/runner/src/eu/runner/entity.h</a> 36 : 27</i></p>
 <pre>
    36 |     constexpr std::size_t C(UpdateStage s)
@@ -36,6 +40,10 @@
 <hr>
 <h3>warning: class &#39;Entity&#39; defines a copy constructor, a copy assignment operator, a move constructor and a move assignment operator but does not define a destructor</h3>
 <code>[cppcoreguidelines-special-member-functions]</code>
+<ul>
+<li>Found in <a href="entity.cc.html">apps/runner/src/eu/runner/entity.cc</a></li>
+<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
+</ul>
 <p><i><a href="entity.h.html">apps/runner/src/eu/runner/entity.h</a> 69 : 12</i></p>
 <pre>
    69 |     struct Entity
@@ -45,6 +53,10 @@
 <hr>
 <h3>warning: member variable &#39;name&#39; has public visibility</h3>
 <code>[cppcoreguidelines-non-private-member-variables-in-classes]</code>
+<ul>
+<li>Found in <a href="entity.cc.html">apps/runner/src/eu/runner/entity.cc</a></li>
+<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
+</ul>
 <p><i><a href="entity.h.html">apps/runner/src/eu/runner/entity.h</a> 78 : 27</i></p>
 <pre>
    78 |         const std::string name;
@@ -53,6 +65,10 @@
 <hr>
 <h3>warning: member variable &#39;world&#39; has public visibility</h3>
 <code>[cppcoreguidelines-non-private-member-variables-in-classes]</code>
+<ul>
+<li>Found in <a href="entity.cc.html">apps/runner/src/eu/runner/entity.cc</a></li>
+<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
+</ul>
 <p><i><a href="entity.h.html">apps/runner/src/eu/runner/entity.h</a> 81 : 16</i></p>
 <pre>
    81 |         World* world = nullptr;
@@ -61,6 +77,10 @@
 <hr>
 <h3>warning: member variable &#39;components&#39; has public visibility</h3>
 <code>[cppcoreguidelines-non-private-member-variables-in-classes]</code>
+<ul>
+<li>Found in <a href="entity.cc.html">apps/runner/src/eu/runner/entity.cc</a></li>
+<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
+</ul>
 <p><i><a href="entity.h.html">apps/runner/src/eu/runner/entity.h</a> 82 : 49</i></p>
 <pre>
    82 |         std::vector&lt;std::unique_ptr&lt;Component&gt;&gt; components;
@@ -69,6 +89,10 @@
 <hr>
 <h3>warning: member variable &#39;systems&#39; has public visibility</h3>
 <code>[cppcoreguidelines-non-private-member-variables-in-classes]</code>
+<ul>
+<li>Found in <a href="entity.cc.html">apps/runner/src/eu/runner/entity.cc</a></li>
+<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
+</ul>
 <p><i><a href="entity.h.html">apps/runner/src/eu/runner/entity.h</a> 83 : 52</i></p>
 <pre>
    83 |         std::vector&lt;std::unique_ptr&lt;EntitySystem&gt;&gt; systems;
@@ -77,6 +101,10 @@
 <hr>
 <h3>warning: member variable &#39;updates&#39; has public visibility</h3>
 <code>[cppcoreguidelines-non-private-member-variables-in-classes]</code>
+<ul>
+<li>Found in <a href="entity.cc.html">apps/runner/src/eu/runner/entity.cc</a></li>
+<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
+</ul>
 <p><i><a href="entity.h.html">apps/runner/src/eu/runner/entity.h</a> 84 : 37</i></p>
 <pre>
    84 |         UpdateHandler&lt;EntitySystem&gt; updates;
@@ -86,6 +114,10 @@
 <hr>
 <h3>warning: function &#39;has_tag&#39; should be marked [[nodiscard]]</h3>
 <code>[modernize-use-nodiscard]</code>
+<ul>
+<li>Found in <a href="entity.cc.html">apps/runner/src/eu/runner/entity.cc</a></li>
+<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
+</ul>
 <p><i><a href="entity.h.html">apps/runner/src/eu/runner/entity.h</a> 88 : 9</i></p>
 <pre>
    88 |         bool has_tag(const Hsh&amp; h) const;
@@ -95,6 +127,10 @@
 <hr>
 <h3>warning: function &#39;get_root&#39; should be marked [[nodiscard]]</h3>
 <code>[modernize-use-nodiscard]</code>
+<ul>
+<li>Found in <a href="entity.cc.html">apps/runner/src/eu/runner/entity.cc</a></li>
+<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
+</ul>
 <p><i><a href="entity.h.html">apps/runner/src/eu/runner/entity.h</a> 90 : 9</i></p>
 <pre>
    90 |         SpatialComponent* get_root() const;
@@ -104,6 +140,10 @@
 <hr>
 <h3>warning: function &#39;get_transform&#39; should be marked [[nodiscard]]</h3>
 <code>[modernize-use-nodiscard]</code>
+<ul>
+<li>Found in <a href="entity.cc.html">apps/runner/src/eu/runner/entity.cc</a></li>
+<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
+</ul>
 <p><i><a href="entity.h.html">apps/runner/src/eu/runner/entity.h</a> 142 : 9</i></p>
 <pre>
   142 |         const m4&amp; get_transform() const;
@@ -113,6 +153,10 @@
 <hr>
 <h3>warning: class &#39;EntitySystem&#39; defines a default destructor, a copy constructor, a copy assignment operator and a move assignment operator but does not define a move constructor</h3>
 <code>[cppcoreguidelines-special-member-functions]</code>
+<ul>
+<li>Found in <a href="entity.cc.html">apps/runner/src/eu/runner/entity.cc</a></li>
+<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
+</ul>
 <p><i><a href="entity.h.html">apps/runner/src/eu/runner/entity.h</a> 153 : 12</i></p>
 <pre>
   153 |     struct EntitySystem
@@ -121,122 +165,10 @@
 <hr>
 <h3>warning: class &#39;WorldSystem&#39; defines a default destructor, a copy constructor, a copy assignment operator and a move assignment operator but does not define a move constructor</h3>
 <code>[cppcoreguidelines-special-member-functions]</code>
-<p><i><a href="entity.h.html">apps/runner/src/eu/runner/entity.h</a> 174 : 12</i></p>
-<pre>
-  174 |     struct WorldSystem
-      |            ^
-</pre>
-<hr>
-<h3>warning: invalid case style for constexpr function &#39;C&#39;</h3>
-<code>[readability-identifier-naming]</code>
-<p><i><a href="entity.h.html">apps/runner/src/eu/runner/entity.h</a> 36 : 27</i></p>
-<pre>
-   36 |     constexpr std::size_t C(UpdateStage s)
-      |                           ^
-      |                           c
-   37 |     {
-   38 |         return static_cast&lt;std::size_t&gt;(s);
-   39 |     }
-   40 | 
-   41 |     template&lt;typename TSystem&gt;
-   42 |     struct UpdateHandler
-   43 |     {
-   44 |         std::array&lt;std::vector&lt;SystemWithPrio&lt;TSystem&gt;&gt;, update_stage_count&gt; stages;
-   45 | 
-   46 |         void add(TSystem* system)
-   47 |         {
-   48 |             const UpdateStageAndPrio s = system-&gt;get_stage();
-   49 | 
-   50 |             auto&amp; systems = stages[C(s.stage)];
-      |                                    ~
-      |                                    c
-</pre>
-<hr>
-<h3>warning: class &#39;Entity&#39; defines a copy constructor, a copy assignment operator, a move constructor and a move assignment operator but does not define a destructor</h3>
-<code>[cppcoreguidelines-special-member-functions]</code>
-<p><i><a href="entity.h.html">apps/runner/src/eu/runner/entity.h</a> 69 : 12</i></p>
-<pre>
-   69 |     struct Entity
-      |            ^
-</pre>
-<hr>
-<h3>warning: member variable &#39;name&#39; has public visibility</h3>
-<code>[cppcoreguidelines-non-private-member-variables-in-classes]</code>
-<p><i><a href="entity.h.html">apps/runner/src/eu/runner/entity.h</a> 78 : 27</i></p>
-<pre>
-   78 |         const std::string name;
-      |                           ^
-</pre>
-<hr>
-<h3>warning: member variable &#39;world&#39; has public visibility</h3>
-<code>[cppcoreguidelines-non-private-member-variables-in-classes]</code>
-<p><i><a href="entity.h.html">apps/runner/src/eu/runner/entity.h</a> 81 : 16</i></p>
-<pre>
-   81 |         World* world = nullptr;
-      |                ^
-</pre>
-<hr>
-<h3>warning: member variable &#39;components&#39; has public visibility</h3>
-<code>[cppcoreguidelines-non-private-member-variables-in-classes]</code>
-<p><i><a href="entity.h.html">apps/runner/src/eu/runner/entity.h</a> 82 : 49</i></p>
-<pre>
-   82 |         std::vector&lt;std::unique_ptr&lt;Component&gt;&gt; components;
-      |                                                 ^
-</pre>
-<hr>
-<h3>warning: member variable &#39;systems&#39; has public visibility</h3>
-<code>[cppcoreguidelines-non-private-member-variables-in-classes]</code>
-<p><i><a href="entity.h.html">apps/runner/src/eu/runner/entity.h</a> 83 : 52</i></p>
-<pre>
-   83 |         std::vector&lt;std::unique_ptr&lt;EntitySystem&gt;&gt; systems;
-      |                                                    ^
-</pre>
-<hr>
-<h3>warning: member variable &#39;updates&#39; has public visibility</h3>
-<code>[cppcoreguidelines-non-private-member-variables-in-classes]</code>
-<p><i><a href="entity.h.html">apps/runner/src/eu/runner/entity.h</a> 84 : 37</i></p>
-<pre>
-   84 |         UpdateHandler&lt;EntitySystem&gt; updates;
-      |                                     ^
-</pre>
-<hr>
-<h3>warning: function &#39;has_tag&#39; should be marked [[nodiscard]]</h3>
-<code>[modernize-use-nodiscard]</code>
-<p><i><a href="entity.h.html">apps/runner/src/eu/runner/entity.h</a> 88 : 9</i></p>
-<pre>
-   88 |         bool has_tag(const Hsh&amp; h) const;
-      |         ^
-      |         [[nodiscard]] 
-</pre>
-<hr>
-<h3>warning: function &#39;get_root&#39; should be marked [[nodiscard]]</h3>
-<code>[modernize-use-nodiscard]</code>
-<p><i><a href="entity.h.html">apps/runner/src/eu/runner/entity.h</a> 90 : 9</i></p>
-<pre>
-   90 |         SpatialComponent* get_root() const;
-      |         ^
-      |         [[nodiscard]] 
-</pre>
-<hr>
-<h3>warning: function &#39;get_transform&#39; should be marked [[nodiscard]]</h3>
-<code>[modernize-use-nodiscard]</code>
-<p><i><a href="entity.h.html">apps/runner/src/eu/runner/entity.h</a> 142 : 9</i></p>
-<pre>
-  142 |         const m4&amp; get_transform() const;
-      |         ^
-      |         [[nodiscard]] 
-</pre>
-<hr>
-<h3>warning: class &#39;EntitySystem&#39; defines a default destructor, a copy constructor, a copy assignment operator and a move assignment operator but does not define a move constructor</h3>
-<code>[cppcoreguidelines-special-member-functions]</code>
-<p><i><a href="entity.h.html">apps/runner/src/eu/runner/entity.h</a> 153 : 12</i></p>
-<pre>
-  153 |     struct EntitySystem
-      |            ^
-</pre>
-<hr>
-<h3>warning: class &#39;WorldSystem&#39; defines a default destructor, a copy constructor, a copy assignment operator and a move assignment operator but does not define a move constructor</h3>
-<code>[cppcoreguidelines-special-member-functions]</code>
+<ul>
+<li>Found in <a href="entity.cc.html">apps/runner/src/eu/runner/entity.cc</a></li>
+<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
+</ul>
 <p><i><a href="entity.h.html">apps/runner/src/eu/runner/entity.h</a> 174 : 12</i></p>
 <pre>
   174 |     struct WorldSystem

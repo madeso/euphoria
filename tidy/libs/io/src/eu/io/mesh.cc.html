@@ -10,6 +10,9 @@
 <hr>
 <h3>warning: struct &#39;GltfFile&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 12 : 8</i></p>
 <pre>
    12 | struct GltfFile
@@ -19,6 +22,9 @@
 <hr>
 <h3>warning: variable &#39;options&#39; of type &#39;cgltf_options&#39; (aka &#39;struct cgltf_options&#39;) can be declared &#39;const&#39;</h3>
 <code>[misc-const-correctness]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 29 : 9</i></p>
 <pre>
    29 |         cgltf_options options = {};
@@ -28,6 +34,9 @@
 <hr>
 <h3>warning: function &#39;find_node_index&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 63 : 28</i></p>
 <pre>
    63 | std::optional&lt;std::size_t&gt; find_node_index(
@@ -38,6 +47,9 @@
 <hr>
 <h3>warning: invalid case style for pointer parameter &#39;allNodes&#39;</h3>
 <code>[readability-identifier-naming]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 64 : 37</i></p>
 <pre>
    64 |     cgltf_node* target, cgltf_node* allNodes, std::size_t numNodes
@@ -58,6 +70,9 @@
 <hr>
 <h3>warning: invalid case style for parameter &#39;numNodes&#39;</h3>
 <code>[readability-identifier-naming]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 64 : 59</i></p>
 <pre>
    64 |     cgltf_node* target, cgltf_node* allNodes, std::size_t numNodes
@@ -77,6 +92,9 @@
 <hr>
 <h3>warning: use nullptr</h3>
 <code>[modernize-use-nullptr]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 67 : 19</i></p>
 <pre>
    67 |     if (target == 0)
@@ -87,6 +105,9 @@
 <hr>
 <h3>warning: loop variable name &#39;i&#39; is too short, expected at least 2 characters</h3>
 <code>[readability-identifier-length]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 71 : 22</i></p>
 <pre>
    71 |     for (std::size_t i = 0; i &lt; numNodes; ++i)
@@ -95,6 +116,9 @@
 <hr>
 <h3>warning: function &#39;scalar_values_from_accessor&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 81 : 20</i></p>
 <pre>
    81 | std::vector&lt;float&gt; scalar_values_from_accessor(
@@ -104,6 +128,9 @@
 <hr>
 <h3>warning: invalid case style for local variable &#39;outScalars&#39;</h3>
 <code>[readability-identifier-naming]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 85 : 24</i></p>
 <pre>
    85 |     std::vector&lt;float&gt; outScalars;
@@ -126,6 +153,9 @@
 <hr>
 <h3>warning: loop variable name &#39;i&#39; is too short, expected at least 2 characters</h3>
 <code>[readability-identifier-length]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 88 : 21</i></p>
 <pre>
    88 |     for (cgltf_size i = 0; i &lt; accessor.count; ++i)
@@ -134,6 +164,9 @@
 <hr>
 <h3>warning: function &#39;extract_mesh_from_attribute&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 95 : 6</i></p>
 <pre>
    95 | void extract_mesh_from_attribute(
@@ -143,6 +176,9 @@
 <hr>
 <h3>warning: invalid case style for parameter &#39;outMesh&#39;</h3>
 <code>[readability-identifier-naming]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 96 : 26</i></p>
 <pre>
    96 |     core::geom::Builder&amp; outMesh,
@@ -152,6 +188,9 @@
 <hr>
 <h3>warning: invalid case style for parameter &#39;nodeCount&#39;</h3>
 <code>[readability-identifier-naming]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 100 : 18</i></p>
 <pre>
   100 |     unsigned int nodeCount
@@ -161,6 +200,9 @@
 <hr>
 <h3>warning: variable &#39;attribType&#39; of type &#39;cgltf_attribute_type&#39; (aka &#39;enum cgltf_attribute_type&#39;) can be declared &#39;const&#39;</h3>
 <code>[misc-const-correctness]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 103 : 5</i></p>
 <pre>
   103 |     cgltf_attribute_type attribType = attribute.type;
@@ -170,6 +212,9 @@
 <hr>
 <h3>warning: invalid case style for local variable &#39;attribType&#39;</h3>
 <code>[readability-identifier-naming]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 103 : 26</i></p>
 <pre>
   103 |     cgltf_attribute_type attribType = attribute.type;
@@ -179,6 +224,9 @@
 <hr>
 <h3>warning: variable &#39;accessor&#39; of type &#39;cgltf_accessor &amp;&#39; (aka &#39;struct cgltf_accessor &amp;&#39;) can be declared &#39;const&#39;</h3>
 <code>[misc-const-correctness]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 104 : 5</i></p>
 <pre>
   104 |     cgltf_accessor&amp; accessor = *attribute.data;
@@ -188,6 +236,9 @@
 <hr>
 <h3>warning: invalid case style for local variable &#39;componentCount&#39;</h3>
 <code>[readability-identifier-naming]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 106 : 18</i></p>
 <pre>
   106 |     unsigned int componentCount = 0;
@@ -218,6 +269,9 @@
 <hr>
 <h3>warning: invalid case style for local constant &#39;acessorCount&#39;</h3>
 <code>[readability-identifier-naming]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 120 : 16</i></p>
 <pre>
   120 |     const auto acessorCount = accessor.count;
@@ -231,6 +285,9 @@
 <hr>
 <h3>warning: loop variable name &#39;i&#39; is too short, expected at least 2 characters</h3>
 <code>[readability-identifier-length]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 122 : 22</i></p>
 <pre>
   122 |     for (std::size_t i = 0; i &lt; acessorCount; ++i)
@@ -240,6 +297,9 @@
 <hr>
 <h3>warning: casting (double + 0.5) to integer leads to incorrect rounding; consider using lround (#include &lt;cmath&gt;) instead</h3>
 <code>[bugprone-incorrect-roundings]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 150 : 57</i></p>
 <pre>
   150 |                     const auto found = static_cast&lt;int&gt;(values[index + ii] + 0.5f);
@@ -248,6 +308,9 @@
 <hr>
 <h3>warning: function &#39;vert&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 171 : 20</i></p>
 <pre>
   171 | core::geom::Vertex vert(std::size_t index)
@@ -257,6 +320,9 @@
 <hr>
 <h3>warning: function &#39;create_geom_from_gltf_primitive&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 176 : 12</i></p>
 <pre>
   176 | core::Geom create_geom_from_gltf_primitive(const cgltf_data&amp; data, const cgltf_node&amp; node, const cgltf_primitive&amp; prim)
@@ -266,6 +332,9 @@
 <hr>
 <h3>warning: invalid case style for local constant &#39;nodeCount&#39;</h3>
 <code>[readability-identifier-naming]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 181 : 16</i></p>
 <pre>
   181 |     const auto nodeCount = data.nodes_count;
@@ -284,6 +353,9 @@
 <hr>
 <h3>warning: invalid case style for local constant &#39;numAttributes&#39;</h3>
 <code>[readability-identifier-naming]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 183 : 16</i></p>
 <pre>
   183 |     const auto numAttributes = prim.attributes_count;
@@ -296,6 +368,9 @@
 <hr>
 <h3>warning: loop variable name &#39;k&#39; is too short, expected at least 2 characters</h3>
 <code>[readability-identifier-length]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 184 : 23</i></p>
 <pre>
   184 |     for (unsigned int k = 0; k &lt; numAttributes; ++k)
@@ -304,6 +379,9 @@
 <hr>
 <h3>warning: invalid case style for local constant &#39;indexCount&#39;</h3>
 <code>[readability-identifier-naming]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 194 : 20</i></p>
 <pre>
   194 |         const auto indexCount = prim.indices-&gt;count;
@@ -317,6 +395,9 @@
 <hr>
 <h3>warning: loop variable name &#39;k&#39; is too short, expected at least 2 characters</h3>
 <code>[readability-identifier-length]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 196 : 26</i></p>
 <pre>
   196 |         for (std::size_t k = 0; k &lt; indexCount; k += 3)
@@ -325,6 +406,9 @@
 <hr>
 <h3>warning: function &#39;transform_from_node_rec&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 208 : 4</i></p>
 <pre>
   208 | m4 transform_from_node_rec(const cgltf_node&amp; node)
@@ -335,6 +419,9 @@
 <hr>
 <h3>warning: implicit conversion &#39;cgltf_node *&#39; -&gt; &#39;bool&#39;</h3>
 <code>[readability-implicit-bool-conversion]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 210 : 23</i></p>
 <pre>
   210 |     const m4 parent = node.parent ? transform_from_node_rec(*node.parent) : m4_identity;
@@ -344,6 +431,9 @@
 <hr>
 <h3>warning: implicit conversion &#39;cgltf_bool&#39; (aka &#39;int&#39;) -&gt; &#39;bool&#39;</h3>
 <code>[readability-implicit-bool-conversion]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 211 : 26</i></p>
 <pre>
   211 |     const m4 translate = node.has_translation ? m4::from_translation(v3(node.translation)) : m4_identity;
@@ -353,6 +443,9 @@
 <hr>
 <h3>warning: implicit conversion &#39;cgltf_bool&#39; (aka &#39;int&#39;) -&gt; &#39;bool&#39;</h3>
 <code>[readability-implicit-bool-conversion]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 212 : 23</i></p>
 <pre>
   212 |     const m4 rotate = node.has_rotation ? m4::from(Q(node.rotation)).value_or(m4_identity) : m4_identity;
@@ -362,6 +455,9 @@
 <hr>
 <h3>warning: implicit conversion &#39;cgltf_bool&#39; (aka &#39;int&#39;) -&gt; &#39;bool&#39;</h3>
 <code>[readability-implicit-bool-conversion]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 213 : 22</i></p>
 <pre>
   213 |     const m4 scale = node.has_scale ? m4::from_scale(v3(node.scale)) : m4_identity;
@@ -371,6 +467,9 @@
 <hr>
 <h3>warning: function &#39;extract_meshes_from_gltf&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 219 : 12</i></p>
 <pre>
   219 | core::Mesh extract_meshes_from_gltf(const cgltf_data&amp; data, const std::string&amp; file)
@@ -380,6 +479,9 @@
 <hr>
 <h3>warning: loop variable name &#39;i&#39; is too short, expected at least 2 characters</h3>
 <code>[readability-identifier-length]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 223 : 22</i></p>
 <pre>
   223 |     for (std::size_t i = 0; i &lt; data.nodes_count; ++i)
@@ -388,6 +490,9 @@
 <hr>
 <h3>warning: function &#39;unable_to_load_geom&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a></li>
+</ul>
 <p><i><a href="mesh.cc.html">libs/io/src/eu/io/mesh.cc</a> 254 : 12</i></p>
 <pre>
   254 | core::Mesh unable_to_load_geom()

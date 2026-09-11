@@ -10,6 +10,9 @@
 <hr>
 <h3>warning: function &#39;get_uniform&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a></li>
+</ul>
 <p><i><a href="shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a> 124 : 24</i></p>
 <pre>
   124 | std::optional&lt;Uniform&gt; get_uniform(
@@ -19,6 +22,9 @@
 <hr>
 <h3>warning: function &#39;get_vertex_types&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a></li>
+</ul>
 <p><i><a href="shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a> 287 : 16</i></p>
 <pre>
   287 | BaseShaderData get_vertex_types(const std::array&lt;const core::ShaderVertexAttributes*, count&gt;&amp; vas)
@@ -28,6 +34,9 @@
 <hr>
 <h3>warning: struct &#39;LoadedShader&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a></li>
+</ul>
 <p><i><a href="shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a> 308 : 8</i></p>
 <pre>
   308 | struct LoadedShader
@@ -36,6 +45,9 @@
 <hr>
 <h3>warning: function &#39;get_instance_start_index&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a></li>
+</ul>
 <p><i><a href="shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a> 319 : 20</i></p>
 <pre>
   319 | std::optional&lt;int&gt; get_instance_start_index(const LoadedShader* shader)
@@ -45,6 +57,9 @@
 <hr>
 <h3>warning: function &#39;load_shader&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a></li>
+</ul>
 <p><i><a href="shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a> 338 : 14</i></p>
 <pre>
   338 | LoadedShader load_shader(DEBUG_LABEL_ARG_MANY const BaseShaderData&amp; base_layout, const ShaderSource_withLayout&amp; source, TransformSource model_source, const LoadedShader* instance_base = nullptr)
@@ -55,6 +70,9 @@
 <hr>
 <h3>warning: use designated initializer list to initialize &#39;core:: InstanceProp&#39;</h3>
 <code>[modernize-use-designated-initializers]</code>
+<ul>
+<li>Found in <a href="shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a></li>
+</ul>
 <p><i><a href="shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a> 348 : 37</i></p>
 <pre>
   348 |                 instance_prop = core::InstanceProp{core::VertexType::instance_transform, &quot;u_world_from_local&quot;};
@@ -70,6 +88,9 @@
 <hr>
 <h3>warning: use designated initializer list to initialize &#39;ShaderSource_withLayout&#39;</h3>
 <code>[modernize-use-designated-initializers]</code>
+<ul>
+<li>Found in <a href="shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a></li>
+</ul>
 <p><i><a href="shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a> 377 : 52</i></p>
 <pre>
   377 |         const auto skybox_shader = ShaderSource_withLayout{
@@ -89,6 +110,9 @@
 <hr>
 <h3>warning: use designated initializer list to initialize &#39;const value_type&#39; (aka &#39;const eu::core:: VertexElementDescription&#39;)</h3>
 <code>[modernize-use-designated-initializers]</code>
+<ul>
+<li>Found in <a href="shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a></li>
+</ul>
 <p><i><a href="shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a> 378 : 38</i></p>
 <pre>
   378 |         core::ShaderVertexAttributes{{core::VertexType::position3, &quot;a_position&quot;}}, skybox_source.vertex, skybox_source.fragment
@@ -105,6 +129,9 @@
 <hr>
 <h3>warning: preprocessor condition is always &#39;false&#39;, consider removing both the condition and its contents</h3>
 <code>[readability-avoid-unconditional-preprocessor-if]</code>
+<ul>
+<li>Found in <a href="shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a></li>
+</ul>
 <p><i><a href="shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a> 433 : 2</i></p>
 <pre>
   433 | #if 0
@@ -113,6 +140,9 @@
 <hr>
 <h3>warning: use designated initializer list to initialize &#39;LoadedShader_Unlit_Container&#39;</h3>
 <code>[modernize-use-designated-initializers]</code>
+<ul>
+<li>Found in <a href="shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a></li>
+</ul>
 <p><i><a href="shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a> 534 : 57</i></p>
 <pre>
   534 |                 .unlit_shader_container = LoadedShader_Unlit_Container{
@@ -138,6 +168,9 @@
 <hr>
 <h3>warning: use designated initializer list to initialize &#39;LoadedShader_Default_Container&#39;</h3>
 <code>[modernize-use-designated-initializers]</code>
+<ul>
+<li>Found in <a href="shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a></li>
+</ul>
 <p><i><a href="shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a> 539 : 61</i></p>
 <pre>
   539 |                 .default_shader_container = LoadedShader_Default_Container{

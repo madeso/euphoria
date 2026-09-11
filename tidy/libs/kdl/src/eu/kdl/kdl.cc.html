@@ -10,6 +10,9 @@
 <hr>
 <h3>warning: use designated initializer list to initialize &#39;kdl_str&#39; (aka &#39;struct kdl_str&#39;)</h3>
 <code>[modernize-use-designated-initializers]</code>
+<ul>
+<li>Found in <a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a></li>
+</ul>
 <p><i><a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a> 16 : 23</i></p>
 <pre>
    16 |         return kdl_str{reinterpret_cast&lt;char const*&gt;(s.data()), s.size()};
@@ -27,6 +30,9 @@
 <hr>
 <h3>warning: statement should be inside braces</h3>
 <code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
+<ul>
+<li>Found in <a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a></li>
+</ul>
 <p><i><a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a> 54 : 96</i></p>
 <pre>
    54 |                         emitter, to_kdl_str(*node.type_annotation()), to_kdl_str(node.name())))
@@ -38,6 +44,9 @@
 <hr>
 <h3>warning: statement should be inside braces</h3>
 <code>[readability-braces-around-statements]</code>
+<ul>
+<li>Found in <a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a></li>
+</ul>
 <p><i><a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a> 57 : 70</i></p>
 <pre>
    57 |                 if (!kdl_emit_node(emitter, to_kdl_str(node.name()))) throw EmitterError{};
@@ -49,6 +58,9 @@
 <hr>
 <h3>warning: C-style casts are discouraged; use constructor call syntax</h3>
 <code>[google-readability-casting,modernize-avoid-c-style-cast]</code>
+<ul>
+<li>Found in <a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a></li>
+</ul>
 <p><i><a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a> 61 : 26</i></p>
 <pre>
    61 |                 auto v = (kdl_value)arg;
@@ -58,6 +70,9 @@
 <hr>
 <h3>warning: statement should be inside braces</h3>
 <code>[readability-braces-around-statements]</code>
+<ul>
+<li>Found in <a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a></li>
+</ul>
 <p><i><a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a> 62 : 48</i></p>
 <pre>
    62 |                 if (!kdl_emit_arg(emitter, &amp;v)) throw EmitterError{};
@@ -67,6 +82,9 @@
 <hr>
 <h3>warning: C-style casts are discouraged; use constructor call syntax</h3>
 <code>[google-readability-casting,modernize-avoid-c-style-cast]</code>
+<ul>
+<li>Found in <a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a></li>
+</ul>
 <p><i><a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a> 66 : 26</i></p>
 <pre>
    66 |                 auto v = (kdl_value)value;
@@ -76,6 +94,9 @@
 <hr>
 <h3>warning: statement should be inside braces</h3>
 <code>[readability-braces-around-statements]</code>
+<ul>
+<li>Found in <a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a></li>
+</ul>
 <p><i><a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a> 67 : 70</i></p>
 <pre>
    67 |                 if (!kdl_emit_property(emitter, to_kdl_str(key), &amp;v)) throw EmitterError{};
@@ -85,6 +106,9 @@
 <hr>
 <h3>warning: statement should be inside braces</h3>
 <code>[readability-braces-around-statements]</code>
+<ul>
+<li>Found in <a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a></li>
+</ul>
 <p><i><a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a> 71 : 59</i></p>
 <pre>
    71 |                 if (!kdl_start_emitting_children(emitter)) throw EmitterError{};
@@ -94,6 +118,9 @@
 <hr>
 <h3>warning: statement should be inside braces</h3>
 <code>[readability-braces-around-statements]</code>
+<ul>
+<li>Found in <a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a></li>
+</ul>
 <p><i><a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a> 73 : 60</i></p>
 <pre>
    73 |                 if (!kdl_finish_emitting_children(emitter)) throw EmitterError{};
@@ -103,6 +130,9 @@
 <hr>
 <h3>warning: C-style casts are discouraged; use static_cast/const_cast/reinterpret_cast</h3>
 <code>[google-readability-casting,modernize-avoid-c-style-cast]</code>
+<ul>
+<li>Found in <a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a></li>
+</ul>
 <p><i><a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a> 139 : 33</i></p>
 <pre>
   139 |                 result.number = (kdl_number)v;
@@ -111,6 +141,9 @@
 <hr>
 <h3>warning: use designated initializer list to initialize &#39;kdl_str&#39;</h3>
 <code>[modernize-use-designated-initializers]</code>
+<ul>
+<li>Found in <a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a></li>
+</ul>
 <p><i><a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a> 151 : 34</i></p>
 <pre>
   151 |         result.type_annotation = {nullptr, 0};
@@ -127,6 +160,9 @@
 <hr>
 <h3>warning: unnecessary temporary object created while calling emplace_back</h3>
 <code>[modernize-use-emplace]</code>
+<ul>
+<li>Found in <a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a></li>
+</ul>
 <p><i><a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a> 194 : 47</i></p>
 <pre>
   194 |             current_node-&gt;args().emplace_back(Value{ev-&gt;value});
@@ -135,6 +171,9 @@
 <hr>
 <h3>warning: statement should be inside braces</h3>
 <code>[readability-braces-around-statements]</code>
+<ul>
+<li>Found in <a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a></li>
+</ul>
 <p><i><a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a> 211 : 38</i></p>
 <pre>
   211 |     if (version == KdlVersion::Kdl_1) opts.version = KDL_VERSION_1;
@@ -144,6 +183,9 @@
 <hr>
 <h3>warning: statement should be inside braces</h3>
 <code>[readability-braces-around-statements]</code>
+<ul>
+<li>Found in <a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a></li>
+</ul>
 <p><i><a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a> 212 : 38</i></p>
 <pre>
   212 |     if (version == KdlVersion::Kdl_2) opts.version = KDL_VERSION_2;
@@ -153,6 +195,9 @@
 <hr>
 <h3>warning: statement should be inside braces</h3>
 <code>[readability-braces-around-statements]</code>
+<ul>
+<li>Found in <a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a></li>
+</ul>
 <p><i><a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a> 215 : 28</i></p>
 <pre>
   215 |     if (emitter == nullptr) throw EmitterError{&quot;Error initializing the KDL emitter&quot;};
@@ -162,18 +207,10 @@
 <hr>
 <h3>warning: statement should be inside braces</h3>
 <code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
-<p><i><a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a> 227 : 38</i></p>
-<pre>
-  227 |     if (version == KdlVersion::Kdl_1) opts = KDL_READ_VERSION_1;
-      |                                      ^
-      |                                       {
-  228 |     else if (version == KdlVersion::Kdl_2) opts = KDL_READ_VERSION_2;
-      |     } 
-</pre>
-<span id='readability-inconsistent-ifelse-braces'>&nbsp;</span>
-<hr>
-<h3>warning: statement should have braces</h3>
-<code>[readability-inconsistent-ifelse-braces]</code>
+<ul>
+<li>Found in <a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a></li>
+<li>Found in <a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a></li>
+</ul>
 <p><i><a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a> 227 : 38</i></p>
 <pre>
   227 |     if (version == KdlVersion::Kdl_1) opts = KDL_READ_VERSION_1;
@@ -185,17 +222,10 @@
 <hr>
 <h3>warning: statement should be inside braces</h3>
 <code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
-<p><i><a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a> 228 : 43</i></p>
-<pre>
-  228 |     else if (version == KdlVersion::Kdl_2) opts = KDL_READ_VERSION_2;
-      |                                           ^
-      |                                            {
-  229 |     else if (version == KdlVersion::Any) {
-      |     } 
-</pre>
-<hr>
-<h3>warning: statement should have braces</h3>
-<code>[readability-inconsistent-ifelse-braces]</code>
+<ul>
+<li>Found in <a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a></li>
+<li>Found in <a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a></li>
+</ul>
 <p><i><a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a> 228 : 43</i></p>
 <pre>
   228 |     else if (version == KdlVersion::Kdl_2) opts = KDL_READ_VERSION_2;
@@ -208,6 +238,9 @@
 <hr>
 <h3>warning: variable &#39;text&#39; of type &#39;kdl_str&#39; (aka &#39;struct kdl_str&#39;) can be declared &#39;const&#39;</h3>
 <code>[misc-const-correctness]</code>
+<ul>
+<li>Found in <a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a></li>
+</ul>
 <p><i><a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a> 237 : 5</i></p>
 <pre>
   237 |     kdl_str text = {reinterpret_cast&lt;char const*&gt;(kdl_text.data()), kdl_text.size()};
@@ -217,6 +250,9 @@
 <hr>
 <h3>warning: use designated initializer list to initialize &#39;kdl_str&#39; (aka &#39;struct kdl_str&#39;)</h3>
 <code>[modernize-use-designated-initializers]</code>
+<ul>
+<li>Found in <a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a></li>
+</ul>
 <p><i><a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a> 237 : 20</i></p>
 <pre>
   237 |     kdl_str text = {reinterpret_cast&lt;char const*&gt;(kdl_text.data()), kdl_text.size()};
@@ -232,6 +268,9 @@
 <hr>
 <h3>warning: statement should be inside braces</h3>
 <code>[readability-braces-around-statements]</code>
+<ul>
+<li>Found in <a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a></li>
+</ul>
 <p><i><a href="kdl.cc.html">libs/kdl/src/eu/kdl/kdl.cc</a> 239 : 27</i></p>
 <pre>
   239 |     if (parser == nullptr) throw std::runtime_error(&quot;Error initializing the KDL parser&quot;);

@@ -10,6 +10,22 @@
 <hr>
 <h3>warning: &#39;eu::n3:: operator-&#39; shadows method with the same name in class &#39;v3&#39;</h3>
 <code>[bugprone-derived-method-shadowing-base-method]</code>
+<ul>
+<li>Found in <a href="axisangle.cc.html">libs/base/src/eu/base/axisangle.cc</a></li>
+<li>Found in <a href="colors.cc.html">libs/base/src/eu/base/colors.cc</a></li>
+<li>Found in <a href="axisangle.test.cc.html">libs/base/src/eu/base/axisangle.test.cc</a></li>
+<li>Found in <a href="mat4.cc.html">libs/base/src/eu/base/mat4.cc</a></li>
+<li>Found in <a href="mat4.test.cc.html">libs/base/src/eu/base/mat4.test.cc</a></li>
+<li>Found in <a href="numeric.test.cc.html">libs/base/src/eu/base/numeric.test.cc</a></li>
+<li>Found in <a href="quat.cc.html">libs/base/src/eu/base/quat.cc</a></li>
+<li>Found in <a href="quat.test.cc.html">libs/base/src/eu/base/quat.test.cc</a></li>
+<li>Found in <a href="range.test.cc.html">libs/base/src/eu/base/range.test.cc</a></li>
+<li>Found in <a href="vec3.cc.html">libs/base/src/eu/base/vec3.cc</a></li>
+<li>Found in <a href="vec4.cc.html">libs/base/src/eu/base/vec4.cc</a></li>
+<li>Found in <a href="vec2.test.cc.html">libs/base/src/eu/base/vec2.test.cc</a></li>
+<li>Found in <a href="vec3.test.cc.html">libs/base/src/eu/base/vec3.test.cc</a></li>
+<li>Found in <a href="vec4.test.cc.html">libs/base/src/eu/base/vec4.test.cc</a></li>
+</ul>
 <p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 95 : 9</i></p>
 <pre>
    95 |         constexpr n3 operator-() const
@@ -25,6 +41,22 @@
 <hr>
 <h3>warning: constructor does not initialize these bases: v3</h3>
 <code>[cppcoreguidelines-pro-type-member-init]</code>
+<ul>
+<li>Found in <a href="axisangle.cc.html">libs/base/src/eu/base/axisangle.cc</a></li>
+<li>Found in <a href="colors.cc.html">libs/base/src/eu/base/colors.cc</a></li>
+<li>Found in <a href="axisangle.test.cc.html">libs/base/src/eu/base/axisangle.test.cc</a></li>
+<li>Found in <a href="mat4.cc.html">libs/base/src/eu/base/mat4.cc</a></li>
+<li>Found in <a href="mat4.test.cc.html">libs/base/src/eu/base/mat4.test.cc</a></li>
+<li>Found in <a href="numeric.test.cc.html">libs/base/src/eu/base/numeric.test.cc</a></li>
+<li>Found in <a href="quat.cc.html">libs/base/src/eu/base/quat.cc</a></li>
+<li>Found in <a href="quat.test.cc.html">libs/base/src/eu/base/quat.test.cc</a></li>
+<li>Found in <a href="range.test.cc.html">libs/base/src/eu/base/range.test.cc</a></li>
+<li>Found in <a href="vec3.cc.html">libs/base/src/eu/base/vec3.cc</a></li>
+<li>Found in <a href="vec4.cc.html">libs/base/src/eu/base/vec4.cc</a></li>
+<li>Found in <a href="vec2.test.cc.html">libs/base/src/eu/base/vec2.test.cc</a></li>
+<li>Found in <a href="vec3.test.cc.html">libs/base/src/eu/base/vec3.test.cc</a></li>
+<li>Found in <a href="vec4.test.cc.html">libs/base/src/eu/base/vec4.test.cc</a></li>
+</ul>
 <p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 110 : 9</i></p>
 <pre>
   110 |         constexpr n3(float a, float b, float c)
@@ -35,448 +67,22 @@
 <hr>
 <h3>warning: constructor does not initialize these bases: v3</h3>
 <code>[cppcoreguidelines-pro-type-member-init]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 117 : 9</i></p>
-<pre>
-  117 |         constexpr explicit n3(const v3&amp; v)
-      |         ^
-  118 |             : v3(v)
-      |               v3(),
-</pre>
-<hr>
-<h3>warning: &#39;eu::n3:: operator-&#39; shadows method with the same name in class &#39;v3&#39;</h3>
-<code>[bugprone-derived-method-shadowing-base-method]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 95 : 9</i></p>
-<pre>
-   95 |         constexpr n3 operator-() const
-      |         ^
-</pre>
-<p>previous definition of &#39;operator-&#39; is here</p>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 55 : 9</i></p>
-<pre>
-   55 |         v3 operator-() const;
-      |         ^
-</pre>
-<hr>
-<h3>warning: constructor does not initialize these bases: v3</h3>
-<code>[cppcoreguidelines-pro-type-member-init]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 110 : 9</i></p>
-<pre>
-  110 |         constexpr n3(float a, float b, float c)
-      |         ^
-  111 |             : v3(a, b, c)
-      |               v3(),
-</pre>
-<hr>
-<h3>warning: constructor does not initialize these bases: v3</h3>
-<code>[cppcoreguidelines-pro-type-member-init]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 117 : 9</i></p>
-<pre>
-  117 |         constexpr explicit n3(const v3&amp; v)
-      |         ^
-  118 |             : v3(v)
-      |               v3(),
-</pre>
-<hr>
-<h3>warning: &#39;eu::n3:: operator-&#39; shadows method with the same name in class &#39;v3&#39;</h3>
-<code>[bugprone-derived-method-shadowing-base-method]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 95 : 9</i></p>
-<pre>
-   95 |         constexpr n3 operator-() const
-      |         ^
-</pre>
-<p>previous definition of &#39;operator-&#39; is here</p>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 55 : 9</i></p>
-<pre>
-   55 |         v3 operator-() const;
-      |         ^
-</pre>
-<hr>
-<h3>warning: constructor does not initialize these bases: v3</h3>
-<code>[cppcoreguidelines-pro-type-member-init]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 110 : 9</i></p>
-<pre>
-  110 |         constexpr n3(float a, float b, float c)
-      |         ^
-  111 |             : v3(a, b, c)
-      |               v3(),
-</pre>
-<hr>
-<h3>warning: constructor does not initialize these bases: v3</h3>
-<code>[cppcoreguidelines-pro-type-member-init]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 117 : 9</i></p>
-<pre>
-  117 |         constexpr explicit n3(const v3&amp; v)
-      |         ^
-  118 |             : v3(v)
-      |               v3(),
-</pre>
-<hr>
-<h3>warning: &#39;eu::n3:: operator-&#39; shadows method with the same name in class &#39;v3&#39;</h3>
-<code>[bugprone-derived-method-shadowing-base-method]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 95 : 9</i></p>
-<pre>
-   95 |         constexpr n3 operator-() const
-      |         ^
-</pre>
-<p>previous definition of &#39;operator-&#39; is here</p>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 55 : 9</i></p>
-<pre>
-   55 |         v3 operator-() const;
-      |         ^
-</pre>
-<hr>
-<h3>warning: constructor does not initialize these bases: v3</h3>
-<code>[cppcoreguidelines-pro-type-member-init]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 110 : 9</i></p>
-<pre>
-  110 |         constexpr n3(float a, float b, float c)
-      |         ^
-  111 |             : v3(a, b, c)
-      |               v3(),
-</pre>
-<hr>
-<h3>warning: constructor does not initialize these bases: v3</h3>
-<code>[cppcoreguidelines-pro-type-member-init]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 117 : 9</i></p>
-<pre>
-  117 |         constexpr explicit n3(const v3&amp; v)
-      |         ^
-  118 |             : v3(v)
-      |               v3(),
-</pre>
-<hr>
-<h3>warning: &#39;eu::n3:: operator-&#39; shadows method with the same name in class &#39;v3&#39;</h3>
-<code>[bugprone-derived-method-shadowing-base-method]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 95 : 9</i></p>
-<pre>
-   95 |         constexpr n3 operator-() const
-      |         ^
-</pre>
-<p>previous definition of &#39;operator-&#39; is here</p>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 55 : 9</i></p>
-<pre>
-   55 |         v3 operator-() const;
-      |         ^
-</pre>
-<hr>
-<h3>warning: constructor does not initialize these bases: v3</h3>
-<code>[cppcoreguidelines-pro-type-member-init]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 110 : 9</i></p>
-<pre>
-  110 |         constexpr n3(float a, float b, float c)
-      |         ^
-  111 |             : v3(a, b, c)
-      |               v3(),
-</pre>
-<hr>
-<h3>warning: constructor does not initialize these bases: v3</h3>
-<code>[cppcoreguidelines-pro-type-member-init]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 117 : 9</i></p>
-<pre>
-  117 |         constexpr explicit n3(const v3&amp; v)
-      |         ^
-  118 |             : v3(v)
-      |               v3(),
-</pre>
-<hr>
-<h3>warning: &#39;eu::n3:: operator-&#39; shadows method with the same name in class &#39;v3&#39;</h3>
-<code>[bugprone-derived-method-shadowing-base-method]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 95 : 9</i></p>
-<pre>
-   95 |         constexpr n3 operator-() const
-      |         ^
-</pre>
-<p>previous definition of &#39;operator-&#39; is here</p>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 55 : 9</i></p>
-<pre>
-   55 |         v3 operator-() const;
-      |         ^
-</pre>
-<hr>
-<h3>warning: constructor does not initialize these bases: v3</h3>
-<code>[cppcoreguidelines-pro-type-member-init]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 110 : 9</i></p>
-<pre>
-  110 |         constexpr n3(float a, float b, float c)
-      |         ^
-  111 |             : v3(a, b, c)
-      |               v3(),
-</pre>
-<hr>
-<h3>warning: constructor does not initialize these bases: v3</h3>
-<code>[cppcoreguidelines-pro-type-member-init]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 117 : 9</i></p>
-<pre>
-  117 |         constexpr explicit n3(const v3&amp; v)
-      |         ^
-  118 |             : v3(v)
-      |               v3(),
-</pre>
-<hr>
-<h3>warning: &#39;eu::n3:: operator-&#39; shadows method with the same name in class &#39;v3&#39;</h3>
-<code>[bugprone-derived-method-shadowing-base-method]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 95 : 9</i></p>
-<pre>
-   95 |         constexpr n3 operator-() const
-      |         ^
-</pre>
-<p>previous definition of &#39;operator-&#39; is here</p>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 55 : 9</i></p>
-<pre>
-   55 |         v3 operator-() const;
-      |         ^
-</pre>
-<hr>
-<h3>warning: constructor does not initialize these bases: v3</h3>
-<code>[cppcoreguidelines-pro-type-member-init]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 110 : 9</i></p>
-<pre>
-  110 |         constexpr n3(float a, float b, float c)
-      |         ^
-  111 |             : v3(a, b, c)
-      |               v3(),
-</pre>
-<hr>
-<h3>warning: constructor does not initialize these bases: v3</h3>
-<code>[cppcoreguidelines-pro-type-member-init]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 117 : 9</i></p>
-<pre>
-  117 |         constexpr explicit n3(const v3&amp; v)
-      |         ^
-  118 |             : v3(v)
-      |               v3(),
-</pre>
-<hr>
-<h3>warning: &#39;eu::n3:: operator-&#39; shadows method with the same name in class &#39;v3&#39;</h3>
-<code>[bugprone-derived-method-shadowing-base-method]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 95 : 9</i></p>
-<pre>
-   95 |         constexpr n3 operator-() const
-      |         ^
-</pre>
-<p>previous definition of &#39;operator-&#39; is here</p>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 55 : 9</i></p>
-<pre>
-   55 |         v3 operator-() const;
-      |         ^
-</pre>
-<hr>
-<h3>warning: constructor does not initialize these bases: v3</h3>
-<code>[cppcoreguidelines-pro-type-member-init]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 110 : 9</i></p>
-<pre>
-  110 |         constexpr n3(float a, float b, float c)
-      |         ^
-  111 |             : v3(a, b, c)
-      |               v3(),
-</pre>
-<hr>
-<h3>warning: constructor does not initialize these bases: v3</h3>
-<code>[cppcoreguidelines-pro-type-member-init]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 117 : 9</i></p>
-<pre>
-  117 |         constexpr explicit n3(const v3&amp; v)
-      |         ^
-  118 |             : v3(v)
-      |               v3(),
-</pre>
-<hr>
-<h3>warning: &#39;eu::n3:: operator-&#39; shadows method with the same name in class &#39;v3&#39;</h3>
-<code>[bugprone-derived-method-shadowing-base-method]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 95 : 9</i></p>
-<pre>
-   95 |         constexpr n3 operator-() const
-      |         ^
-</pre>
-<p>previous definition of &#39;operator-&#39; is here</p>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 55 : 9</i></p>
-<pre>
-   55 |         v3 operator-() const;
-      |         ^
-</pre>
-<hr>
-<h3>warning: constructor does not initialize these bases: v3</h3>
-<code>[cppcoreguidelines-pro-type-member-init]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 110 : 9</i></p>
-<pre>
-  110 |         constexpr n3(float a, float b, float c)
-      |         ^
-  111 |             : v3(a, b, c)
-      |               v3(),
-</pre>
-<hr>
-<h3>warning: constructor does not initialize these bases: v3</h3>
-<code>[cppcoreguidelines-pro-type-member-init]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 117 : 9</i></p>
-<pre>
-  117 |         constexpr explicit n3(const v3&amp; v)
-      |         ^
-  118 |             : v3(v)
-      |               v3(),
-</pre>
-<hr>
-<h3>warning: &#39;eu::n3:: operator-&#39; shadows method with the same name in class &#39;v3&#39;</h3>
-<code>[bugprone-derived-method-shadowing-base-method]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 95 : 9</i></p>
-<pre>
-   95 |         constexpr n3 operator-() const
-      |         ^
-</pre>
-<p>previous definition of &#39;operator-&#39; is here</p>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 55 : 9</i></p>
-<pre>
-   55 |         v3 operator-() const;
-      |         ^
-</pre>
-<hr>
-<h3>warning: constructor does not initialize these bases: v3</h3>
-<code>[cppcoreguidelines-pro-type-member-init]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 110 : 9</i></p>
-<pre>
-  110 |         constexpr n3(float a, float b, float c)
-      |         ^
-  111 |             : v3(a, b, c)
-      |               v3(),
-</pre>
-<hr>
-<h3>warning: constructor does not initialize these bases: v3</h3>
-<code>[cppcoreguidelines-pro-type-member-init]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 117 : 9</i></p>
-<pre>
-  117 |         constexpr explicit n3(const v3&amp; v)
-      |         ^
-  118 |             : v3(v)
-      |               v3(),
-</pre>
-<hr>
-<h3>warning: &#39;eu::n3:: operator-&#39; shadows method with the same name in class &#39;v3&#39;</h3>
-<code>[bugprone-derived-method-shadowing-base-method]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 95 : 9</i></p>
-<pre>
-   95 |         constexpr n3 operator-() const
-      |         ^
-</pre>
-<p>previous definition of &#39;operator-&#39; is here</p>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 55 : 9</i></p>
-<pre>
-   55 |         v3 operator-() const;
-      |         ^
-</pre>
-<hr>
-<h3>warning: constructor does not initialize these bases: v3</h3>
-<code>[cppcoreguidelines-pro-type-member-init]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 110 : 9</i></p>
-<pre>
-  110 |         constexpr n3(float a, float b, float c)
-      |         ^
-  111 |             : v3(a, b, c)
-      |               v3(),
-</pre>
-<hr>
-<h3>warning: constructor does not initialize these bases: v3</h3>
-<code>[cppcoreguidelines-pro-type-member-init]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 117 : 9</i></p>
-<pre>
-  117 |         constexpr explicit n3(const v3&amp; v)
-      |         ^
-  118 |             : v3(v)
-      |               v3(),
-</pre>
-<hr>
-<h3>warning: &#39;eu::n3:: operator-&#39; shadows method with the same name in class &#39;v3&#39;</h3>
-<code>[bugprone-derived-method-shadowing-base-method]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 95 : 9</i></p>
-<pre>
-   95 |         constexpr n3 operator-() const
-      |         ^
-</pre>
-<p>previous definition of &#39;operator-&#39; is here</p>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 55 : 9</i></p>
-<pre>
-   55 |         v3 operator-() const;
-      |         ^
-</pre>
-<hr>
-<h3>warning: constructor does not initialize these bases: v3</h3>
-<code>[cppcoreguidelines-pro-type-member-init]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 110 : 9</i></p>
-<pre>
-  110 |         constexpr n3(float a, float b, float c)
-      |         ^
-  111 |             : v3(a, b, c)
-      |               v3(),
-</pre>
-<hr>
-<h3>warning: constructor does not initialize these bases: v3</h3>
-<code>[cppcoreguidelines-pro-type-member-init]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 117 : 9</i></p>
-<pre>
-  117 |         constexpr explicit n3(const v3&amp; v)
-      |         ^
-  118 |             : v3(v)
-      |               v3(),
-</pre>
-<hr>
-<h3>warning: &#39;eu::n3:: operator-&#39; shadows method with the same name in class &#39;v3&#39;</h3>
-<code>[bugprone-derived-method-shadowing-base-method]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 95 : 9</i></p>
-<pre>
-   95 |         constexpr n3 operator-() const
-      |         ^
-</pre>
-<p>previous definition of &#39;operator-&#39; is here</p>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 55 : 9</i></p>
-<pre>
-   55 |         v3 operator-() const;
-      |         ^
-</pre>
-<hr>
-<h3>warning: constructor does not initialize these bases: v3</h3>
-<code>[cppcoreguidelines-pro-type-member-init]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 110 : 9</i></p>
-<pre>
-  110 |         constexpr n3(float a, float b, float c)
-      |         ^
-  111 |             : v3(a, b, c)
-      |               v3(),
-</pre>
-<hr>
-<h3>warning: constructor does not initialize these bases: v3</h3>
-<code>[cppcoreguidelines-pro-type-member-init]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 117 : 9</i></p>
-<pre>
-  117 |         constexpr explicit n3(const v3&amp; v)
-      |         ^
-  118 |             : v3(v)
-      |               v3(),
-</pre>
-<hr>
-<h3>warning: &#39;eu::n3:: operator-&#39; shadows method with the same name in class &#39;v3&#39;</h3>
-<code>[bugprone-derived-method-shadowing-base-method]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 95 : 9</i></p>
-<pre>
-   95 |         constexpr n3 operator-() const
-      |         ^
-</pre>
-<p>previous definition of &#39;operator-&#39; is here</p>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 55 : 9</i></p>
-<pre>
-   55 |         v3 operator-() const;
-      |         ^
-</pre>
-<hr>
-<h3>warning: constructor does not initialize these bases: v3</h3>
-<code>[cppcoreguidelines-pro-type-member-init]</code>
-<p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 110 : 9</i></p>
-<pre>
-  110 |         constexpr n3(float a, float b, float c)
-      |         ^
-  111 |             : v3(a, b, c)
-      |               v3(),
-</pre>
-<hr>
-<h3>warning: constructor does not initialize these bases: v3</h3>
-<code>[cppcoreguidelines-pro-type-member-init]</code>
+<ul>
+<li>Found in <a href="axisangle.cc.html">libs/base/src/eu/base/axisangle.cc</a></li>
+<li>Found in <a href="colors.cc.html">libs/base/src/eu/base/colors.cc</a></li>
+<li>Found in <a href="axisangle.test.cc.html">libs/base/src/eu/base/axisangle.test.cc</a></li>
+<li>Found in <a href="mat4.cc.html">libs/base/src/eu/base/mat4.cc</a></li>
+<li>Found in <a href="mat4.test.cc.html">libs/base/src/eu/base/mat4.test.cc</a></li>
+<li>Found in <a href="numeric.test.cc.html">libs/base/src/eu/base/numeric.test.cc</a></li>
+<li>Found in <a href="quat.cc.html">libs/base/src/eu/base/quat.cc</a></li>
+<li>Found in <a href="quat.test.cc.html">libs/base/src/eu/base/quat.test.cc</a></li>
+<li>Found in <a href="range.test.cc.html">libs/base/src/eu/base/range.test.cc</a></li>
+<li>Found in <a href="vec3.cc.html">libs/base/src/eu/base/vec3.cc</a></li>
+<li>Found in <a href="vec4.cc.html">libs/base/src/eu/base/vec4.cc</a></li>
+<li>Found in <a href="vec2.test.cc.html">libs/base/src/eu/base/vec2.test.cc</a></li>
+<li>Found in <a href="vec3.test.cc.html">libs/base/src/eu/base/vec3.test.cc</a></li>
+<li>Found in <a href="vec4.test.cc.html">libs/base/src/eu/base/vec4.test.cc</a></li>
+</ul>
 <p><i><a href="vec3.h.html">libs/base/src/eu/base/vec3.h</a> 117 : 9</i></p>
 <pre>
   117 |         constexpr explicit n3(const v3&amp; v)
