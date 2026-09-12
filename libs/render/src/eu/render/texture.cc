@@ -70,10 +70,10 @@ namespace
 	{
 		switch (trs)
 		{
-		case TextureRenderStyle::pixel: return {GL_NEAREST, GL_NEAREST};
-		case TextureRenderStyle::linear: return {GL_LINEAR, GL_LINEAR};
-		case TextureRenderStyle::mipmap: return {GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR};
-		default: DIE("Invalid texture render style"); return {GL_NEAREST, GL_NEAREST};
+		case TextureRenderStyle::pixel: return {.min = GL_NEAREST, .mag = GL_NEAREST};
+		case TextureRenderStyle::linear: return {.min = GL_LINEAR, .mag = GL_LINEAR};
+		case TextureRenderStyle::mipmap: return {.min = GL_LINEAR_MIPMAP_LINEAR, .mag = GL_LINEAR};
+		default: DIE("Invalid texture render style"); return {.min = GL_NEAREST, .mag = GL_NEAREST};
 		}
 	}
 
@@ -91,7 +91,139 @@ namespace
 			return GL_RGBA;
 		}
 	}
-}  //  namespace
+
+    struct PixelData
+    {
+        stbi_uc* pixel_data = nullptr;
+        int width = 0;
+        int height = 0;
+
+        PixelData(const embedded_binary& image_binary, bool include_transparency, bool flip = true)
+        {
+            int junk_channels = 0;
+            stbi_set_flip_vertically_on_load(flip ? 1 : 0);
+
+            pixel_data = stbi_load_from_memory(
+                reinterpret_cast<const unsigned char*>(image_binary.data),
+                int_from_unsigned_int(image_binary.size),
+                &width,
+                &height,
+                &junk_channels,
+                include_transparency ? 4 : 3
+            );
+
+            if (pixel_data == nullptr)
+            {
+                LOG_ERR("ERROR: Failed to read pixel data");
+                width = 0;
+                height = 0;
+            }
+        }
+
+        ~PixelData()
+        {
+            if (pixel_data != nullptr)
+            {
+                stbi_image_free(pixel_data);
+            }
+        }
+
+        PixelData(const PixelData&) = delete;
+        PixelData(PixelData&&) = delete;
+        void operator=(const PixelData&) = delete;
+        void operator=(PixelData&&) = delete;
+    };
+
+    [[nodiscard]]
+    unsigned int create_fbo()
+    {
+        unsigned int fbo = 0;
+        glGenFramebuffers(1, &fbo);
+        ASSERT(fbo != 0);
+        return fbo;
+    }
+
+    [[nodiscard]]
+    GLenum determine_fbo_internal_format(DepthBits depth, bool add_stencil)
+    {
+        switch (depth)
+        {
+        case DepthBits::use_16: return add_stencil ? GL_DEPTH24_STENCIL8 : GL_DEPTH_COMPONENT16;
+        case DepthBits::use_24: return add_stencil ? GL_DEPTH24_STENCIL8 : GL_DEPTH_COMPONENT24;
+        case DepthBits::use_32: return add_stencil ? GL_DEPTH32F_STENCIL8 : GL_DEPTH_COMPONENT32F;
+        case DepthBits::use_none: return add_stencil ? GL_STENCIL_INDEX8 : GL_NONE;
+        default: ASSERT(false && "invalid enum depth value"); return GL_NONE;
+        }
+    }
+
+    // this is templated because opengl can't decide if the internal format is a GLint or GLenum
+    template<typename R>
+    R internal_format_from_color_bpp(ColorBitsPerPixel texture_bits, Transparency trans)
+    {
+        const auto include_transparency = trans == Transparency::include;
+
+        switch (texture_bits)
+        {
+        case ColorBitsPerPixel::use_depth: return GL_DEPTH_COMPONENT;
+        case ColorBitsPerPixel::use_8: return include_transparency ? GL_RGBA : GL_RGB;
+        case ColorBitsPerPixel::use_16: return include_transparency ? GL_RGBA16F : GL_RGB16F;
+        case ColorBitsPerPixel::use_32: return include_transparency ? GL_RGBA32F : GL_RGB32F;
+        default:
+            DIE("Invalid texture bits value");
+            return GL_RGB;
+        }
+    }
+
+    struct FrameBufferBuilder
+    {
+        constexpr explicit FrameBufferBuilder(const Size& s)
+            : size(s)
+        {}
+
+        Size size;
+
+        ColorBitsPerPixel color_bits_per_pixel = ColorBitsPerPixel::use_8;
+        DepthBits include_depth = DepthBits::use_none;
+        bool include_stencil = false;
+        std::optional<v4> border_color = std::nullopt;
+
+        /// 0 samples == no msaa
+        int msaa_samples = 0;
+
+        constexpr FrameBufferBuilder& with_msaa(int samples)
+        {
+            msaa_samples = samples;
+            return *this;
+        }
+
+        constexpr FrameBufferBuilder& with_depth(DepthBits bits = DepthBits::use_24)
+        {
+            include_depth = bits;
+            return *this;
+        }
+
+        constexpr FrameBufferBuilder& with_color_bits(ColorBitsPerPixel bits)
+        {
+            color_bits_per_pixel = bits;
+            return *this;
+        }
+
+        constexpr FrameBufferBuilder& with_stencil()
+        {
+            include_stencil = true;
+            return *this;
+        }
+
+        constexpr FrameBufferBuilder& with_border_color(const v4& c)
+        {
+            border_color = c;
+            return *this;
+        }
+
+        [[nodiscard]]
+        std::shared_ptr<FrameBuffer> build(DEBUG_LABEL_ARG_SINGLE) const;
+    };
+}//  namespace
 
 // ------------------------------------------------------------------------------------------------
 // base texture
@@ -164,48 +296,6 @@ Texture2d::Texture2d(DEBUG_LABEL_ARG_MANY const void* pixel_data, unsigned int p
 		glGenerateMipmap(GL_TEXTURE_2D);
 	}
 }
-
-struct PixelData
-{
-	stbi_uc* pixel_data = nullptr;
-	int width = 0;
-	int height = 0;
-
-	PixelData(const embedded_binary& image_binary, bool include_transparency, bool flip = true)
-	{
-		int junk_channels = 0;
-		stbi_set_flip_vertically_on_load(flip ? 1 : 0);
-
-		pixel_data = stbi_load_from_memory(
-			reinterpret_cast<const unsigned char*>(image_binary.data),
-			int_from_unsigned_int(image_binary.size),
-			&width,
-			&height,
-			&junk_channels,
-			include_transparency ? 4 : 3
-		);
-
-		if (pixel_data == nullptr)
-		{
-			LOG_ERR("ERROR: Failed to read pixel data");
-			width = 0;
-			height = 0;
-		}
-	}
-
-	~PixelData()
-	{
-		if (pixel_data != nullptr)
-		{
-			stbi_image_free(pixel_data);
-		}
-	}
-
-	PixelData(const PixelData&) = delete;
-	PixelData(PixelData&&) = delete;
-	void operator=(const PixelData&) = delete;
-	void operator=(PixelData&&) = delete;
-};
 
 [[nodiscard]]
 Texture2d load_image_from_embedded(
@@ -342,14 +432,7 @@ TextureCubemap load_cubemap_from_embedded(
 // ------------------------------------------------------------------------------------------------
 // framebuffer
 
-[[nodiscard]]
-unsigned int create_fbo()
-{
-	unsigned int fbo = 0;
-	glGenFramebuffers(1, &fbo);
-	ASSERT(fbo != 0);
-	return fbo;
-}
+
 
 FrameBuffer::FrameBuffer(unsigned int f, const Size& s)
 	: size(s)
@@ -381,90 +464,6 @@ BoundFbo::~BoundFbo()
 {
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
-
-[[nodiscard]]
-GLenum determine_fbo_internal_format(DepthBits depth, bool add_stencil)
-{
-	switch (depth)
-	{
-	case DepthBits::use_16: return add_stencil? GL_DEPTH24_STENCIL8 : GL_DEPTH_COMPONENT16;
-	case DepthBits::use_24: return add_stencil? GL_DEPTH24_STENCIL8 : GL_DEPTH_COMPONENT24;
-	case DepthBits::use_32: return add_stencil? GL_DEPTH32F_STENCIL8 : GL_DEPTH_COMPONENT32F;
-	case DepthBits::use_none: return add_stencil ? GL_STENCIL_INDEX8 : GL_NONE;
-	default: ASSERT(false && "invalid enum depth value"); return GL_NONE;
-	}
-}
-
-// this is templated because opengl can't decide if the internal format is a GLint or GLenum
-template<typename R>
-R internal_format_from_color_bpp(ColorBitsPerPixel texture_bits, Transparency trans)
-{
-	const auto include_transparency = trans == Transparency::include;
-
-	switch (texture_bits)
-	{
-	case ColorBitsPerPixel::use_depth: return GL_DEPTH_COMPONENT;
-	case ColorBitsPerPixel::use_8: return include_transparency ? GL_RGBA : GL_RGB;
-	case ColorBitsPerPixel::use_16: return include_transparency ? GL_RGBA16F : GL_RGB16F;
-	case ColorBitsPerPixel::use_32: return include_transparency ? GL_RGBA32F : GL_RGB32F;
-	default:
-		DIE("Invalid texture bits value");
-		return GL_RGB;
-	}
-}
-
-
-/// A builder class for the \ref FrameBuffer
-struct FrameBufferBuilder
-{
-	constexpr explicit FrameBufferBuilder(const Size& s)
-		: size(s)
-	{
-	}
-
-	Size size;
-
-	ColorBitsPerPixel color_bits_per_pixel = ColorBitsPerPixel::use_8;
-	DepthBits include_depth = DepthBits::use_none;
-	bool include_stencil = false;
-	std::optional<v4> border_color = std::nullopt;
-
-	/// 0 samples == no msaa
-	int msaa_samples = 0;
-
-	constexpr FrameBufferBuilder& with_msaa(int samples)
-	{
-		msaa_samples = samples;
-		return *this;
-	}
-
-	constexpr FrameBufferBuilder& with_depth(DepthBits bits = DepthBits::use_24)
-	{
-		include_depth = bits;
-		return *this;
-	}
-
-	constexpr FrameBufferBuilder& with_color_bits(ColorBitsPerPixel bits)
-	{
-		color_bits_per_pixel = bits;
-		return *this;
-	}
-
-	constexpr FrameBufferBuilder& with_stencil()
-	{
-		include_stencil = true;
-		return *this;
-	}
-
-	constexpr FrameBufferBuilder& with_border_color(const v4& c)
-	{
-		border_color = c;
-		return *this;
-	}
-
-	[[nodiscard]]
-	std::shared_ptr<FrameBuffer> build(DEBUG_LABEL_ARG_SINGLE) const;
-};
 
 
 std::shared_ptr<FrameBuffer> build_simple_framebuffer(DEBUG_LABEL_ARG_MANY const Size& size)

@@ -102,7 +102,7 @@ namespace eu::render
     struct DrawableText
     {
     public:
-        explicit DrawableText(DrawableFont* the_font);
+        explicit DrawableText(const DrawableFont* the_font);
         ~DrawableText();
 
         DrawableText(const DrawableText& other) = delete;
@@ -147,15 +147,15 @@ namespace eu::render
 
     private:
         const DrawableFont* font;
-        float size;
+        float size = 12.0f;
         std::string text;
-        Align alignment;
+        Align alignment = Align::baseline_left;
 
-        bool use_background;
-        float background_alpha;
+        bool use_background = false;
+        float background_alpha = 0.0f;
 
         // updated in Compile function
-        mutable bool is_dirty;
+        mutable bool is_dirty = true;
         mutable ListOfTextDrawCommands commands;
     };
 

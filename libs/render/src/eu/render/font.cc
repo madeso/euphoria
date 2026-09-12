@@ -416,13 +416,8 @@ namespace eu::render
     }
 
 
-    DrawableText::DrawableText(DrawableFont* the_font)
+    DrawableText::DrawableText(const DrawableFont* the_font)
         : font(the_font)
-        , size(12.0f)
-        , alignment(Align::baseline_left)
-        , use_background(false)
-        , background_alpha(0.0f)
-        , is_dirty(true)
     {
     }
 
