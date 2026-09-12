@@ -316,7 +316,7 @@
     <member refid="structeu_1_1render_1_1DrawableText_1a5900c9f2d47c0bf83e4d9906884fca1e" kind="variable"><name>background_alpha</name></member>
     <member refid="structeu_1_1render_1_1DrawableText_1ad648eb3b3b5f4948c5ed692d37b76d98" kind="variable"><name>is_dirty</name></member>
     <member refid="structeu_1_1render_1_1DrawableText_1acc50196572375142164922848c8b0928" kind="variable"><name>commands</name></member>
-    <member refid="structeu_1_1render_1_1DrawableText_1a3fe856a2b4c16653edfde5cfec347e75" kind="function"><name>DrawableText</name></member>
+    <member refid="structeu_1_1render_1_1DrawableText_1a4c534eb287f879fb1bb033852ec02e2c" kind="function"><name>DrawableText</name></member>
     <member refid="structeu_1_1render_1_1DrawableText_1a55cb7ab5580b641bbe41c52c0f88d2fb" kind="function"><name>~DrawableText</name></member>
     <member refid="structeu_1_1render_1_1DrawableText_1ad489d856cdb04103796b1a20fc7de2bf" kind="function"><name>DrawableText</name></member>
     <member refid="structeu_1_1render_1_1DrawableText_1ab01b5d824d781eff0b671e3806fd3cd7" kind="function"><name>operator=</name></member>

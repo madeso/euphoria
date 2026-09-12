@@ -7,14 +7,14 @@
 <body>
 <h1>libs/kdl/src/eu/kdl/kdl.h</h1>
 <hr>
-<h3>note: frame #3: function &#39;as_string&#39; calls function &#39;get&lt;std::basic_string&lt;char&gt;, std::monostate, bool, eu::kdl::Number, std:: basic_string&lt;char&gt;&gt;&#39; here</h3>
+<h3>note: frame #0: unhandled exception of type &#39;std:: runtime_error&#39; may be thrown in function &#39;as&lt;float&gt;&#39; here</h3>
 <ul>
 <li>Found in <a href="../../../../../apps/runner/src/eu/runner/main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="kdl.h.html">libs/kdl/src/eu/kdl/kdl.h</a> 245 : 20</i></p>
+<p><i><a href="kdl.h.html">libs/kdl/src/eu/kdl/kdl.h</a> 104 : 13</i></p>
 <pre>
-  245 |             return std::get&lt;std::string&gt;(m_value);
-      |                    ^
+  104 |             throw std::runtime_error(&quot;Number is stored as a string.&quot;);
+      |             ^
 </pre>
 </body>
 </html>

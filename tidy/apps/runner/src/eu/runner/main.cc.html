@@ -67,14 +67,14 @@
       |        ^
 </pre>
 <hr>
-<h3>note: frame #4: function &#39;load&#39; calls function &#39;as_string&#39; here</h3>
+<h3>note: frame #1: function &#39;load&#39; calls function &#39;as&lt;float&gt;&#39; here</h3>
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 104 : 34</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 114 : 32</i></p>
 <pre>
-  104 |                 const auto key = node.args()[0].as_string();
-      |                                  ^
+  114 |                 const auto x = node.args()[0].as_number().as&lt;float&gt;();
+      |                                ^
 </pre>
 <span id='modernize-use-designated-initializers'>&nbsp;</span>
 <hr>
@@ -514,7 +514,7 @@
       |                                         = nullptr
 </pre>
 <hr>
-<h3>note: frame #5: function &#39;main&#39; calls function &#39;load&#39; here</h3>
+<h3>note: frame #2: function &#39;main&#39; calls function &#39;load&#39; here</h3>
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>

@@ -24,6 +24,7 @@
         <argsstring></argsstring>
         <name>size</name>
         <qualifiedname>eu::render::DrawableText::size</qualifiedname>
+        <initializer>= 12.0f</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -52,6 +53,7 @@
         <argsstring></argsstring>
         <name>alignment</name>
         <qualifiedname>eu::render::DrawableText::alignment</qualifiedname>
+        <initializer>= <ref refid="namespaceeu_1_1render_1aaf6adcd14a4e060d8a9b6433438be51ca7d331b3c6c74eddb88c099b96315bda3" kindref="member">Align::baseline_left</ref></initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -66,6 +68,7 @@
         <argsstring></argsstring>
         <name>use_background</name>
         <qualifiedname>eu::render::DrawableText::use_background</qualifiedname>
+        <initializer>= false</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -80,6 +83,7 @@
         <argsstring></argsstring>
         <name>background_alpha</name>
         <qualifiedname>eu::render::DrawableText::background_alpha</qualifiedname>
+        <initializer>= 0.0f</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -94,6 +98,7 @@
         <argsstring></argsstring>
         <name>is_dirty</name>
         <qualifiedname>eu::render::DrawableText::is_dirty</qualifiedname>
+        <initializer>= true</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -118,14 +123,14 @@
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeu_1_1render_1_1DrawableText_1a3fe856a2b4c16653edfde5cfec347e75" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1DrawableText_1a4c534eb287f879fb1bb033852ec02e2c" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type></type>
         <definition>eu::render::DrawableText::DrawableText</definition>
-        <argsstring>(DrawableFont *the_font)</argsstring>
+        <argsstring>(const DrawableFont *the_font)</argsstring>
         <name>DrawableText</name>
         <qualifiedname>eu::render::DrawableText::DrawableText</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1render_1_1DrawableFont" kindref="compound">DrawableFont</ref> *</type>
+          <type>const <ref refid="structeu_1_1render_1_1DrawableFont" kindref="compound">DrawableFont</ref> *</type>
           <declname>the_font</declname>
         </param>
         <briefdescription>
@@ -175,7 +180,7 @@
         <name>operator=</name>
         <qualifiedname>eu::render::DrawableText::operator=</qualifiedname>
         <param>
-          <type>const <ref refid="structeu_1_1render_1_1DrawableText_1a3fe856a2b4c16653edfde5cfec347e75" kindref="member">DrawableText</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1render_1_1DrawableText_1a4c534eb287f879fb1bb033852ec02e2c" kindref="member">DrawableText</ref> &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -210,7 +215,7 @@
         <name>operator=</name>
         <qualifiedname>eu::render::DrawableText::operator=</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1render_1_1DrawableText_1a3fe856a2b4c16653edfde5cfec347e75" kindref="member">DrawableText</ref> &amp;&amp;</type>
+          <type><ref refid="structeu_1_1render_1_1DrawableText_1a4c534eb287f879fb1bb033852ec02e2c" kindref="member">DrawableText</ref> &amp;&amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -394,7 +399,7 @@
       <member refid="structeu_1_1render_1_1DrawableText_1af79f4bad6a049db2e0acb5f23df1ddb0" prot="public" virt="non-virtual"><scope>eu::render::DrawableText</scope><name>compile</name></member>
       <member refid="structeu_1_1render_1_1DrawableText_1abf84b01d9375cf7c19859a6a9dd09f44" prot="public" virt="non-virtual"><scope>eu::render::DrawableText</scope><name>draw</name></member>
       <member refid="structeu_1_1render_1_1DrawableText_1afbcf2a124b4b7bb9d91bc4af181b8390" prot="public" virt="non-virtual"><scope>eu::render::DrawableText</scope><name>draw</name></member>
-      <member refid="structeu_1_1render_1_1DrawableText_1a3fe856a2b4c16653edfde5cfec347e75" prot="public" virt="non-virtual"><scope>eu::render::DrawableText</scope><name>DrawableText</name></member>
+      <member refid="structeu_1_1render_1_1DrawableText_1a4c534eb287f879fb1bb033852ec02e2c" prot="public" virt="non-virtual"><scope>eu::render::DrawableText</scope><name>DrawableText</name></member>
       <member refid="structeu_1_1render_1_1DrawableText_1ad489d856cdb04103796b1a20fc7de2bf" prot="public" virt="non-virtual"><scope>eu::render::DrawableText</scope><name>DrawableText</name></member>
       <member refid="structeu_1_1render_1_1DrawableText_1a6b638d48eb0a725b8e44334a787ef861" prot="public" virt="non-virtual"><scope>eu::render::DrawableText</scope><name>DrawableText</name></member>
       <member refid="structeu_1_1render_1_1DrawableText_1a84749c81913cf87f0a55590e53808a6f" prot="private" virt="non-virtual"><scope>eu::render::DrawableText</scope><name>font</name></member>
