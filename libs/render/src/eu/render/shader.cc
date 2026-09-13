@@ -11,6 +11,9 @@
 namespace eu::render
 {
 
+namespace
+{
+
 // internal "header", defined later
 void set_shader_program(unsigned int new_program, const core::VertexTypes& types);
 
@@ -145,6 +148,17 @@ void load_shader_source(
 		glDeleteProgram(self->shader_program);
 		self->shader_program = 0;
 	}
+}
+
+core::VertexTypes debug_current_shader_types;
+unsigned int debug_current_shader_program = 0;
+
+void set_shader_program(unsigned int new_program, const core::VertexTypes& types)
+{
+    debug_current_shader_program = new_program;
+    debug_current_shader_types = types;
+    glUseProgram(new_program);
+}
 }
 
 ShaderProgram::ShaderProgram(
@@ -342,24 +356,11 @@ void setup_textures(ShaderProgram* shader, const std::vector<Uniform*>& uniform_
 	}
 }
 
-namespace
-{
-    core::VertexTypes debug_current_shader_types;
-	unsigned int debug_current_shader_program = 0;
-}  //  namespace
-
-void set_shader_program(unsigned int new_program, const core::VertexTypes& types)
-{
-	debug_current_shader_program = new_program;
-	debug_current_shader_types = types;
-	glUseProgram(new_program);
-}
-
 bool is_bound_for_shader(const std::unordered_set<core::VertexType>& debug_geom_shader_types)
 {
 	for (auto t: debug_current_shader_types)
 	{
-		if (debug_geom_shader_types.find(t) == debug_geom_shader_types.end())
+		if (debug_geom_shader_types.contains(t))
 		{
 			// if shader type isn't found in geom
 			// then error out
