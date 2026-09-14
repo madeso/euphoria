@@ -50,7 +50,7 @@ FalseString is_equal(
 	const std::vector<CompiledVertexElement>& lhs, const std::vector<CompiledVertexElement>& rhs
 )
 {
-	return VectorEquals(
+	return vector_equals(
 		lhs,
 		rhs,
 		[](const CompiledVertexElement& f) -> std::string
@@ -75,7 +75,7 @@ FalseString is_equal(
 	const std::vector<CompiledVertexElementNoName>& lhs, const std::vector<CompiledVertexElementNoName>& rhs
 )
 {
-	return VectorEquals(
+	return vector_equals(
 		lhs,
 		rhs,
 		[](const CompiledVertexElementNoName& f) -> std::string { return fmt::format("{} ({})", f.type, f.index); },
@@ -95,7 +95,7 @@ FalseString is_equal(
 
 FalseString is_equal(const std::vector<VertexType>& lhs, const std::vector<VertexType>& rhs)
 {
-	return VectorEquals(
+	return vector_equals(
 		lhs,
 		rhs,
 		[](const VertexType& f) -> std::string { return fmt::format("{}", f); },

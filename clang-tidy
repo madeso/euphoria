@@ -135,6 +135,9 @@ readability-identifier-naming
 # https://en.cppreference.com/cpp/language/user_literal
 -google-runtime-float
 
+# just because some field are private, doesn't mean all should be private
+-cppcoreguidelines-non-private-member-variables-in-classes
+
 #################################################################################
 # the checks attribute ends here...
 # just regular (yaml) .clang-tidy settings from now on (with lines starting with // stripped away)

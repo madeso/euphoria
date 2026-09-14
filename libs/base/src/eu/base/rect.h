@@ -101,17 +101,17 @@ namespace eu
 
         // Same as cut, except they keep the input rect intact.
         // Useful for decorations
-        Rect get_left(float amount) const;
-        Rect get_right(float amount) const;
-        Rect get_bottom(float amount) const;
-        Rect get_top(float amount) const;
+        [[nodiscard]] Rect get_left(float amount) const;
+        [[nodiscard]] Rect get_right(float amount) const;
+        [[nodiscard]] Rect get_bottom(float amount) const;
+        [[nodiscard]] Rect get_top(float amount) const;
 
         // These will add a rectangle outside of the input rectangle.
         // Useful for tooltips and other overlay elements.
-        Rect add_left(float amount) const;
-        Rect add_right(float amount) const;
-        Rect add_bottom(float amount) const;
-        Rect add_top(float amount) const;
+        [[nodiscard]] Rect add_left(float amount) const;
+        [[nodiscard]] Rect add_right(float amount) const;
+        [[nodiscard]] Rect add_bottom(float amount) const;
+        [[nodiscard]] Rect add_top(float amount) const;
 
     private:
         constexpr Rect(float left_side, float right_side, float top_side, float bottom_side)

@@ -33,7 +33,7 @@ namespace eu::runner
         int prio;
     };
 
-    constexpr std::size_t C(UpdateStage s)
+    constexpr std::size_t cast(UpdateStage s)
     {
         return static_cast<std::size_t>(s);
     }
@@ -47,7 +47,7 @@ namespace eu::runner
         {
             const UpdateStageAndPrio s = system->get_stage();
 
-            auto& systems = stages[C(s.stage)];
+            auto& systems = stages[cast(s.stage)];
 
             systems.emplace_back(system, s.prio);
             std::sort(systems.begin(), systems.end(), [](const auto& lhs, const auto& rhs)
@@ -58,7 +58,7 @@ namespace eu::runner
 
         void update(UpdateStage stage, float dt)
         {
-            auto& systems = stages[C(stage)];
+            auto& systems = stages[cast(stage)];
             for (auto& sys : systems)
             {
                 sys.system->update(dt);
@@ -69,6 +69,7 @@ namespace eu::runner
     struct Entity
     {
         Entity(const std::string& n, std::set<Hsh>&& t);
+        ~Entity() = default;
 
         Entity(const Entity&) = delete;
         Entity(Entity&&) = delete;
@@ -85,9 +86,9 @@ namespace eu::runner
 
         void add_component(std::unique_ptr<Component> c);
         void add_system(std::unique_ptr<EntitySystem> system);
-        bool has_tag(const Hsh& h) const;
+        [[nodiscard]] bool has_tag(const Hsh& h) const;
 
-        SpatialComponent* get_root() const;
+        [[nodiscard]] SpatialComponent* get_root() const;
         void set_root(SpatialComponent* c);
 
         void imgui();
@@ -139,7 +140,7 @@ namespace eu::runner
     struct SpatialComponent : Component
     {
         void set_transform(const m4& t);
-        const m4& get_transform() const;
+        [[nodiscard]] const m4& get_transform() const;
 
         EU_DEC_COMPONENT_TYPE();
 
@@ -156,7 +157,7 @@ namespace eu::runner
         virtual ~EntitySystem() = default;
 
         EntitySystem(const EntitySystem& rhs) = delete;
-        explicit EntitySystem(Component&&) = delete;
+        EntitySystem(EntitySystem&&) = delete;
         void operator=(const EntitySystem& rhs) = delete;
         void operator=(EntitySystem&&) = delete;
 
@@ -177,7 +178,7 @@ namespace eu::runner
         virtual ~WorldSystem() = default;
 
         WorldSystem(const WorldSystem& rhs) = delete;
-        explicit WorldSystem(Component&&) = delete;
+        WorldSystem(WorldSystem&&) = delete;
         void operator=(const WorldSystem& rhs) = delete;
         void operator=(WorldSystem&&) = delete;
 
