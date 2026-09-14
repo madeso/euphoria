@@ -64,3 +64,6 @@ json_summary.json
 
 
 data/dist/racer/imgui.ini
+
+# ignore clang-tidy cache
+.workbench.clang-tidy-store.jsonc
