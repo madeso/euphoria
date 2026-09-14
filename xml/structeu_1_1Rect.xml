@@ -566,7 +566,7 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/rect.h" line="100" column="14"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Rect_1af90a8d5272abaaac47c059f617d5be63" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Rect_1af90a8d5272abaaac47c059f617d5be63" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Rect_1a63b60c39516cf6e4be087b8628b38044" kindref="member">Rect</ref></type>
         <definition>Rect eu::Rect::get_left</definition>
         <argsstring>(float amount) const</argsstring>
@@ -582,9 +582,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/rect.h" line="104" column="14"/>
+        <location file="libs/base/src/eu/base/rect.h" line="104" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Rect_1a3682439b40f53955b6bb81dacde07aa8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Rect_1a3682439b40f53955b6bb81dacde07aa8" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Rect_1a63b60c39516cf6e4be087b8628b38044" kindref="member">Rect</ref></type>
         <definition>Rect eu::Rect::get_right</definition>
         <argsstring>(float amount) const</argsstring>
@@ -600,9 +600,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/rect.h" line="105" column="14"/>
+        <location file="libs/base/src/eu/base/rect.h" line="105" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Rect_1a6c8eef03f18b7d73903f726832fadd25" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Rect_1a6c8eef03f18b7d73903f726832fadd25" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Rect_1a63b60c39516cf6e4be087b8628b38044" kindref="member">Rect</ref></type>
         <definition>Rect eu::Rect::get_bottom</definition>
         <argsstring>(float amount) const</argsstring>
@@ -618,9 +618,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/rect.h" line="106" column="14"/>
+        <location file="libs/base/src/eu/base/rect.h" line="106" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Rect_1a1caea10315d603a40f485a204e4a9ebb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Rect_1a1caea10315d603a40f485a204e4a9ebb" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Rect_1a63b60c39516cf6e4be087b8628b38044" kindref="member">Rect</ref></type>
         <definition>Rect eu::Rect::get_top</definition>
         <argsstring>(float amount) const</argsstring>
@@ -636,9 +636,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/rect.h" line="107" column="14"/>
+        <location file="libs/base/src/eu/base/rect.h" line="107" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Rect_1a53b9cb564d103ab2e12bdacf7cfeeea0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Rect_1a53b9cb564d103ab2e12bdacf7cfeeea0" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Rect_1a63b60c39516cf6e4be087b8628b38044" kindref="member">Rect</ref></type>
         <definition>Rect eu::Rect::add_left</definition>
         <argsstring>(float amount) const</argsstring>
@@ -654,9 +654,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/rect.h" line="111" column="14"/>
+        <location file="libs/base/src/eu/base/rect.h" line="111" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Rect_1af1e669d461267f3aba3ddabd21943b16" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Rect_1af1e669d461267f3aba3ddabd21943b16" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Rect_1a63b60c39516cf6e4be087b8628b38044" kindref="member">Rect</ref></type>
         <definition>Rect eu::Rect::add_right</definition>
         <argsstring>(float amount) const</argsstring>
@@ -672,9 +672,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/rect.h" line="112" column="14"/>
+        <location file="libs/base/src/eu/base/rect.h" line="112" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Rect_1ac5b6dd4bb10a11b7b5bc10f947b82937" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Rect_1ac5b6dd4bb10a11b7b5bc10f947b82937" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Rect_1a63b60c39516cf6e4be087b8628b38044" kindref="member">Rect</ref></type>
         <definition>Rect eu::Rect::add_bottom</definition>
         <argsstring>(float amount) const</argsstring>
@@ -690,9 +690,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/rect.h" line="113" column="14"/>
+        <location file="libs/base/src/eu/base/rect.h" line="113" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Rect_1abeeab83650422756770a1f473e5ddc19" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Rect_1abeeab83650422756770a1f473e5ddc19" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Rect_1a63b60c39516cf6e4be087b8628b38044" kindref="member">Rect</ref></type>
         <definition>Rect eu::Rect::add_top</definition>
         <argsstring>(float amount) const</argsstring>
@@ -708,7 +708,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/rect.h" line="114" column="14"/>
+        <location file="libs/base/src/eu/base/rect.h" line="114" column="15"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-static-func">

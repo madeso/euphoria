@@ -6,6 +6,7 @@
 </head>
 <body>
 <h1>apps/runner/src/eu/runner/main.cc</h1>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <span id='misc-use-internal-linkage'>&nbsp;</span>
 <hr>
 <h3>warning: function &#39;load_shader&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
@@ -19,6 +20,7 @@
       |                          ^
       | static 
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: function &#39;size_from_v2&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -31,6 +33,7 @@
       |          ^
       | static 
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: function &#39;load_texture&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -43,6 +46,7 @@
       |                                        ^
       | static 
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: function &#39;create_texture&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -55,6 +59,7 @@
       |                                        ^
       | static 
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: struct &#39;Level&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -66,16 +71,18 @@
    88 | struct Level
       |        ^
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
-<h3>note: frame #1: function &#39;load&#39; calls function &#39;as_string&#39; here</h3>
+<h3>note: frame #1: function &#39;load&#39; calls function &#39;as&lt;float&gt;&#39; here</h3>
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 104 : 34</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 114 : 32</i></p>
 <pre>
-  104 |                 const auto key = node.args()[0].as_string();
-      |                                  ^
+  114 |                 const auto x = node.args()[0].as_number().as&lt;float&gt;();
+      |                                ^
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <span id='modernize-use-designated-initializers'>&nbsp;</span>
 <hr>
 <h3>warning: use designated initializer list to initialize &#39;Ypr&#39;</h3>
@@ -95,6 +102,7 @@
    32 |     struct Ypr
       |     ^
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: struct &#39;Time&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -106,6 +114,7 @@
   154 | struct Time
       |        ^
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: struct &#39;MeshSpatialComponent&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -117,6 +126,7 @@
   172 | struct MeshSpatialComponent : runner::SpatialComponent
       |        ^
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: function &#39;boolean&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -129,6 +139,7 @@
       |      ^
       | static 
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: struct &#39;InputSystem&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -140,6 +151,7 @@
   215 | struct InputSystem : runner::EntitySystem
       |        ^
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <span id='modernize-use-auto'>&nbsp;</span>
 <hr>
 <h3>warning: use auto when initializing with a template cast to avoid duplicating the type name</h3>
@@ -153,6 +165,7 @@
       |             ^~~~~~~~~~~~~~~~~~~~
       |             auto
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <span id='readability-implicit-bool-conversion'>&nbsp;</span>
 <hr>
 <h3>warning: implicit conversion &#39;MeshSpatialComponent *&#39; -&gt; &#39;bool&#39;</h3>
@@ -166,6 +179,7 @@
       |             ^
       |             (    != nullptr)
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: implicit conversion &#39;runner:: Input *&#39; -&gt; &#39;bool&#39;</h3>
 <code>[readability-implicit-bool-conversion]</code>
@@ -178,6 +192,7 @@
       |                     ^
       |                     (     != nullptr)
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: implicit conversion &#39;MeshSpatialComponent *&#39; -&gt; &#39;bool&#39;</h3>
 <code>[readability-implicit-bool-conversion]</code>
@@ -190,6 +205,7 @@
       |             ^   
       |                  != nullptr
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: struct &#39;TargetComponent&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -201,6 +217,7 @@
   269 | struct TargetComponent : runner::Component
       |        ^
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: struct &#39;CameraSpatialComponent&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -212,6 +229,7 @@
   287 | struct CameraSpatialComponent : runner::SpatialComponent
       |        ^
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: struct &#39;FollowCameraSystem&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -223,6 +241,7 @@
   303 | struct FollowCameraSystem : runner::EntitySystem
       |        ^
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: implicit conversion &#39;TargetComponent *&#39; -&gt; &#39;bool&#39;</h3>
 <code>[readability-implicit-bool-conversion]</code>
@@ -235,6 +254,7 @@
       |             ~^     
       |                     == nullptr
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: implicit conversion &#39;CameraSpatialComponent *&#39; -&gt; &#39;bool&#39;</h3>
 <code>[readability-implicit-bool-conversion]</code>
@@ -247,6 +267,7 @@
       |             ~^     
       |                     == nullptr
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <span id='readability-identifier-naming'>&nbsp;</span>
 <hr>
 <h3>warning: invalid case style for constexpr variable &#39;CameraSpatialSource&#39;</h3>
@@ -260,6 +281,7 @@
       |               ^~~~~~~~~~~~~~~~~~~
       |               camera_spatial_source
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: invalid case style for constexpr variable &#39;CameraDestination&#39;</h3>
 <code>[readability-identifier-naming]</code>
@@ -272,6 +294,7 @@
       |               ^~~~~~~~~~~~~~~~~
       |               camera_destination
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: struct &#39;UpdateCameraTarget&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -283,6 +306,7 @@
   384 | struct UpdateCameraTarget : runner::WorldSystem
       |        ^
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: implicit conversion &#39;runner:: SpatialComponent *&#39; -&gt; &#39;bool&#39;</h3>
 <code>[readability-implicit-bool-conversion]</code>
@@ -295,6 +319,7 @@
       |             ~^         
       |                         == nullptr
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: implicit conversion &#39;TargetComponent *&#39; -&gt; &#39;bool&#39;</h3>
 <code>[readability-implicit-bool-conversion]</code>
@@ -307,6 +332,7 @@
       |             ~^         
       |                         == nullptr
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: struct &#39;CameraFetcherSystem&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -318,6 +344,7 @@
   438 | struct CameraFetcherSystem : runner::WorldSystem
       |        ^
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <span id='readability-qualified-auto'>&nbsp;</span>
 <hr>
 <h3>warning: &#39;auto cam&#39; can be declared as &#39;auto *cam&#39;</h3>
@@ -331,6 +358,7 @@
       |             ^~~~
       |             auto *
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: implicit conversion &#39;CameraSpatialComponent *&#39; -&gt; &#39;bool&#39;</h3>
 <code>[readability-implicit-bool-conversion]</code>
@@ -343,6 +371,7 @@
       |             ~^     
       |                     == nullptr
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <span id='readability-braces-around-statements'>&nbsp;</span>
 <hr>
 <h3>warning: statement should be inside braces</h3>
@@ -356,6 +385,7 @@
       |                     ^       
       |                      {
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <span id='modernize-use-nodiscard'>&nbsp;</span>
 <hr>
 <h3>warning: function &#39;fetch&#39; should be marked [[nodiscard]]</h3>
@@ -369,6 +399,7 @@
       |     ^
       |     [[nodiscard]] 
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <span id='bugprone-exception-escape'>&nbsp;</span>
 <hr>
 <h3>warning: an exception may be thrown in function &#39;main&#39; which should not throw exceptions</h3>
@@ -381,6 +412,7 @@
   489 | int main(int, char**)
       |     ^
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <span id='readability-use-concise-preprocessor-directives'>&nbsp;</span>
 <hr>
 <h3>warning: preprocessor condition can be written more concisely using &#39;#ifdef&#39;</h3>
@@ -394,6 +426,7 @@
       |  ^~~~~~~~~~~~~~~~~~~~~
       |  ifdef __APPLE__
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: implicit conversion &#39;SDL_Window *&#39; (aka &#39;struct SDL_Window *&#39;) -&gt; &#39;bool&#39;</h3>
 <code>[readability-implicit-bool-conversion]</code>
@@ -406,6 +439,7 @@
       |         ~^     
       |                 == nullptr
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: invalid case style for local pointer &#39;glContext&#39;</h3>
 <code>[readability-identifier-naming]</code>
@@ -422,6 +456,7 @@
       |          ~~~~~~~~~
       |          gl_context
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: implicit conversion &#39;struct SDL_GLContextState *&#39; -&gt; &#39;bool&#39;</h3>
 <code>[readability-implicit-bool-conversion]</code>
@@ -434,6 +469,7 @@
       |         ~^        
       |                    == nullptr
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: implicit conversion &#39;int&#39; -&gt; &#39;bool&#39;</h3>
 <code>[readability-implicit-bool-conversion]</code>
@@ -446,6 +482,7 @@
       |             ^                  
       |                                 != 0
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: implicit conversion &#39;int&#39; -&gt; &#39;bool&#39;</h3>
 <code>[readability-implicit-bool-conversion]</code>
@@ -458,6 +495,7 @@
       |             ^                  
       |                                 != 0
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: implicit conversion &#39;int&#39; -&gt; &#39;bool&#39;</h3>
 <code>[readability-implicit-bool-conversion]</code>
@@ -470,6 +508,7 @@
       |         ~^                  
       |                              == 0
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <span id='misc-const-correctness'>&nbsp;</span>
 <hr>
 <h3>warning: variable &#39;io&#39; of type &#39;ImGuiIO &amp;&#39; can be declared &#39;const&#39;</h3>
@@ -483,6 +522,7 @@
       |     ^      
       |             const
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: invalid case style for constexpr variable &#39;PLANE_SIZE&#39;</h3>
 <code>[readability-identifier-naming]</code>
@@ -500,6 +540,7 @@
       |                                             ~~~~~~~~~~  ~~~~~~~~~~
       |                                             plane_size  plane_size
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <span id='cppcoreguidelines-init-variables'>&nbsp;</span>
 <hr>
 <h3>warning: variable &#39;camera_fetcher&#39; is not initialized</h3>
@@ -513,6 +554,7 @@
       |                          ^             
       |                                         = nullptr
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>note: frame #2: function &#39;main&#39; calls function &#39;load&#39; here</h3>
 <ul>
@@ -523,6 +565,7 @@
   740 |         level.load(&quot;level.kdl&quot;, &amp;render_world, material, renderer.default_geom_layout());
       |         ^
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: implicit conversion &#39;bool&#39; -&gt; &#39;int&#39;</h3>
 <code>[readability-implicit-bool-conversion]</code>
@@ -535,6 +578,7 @@
       |                ^
       |                static_cast&lt;int&gt;()
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <span id='bugprone-narrowing-conversions'>&nbsp;</span>
 <span id='cppcoreguidelines-narrowing-conversions'>&nbsp;</span>
 <hr>
@@ -548,6 +592,7 @@
   764 |                 input.on_key(e.key.key, e.type == SDL_EVENT_KEY_DOWN);
       |                              ^
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: variable &#39;cmd&#39; of type &#39;eu::render:: RenderCommand&#39; can be declared &#39;const&#39;</h3>
 <code>[misc-const-correctness]</code>
@@ -560,6 +605,7 @@
       |         ^
       |                                   const 
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 <hr>
 <h3>warning: variable &#39;camera&#39; of type &#39;eu::render:: Camera&#39; can be declared &#39;const&#39;</h3>
 <code>[misc-const-correctness]</code>
@@ -572,5 +618,6 @@
       |             ^
       |                                const 
 </pre>
+<p> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../../libs/core/src/eu/core/geom.builder.cc.html">libs/core/src/eu/core/geom.builder.cc</a>></p>
 </body>
 </html>
