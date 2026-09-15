@@ -3,10 +3,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 <title>libs/render/src/eu/render/font.cc</title>
+<style>
+.link-container {
+ position: relative;
+}
+.prev {
+ position: absolute;
+ top: 0;
+ left: 0;
+}
+.next {
+ position: absolute;
+ top: 0;
+ right: 0;
+}
+.index_link {
+ text-align: center;
+}
+</style>
 </head>
 <body>
 <h1>libs/render/src/eu/render/font.cc</h1>
-<p><<a href="shader.source.cc.html">libs/render/src/eu/render/shader.source.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../core/src/eu/core/geom.extract.cc.html">libs/core/src/eu/core/geom.extract.cc</a>></p>
+<div class="link-container"><div class="prev">&lt;<a href="shader.source.cc.html">libs/render/src/eu/render/shader.source.cc</a></div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../core/src/eu/core/geom.extract.cc.html">libs/core/src/eu/core/geom.extract.cc</a>&gt;</div></div>
 <span id='misc-use-internal-linkage'>&nbsp;</span>
 <hr>
 <h3>warning: function &#39;construct_character_rects&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
@@ -21,7 +39,6 @@
    49 |     construct_character_rects
       |     ^
 </pre>
-<p><<a href="shader.source.cc.html">libs/render/src/eu/render/shader.source.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../core/src/eu/core/geom.extract.cc.html">libs/core/src/eu/core/geom.extract.cc</a>></p>
 <span id='misc-const-correctness'>&nbsp;</span>
 <hr>
 <h3>warning: variable &#39;dest&#39; of type &#39;std:: shared_ptr&lt;Glyph&gt;&#39; can be declared &#39;const&#39;</h3>
@@ -35,7 +52,6 @@
       |             ^
       |                                    const 
 </pre>
-<p><<a href="shader.source.cc.html">libs/render/src/eu/render/shader.source.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../core/src/eu/core/geom.extract.cc.html">libs/core/src/eu/core/geom.extract.cc</a>></p>
 <span id='modernize-make-shared'>&nbsp;</span>
 <hr>
 <h3>warning: use std:: make_shared instead</h3>
@@ -59,7 +75,6 @@
   194 |                 )
       |                 ~
 </pre>
-<p><<a href="shader.source.cc.html">libs/render/src/eu/render/shader.source.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../core/src/eu/core/geom.extract.cc.html">libs/core/src/eu/core/geom.extract.cc</a>></p>
 <span id='readability-convert-member-functions-to-static'>&nbsp;</span>
 <hr>
 <h3>warning: method &#39;draw_background&#39; can be made static</h3>
@@ -78,7 +93,6 @@
   220 |     ) const
       |       ~~~~~
 </pre>
-<p><<a href="shader.source.cc.html">libs/render/src/eu/render/shader.source.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../core/src/eu/core/geom.extract.cc.html">libs/core/src/eu/core/geom.extract.cc</a>></p>
 <span id='cppcoreguidelines-avoid-const-or-ref-data-members'>&nbsp;</span>
 <hr>
 <h3>warning: member &#39;font&#39; of type &#39;const DrawableFont &amp;&#39; is a reference</h3>
@@ -91,7 +105,6 @@
   277 |         const DrawableFont&amp; font;
       |                             ^
 </pre>
-<p><<a href="shader.source.cc.html">libs/render/src/eu/render/shader.source.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../core/src/eu/core/geom.extract.cc.html">libs/core/src/eu/core/geom.extract.cc</a>></p>
 <span id='readability-avoid-unconditional-preprocessor-if'>&nbsp;</span>
 <hr>
 <h3>warning: preprocessor condition is always &#39;false&#39;, consider removing both the condition and its contents</h3>
@@ -104,7 +117,6 @@
   312 | #if 0
       |  ^
 </pre>
-<p><<a href="shader.source.cc.html">libs/render/src/eu/render/shader.source.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../core/src/eu/core/geom.extract.cc.html">libs/core/src/eu/core/geom.extract.cc</a>></p>
 <hr>
 <h3>warning: variable &#39;ch&#39; of type &#39;std:: shared_ptr&lt;Glyph&gt;&#39; can be declared &#39;const&#39;</h3>
 <code>[misc-const-correctness]</code>
@@ -117,7 +129,6 @@
       |                 ^
       |                                        const 
 </pre>
-<p><<a href="shader.source.cc.html">libs/render/src/eu/render/shader.source.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../core/src/eu/core/geom.extract.cc.html">libs/core/src/eu/core/geom.extract.cc</a>></p>
 <hr>
 <h3>warning: function &#39;get_offset&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -131,6 +142,6 @@
   463 |     get_offset(Align alignment, const Rect&amp; extent)
       |     ^
 </pre>
-<p><<a href="shader.source.cc.html">libs/render/src/eu/render/shader.source.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../core/src/eu/core/geom.extract.cc.html">libs/core/src/eu/core/geom.extract.cc</a>></p>
+<div class="link-container"><div class="prev">&lt;<a href="shader.source.cc.html">libs/render/src/eu/render/shader.source.cc</a></div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../core/src/eu/core/geom.extract.cc.html">libs/core/src/eu/core/geom.extract.cc</a>&gt;</div></div>
 </body>
 </html>

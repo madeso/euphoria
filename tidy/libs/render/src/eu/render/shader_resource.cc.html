@@ -3,10 +3,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 <title>libs/render/src/eu/render/shader_resource.cc</title>
+<style>
+.link-container {
+ position: relative;
+}
+.prev {
+ position: absolute;
+ top: 0;
+ left: 0;
+}
+.next {
+ position: absolute;
+ top: 0;
+ right: 0;
+}
+.index_link {
+ text-align: center;
+}
+</style>
 </head>
 <body>
 <h1>libs/render/src/eu/render/shader_resource.cc</h1>
-<p><<a href="canvas.cc.html">libs/render/src/eu/render/canvas.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../core/src/eu/core/vertex_layout.cc.html">libs/core/src/eu/core/vertex_layout.cc</a>></p>
+<div class="link-container"><div class="prev">&lt;<a href="canvas.cc.html">libs/render/src/eu/render/canvas.cc</a></div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../core/src/eu/core/vertex_layout.cc.html">libs/core/src/eu/core/vertex_layout.cc</a>&gt;</div></div>
 <span id='misc-use-internal-linkage'>&nbsp;</span>
 <hr>
 <h3>warning: function &#39;get_uniform&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
@@ -20,7 +38,6 @@
       |                        ^
       | static 
 </pre>
-<p><<a href="canvas.cc.html">libs/render/src/eu/render/canvas.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../core/src/eu/core/vertex_layout.cc.html">libs/core/src/eu/core/vertex_layout.cc</a>></p>
 <hr>
 <h3>warning: function &#39;get_vertex_types&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -33,7 +50,6 @@
       |                ^
       | static 
 </pre>
-<p><<a href="canvas.cc.html">libs/render/src/eu/render/canvas.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../core/src/eu/core/vertex_layout.cc.html">libs/core/src/eu/core/vertex_layout.cc</a>></p>
 <hr>
 <h3>warning: struct &#39;LoadedShader&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -45,7 +61,6 @@
   308 | struct LoadedShader
       |        ^
 </pre>
-<p><<a href="canvas.cc.html">libs/render/src/eu/render/canvas.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../core/src/eu/core/vertex_layout.cc.html">libs/core/src/eu/core/vertex_layout.cc</a>></p>
 <hr>
 <h3>warning: function &#39;get_instance_start_index&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -58,7 +73,6 @@
       |                    ^
       | static 
 </pre>
-<p><<a href="canvas.cc.html">libs/render/src/eu/render/canvas.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../core/src/eu/core/vertex_layout.cc.html">libs/core/src/eu/core/vertex_layout.cc</a>></p>
 <hr>
 <h3>warning: function &#39;load_shader&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -71,7 +85,6 @@
       |              ^
       | static 
 </pre>
-<p><<a href="canvas.cc.html">libs/render/src/eu/render/canvas.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../core/src/eu/core/vertex_layout.cc.html">libs/core/src/eu/core/vertex_layout.cc</a>></p>
 <span id='modernize-use-designated-initializers'>&nbsp;</span>
 <hr>
 <h3>warning: use designated initializer list to initialize &#39;core:: InstanceProp&#39;</h3>
@@ -91,7 +104,6 @@
    95 | struct InstanceProp
       | ^
 </pre>
-<p><<a href="canvas.cc.html">libs/render/src/eu/render/canvas.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../core/src/eu/core/vertex_layout.cc.html">libs/core/src/eu/core/vertex_layout.cc</a>></p>
 <hr>
 <h3>warning: use designated initializer list to initialize &#39;ShaderSource_withLayout&#39;</h3>
 <code>[modernize-use-designated-initializers]</code>
@@ -114,7 +126,6 @@
    31 | struct ShaderSource_withLayout
       | ^
 </pre>
-<p><<a href="canvas.cc.html">libs/render/src/eu/render/canvas.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../core/src/eu/core/vertex_layout.cc.html">libs/core/src/eu/core/vertex_layout.cc</a>></p>
 <hr>
 <h3>warning: use designated initializer list to initialize &#39;const value_type&#39; (aka &#39;const eu::core:: VertexElementDescription&#39;)</h3>
 <code>[modernize-use-designated-initializers]</code>
@@ -133,7 +144,6 @@
    42 | struct VertexElementDescription
       | ^
 </pre>
-<p><<a href="canvas.cc.html">libs/render/src/eu/render/canvas.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../core/src/eu/core/vertex_layout.cc.html">libs/core/src/eu/core/vertex_layout.cc</a>></p>
 <span id='readability-avoid-unconditional-preprocessor-if'>&nbsp;</span>
 <hr>
 <h3>warning: preprocessor condition is always &#39;false&#39;, consider removing both the condition and its contents</h3>
@@ -146,7 +156,6 @@
   433 | #if 0
       |  ^
 </pre>
-<p><<a href="canvas.cc.html">libs/render/src/eu/render/canvas.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../core/src/eu/core/vertex_layout.cc.html">libs/core/src/eu/core/vertex_layout.cc</a>></p>
 <hr>
 <h3>warning: use designated initializer list to initialize &#39;LoadedShader_Unlit_Container&#39;</h3>
 <code>[modernize-use-designated-initializers]</code>
@@ -175,7 +184,6 @@
    14 | struct LoadedShader_Unlit_Container;
       | ^
 </pre>
-<p><<a href="canvas.cc.html">libs/render/src/eu/render/canvas.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../core/src/eu/core/vertex_layout.cc.html">libs/core/src/eu/core/vertex_layout.cc</a>></p>
 <hr>
 <h3>warning: use designated initializer list to initialize &#39;LoadedShader_Default_Container&#39;</h3>
 <code>[modernize-use-designated-initializers]</code>
@@ -207,6 +215,6 @@
    13 | struct LoadedShader_Default_Container;
       | ^
 </pre>
-<p><<a href="canvas.cc.html">libs/render/src/eu/render/canvas.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../core/src/eu/core/vertex_layout.cc.html">libs/core/src/eu/core/vertex_layout.cc</a>></p>
+<div class="link-container"><div class="prev">&lt;<a href="canvas.cc.html">libs/render/src/eu/render/canvas.cc</a></div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../core/src/eu/core/vertex_layout.cc.html">libs/core/src/eu/core/vertex_layout.cc</a>&gt;</div></div>
 </body>
 </html>

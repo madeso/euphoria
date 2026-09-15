@@ -3,10 +3,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 <title>libs/imgui/src/eu/imgui/ui.cc</title>
+<style>
+.link-container {
+ position: relative;
+}
+.prev {
+ position: absolute;
+ top: 0;
+ left: 0;
+}
+.next {
+ position: absolute;
+ top: 0;
+ right: 0;
+}
+.index_link {
+ text-align: center;
+}
+</style>
 </head>
 <body>
 <h1>libs/imgui/src/eu/imgui/ui.cc</h1>
-<p><<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>></p>
+<div class="link-container"><div class="prev">&lt;<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a></div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>&gt;</div></div>
 <span id='misc-use-internal-linkage'>&nbsp;</span>
 <hr>
 <h3>warning: function &#39;imgui_destroy_shader&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
@@ -20,7 +38,6 @@
       |      ^
       | static 
 </pre>
-<p><<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>></p>
 <hr>
 <h3>warning: function &#39;imgui_load_shader&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -33,7 +50,6 @@
       |                    ^
       | static 
 </pre>
-<p><<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>></p>
 <span id='misc-const-correctness'>&nbsp;</span>
 <hr>
 <h3>warning: pointee of variable &#39;vertex_shader_with_version&#39; of type &#39;const GLchar *[2]&#39; (aka &#39;const char *[2]&#39;) can be declared &#39;const&#39;</h3>
@@ -47,7 +63,6 @@
       |         ^           
       |                      const
 </pre>
-<p><<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>></p>
 <hr>
 <h3>warning: pointee of variable &#39;fragment_shader_with_version&#39; of type &#39;const GLchar *[2]&#39; (aka &#39;const char *[2]&#39;) can be declared &#39;const&#39;</h3>
 <code>[misc-const-correctness]</code>
@@ -60,7 +75,6 @@
       |         ^           
       |                      const
 </pre>
-<p><<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>></p>
 <hr>
 <h3>warning: function &#39;imgui_set_shared_shader_params&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -73,7 +87,6 @@
       |      ^
       | static 
 </pre>
-<p><<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>></p>
 <hr>
 <h3>warning: pointee of variable &#39;draw_data&#39; of type &#39;ImDrawData *&#39; can be declared &#39;const&#39;</h3>
 <code>[misc-const-correctness]</code>
@@ -86,7 +99,6 @@
       |         ^         
       |                    const
 </pre>
-<p><<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>></p>
 <hr>
 <h3>warning: function &#39;im_draw_callback_linear_to_gamma&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -99,7 +111,6 @@
       |      ^
       | static 
 </pre>
-<p><<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>></p>
 <hr>
 <h3>warning: function &#39;im_draw_callback_depth_ortho&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -112,7 +123,6 @@
       |      ^
       | static 
 </pre>
-<p><<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>></p>
 <span id='readability-redundant-parentheses'>&nbsp;</span>
 <hr>
 <h3>warning: redundant parentheses around expression</h3>
@@ -125,7 +135,6 @@
   280 |         const auto uv0 = ImVec2{region.x / texture_size.x, (flipped_region_y) / texture_size.y};
       |                                                            ^                ~
 </pre>
-<p><<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>></p>
 <hr>
 <h3>warning: redundant parentheses around expression</h3>
 <code>[readability-redundant-parentheses]</code>
@@ -137,7 +146,6 @@
   357 |         const auto t = (*gamma - min_gamma) / (gamma_range);
       |                                               ^           ~
 </pre>
-<p><<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>></p>
 <hr>
 <h3>warning: function &#39;length2&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -150,7 +158,6 @@
       |       ^
       | static 
 </pre>
-<p><<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>></p>
 <hr>
 <h3>warning: function &#39;length&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -163,7 +170,6 @@
       |       ^
       | static 
 </pre>
-<p><<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>></p>
 <hr>
 <h3>warning: function &#39;normalize&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -176,7 +182,6 @@
       |        ^
       | static 
 </pre>
-<p><<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>></p>
 <hr>
 <h3>warning: function &#39;normalize&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -189,7 +194,6 @@
       |        ^
       | static 
 </pre>
-<p><<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>></p>
 <hr>
 <h3>warning: function &#39;dot&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -202,7 +206,6 @@
       |       ^
       | static 
 </pre>
-<p><<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>></p>
 <hr>
 <h3>warning: function &#39;is_positive&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -215,7 +218,6 @@
       |      ^
       | static 
 </pre>
-<p><<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>></p>
 <hr>
 <h3>warning: struct &#39;GearState&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -227,7 +229,6 @@
   424 | struct GearState
       |        ^
 </pre>
-<p><<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>></p>
 <span id='readability-identifier-naming'>&nbsp;</span>
 <hr>
 <h3>warning: invalid case style for function &#39;dl_PathArcToN&#39;</h3>
@@ -241,7 +242,6 @@
       |          ^~~~~~~~~~~~~
       |          dl_path_arc_to_n
 </pre>
-<p><<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>></p>
 <span id='readability-identifier-length'>&nbsp;</span>
 <hr>
 <h3>warning: loop variable name &#39;i&#39; is too short, expected at least 2 characters</h3>
@@ -254,7 +254,6 @@
   449 |         for (int i = 0; i &lt;= num_segments; i++)
       |                  ^
 </pre>
-<p><<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>></p>
 <hr>
 <h3>warning: invalid case style for function &#39;dl_PathArcTo&#39;</h3>
 <code>[readability-identifier-naming]</code>
@@ -267,7 +266,6 @@
       |          ^~~~~~~~~~~~
       |          dl_path_arc_to
 </pre>
-<p><<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>></p>
 <hr>
 <h3>warning: invalid case style for function &#39;dl_AddCircle&#39;</h3>
 <code>[readability-identifier-naming]</code>
@@ -280,7 +278,6 @@
       |          ^~~~~~~~~~~~
       |          dl_add_circle
 </pre>
-<p><<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>></p>
 <hr>
 <h3>warning: function &#39;calc_button_size&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -293,7 +290,6 @@
       |        ^
       | static 
 </pre>
-<p><<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>></p>
 <hr>
 <h3>warning: function &#39;gear_icon&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -306,7 +302,6 @@
       |      ^
       | static 
 </pre>
-<p><<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>></p>
 <span id='readability-implicit-bool-conversion'>&nbsp;</span>
 <hr>
 <h3>warning: implicit conversion &#39;float *&#39; -&gt; &#39;bool&#39;</h3>
@@ -320,7 +315,6 @@
       |                     ^   
       |                          != nullptr
 </pre>
-<p><<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>></p>
 <hr>
 <h3>warning: variable &#39;w_items&#39; of type &#39;float&#39; can be declared &#39;const&#39;</h3>
 <code>[misc-const-correctness]</code>
@@ -333,7 +327,6 @@
       |     ^
       |           const 
 </pre>
-<p><<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>></p>
 <hr>
 <h3>warning: loop variable name &#39;i&#39; is too short, expected at least 2 characters</h3>
 <code>[readability-identifier-length]</code>
@@ -345,7 +338,6 @@
   616 |     for (int i=0; i&lt;3; i+=1)
       |              ^
 </pre>
-<p><<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>></p>
 <span id='google-readability-braces-around-statements'>&nbsp;</span>
 <span id='readability-braces-around-statements'>&nbsp;</span>
 <hr>
@@ -362,6 +354,6 @@
   627 |                 ImGui::SameLine(0, style.ItemInnerSpacing.x);
       |                                                              
 </pre>
-<p><<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>></p>
+<div class="link-container"><div class="prev">&lt;<a href="../../../../core/src/eu/core/vertex_layout.test.cc.html">libs/core/src/eu/core/vertex_layout.test.cc</a></div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../mrgui/src/eu/mrgui/widgets.cc.html">libs/mrgui/src/eu/mrgui/widgets.cc</a>&gt;</div></div>
 </body>
 </html>

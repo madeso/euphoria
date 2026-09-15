@@ -3,10 +3,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 <title>libs/core/src/eu/core/vertex_layout.cc</title>
+<style>
+.link-container {
+ position: relative;
+}
+.prev {
+ position: absolute;
+ top: 0;
+ left: 0;
+}
+.next {
+ position: absolute;
+ top: 0;
+ right: 0;
+}
+.index_link {
+ text-align: center;
+}
+</style>
 </head>
 <body>
 <h1>libs/core/src/eu/core/vertex_layout.cc</h1>
-<p><<a href="../../../../render/src/eu/render/shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../render/src/eu/render/shader.source.cc.html">libs/render/src/eu/render/shader.source.cc</a>></p>
+<div class="link-container"><div class="prev">&lt;<a href="../../../../render/src/eu/render/shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a></div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../render/src/eu/render/shader.source.cc.html">libs/render/src/eu/render/shader.source.cc</a>&gt;</div></div>
 <span id='misc-use-internal-linkage'>&nbsp;</span>
 <hr>
 <h3>warning: struct &#39;VertexTypeList&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
@@ -19,7 +37,6 @@
    28 | struct VertexTypeList
       |        ^
 </pre>
-<p><<a href="../../../../render/src/eu/render/shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../render/src/eu/render/shader.source.cc.html">libs/render/src/eu/render/shader.source.cc</a>></p>
 <span id='modernize-use-designated-initializers'>&nbsp;</span>
 <hr>
 <h3>warning: use designated initializer list to initialize &#39;value_type&#39; (aka &#39;eu::core:: CompiledVertexElement&#39;)</h3>
@@ -39,7 +56,6 @@
    55 | struct CompiledVertexElement
       | ^
 </pre>
-<p><<a href="../../../../render/src/eu/render/shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../render/src/eu/render/shader.source.cc.html">libs/render/src/eu/render/shader.source.cc</a>></p>
 <hr>
 <h3>warning: use designated initializer list to initialize &#39;value_type&#39; (aka &#39;eu::core:: CompiledVertexElement&#39;)</h3>
 <code>[modernize-use-designated-initializers]</code>
@@ -58,7 +74,6 @@
    55 | struct CompiledVertexElement
       | ^
 </pre>
-<p><<a href="../../../../render/src/eu/render/shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../render/src/eu/render/shader.source.cc.html">libs/render/src/eu/render/shader.source.cc</a>></p>
 <hr>
 <h3>warning: use designated initializer list to initialize &#39;CompiledShaderVertexAttributes&#39;</h3>
 <code>[modernize-use-designated-initializers]</code>
@@ -77,7 +92,6 @@
    72 | struct CompiledShaderVertexAttributes
       | ^
 </pre>
-<p><<a href="../../../../render/src/eu/render/shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../render/src/eu/render/shader.source.cc.html">libs/render/src/eu/render/shader.source.cc</a>></p>
 <hr>
 <h3>warning: use designated initializer list to initialize &#39;value_type&#39; (aka &#39;eu::core:: CompiledVertexElementNoName&#39;)</h3>
 <code>[modernize-use-designated-initializers]</code>
@@ -96,7 +110,6 @@
    63 | struct CompiledVertexElementNoName
       | ^
 </pre>
-<p><<a href="../../../../render/src/eu/render/shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../render/src/eu/render/shader.source.cc.html">libs/render/src/eu/render/shader.source.cc</a>></p>
 <span id='modernize-use-ranges'>&nbsp;</span>
 <hr>
 <h3>warning: use a ranges version of this algorithm</h3>
@@ -115,7 +128,6 @@
    89 |                 list.end(),
       |                 ~~~~~~~~~~
 </pre>
-<p><<a href="../../../../render/src/eu/render/shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../render/src/eu/render/shader.source.cc.html">libs/render/src/eu/render/shader.source.cc</a>></p>
 <hr>
 <h3>warning: use designated initializer list to initialize &#39;CompiledGeomVertexAttributes&#39;</h3>
 <code>[modernize-use-designated-initializers]</code>
@@ -134,7 +146,6 @@
    79 | struct CompiledGeomVertexAttributes
       | ^
 </pre>
-<p><<a href="../../../../render/src/eu/render/shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../render/src/eu/render/shader.source.cc.html">libs/render/src/eu/render/shader.source.cc</a>></p>
 <hr>
 <h3>warning: function &#39;calculate_shader_attribute_size&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -147,7 +158,6 @@
       |     ^
       | static 
 </pre>
-<p><<a href="../../../../render/src/eu/render/shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../render/src/eu/render/shader.source.cc.html">libs/render/src/eu/render/shader.source.cc</a>></p>
 <hr>
 <h3>warning: function &#39;compile_vertex_type_list&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -160,7 +170,6 @@
       |                        ^
       | static 
 </pre>
-<p><<a href="../../../../render/src/eu/render/shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../render/src/eu/render/shader.source.cc.html">libs/render/src/eu/render/shader.source.cc</a>></p>
 <span id='readability-container-contains'>&nbsp;</span>
 <hr>
 <h3>warning: use &#39;contains&#39; to check for membership</h3>
@@ -174,7 +183,6 @@
       |                             ^~~~ ~~~~~~~~~~~~~~~~~~~~~~
       |                             contains type)
 </pre>
-<p><<a href="../../../../render/src/eu/render/shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../render/src/eu/render/shader.source.cc.html">libs/render/src/eu/render/shader.source.cc</a>></p>
 <hr>
 <h3>warning: use designated initializer list to initialize &#39;CompiledVertexTypeList&#39;</h3>
 <code>[modernize-use-designated-initializers]</code>
@@ -193,6 +201,6 @@
    86 | struct CompiledVertexTypeList
       | ^
 </pre>
-<p><<a href="../../../../render/src/eu/render/shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a> | <a href="../../../../../index.html">[index]</a> | <a href="../../../../render/src/eu/render/shader.source.cc.html">libs/render/src/eu/render/shader.source.cc</a>></p>
+<div class="link-container"><div class="prev">&lt;<a href="../../../../render/src/eu/render/shader_resource.cc.html">libs/render/src/eu/render/shader_resource.cc</a></div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../render/src/eu/render/shader.source.cc.html">libs/render/src/eu/render/shader.source.cc</a>&gt;</div></div>
 </body>
 </html>
