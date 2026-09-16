@@ -12,13 +12,11 @@ namespace eu
         {
             ASSERT(array.empty() == false);
 
-            // find the iterator pointing to the max element, and then the distance from start
             const auto max_it = std::max_element(array.begin(), array.end());
             return std::distance(array.begin(), max_it);
         }
 
-        /// Extract a quaternion from a rotation matrix (assumed orthonormal, no scale/shear).
-        /// Uses the "Shepperd's method" as described in
+        /// Implements the "Shepperd's method" as described in
         /// "3-D Computer Graphics A Mathematical Introduction with OpenGL" by Samuel R. Buss (2022)
         /// in section XII 3.6 Quaternion and rotation matrix conversions on page 465
         Q
@@ -33,7 +31,7 @@ namespace eu
 
             switch (argmax(std::array{ m00, m11, m22, m33 }))
             {
-            case 0: // if(m00 > 0)
+            case 0:
             {
                 const auto d = 0.5f * std::sqrt(m00 + 1.0f);
 
