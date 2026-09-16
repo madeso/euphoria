@@ -1,0 +1,59 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/base/src/eu/base/transform.cc</title>
+<style>
+.link-container {
+ position: relative;
+}
+.prev {
+ position: absolute;
+ top: 0;
+ left: 0;
+}
+.next {
+ position: absolute;
+ top: 0;
+ right: 0;
+}
+.index_link {
+ text-align: center;
+}
+</style>
+</head>
+<body>
+<h1>libs/base/src/eu/base/transform.cc</h1>
+<div class="link-container"><div class="prev">&lt;<a href="../../../../render/src/eu/render/texture.test.cc.html">libs/render/src/eu/render/texture.test.cc</a></div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../kdl/src/eu/kdl/kdl.h.html">libs/kdl/src/eu/kdl/kdl.h</a>&gt;</div></div>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for value template parameter &#39;TSize&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<ul>
+<li>Found in <a href="transform.cc.html">libs/base/src/eu/base/transform.cc</a></li>
+</ul>
+<p><i><a href="transform.cc.html">libs/base/src/eu/base/transform.cc</a> 10 : 38</i></p>
+<pre>
+   10 |         template &lt;typename T, size_t TSize&gt;
+      |                                      ^~~~~
+      |                                      t_size
+   11 |         size_t argmax(const std::array&lt;T, TSize&gt;&amp; array)
+      |                                           ~~~~~
+      |                                           t_size
+</pre>
+<span id='readability-qualified-auto'>&nbsp;</span>
+<hr>
+<h3>warning: &#39;const auto max_it&#39; can be declared as &#39;const auto *const max_it&#39;</h3>
+<code>[readability-qualified-auto]</code>
+<ul>
+<li>Found in <a href="transform.cc.html">libs/base/src/eu/base/transform.cc</a></li>
+</ul>
+<p><i><a href="transform.cc.html">libs/base/src/eu/base/transform.cc</a> 16 : 13</i></p>
+<pre>
+   16 |             const auto max_it = std::max_element(array.begin(), array.end());
+      |             ^~~~~~~~~~
+      |             const auto *const 
+</pre>
+<div class="link-container"><div class="prev">&lt;<a href="../../../../render/src/eu/render/texture.test.cc.html">libs/render/src/eu/render/texture.test.cc</a></div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../kdl/src/eu/kdl/kdl.h.html">libs/kdl/src/eu/kdl/kdl.h</a>&gt;</div></div>
+</body>
+</html>
