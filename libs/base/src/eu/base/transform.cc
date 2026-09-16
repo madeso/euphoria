@@ -1,7 +1,7 @@
 #include "eu/base/transform.h"
 
 #include <cmath>
-
+#include <algorithm>
 
 namespace eu
 {
