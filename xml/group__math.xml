@@ -91,7 +91,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="177" column="18" bodyfile="libs/base/src/eu/base/mat4.h" bodystart="177" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="180" column="18" bodyfile="libs/base/src/eu/base/mat4.h" bodystart="180" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__math_1ga074a5f400069f641ce3857da18d65d93" prot="public" static="no" constexpr="yes" mutable="no">
         <type>Q</type>
@@ -619,7 +619,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="180" column="17" declfile="libs/base/src/eu/base/mat4.h" declline="180" declcolumn="17"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="183" column="17" declfile="libs/base/src/eu/base/mat4.h" declline="183" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gac6df9508643c5fd4c3492e047e9a932c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>m4</type>
@@ -641,7 +641,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="182" column="8" declfile="libs/base/src/eu/base/mat4.h" declline="182" declcolumn="8"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="185" column="8" declfile="libs/base/src/eu/base/mat4.h" declline="185" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gaf28a2e40d555474d81f7d62a6f02c726" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>m4</type>
@@ -663,7 +663,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="183" column="8" declfile="libs/base/src/eu/base/mat4.h" declline="183" declcolumn="8"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="186" column="8" declfile="libs/base/src/eu/base/mat4.h" declline="186" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gad0d155e66eaba7b173f177f04434b446" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>m4</type>
@@ -685,7 +685,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="184" column="8" declfile="libs/base/src/eu/base/mat4.h" declline="184" declcolumn="8"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="187" column="8" declfile="libs/base/src/eu/base/mat4.h" declline="187" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga71c65bf3f1b8eec74b96ffb0ea0103fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>v4</type>
@@ -707,7 +707,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="185" column="8" declfile="libs/base/src/eu/base/mat4.h" declline="185" declcolumn="8"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="188" column="8" declfile="libs/base/src/eu/base/mat4.h" declline="188" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gafb6a0b321ce809096583aff23695f879" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>

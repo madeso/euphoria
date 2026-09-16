@@ -82,7 +82,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7f9269dbbcf3f8dfdae73d470580fe93" id="r_a7f9269dbbcf3f8dfdae73d470580fe93"><td class="memItemLeft" align="right" valign="top">m4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f9269dbbcf3f8dfdae73d470580fe93">get_inverted</a> () const</td></tr>
 <tr class="memdesc:a7f9269dbbcf3f8dfdae73d470580fe93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the inverted matrix.  <br /></td></tr>
 <tr class="memitem:a6014565213c198695d0c43f2ffd4f392" id="r_a6014565213c198695d0c43f2ffd4f392"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6014565213c198695d0c43f2ffd4f392">get</a> (int row, int col) const</td></tr>
-<tr class="memdesc:a6014565213c198695d0c43f2ffd4f392"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a single value given a row and column.  <br /></td></tr>
+<tr class="memdesc:a6014565213c198695d0c43f2ffd4f392"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a single value given a row and column (note: zero/0 based index).  <br /></td></tr>
+<tr class="memitem:a3143565a88390442c28aac73a66c4619" id="r_a3143565a88390442c28aac73a66c4619"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3143565a88390442c28aac73a66c4619">get1</a> (int row, int col) const</td></tr>
+<tr class="memdesc:a3143565a88390442c28aac73a66c4619"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a single value given a row and column (note: one/1 based index).  <br /></td></tr>
 <tr class="memitem:ac7a76a023788418920fc7df439b77749" id="r_ac7a76a023788418920fc7df439b77749"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1v4.html">v4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7a76a023788418920fc7df439b77749">get_transformed</a> (const <a class="el" href="structeu_1_1v4.html">v4</a> &amp;p) const</td></tr>
 <tr class="memdesc:ac7a76a023788418920fc7df439b77749"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a transformed vec4.  <br /></td></tr>
 <tr class="memitem:a22ce98de455dd1288dbc11090812f947" id="r_a22ce98de455dd1288dbc11090812f947"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1v3.html">v3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22ce98de455dd1288dbc11090812f947">get_transformed_point</a> (const <a class="el" href="structeu_1_1v3.html">v3</a> &amp;p) const</td></tr>
@@ -761,7 +763,38 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Return a single value given a row and column. </p>
+<p>Return a single value given a row and column (note: zero/0 based index). </p>
+
+</div>
+</div>
+<a id="a3143565a88390442c28aac73a66c4619" name="a3143565a88390442c28aac73a66c4619"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3143565a88390442c28aac73a66c4619">&#9670;&#160;</a></span>get1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float eu::m4::get1 </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>row</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>col</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return a single value given a row and column (note: one/1 based index). </p>
 
 </div>
 </div>

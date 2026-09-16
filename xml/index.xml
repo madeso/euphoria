@@ -761,6 +761,7 @@
     <member refid="structeu_1_1m4_1a346dce537e994a3987082b7b3bb9c08a" kind="function"><name>invert</name></member>
     <member refid="structeu_1_1m4_1a7f9269dbbcf3f8dfdae73d470580fe93" kind="function"><name>get_inverted</name></member>
     <member refid="structeu_1_1m4_1a6014565213c198695d0c43f2ffd4f392" kind="function"><name>get</name></member>
+    <member refid="structeu_1_1m4_1a3143565a88390442c28aac73a66c4619" kind="function"><name>get1</name></member>
     <member refid="structeu_1_1m4_1ac7a76a023788418920fc7df439b77749" kind="function"><name>get_transformed</name></member>
     <member refid="structeu_1_1m4_1a22ce98de455dd1288dbc11090812f947" kind="function"><name>get_transformed_point</name></member>
     <member refid="structeu_1_1m4_1a4200aff0f233b6cc4d8737b7902d09f6" kind="function"><name>get_transformed_vec</name></member>
@@ -1391,6 +1392,11 @@
     <member refid="structeu_1_1render_1_1TextureCubemap_1a67653658229e71da839de2fd1513519b" kind="function"><name>TextureCubemap</name></member>
     <member refid="structeu_1_1render_1_1TextureCubemap_1acf20a8271d6fff69d45ce0eff1adb358" kind="function"><name>TextureCubemap</name></member>
   </compound>
+  <compound refid="structeu_1_1Transform" kind="struct"><name>eu::Transform</name>
+    <member refid="structeu_1_1Transform_1af16aa13dbb9f36ec60f30d479d292ee4" kind="variable"><name>position</name></member>
+    <member refid="structeu_1_1Transform_1afccad52df0e2adbfbc4424596f0adea1" kind="variable"><name>rotation</name></member>
+    <member refid="structeu_1_1Transform_1ac17d21c71bc2209a58218d0a76cbe449" kind="variable"><name>scale</name></member>
+  </compound>
   <compound refid="structeu_1_1core_1_1TransformedMesh" kind="struct"><name>eu::core::TransformedMesh</name>
     <member refid="structeu_1_1core_1_1TransformedMesh_1a4b0a25af90f97bacc5887d50f1b91ca5" kind="variable"><name>name</name></member>
     <member refid="structeu_1_1core_1_1TransformedMesh_1aac7ba3f846654545b6b8903f383ce2ea" kind="variable"><name>transform</name></member>
@@ -1741,6 +1747,8 @@
     <member refid="namespaceeu_1a65535dd0a324349c9f66700b87e90332" kind="function"><name>to_string</name></member>
     <member refid="group__math_1gabe7b085e3c3eb168ed9243e478c37b3e" kind="function"><name>operator==</name></member>
     <member refid="group__math_1ga4a188c23078bb9c5b45f442d2b2d8e37" kind="function"><name>string_from</name></member>
+    <member refid="namespaceeu_1a2e806bf8442b9cd4368f47d90e43fa96" kind="function"><name>transform_from_matrix</name></member>
+    <member refid="namespaceeu_1a937c851d1aab936df71defd0d0dc0384" kind="function"><name>matrix_from_transform</name></member>
     <member refid="group__math_1ga4800a7b85e537456b232d20a822b9cf6" kind="function"><name>operator+</name></member>
     <member refid="group__math_1ga8b04e3baf0731fe2189eedcc198802ed" kind="function"><name>operator-</name></member>
     <member refid="group__math_1gacb026ebe78d1da4dc0644d1910db7637" kind="function"><name>operator*</name></member>
@@ -2054,6 +2062,8 @@
   <compound refid="size_8h" kind="file"><name>size.h</name>
   </compound>
   <compound refid="std_8h" kind="file"><name>std.h</name>
+  </compound>
+  <compound refid="transform_8h" kind="file"><name>transform.h</name>
   </compound>
   <compound refid="vec2_8h" kind="file"><name>vec2.h</name>
   </compound>

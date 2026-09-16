@@ -81,6 +81,8 @@
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
       </node>
       <node id="3">
         <label>libs/base/src/eu/base/pch.public.h</label>
@@ -103,6 +105,12 @@
         <link refid="quat_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>libs/base/src/eu/base/transform.h</label>
+        <link refid="transform_8h"/>
       </node>
       <node id="1">
         <label>libs/base/src/eu/base/vec4.h</label>
@@ -111,7 +119,7 @@
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
       </node>
       <node id="4">
@@ -130,7 +138,7 @@
         <label>libs/mrgui/src/eu/mrgui/pch.private.h</label>
         <link refid="mrgui_2src_2eu_2mrgui_2pch_8private_8h"/>
       </node>
-      <node id="11">
+      <node id="12">
         <label>libs/render/src/eu/render/canvas.h</label>
         <link refid="canvas_8h"/>
       </node>

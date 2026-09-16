@@ -123,6 +123,7 @@ Classes</h2></td></tr>
 <tr class="memitem:Rect" id="r_Rect"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1Rect.html">Rect</a></td></tr>
 <tr class="memitem:Size" id="r_Size"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1Size.html">Size</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a size  <a href="structeu_1_1Size.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Transform" id="r_Transform"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1Transform.html">Transform</a></td></tr>
 <tr class="memitem:v2" id="r_v2"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1v2.html">v2</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a 2d vector  <a href="structeu_1_1v2.html#details">More...</a><br /></td></tr>
 <tr class="memitem:n2" id="r_n2"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1n2.html">n2</a></td></tr>
@@ -287,6 +288,8 @@ Functions</h2></td></tr>
 <tr class="memitem:gabe7b085e3c3eb168ed9243e478c37b3e" id="r_gabe7b085e3c3eb168ed9243e478c37b3e"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__math.html#gabe7b085e3c3eb168ed9243e478c37b3e">operator==</a> (const <a class="el" href="structeu_1_1Size.html">Size</a> &amp;lhs, const <a class="el" href="structeu_1_1Size.html">Size</a> &amp;rhs)</td></tr>
 <tr class="memitem:ga4a188c23078bb9c5b45f442d2b2d8e37" id="r_ga4a188c23078bb9c5b45f442d2b2d8e37"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__math.html#ga4a188c23078bb9c5b45f442d2b2d8e37">string_from</a> (const <a class="el" href="structeu_1_1Size.html">Size</a> &amp;v)</td></tr>
 <tr class="memdesc:ga4a188c23078bb9c5b45f442d2b2d8e37"><td class="mdescLeft">&#160;</td><td class="mdescRight">converts a 2d unit vector to a string, prefer fmt  <br /></td></tr>
+<tr class="memitem:a2e806bf8442b9cd4368f47d90e43fa96" id="r_a2e806bf8442b9cd4368f47d90e43fa96"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1Transform.html">Transform</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2e806bf8442b9cd4368f47d90e43fa96">transform_from_matrix</a> (const <a class="el" href="structeu_1_1m4.html">m4</a> &amp;m)</td></tr>
+<tr class="memitem:a937c851d1aab936df71defd0d0dc0384" id="r_a937c851d1aab936df71defd0d0dc0384"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1m4.html">m4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a937c851d1aab936df71defd0d0dc0384">matrix_from_transform</a> (const <a class="el" href="structeu_1_1Transform.html">Transform</a> &amp;t)</td></tr>
 <tr class="memitem:ga4800a7b85e537456b232d20a822b9cf6" id="r_ga4800a7b85e537456b232d20a822b9cf6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1v2.html">v2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__math.html#ga4800a7b85e537456b232d20a822b9cf6">operator+</a> (const <a class="el" href="structeu_1_1v2.html">v2</a> &amp;lhs, const <a class="el" href="structeu_1_1v2.html">v2</a> &amp;rhs)</td></tr>
 <tr class="memitem:ga8b04e3baf0731fe2189eedcc198802ed" id="r_ga8b04e3baf0731fe2189eedcc198802ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1v2.html">v2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__math.html#ga8b04e3baf0731fe2189eedcc198802ed">operator-</a> (const <a class="el" href="structeu_1_1v2.html">v2</a> &amp;lhs, const <a class="el" href="structeu_1_1v2.html">v2</a> &amp;rhs)</td></tr>
 <tr class="memitem:gacb026ebe78d1da4dc0644d1910db7637" id="r_gacb026ebe78d1da4dc0644d1910db7637"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1v2.html">v2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__math.html#gacb026ebe78d1da4dc0644d1910db7637">operator*</a> (const <a class="el" href="structeu_1_1v2.html">v2</a> &amp;lhs, float rhs)</td></tr>
@@ -1030,6 +1033,23 @@ template&lt;typename E&gt; </div>
 
 </div>
 </div>
+<a id="a937c851d1aab936df71defd0d0dc0384" name="a937c851d1aab936df71defd0d0dc0384"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a937c851d1aab936df71defd0d0dc0384">&#9670;&#160;</a></span>matrix_from_transform()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structeu_1_1m4.html">m4</a> eu::matrix_from_transform </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structeu_1_1Transform.html">Transform</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>t</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aa455bfa1f27cd698b426d462433db07f" name="aa455bfa1f27cd698b426d462433db07f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa455bfa1f27cd698b426d462433db07f">&#9670;&#160;</a></span>okhsl_from_srgb()</h2>
 
@@ -1450,6 +1470,23 @@ template&lt;typename E&gt; </div>
           <td class="memname">std::string eu::to_string </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structeu_1_1Rect.html">Rect</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2e806bf8442b9cd4368f47d90e43fa96" name="a2e806bf8442b9cd4368f47d90e43fa96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e806bf8442b9cd4368f47d90e43fa96">&#9670;&#160;</a></span>transform_from_matrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structeu_1_1Transform.html">Transform</a> eu::transform_from_matrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structeu_1_1m4.html">m4</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>m</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>

@@ -25,6 +25,7 @@
     <innerclass refid="structeu_1_1Lrtb" prot="public">eu::Lrtb</innerclass>
     <innerclass refid="structeu_1_1Rect" prot="public">eu::Rect</innerclass>
     <innerclass refid="structeu_1_1Size" prot="public">eu::Size</innerclass>
+    <innerclass refid="structeu_1_1Transform" prot="public">eu::Transform</innerclass>
     <innerclass refid="structeu_1_1v2" prot="public">eu::v2</innerclass>
     <innerclass refid="structeu_1_1n2" prot="public">eu::n2</innerclass>
     <innerclass refid="structeu_1_1v3" prot="public">eu::v3</innerclass>
@@ -1178,6 +1179,42 @@
       </memberdef>
       <member refid="group__math_1gabe7b085e3c3eb168ed9243e478c37b3e" kind="function"><name>operator==</name></member>
       <member refid="group__math_1ga4a188c23078bb9c5b45f442d2b2d8e37" kind="function"><name>string_from</name></member>
+      <memberdef kind="function" id="namespaceeu_1a2e806bf8442b9cd4368f47d90e43fa96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Transform" kindref="compound">Transform</ref></type>
+        <definition>Transform eu::transform_from_matrix</definition>
+        <argsstring>(const m4 &amp;m)</argsstring>
+        <name>transform_from_matrix</name>
+        <qualifiedname>eu::transform_from_matrix</qualifiedname>
+        <param>
+          <type>const <ref refid="structeu_1_1m4" kindref="compound">m4</ref> &amp;</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/transform.h" line="18" column="15" declfile="libs/base/src/eu/base/transform.h" declline="18" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1a937c851d1aab936df71defd0d0dc0384" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1m4" kindref="compound">m4</ref></type>
+        <definition>m4 eu::matrix_from_transform</definition>
+        <argsstring>(const Transform &amp;t)</argsstring>
+        <name>matrix_from_transform</name>
+        <qualifiedname>eu::matrix_from_transform</qualifiedname>
+        <param>
+          <type>const <ref refid="structeu_1_1Transform" kindref="compound">Transform</ref> &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/transform.h" line="19" column="8" declfile="libs/base/src/eu/base/transform.h" declline="19" declcolumn="8"/>
+      </memberdef>
       <member refid="group__math_1ga4800a7b85e537456b232d20a822b9cf6" kind="function"><name>operator+</name></member>
       <member refid="group__math_1ga8b04e3baf0731fe2189eedcc198802ed" kind="function"><name>operator-</name></member>
       <member refid="group__math_1gacb026ebe78d1da4dc0644d1910db7637" kind="function"><name>operator*</name></member>

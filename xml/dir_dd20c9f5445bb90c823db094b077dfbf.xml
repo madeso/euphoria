@@ -23,6 +23,7 @@
     <innerfile refid="rect_8h">rect.h</innerfile>
     <innerfile refid="size_8h">size.h</innerfile>
     <innerfile refid="std_8h">std.h</innerfile>
+    <innerfile refid="transform_8h">transform.h</innerfile>
     <innerfile refid="vec2_8h">vec2.h</innerfile>
     <innerfile refid="vec3_8h">vec3.h</innerfile>
     <innerfile refid="vec4_8h">vec4.h</innerfile>
