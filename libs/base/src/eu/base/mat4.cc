@@ -41,9 +41,9 @@ namespace eu
     {
         return from_row_major
         (
-            a.x, a.y, a.z, 0,
-            b.x, b.y, b.z, 0,
-            c.x, c.y, c.z, 0,
+            a.x, b.x, c.x, 0,
+            a.y, b.y, c.y, 0,
+            a.z, b.z, c.z, 0,
             0, 0, 0, 1
         );
     }
@@ -446,6 +446,12 @@ namespace eu
     m4::get(int row, int col) const
     {
         return data[col * 4 + row];
+    }
+
+    float
+    m4::get1(int row, int col) const
+    {
+        return data[(col-1) * 4 + (row-1)];
     }
 
     v4

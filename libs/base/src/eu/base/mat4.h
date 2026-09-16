@@ -103,8 +103,11 @@ namespace eu
         /// @see invert
         [[nodiscard]] m4 get_inverted() const;
 
-        /// Return a single value given a row and column.
+        /// Return a single value given a row and column (note: zero/0 based index).
         [[nodiscard]] float get(int row, int col) const;
+
+        /// Return a single value given a row and column (note: one/1 based index).
+        [[nodiscard]] float get1(int row, int col) const;
 
         /// Get a transformed vec4.
         [[nodiscard]] v4 get_transformed(const v4 &p) const;

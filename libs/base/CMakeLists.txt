@@ -16,6 +16,7 @@ set(app_src
     src/eu/base/hash.string.cc src/eu/base/hash.string.h
     src/eu/base/hash.set.cc src/eu/base/hash.set.h
     src/eu/base/guid.cc src/eu/base/guid.h
+    src/eu/base/transform.cc src/eu/base/transform.h
     src/eu/base/rect.cc src/eu/base/rect.h
     src/eu/base/size.cc src/eu/base/size.h
     src/eu/base/memorychunk.cc src/eu/base/memorychunk.h
@@ -75,6 +76,7 @@ set(test_src
     src/eu/base/vec4.test.cc
     src/eu/base/hash.string.test.cc
     src/eu/base/guid.test.cc
+    src/eu/base/transform.test.cc
     src/eu/base/rect.test.cc
 )
 # set(test_main_src test/main.cc)
