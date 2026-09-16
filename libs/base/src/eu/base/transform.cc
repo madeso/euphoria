@@ -7,13 +7,11 @@ namespace eu
 {
     namespace
     {
-        template <typename T, size_t TSize>
-        size_t argmax(const std::array<T, TSize>& array)
+        template <typename T, size_t array_size>
+        size_t argmax(const std::array<T, array_size>& array)
         {
             ASSERT(array.empty() == false);
-
-            const auto max_it = std::max_element(array.begin(), array.end());
-            return std::distance(array.begin(), max_it);
+            return std::distance(array.begin(), std::max_element(array.begin(), array.end()));
         }
 
         /// Implements the "Shepperd's method" as described in
