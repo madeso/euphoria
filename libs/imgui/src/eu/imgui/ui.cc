@@ -1,7 +1,5 @@
 #include "eu/imgui/ui.h"
 
-// #include "klotter/cint.h"
-
 #include "eu/core/ui.h"
 #include "eu/render/texture.h"
 #include "eu/render/dependency_glad.h"
@@ -14,108 +12,405 @@
 
 namespace eu::imgui
 {
+    // opengl code copied from the imgui opengl3 backend with minor modifications
+    // todo(Gustav): should we use the imgui backend code for "backend" rendering or use our own shader?
+    
+    namespace
+    {
+        bool check_imgui_shader(GLuint handle, const char* desc)
+        {
+            GLint status = 0;
+            GLint log_length = 0;
 
-// opengl code copied from the imgui opengl3 backend with minor modifications
-// todo(Gustav): should we use the imgui backend code for "backend" rendering or use our own shader?
+            glGetShaderiv(handle, GL_COMPILE_STATUS, &status);
+            glGetShaderiv(handle, GL_INFO_LOG_LENGTH, &log_length);
+            if (status == GL_FALSE)
+            {
+                std::cerr << "ERROR: Shader code: failed to compile " << desc << "!\n";
+            }
 
-static bool check_imgui_shader(GLuint handle, const char* desc)
-{
-	GLint status = 0;
-	GLint log_length = 0;
+            if (log_length > 1)
+            {
+                std::vector<GLchar> buf;
+                buf.resize(sizet_from_int(log_length + 1));
+                glGetShaderInfoLog(handle, log_length, nullptr, buf.data());
+                std::cerr << buf.data();
+            }
+            return status == GL_TRUE;
+        }
 
-	glGetShaderiv(handle, GL_COMPILE_STATUS, &status);
-	glGetShaderiv(handle, GL_INFO_LOG_LENGTH, &log_length);
-	if (status == GL_FALSE)
-	{
-		std::cerr << "ERROR: Shader code: failed to compile " << desc << "!\n";
-	}
+        bool imgui_check_program(GLuint handle, const char* desc)
+        {
+            GLint status = 0;
+            GLint log_length = 0;
+            glGetProgramiv(handle, GL_LINK_STATUS, &status);
+            glGetProgramiv(handle, GL_INFO_LOG_LENGTH, &log_length);
+            if (status == GL_FALSE)
+            {
+                std::cerr << "ERROR: Shader program: failed to link " << desc << "!\n";
+            }
 
-	if (log_length > 1)
-	{
-		std::vector<GLchar> buf;
-		buf.resize(sizet_from_int(log_length + 1));
-		glGetShaderInfoLog(handle, log_length, nullptr, buf.data());
-		std::cerr << buf.data();
-	}
-	return status == GL_TRUE;
+            if (log_length > 1)
+            {
+                std::vector<GLchar> buf;
+                buf.resize(sizet_from_int(log_length + 1));
+                glGetProgramInfoLog(handle, log_length, nullptr, buf.data());
+                std::cerr << buf.data();
+            }
+            return status == GL_TRUE;
+        }
+
+        void imgui_destroy_shader(ImguiShaderProgram* bd)
+        {
+            if (bd->program_handle == 0)
+            {
+                return;
+            }
+
+            glDeleteProgram(bd->program_handle);
+            bd->program_handle = 0;
+        }
+
+        ImguiShaderProgram imgui_load_shader(const char* glsl_version_string, const char* vertex_shader, const char* fragment_shader)
+        {
+            // Create shaders
+            const GLchar* const vertex_shader_with_version[2] = { glsl_version_string, vertex_shader };
+            const auto vert_handle = glCreateShader(GL_VERTEX_SHADER);
+            glShaderSource(vert_handle, 2, vertex_shader_with_version, nullptr);
+            glCompileShader(vert_handle);
+            if (!check_imgui_shader(vert_handle, "vertex shader"))
+            {
+                return {};
+            }
+
+            const GLchar* const fragment_shader_with_version[2] = { glsl_version_string, fragment_shader };
+            const auto frag_handle = glCreateShader(GL_FRAGMENT_SHADER);
+            glShaderSource(frag_handle, 2, fragment_shader_with_version, nullptr);
+            glCompileShader(frag_handle);
+
+            if (!check_imgui_shader(frag_handle, "fragment shader"))
+            {
+                return {};
+            }
+
+            // Link
+            ImguiShaderProgram prog;
+            prog.program_handle = glCreateProgram();
+            glAttachShader(prog.program_handle, vert_handle);
+            glAttachShader(prog.program_handle, frag_handle);
+            glLinkProgram(prog.program_handle);
+            if (!imgui_check_program(prog.program_handle, "shader program"))
+            {
+                imgui_destroy_shader(&prog);
+                return {};
+            }
+
+            glDetachShader(prog.program_handle, vert_handle);
+            glDetachShader(prog.program_handle, frag_handle);
+            glDeleteShader(vert_handle);
+            glDeleteShader(frag_handle);
+
+            prog.texture_attrib = glGetUniformLocation(prog.program_handle, "Texture");
+            prog.projection_attrib = glGetUniformLocation(prog.program_handle, "ProjMtx");
+            return prog;
+        }
+    
+        void imgui_set_shared_shader_params(ImguiShaderProgram* prog)
+        {
+            const ImDrawData* draw_data = ImGui::GetDrawData();
+
+            const auto le = draw_data->DisplayPos.x;
+            const auto ri = draw_data->DisplayPos.x + draw_data->DisplaySize.x;
+            const auto to = draw_data->DisplayPos.y;
+            const auto bo = draw_data->DisplayPos.y + draw_data->DisplaySize.y;
+
+            const float ortho_projection[4][4] = {
+                {2.0f / (ri - le), 0.0f, 0.0f, 0.0f},
+                {0.0f, 2.0f / (to - bo), 0.0f, 0.0f},
+                {0.0f, 0.0f, -1.0f, 0.0f},
+                {(ri + le) / (le - ri), (to + bo) / (bo - to), 0.0f, 1.0f},
+            };
+            glUseProgram(prog->program_handle);
+            glUniform1i(prog->texture_attrib, 0);
+            glUniformMatrix4fv(prog->projection_attrib, 1, GL_FALSE, &ortho_projection[0][0]);
+        }
+
+        void im_draw_callback_linear_to_gamma(const ImDrawList*, const ImDrawCmd* cmd)
+        {
+            auto* prog = static_cast<ImguiShaderProgram*>(cmd->UserCallbackData);
+
+            imgui_set_shared_shader_params(prog);
+        }
+
+        void im_draw_callback_depth_ortho(const ImDrawList*, const ImDrawCmd* cmd)
+        {
+            auto* prog = static_cast<ImguiShaderProgram*>(cmd->UserCallbackData);
+
+            imgui_set_shared_shader_params(prog);
+        }
+    
+        void draw_imgui_image(const render::FrameBuffer& img, const ImVec2& image_size, const ImVec2& uv0, const ImVec2& uv1, const ImVec4& border_col, ImguiShaderCache* cache, ImageShader shader)
+        {
+            ImDrawList* draw_list = ImGui::GetWindowDrawList();
+
+            // set shader
+            switch (shader)
+            {
+            case ImageShader::tonemap_and_gamma:
+                draw_list->AddCallback(im_draw_callback_linear_to_gamma, &cache->linear_to_gamma_shader);
+                break;
+            case ImageShader::depth_ortho:
+                draw_list->AddCallback(im_draw_callback_depth_ortho, &cache->depth_ortho_shader);
+                break;
+            case ImageShader::none:
+                // no shader
+                break;
+            }
+
+            // draw image
+            ImGui::ImageWithBg(img.id, image_size, uv0, uv1, border_col);
+
+            // reset shader
+            if (shader != ImageShader::none)
+            {
+                draw_list->AddCallback(ImDrawCallback_ResetRenderState, nullptr);
+            }
+        }
+
+        v2 v2_from_vec(const ImVec2& v)
+        {
+            return { v.x, v.y };
+        }
+
+
+        void image_tooltip(const render::FrameBuffer& texture_id, const ImVec2 texture_size, const float& region_size, const float& hover_size,
+            const ImVec2 mouse_pos, const ImVec2 widget_size, const ImVec2 pos, const ImVec4 border_col, ImguiShaderCache* cache, ImageShader shader)
+        {
+            const auto region = core::calculate_region(v2_from_vec(mouse_pos), v2_from_vec(pos), v2_from_vec(texture_size), v2_from_vec(widget_size), region_size);
+            const auto flipped_region_y = texture_size.y - region.y;
+            const auto uv0 = ImVec2{ region.x / texture_size.x, flipped_region_y / texture_size.y };
+            const auto uv1 = ImVec2{ (region.x + region_size) / texture_size.x, (flipped_region_y - region_size) / texture_size.y };
+
+            // todo(Gustav): can we display pixel value instead of where we are looking? is the region important information?
+            imgui_text(fmt::format("UL: {} {}", region.x, region.y));
+            imgui_text(fmt::format("LR: {} {}", region.x + region_size, region.y + region_size));
+            draw_imgui_image(texture_id, ImVec2(hover_size, hover_size), uv0, uv1, border_col, cache, shader);
+        }
+    
+        float length2(const ImVec2& v)
+        {
+            return v.x * v.x + v.y * v.y;
+        }
+
+        float length(const ImVec2& v)
+        {
+            return std::sqrt(v.x * v.x + v.y * v.y);
+        }
+
+        ImVec2 normalize(const ImVec2& v, float len)
+        {
+            return v / len;
+        }
+
+        ImVec2 normalize(const ImVec2& v)
+        {
+            return normalize(v, length(v));
+        }
+
+        float dot(const ImVec2& lhs, const ImVec2& rhs)
+        {
+            return lhs.x * rhs.x + lhs.y * rhs.y;
+        }
+
+        bool is_positive(float f)
+        {
+            return f >= 0.0f;
+        }
+
+        struct GearState
+        {
+            ImGuiID id;
+            ImVec2 center;
+            ImVec2 pos;
+            int turns;
+            float orig;
+            std::optional<float> initial_angle;
+        };
+
+        // dl functions are copied directly from ImDrawList with an additional starting angle and "special cases" removed.
+
+        void dl_path_arc_to_n(ImDrawList* dl, const ImVec2& center, float radius, float a_min, float a_max, int num_segments, float ang)
+        {
+            if (radius < 0.5f)
+            {
+                dl->_Path.push_back(center);
+                return;
+            }
+
+            // Note that we are adding a point at both a_min and a_max.
+            // If you are trying to draw a full closed circle you don't want the overlapping points!
+            dl->_Path.reserve(dl->_Path.Size + (num_segments + 1));
+            for (int segment_index = 0; segment_index <= num_segments; segment_index++)
+            {
+                const float a = a_min + (static_cast<float>(segment_index) / static_cast<float>(num_segments)) * (a_max - a_min);
+                dl->_Path.push_back(ImVec2(center.x + ImCos(a + ang) * radius, center.y + ImSin(a + ang) * radius));
+            }
+        }
+
+        void dl_path_arc_to(ImDrawList* dl, const ImVec2& center, float radius, float a_min, float a_max, int num_segments, float ang)
+        {
+            if (radius < 0.5f)
+            {
+                dl->_Path.push_back(center);
+                return;
+            }
+
+            dl_path_arc_to_n(dl, center, radius, a_min, a_max, num_segments, ang);
+        }
+
+        void dl_add_circle(ImDrawList* dl, const ImVec2& center, float radius, ImU32 col, int num_segments, float thickness, float ang)
+        {
+            if ((col & IM_COL32_A_MASK) == 0 || radius < 0.5f)
+            {
+                return;
+            }
+
+            // Explicit segment count (still clamp to avoid drawing insanely tessellated shapes)
+            num_segments = ImClamp(num_segments, 3, IM_DRAWLIST_CIRCLE_AUTO_SEGMENT_MAX);
+
+            // Because we are filling a closed shape we remove 1 from the count of segments/points
+            const float a_max = (IM_PI * 2.0f) * (static_cast<float>(num_segments) - 1.0f) / static_cast<float>(num_segments);
+            dl_path_arc_to(dl, center, radius - 0.5f, 0.0f, a_max, num_segments - 1, ang);
+
+            dl->PathStroke(col, ImDrawFlags_Closed, thickness);
+        }
+
+
+        ImVec2 calc_button_size(const char* label, const ImVec2& size_arg = ImVec2(0, 0))
+        {
+            const auto style = ImGui::GetStyle();
+            const ImVec2 label_size = ImGui::CalcTextSize(label, nullptr, true);
+            ImVec2 size = ImGui::CalcItemSize(size_arg, label_size.x + style.FramePadding.x * 2.0f, label_size.y + style.FramePadding.y * 2.0f);
+            return size;
+        }
+
+        // https://anttweakbar.sourceforge.io/doc/tools_anttweakbar_rotoslider.html
+        bool gear_icon(const char* label, float* drag, const ImVec2& size)
+        {
+            static std::optional<GearState> state = std::nullopt;
+
+            // config
+            const auto circle_col = ImColor(100, 100, 255);
+            const float min_radius = 20.0f;
+            const float radius = min_radius;
+            const float one_turn = 10.0f;
+            constexpr float circle_thickness = 1.0f;
+            constexpr int gear_segments = 6;
+
+            const auto mp = ImGui::GetMousePos();
+
+            ImGui::Button(label, size);
+            const auto id = ImGui::GetItemID();
+            const auto active = ImGui::IsItemActive();
+
+            if (active && state && state->id != id)
+            {
+                // another id is active, but so are we => treat it as the previous lost the activity
+                state = std::nullopt;
+            }
+
+            auto orig = state ? state->orig : *drag;
+            const auto center = state.has_value() ? state->center : mp;
+
+            // interaction
+            bool changed = false;
+            if (state.has_value() == false || state->id == id)
+            {
+                // only change state if we are the interactive item or there is no interactive item
+                if (active)
+                {
+                    int turns = state ? state->turns : 0;
+                    const auto input = mp - center;
+                    std::optional<float> initial_angle = state ? state->initial_angle : std::nullopt;
+                    if (length2(input) > (min_radius * min_radius))
+                    {
+                        const auto dir_cur = normalize(input);
+                        const auto ang_right = std::acos(dot(dir_cur, { 1, 0 })) * (180.0f / std::numbers::pi_v<float>);
+                        const auto ang = dir_cur.y < 0 ? ang_right : 360 - ang_right;
+
+                        if (initial_angle.has_value() == false)
+                        {
+                            initial_angle = ang;
+                        }
+
+                        if (state.has_value())
+                        {
+                            const auto changed_y = is_positive(input.y) != is_positive(state->pos.y);
+                            const auto on_right_side = input.x > 0 && state->pos.x > 0;
+                            const auto changed_dir = changed_y && on_right_side;
+                            if (changed_dir)
+                            {
+                                turns += is_positive(input.y) ? -1 : 1;
+                            }
+                        }
+                        const auto new_ang = ang - *initial_angle + static_cast<float>(turns) * 360.0f;
+                        const auto val = orig + (new_ang / 360.0f) * one_turn;
+
+                        if (drag != nullptr)
+                        {
+                            *drag = val;
+                            changed = true;
+                        }
+                    }
+                    else
+                    {
+                        initial_angle = std::nullopt;
+                        turns = 0;
+                        orig = *drag;
+                    }
+
+                    state = GearState
+                    {
+                        .id = id,
+                        .center = center,
+                        .pos = input,
+                        .turns = turns,
+                        .orig = orig,
+                        .initial_angle = initial_angle
+                    };
+                }
+                else
+                {
+                    state = std::nullopt;
+                }
+            }
+
+            // drawing
+            {
+                // draw gear
+                if (active)
+                {
+                    auto* fg = ImGui::GetForegroundDrawList();
+                    // fg->AddCircle(center, radius, circle_col, gear_segments, thickness);
+                    constexpr auto segment_factor = 1.0f / static_cast<float>(gear_segments - 1);
+                    const auto turn_factor = std::fmodf(*drag, one_turn) / one_turn;
+                    const auto ang = (turn_factor + segment_factor) * -2.0f * IM_PI;
+                    dl_add_circle(fg, center, radius, circle_col, gear_segments, circle_thickness, ang);
+
+                    // draw wrench instead?
+                    fg->AddLine(center, mp, circle_col);
+                }
+            }
+
+            return changed;
+        }
+    }
 }
 
-static bool imgui_check_program(GLuint handle, const char* desc)
+
+
+namespace eu::imgui
 {
-	GLint status = 0;
-	GLint log_length = 0;
-	glGetProgramiv(handle, GL_LINK_STATUS, &status);
-	glGetProgramiv(handle, GL_INFO_LOG_LENGTH, &log_length);
-	if (status == GL_FALSE)
-	{
-		std::cerr << "ERROR: Shader program: failed to link " << desc << "!\n";
-	}
-
-	if (log_length > 1)
-	{
-		std::vector<GLchar> buf;
-		buf.resize(sizet_from_int(log_length + 1));
-		glGetProgramInfoLog(handle, log_length, nullptr, buf.data());
-		std::cerr << buf.data();
-	}
-	return status == GL_TRUE;
-}
-
-void imgui_destroy_shader(ImguiShaderProgram* bd)
-{
-	if (bd->program_handle == 0)
-	{
-		return;
-	}
-
-	glDeleteProgram(bd->program_handle);
-	bd->program_handle = 0;
-}
-
-ImguiShaderProgram imgui_load_shader(const char* glsl_version_string, const char* vertex_shader, const char* fragment_shader)
-{
-	// Create shaders
-	const GLchar* vertex_shader_with_version[2] = {glsl_version_string, vertex_shader};
-	const auto vert_handle = glCreateShader(GL_VERTEX_SHADER);
-	glShaderSource(vert_handle, 2, vertex_shader_with_version, nullptr);
-	glCompileShader(vert_handle);
-	if (! check_imgui_shader(vert_handle, "vertex shader"))
-	{
-		return {};
-	}
-
-	const GLchar* fragment_shader_with_version[2] = {glsl_version_string, fragment_shader};
-	const auto frag_handle = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(frag_handle, 2, fragment_shader_with_version, nullptr);
-	glCompileShader(frag_handle);
-
-	if (! check_imgui_shader(frag_handle, "fragment shader"))
-	{
-		return {};
-	}
-
-	// Link
-	ImguiShaderProgram prog;
-	prog.program_handle = glCreateProgram();
-	glAttachShader(prog.program_handle, vert_handle);
-	glAttachShader(prog.program_handle, frag_handle);
-	glLinkProgram(prog.program_handle);
-	if (! imgui_check_program(prog.program_handle, "shader program"))
-	{
-		imgui_destroy_shader(&prog);
-		return {};
-	}
-
-	glDetachShader(prog.program_handle, vert_handle);
-	glDetachShader(prog.program_handle, frag_handle);
-	glDeleteShader(vert_handle);
-	glDeleteShader(frag_handle);
-
-	prog.texture_attrib = glGetUniformLocation(prog.program_handle, "Texture");
-	prog.projection_attrib = glGetUniformLocation(prog.program_handle, "ProjMtx");
-	return prog;
-}
-
 constexpr auto dear_imgui_shader_version = "#version 330 core\n";
 
 constexpr auto linear_to_gamma_glsl_vert = R"glsl(
@@ -194,98 +489,11 @@ ImguiShaderCache::~ImguiShaderCache()
 }
 
 
-void imgui_set_shared_shader_params(ImguiShaderProgram* prog)
-{
-	ImDrawData* draw_data = ImGui::GetDrawData();
-
-	const auto le = draw_data->DisplayPos.x;
-	const auto ri = draw_data->DisplayPos.x + draw_data->DisplaySize.x;
-	const auto to = draw_data->DisplayPos.y;
-	const auto bo = draw_data->DisplayPos.y + draw_data->DisplaySize.y;
-
-	const float ortho_projection[4][4] = {
-		{2.0f / (ri - le), 0.0f, 0.0f, 0.0f},
-		{0.0f, 2.0f / (to - bo), 0.0f, 0.0f},
-		{0.0f, 0.0f, -1.0f, 0.0f},
-		{(ri + le) / (le - ri), (to + bo) / (bo - to), 0.0f, 1.0f},
-	};
-	glUseProgram(prog->program_handle);
-	glUniform1i(prog->texture_attrib, 0);
-	glUniformMatrix4fv(prog->projection_attrib, 1, GL_FALSE, &ortho_projection[0][0]);
-}
-
-void im_draw_callback_linear_to_gamma(const ImDrawList*, const ImDrawCmd* cmd)
-{
-	auto* prog = static_cast<ImguiShaderProgram*>(cmd->UserCallbackData);
-
-	imgui_set_shared_shader_params(prog);
-}
-
-void im_draw_callback_depth_ortho(const ImDrawList*, const ImDrawCmd* cmd)
-{
-	auto* prog = static_cast<ImguiShaderProgram*>(cmd->UserCallbackData);
-
-	imgui_set_shared_shader_params(prog);
-}
-
-
 
 void imgui_text(const std::string& str)
 {
     ImGui::Text("%s", str.c_str());
 }
-
-
-
-static void draw_imgui_image(const render::FrameBuffer& img, const ImVec2& image_size, const ImVec2& uv0, const ImVec2& uv1, const ImVec4& border_col, ImguiShaderCache* cache, ImageShader shader)
-{
-	ImDrawList* draw_list = ImGui::GetWindowDrawList();
-
-	// set shader
-	switch (shader)
-	{
-	case ImageShader::tonemap_and_gamma:
-		draw_list->AddCallback(im_draw_callback_linear_to_gamma, &cache->linear_to_gamma_shader);
-		break;
-	case ImageShader::depth_ortho:
-		draw_list->AddCallback(im_draw_callback_depth_ortho, &cache->depth_ortho_shader);
-		break;
-	case ImageShader::none:
-		// no shader
-		break;
-	}
-
-	// draw image
-	ImGui::ImageWithBg(img.id, image_size, uv0, uv1, border_col);
-
-	// reset shader
-	if (shader != ImageShader::none)
-	{
-		draw_list->AddCallback(ImDrawCallback_ResetRenderState, nullptr);
-	}
-}
-
-
-    static v2 v2_from_vec(const ImVec2& v)
-    {
-        return {v.x, v.y};
-    }
-
-
-static void image_tooltip(const render::FrameBuffer& texture_id, const ImVec2 texture_size, const float& region_size, const float& hover_size,
-	const ImVec2 mouse_pos, const ImVec2 widget_size, const ImVec2 pos, const ImVec4 border_col, ImguiShaderCache* cache, ImageShader shader)
-{
-	const auto region = core::calculate_region(v2_from_vec(mouse_pos), v2_from_vec(pos), v2_from_vec(texture_size), v2_from_vec(widget_size), region_size);
-	const auto flipped_region_y = texture_size.y - region.y;
-	const auto uv0 = ImVec2{region.x / texture_size.x, (flipped_region_y) / texture_size.y};
-	const auto uv1 = ImVec2{(region.x + region_size) / texture_size.x, (flipped_region_y - region_size) / texture_size.y};
-
-	// todo(Gustav): can we display pixel value instead of where we are looking? is the region important information?
-	imgui_text(fmt::format("UL: {} {}", region.x, region.y));
-	imgui_text(fmt::format("LR: {} {}", region.x + region_size, region.y + region_size));
-	draw_imgui_image(texture_id, ImVec2(hover_size, hover_size), uv0, uv1, border_col, cache, shader);
-}
-
 
 
 void imgui_image(const char* name, const render::FrameBuffer& img, ImguiShaderCache* cache, ImageShader shader)
@@ -354,7 +562,7 @@ bool simple_gamma_slider(const char* label, float* gamma, float curve, float min
 
 	// todo(Gustav): is this the correct way? it doesn't feel exactly right but perhaps that's just dear imgui
 	const auto gamma_range = max_gamma - min_gamma;
-	const auto t = (*gamma - min_gamma) / (gamma_range);
+	const auto t = (*gamma - min_gamma) / gamma_range;
 
 	auto slider_value = std::pow(t, 1.0f / curve);
 	if (ImGui::SliderFloat(label, &slider_value, 0.0f, 1.0f) == false)
@@ -393,214 +601,6 @@ bool drag(const char* label, Ypr* drag)
     return changed;
 }
 
-float length2(const ImVec2& v)
-{
-    return v.x* v.x + v.y * v.y;
-}
-
-float length(const ImVec2& v)
-{
-    return std::sqrt(v.x * v.x + v.y * v.y);
-}
-
-ImVec2 normalize(const ImVec2& v, float len)
-{
-    return v / len;
-}
-ImVec2 normalize(const ImVec2& v)
-{
-    return normalize(v, length(v));
-}
-
-float dot(const ImVec2& lhs, const ImVec2& rhs)
-{
-    return lhs.x * rhs.x + lhs.y * rhs.y;
-}
-bool is_positive(float f)
-{
-    return f >= 0.0f;
-}
-
-struct GearState
-{
-    ImGuiID id;
-    ImVec2 center;
-    ImVec2 pos;
-    int turns;
-    float orig;
-    std::optional<float> initial_angle;
-};
-
-namespace
-{
-    // dl functions are copied directly from ImDrawList with an additional starting angle and "special cases" removed.
-
-    void dl_PathArcToN(ImDrawList* dl, const ImVec2& center, float radius, float a_min, float a_max, int num_segments, float ang)
-    {
-        if (radius < 0.5f)
-        {
-            dl->_Path.push_back(center);
-            return;
-        }
-
-        // Note that we are adding a point at both a_min and a_max.
-        // If you are trying to draw a full closed circle you don't want the overlapping points!
-        dl->_Path.reserve(dl->_Path.Size + (num_segments + 1));
-        for (int i = 0; i <= num_segments; i++)
-        {
-            const float a = a_min + (static_cast<float>(i) / static_cast<float>(num_segments)) * (a_max - a_min);
-            dl->_Path.push_back(ImVec2(center.x + ImCos(a + ang) * radius, center.y + ImSin(a + ang) * radius));
-        }
-    }
-
-    void dl_PathArcTo(ImDrawList* dl, const ImVec2& center, float radius, float a_min, float a_max, int num_segments, float ang)
-    {
-        if (radius < 0.5f)
-        {
-            dl->_Path.push_back(center);
-            return;
-        }
-
-        dl_PathArcToN(dl, center, radius, a_min, a_max, num_segments, ang);
-    }
-
-    void dl_AddCircle(ImDrawList* dl, const ImVec2& center, float radius, ImU32 col, int num_segments, float thickness, float ang)
-    {
-        if ((col & IM_COL32_A_MASK) == 0 || radius < 0.5f)
-        {
-            return;
-        }
-
-        // Explicit segment count (still clamp to avoid drawing insanely tessellated shapes)
-        num_segments = ImClamp(num_segments, 3, IM_DRAWLIST_CIRCLE_AUTO_SEGMENT_MAX);
-
-        // Because we are filling a closed shape we remove 1 from the count of segments/points
-        const float a_max = (IM_PI * 2.0f) * (static_cast<float>(num_segments) - 1.0f) / static_cast<float>(num_segments);
-        dl_PathArcTo(dl, center, radius - 0.5f, 0.0f, a_max, num_segments - 1, ang);
-
-        dl->PathStroke(col, ImDrawFlags_Closed, thickness);
-    }
-}
-
-ImVec2 calc_button_size(const char* label, const ImVec2& size_arg = ImVec2(0,0))
-{
-    const auto style = ImGui::GetStyle();
-    const ImVec2 label_size = ImGui::CalcTextSize(label, nullptr, true);
-    ImVec2 size = ImGui::CalcItemSize(size_arg, label_size.x + style.FramePadding.x * 2.0f, label_size.y + style.FramePadding.y * 2.0f);
-    return size;
-}
-
-// https://anttweakbar.sourceforge.io/doc/tools_anttweakbar_rotoslider.html
-bool gear_icon(const char* label, float* drag, const ImVec2& size)
-{
-    static std::optional<GearState> state = std::nullopt;
-
-    // config
-    const auto circle_col = ImColor(100, 100, 255);
-    const float min_radius = 20.0f;
-    const float radius = min_radius;
-    const float one_turn = 10.0f;
-    constexpr float circle_thickness = 1.0f;
-    constexpr int gear_segments = 6;
-
-    const auto mp = ImGui::GetMousePos();
-
-    ImGui::Button(label, size);
-    const auto id = ImGui::GetItemID();
-    const auto active = ImGui::IsItemActive();
-
-    if (active && state && state->id != id)
-    {
-        // another id is active, but so are we => treat it as the previous lost the activity
-        state = std::nullopt;
-    }
-
-    auto orig = state ? state->orig : *drag;
-    const auto center = state.has_value() ? state->center : mp;
-
-    // interaction
-    bool changed = false;
-    if (state.has_value() == false || state->id == id)
-    {
-        // only change state if we are the interactive item or there is no interactive item
-        if (active)
-        {
-            int turns = state ? state->turns : 0;
-            const auto input = mp - center;
-            std::optional<float> initial_angle = state ? state->initial_angle : std::nullopt;
-            if (length2(input) > (min_radius * min_radius))
-            {
-                const auto dir_cur = normalize(input);
-                const auto ang_right = std::acos(dot(dir_cur, {1, 0})) * (180.0f/std::numbers::pi_v<float>);
-                const auto ang = dir_cur.y < 0 ? ang_right : 360 - ang_right;
-
-                if (initial_angle.has_value() == false)
-                {
-                    initial_angle = ang;
-                }
-
-                if (state.has_value())
-                {
-                    const auto changed_y = is_positive(input.y) != is_positive(state->pos.y);
-                    const auto on_right_side = input.x > 0 && state->pos.x > 0;
-                    const auto changed_dir = changed_y && on_right_side;
-                    if (changed_dir)
-                    {
-                        turns += is_positive(input.y) ? -1 : 1;
-                    }
-                }
-                const auto new_ang = ang  - *initial_angle + static_cast<float>(turns) * 360.0f;
-                const auto val = orig + (new_ang / 360.0f) * one_turn;
-                
-                if (drag)
-                {
-                    *drag = val;
-                    changed = true;
-                }
-            }
-            else
-            {
-                initial_angle = std::nullopt;
-                turns = 0;
-                orig = *drag;
-            }
-
-            state = GearState
-            {
-                .id = id,
-                .center = center,
-                .pos = input,
-                .turns = turns,
-                .orig = orig,
-                .initial_angle = initial_angle
-            };
-        }
-        else
-        {
-            state = std::nullopt;
-        }
-    }
-
-    // drawing
-    {
-        // draw gear
-        if (active)
-        {
-            auto* fg = ImGui::GetForegroundDrawList();
-            // fg->AddCircle(center, radius, circle_col, gear_segments, thickness);
-            constexpr auto segment_factor = 1.0f / static_cast<float>(gear_segments - 1);
-            const auto turn_factor = std::fmodf(*drag, one_turn) / one_turn;
-            const auto ang = (turn_factor + segment_factor) * -2.0f * IM_PI;
-            dl_AddCircle(fg, center, radius, circle_col, gear_segments, circle_thickness, ang);
-            
-            // draw wrench instead?
-            fg->AddLine(center, mp, circle_col);
-        }
-    }
-
-    return changed;
-}
-
 bool gear(const char* label, v3* drag)
 {
     constexpr const char* gear_string = ".";
@@ -612,19 +612,20 @@ bool gear(const char* label, v3* drag)
     ImGui::BeginGroup();
     ImGui::PushID(label);
     
-    float w_items = ImMax(0.0f, ImGui::CalcItemWidth() - style.ItemInnerSpacing.x * (6 - 1) - gear_size.x * 3);
-    for (int i=0; i<3; i+=1)
+    const float w_items = ImMax(0.0f, ImGui::CalcItemWidth() - style.ItemInnerSpacing.x * (6 - 1) - gear_size.x * 3);
+    for (int item_index=0; item_index<3; item_index+=1)
     {
         ImGui::PushItemWidth(gear_size.x);
         ImGui::PushItemWidth(w_items / 3);
     }
-    // ImGui::PushMultiItemsWidths(3, ImGui::CalcItemWidth());
     
     const auto widget = [&](int i, float* p_data)
         {
             ImGui::PushID(i);
             if (i > 0)
+            {
                 ImGui::SameLine(0, style.ItemInnerSpacing.x);
+            }
             value_changed |= ImGui::DragFloat("", p_data);
             ImGui::PopItemWidth();
             ImGui::SameLine(0, style.ItemInnerSpacing.x);
