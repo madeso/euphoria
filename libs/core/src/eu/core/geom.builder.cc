@@ -12,26 +12,29 @@
 namespace eu::core::geom
 {
 
-struct Combo
+namespace
 {
-	Index position;
-	Index texture;
-	Index normal;
-	Index color;
+    struct Combo
+    {
+	    Index position;
+	    Index texture;
+	    Index normal;
+	    Index color;
 
-	explicit Combo(const Vertex& v)
-		: position(v.position)
-		, texture(v.texture)
-		, normal(v.normal)
-		, color(v.color)
-	{
-	}
-};
+	    explicit Combo(const Vertex& v)
+		    : position(v.position)
+		    , texture(v.texture)
+		    , normal(v.normal)
+		    , color(v.color)
+	    {
+	    }
+    };
 
-bool operator==(const Combo& lhs, const Combo& rhs)
-{
-	return lhs.position == rhs.position && lhs.texture == rhs.texture && lhs.normal == rhs.normal
-		&& lhs.color == rhs.color;
+    bool operator==(const Combo& lhs, const Combo& rhs)
+    {
+	    return lhs.position == rhs.position && lhs.texture == rhs.texture && lhs.normal == rhs.normal
+		    && lhs.color == rhs.color;
+    }
 }
 
 }  //  namespace eu::core::geom
@@ -229,11 +232,6 @@ void Builder::add_weight(const v4& weight)
     weights.emplace_back(weight);
 }
 
-v3 from_to(const v3& f, const v3& t)
-{
-	return v3::from_to(f, t);
-}
-
 Geom Builder::to_geom() const
 {
 	std::unordered_map<Combo, u32> combinations;
@@ -296,7 +294,7 @@ Geom Builder::to_geom() const
 			const auto v2 = convert_vert(src_face[triangle_base+1]);
 
 			// add triangle to geom
-			final_tris.emplace_back(Face{v0, v1, v2});
+			final_tris.emplace_back(Face{.a = v0, .b = v1, .c = v2});
 		}
 	}
 
@@ -399,60 +397,60 @@ Builder create_box(float x, float y, float z, NormalsFacing normals_facing, cons
 	// front
 	add_quad_to_builder(b, invert, color, {0, 0, -s},
 		{
-			Pt{{-hx, -hy, -hz}, {0.0f, 0.0f}},
-			Pt{{hx, -hy, -hz}, {x * ts, 0.0f}},
-			Pt{{hx, hy, -hz}, {x * ts, y * ts}},
-			Pt{{-hx, hy, -hz}, {0.0f, y * ts}}
+			Pt{.pos = {-hx, -hy, -hz}, .tex = {0.0f, 0.0f}},
+			Pt{.pos = {hx, -hy, -hz}, .tex = {x * ts, 0.0f}},
+			Pt{.pos = {hx, hy, -hz}, .tex = {x * ts, y * ts}},
+			Pt{.pos = {-hx, hy, -hz}, .tex = {0.0f, y * ts}}
 		}
 	);
 
 	// back
 	add_quad_to_builder(b, invert, color, {0, 0, s},
 		{
-			Pt{{-hx, -hy, hz}, {0.0f, 0.0f}},
-			Pt{{-hx, hy, hz}, {0.0f, y * ts}},
-			Pt{{hx, hy, hz}, {x * ts, y * ts}},
-			Pt{{hx, -hy, hz}, {x * ts, 0.0f}}
+			Pt{.pos = {-hx, -hy, hz}, .tex = {0.0f, 0.0f}},
+			Pt{.pos = {-hx, hy, hz}, .tex = {0.0f, y * ts}},
+			Pt{.pos = {hx, hy, hz}, .tex = {x * ts, y * ts}},
+			Pt{.pos = {hx, -hy, hz}, .tex = {x * ts, 0.0f}}
 		}
 	);
 
 	// left
 	add_quad_to_builder(b, invert, color,{-s, 0, 0},
 		{
-			Pt{{-hx, hy, -hz}, {y * ts, 0.0f}},
-			Pt{{-hx, hy, hz}, {y * ts, z * ts}},
-			Pt{{-hx, -hy, hz}, {0.0f, z * ts}},
-			Pt{{-hx, -hy, -hz}, {0.0f, 0.0f}}
+			Pt{.pos = {-hx, hy, -hz}, .tex = {y * ts, 0.0f}},
+			Pt{.pos = {-hx, hy, hz}, .tex = {y * ts, z * ts}},
+			Pt{.pos = {-hx, -hy, hz}, .tex = {0.0f, z * ts}},
+			Pt{.pos = {-hx, -hy, -hz}, .tex = {0.0f, 0.0f}}
 		}
 	);
 
 	// right
 	add_quad_to_builder(b, invert, color,{s, 0, 0},
 		{
-			Pt{{hx, hy, hz}, {z * ts, y * ts}},
-			Pt{{hx, hy, -hz}, {0.0f, y * ts}},
-			Pt{{hx, -hy, -hz}, {0.0f, 0.0f}},
-			Pt{{hx, -hy, hz}, {z * ts, 0.0f}}
+			Pt{.pos = {hx, hy, hz}, .tex = {z * ts, y * ts}},
+			Pt{.pos = {hx, hy, -hz}, .tex = {0.0f, y * ts}},
+			Pt{.pos = {hx, -hy, -hz}, .tex = {0.0f, 0.0f}},
+			Pt{.pos = {hx, -hy, hz}, .tex = {z * ts, 0.0f}}
 		}
 	);
 
 	// bottom
 	add_quad_to_builder(b, invert, color,{0, -s, 0},
 		{
-			Pt{{-hx, -hy, -hz}, {0.0f, 0.0f}},
-			Pt{{-hx, -hy, hz}, {0.0f, z * ts}},
-			Pt{{hx, -hy, hz}, {x * ts, z * ts}},
-			Pt{{hx, -hy, -hz}, {x * ts, 0.0f}}
+			Pt{.pos = {-hx, -hy, -hz}, .tex = {0.0f, 0.0f}},
+			Pt{.pos = {-hx, -hy, hz}, .tex = {0.0f, z * ts}},
+			Pt{.pos = {hx, -hy, hz}, .tex = {x * ts, z * ts}},
+			Pt{.pos = {hx, -hy, -hz}, .tex = {x * ts, 0.0f}}
 		}
 	);
 
 	// top
 	add_quad_to_builder(b, invert, color,{0, s, 0},
 		{
-			Pt{{-hx, hy, -hz}, {0.0f, 0.0f}},
-			Pt{{hx, hy, -hz}, {x * ts, 0.0f}},
-			Pt{{hx, hy, hz}, {x * ts, z * ts}},
-			Pt{{-hx, hy, hz}, {0.0f, z * ts}}
+			Pt{.pos = {-hx, hy, -hz}, .tex = {0.0f, 0.0f}},
+			Pt{.pos = {hx, hy, -hz}, .tex = {x * ts, 0.0f}},
+			Pt{.pos = {hx, hy, hz}, .tex = {x * ts, z * ts}},
+			Pt{.pos = {-hx, hy, hz}, .tex = {0.0f, z * ts}}
 		}
 	);
 
@@ -473,10 +471,10 @@ Builder create_xz_plane(float x, float z, bool invert, const Rgb& color)
 	const float s = invert ? -1.0f : 1.0f;
 	add_quad_to_builder(b, invert, color,{0, s, 0},
 		{
-			Pt{{-hx, 0.0f, -hz}, {0.0f, 0.0f}},
-			Pt{{hx, 0.0f, -hz}, {x * ts, 0.0f}},
-			Pt{{hx, 0.0f, hz}, {x * ts, z * ts}},
-			Pt{{-hx, 0.0f, hz}, {0.0f, z * ts}}
+			Pt{.pos = {-hx, 0.0f, -hz}, .tex = {0.0f, 0.0f}},
+			Pt{.pos = {hx, 0.0f, -hz}, .tex = {x * ts, 0.0f}},
+			Pt{.pos = {hx, 0.0f, hz}, .tex = {x * ts, z * ts}},
+			Pt{.pos = {-hx, 0.0f, hz}, .tex = {0.0f, z * ts}}
 		}
 	);
 
@@ -503,10 +501,10 @@ Builder create_xy_plane(float x, float y, SideCount two_sided, const Rgb& color)
 	// front
 	add_quad_to_builder(b, invert, color,{0, 0, -s},
 		{
-			Pt{{-hx, -hy, hz}, {0.0f, 0.0f}},
-			Pt{{hx, -hy, hz}, {ts, 0.0f}},
-			Pt{{hx, hy, hz}, {ts, ts}},
-			Pt{{-hx, hy, hz}, {0.0f, ts}}
+			Pt{.pos = {-hx, -hy, hz}, .tex = {0.0f, 0.0f}},
+			Pt{.pos = {hx, -hy, hz}, .tex = {ts, 0.0f}},
+			Pt{.pos = {hx, hy, hz}, .tex = {ts, ts}},
+			Pt{.pos = {-hx, hy, hz}, .tex = {0.0f, ts}}
 		}
 	);
 
@@ -515,10 +513,10 @@ Builder create_xy_plane(float x, float y, SideCount two_sided, const Rgb& color)
 	{
 		add_quad_to_builder(b, invert, color,{0, 0, s},
 			{
-				Pt{{-hx, -hy, hz}, {0.0f, 0.0f}},
-				Pt{{-hx, hy, hz}, {0.0f, ts}},
-				Pt{{hx, hy, hz}, {ts, ts}},
-				Pt{{hx, -hy, hz}, {ts, 0.0f}}
+				Pt{.pos = {-hx, -hy, hz}, .tex = {0.0f, 0.0f}},
+				Pt{.pos = {-hx, hy, hz}, .tex = {0.0f, ts}},
+				Pt{.pos = {hx, hy, hz}, .tex = {ts, ts}},
+				Pt{.pos = {hx, -hy, hz}, .tex = {ts, 0.0f}}
 			}
 		);
 	}
@@ -575,9 +573,9 @@ Builder create_uv_sphere(float diameter, int longitude_count, int latitude_count
 	//  |  / |       |  / |
 	//  | /  |       | /  |
 	//  k2--k2+1     c----d
-	for (Index latitude_index = 0; latitude_index < static_cast<Index>(latitude_count); ++latitude_index)
+	for (Index latitude_index = 0; std::cmp_less(latitude_index, latitude_count); ++latitude_index)
 	{
-		for (Index longitude_index = 0; longitude_index < static_cast<Index>(longitude_count); ++longitude_index)
+		for (Index longitude_index = 0; std::cmp_less(longitude_index, longitude_count); ++longitude_index)
 		{
 			const auto k1 = latitude_index * (static_cast<Index>(longitude_count) + 1) + longitude_index;
 			const auto k2 = k1 + static_cast<Index>(longitude_count) + 1;
@@ -599,7 +597,7 @@ Builder create_uv_sphere(float diameter, int longitude_count, int latitude_count
 				}
 			}
 
-			if (latitude_index != static_cast<Index>(latitude_count - 1))
+			if (std::cmp_not_equal(latitude_index, latitude_count - 1))
 			{
 				if (invert)
 				{

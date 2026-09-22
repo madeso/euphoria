@@ -133,19 +133,19 @@ FalseString is_equal(const CompiledGeomVertexAttributes& lhs, const CompiledGeom
 TEST_CASE("vertex_layout_duplicates", "[vertex_layout]")
 {
 	const auto layout_shader_material = ShaderVertexAttributes{
-		{VertexType::position3, "aPos"},
-		{VertexType::normal3, "aNormal"},
-		{VertexType::color4, "aColor"},
-		{VertexType::texture2, "aTexCoord"}
+		{.type = VertexType::position3, .name = "aPos"},
+		{.type = VertexType::normal3, .name = "aNormal"},
+		{.type = VertexType::color4, .name = "aColor"},
+		{.type = VertexType::texture2, .name = "aTexCoord"}
 	};
 	const auto none = find_duplicates(layout_shader_material);
 	CHECK(none.empty());
 
 	const auto bad_material = ShaderVertexAttributes{
-		{VertexType::position3, "aPos"},
-		{VertexType::normal3, "aNormal"},
-		{VertexType::color4, "aColor"},
-		{VertexType::normal3, "aNormalAgain"}
+		{.type = VertexType::position3, .name = "aPos"},
+		{.type = VertexType::normal3, .name = "aNormal"},
+		{.type = VertexType::color4, .name = "aColor"},
+		{.type = VertexType::normal3, .name = "aNormalAgain"}
 	};
 	const auto one = find_duplicates(bad_material);
 	REQUIRE(one.size() == 1);
@@ -155,10 +155,10 @@ TEST_CASE("vertex_layout_duplicates", "[vertex_layout]")
 TEST_CASE("vertex_layout_test_simple", "[vertex_layout]")
 {
 	const auto layout_shader_material = ShaderVertexAttributes{
-		{VertexType::position3, "aPos"},
-		{VertexType::normal3, "aNormal"},
-		{VertexType::color4, "aColor"},
-		{VertexType::texture2, "aTexCoord"}
+		{.type = VertexType::position3, .name = "aPos"},
+		{.type = VertexType::normal3, .name = "aNormal"},
+		{.type = VertexType::color4, .name = "aColor"},
+		{.type = VertexType::texture2, .name = "aTexCoord"}
 	};
 
 	const auto layout_compiler = compile_attribute_layouts({layout_shader_material});
@@ -185,10 +185,10 @@ TEST_CASE("vertex_layout_test_simple", "[vertex_layout]")
 TEST_CASE("vertex_layout_test_with_custom_layout", "[vertex_layout]")
 {
 	const auto layout_shader_material = ShaderVertexAttributes{
-		{VertexType::position3, "aPos"},
-		{VertexType::normal3, "aNormal"},
-		{VertexType::color4, "aColor"},
-		{VertexType::texture2, "aTexCoord"}
+		{.type = VertexType::position3, .name = "aPos"},
+		{.type = VertexType::normal3, .name = "aNormal"},
+		{.type = VertexType::color4, .name = "aColor"},
+		{.type = VertexType::texture2, .name = "aTexCoord"}
 	};
 
 	const auto layout_compiler
@@ -216,13 +216,13 @@ TEST_CASE("vertex_layout_test_with_custom_layout", "[vertex_layout]")
 TEST_CASE("vertex_layout_test_material_and_depth", "[vertex_layout]")
 {
 	const auto layout_shader_material = ShaderVertexAttributes{
-		{VertexType::position3, "aPos"},
-		{VertexType::normal3, "aNormal"},
-		{VertexType::color4, "aColor"},
-		{VertexType::texture2, "aTexCoord"}
+		{.type = VertexType::position3, .name = "aPos"},
+		{.type = VertexType::normal3, .name = "aNormal"},
+		{.type = VertexType::color4, .name = "aColor"},
+		{.type = VertexType::texture2, .name = "aTexCoord"}
 	};
 
-	const auto layout_shader_depth = ShaderVertexAttributes{{VertexType::position3, "aPos"}};
+	const auto layout_shader_depth = ShaderVertexAttributes{{.type = VertexType::position3, .name = "aPos"}};
 
 	const auto layout_compiler = compile_attribute_layouts({layout_shader_material, layout_shader_depth});
 	const auto compiled_layout_material = compile_shader_layout(layout_compiler, layout_shader_material, std::nullopt, std::nullopt);
@@ -254,17 +254,17 @@ TEST_CASE("vertex_layout_test_material_and_depth", "[vertex_layout]")
 TEST_CASE("vertex_layout_test_material_and_different", "[vertex_layout]")
 {
 	const auto layout_shader_material = ShaderVertexAttributes{
-		{VertexType::position3, "aPos"},
-		{VertexType::normal3, "aNormal"},
-		{VertexType::color4, "aColor"},
-		{VertexType::texture2, "aTexCoord"}
+		{.type = VertexType::position3, .name = "aPos"},
+		{.type = VertexType::normal3, .name = "aNormal"},
+		{.type = VertexType::color4, .name = "aColor"},
+		{.type = VertexType::texture2, .name = "aTexCoord"}
 	};
 
 	const auto layout_shader_different = ShaderVertexAttributes{
-		{VertexType::color4, "aColor"},
-		{VertexType::texture2, "aTexCoord"},
-		{VertexType::position3, "aPos"},
-		{VertexType::normal3, "aNormal"}
+		{.type = VertexType::color4, .name = "aColor"},
+		{.type = VertexType::texture2, .name = "aTexCoord"},
+		{.type = VertexType::position3, .name = "aPos"},
+		{.type = VertexType::normal3, .name = "aNormal"}
 	};
 
 	const auto layout_compiler = compile_attribute_layouts({layout_shader_different, layout_shader_material});
@@ -300,9 +300,8 @@ TEST_CASE("vertex_layout_test_material_and_different", "[vertex_layout]")
 
 TEST_CASE("vertex_layout_test_crazy", "[vertex_layout]")
 {
-	const auto layout_shader_a = ShaderVertexAttributes{{VertexType::color4, "rgb"}};
-
-	const auto layout_shader_b = ShaderVertexAttributes{{VertexType::texture2, "uv"}};
+	const auto layout_shader_a = ShaderVertexAttributes{{.type = VertexType::color4, .name = "rgb"}};
+	const auto layout_shader_b = ShaderVertexAttributes{{.type = VertexType::texture2, .name = "uv"}};
 	const auto layout_compiler = compile_attribute_layouts({layout_shader_a, layout_shader_b});
 	const auto compiled_layout_a = compile_shader_layout(layout_compiler, layout_shader_a, std::nullopt, std::nullopt);
 	const auto compiled_layout_b = compile_shader_layout(layout_compiler, layout_shader_b, std::nullopt, std::nullopt);
@@ -319,10 +318,16 @@ TEST_CASE("vertex_layout_test_crazy", "[vertex_layout]")
 
 TEST_CASE("vertex_layout_test_get_not_requested", "[vertex_layout]")
 {
-	const auto layout_shader_material = ShaderVertexAttributes{{VertexType::position3, "pos"}};
+	const auto layout_shader_material = ShaderVertexAttributes{
+	    {
+	        .type = VertexType::position3,
+            .name = "pos"
+	    }};
 	const auto not_requested_property
 		= GENERATE(VertexType::position2xy, VertexType::normal3, VertexType::color4, VertexType::texture2);
-	const auto layout_shader_not_requested = ShaderVertexAttributes{{not_requested_property, "not_requested_prop"}};
+	const auto layout_shader_not_requested = ShaderVertexAttributes{{
+	    .type = not_requested_property,
+        .name = "not_requested_prop"}};
 	auto layout_compiler = compile_attribute_layouts({layout_shader_material});
 	const auto geom_layout = get_geom_layout(layout_compiler);
 
