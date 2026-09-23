@@ -38,7 +38,7 @@
     <div class="col-sm-12 col-lg-3 float-left d-flex flex-column text-right flex-justify-end p-3">
       <div class="d-flex">
         <div class="mr-2">Lines:</div>
-        <div class="mr-2" style="margin: auto;">0 of 106, 0 excluded</div>
+        <div class="mr-2" style="margin: auto;">0 of 110, 0 excluded</div>
         <div class="Label--minw"><span class="coverage-none IssueLabel color-fg-on-emphasis mr-1">0.0%</span></div>
       </div>
       <div class="d-flex">
@@ -48,7 +48,7 @@
       </div>
       <div class="d-flex">
         <div class="mr-2">Branches:</div>
-        <div class="mr-2" style="margin: auto;">0 of 1062, 0 excluded</div>
+        <div class="mr-2" style="margin: auto;">0 of 1070, 0 excluded</div>
         <div class="Label--minw"><span class="coverage-none IssueLabel color-fg-on-emphasis mr-1">0.0%</span></div>
       </div>
     </div>
@@ -69,7 +69,7 @@
     <div role="rowheader" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2 sortable">Blocks</div>
   </div>
   <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l160">eu::runner::Input::get_current_frame() const (apps/runner/src/eu/runner/input.cc:160)</a>    </div>
+    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l167">eu::runner::Input::get_current_frame() const (apps/runner/src/eu/runner/input.cc:167)</a>    </div>
     <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
@@ -83,14 +83,14 @@
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
   </div>
   <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l146">eu::runner::Input::on_key(int, bool) (apps/runner/src/eu/runner/input.cc:146)</a>    </div>
+    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l153">eu::runner::Input::on_key(int, bool) (apps/runner/src/eu/runner/input.cc:153)</a>    </div>
     <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
   </div>
   <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l137">eu::runner::Input::update() (apps/runner/src/eu/runner/input.cc:137)</a>    </div>
+    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l144">eu::runner::Input::update() (apps/runner/src/eu/runner/input.cc:144)</a>    </div>
     <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
@@ -120,7 +120,7 @@
     apps/runner/src/eu/runner/input.cc
     <div class="toggle-buttons">
       <button type="button" class="button_toggle_coveredLine show_coveredLine" value="coveredLine" title="Toggle covered lines">0 covered</button>
-      <button type="button" class="button_toggle_uncoveredLine show_uncoveredLine" value="uncoveredLine" title="Toggle uncovered lines">106 uncovered</button>
+      <button type="button" class="button_toggle_uncoveredLine show_uncoveredLine" value="uncoveredLine" title="Toggle uncovered lines">110 uncovered</button>
       <button type="button" class="button_toggle_partialCoveredLine show_partialCoveredLine" value="partialCoveredLine" title="Toggle partial covered lines">0 partial covered</button>
       <button type="button" class="button_toggle_excludedLine show_excludedLine" value="excludedLine" title="Toggle excluded lines">0 excluded</button>
     </div>
@@ -661,717 +661,766 @@
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kdl</span><span class="o">::</span><span class="n">parse</span><span class="p">(</span><span class="n">eu</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">string_from_file</span><span class="p">(</span><span class="n">path</span><span class="p">));</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">parsed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kdl</span><span class="o">::</span><span class="n">parse</span><span class="p">(</span><span class="n">eu</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">string_from_file</span><span class="p">(</span><span class="n">path</span><span class="p">));</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l76" href="#l76">76</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">parsed</span><span class="p">.</span><span class="n">document</span><span class="p">.</span><span class="n">has_value</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">)</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l77" href="#l77">77</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span></td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">    </span><span class="p">{</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l78" href="#l78">78</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">LOG_WARN</span><span class="p">(</span><span class="s">&quot;Failed to parse {}: &#39;{}&#39;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">parsed</span><span class="p">.</span><span class="n">error</span><span class="p">);</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l79" href="#l79">79</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">doc</span><span class="p">)</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l80" href="#l80">80</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
+        <td class="src"><span class="w">    </span><span class="p">}</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l81" href="#l81">81</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;action&quot;</span><span class="p">)</span></td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l82" href="#l82">82</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="p">{</span></td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">parsed</span><span class="p">.</span><span class="n">document</span><span class="p">;</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l83" href="#l83">83</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">args</span><span class="p">()[</span><span class="mi">0</span><span class="p">].</span><span class="n">as_string</span><span class="p">();</span></td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l84" href="#l84">84</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">            </span></td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l85" href="#l85">85</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">existing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">index_from_action</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">name</span><span class="p">);</span></td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l86" href="#l86">86</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">existing</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">index_from_action</span><span class="p">.</span><span class="n">end</span><span class="p">())</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">doc</span><span class="p">)</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l87" href="#l87">87</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">            </span><span class="p">{</span></td>
+        <td class="src"><span class="w">    </span><span class="p">{</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l88" href="#l88">88</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">                </span><span class="n">LOG_WARN</span><span class="p">(</span><span class="s">&quot;Duplicate action found: &#39;{}&#39;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">);</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;action&quot;</span><span class="p">)</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l89" href="#l89">89</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">                </span><span class="n">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span></td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">        </span><span class="p">{</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l90" href="#l90">90</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">                </span><span class="k">continue</span><span class="p">;</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">as_string</span><span class="p">();</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l91" href="#l91">91</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">            </span><span class="p">}</span></td>
+        <td class="src"><span class="w">            </span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l92" href="#l92">92</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">new_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">actions</span><span class="p">.</span><span class="n">size</span><span class="p">();</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">existing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">index_from_action</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">name</span><span class="p">);</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l93" href="#l93">93</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="n">actions</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">Action</span><span class="p">{</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">existing</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">index_from_action</span><span class="p">.</span><span class="n">end</span><span class="p">())</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l94" href="#l94">94</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">                </span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">,</span></td>
+        <td class="src"><span class="w">            </span><span class="p">{</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l95" href="#l95">95</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">                </span><span class="p">.</span><span class="n">is_down</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span></td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">                </span><span class="n">LOG_WARN</span><span class="p">(</span><span class="s">&quot;Duplicate action found: &#39;{}&#39;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">);</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l96" href="#l96">96</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">                </span><span class="p">.</span><span class="n">last_down</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span></td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">                </span><span class="n">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l97" href="#l97">97</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">            </span><span class="p">});</span></td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">                </span><span class="k">continue</span><span class="p">;</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l98" href="#l98">98</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="n">index_from_action</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_index</span><span class="p">;</span></td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">            </span><span class="p">}</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l99" href="#l99">99</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="p">}</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">new_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">actions</span><span class="p">.</span><span class="n">size</span><span class="p">();</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l100" href="#l100">100</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;key&quot;</span><span class="p">)</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="n">actions</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">Action</span><span class="p">{</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l101" href="#l101">101</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="p">{</span></td>
+        <td class="src"><span class="w">                </span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">,</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l102" href="#l102">102</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">action_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">args</span><span class="p">()[</span><span class="mi">0</span><span class="p">].</span><span class="n">as_string</span><span class="p">();</span></td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">                </span><span class="p">.</span><span class="n">is_down</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l103" href="#l103">103</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">found_action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">index_from_action</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">action_name</span><span class="p">);</span></td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">                </span><span class="p">.</span><span class="n">last_down</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l104" href="#l104">104</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">found_action</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">index_from_action</span><span class="p">.</span><span class="n">end</span><span class="p">())</span></td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">            </span><span class="p">});</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l105" href="#l105">105</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">            </span><span class="p">{</span></td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="n">index_from_action</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_index</span><span class="p">;</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l106" href="#l106">106</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">                </span><span class="n">LOG_WARN</span><span class="p">(</span><span class="s">&quot;Invalid action name: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">action_name</span><span class="p">);</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="p">}</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l107" href="#l107">107</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">                </span><span class="n">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;key&quot;</span><span class="p">)</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l108" href="#l108">108</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">                </span><span class="k">continue</span><span class="p">;</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l109" href="#l109">109</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">            </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l110" href="#l110">110</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l111" href="#l111">111</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">key_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">args</span><span class="p">()[</span><span class="mi">1</span><span class="p">].</span><span class="n">as_string</span><span class="p">();</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l112" href="#l112">112</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">key_from_name</span><span class="p">(</span><span class="n">key_name</span><span class="p">);</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l113" href="#l113">113</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">key</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l114" href="#l114">114</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">            </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l115" href="#l115">115</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">                </span><span class="n">LOG_WARN</span><span class="p">(</span><span class="s">&quot;Invalid key name: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">key_name</span><span class="p">);</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l116" href="#l116">116</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">                </span><span class="n">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l117" href="#l117">117</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">                </span><span class="k">continue</span><span class="p">;</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l118" href="#l118">118</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">            </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l119" href="#l119">119</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">            </span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l120" href="#l120">120</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">bind</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">KeyBind</span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l121" href="#l121">121</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">                </span><span class="p">.</span><span class="n">sdl_keyboard_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">key</span><span class="p">,</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l122" href="#l122">122</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">                </span><span class="p">.</span><span class="n">bind_action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">found_action</span><span class="o">-&gt;</span><span class="n">second</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l123" href="#l123">123</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="p">};</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l124" href="#l124">124</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="n">bind_from_key</span><span class="p">[</span><span class="o">*</span><span class="n">key</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bind</span><span class="p">;</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l125" href="#l125">125</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l126" href="#l126">126</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="k">else</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l127" href="#l127">127</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">        </span><span class="p">{</span></td>
       </tr>
       <tr>
+        <td class="text-right src linenos"><a class="normal" id="l109" href="#l109">109</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">action_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">as_string</span><span class="p">();</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l110" href="#l110">110</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">found_action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">index_from_action</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">action_name</span><span class="p">);</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l111" href="#l111">111</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">found_action</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">index_from_action</span><span class="p">.</span><span class="n">end</span><span class="p">())</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l112" href="#l112">112</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">            </span><span class="p">{</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l113" href="#l113">113</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">                </span><span class="n">LOG_WARN</span><span class="p">(</span><span class="s">&quot;Invalid action name: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">action_name</span><span class="p">);</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l114" href="#l114">114</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">                </span><span class="n">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l115" href="#l115">115</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">                </span><span class="k">continue</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l116" href="#l116">116</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">            </span><span class="p">}</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l117" href="#l117">117</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l118" href="#l118">118</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">key_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">as_string</span><span class="p">();</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l119" href="#l119">119</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">key_from_name</span><span class="p">(</span><span class="n">key_name</span><span class="p">);</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l120" href="#l120">120</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">key</span><span class="p">)</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l121" href="#l121">121</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">            </span><span class="p">{</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l122" href="#l122">122</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">                </span><span class="n">LOG_WARN</span><span class="p">(</span><span class="s">&quot;Invalid key name: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">key_name</span><span class="p">);</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l123" href="#l123">123</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">                </span><span class="n">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l124" href="#l124">124</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">                </span><span class="k">continue</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l125" href="#l125">125</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">            </span><span class="p">}</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l126" href="#l126">126</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">            </span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l127" href="#l127">127</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">bind</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">KeyBind</span><span class="p">{</span></td>
+      </tr>
+      <tr>
         <td class="text-right src linenos"><a class="normal" id="l128" href="#l128">128</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="n">LOG_WARN</span><span class="p">(</span><span class="s">&quot;Unknown node in input file: &#39;{}&#39;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">name</span><span class="p">());</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">                </span><span class="p">.</span><span class="n">sdl_keyboard_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">key</span><span class="p">,</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l129" href="#l129">129</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="n">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">                </span><span class="p">.</span><span class="n">bind_action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">found_action</span><span class="o">-&gt;</span><span class="n">second</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l130" href="#l130">130</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="p">};</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l131" href="#l131">131</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="n">bind_from_key</span><span class="p">[</span><span class="o">*</span><span class="n">key</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bind</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l132" href="#l132">132</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="p">}</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l133" href="#l133">133</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">        </span><span class="k">else</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l134" href="#l134">134</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">        </span><span class="p">{</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l135" href="#l135">135</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="n">LOG_WARN</span><span class="p">(</span><span class="s">&quot;Unknown node in input file: &#39;{}&#39;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">name</span><span class="p">);</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l136" href="#l136">136</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="n">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l137" href="#l137">137</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">        </span><span class="p">}</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l131" href="#l131">131</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l138" href="#l138">138</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">    </span><span class="p">}</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l132" href="#l132">132</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l139" href="#l139">139</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l133" href="#l133">133</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l140" href="#l140">140</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ok</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">bind_from_key</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l134" href="#l134">134</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l135" href="#l135">135</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l136" href="#l136">136</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l137" href="#l137">137</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="kt">void</span><span class="w"> </span><span class="n">Input</span><span class="o">::</span><span class="n">update</span><span class="p">()</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l138" href="#l138">138</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l139" href="#l139">139</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">action</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">actions</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l140" href="#l140">140</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
-      </tr>
-      <tr>
         <td class="text-right src linenos"><a class="normal" id="l141" href="#l141">141</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">action</span><span class="p">.</span><span class="n">last_down</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">action</span><span class="p">.</span><span class="n">is_down</span><span class="p">;</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="p">}</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l142" href="#l142">142</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">}</span></td>
+        <td class="src"></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l143" href="#l143">143</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="p">}</span></td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l144" href="#l144">144</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="kt">void</span><span class="w"> </span><span class="n">Input</span><span class="o">::</span><span class="n">update</span><span class="p">()</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l145" href="#l145">145</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
+        <td class="src"><span class="p">{</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l146" href="#l146">146</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="kt">void</span><span class="w"> </span><span class="n">Input</span><span class="o">::</span><span class="n">on_key</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">state</span><span class="p">)</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">action</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">actions</span><span class="p">)</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l147" href="#l147">147</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="p">{</span></td>
+        <td class="src"><span class="w">    </span><span class="p">{</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l148" href="#l148">148</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bind_from_key</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">key</span><span class="p">);</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">action</span><span class="p">.</span><span class="n">last_down</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">action</span><span class="p">.</span><span class="n">is_down</span><span class="p">;</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l149" href="#l149">149</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">found</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">bind_from_key</span><span class="p">.</span><span class="n">end</span><span class="p">())</span></td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">    </span><span class="p">}</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l150" href="#l150">150</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l151" href="#l151">151</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">return</span><span class="p">;</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l152" href="#l152">152</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l153" href="#l153">153</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l154" href="#l154">154</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">KeyBind</span><span class="o">&amp;</span><span class="w"> </span><span class="n">bind</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">found</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">;</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l155" href="#l155">155</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">actions</span><span class="p">[</span><span class="n">bind</span><span class="p">.</span><span class="n">bind_action</span><span class="p">];</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l156" href="#l156">156</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="n">action</span><span class="p">.</span><span class="n">is_down</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state</span><span class="p">;</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l157" href="#l157">157</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l158" href="#l158">158</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l159" href="#l159">159</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l160" href="#l160">160</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="n">InputFrame</span><span class="w"> </span><span class="n">Input</span><span class="o">::</span><span class="n">get_current_frame</span><span class="p">()</span><span class="w"> </span><span class="k">const</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l161" href="#l161">161</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l162" href="#l162">162</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="n">InputFrame</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l163" href="#l163">163</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="o">:</span><span class="w"> </span><span class="n">actions</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l164" href="#l164">164</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l165" href="#l165">165</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">ret</span><span class="p">.</span><span class="n">binds</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">ScriptBind</span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l166" href="#l166">166</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">name</span><span class="p">,</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l167" href="#l167">167</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="p">.</span><span class="n">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">is_down</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mf">1.0f</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">,</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l168" href="#l168">168</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="p">.</span><span class="n">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">last_down</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mf">1.0f</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">0.0f</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l169" href="#l169">169</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="p">});</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l170" href="#l170">170</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l171" href="#l171">171</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="l172" href="#l172">172</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="p">}</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l173" href="#l173">173</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l151" href="#l151">151</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l174" href="#l174">174</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l152" href="#l152">152</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l175" href="#l175">175</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l153" href="#l153">153</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="kt">void</span><span class="w"> </span><span class="n">Input</span><span class="o">::</span><span class="n">on_key</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">state</span><span class="p">)</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l154" href="#l154">154</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="p">{</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l155" href="#l155">155</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bind_from_key</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">key</span><span class="p">);</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l156" href="#l156">156</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">found</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">bind_from_key</span><span class="p">.</span><span class="n">end</span><span class="p">())</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l157" href="#l157">157</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">    </span><span class="p">{</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l158" href="#l158">158</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">return</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l159" href="#l159">159</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">    </span><span class="p">}</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l160" href="#l160">160</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l176" href="#l176">176</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l161" href="#l161">161</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">KeyBind</span><span class="o">&amp;</span><span class="w"> </span><span class="n">bind</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">found</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l162" href="#l162">162</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">actions</span><span class="p">[</span><span class="n">bind</span><span class="p">.</span><span class="n">bind_action</span><span class="p">];</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l163" href="#l163">163</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="n">action</span><span class="p">.</span><span class="n">is_down</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l164" href="#l164">164</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="p">}</span></td>
       </tr>
       <tr>
+        <td class="text-right src linenos"><a class="normal" id="l165" href="#l165">165</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l166" href="#l166">166</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l167" href="#l167">167</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="n">InputFrame</span><span class="w"> </span><span class="n">Input</span><span class="o">::</span><span class="n">get_current_frame</span><span class="p">()</span><span class="w"> </span><span class="k">const</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l168" href="#l168">168</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="p">{</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l169" href="#l169">169</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="n">InputFrame</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l170" href="#l170">170</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="o">:</span><span class="w"> </span><span class="n">actions</span><span class="p">)</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l171" href="#l171">171</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">    </span><span class="p">{</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l172" href="#l172">172</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">ret</span><span class="p">.</span><span class="n">binds</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">ScriptBind</span><span class="p">{</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l173" href="#l173">173</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">name</span><span class="p">,</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l174" href="#l174">174</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="p">.</span><span class="n">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">is_down</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mf">1.0f</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">,</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l175" href="#l175">175</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="p">.</span><span class="n">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">last_down</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mf">1.0f</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">0.0f</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l176" href="#l176">176</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">        </span><span class="p">});</span></td>
+      </tr>
+      <tr>
         <td class="text-right src linenos"><a class="normal" id="l177" href="#l177">177</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">    </span><span class="p">}</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l178" href="#l178">178</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l179" href="#l179">179</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="p">}</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l180" href="#l180">180</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l181" href="#l181">181</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l182" href="#l182">182</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l183" href="#l183">183</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="p">}</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l184" href="#l184">184</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
@@ -1384,7 +1433,7 @@
         <hr class="block-separator"/>
         <footer class="text-center">
           Created using <a href="http://gcovr.com/en/8.6">GCOVR (Version 8.6)</a>
-          at 2026-09-22 07:29:08
+          at 2026-09-23 13:00:22
         </footer>
       </div>
     </div>

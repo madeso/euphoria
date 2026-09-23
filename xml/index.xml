@@ -275,24 +275,27 @@
     <member refid="structeu_1_1render_1_1DirectionalLightUniforms_1a85fce17f96e0d36949e11d8a9484600e" kind="variable"><name>dir_uni</name></member>
     <member refid="structeu_1_1render_1_1DirectionalLightUniforms_1afe4b0835ab0cc4324a86d7b1514473e5" kind="function"><name>DirectionalLightUniforms</name></member>
   </compound>
-  <compound refid="classeu_1_1kdl_1_1Document" kind="class"><name>eu::kdl::Document</name>
-    <member refid="classeu_1_1kdl_1_1Document_1a54f27bf0bbf438ba2ed4dbde32516215" kind="variable"><name>m_nodes</name></member>
-    <member refid="classeu_1_1kdl_1_1Document_1acb80319e81d387dd79fcae652ecc9f9c" kind="function"><name>read_from</name></member>
-    <member refid="classeu_1_1kdl_1_1Document_1a71ce07bd34f69cc137b2d8fbf429ceac" kind="function"><name>Document</name></member>
-    <member refid="classeu_1_1kdl_1_1Document_1aa4ec71d910857eb76b15601235a951bb" kind="function"><name>Document</name></member>
-    <member refid="classeu_1_1kdl_1_1Document_1a3359d812daf7401690d9c7352f00fcdf" kind="function"><name>Document</name></member>
-    <member refid="classeu_1_1kdl_1_1Document_1ab5525ff9678a1fddfa55792c7f4b948f" kind="function"><name>Document</name></member>
-    <member refid="classeu_1_1kdl_1_1Document_1af3c280e636443f17e98abd01b418a5db" kind="function"><name>Document</name></member>
-    <member refid="classeu_1_1kdl_1_1Document_1aaddb05de7fa4ceb4ef6444160df4c668" kind="function"><name>operator=</name></member>
-    <member refid="classeu_1_1kdl_1_1Document_1a96d87e7af7184fc65f5fd236a7acc040" kind="function"><name>operator=</name></member>
-    <member refid="classeu_1_1kdl_1_1Document_1a37d4a7ba897e9048db95c96109025dc8" kind="function"><name>nodes</name></member>
-    <member refid="classeu_1_1kdl_1_1Document_1a3f30911929ba8498a7a609408e2a1a38" kind="function"><name>nodes</name></member>
-    <member refid="classeu_1_1kdl_1_1Document_1ac47d3d822838e22fcf9c680c859ecd3f" kind="function"><name>begin</name></member>
-    <member refid="classeu_1_1kdl_1_1Document_1a4659552ee8048a0dd07cf166dadda499" kind="function"><name>begin</name></member>
-    <member refid="classeu_1_1kdl_1_1Document_1a770d76b3e6a63fbdb7277e63dc681ace" kind="function"><name>end</name></member>
-    <member refid="classeu_1_1kdl_1_1Document_1a2f9b563db4fee3ad08be7df63a113ee4" kind="function"><name>end</name></member>
-    <member refid="classeu_1_1kdl_1_1Document_1a87010d4114b1e09b9ca504171c590c25" kind="function"><name>to_string</name></member>
-    <member refid="classeu_1_1kdl_1_1Document_1ae921943ce4c4db06d6bd33e6bc199fe8" kind="function"><name>to_string</name></member>
+  <compound refid="structeu_1_1kdl_1_1Document" kind="struct"><name>eu::kdl::Document</name>
+    <member refid="structeu_1_1kdl_1_1Document_1ad61718e31a33073fbfcf957b8d3e55ff" kind="variable"><name>nodes</name></member>
+    <member refid="structeu_1_1kdl_1_1Document_1a71ce07bd34f69cc137b2d8fbf429ceac" kind="function"><name>Document</name></member>
+    <member refid="structeu_1_1kdl_1_1Document_1aa4ec71d910857eb76b15601235a951bb" kind="function"><name>Document</name></member>
+    <member refid="structeu_1_1kdl_1_1Document_1a3359d812daf7401690d9c7352f00fcdf" kind="function"><name>Document</name></member>
+    <member refid="structeu_1_1kdl_1_1Document_1ab5525ff9678a1fddfa55792c7f4b948f" kind="function"><name>Document</name></member>
+    <member refid="structeu_1_1kdl_1_1Document_1af3c280e636443f17e98abd01b418a5db" kind="function"><name>Document</name></member>
+    <member refid="structeu_1_1kdl_1_1Document_1aaddb05de7fa4ceb4ef6444160df4c668" kind="function"><name>operator=</name></member>
+    <member refid="structeu_1_1kdl_1_1Document_1a96d87e7af7184fc65f5fd236a7acc040" kind="function"><name>operator=</name></member>
+    <member refid="structeu_1_1kdl_1_1Document_1ac47d3d822838e22fcf9c680c859ecd3f" kind="function"><name>begin</name></member>
+    <member refid="structeu_1_1kdl_1_1Document_1a4659552ee8048a0dd07cf166dadda499" kind="function"><name>begin</name></member>
+    <member refid="structeu_1_1kdl_1_1Document_1a770d76b3e6a63fbdb7277e63dc681ace" kind="function"><name>end</name></member>
+    <member refid="structeu_1_1kdl_1_1Document_1a2f9b563db4fee3ad08be7df63a113ee4" kind="function"><name>end</name></member>
+    <member refid="structeu_1_1kdl_1_1Document_1a27864ec0728dd22b9084cefa96f67925" kind="function"><name>to_string</name></member>
+    <member refid="structeu_1_1kdl_1_1Document_1a7c984860032388de5c9d72e7107bb59d" kind="function"><name>to_string</name></member>
+  </compound>
+  <compound refid="structeu_1_1kdl_1_1DocumentResult" kind="struct"><name>eu::kdl::DocumentResult</name>
+    <member refid="structeu_1_1kdl_1_1DocumentResult_1ac9248488aa3f4ae19eb2742689462356" kind="variable"><name>document</name></member>
+    <member refid="structeu_1_1kdl_1_1DocumentResult_1a91b5e6cc4cd7cb7c31dbb4cb9e1584ad" kind="variable"><name>error</name></member>
+    <member refid="structeu_1_1kdl_1_1DocumentResult_1abe5354bf273445e11a2c75add14b8153" kind="function"><name>DocumentResult</name></member>
+    <member refid="structeu_1_1kdl_1_1DocumentResult_1a55375c724840a3765f13ae15f6fdd319" kind="function"><name>DocumentResult</name></member>
   </compound>
   <compound refid="structeu_1_1render_1_1DrawableFont" kind="struct"><name>eu::render::DrawableFont</name>
     <member refid="structeu_1_1render_1_1DrawableFont_1acbd622580acdb706101d91443a0b6c44" kind="variable"><name>ascent</name></member>
@@ -359,12 +362,6 @@
     <member refid="structeu_1_1render_1_1EffectStack_1a117abdb61270a222fdfe9da5a0c684c2" kind="function"><name>render</name></member>
     <member refid="structeu_1_1render_1_1EffectStack_1aae5ff2d6e21d076e821f0a0b5aa4b238" kind="function"><name>update</name></member>
     <member refid="structeu_1_1render_1_1EffectStack_1a408f46356d692e944e8d3d27f1f695b4" kind="function"><name>gui</name></member>
-  </compound>
-  <compound refid="classeu_1_1kdl_1_1EmitterError" kind="class"><name>eu::kdl::EmitterError</name>
-    <member refid="classeu_1_1kdl_1_1EmitterError_1aac766e76abd8d85582283d739117c185" kind="variable"><name>m_msg</name></member>
-    <member refid="classeu_1_1kdl_1_1EmitterError_1afbe4b29f34f1067c2996dcc182e731e6" kind="function"><name>EmitterError</name></member>
-    <member refid="classeu_1_1kdl_1_1EmitterError_1ac4195e5d7e63ce996366c666313deb9f" kind="function"><name>EmitterError</name></member>
-    <member refid="classeu_1_1kdl_1_1EmitterError_1ab4fcecb8cd97548f8d83560d2fa4f200" kind="function"><name>what</name></member>
   </compound>
   <compound refid="structeu_1_1core_1_1ExtractedAttribute" kind="struct"><name>eu::core::ExtractedAttribute</name>
     <member refid="structeu_1_1core_1_1ExtractedAttribute_1abf80412461b7037f97f88cc9e6cdabc9" kind="variable"><name>type</name></member>
@@ -481,15 +478,13 @@
     <member refid="structeu_1_1core_1_1HashCombiner_1a846256cc7801958984aa3bf9513879eb" kind="variable"><name>result</name></member>
     <member refid="structeu_1_1core_1_1HashCombiner_1ae993dbf457a68d2b4ea6b201d9612c42" kind="function"><name>combine</name></member>
   </compound>
-  <compound refid="classeu_1_1kdl_1_1HasTypeAnnotation" kind="class"><name>eu::kdl::HasTypeAnnotation</name>
-    <member refid="classeu_1_1kdl_1_1HasTypeAnnotation_1ae076565bba1aa35c6402e8b66154abc8" kind="variable"><name>m_type_annotation</name></member>
-    <member refid="classeu_1_1kdl_1_1HasTypeAnnotation_1ad49c9b187dc7dc101fa3681c0be22b78" kind="function"><name>HasTypeAnnotation</name></member>
-    <member refid="classeu_1_1kdl_1_1HasTypeAnnotation_1a2d515ac8bac4c3376bedf157de035fd1" kind="function"><name>HasTypeAnnotation</name></member>
-    <member refid="classeu_1_1kdl_1_1HasTypeAnnotation_1afeff9474f936c3a4e6e434bb40123750" kind="function"><name>type_annotation</name></member>
-    <member refid="classeu_1_1kdl_1_1HasTypeAnnotation_1a56a5a5f24b5c1d9194f99e5ccebbfdcb" kind="function"><name>set_type_annotation</name></member>
-    <member refid="classeu_1_1kdl_1_1HasTypeAnnotation_1a1ef6c17086d81625b957448d7c5ad33b" kind="function"><name>remove_type_annotation</name></member>
-    <member refid="classeu_1_1kdl_1_1HasTypeAnnotation_1ad269e25f05ec1dc80eb74e4b5a10880d" kind="function"><name>operator==</name></member>
-    <member refid="classeu_1_1kdl_1_1HasTypeAnnotation_1aab21022ba98cd57c851ba6a3e60c304d" kind="function"><name>operator!=</name></member>
+  <compound refid="structeu_1_1kdl_1_1HasTypeAnnotation" kind="struct"><name>eu::kdl::HasTypeAnnotation</name>
+    <member refid="structeu_1_1kdl_1_1HasTypeAnnotation_1ac9e44d04abc4d2e3ca2f45cf3df86c80" kind="variable"><name>type_annotation</name></member>
+    <member refid="structeu_1_1kdl_1_1HasTypeAnnotation_1ad49c9b187dc7dc101fa3681c0be22b78" kind="function"><name>HasTypeAnnotation</name></member>
+    <member refid="structeu_1_1kdl_1_1HasTypeAnnotation_1a2d515ac8bac4c3376bedf157de035fd1" kind="function"><name>HasTypeAnnotation</name></member>
+    <member refid="structeu_1_1kdl_1_1HasTypeAnnotation_1a1ef6c17086d81625b957448d7c5ad33b" kind="function"><name>remove_type_annotation</name></member>
+    <member refid="structeu_1_1kdl_1_1HasTypeAnnotation_1ad269e25f05ec1dc80eb74e4b5a10880d" kind="function"><name>operator==</name></member>
+    <member refid="structeu_1_1kdl_1_1HasTypeAnnotation_1aab21022ba98cd57c851ba6a3e60c304d" kind="function"><name>operator!=</name></member>
   </compound>
   <compound refid="structeu_1_1Hsh" kind="struct"><name>eu::Hsh</name>
     <member refid="structeu_1_1Hsh_1aeb79fcb4cd0e4dd8fc62360d2ff6a219" kind="variable"><name>hash</name></member>
@@ -845,49 +840,40 @@
     <member refid="structeu_1_1n3_1a20006da90f262b4cf7e5d9f293f21f60" kind="function"><name>n3</name></member>
     <member refid="structeu_1_1n3_1a6ac60a5efa4f1e306a4c7b2fbe5bd969" kind="function"><name>n3</name></member>
   </compound>
-  <compound refid="classeu_1_1kdl_1_1Node" kind="class"><name>eu::kdl::Node</name>
-    <member refid="classeu_1_1kdl_1_1Node_1abd2e4912d419f7f27dccf65e6b14fe55" kind="variable"><name>m_type_annotation</name></member>
-    <member refid="classeu_1_1kdl_1_1Node_1a1282980632d64e4f4236037cfa3c7319" kind="variable"><name>m_name</name></member>
-    <member refid="classeu_1_1kdl_1_1Node_1a89bc41474d5904a54cb2e330bf6ef92f" kind="variable"><name>m_args</name></member>
-    <member refid="classeu_1_1kdl_1_1Node_1a1e3b991ba125a712ae7f90985cab6a96" kind="variable"><name>m_properties</name></member>
-    <member refid="classeu_1_1kdl_1_1Node_1ae7defecfa2ea3605fce55db011b31cae" kind="variable"><name>m_children</name></member>
-    <member refid="classeu_1_1kdl_1_1Node_1ac39591ffd39dc8dbb753119efb0323f7" kind="function"><name>Node</name></member>
-    <member refid="classeu_1_1kdl_1_1Node_1a435096693904937296e97708a51983f5" kind="function"><name>Node</name></member>
-    <member refid="classeu_1_1kdl_1_1Node_1ac75adeacd168f24b4eca131a4ffe0c69" kind="function"><name>Node</name></member>
-    <member refid="classeu_1_1kdl_1_1Node_1ae50f5293de5f7c5f046efb647b6e210b" kind="function"><name>Node</name></member>
-    <member refid="classeu_1_1kdl_1_1Node_1afd0202935c278f9599e8b5934acd25e5" kind="function"><name>Node</name></member>
-    <member refid="classeu_1_1kdl_1_1Node_1a948a0a690b72510f49dd80482b58e738" kind="function"><name>Node</name></member>
-    <member refid="classeu_1_1kdl_1_1Node_1a1fdbbd07e9fdfc169f609b6421ff247c" kind="function"><name>Node</name></member>
-    <member refid="classeu_1_1kdl_1_1Node_1a31eb3899c0e5079f0221dd84077dbc01" kind="function"><name>operator=</name></member>
-    <member refid="classeu_1_1kdl_1_1Node_1a0af059831df73f98a677045f7387dee3" kind="function"><name>operator=</name></member>
-    <member refid="classeu_1_1kdl_1_1Node_1a9f16cef066dd1b461b558f4f24ac19f4" kind="function"><name>name</name></member>
-    <member refid="classeu_1_1kdl_1_1Node_1aa4fa0f83ac6d5f5d9d0b3266b003d658" kind="function"><name>set_name</name></member>
-    <member refid="classeu_1_1kdl_1_1Node_1a2f137f718ff0c18b9b6489752f0a6350" kind="function"><name>args</name></member>
-    <member refid="classeu_1_1kdl_1_1Node_1a1fbeb67a51963f268e1308bd3cf599c8" kind="function"><name>args</name></member>
-    <member refid="classeu_1_1kdl_1_1Node_1a815302c6a68abcffdc7f2a0bf5940ac6" kind="function"><name>properties</name></member>
-    <member refid="classeu_1_1kdl_1_1Node_1a9e7ec756dae65a29046aef5029753236" kind="function"><name>properties</name></member>
-    <member refid="classeu_1_1kdl_1_1Node_1ae529881ada7ecf2671ecbcae57907898" kind="function"><name>children</name></member>
-    <member refid="classeu_1_1kdl_1_1Node_1a57aeb8bf075058334e4dac5d56c594ec" kind="function"><name>children</name></member>
+  <compound refid="structeu_1_1kdl_1_1Node" kind="struct"><name>eu::kdl::Node</name>
+    <member refid="structeu_1_1kdl_1_1Node_1a52b655925643ba9791e636f3f47e1bcb" kind="variable"><name>name</name></member>
+    <member refid="structeu_1_1kdl_1_1Node_1ad873c2bd6b9130e24cdefe73e23e760f" kind="variable"><name>args</name></member>
+    <member refid="structeu_1_1kdl_1_1Node_1a08734ce2bec4d7eecf7030242ec47b50" kind="variable"><name>properties</name></member>
+    <member refid="structeu_1_1kdl_1_1Node_1a5bda507db990a129eef50a0a3bb3716c" kind="variable"><name>children</name></member>
+    <member refid="structeu_1_1kdl_1_1Node_1ac39591ffd39dc8dbb753119efb0323f7" kind="function"><name>Node</name></member>
+    <member refid="structeu_1_1kdl_1_1Node_1a435096693904937296e97708a51983f5" kind="function"><name>Node</name></member>
+    <member refid="structeu_1_1kdl_1_1Node_1ac75adeacd168f24b4eca131a4ffe0c69" kind="function"><name>Node</name></member>
+    <member refid="structeu_1_1kdl_1_1Node_1ae50f5293de5f7c5f046efb647b6e210b" kind="function"><name>Node</name></member>
+    <member refid="structeu_1_1kdl_1_1Node_1a1c506a256c25b362c855ca24b4e876b7" kind="function"><name>Node</name></member>
+    <member refid="structeu_1_1kdl_1_1Node_1a948a0a690b72510f49dd80482b58e738" kind="function"><name>Node</name></member>
+    <member refid="structeu_1_1kdl_1_1Node_1aec368b552c508f8982e7659609c36563" kind="function"><name>Node</name></member>
+    <member refid="structeu_1_1kdl_1_1Node_1a31eb3899c0e5079f0221dd84077dbc01" kind="function"><name>operator=</name></member>
+    <member refid="structeu_1_1kdl_1_1Node_1a0af059831df73f98a677045f7387dee3" kind="function"><name>operator=</name></member>
   </compound>
-  <compound refid="classeu_1_1kdl_1_1Number" kind="class"><name>eu::kdl::Number</name>
-    <member refid="classeu_1_1kdl_1_1Number_1a37c02cfca7935d9a68dcceba4e52dea2" kind="variable"><name>m_value</name></member>
-    <member refid="classeu_1_1kdl_1_1Number_1a9e05782636755d30939f05d80e7bda80" kind="function"><name>Number</name></member>
-    <member refid="classeu_1_1kdl_1_1Number_1a73e0aa10f2f2830b26ee4b06adbae5f3" kind="function"><name>Number</name></member>
-    <member refid="classeu_1_1kdl_1_1Number_1ada731c3ca22704b51570f429900f3a08" kind="function"><name>Number</name></member>
-    <member refid="classeu_1_1kdl_1_1Number_1a7b95f441b6a193abef019026a8c0b689" kind="function"><name>Number</name></member>
-    <member refid="classeu_1_1kdl_1_1Number_1ac1ad043766270a55bae492f6cc7d74e5" kind="function"><name>Number</name></member>
-    <member refid="classeu_1_1kdl_1_1Number_1ae26be9d4c317e5d60d8b2acebd847a8e" kind="function"><name>Number</name></member>
-    <member refid="classeu_1_1kdl_1_1Number_1ae5b33db3c76b12540fd3eac01efe32b5" kind="function"><name>Number</name></member>
-    <member refid="classeu_1_1kdl_1_1Number_1a1a5cde5dbf415d7d612407ca9f83b7d9" kind="function"><name>Number</name></member>
-    <member refid="classeu_1_1kdl_1_1Number_1a7ac258ceea3e095753481389083140d5" kind="function"><name>Number</name></member>
-    <member refid="classeu_1_1kdl_1_1Number_1a602600d8a98602db33c4c869a1b35291" kind="function"><name>Number</name></member>
-    <member refid="classeu_1_1kdl_1_1Number_1ae35a3be95b3fd7f894e50f38fe00ef9a" kind="function"><name>operator=</name></member>
-    <member refid="classeu_1_1kdl_1_1Number_1a4e7173e2bea522946b4c88957f6ede68" kind="function"><name>operator=</name></member>
-    <member refid="classeu_1_1kdl_1_1Number_1ae8cbf149863453d0866a10fdac1c802a" kind="function"><name>operator==</name></member>
-    <member refid="classeu_1_1kdl_1_1Number_1acf031e5722f7a077e47d161c24332e0b" kind="function"><name>operator!=</name></member>
-    <member refid="classeu_1_1kdl_1_1Number_1ae70f768050cfbdcd1341c83e89b7c397" kind="function"><name>representation</name></member>
-    <member refid="classeu_1_1kdl_1_1Number_1af8272c5e3a539983b9c5be48438fdd6a" kind="function"><name>as</name></member>
-    <member refid="classeu_1_1kdl_1_1Number_1a50a36b0c6e59f6eba63c9ea6d41e94d4" kind="function"><name>operator kdl_number</name></member>
+  <compound refid="structeu_1_1kdl_1_1Number" kind="struct"><name>eu::kdl::Number</name>
+    <member refid="structeu_1_1kdl_1_1Number_1a373163af7f3f5e00d3f846d1163e578e" kind="variable"><name>m_value</name></member>
+    <member refid="structeu_1_1kdl_1_1Number_1a9e05782636755d30939f05d80e7bda80" kind="function"><name>Number</name></member>
+    <member refid="structeu_1_1kdl_1_1Number_1a73e0aa10f2f2830b26ee4b06adbae5f3" kind="function"><name>Number</name></member>
+    <member refid="structeu_1_1kdl_1_1Number_1ada731c3ca22704b51570f429900f3a08" kind="function"><name>Number</name></member>
+    <member refid="structeu_1_1kdl_1_1Number_1a7b95f441b6a193abef019026a8c0b689" kind="function"><name>Number</name></member>
+    <member refid="structeu_1_1kdl_1_1Number_1ac1ad043766270a55bae492f6cc7d74e5" kind="function"><name>Number</name></member>
+    <member refid="structeu_1_1kdl_1_1Number_1ae26be9d4c317e5d60d8b2acebd847a8e" kind="function"><name>Number</name></member>
+    <member refid="structeu_1_1kdl_1_1Number_1ae5b33db3c76b12540fd3eac01efe32b5" kind="function"><name>Number</name></member>
+    <member refid="structeu_1_1kdl_1_1Number_1a1a5cde5dbf415d7d612407ca9f83b7d9" kind="function"><name>Number</name></member>
+    <member refid="structeu_1_1kdl_1_1Number_1a7ac258ceea3e095753481389083140d5" kind="function"><name>Number</name></member>
+    <member refid="structeu_1_1kdl_1_1Number_1a602600d8a98602db33c4c869a1b35291" kind="function"><name>Number</name></member>
+    <member refid="structeu_1_1kdl_1_1Number_1ae35a3be95b3fd7f894e50f38fe00ef9a" kind="function"><name>operator=</name></member>
+    <member refid="structeu_1_1kdl_1_1Number_1a4e7173e2bea522946b4c88957f6ede68" kind="function"><name>operator=</name></member>
+    <member refid="structeu_1_1kdl_1_1Number_1ae8cbf149863453d0866a10fdac1c802a" kind="function"><name>operator==</name></member>
+    <member refid="structeu_1_1kdl_1_1Number_1acf031e5722f7a077e47d161c24332e0b" kind="function"><name>operator!=</name></member>
+    <member refid="structeu_1_1kdl_1_1Number_1a44d7323c4203340914f2e8bd675db8e4" kind="function"><name>type</name></member>
+    <member refid="structeu_1_1kdl_1_1Number_1a224758d3c2565f8ad0f74deb71bc2622" kind="function"><name>as</name></member>
+    <member refid="structeu_1_1kdl_1_1Number_1a50a36b0c6e59f6eba63c9ea6d41e94d4" kind="function"><name>operator kdl_number</name></member>
   </compound>
   <compound refid="structeu_1_1OkHsl" kind="struct"><name>eu::OkHsl</name>
     <member refid="structeu_1_1OkHsl_1af877e47f5a0e5ea91eed245f3c015b97" kind="variable"><name>hue</name></member>
@@ -915,12 +901,6 @@
     <member refid="structeu_1_1render_1_1OrthoCamera_1a1d8b5f9c4ca71ffd13793e40e5e55406" kind="variable"><name>far</name></member>
     <member refid="structeu_1_1render_1_1OrthoCamera_1a5768e451c806dad8d524304248cd311b" kind="variable"><name>position</name></member>
     <member refid="structeu_1_1render_1_1OrthoCamera_1aa5441d5633574bf246a916a1308bb0de" kind="variable"><name>rotation</name></member>
-  </compound>
-  <compound refid="classeu_1_1kdl_1_1ParseError" kind="class"><name>eu::kdl::ParseError</name>
-    <member refid="classeu_1_1kdl_1_1ParseError_1aa5ccda0b6c64dfcd3e12fc8c607df9ee" kind="variable"><name>m_msg</name></member>
-    <member refid="classeu_1_1kdl_1_1ParseError_1a3bfe393fa6575911bb64a7dfa5cf324d" kind="function"><name>ParseError</name></member>
-    <member refid="classeu_1_1kdl_1_1ParseError_1af7312ac156a55f7c8bdd1cb3caa924b4" kind="function"><name>ParseError</name></member>
-    <member refid="classeu_1_1kdl_1_1ParseError_1a862df2bd5d47b00798ce16e0585ed026" kind="function"><name>what</name></member>
   </compound>
   <compound refid="structeu_1_1render_1_1PingPongBlurShader" kind="struct"><name>eu::render::PingPongBlurShader</name>
     <member refid="structeu_1_1render_1_1PingPongBlurShader_1a947750373b3f545626520fbdc89f7e76" kind="variable"><name>shader</name></member>
@@ -1411,12 +1391,6 @@
     <member refid="structeu_1_1core_1_1geom_1_1Triangle_1abe11af85d8f98faa7e54cdd6c4ebd5c9" kind="variable"><name>v2</name></member>
     <member refid="structeu_1_1core_1_1geom_1_1Triangle_1a9cb73af9f40a220466d76cfca6f95d5c" kind="function"><name>Triangle</name></member>
   </compound>
-  <compound refid="classeu_1_1kdl_1_1TypeError" kind="class"><name>eu::kdl::TypeError</name>
-    <member refid="classeu_1_1kdl_1_1TypeError_1a5f8f6cf428c05142ac4ba370b34d2e9f" kind="variable"><name>m_msg</name></member>
-    <member refid="classeu_1_1kdl_1_1TypeError_1ab2f31c5dae70464a70d7c09bd9906578" kind="function"><name>TypeError</name></member>
-    <member refid="classeu_1_1kdl_1_1TypeError_1afad2ae96ce1f7e0000a6f2a514e8fc8d" kind="function"><name>TypeError</name></member>
-    <member refid="classeu_1_1kdl_1_1TypeError_1aef6d391c1e961bc8899619230d3961dd" kind="function"><name>what</name></member>
-  </compound>
   <compound refid="structeu_1_1mrgui_1_1UiState" kind="struct"><name>eu::mrgui::UiState</name>
     <member refid="structeu_1_1mrgui_1_1UiState_1a3d058d4eccfb9a1eff4bcf418e89f08c" kind="variable"><name>mouse</name></member>
     <member refid="structeu_1_1mrgui_1_1UiState_1a07754fcb09f87680de83848de8e4a454" kind="variable"><name>mousedown</name></member>
@@ -1545,41 +1519,40 @@
     <member refid="structeu_1_1v4_1a2fb019e0a58055d149904a5bd8401902" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeu_1_1v4_1aee396ce1c57c13ff3c82fba8ff89c80e" kind="function"><name>operator==</name></member>
   </compound>
-  <compound refid="classeu_1_1kdl_1_1Value" kind="class"><name>eu::kdl::Value</name>
-    <member refid="classeu_1_1kdl_1_1Value_1afc4eb03d1f0e6d35534dbd6804123ed7" kind="variable"><name>m_value</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1ad811dba454e7062817e1c56f61904b4c" kind="function"><name>Value</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1acd7ad7c354af00b2af7ff356b89a24bc" kind="function"><name>Value</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1aa99de072b216550739f3bde68ac5971c" kind="function"><name>Value</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1aa99c956a1afda49f46c144c75ea38727" kind="function"><name>Value</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1a8a9a827bede5adaadcd196e2bc23fd20" kind="function"><name>Value</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1ae04d1013e68a3d4a0254a14b400d866c" kind="function"><name>Value</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1a95530884d3bdf97b8bf78aa3b06729f7" kind="function"><name>Value</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1a467f8f6813f814aa1148b82cb58dbc35" kind="function"><name>Value</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1a566947afa0da82e632bfdcbd97e0b95a" kind="function"><name>Value</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1a367eb56f5eec17c6435b2697632715d6" kind="function"><name>Value</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1a74163a958731e9b45b1eed0021816832" kind="function"><name>Value</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1a9aeace05246175376c2f2c7f20781e8b" kind="function"><name>Value</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1a78e343529ced9c51b492dc614a2dc0fd" kind="function"><name>Value</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1a6b3ddf331e498f3dd0f4daa2c4991116" kind="function"><name>Value</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1a10fb54ae2da3169e56739526ebb88cfa" kind="function"><name>Value</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1a5b6d991f9721c1268d64a94f77206a74" kind="function"><name>operator=</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1a4c0783a45c8a40a493bc0c42341602fb" kind="function"><name>operator=</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1a39efc501382f9b6f30bc89e43530c9b2" kind="function"><name>operator=</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1ac46d6de84c68a98521799b159c025d21" kind="function"><name>operator=</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1acb84e4b31b6e2615c1da0377b0f8d978" kind="function"><name>operator=</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1a52de2ab95d32d46a0728021beb570349" kind="function"><name>operator=</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1a91fbbd73ff7d3aeb6bea0e8d935b565f" kind="function"><name>operator=</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1a668352df2eb352976cbd26467bf76b77" kind="function"><name>operator=</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1a5b51453a36198ff6ef5a844ab4ffe5a4" kind="function"><name>operator==</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1a7b1c61b8ef08636b9ad9c9a12d335ec0" kind="function"><name>operator!=</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1a726897ed276847c4ef6657945a41f2cd" kind="function"><name>set_to_null</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1a8f5c85225f1cfa6f574cf168eb878390" kind="function"><name>type</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1a8b81d3403f7be4d2d135978171155b2f" kind="function"><name>as_number</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1ab77f0192a55ecebb6203532b7233403b" kind="function"><name>as_string</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1abf2bd406363f6f264ca37bc81f6f0761" kind="function"><name>as_bool</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1aa072f8b153ebb65f5f539b606f470377" kind="function"><name>is_null</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1a47c001f576d7152455c2167a46ef44e5" kind="function"><name>operator kdl_value</name></member>
-    <member refid="classeu_1_1kdl_1_1Value_1aa1d44ae030de78b8bdf86834630877bc" kind="function"><name>from_string</name></member>
+  <compound refid="structeu_1_1kdl_1_1Value" kind="struct"><name>eu::kdl::Value</name>
+    <member refid="structeu_1_1kdl_1_1Value_1afc4eb03d1f0e6d35534dbd6804123ed7" kind="variable"><name>m_value</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1ad811dba454e7062817e1c56f61904b4c" kind="function"><name>Value</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1acd7ad7c354af00b2af7ff356b89a24bc" kind="function"><name>Value</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1aa99de072b216550739f3bde68ac5971c" kind="function"><name>Value</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1aa99c956a1afda49f46c144c75ea38727" kind="function"><name>Value</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1a8a9a827bede5adaadcd196e2bc23fd20" kind="function"><name>Value</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1ae04d1013e68a3d4a0254a14b400d866c" kind="function"><name>Value</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1a4879f7c8401a20f6fe2703e6b6bb2fd2" kind="function"><name>Value</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1a723a2767c5856fee0b10782fa40f072e" kind="function"><name>Value</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1a73d13f92f81a6b338a2a727c190e5447" kind="function"><name>Value</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1a980d977ce6910d44601e9d2efda75a4b" kind="function"><name>Value</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1a6edaab49c8e5ef2b15c308bfda22953d" kind="function"><name>Value</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1af6d020e03e42320fd550d2dc68028282" kind="function"><name>Value</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1a78e343529ced9c51b492dc614a2dc0fd" kind="function"><name>Value</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1a6b3ddf331e498f3dd0f4daa2c4991116" kind="function"><name>Value</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1a10fb54ae2da3169e56739526ebb88cfa" kind="function"><name>Value</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1a5b6d991f9721c1268d64a94f77206a74" kind="function"><name>operator=</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1a4c0783a45c8a40a493bc0c42341602fb" kind="function"><name>operator=</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1a39efc501382f9b6f30bc89e43530c9b2" kind="function"><name>operator=</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1ac46d6de84c68a98521799b159c025d21" kind="function"><name>operator=</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1acb84e4b31b6e2615c1da0377b0f8d978" kind="function"><name>operator=</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1a52de2ab95d32d46a0728021beb570349" kind="function"><name>operator=</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1a91fbbd73ff7d3aeb6bea0e8d935b565f" kind="function"><name>operator=</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1ae309311cbd9c775084bee20fa4b4253f" kind="function"><name>operator=</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1a5b51453a36198ff6ef5a844ab4ffe5a4" kind="function"><name>operator==</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1a7b1c61b8ef08636b9ad9c9a12d335ec0" kind="function"><name>operator!=</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1a726897ed276847c4ef6657945a41f2cd" kind="function"><name>set_to_null</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1a8f5c85225f1cfa6f574cf168eb878390" kind="function"><name>type</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1a8b81d3403f7be4d2d135978171155b2f" kind="function"><name>as_number</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1ab77f0192a55ecebb6203532b7233403b" kind="function"><name>as_string</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1abf2bd406363f6f264ca37bc81f6f0761" kind="function"><name>as_bool</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1aa072f8b153ebb65f5f539b606f470377" kind="function"><name>is_null</name></member>
+    <member refid="structeu_1_1kdl_1_1Value_1a47c001f576d7152455c2167a46ef44e5" kind="function"><name>operator kdl_value</name></member>
   </compound>
   <compound refid="structeu_1_1core_1_1geom_1_1Vertex" kind="struct"><name>eu::core::geom::Vertex</name>
     <member refid="structeu_1_1core_1_1geom_1_1Vertex_1a5fac7f776fc1ba9a63951562d5399ae5" kind="variable"><name>position</name></member>
@@ -1616,9 +1589,9 @@
     <member refid="structeu_1_1Ypr_1a19ba5b756baa3ae5baa58d281e791ea2" kind="variable"><name>pitch</name></member>
     <member refid="structeu_1_1Ypr_1ac60be98970716f36245071ef9ef088ac" kind="variable"><name>roll</name></member>
   </compound>
-  <compound refid="concepteu_1_1kdl_1_1__arithmetic" kind="concept"><name>eu::kdl::_arithmetic</name>
+  <compound refid="concepteu_1_1kdl_1_1arithmetic__concept" kind="concept"><name>eu::kdl::arithmetic_concept</name>
   </compound>
-  <compound refid="concepteu_1_1kdl_1_1__into__number" kind="concept"><name>eu::kdl::_into_number</name>
+  <compound refid="concepteu_1_1kdl_1_1into__number__concept" kind="concept"><name>eu::kdl::into_number_concept</name>
   </compound>
   <compound refid="namespaceeu" kind="namespace"><name>eu</name>
     <member refid="namespaceeu_1a85307e96edc76ca2a8fdbb1624211c68" kind="enum"><name>RectCut</name></member>
@@ -1858,21 +1831,24 @@
     <member refid="namespaceeu_1_1io_1a63ca213ad902e704b25a2db277d39dca" kind="function"><name>mesh_from_file</name></member>
   </compound>
   <compound refid="namespaceeu_1_1kdl" kind="namespace"><name>eu::kdl</name>
-    <member refid="namespaceeu_1_1kdl_1a8a35bda2e74362d12aec8484f3675dcf" kind="enum"><name>KdlVersion</name></member>
-    <member refid="namespaceeu_1_1kdl_1a8a35bda2e74362d12aec8484f3675dcfa5dd2a920e641fe110e440318df7bddea" kind="enumvalue"><name>Kdl_1</name></member>
-    <member refid="namespaceeu_1_1kdl_1a8a35bda2e74362d12aec8484f3675dcfad69b137ed7dd6294234c04904b20a52c" kind="enumvalue"><name>Kdl_2</name></member>
-    <member refid="namespaceeu_1_1kdl_1a8a35bda2e74362d12aec8484f3675dcfaed36a1ef76a59ee3f15180e0441188ad" kind="enumvalue"><name>Any</name></member>
-    <member refid="namespaceeu_1_1kdl_1aef416f173d6ae40e891c68238191bbe9" kind="enum"><name>NumberRepresentation</name></member>
-    <member refid="namespaceeu_1_1kdl_1aef416f173d6ae40e891c68238191bbe9abda47cf615ed19b622330b317d947a28" kind="enumvalue"><name>Integer</name></member>
-    <member refid="namespaceeu_1_1kdl_1aef416f173d6ae40e891c68238191bbe9a4775a6e9cfa1bb67a3090f0a5d1e1bf8" kind="enumvalue"><name>Float</name></member>
-    <member refid="namespaceeu_1_1kdl_1aef416f173d6ae40e891c68238191bbe9a3d44a88b2169ac8815a3ac639f4b8c80" kind="enumvalue"><name>String</name></member>
+    <member refid="namespaceeu_1_1kdl_1af6a00f3a8c7c082548d79486239df64a" kind="enum"><name>Version</name></member>
+    <member refid="namespaceeu_1_1kdl_1af6a00f3a8c7c082548d79486239df64aa5e8af208b3a5492db35c7f64b2acf8a7" kind="enumvalue"><name>kdl_1</name></member>
+    <member refid="namespaceeu_1_1kdl_1af6a00f3a8c7c082548d79486239df64aaeff3b2200de008f0a6d53a4a00ac77a9" kind="enumvalue"><name>kdl_2</name></member>
+    <member refid="namespaceeu_1_1kdl_1af6a00f3a8c7c082548d79486239df64aa100b8cad7cf2a56f6df78f171f97a1ec" kind="enumvalue"><name>any</name></member>
+    <member refid="namespaceeu_1_1kdl_1a0ac45a4a46fc5844bff72715cbc04aed" kind="enum"><name>NumberType</name></member>
+    <member refid="namespaceeu_1_1kdl_1a0ac45a4a46fc5844bff72715cbc04aeda1a5848e9a6572111d7bf1b92837b4707" kind="enumvalue"><name>integer_type</name></member>
+    <member refid="namespaceeu_1_1kdl_1a0ac45a4a46fc5844bff72715cbc04aedafd7170216efb2a7d32648e80919fb0ff" kind="enumvalue"><name>float_type</name></member>
+    <member refid="namespaceeu_1_1kdl_1a0ac45a4a46fc5844bff72715cbc04aeda4771e2c3115bb1af6ce17d9d35a0eb48" kind="enumvalue"><name>string_type</name></member>
     <member refid="namespaceeu_1_1kdl_1aa62200863585ae1a8c58826120418bcc" kind="enum"><name>Type</name></member>
-    <member refid="namespaceeu_1_1kdl_1aa62200863585ae1a8c58826120418bccabbb93ef26e3c101ff11cdd21cab08a94" kind="enumvalue"><name>Null</name></member>
-    <member refid="namespaceeu_1_1kdl_1aa62200863585ae1a8c58826120418bccac26f15e86e3de4c398a8273272aba034" kind="enumvalue"><name>Bool</name></member>
-    <member refid="namespaceeu_1_1kdl_1aa62200863585ae1a8c58826120418bccab2ee912b91d69b435159c7c3f6df7f5f" kind="enumvalue"><name>Number</name></member>
-    <member refid="namespaceeu_1_1kdl_1aa62200863585ae1a8c58826120418bcca27118326006d3829667a400ad23d5d98" kind="enumvalue"><name>String</name></member>
-    <member refid="namespaceeu_1_1kdl_1abc36759a1afeee20ce477a851791ca7b" kind="function"><name>parse</name></member>
-    <member refid="namespaceeu_1_1kdl_1a98d0ef7b836319c539beabafd7736a1c" kind="function"><name>parse</name></member>
+    <member refid="namespaceeu_1_1kdl_1aa62200863585ae1a8c58826120418bcca37a6259cc0c1dae299a7866489dff0bd" kind="enumvalue"><name>null</name></member>
+    <member refid="namespaceeu_1_1kdl_1aa62200863585ae1a8c58826120418bcca84e2c64f38f78ba3ea5c905ab5a2da27" kind="enumvalue"><name>boolean</name></member>
+    <member refid="namespaceeu_1_1kdl_1aa62200863585ae1a8c58826120418bccab1bc248a7ff2b2e95569f56de68615df" kind="enumvalue"><name>number</name></member>
+    <member refid="namespaceeu_1_1kdl_1aa62200863585ae1a8c58826120418bccab45cffe084dd3d20d928bee85e7b0f21" kind="enumvalue"><name>string</name></member>
+    <member refid="namespaceeu_1_1kdl_1aa37ac90145dc49a1797a27b50945a46e" kind="typedef"><name>integer_type</name></member>
+    <member refid="namespaceeu_1_1kdl_1a5a994e645ddffab72708b3985cb712e2" kind="typedef"><name>float_type</name></member>
+    <member refid="namespaceeu_1_1kdl_1aad2035912aa91d2a539c45a812825211" kind="typedef"><name>string_type</name></member>
+    <member refid="namespaceeu_1_1kdl_1a023f2fb3319986617ab4c54980d5939e" kind="function"><name>parse</name></member>
+    <member refid="namespaceeu_1_1kdl_1ae96269ff5567bf5e7a6742985801411e" kind="function"><name>parse</name></member>
   </compound>
   <compound refid="namespaceeu_1_1kk" kind="namespace"><name>eu::kk</name>
     <member refid="namespaceeu_1_1kk_1a203b155b37dd1b7bb553348049d801f1" kind="variable"><name>epsilon</name></member>

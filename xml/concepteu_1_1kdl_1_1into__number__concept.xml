@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
-  <compounddef id="concepteu_1_1kdl_1_1__arithmetic" kind="concept">
-    <compoundname>eu::kdl::_arithmetic</compoundname>
+  <compounddef id="concepteu_1_1kdl_1_1into__number__concept" kind="concept">
+    <compoundname>eu::kdl::into_number_concept</compoundname>
     <includes refid="kdl_8h" local="no">kdl.h</includes>
     <templateparamlist>
       <param>
@@ -9,11 +9,11 @@
       </param>
     </templateparamlist>
     <initializer>template&lt;typename T&gt;
-concept <ref refid="concepteu_1_1kdl_1_1__arithmetic" kindref="compound">eu::kdl::_arithmetic</ref> =  std::is_arithmetic_v&lt;T&gt;    </initializer>
+concept <ref refid="concepteu_1_1kdl_1_1into__number__concept" kindref="compound">eu::kdl::into_number_concept</ref> =  requires(T t) { <ref refid="structeu_1_1kdl_1_1Number" kindref="compound">Number</ref>{t}; }    </initializer>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/kdl/src/eu/kdl/kdl.h" line="27" column="12"/>
+    <location file="libs/kdl/src/eu/kdl/kdl.h" line="86" column="12"/>
   </compounddef>
 </doxygen>
