@@ -96,40 +96,48 @@ struct Level
         v3 offset = { 0.0f, 0.0f, 0.0f };
         v3 size = { 1.0f, 1.0f, 1.0f };
 
-        const auto doc = kdl::parse(eu::io::string_from_file(path));
+        const auto parsed = kdl::parse(eu::io::string_from_file(path));
+        if (parsed.document.has_value() == false)
+        {
+            LOG_WARN("Failed to parse '{}': {}", path, parsed.error);
+            return;
+        }
+
+        const auto& doc = *parsed.document;
+
         for (const auto& node: doc)
         {
-            if (node.name() == "mesh")
+            if (node.name == "mesh")
             {
-                const auto key = node.args()[0].as_string();
-                const auto file = node.args()[1].as_string();
+                const auto key = node.args[0].as_string();
+                const auto file = node.args[1].as_string();
 
                 const auto mesh = eu::io::mesh_from_file(file);
                 auto compiled = eu::render::compile_mesh(USE_DEBUG_LABEL_MANY(file) mesh, layout);
 
                 meshes[key] = std::make_unique<eu::render::CompiledMesh>(compiled);
             }
-            else if (node.name() == "offset")
+            else if (node.name == "offset")
             {
-                const auto x = node.args()[0].as_number().as<float>();
-                const auto y = node.args()[1].as_number().as<float>();
-                const auto z = node.args()[2].as_number().as<float>();
+                const auto x = node.args[0].as_number().as<float>().value_or(0.0f);
+                const auto y = node.args[1].as_number().as<float>().value_or(0.0f);
+                const auto z = node.args[2].as_number().as<float>().value_or(0.0f);
                 offset = { x, y, z };
             }
-            else if (node.name() == "cell_size")
+            else if (node.name == "cell_size")
             {
-                const auto x = node.args()[0].as_number().as<float>();
-                const auto y = node.args()[1].as_number().as<float>();
-                const auto z = node.args()[2].as_number().as<float>();
+                const auto x = node.args[0].as_number().as<float>().value_or(0.0f);
+                const auto y = node.args[1].as_number().as<float>().value_or(0.0f);
+                const auto z = node.args[2].as_number().as<float>().value_or(0.0f);
                 size = {x, y, z};
             }
-            else if (node.name() == "item")
+            else if (node.name == "item")
             {
-                const auto x = node.args()[0].as_number().as<float>();
-                const auto y = node.args()[1].as_number().as<float>();
-                const auto z = node.args()[2].as_number().as<float>();
+                const auto x = node.args[0].as_number().as<float>().value_or(0.0f);
+                const auto y = node.args[1].as_number().as<float>().value_or(0.0f);
+                const auto z = node.args[2].as_number().as<float>().value_or(0.0f);
                 const v3 pos = { x*size.x, y*size.y, z*size.z };
-                const auto item = node.properties().at("item").as_string();
+                const auto item = node.properties.at("item").as_string();
                 const auto found = meshes.find(item);
                 if (found != meshes.end())
                 {
@@ -144,7 +152,7 @@ struct Level
             }
             else
             {
-                LOG_WARN("Unknown node in level file: '{}'", node.name());
+                LOG_WARN("Unknown node in level file: '{}'", node.name);
             }
         }
     }

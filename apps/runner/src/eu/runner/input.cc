@@ -72,15 +72,22 @@ std::optional<KeyboardKey> key_from_name(const std::string& name)
     
 bool Input::load_from_file(const std::string& path)
 {
-    const auto doc = kdl::parse(eu::io::string_from_file(path));
+    const auto parsed = kdl::parse(eu::io::string_from_file(path));
+    if (parsed.document.has_value() == false)
+    {
+        LOG_WARN("Failed to parse {}: '{}'", path, parsed.error);
+        return false;
+    }
+
+    const auto& doc = *parsed.document;
 
     bool ok = true;
 
     for (const auto& node : doc)
     {
-        if (node.name() == "action")
+        if (node.name == "action")
         {
-            const auto name = node.args()[0].as_string();
+            const auto name = node.args[0].as_string();
             
             const auto existing = index_from_action.find(name);
             if (existing != index_from_action.end())
@@ -97,9 +104,9 @@ bool Input::load_from_file(const std::string& path)
             });
             index_from_action[name] = new_index;
         }
-        else if (node.name() == "key")
+        else if (node.name == "key")
         {
-            const auto action_name = node.args()[0].as_string();
+            const auto action_name = node.args[0].as_string();
             const auto found_action = index_from_action.find(action_name);
             if (found_action == index_from_action.end())
             {
@@ -108,7 +115,7 @@ bool Input::load_from_file(const std::string& path)
                 continue;
             }
 
-            const auto key_name = node.args()[1].as_string();
+            const auto key_name = node.args[1].as_string();
             const auto key = key_from_name(key_name);
             if (!key)
             {
@@ -125,7 +132,7 @@ bool Input::load_from_file(const std::string& path)
         }
         else
         {
-            LOG_WARN("Unknown node in input file: '{}'", node.name());
+            LOG_WARN("Unknown node in input file: '{}'", node.name);
             ok = false;
         }
     }

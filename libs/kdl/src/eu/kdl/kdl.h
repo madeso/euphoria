@@ -16,65 +16,41 @@ typedef struct kdl_number kdl_number;
 typedef struct kdl_value kdl_value;
 typedef struct _kdl_parser kdl_parser;
 
-namespace eu::kdl {
+namespace eu::kdl
+{
 
-enum class KdlVersion {
-    Kdl_1,
-    Kdl_2,
-    Any
+enum class Version
+{
+    kdl_1,
+    kdl_2,
+    any
 };
 
-template <typename T> concept _arithmetic = std::is_arithmetic_v<T>;
-
-class TypeError : public std::exception {
-    const char* m_msg;
-
-public:
-    TypeError() : m_msg{"kdlpp type error"} {}
-    TypeError(const char* msg) : m_msg{msg} {}
-    const char* what() const noexcept { return m_msg; }
-};
-
-// Exception thrown on regular KDL parsing errors
-class ParseError : public std::exception {
-    std::string m_msg;
-
-public:
-    ParseError(kdl_str const& msg);
-    ParseError(std::string msg) : m_msg{std::move(msg)} {}
-    const char* what() const noexcept { return m_msg.c_str(); }
-};
-
-// Exception thrown on KDL emitter errors (should never occur)
-class EmitterError : public std::exception {
-    std::string m_msg;
-
-public:
-    EmitterError(std::string msg) : m_msg{std::move(msg)} {}
-    EmitterError() : EmitterError{"The KDL emitter encountered an error"} {}
-    const char* what() const noexcept { return m_msg.c_str(); }
-};
+template <typename T> concept arithmetic_concept = std::is_arithmetic_v<T>;
 
 // Ways in which a KDL number may be represented in C/C++
-enum NumberRepresentation {
-    Integer = 0,
-    Float,
-    String
+enum class NumberType
+{
+    integer_type = 0,
+    float_type,
+    string_type
 };
 
-// A KDL number: could be a long long, a double, or a string
-// Analogous to kdl_number
-class Number {
-    std::variant<long long, double, std::string> m_value;
+using integer_type = long long;
+using float_type = double;
+using string_type = std::string;
 
-public:
-    Number() : m_value{0ll} {}
-    Number(long long n) : m_value{n} {}
-    Number(long n) : m_value{(long long)n} {}
-    Number(int n) : m_value{(long long)n} {}
-    Number(short n) : m_value{(long long)n} {}
-    Number(double n) : m_value{n} {}
-    Number(float n) : m_value{(double)n} {}
+struct Number
+{
+    std::variant<integer_type, float_type, std::string> m_value;
+
+    Number();
+    Number(long long n);
+    Number(long n);
+    Number(int n);
+    Number(short n);
+    Number(double n);
+    Number(float n);
     Number(const kdl_number& n);
 
     Number(Number const&) = default;
@@ -85,23 +61,20 @@ public:
     bool operator==(const Number&) const = default;
     bool operator!=(const Number&) const = default;
 
-    NumberRepresentation representation() const noexcept
-    {
-        return static_cast<NumberRepresentation>(m_value.index());
-    }
+    NumberType type() const noexcept;
 
     // Cast the number to a fundamental arithmetic type (no bounds checking,
     // no support for strings)
-    template <_arithmetic T>
-    T as() const
+    template <arithmetic_concept T>
+    std::optional<T> as() const
     {
-        if (std::holds_alternative<long long>(m_value)) {
-            return static_cast<T>(std::get<long long>(m_value));
-        } else if (std::holds_alternative<double>(m_value)) {
-            return static_cast<T>(std::get<double>(m_value));
+        if (std::holds_alternative<integer_type>(m_value)) {
+            return static_cast<T>(std::get<integer_type>(m_value));
+        } else if (std::holds_alternative<float_type>(m_value)) {
+            return static_cast<T>(std::get<float_type>(m_value));
         } else {
             // string
-            throw std::runtime_error("Number is stored as a string.");
+            return std::nullopt;
         }
     }
 
@@ -110,114 +83,66 @@ public:
     explicit operator kdl_number() const;
 };
 
-template <typename T> concept _into_number = requires(T t) { Number{t}; };
+template <typename T> concept into_number_concept = requires(T t) { Number{t}; };
 
 // Mixin
-class HasTypeAnnotation {
-    std::optional<std::string> m_type_annotation;
+struct HasTypeAnnotation
+{
+    std::optional<std::string> type_annotation;
 
-protected:
     HasTypeAnnotation() = default;
-    HasTypeAnnotation(std::string_view t) : m_type_annotation{t} {}
+    HasTypeAnnotation(std::string_view t);
 
-public:
-    const std::optional<std::string>& type_annotation() const { return m_type_annotation; }
 
-    void set_type_annotation(std::string_view type_annotation)
-    {
-        m_type_annotation = std::string{type_annotation};
-    }
-
-    void remove_type_annotation() { m_type_annotation.reset(); }
+    void remove_type_annotation();
 
     bool operator==(const HasTypeAnnotation&) const = default;
     bool operator!=(const HasTypeAnnotation&) const = default;
 };
 
 // KDL data types
-enum class Type {
-    Null,
-    Bool,
-    Number,
-    String
+enum class Type
+{
+    null,
+    boolean,
+    number,
+    string
 };
 
 // A KDL value, possibly including a type annotation
 // Analogous to kdl_value
-class Value : public HasTypeAnnotation {
+struct Value : HasTypeAnnotation
+{
     std::variant<std::monostate, bool, Number, std::string> m_value;
 
-public:
     Value() = default;
-    Value(bool b) : m_value{b} {}
-    Value(std::string_view s) : m_value{std::string{s}} {}
-    Value(std::string s) : m_value{std::move(s)} {}
-    Value(char const* s) : m_value{std::string{s}} {}
 
-    Value(Number n) : m_value{std::move(n)} {}
-    Value(_into_number auto n) : m_value{Number{n}} {}
+    Value(bool b);
+    Value(std::string_view s);
+    Value(std::string s);
+    Value(char const* s);
+    Value(Number n);
+    Value(into_number_concept auto n) : m_value{Number{n}} {}
 
-    Value(std::string_view type_annotation, bool b) : HasTypeAnnotation{type_annotation}, m_value{b} {}
-    Value(std::string_view type_annotation, std::string_view s)
-        : HasTypeAnnotation{type_annotation},
-          m_value{std::string{s}}
-    {
-    }
-    Value(std::string_view type_annotation, std::string s)
-        : HasTypeAnnotation{type_annotation},
-          m_value{std::move(s)}
-    {
-    }
-    Value(std::string_view type_annotation, Number n)
-        : HasTypeAnnotation{type_annotation},
-          m_value{std::move(n)}
-    {
-    }
-    Value(std::string_view type_annotation, _into_number auto n)
-        : HasTypeAnnotation{type_annotation},
-          m_value{std::move(n)}
-    {
-    }
+    Value(std::string_view ta, bool b);
+    Value(std::string_view ta, std::string_view s);
+    Value(std::string_view ta, std::string s);
+    Value(std::string_view ta, Number n);
+    Value(std::string_view type_annotation, into_number_concept auto n);
 
     Value(kdl_value const& val);
-    [[nodiscard]] static Value from_string(std::string_view s);
 
     Value(Value const&) = default;
     Value(Value&&) = default;
     Value& operator=(Value const&) = default;
     Value& operator=(Value&&) = default;
 
-    Value& operator=(bool b)
-    {
-        m_value = b;
-        return *this;
-    }
-
-    Value& operator=(std::string_view s)
-    {
-        m_value = std::string{s};
-        return *this;
-    }
-
-    Value& operator=(std::string s)
-    {
-        m_value = std::move(s);
-        return *this;
-    }
-
-    Value& operator=(Number const& n)
-    {
-        m_value = n;
-        return *this;
-    }
-
-    Value& operator=(Number&& n)
-    {
-        m_value = std::move(n);
-        return *this;
-    }
-
-    Value& operator=(_into_number auto n)
+    Value& operator=(bool b);
+    Value& operator=(std::string_view s);
+    Value& operator=(std::string s);
+    Value& operator=(Number const& n);
+    Value& operator=(Number&& n);
+    Value& operator=(into_number_concept auto n)
     {
         m_value = Number{n};
         return *this;
@@ -226,130 +151,76 @@ public:
     bool operator==(const Value&) const = default;
     bool operator!=(const Value&) const = default;
 
-    void set_to_null() { m_value = std::monostate{}; }
+    void set_to_null();
 
-    Type type() const noexcept { return static_cast<Type>(m_value.index()); }
+    Type type() const noexcept;
 
-    const Number& as_number() const
-    {
-        if (std::holds_alternative<Number>(m_value)) {
-            return std::get<Number>(m_value);
-        } else {
-            throw TypeError{"Value is not a number"};
-        }
-    }
+    const Number& as_number() const;
+    const std::string& as_string() const;
+    bool as_bool() const;
 
-    const std::string& as_string() const
-    {
-        if (std::holds_alternative<std::string>(m_value)) {
-            return std::get<std::string>(m_value);
-        } else {
-            throw TypeError{"Value is not a string"};
-        }
-    }
-
-    bool as_bool() const
-    {
-        if (std::holds_alternative<bool>(m_value)) {
-            return std::get<bool>(m_value);
-        } else {
-            throw TypeError{"Value is not a boolean"};
-        }
-    }
-
-    bool is_null() const
-    {
-        return std::holds_alternative<std::monostate>(m_value);
-    }
+    bool is_null() const;
 
     explicit operator kdl_value() const;
 };
 
 // A node with all its contents
-class Node : public HasTypeAnnotation {
-    std::optional<std::string> m_type_annotation;
-    std::string m_name;
-    std::vector<Value> m_args;
-    std::map<std::string, Value, std::less<>> m_properties;
-    std::vector<Node> m_children;
+struct Node : HasTypeAnnotation
+{
+    std::string name;
+    std::vector<Value> args;
+    std::map<std::string, Value, std::less<>> properties;
+    std::vector<Node> children;
 
-public:
     Node() = default;
     Node(Node const&) = default;
     Node(Node&&) = default;
-    Node(std::string_view name) : m_name{name} {}
-    Node(std::string_view type_annotation, std::string_view name)
-        : HasTypeAnnotation{type_annotation},
-          m_name{name}
-    {
-    }
-    Node(std::string_view name,
-        std::vector<Value> args,
-        std::map<std::string, Value, std::less<>> properties,
-        std::vector<Node> children)
-        : m_name{name},
-          m_args{std::move(args)},
-          m_properties{std::move(properties)},
-          m_children{std::move(children)}
-    {
-    }
-    Node(std::string_view type_annotation,
-        std::string_view name,
-        std::vector<Value> args,
-        std::map<std::string, Value, std::less<>> properties,
-        std::vector<Node> children)
-        : HasTypeAnnotation{type_annotation},
-          m_name{name},
-          m_args{std::move(args)},
-          m_properties{std::move(properties)},
-          m_children{std::move(children)}
-    {
-    }
+
+    Node(std::string_view name);
+    Node(std::string_view ta, std::string_view name);
+    Node(std::string_view name, std::vector<Value> args, std::map<std::string, Value, std::less<>> properties, std::vector<Node> children);
+    Node(std::string_view ta, std::string_view name, std::vector<Value> args, std::map<std::string, Value, std::less<>> properties, std::vector<Node> children);
 
     Node& operator=(Node const&) = default;
     Node& operator=(Node&&) = default;
-
-    std::string const& name() const { return m_name; }
-    void set_name(std::string_view name) { m_name = std::string{name}; }
-
-    const std::vector<Value>& args() const { return m_args; }
-    std::vector<Value>& args() { return m_args; }
-    const std::map<std::string, Value, std::less<>>& properties() const { return m_properties; }
-    std::map<std::string, Value, std::less<>>& properties() { return m_properties; }
-    const std::vector<Node>& children() const { return m_children; }
-    std::vector<Node>& children() { return m_children; }
 };
 
 // A KDL document - consisting of several nodes.
-class Document {
-    std::vector<Node> m_nodes;
-
-public:
-    static Document read_from(kdl_parser* parser);
+struct Document
+{
+    std::vector<Node> nodes;
 
     Document() = default;
     Document(Document const&) = default;
     Document(Document&&) = default;
-    Document(std::vector<Node> nodes) : m_nodes{std::move(nodes)} {}
-    Document(std::initializer_list<Node> nodes) : m_nodes{nodes} {}
+
+    Document(std::vector<Node> nodes);
+    Document(std::initializer_list<Node> nodes);
 
     Document& operator=(Document const&) = default;
     Document& operator=(Document&&) = default;
 
-    const std::vector<Node>& nodes() const { return m_nodes; }
-    std::vector<Node>& nodes() { return m_nodes; }
+    [[nodiscard]] inline auto begin() const { return nodes.begin(); }
+    [[nodiscard]] inline auto begin() { return nodes.begin(); }
+    [[nodiscard]] inline auto end() const { return nodes.end(); }
+    [[nodiscard]] inline auto end() { return nodes.end(); }
 
-    auto begin() const { return m_nodes.begin(); }
-    auto begin() { return m_nodes.begin(); }
-    auto end() const { return m_nodes.end(); }
-    auto end() { return m_nodes.end(); }
+    std::optional<std::string> to_string() const;
+    std::optional<std::string> to_string(Version version) const;
+};
 
-    std::string to_string() const;
-    std::string to_string(KdlVersion version) const;
+// Exception thrown on regular KDL parsing errors
+struct DocumentResult
+{
+    std::optional<Document> document;
+    std::string error;
+
+    explicit DocumentResult(Document doc);
+    explicit DocumentResult(std::string error);
 };
 
 // Load a KDL document from string
-Document parse(std::string_view kdl_text);
-Document parse(std::string_view kdl_text, KdlVersion version);
+DocumentResult parse(std::string_view kdl_text);
+DocumentResult parse(std::string_view kdl_text, Version version);
 
 } // namespace kdl
