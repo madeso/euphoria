@@ -360,7 +360,7 @@ bool is_bound_for_shader(const std::unordered_set<core::VertexType>& debug_geom_
 {
 	for (auto t: debug_current_shader_types)
 	{
-		if (debug_geom_shader_types.contains(t))
+		if (debug_geom_shader_types.contains(t) == false)
 		{
 			// if shader type isn't found in geom
 			// then error out
