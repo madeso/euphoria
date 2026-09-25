@@ -364,6 +364,7 @@ bool is_bound_for_shader(const std::unordered_set<core::VertexType>& debug_geom_
 		{
 			// if shader type isn't found in geom
 			// then error out
+            LOG_ERR("Currently bound shader {0} doesn't handle {1} but does handle {2}", debug_current_shader_program, t, debug_current_shader_types);
 			return false;
 		}
 	}

@@ -29,6 +29,7 @@ enum class VertexType
 	instance_transform
 };
 
+
 constexpr bool is_instance_based(VertexType v)
 {
 	switch (v)
@@ -119,3 +120,30 @@ CompiledVertexTypeList compile_attribute_layouts(const std::vector<ShaderVertexA
 */
 
 }  //  namespace eu::core
+
+// todo(Gustav): move fmt enum to some core/base header
+#define EU_FMT_ENUM_BEGIN(T, DEF) \
+template <> struct fmt::formatter<T> : fmt::formatter<std::string_view> {\
+    template <typename FormatContext>\
+    auto format(T c, FormatContext& ctx) const {\
+        using EnumType = T;\
+        std::string_view name = DEF;\
+        switch (c) {
+#define EU_FMT_ENUM_VAL(V)\
+        case EnumType::V:   name = #V; break
+#define EU_FMT_ENUM_END()\
+        }\
+        return formatter<string_view>::format(name, ctx);\
+    }\
+};
+
+EU_FMT_ENUM_BEGIN(eu::core::VertexType, "???")
+    EU_FMT_ENUM_VAL(instance_transform);
+    EU_FMT_ENUM_VAL(position2xy);
+    EU_FMT_ENUM_VAL(position2xz);
+    EU_FMT_ENUM_VAL(position3);
+    EU_FMT_ENUM_VAL(normal3);
+    EU_FMT_ENUM_VAL(color3);
+    EU_FMT_ENUM_VAL(color4);
+    EU_FMT_ENUM_VAL(texture2);
+EU_FMT_ENUM_END()

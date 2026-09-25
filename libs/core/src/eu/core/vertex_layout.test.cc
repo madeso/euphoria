@@ -12,28 +12,6 @@
 using namespace eu::core;
 using namespace eu::tests;
 
-template<>
-struct fmt::formatter<VertexType> : formatter<string_view>
-{
-	template<typename FormatContext>
-	auto format(VertexType c, FormatContext& ctx) const
-	{
-		string_view name = "<unknown>";
-		switch (c)
-		{
-		case VertexType::position2xy: name = "position2xy"; break;
-		case VertexType::position2xz: name = "position2xz"; break;
-		case VertexType::position3: name = "position3"; break;
-		case VertexType::normal3: name = "normal3"; break;
-		case VertexType::color3: name = "color3"; break;
-		case VertexType::color4: name = "color4"; break;
-		case VertexType::texture2: name = "texture2"; break;
-		case VertexType::instance_transform: name = "transform"; break;
-		}
-		return formatter<string_view>::format(name, ctx);
-	}
-};
-
 namespace
 {
 bool is_equal(const CompiledVertexElement& lhs, const CompiledVertexElement& rhs)
