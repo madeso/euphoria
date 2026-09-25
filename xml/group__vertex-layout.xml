@@ -100,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/eu/core/vertex_layout.h" line="50" column="1" bodyfile="libs/core/src/eu/core/vertex_layout.h" bodystart="50" bodyend="-1"/>
+        <location file="libs/core/src/eu/core/vertex_layout.h" line="51" column="1" bodyfile="libs/core/src/eu/core/vertex_layout.h" bodystart="51" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="group__vertex-layout_1ga510273e803bc110171edbb624cd2e937" prot="public" static="no">
         <type>std::vector&lt; VertexType &gt;</type>
@@ -114,7 +114,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/eu/core/vertex_layout.h" line="69" column="1" bodyfile="libs/core/src/eu/core/vertex_layout.h" bodystart="69" bodyend="-1"/>
+        <location file="libs/core/src/eu/core/vertex_layout.h" line="70" column="1" bodyfile="libs/core/src/eu/core/vertex_layout.h" bodystart="70" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="func">
@@ -134,7 +134,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/eu/core/vertex_layout.h" line="32" column="16" bodyfile="libs/core/src/eu/core/vertex_layout.h" bodystart="32" bodyend="39"/>
+        <location file="libs/core/src/eu/core/vertex_layout.h" line="33" column="16" bodyfile="libs/core/src/eu/core/vertex_layout.h" bodystart="33" bodyend="40"/>
       </memberdef>
       <memberdef kind="function" id="group__vertex-layout_1ga9d840fc9659abc25984af301a538cf07" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; VertexType &gt;</type>
@@ -152,7 +152,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/eu/core/vertex_layout.h" line="52" column="13" declfile="libs/core/src/eu/core/vertex_layout.h" declline="52" declcolumn="13"/>
+        <location file="libs/core/src/eu/core/vertex_layout.h" line="53" column="13" declfile="libs/core/src/eu/core/vertex_layout.h" declline="53" declcolumn="13"/>
       </memberdef>
       <memberdef kind="function" id="group__vertex-layout_1ga457db7dffcd3e57bde0c17e6cb57b4ed" prot="public" static="no" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>CompiledShaderVertexAttributes</type>
@@ -182,7 +182,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/eu/core/vertex_layout.h" line="102" column="32" declfile="libs/core/src/eu/core/vertex_layout.h" declline="102" declcolumn="32"/>
+        <location file="libs/core/src/eu/core/vertex_layout.h" line="103" column="32" declfile="libs/core/src/eu/core/vertex_layout.h" declline="103" declcolumn="32"/>
       </memberdef>
       <memberdef kind="function" id="group__vertex-layout_1ga28c0b3611483fde81d624a4e28ad9236" prot="public" static="no" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>CompiledGeomVertexAttributes</type>
@@ -200,7 +200,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/eu/core/vertex_layout.h" line="110" column="30" declfile="libs/core/src/eu/core/vertex_layout.h" declline="110" declcolumn="30"/>
+        <location file="libs/core/src/eu/core/vertex_layout.h" line="111" column="30" declfile="libs/core/src/eu/core/vertex_layout.h" declline="111" declcolumn="30"/>
       </memberdef>
       <memberdef kind="function" id="group__vertex-layout_1ga3e7cf0e49fc8c90bc561aaf118ca520a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>CompiledVertexTypeList</type>
@@ -222,7 +222,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/eu/core/vertex_layout.h" line="112" column="24" declfile="libs/core/src/eu/core/vertex_layout.h" declline="112" declcolumn="24"/>
+        <location file="libs/core/src/eu/core/vertex_layout.h" line="113" column="24" declfile="libs/core/src/eu/core/vertex_layout.h" declline="113" declcolumn="24"/>
       </memberdef>
       <memberdef kind="function" id="group__vertex-layout_1gaf95b1439b3e174adb1aa11e9820e8780" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>CompiledVertexTypeList</type>
@@ -240,7 +240,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/eu/core/vertex_layout.h" line="116" column="24" declfile="libs/core/src/eu/core/vertex_layout.h" declline="116" declcolumn="24"/>
+        <location file="libs/core/src/eu/core/vertex_layout.h" line="117" column="24" declfile="libs/core/src/eu/core/vertex_layout.h" declline="117" declcolumn="24"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

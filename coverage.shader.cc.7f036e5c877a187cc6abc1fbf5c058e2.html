@@ -38,7 +38,7 @@
     <div class="col-sm-12 col-lg-3 float-left d-flex flex-column text-right flex-justify-end p-3">
       <div class="d-flex">
         <div class="mr-2">Lines:</div>
-        <div class="mr-2" style="margin: auto;">0 of 201, 0 excluded</div>
+        <div class="mr-2" style="margin: auto;">0 of 202, 0 excluded</div>
         <div class="Label--minw"><span class="coverage-none IssueLabel color-fg-on-emphasis mr-1">0.0%</span></div>
       </div>
       <div class="d-flex">
@@ -48,7 +48,7 @@
       </div>
       <div class="d-flex">
         <div class="mr-2">Branches:</div>
-        <div class="mr-2" style="margin: auto;">0 of 272, 0 excluded</div>
+        <div class="mr-2" style="margin: auto;">0 of 278, 0 excluded</div>
         <div class="Label--minw"><span class="coverage-none IssueLabel color-fg-on-emphasis mr-1">0.0%</span></div>
       </div>
     </div>
@@ -258,7 +258,7 @@
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
   </div>
   <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l378">eu::render::clear_shader_program() (libs/render/src/eu/render/shader.cc:378)</a>    </div>
+    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l379">eu::render::clear_shader_program() (libs/render/src/eu/render/shader.cc:379)</a>    </div>
     <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
@@ -272,7 +272,7 @@
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
   </div>
   <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l373">eu::render::is_shader_bound(unsigned int) (libs/render/src/eu/render/shader.cc:373)</a>    </div>
+    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#l374">eu::render::is_shader_bound(unsigned int) (libs/render/src/eu/render/shader.cc:374)</a>    </div>
     <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">-%</div>
@@ -295,7 +295,7 @@
     libs/render/src/eu/render/shader.cc
     <div class="toggle-buttons">
       <button type="button" class="button_toggle_coveredLine show_coveredLine" value="coveredLine" title="Toggle covered lines">0 covered</button>
-      <button type="button" class="button_toggle_uncoveredLine show_uncoveredLine" value="uncoveredLine" title="Toggle uncovered lines">201 uncovered</button>
+      <button type="button" class="button_toggle_uncoveredLine show_uncoveredLine" value="uncoveredLine" title="Toggle uncovered lines">202 uncovered</button>
       <button type="button" class="button_toggle_partialCoveredLine show_partialCoveredLine" value="partialCoveredLine" title="Toggle partial covered lines">0 partial covered</button>
       <button type="button" class="button_toggle_excludedLine show_excludedLine" value="excludedLine" title="Toggle excluded lines">0 excluded</button>
     </div>
@@ -2852,7 +2852,7 @@
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">debug_geom_shader_types</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="n">t</span><span class="p">))</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">debug_geom_shader_types</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">)</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l364" href="#l364">364</a></td>
@@ -2880,122 +2880,129 @@
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">			</span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="n">LOG_ERR</span><span class="p">(</span><span class="s">&quot;Currently bound shader {0} doesn&#39;t handle {1} but does handle {2}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">debug_current_shader_program</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">debug_current_shader_types</span><span class="p">);</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l368" href="#l368">368</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">		</span><span class="p">}</span></td>
+        <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">			</span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l369" href="#l369">369</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">	</span><span class="p">}</span></td>
+        <td class="src"><span class="w">		</span><span class="p">}</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="l370" href="#l370">370</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">	</span><span class="p">}</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="l371" href="#l371">371</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l371" href="#l371">371</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l372" href="#l372">372</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="p">}</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l372" href="#l372">372</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l373" href="#l373">373</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l373" href="#l373">373</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l374" href="#l374">374</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="kt">bool</span><span class="w"> </span><span class="n">is_shader_bound</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">program</span><span class="p">)</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l374" href="#l374">374</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l375" href="#l375">375</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="p">{</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l375" href="#l375">375</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l376" href="#l376">376</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">debug_current_shader_program</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">program</span><span class="p">;</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l376" href="#l376">376</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l377" href="#l377">377</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="p">}</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l377" href="#l377">377</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l378" href="#l378">378</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l378" href="#l378">378</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l379" href="#l379">379</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="kt">void</span><span class="w"> </span><span class="n">clear_shader_program</span><span class="p">()</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l379" href="#l379">379</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l380" href="#l380">380</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="p">{</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l380" href="#l380">380</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l381" href="#l381">381</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="n">set_shader_program</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="p">{});</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l381" href="#l381">381</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l382" href="#l382">382</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="p">}</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l382" href="#l382">382</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l383" href="#l383">383</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l383" href="#l383">383</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l384" href="#l384">384</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="p">}</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="l384" href="#l384">384</a></td>
+        <td class="text-right src linenos"><a class="normal" id="l385" href="#l385">385</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="src pr-2 pl-2 color-fg-muted text-right"></td>
@@ -3008,7 +3015,7 @@
         <hr class="block-separator"/>
         <footer class="text-center">
           Created using <a href="http://gcovr.com/en/8.6">GCOVR (Version 8.6)</a>
-          at 2026-09-23 13:00:22
+          at 2026-09-25 20:24:07
         </footer>
       </div>
     </div>

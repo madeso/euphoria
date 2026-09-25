@@ -2073,6 +2073,17 @@
   <compound refid="utf8_8h" kind="file"><name>utf8.h</name>
   </compound>
   <compound refid="vertex__layout_8h" kind="file"><name>vertex_layout.h</name>
+    <member refid="vertex__layout_8h_1ae772f3a1e8fa003af83e4f52377d9ea4" kind="define"><name>EU_FMT_ENUM_BEGIN</name></member>
+    <member refid="vertex__layout_8h_1ad25c1894ce9e6e0cc622b6063a4d13c1" kind="define"><name>EU_FMT_ENUM_VAL</name></member>
+    <member refid="vertex__layout_8h_1a220d006ba233f5aa176b0fe529a5c7cc" kind="define"><name>EU_FMT_ENUM_END</name></member>
+    <member refid="vertex__layout_8h_1adc8cb02f8d71c0a0573ecff138422155" kind="function"><name>EU_FMT_ENUM_VAL</name></member>
+    <member refid="vertex__layout_8h_1ab4059bf7b48c31829b11967e3b3ee827" kind="function"><name>EU_FMT_ENUM_VAL</name></member>
+    <member refid="vertex__layout_8h_1a83649e6706faecbb31d24a4da6360b59" kind="function"><name>EU_FMT_ENUM_VAL</name></member>
+    <member refid="vertex__layout_8h_1a7f3733670697ba081b8013a4a69c00a9" kind="function"><name>EU_FMT_ENUM_VAL</name></member>
+    <member refid="vertex__layout_8h_1a8fe13ea72a79252e0814a6da920004fe" kind="function"><name>EU_FMT_ENUM_VAL</name></member>
+    <member refid="vertex__layout_8h_1a1e14edb935a6071e9e32aae0769c8d8c" kind="function"><name>EU_FMT_ENUM_VAL</name></member>
+    <member refid="vertex__layout_8h_1a0436252b3903cd701da5f3ce6e5cb0dc" kind="function"><name>EU_FMT_ENUM_VAL</name></member>
+    <member refid="vertex__layout_8h_1a3b323af2c2fdd34759ecd327e249e071" kind="function"><name>EU_FMT_ENUM_VAL</name></member>
   </compound>
   <compound refid="base_2src_2eu_2base_2pch_8public_8h" kind="file"><name>pch.public.h</name>
   </compound>

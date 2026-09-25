@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/eu/core/vertex_layout.h" line="57" column="12" bodyfile="libs/core/src/eu/core/vertex_layout.h" bodystart="57" bodyend="-1"/>
+        <location file="libs/core/src/eu/core/vertex_layout.h" line="58" column="12" bodyfile="libs/core/src/eu/core/vertex_layout.h" bodystart="58" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1CompiledVertexElement_1a99ac9511265de4bb5c820b838d46ccd9" prot="public" static="no" mutable="no">
         <type>std::string</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/eu/core/vertex_layout.h" line="58" column="13" bodyfile="libs/core/src/eu/core/vertex_layout.h" bodystart="58" bodyend="-1"/>
+        <location file="libs/core/src/eu/core/vertex_layout.h" line="59" column="13" bodyfile="libs/core/src/eu/core/vertex_layout.h" bodystart="59" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1core_1_1CompiledVertexElement_1a4367959ba5ec7de0d8155bfd512368a9" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/eu/core/vertex_layout.h" line="59" column="5" bodyfile="libs/core/src/eu/core/vertex_layout.h" bodystart="59" bodyend="-1"/>
+        <location file="libs/core/src/eu/core/vertex_layout.h" line="60" column="5" bodyfile="libs/core/src/eu/core/vertex_layout.h" bodystart="60" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -52,7 +52,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/eu/core/vertex_layout.h" line="55" column="1" bodyfile="libs/core/src/eu/core/vertex_layout.h" bodystart="56" bodyend="60"/>
+    <location file="libs/core/src/eu/core/vertex_layout.h" line="56" column="1" bodyfile="libs/core/src/eu/core/vertex_layout.h" bodystart="57" bodyend="61"/>
     <listofallmembers>
       <member refid="structeu_1_1core_1_1CompiledVertexElement_1a4367959ba5ec7de0d8155bfd512368a9" prot="public" virt="non-virtual"><scope>eu::core::CompiledVertexElement</scope><name>index</name></member>
       <member refid="structeu_1_1core_1_1CompiledVertexElement_1a99ac9511265de4bb5c820b838d46ccd9" prot="public" virt="non-virtual"><scope>eu::core::CompiledVertexElement</scope><name>name</name></member>
