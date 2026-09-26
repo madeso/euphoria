@@ -87,6 +87,51 @@
       </node>
     </invincdepgraph>
     <sectiondef kind="define">
+      <memberdef kind="define" id="fmt_2src_2eu_2fmt_2pch_8public_8h_1ae772f3a1e8fa003af83e4f52377d9ea4" prot="public" static="no">
+        <name>EU_FMT_ENUM_BEGIN</name>
+        <param><defname>T</defname></param>
+        <param><defname>DEF</defname></param>
+        <initializer>template &lt;&gt; struct fmt::formatter&lt;T&gt; : fmt::formatter&lt;std::string_view&gt; {\
+    template &lt;typename FormatContext&gt;\
+    auto format(T c, FormatContext&amp; ctx) const {\
+        using EnumType = T;\
+        std::string_view name = DEF;\
+        switch (c) {</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/fmt/src/eu/fmt/pch.public.h" line="23" column="9" bodyfile="libs/fmt/src/eu/fmt/pch.public.h" bodystart="23" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="define" id="fmt_2src_2eu_2fmt_2pch_8public_8h_1ad25c1894ce9e6e0cc622b6063a4d13c1" prot="public" static="no">
+        <name>EU_FMT_ENUM_VAL</name>
+        <param><defname>V</defname></param>
+        <initializer>        case EnumType::V:   name = #V; break</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/fmt/src/eu/fmt/pch.public.h" line="30" column="9" bodyfile="libs/fmt/src/eu/fmt/pch.public.h" bodystart="30" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="define" id="fmt_2src_2eu_2fmt_2pch_8public_8h_1a220d006ba233f5aa176b0fe529a5c7cc" prot="public" static="no">
+        <name>EU_FMT_ENUM_END</name>
+        <param></param>
+        <initializer>        }\
+        return formatter&lt;string_view&gt;::format(name, ctx);\
+    }\
+};</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/fmt/src/eu/fmt/pch.public.h" line="32" column="9" bodyfile="libs/fmt/src/eu/fmt/pch.public.h" bodystart="32" bodyend="36"/>
+      </memberdef>
       <memberdef kind="define" id="fmt_2src_2eu_2fmt_2pch_8public_8h_1a2a9ccd1834c8052d71fbee493127ef67" prot="public" static="no">
         <name>ADD_CATCH_FORMATTER_DEF</name>
         <param><defname>TYPE</defname></param>
@@ -98,7 +143,7 @@ operator&lt;&lt;(std::ostream&amp; stream, const TYPE&amp; v);</initializer>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/fmt/src/eu/fmt/pch.public.h" line="22" column="9" bodyfile="libs/fmt/src/eu/fmt/pch.public.h" bodystart="22" bodyend="24"/>
+        <location file="libs/fmt/src/eu/fmt/pch.public.h" line="42" column="9" bodyfile="libs/fmt/src/eu/fmt/pch.public.h" bodystart="42" bodyend="44"/>
       </memberdef>
       <memberdef kind="define" id="fmt_2src_2eu_2fmt_2pch_8public_8h_1a9d5ac138e60feccdf63aa093ace42af9" prot="public" static="no">
         <name>ADD_CATCH_FORMATTER_IMPL</name>
@@ -114,7 +159,7 @@ operator&lt;&lt;(std::ostream&amp; stream, const TYPE&amp; v) \
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/fmt/src/eu/fmt/pch.public.h" line="26" column="9" bodyfile="libs/fmt/src/eu/fmt/pch.public.h" bodystart="26" bodyend="31"/>
+        <location file="libs/fmt/src/eu/fmt/pch.public.h" line="46" column="9" bodyfile="libs/fmt/src/eu/fmt/pch.public.h" bodystart="46" bodyend="51"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

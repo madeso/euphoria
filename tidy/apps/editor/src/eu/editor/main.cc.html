@@ -292,11 +292,11 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 164 : 5</i></p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 165 : 9</i></p>
 <pre>
-  164 |     ImFont* font = io.Fonts-&gt;AddFontFromMemoryTTF(
-      |     ^     
-      |            const
+  165 |         ImFont* font = io.Fonts-&gt;AddFontFromMemoryTTF(
+      |         ^     
+      |                const
 </pre>
 <span id='cppcoreguidelines-pro-type-const-cast'>&nbsp;</span>
 <hr>
@@ -305,10 +305,10 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 165 : 9</i></p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 166 : 13</i></p>
 <pre>
-  165 |         const_cast&lt;void*&gt;(static_cast&lt;const void*&gt;(OPENSANS_REGULAR_TTF_data)),
-      |         ^
+  166 |             const_cast&lt;void*&gt;(static_cast&lt;const void*&gt;(OPENSANS_REGULAR_TTF_data)),
+      |             ^
 </pre>
 <hr>
 <h3>warning: implicit conversion &#39;bool&#39; -&gt; &#39;int&#39;</h3>
@@ -316,9 +316,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 181 : 16</i></p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 189 : 16</i></p>
 <pre>
-  181 |         while (SDL_PollEvent(&amp;e) != 0)
+  189 |         while (SDL_PollEvent(&amp;e) != 0)
       |                ^
       |                static_cast&lt;int&gt;()
 </pre>
@@ -328,9 +328,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 226 : 13</i></p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 234 : 13</i></p>
 <pre>
-  226 |             eu::render::RenderCommand cmd {.states = &amp;states, .render = &amp;render, .size = {.width = window_width, .height = window_height} };
+  234 |             eu::render::RenderCommand cmd {.states = &amp;states, .render = &amp;render, .size = {.width = window_width, .height = window_height} };
       |             ^
       |                                       const 
 </pre>

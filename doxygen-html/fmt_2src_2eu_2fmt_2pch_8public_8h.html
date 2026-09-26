@@ -71,6 +71,9 @@ $(function() { codefold.init(); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:ae772f3a1e8fa003af83e4f52377d9ea4" id="r_ae772f3a1e8fa003af83e4f52377d9ea4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae772f3a1e8fa003af83e4f52377d9ea4">EU_FMT_ENUM_BEGIN</a>(T,  DEF)</td></tr>
+<tr class="memitem:ad25c1894ce9e6e0cc622b6063a4d13c1" id="r_ad25c1894ce9e6e0cc622b6063a4d13c1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad25c1894ce9e6e0cc622b6063a4d13c1">EU_FMT_ENUM_VAL</a>(V)</td></tr>
+<tr class="memitem:a220d006ba233f5aa176b0fe529a5c7cc" id="r_a220d006ba233f5aa176b0fe529a5c7cc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a220d006ba233f5aa176b0fe529a5c7cc">EU_FMT_ENUM_END</a>()</td></tr>
 <tr class="memitem:a2a9ccd1834c8052d71fbee493127ef67" id="r_a2a9ccd1834c8052d71fbee493127ef67"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a9ccd1834c8052d71fbee493127ef67">ADD_CATCH_FORMATTER_DEF</a>(TYPE)</td></tr>
 <tr class="memitem:a9d5ac138e60feccdf63aa093ace42af9" id="r_a9d5ac138e60feccdf63aa093ace42af9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d5ac138e60feccdf63aa093ace42af9">ADD_CATCH_FORMATTER_IMPL</a>(TYPE)</td></tr>
 </table>
@@ -92,7 +95,7 @@ Macros</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">std::ostream&amp; \</div>
 <div class="line">operator&lt;&lt;(std::ostream&amp; stream, <span class="keyword">const</span> TYPE&amp; v);</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="fmt_2src_2eu_2fmt_2pch_8public_8h_source.html#l00022">22</a> of file <a class="el" href="fmt_2src_2eu_2fmt_2pch_8public_8h_source.html">pch.public.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fmt_2src_2eu_2fmt_2pch_8public_8h_source.html#l00042">42</a> of file <a class="el" href="fmt_2src_2eu_2fmt_2pch_8public_8h_source.html">pch.public.h</a>.</p>
 
 </div>
 </div>
@@ -117,7 +120,79 @@ Macros</h2></td></tr>
 <div class="line">}</div>
 <div class="ttc" id="agroup__math_html_gafa7f170a2c4415e5c9f4d517b138a489"><div class="ttname"><a href="group__math.html#gafa7f170a2c4415e5c9f4d517b138a489">eu::string_from</a></div><div class="ttdeci">std::string string_from(const An &amp;a)</div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="fmt_2src_2eu_2fmt_2pch_8public_8h_source.html#l00026">26</a> of file <a class="el" href="fmt_2src_2eu_2fmt_2pch_8public_8h_source.html">pch.public.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fmt_2src_2eu_2fmt_2pch_8public_8h_source.html#l00046">46</a> of file <a class="el" href="fmt_2src_2eu_2fmt_2pch_8public_8h_source.html">pch.public.h</a>.</p>
+
+</div>
+</div>
+<a id="ae772f3a1e8fa003af83e4f52377d9ea4" name="ae772f3a1e8fa003af83e4f52377d9ea4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae772f3a1e8fa003af83e4f52377d9ea4">&#9670;&#160;</a></span>EU_FMT_ENUM_BEGIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EU_FMT_ENUM_BEGIN</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>T</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>DEF</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;&gt; <span class="keyword">struct </span>fmt::formatter&lt;T&gt; : fmt::formatter&lt;std::string_view&gt; {\</div>
+<div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> FormatContext&gt;\</div>
+<div class="line">    <span class="keyword">auto</span> format(T c, FormatContext&amp; ctx)<span class="keyword"> const </span>{\</div>
+<div class="line">        <span class="keyword">using </span>EnumType = T;\</div>
+<div class="line">        std::string_view name = DEF;\</div>
+<div class="line">        switch (c) {</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="fmt_2src_2eu_2fmt_2pch_8public_8h_source.html#l00023">23</a> of file <a class="el" href="fmt_2src_2eu_2fmt_2pch_8public_8h_source.html">pch.public.h</a>.</p>
+
+</div>
+</div>
+<a id="a220d006ba233f5aa176b0fe529a5c7cc" name="a220d006ba233f5aa176b0fe529a5c7cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a220d006ba233f5aa176b0fe529a5c7cc">&#9670;&#160;</a></span>EU_FMT_ENUM_END</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EU_FMT_ENUM_END</td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">        }\</div>
+<div class="line">        <span class="keywordflow">return</span> formatter&lt;string_view&gt;::format(name, ctx);\</div>
+<div class="line">    }\</div>
+<div class="line">};</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="fmt_2src_2eu_2fmt_2pch_8public_8h_source.html#l00032">32</a> of file <a class="el" href="fmt_2src_2eu_2fmt_2pch_8public_8h_source.html">pch.public.h</a>.</p>
+
+</div>
+</div>
+<a id="ad25c1894ce9e6e0cc622b6063a4d13c1" name="ad25c1894ce9e6e0cc622b6063a4d13c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad25c1894ce9e6e0cc622b6063a4d13c1">&#9670;&#160;</a></span>EU_FMT_ENUM_VAL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EU_FMT_ENUM_VAL</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>V</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">        <span class="keywordflow">case</span> EnumType::V:   name = #V; <span class="keywordflow">break</span></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="fmt_2src_2eu_2fmt_2pch_8public_8h_source.html#l00030">30</a> of file <a class="el" href="fmt_2src_2eu_2fmt_2pch_8public_8h_source.html">pch.public.h</a>.</p>
 
 </div>
 </div>

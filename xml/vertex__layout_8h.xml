@@ -132,53 +132,6 @@
     <innerclass refid="structeu_1_1core_1_1InstanceProp" prot="public">eu::core::InstanceProp</innerclass>
     <innernamespace refid="namespaceeu">eu</innernamespace>
     <innernamespace refid="namespaceeu_1_1core">eu::core</innernamespace>
-    <sectiondef kind="define">
-      <memberdef kind="define" id="vertex__layout_8h_1ae772f3a1e8fa003af83e4f52377d9ea4" prot="public" static="no">
-        <name>EU_FMT_ENUM_BEGIN</name>
-        <param><defname>T</defname></param>
-        <param><defname>DEF</defname></param>
-        <initializer>template &lt;&gt; struct fmt::formatter&lt;T&gt; : fmt::formatter&lt;std::string_view&gt; {\
-    template &lt;typename FormatContext&gt;\
-    auto format(T c, FormatContext&amp; ctx) const {\
-        using EnumType = T;\
-        std::string_view name = DEF;\
-        switch (c) {</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/eu/core/vertex_layout.h" line="125" column="9" bodyfile="libs/core/src/eu/core/vertex_layout.h" bodystart="125" bodyend="131"/>
-      </memberdef>
-      <memberdef kind="define" id="vertex__layout_8h_1ad25c1894ce9e6e0cc622b6063a4d13c1" prot="public" static="no">
-        <name>EU_FMT_ENUM_VAL</name>
-        <param><defname>V</defname></param>
-        <initializer>        case EnumType::V:   name = #V; break</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/eu/core/vertex_layout.h" line="132" column="9" bodyfile="libs/core/src/eu/core/vertex_layout.h" bodystart="132" bodyend="133"/>
-      </memberdef>
-      <memberdef kind="define" id="vertex__layout_8h_1a220d006ba233f5aa176b0fe529a5c7cc" prot="public" static="no">
-        <name>EU_FMT_ENUM_END</name>
-        <param></param>
-        <initializer>        }\
-        return formatter&lt;string_view&gt;::format(name, ctx);\
-    }\
-};</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/eu/core/vertex_layout.h" line="134" column="9" bodyfile="libs/core/src/eu/core/vertex_layout.h" bodystart="134" bodyend="138"/>
-      </memberdef>
-    </sectiondef>
     <sectiondef kind="func">
       <memberdef kind="function" id="vertex__layout_8h_1adc8cb02f8d71c0a0573ecff138422155" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -194,7 +147,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/eu/core/vertex_layout.h" line="141" column="5" declfile="libs/core/src/eu/core/vertex_layout.h" declline="141" declcolumn="5"/>
+        <location file="libs/core/src/eu/core/vertex_layout.h" line="125" column="5" declfile="libs/core/src/eu/core/vertex_layout.h" declline="125" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="vertex__layout_8h_1ab4059bf7b48c31829b11967e3b3ee827" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -210,7 +163,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/eu/core/vertex_layout.h" line="142" column="5" declfile="libs/core/src/eu/core/vertex_layout.h" declline="142" declcolumn="5"/>
+        <location file="libs/core/src/eu/core/vertex_layout.h" line="126" column="5" declfile="libs/core/src/eu/core/vertex_layout.h" declline="126" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="vertex__layout_8h_1a83649e6706faecbb31d24a4da6360b59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -226,7 +179,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/eu/core/vertex_layout.h" line="143" column="5" declfile="libs/core/src/eu/core/vertex_layout.h" declline="143" declcolumn="5"/>
+        <location file="libs/core/src/eu/core/vertex_layout.h" line="127" column="5" declfile="libs/core/src/eu/core/vertex_layout.h" declline="127" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="vertex__layout_8h_1a7f3733670697ba081b8013a4a69c00a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -242,7 +195,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/eu/core/vertex_layout.h" line="144" column="5" declfile="libs/core/src/eu/core/vertex_layout.h" declline="144" declcolumn="5"/>
+        <location file="libs/core/src/eu/core/vertex_layout.h" line="128" column="5" declfile="libs/core/src/eu/core/vertex_layout.h" declline="128" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="vertex__layout_8h_1a8fe13ea72a79252e0814a6da920004fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -258,7 +211,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/eu/core/vertex_layout.h" line="145" column="5" declfile="libs/core/src/eu/core/vertex_layout.h" declline="145" declcolumn="5"/>
+        <location file="libs/core/src/eu/core/vertex_layout.h" line="129" column="5" declfile="libs/core/src/eu/core/vertex_layout.h" declline="129" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="vertex__layout_8h_1a1e14edb935a6071e9e32aae0769c8d8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -274,7 +227,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/eu/core/vertex_layout.h" line="146" column="5" declfile="libs/core/src/eu/core/vertex_layout.h" declline="146" declcolumn="5"/>
+        <location file="libs/core/src/eu/core/vertex_layout.h" line="130" column="5" declfile="libs/core/src/eu/core/vertex_layout.h" declline="130" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="vertex__layout_8h_1a0436252b3903cd701da5f3ce6e5cb0dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -290,7 +243,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/eu/core/vertex_layout.h" line="147" column="5" declfile="libs/core/src/eu/core/vertex_layout.h" declline="147" declcolumn="5"/>
+        <location file="libs/core/src/eu/core/vertex_layout.h" line="131" column="5" declfile="libs/core/src/eu/core/vertex_layout.h" declline="131" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="vertex__layout_8h_1a3b323af2c2fdd34759ecd327e249e071" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -306,7 +259,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/eu/core/vertex_layout.h" line="148" column="5" declfile="libs/core/src/eu/core/vertex_layout.h" declline="148" declcolumn="5"/>
+        <location file="libs/core/src/eu/core/vertex_layout.h" line="132" column="5" declfile="libs/core/src/eu/core/vertex_layout.h" declline="132" declcolumn="5"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
