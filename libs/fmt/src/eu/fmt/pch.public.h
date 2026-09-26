@@ -4,11 +4,10 @@
 #include <fmt/format.h>
 #include <fmt/ranges.h>
 
-// todo(Gustav): remove this when all formatters are fully ported
-// #include <fmt/ostream.h>
-// using namespace fmt::literals;
+// todo(Gustav): add macros should use EU_FMT prefix
 
-
+// ----------------------------------------------------------------------------
+// Format forwarder for classes
 #define ADD_DEFAULT_FORMATTER(TYPE, STRING, TO_STRING) \
 template <> struct fmt::formatter<TYPE>: fmt::formatter<STRING> \
 { \
@@ -18,6 +17,27 @@ template <> struct fmt::formatter<TYPE>: fmt::formatter<STRING> \
         return fmt::formatter<STRING>::format(TO_STRING(c), ctx); \
     } \
 }
+
+// ----------------------------------------------------------------------------
+// Format enum classes
+#define EU_FMT_ENUM_BEGIN(T, DEF) \
+template <> struct fmt::formatter<T> : fmt::formatter<std::string_view> {\
+    template <typename FormatContext>\
+    auto format(T c, FormatContext& ctx) const {\
+        using EnumType = T;\
+        std::string_view name = DEF;\
+        switch (c) {
+#define EU_FMT_ENUM_VAL(V)\
+        case EnumType::V:   name = #V; break
+#define EU_FMT_ENUM_END()\
+        }\
+        return formatter<string_view>::format(name, ctx);\
+    }\
+};
+
+
+// ----------------------------------------------------------------------------
+// catch formatter
 
 #define ADD_CATCH_FORMATTER_DEF(TYPE) \
 std::ostream& \
