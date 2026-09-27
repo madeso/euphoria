@@ -77,8 +77,6 @@ eu::MemoryChunk chunk_from_embed(const embedded_binary& binary)
 
 int  main(int, char**)
 {
-    int window_width = 1280;
-    int window_height = 720;
     const char* glsl_version = "#version 130";
 
     SDL_SetAppMetadata("Euphoria editor", "v0.1", "com.madeso.euphoria");
@@ -88,6 +86,10 @@ int  main(int, char**)
         LOG_ERR("Error initializing SDL: {}", SDL_GetError());
         return -1;
     }
+
+    const auto app_scale = SDL_GetDisplayContentScale(SDL_GetPrimaryDisplay());
+    int window_width = static_cast<int>(1280.0f * app_scale);
+    int window_height = static_cast<int>(720.0f * app_scale);
 
 #if defined(__APPLE__)
     // GL 3.2 Core + GLSL 150
@@ -172,9 +174,8 @@ int  main(int, char**)
 
         // scale dear imgui: https://wiki.libsdl.org/SDL3/README-highdpi
         auto& style = ImGui::GetStyle();
-        const auto scale = SDL_GetWindowDisplayScale(window);
-        style.ScaleAllSizes(scale);
-        style.FontScaleDpi *= std::max(scale * 0.75f, 1.0f);
+        style.ScaleAllSizes(app_scale);
+        style.FontScaleDpi *= app_scale;
     }
 
     eu::render::State states;
