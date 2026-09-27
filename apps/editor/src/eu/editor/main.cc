@@ -24,7 +24,9 @@
 
 #include "dear_imgui/backends/imgui_impl_sdl3.h"
 #include "dear_imgui/backends/imgui_impl_opengl3.h"
+
 #include "eu/imgui/ui.h"
+#include "eu/imgui/init.h"
 
 #define SDL_MAIN_USE_CALLBACKS
 #include <SDL3/SDL_main.h>
@@ -83,9 +85,8 @@ AppState App::create()
         return AppState::exit_failure;
     }
 
-    const auto app_scale = SDL_GetDisplayContentScale(SDL_GetPrimaryDisplay());
-    window_width = static_cast<int>(1280.0f * app_scale);
-    window_height = static_cast<int>(720.0f * app_scale);
+    const auto app_scale = eu::imgui::calculate_app_scale();
+    std::tie(window_width, window_height) = eu::imgui::rescale_window(1280, 720, app_scale);
 
 #if defined(__APPLE__)
     // GL 3.2 Core + GLSL 150
@@ -167,10 +168,7 @@ AppState App::create()
         );
         IM_ASSERT(font != nullptr);
 
-        // scale dear imgui: https://wiki.libsdl.org/SDL3/README-highdpi
-        auto& style = ImGui::GetStyle();
-        style.ScaleAllSizes(app_scale);
-        style.FontScaleDpi *= app_scale;
+        eu::imgui::setup_scale(app_scale);
     }
 
     states.reset(new eu::render::State());

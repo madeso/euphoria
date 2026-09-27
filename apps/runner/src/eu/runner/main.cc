@@ -37,6 +37,7 @@
 
 #if FF_HAS(EU_DEBUG_RUNNER)
 #include "eu/imgui/ui.h"
+#include "eu/imgui/init.h"
 
 #include "dear_imgui/imgui.h"
 #include "dear_imgui/backends/imgui_impl_sdl3.h"
@@ -496,8 +497,6 @@ struct CameraFetcherSystem : runner::WorldSystem
 
 int main(int, char**)
 {
-    int window_width = 1280;
-    int window_height = 720;
     const char* glsl_version = "#version 130";
 
     // todo(Gustav): set app metadata
@@ -519,6 +518,10 @@ int main(int, char**)
         const int version_loaded = SDL_GetVersion();
         LOG_INFO("SDL {0} initialized with {1}", str(SDL_VERSION), str(version_loaded));
     }
+
+    // todo(Gustav): move to some shared sdl lib instead? as this shouldn't use dear imgui and 100% rely on sdl
+    const auto app_scale = eu::imgui::calculate_app_scale();
+    auto [window_width, window_height] = eu::imgui::rescale_window(1280, 720, app_scale);
 
 #if defined(__APPLE__)
     // GL 3.2 Core + GLSL 150
@@ -606,6 +609,8 @@ int main(int, char**)
         LOG_ERR("Failed to init ImGui OpenGL3 backend");
         return -1;
     }
+
+    eu::imgui::setup_scale(app_scale);
 
     bool show_demo_window = true;
 #endif
