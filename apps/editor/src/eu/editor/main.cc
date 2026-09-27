@@ -24,51 +24,9 @@
 
 #include "dear_imgui/backends/imgui_impl_sdl3.h"
 #include "dear_imgui/backends/imgui_impl_opengl3.h"
+#include "eu/imgui/ui.h"
 
 ENABLE_HIGH_PERFORMANCE_GRAPHICS
-
-namespace imgui
-{
-    void label(const char* label)
-    {
-        ImGuiWindow* window = ImGui::GetCurrentWindow();
-        float fullWidth = ImGui::GetContentRegionAvail().x;
-        float itemWidth = fullWidth * 0.6f;
-        ImVec2 textSize = ImGui::CalcTextSize(label);
-        ImRect textRect;
-        textRect.Min = ImGui::GetCursorScreenPos();
-        textRect.Max = textRect.Min;
-        textRect.Max.x += fullWidth - itemWidth;
-        textRect.Max.y += textSize.y;
-
-        ImGui::AlignTextToFramePadding();
-        textRect.Min.y += window->DC.CurrLineTextBaseOffset;
-        textRect.Max.y += window->DC.CurrLineTextBaseOffset;
-
-        ImGui::ItemSize(textRect);
-        if (ImGui::ItemAdd(textRect, window->GetID(label)))
-        {
-            const float ellipsis_max = 3.0f;
-            ImGui::RenderTextEllipsis(ImGui::GetWindowDrawList(), textRect.Min, textRect.Max, ellipsis_max, label, nullptr, &textSize);
-
-            if (textRect.GetWidth() < textSize.x && ImGui::IsItemHovered())
-                ImGui::SetTooltip("%s", label);
-        }
-        ImGui::SameLine();
-        ImGui::SetNextItemWidth(-1);
-    }
-
-    bool centered_button(const char* label)
-    {
-        const auto window_width = ImGui::GetContentRegionAvail().x;
-        const auto text_width = ImGui::CalcTextSize(label).x;
-        const auto padding_hor = ImGui::GetStyle().FramePadding.x * 2; // padding on both sides
-        const auto whitespace = window_width - text_width - padding_hor;
-        const float x = whitespace * 0.5f;
-        ImGui::SetCursorPosX(x);
-        return ImGui::Button(label);
-    }
-}
 
 eu::MemoryChunk chunk_from_embed(const embedded_binary& binary)
 {
@@ -218,16 +176,16 @@ int  main(int, char**)
             static eu::v3 rot = {0, 0, 0};
             static eu::v3 scale = {1, 1, 1};
 
-            imgui::label("Position");
+            eu::imgui::label("Position");
             ImGui::DragFloat3("##Position", pos.get_data_ptr());
 
-            imgui::label("Rotation");
+            eu::imgui::label("Rotation");
             ImGui::DragFloat3("##Rotation", rot.get_data_ptr());
 
-            imgui::label("Scale");
+            eu::imgui::label("Scale");
             ImGui::DragFloat3("##Scale", scale.get_data_ptr());
 
-            imgui::centered_button("Add component");
+            eu::imgui::centered_button("Add component");
         }
         ImGui::End();
 

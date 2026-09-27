@@ -489,6 +489,47 @@ ImguiShaderCache::~ImguiShaderCache()
 }
 
 
+void label(const char* label)
+{
+    ImGuiWindow* window = ImGui::GetCurrentWindow();
+    const float full_width = ImGui::GetContentRegionAvail().x;
+    const float item_width = full_width * 0.6f;
+    const ImVec2 text_size = ImGui::CalcTextSize(label);
+    ImRect text_rect;
+    text_rect.Min = ImGui::GetCursorScreenPos();
+    text_rect.Max = text_rect.Min;
+    text_rect.Max.x += full_width - item_width;
+    text_rect.Max.y += text_size.y;
+
+    ImGui::AlignTextToFramePadding();
+    text_rect.Min.y += window->DC.CurrLineTextBaseOffset;
+    text_rect.Max.y += window->DC.CurrLineTextBaseOffset;
+
+    ImGui::ItemSize(text_rect);
+    if (ImGui::ItemAdd(text_rect, window->GetID(label)))
+    {
+        constexpr float ellipsis_max = 3.0f;
+        ImGui::RenderTextEllipsis(ImGui::GetWindowDrawList(), text_rect.Min, text_rect.Max, ellipsis_max, label, nullptr, &text_size);
+
+        if (text_rect.GetWidth() < text_size.x && ImGui::IsItemHovered())
+            ImGui::SetTooltip("%s", label);
+    }
+    ImGui::SameLine();
+    ImGui::SetNextItemWidth(-1);
+}
+
+
+bool centered_button(const char* label)
+{
+    const auto window_width = ImGui::GetContentRegionAvail().x;
+    const auto text_width = ImGui::CalcTextSize(label).x;
+    const auto padding_hor = ImGui::GetStyle().FramePadding.x * 2; // padding on both sides
+    const auto whitespace = window_width - text_width - padding_hor;
+    const float x = whitespace * 0.5f;
+    ImGui::SetCursorPosX(x);
+    return ImGui::Button(label);
+}
+
 
 void imgui_text(const std::string& str)
 {

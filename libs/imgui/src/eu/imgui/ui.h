@@ -37,6 +37,8 @@ enum class ImageShader
 };
 
 
+void label(const char* label);
+bool centered_button(const char* label);
 void imgui_text(const std::string& str);
 void imgui_image(const char* name, const render::FrameBuffer& img, ImguiShaderCache* cache, ImageShader shader);
 bool simple_gamma_slider(const char* label, float* gamma, float curve = 1.5f, float min_gamma = 1.6f, float max_gamma = 2.8f);
@@ -45,5 +47,6 @@ bool drag(const char* label, v3* drag);
 bool drag(const char* label, Ypr* drag);
 
 bool gear(const char* label, v3* drag);
+
 
 }
