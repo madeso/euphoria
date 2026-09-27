@@ -106,6 +106,42 @@
         </inbodydescription>
         <location file="libs/imgui/src/eu/imgui/scurve.h" line="52" column="6" declfile="libs/imgui/src/eu/imgui/scurve.h" declline="52" declcolumn="6"/>
       </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1imgui_1a4219888c66154530236ef5bef9ba97e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::imgui::label</definition>
+        <argsstring>(const char *label)</argsstring>
+        <name>label</name>
+        <qualifiedname>eu::imgui::label</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>label</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="40" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="40" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1imgui_1aa5d8e0bdd238dd4b4287454e72b34eea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::imgui::centered_button</definition>
+        <argsstring>(const char *label)</argsstring>
+        <name>centered_button</name>
+        <qualifiedname>eu::imgui::centered_button</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>label</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="41" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="41" declcolumn="6"/>
+      </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1imgui_1a420ae25b84de7554562a2b45086d01fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::imgui::imgui_text</definition>
@@ -122,7 +158,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="40" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="40" declcolumn="6"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="42" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="42" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1imgui_1a16ec0dc141f3a5c138f01887ee7b3b98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -152,7 +188,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="41" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="41" declcolumn="6"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="43" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="43" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1imgui_1ab76823a0cdc47913592393872d8445ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -189,7 +225,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="42" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="42" declcolumn="6"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="44" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="44" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1imgui_1a25deb46cd40f718cd9fc56ac8d883207" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -211,7 +247,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="44" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="44" declcolumn="6"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="46" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="46" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1imgui_1af0288431818b8d61edc215ad5d0ec7f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -233,7 +269,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="45" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="45" declcolumn="6"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="47" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="47" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1imgui_1a71b22944824462e3666e064332b08a19" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -255,7 +291,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="47" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="47" declcolumn="6"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="49" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="49" declcolumn="6"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

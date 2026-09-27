@@ -88,12 +88,14 @@ Enumerations</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a78b11aa78f2ad17f6b073cf346e64850" id="r_a78b11aa78f2ad17f6b073cf346e64850"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78b11aa78f2ad17f6b073cf346e64850">imgui_s_curve_editor</a> (const char *title, <a class="el" href="structeu_1_1core_1_1SCurve.html">core::SCurve</a> *scurve, <a class="el" href="structeu_1_1imgui_1_1SCurveGuiState.html">SCurveGuiState</a> *gui, <a class="el" href="#a6887d690e8c91852b12a0aef78d2111f">FlipX</a> flip_x, const <a class="el" href="structeu_1_1imgui_1_1SCurveImguiSettings.html">SCurveImguiSettings</a> &amp;settings, bool force_init_curve)</td></tr>
+<tr class="memitem:a4219888c66154530236ef5bef9ba97e8" id="r_a4219888c66154530236ef5bef9ba97e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4219888c66154530236ef5bef9ba97e8">label</a> (const char *label)</td></tr>
+<tr class="memitem:aa5d8e0bdd238dd4b4287454e72b34eea" id="r_aa5d8e0bdd238dd4b4287454e72b34eea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa5d8e0bdd238dd4b4287454e72b34eea">centered_button</a> (const char *<a class="el" href="#a4219888c66154530236ef5bef9ba97e8">label</a>)</td></tr>
 <tr class="memitem:a420ae25b84de7554562a2b45086d01fa" id="r_a420ae25b84de7554562a2b45086d01fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a420ae25b84de7554562a2b45086d01fa">imgui_text</a> (const std::string &amp;str)</td></tr>
 <tr class="memitem:a16ec0dc141f3a5c138f01887ee7b3b98" id="r_a16ec0dc141f3a5c138f01887ee7b3b98"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16ec0dc141f3a5c138f01887ee7b3b98">imgui_image</a> (const char *name, const <a class="el" href="structeu_1_1render_1_1FrameBuffer.html">render::FrameBuffer</a> &amp;img, <a class="el" href="structeu_1_1imgui_1_1ImguiShaderCache.html">ImguiShaderCache</a> *cache, <a class="el" href="#a502392178a28af7e2f21f36456f7ed43">ImageShader</a> shader)</td></tr>
-<tr class="memitem:ab76823a0cdc47913592393872d8445ac" id="r_ab76823a0cdc47913592393872d8445ac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab76823a0cdc47913592393872d8445ac">simple_gamma_slider</a> (const char *label, float *gamma, float curve=1.5f, float min_gamma=1.6f, float max_gamma=2.8f)</td></tr>
-<tr class="memitem:a25deb46cd40f718cd9fc56ac8d883207" id="r_a25deb46cd40f718cd9fc56ac8d883207"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25deb46cd40f718cd9fc56ac8d883207">drag</a> (const char *label, <a class="el" href="structeu_1_1v3.html">v3</a> *drag)</td></tr>
-<tr class="memitem:af0288431818b8d61edc215ad5d0ec7f8" id="r_af0288431818b8d61edc215ad5d0ec7f8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af0288431818b8d61edc215ad5d0ec7f8">drag</a> (const char *label, <a class="el" href="structeu_1_1Ypr.html">Ypr</a> *drag)</td></tr>
-<tr class="memitem:a71b22944824462e3666e064332b08a19" id="r_a71b22944824462e3666e064332b08a19"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a71b22944824462e3666e064332b08a19">gear</a> (const char *label, <a class="el" href="structeu_1_1v3.html">v3</a> *<a class="el" href="#a25deb46cd40f718cd9fc56ac8d883207">drag</a>)</td></tr>
+<tr class="memitem:ab76823a0cdc47913592393872d8445ac" id="r_ab76823a0cdc47913592393872d8445ac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab76823a0cdc47913592393872d8445ac">simple_gamma_slider</a> (const char *<a class="el" href="#a4219888c66154530236ef5bef9ba97e8">label</a>, float *gamma, float curve=1.5f, float min_gamma=1.6f, float max_gamma=2.8f)</td></tr>
+<tr class="memitem:a25deb46cd40f718cd9fc56ac8d883207" id="r_a25deb46cd40f718cd9fc56ac8d883207"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25deb46cd40f718cd9fc56ac8d883207">drag</a> (const char *<a class="el" href="#a4219888c66154530236ef5bef9ba97e8">label</a>, <a class="el" href="structeu_1_1v3.html">v3</a> *drag)</td></tr>
+<tr class="memitem:af0288431818b8d61edc215ad5d0ec7f8" id="r_af0288431818b8d61edc215ad5d0ec7f8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af0288431818b8d61edc215ad5d0ec7f8">drag</a> (const char *<a class="el" href="#a4219888c66154530236ef5bef9ba97e8">label</a>, <a class="el" href="structeu_1_1Ypr.html">Ypr</a> *drag)</td></tr>
+<tr class="memitem:a71b22944824462e3666e064332b08a19" id="r_a71b22944824462e3666e064332b08a19"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a71b22944824462e3666e064332b08a19">gear</a> (const char *<a class="el" href="#a4219888c66154530236ef5bef9ba97e8">label</a>, <a class="el" href="structeu_1_1v3.html">v3</a> *<a class="el" href="#a25deb46cd40f718cd9fc56ac8d883207">drag</a>)</td></tr>
 </table>
 <a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumeration Type Documentation</h2>
 <a id="a6887d690e8c91852b12a0aef78d2111f" name="a6887d690e8c91852b12a0aef78d2111f"></a>
@@ -154,6 +156,23 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="aa5d8e0bdd238dd4b4287454e72b34eea" name="aa5d8e0bdd238dd4b4287454e72b34eea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5d8e0bdd238dd4b4287454e72b34eea">&#9670;&#160;</a></span>centered_button()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool eu::imgui::centered_button </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>label</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a25deb46cd40f718cd9fc56ac8d883207" name="a25deb46cd40f718cd9fc56ac8d883207"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a25deb46cd40f718cd9fc56ac8d883207">&#9670;&#160;</a></span>drag() <span class="overload">[1/2]</span></h2>
 
@@ -299,6 +318,23 @@ Functions</h2></td></tr>
           <td class="memname">void eu::imgui::imgui_text </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4219888c66154530236ef5bef9ba97e8" name="a4219888c66154530236ef5bef9ba97e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4219888c66154530236ef5bef9ba97e8">&#9670;&#160;</a></span>label()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void eu::imgui::label </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>label</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>

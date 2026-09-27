@@ -1818,6 +1818,8 @@
     <member refid="namespaceeu_1_1imgui_1a502392178a28af7e2f21f36456f7ed43a65cae4f1e6026f7494a9bb1349984db5" kind="enumvalue"><name>tonemap_and_gamma</name></member>
     <member refid="namespaceeu_1_1imgui_1a502392178a28af7e2f21f36456f7ed43ad2b4cce50ba282d161baa6826f0aeab0" kind="enumvalue"><name>depth_ortho</name></member>
     <member refid="namespaceeu_1_1imgui_1a78b11aa78f2ad17f6b073cf346e64850" kind="function"><name>imgui_s_curve_editor</name></member>
+    <member refid="namespaceeu_1_1imgui_1a4219888c66154530236ef5bef9ba97e8" kind="function"><name>label</name></member>
+    <member refid="namespaceeu_1_1imgui_1aa5d8e0bdd238dd4b4287454e72b34eea" kind="function"><name>centered_button</name></member>
     <member refid="namespaceeu_1_1imgui_1a420ae25b84de7554562a2b45086d01fa" kind="function"><name>imgui_text</name></member>
     <member refid="namespaceeu_1_1imgui_1a16ec0dc141f3a5c138f01887ee7b3b98" kind="function"><name>imgui_image</name></member>
     <member refid="namespaceeu_1_1imgui_1ab76823a0cdc47913592393872d8445ac" kind="function"><name>simple_gamma_slider</name></member>

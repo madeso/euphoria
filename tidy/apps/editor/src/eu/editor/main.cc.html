@@ -27,210 +27,51 @@
 <div class="link-container"><div class="prev">&lt;<a href="../../../../runner/src/eu/runner/main.cc.html">apps/runner/src/eu/runner/main.cc</a></div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../../libs/base/src/eu/base/colors.cc.html">libs/base/src/eu/base/colors.cc</a>&gt;</div></div>
 <span id='misc-use-internal-linkage'>&nbsp;</span>
 <hr>
-<h3>warning: function &#39;label&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
-<code>[misc-use-internal-linkage]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 32 : 10</i></p>
-<pre>
-   32 |     void label(const char* label)
-      |          ^
-      |     static 
-</pre>
-<span id='misc-const-correctness'>&nbsp;</span>
-<hr>
-<h3>warning: variable &#39;fullWidth&#39; of type &#39;float&#39; can be declared &#39;const&#39;</h3>
-<code>[misc-const-correctness]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 35 : 9</i></p>
-<pre>
-   35 |         float fullWidth = ImGui::GetContentRegionAvail().x;
-      |         ^
-      |               const 
-</pre>
-<span id='readability-identifier-naming'>&nbsp;</span>
-<hr>
-<h3>warning: invalid case style for local variable &#39;fullWidth&#39;</h3>
-<code>[readability-identifier-naming]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 35 : 15</i></p>
-<pre>
-   35 |         float fullWidth = ImGui::GetContentRegionAvail().x;
-      |               ^~~~~~~~~
-      |               full_width
-   36 |         float itemWidth = fullWidth * 0.6f;
-      |                           ~~~~~~~~~
-      |                           full_width
-   37 |         ImVec2 textSize = ImGui::CalcTextSize(label);
-   38 |         ImRect textRect;
-   39 |         textRect.Min = ImGui::GetCursorScreenPos();
-   40 |         textRect.Max = textRect.Min;
-   41 |         textRect.Max.x += fullWidth - itemWidth;
-      |                           ~~~~~~~~~
-      |                           full_width
-</pre>
-<hr>
-<h3>warning: variable &#39;itemWidth&#39; of type &#39;float&#39; can be declared &#39;const&#39;</h3>
-<code>[misc-const-correctness]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 36 : 9</i></p>
-<pre>
-   36 |         float itemWidth = fullWidth * 0.6f;
-      |         ^
-      |               const 
-</pre>
-<hr>
-<h3>warning: invalid case style for local variable &#39;itemWidth&#39;</h3>
-<code>[readability-identifier-naming]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 36 : 15</i></p>
-<pre>
-   36 |         float itemWidth = fullWidth * 0.6f;
-      |               ^~~~~~~~~
-      |               item_width
-   37 |         ImVec2 textSize = ImGui::CalcTextSize(label);
-   38 |         ImRect textRect;
-   39 |         textRect.Min = ImGui::GetCursorScreenPos();
-   40 |         textRect.Max = textRect.Min;
-   41 |         textRect.Max.x += fullWidth - itemWidth;
-      |                                       ~~~~~~~~~
-      |                                       item_width
-</pre>
-<hr>
-<h3>warning: variable &#39;textSize&#39; of type &#39;ImVec2&#39; can be declared &#39;const&#39;</h3>
-<code>[misc-const-correctness]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 37 : 9</i></p>
-<pre>
-   37 |         ImVec2 textSize = ImGui::CalcTextSize(label);
-      |         ^
-      |                const 
-</pre>
-<hr>
-<h3>warning: invalid case style for local variable &#39;textSize&#39;</h3>
-<code>[readability-identifier-naming]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 37 : 16</i></p>
-<pre>
-   37 |         ImVec2 textSize = ImGui::CalcTextSize(label);
-      |                ^~~~~~~~
-      |                text_size
-   38 |         ImRect textRect;
-   39 |         textRect.Min = ImGui::GetCursorScreenPos();
-   40 |         textRect.Max = textRect.Min;
-   41 |         textRect.Max.x += fullWidth - itemWidth;
-   42 |         textRect.Max.y += textSize.y;
-      |                           ~~~~~~~~
-      |                           text_size
-   43 | 
-   44 |         ImGui::AlignTextToFramePadding();
-   45 |         textRect.Min.y += window-&gt;DC.CurrLineTextBaseOffset;
-   46 |         textRect.Max.y += window-&gt;DC.CurrLineTextBaseOffset;
-   47 | 
-   48 |         ImGui::ItemSize(textRect);
-   49 |         if (ImGui::ItemAdd(textRect, window-&gt;GetID(label)))
-   50 |         {
-   51 |             const float ellipsis_max = 3.0f;
-   52 |             ImGui::RenderTextEllipsis(ImGui::GetWindowDrawList(), textRect.Min, textRect.Max, ellipsis_max, label, nullptr, &amp;textSize);
-      |                                                                                                                              ~~~~~~~~
-      |                                                                                                                              text_size
-</pre>
-<hr>
-<h3>warning: invalid case style for local variable &#39;textRect&#39;</h3>
-<code>[readability-identifier-naming]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 38 : 16</i></p>
-<pre>
-   38 |         ImRect textRect;
-      |                ^~~~~~~~
-      |                text_rect
-   39 |         textRect.Min = ImGui::GetCursorScreenPos();
-      |         ~~~~~~~~
-      |         text_rect
-   40 |         textRect.Max = textRect.Min;
-      |         ~~~~~~~~       ~~~~~~~~
-      |         text_rect      text_rect
-   41 |         textRect.Max.x += fullWidth - itemWidth;
-      |         ~~~~~~~~
-      |         text_rect
-   42 |         textRect.Max.y += textSize.y;
-      |         ~~~~~~~~
-      |         text_rect
-   43 | 
-   44 |         ImGui::AlignTextToFramePadding();
-   45 |         textRect.Min.y += window-&gt;DC.CurrLineTextBaseOffset;
-      |         ~~~~~~~~
-      |         text_rect
-   46 |         textRect.Max.y += window-&gt;DC.CurrLineTextBaseOffset;
-      |         ~~~~~~~~
-      |         text_rect
-   47 | 
-   48 |         ImGui::ItemSize(textRect);
-      |                         ~~~~~~~~
-      |                         text_rect
-   49 |         if (ImGui::ItemAdd(textRect, window-&gt;GetID(label)))
-      |                            ~~~~~~~~
-      |                            text_rect
-   50 |         {
-   51 |             const float ellipsis_max = 3.0f;
-   52 |             ImGui::RenderTextEllipsis(ImGui::GetWindowDrawList(), textRect.Min, textRect.Max, ellipsis_max, label, nullptr, &amp;textSize);
-      |                                                                   ~~~~~~~~      ~~~~~~~~
-      |                                                                   text_rect     text_rect
-</pre>
-<span id='google-readability-braces-around-statements'>&nbsp;</span>
-<span id='readability-braces-around-statements'>&nbsp;</span>
-<hr>
-<h3>warning: statement should be inside braces</h3>
-<code>[google-readability-braces-around-statements,readability-braces-around-statements]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 54 : 76</i></p>
-<pre>
-   54 |             if (textRect.GetWidth() &lt; textSize.x &amp;&amp; ImGui::IsItemHovered())
-      |                                                                            ^
-      |                                                                             {
-   55 |                 ImGui::SetTooltip(&quot;%s&quot;, label);
-      |                                                
-</pre>
-<hr>
-<h3>warning: function &#39;centered_button&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
-<code>[misc-use-internal-linkage]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 61 : 10</i></p>
-<pre>
-   61 |     bool centered_button(const char* label)
-      |          ^
-      |     static 
-</pre>
-<hr>
 <h3>warning: function &#39;chunk_from_embed&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
 <ul>
 <li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 73 : 17</i></p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 34 : 17</i></p>
 <pre>
-   73 | eu::MemoryChunk chunk_from_embed(const embedded_binary&amp; binary)
+   34 | eu::MemoryChunk chunk_from_embed(const embedded_binary&amp; binary)
       |                 ^
       | static 
+</pre>
+<hr>
+<h3>warning: enum &#39;AppState&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 39 : 12</i></p>
+<pre>
+   39 | enum class AppState
+      |            ^
+</pre>
+<hr>
+<h3>warning: struct &#39;App&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 44 : 8</i></p>
+<pre>
+   44 | struct App
+      |        ^
+</pre>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for public member &#39;glContext&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 62 : 25</i></p>
+<pre>
+   62 |     SDL_GLContextState* glContext = nullptr;
+      |                         ^~~~~~~~~
+      |                         gl_context
 </pre>
 <span id='readability-use-concise-preprocessor-directives'>&nbsp;</span>
 <hr>
@@ -239,9 +80,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 92 : 2</i></p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 90 : 2</i></p>
 <pre>
-   92 | #if defined(__APPLE__)
+   90 | #if defined(__APPLE__)
       |  ^~~~~~~~~~~~~~~~~~~~~
       |  ifdef __APPLE__
 </pre>
@@ -252,49 +93,34 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 121 : 10</i></p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 119 : 10</i></p>
 <pre>
-  121 |     if (!window) {
+  119 |     if (!window)
       |         ~^     
       |                 == nullptr
 </pre>
 <hr>
-<h3>warning: invalid case style for local pointer &#39;glContext&#39;</h3>
-<code>[readability-identifier-naming]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 126 : 11</i></p>
-<pre>
-  126 |     auto* glContext = SDL_GL_CreateContext(window);
-      |           ^~~~~~~~~
-      |           gl_context
-  127 |     SDL_GetWindowSize(window, &amp;window_width, &amp;window_height);
-  128 |     if (!glContext) {
-      |          ~~~~~~~~~
-      |          gl_context
-</pre>
-<hr>
-<h3>warning: implicit conversion &#39;struct SDL_GLContextState *&#39; -&gt; &#39;bool&#39;</h3>
+<h3>warning: implicit conversion &#39;SDL_GLContextState *&#39; -&gt; &#39;bool&#39;</h3>
 <code>[readability-implicit-bool-conversion]</code>
 <ul>
 <li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 128 : 10</i></p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 127 : 10</i></p>
 <pre>
-  128 |     if (!glContext) {
+  127 |     if (!glContext) {
       |         ~^        
       |                    == nullptr
 </pre>
+<span id='misc-const-correctness'>&nbsp;</span>
 <hr>
 <h3>warning: pointee of variable &#39;font&#39; of type &#39;ImFont *&#39; can be declared &#39;const&#39;</h3>
 <code>[misc-const-correctness]</code>
 <ul>
 <li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 165 : 9</i></p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 162 : 9</i></p>
 <pre>
-  165 |         ImFont* font = io.Fonts-&gt;AddFontFromMemoryTTF(
+  162 |         ImFont* font = io.Fonts-&gt;AddFontFromMemoryTTF(
       |         ^     
       |                const
 </pre>
@@ -305,22 +131,58 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 166 : 13</i></p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 163 : 13</i></p>
 <pre>
-  166 |             const_cast&lt;void*&gt;(static_cast&lt;const void*&gt;(OPENSANS_REGULAR_TTF_data)),
+  163 |             const_cast&lt;void*&gt;(static_cast&lt;const void*&gt;(OPENSANS_REGULAR_TTF_data)),
       |             ^
 </pre>
+<span id='modernize-make-unique'>&nbsp;</span>
 <hr>
-<h3>warning: implicit conversion &#39;bool&#39; -&gt; &#39;int&#39;</h3>
-<code>[readability-implicit-bool-conversion]</code>
+<h3>warning: use std:: make_unique instead</h3>
+<code>[modernize-make-unique]</code>
 <ul>
 <li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 189 : 16</i></p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 176 : 12</i></p>
 <pre>
-  189 |         while (SDL_PollEvent(&amp;e) != 0)
-      |                ^
-      |                static_cast&lt;int&gt;()
+    7 |     states.reset(new eu::render::State());
+      |           ~^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~
+      |            = std::make_unique&lt;eu::render::State&gt;
+</pre>
+<span id='cppcoreguidelines-owning-memory'>&nbsp;</span>
+<hr>
+<h3>warning: initializing non-owner argument of type &#39;pointer&#39; (aka &#39;eu::render::State *&#39;) with a newly created &#39;gsl:: owner&lt;&gt;&#39;</h3>
+<code>[cppcoreguidelines-owning-memory]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 176 : 18</i></p>
+<pre>
+  176 |     states.reset(new eu::render::State());
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning: use std:: make_unique instead</h3>
+<code>[modernize-make-unique]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 177 : 12</i></p>
+<pre>
+  177 |     render.reset(new eu::render::Render2(states.get()));
+      |           ~^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~            ~
+      |            = std::make_unique&lt;eu::render::Render2&gt;
+</pre>
+<hr>
+<h3>warning: initializing non-owner argument of type &#39;pointer&#39; (aka &#39;eu::render::Render2 *&#39;) with a newly created &#39;gsl:: owner&lt;&gt;&#39;</h3>
+<code>[cppcoreguidelines-owning-memory]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 177 : 18</i></p>
+<pre>
+  177 |     render.reset(new eu::render::Render2(states.get()));
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 </pre>
 <hr>
 <h3>warning: variable &#39;cmd&#39; of type &#39;eu::render:: RenderCommand&#39; can be declared &#39;const&#39;</h3>
@@ -328,11 +190,107 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 234 : 13</i></p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 233 : 9</i></p>
 <pre>
-  234 |             eu::render::RenderCommand cmd {.states = &amp;states, .render = &amp;render, .size = {.width = window_width, .height = window_height} };
-      |             ^
-      |                                       const 
+  233 |         eu::render::RenderCommand cmd {.states = states.get(), .render = render.get(), .size = {.width = window_width, .height = window_height} };
+      |         ^
+      |                                   const 
+</pre>
+<hr>
+<h3>warning: function &#39;to_sdl_result&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 271 : 15</i></p>
+<pre>
+  271 | SDL_AppResult to_sdl_result(AppState state)
+      |               ^
+      | static 
+</pre>
+<span id='readability-qualified-auto'>&nbsp;</span>
+<hr>
+<h3>warning: &#39;auto app&#39; can be declared as &#39;auto *app&#39;</h3>
+<code>[readability-qualified-auto]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 285 : 5</i></p>
+<pre>
+  285 |     auto app = new App();
+      |     ^~~~
+      |     auto *
+</pre>
+<hr>
+<h3>warning: deleting a pointer through a type that is not marked &#39;gsl:: owner&lt;&gt;&#39;; consider using a smart pointer instead</h3>
+<code>[cppcoreguidelines-owning-memory]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 293 : 5</i></p>
+<pre>
+  293 |     delete app;
+      |     ^      ~~~
+</pre>
+<p>variable declared here</p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 285 : 5</i></p>
+<pre>
+  285 |     auto app = new App();
+      |     ^~~~~~~~~~~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning: &#39;auto app&#39; can be declared as &#39;auto *app&#39;</h3>
+<code>[readability-qualified-auto]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 299 : 5</i></p>
+<pre>
+  299 |     auto app = static_cast&lt;App*&gt;(app_arg);
+      |     ^~~~
+      |     auto *
+</pre>
+<hr>
+<h3>warning: &#39;auto app&#39; can be declared as &#39;auto *app&#39;</h3>
+<code>[readability-qualified-auto]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 306 : 5</i></p>
+<pre>
+  306 |     auto app = static_cast&lt;App*&gt;(app_arg);
+      |     ^~~~
+      |     auto *
+</pre>
+<hr>
+<h3>warning: &#39;auto app&#39; can be declared as &#39;auto *app&#39;</h3>
+<code>[readability-qualified-auto]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 318 : 5</i></p>
+<pre>
+  318 |     auto app = static_cast&lt;App*&gt;(app_arg);
+      |     ^~~~
+      |     auto *
+</pre>
+<hr>
+<h3>warning: deleting a pointer through a type that is not marked &#39;gsl:: owner&lt;&gt;&#39;; consider using a smart pointer instead</h3>
+<code>[cppcoreguidelines-owning-memory]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 319 : 5</i></p>
+<pre>
+  319 |     delete app;
+      |     ^      ~~~
+</pre>
+<p>variable declared here</p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 318 : 5</i></p>
+<pre>
+  318 |     auto app = static_cast&lt;App*&gt;(app_arg);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 </pre>
 <div class="link-container"><div class="prev">&lt;<a href="../../../../runner/src/eu/runner/main.cc.html">apps/runner/src/eu/runner/main.cc</a></div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../../libs/base/src/eu/base/colors.cc.html">libs/base/src/eu/base/colors.cc</a>&gt;</div></div>
 </body>
