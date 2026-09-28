@@ -46,7 +46,7 @@
       </node>
       <node id="13">
         <label>eu/render/debug.h</label>
-        <link refid="debug_8h"/>
+        <link refid="render_2src_2eu_2render_2debug_8h"/>
       </node>
       <node id="14">
         <label>eu/render/material.h</label>

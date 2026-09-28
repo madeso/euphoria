@@ -547,6 +547,17 @@
     <member refid="structeu_1_1imgui_1_1ImguiShaderProgram_1a54eb2ac5372fb5ae334c187fb9d852e6" kind="variable"><name>texture_attrib</name></member>
     <member refid="structeu_1_1imgui_1_1ImguiShaderProgram_1ab63a16d052ed30e624469c6e1d2c3efe" kind="variable"><name>projection_attrib</name></member>
   </compound>
+  <compound refid="structeu_1_1imgui_1_1ImLog" kind="struct"><name>eu::imgui::ImLog</name>
+    <member refid="structeu_1_1imgui_1_1ImLog_1a3b07f72a2f7ccb5eaf51f5809d475e67" kind="variable"><name>messages</name></member>
+    <member refid="structeu_1_1imgui_1_1ImLog_1ae49b06913c0c8e3ec7b7b987525e6fa2" kind="function"><name>begin</name></member>
+    <member refid="structeu_1_1imgui_1_1ImLog_1af17f132fc6fd0564e60fdb2605a0f09d" kind="function"><name>add</name></member>
+    <member refid="structeu_1_1imgui_1_1ImLog_1a81ca8248f95e38922af9a2c4d01140df" kind="function"><name>draw</name></member>
+  </compound>
+  <compound refid="structeu_1_1imgui_1_1ImTweak" kind="struct"><name>eu::imgui::ImTweak</name>
+    <member refid="structeu_1_1imgui_1_1ImTweak_1afc41537c7750e38714816cacd1ea4756" kind="variable"><name>booleans</name></member>
+    <member refid="structeu_1_1imgui_1_1ImTweak_1a44f08bbca41db9faab51f736c0755702" kind="function"><name>get_bool</name></member>
+    <member refid="structeu_1_1imgui_1_1ImTweak_1a3263178a0cdaa4d28bb876e81946a583" kind="function"><name>draw</name></member>
+  </compound>
   <compound refid="structeu_1_1render_1_1InputCommand" kind="struct"><name>eu::render::InputCommand</name>
     <member refid="structeu_1_1render_1_1InputCommand_1af5e83da22fe90615b2915486a5b95769" kind="variable"><name>size</name></member>
   </compound>
@@ -1817,6 +1828,9 @@
     <member refid="namespaceeu_1_1imgui_1a502392178a28af7e2f21f36456f7ed43a334c4a4c42fdb79d7ebc3e73b517e6f8" kind="enumvalue"><name>none</name></member>
     <member refid="namespaceeu_1_1imgui_1a502392178a28af7e2f21f36456f7ed43a65cae4f1e6026f7494a9bb1349984db5" kind="enumvalue"><name>tonemap_and_gamma</name></member>
     <member refid="namespaceeu_1_1imgui_1a502392178a28af7e2f21f36456f7ed43ad2b4cce50ba282d161baa6826f0aeab0" kind="enumvalue"><name>depth_ortho</name></member>
+    <member refid="namespaceeu_1_1imgui_1a3fcd3b4f33593d5e59a2c78a1cbcc0ab" kind="function"><name>calculate_app_scale</name></member>
+    <member refid="namespaceeu_1_1imgui_1a427d1b1c25576910f8c887de7fa30e83" kind="function"><name>rescale_window</name></member>
+    <member refid="namespaceeu_1_1imgui_1a533ffd5037b3df19cf5cd73ae07ce210" kind="function"><name>setup_scale</name></member>
     <member refid="namespaceeu_1_1imgui_1a78b11aa78f2ad17f6b073cf346e64850" kind="function"><name>imgui_s_curve_editor</name></member>
     <member refid="namespaceeu_1_1imgui_1a4219888c66154530236ef5bef9ba97e8" kind="function"><name>label</name></member>
     <member refid="namespaceeu_1_1imgui_1aa5d8e0bdd238dd4b4287454e72b34eea" kind="function"><name>centered_button</name></member>
@@ -2093,6 +2107,12 @@
     <member refid="fmt_2src_2eu_2fmt_2pch_8public_8h_1a2a9ccd1834c8052d71fbee493127ef67" kind="define"><name>ADD_CATCH_FORMATTER_DEF</name></member>
     <member refid="fmt_2src_2eu_2fmt_2pch_8public_8h_1a9d5ac138e60feccdf63aa093ace42af9" kind="define"><name>ADD_CATCH_FORMATTER_IMPL</name></member>
   </compound>
+  <compound refid="imgui_2src_2eu_2imgui_2debug_8h" kind="file"><name>debug.h</name>
+  </compound>
+  <compound refid="render_2src_2eu_2render_2debug_8h" kind="file"><name>debug.h</name>
+  </compound>
+  <compound refid="init_8h" kind="file"><name>init.h</name>
+  </compound>
   <compound refid="base_2src_2eu_2base_2pch_8private_8h" kind="file"><name>pch.private.h</name>
   </compound>
   <compound refid="core_2src_2eu_2core_2pch_8private_8h" kind="file"><name>pch.private.h</name>
@@ -2144,8 +2164,6 @@
   <compound refid="compiledmesh_8h" kind="file"><name>compiledmesh.h</name>
   </compound>
   <compound refid="constants_8h" kind="file"><name>constants.h</name>
-  </compound>
-  <compound refid="debug_8h" kind="file"><name>debug.h</name>
   </compound>
   <compound refid="dependency__glad_8h" kind="file"><name>dependency_glad.h</name>
   </compound>

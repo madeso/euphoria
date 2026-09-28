@@ -7,7 +7,7 @@
     <innerfile refid="canvas_8h">canvas.h</innerfile>
     <innerfile refid="compiledmesh_8h">compiledmesh.h</innerfile>
     <innerfile refid="constants_8h">constants.h</innerfile>
-    <innerfile refid="debug_8h">debug.h</innerfile>
+    <innerfile refid="render_2src_2eu_2render_2debug_8h">debug.h</innerfile>
     <innerfile refid="dependency__glad_8h">dependency_glad.h</innerfile>
     <innerfile refid="enable__high__performance__graphics_8h">enable_high_performance_graphics.h</innerfile>
     <innerfile refid="font_8h">font.h</innerfile>

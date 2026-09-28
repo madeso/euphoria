@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
-  <compounddef id="debug_8h" kind="file" language="C++">
+  <compounddef id="render_2src_2eu_2render_2debug_8h" kind="file" language="C++">
     <compoundname>debug.h</compoundname>
     <includedby refid="renderer_8h" local="yes">libs/render/src/eu/render/renderer.h</includedby>
     <invincdepgraph>
       <node id="1">
         <label>libs/render/src/eu/render/debug.h</label>
-        <link refid="debug_8h"/>
+        <link refid="render_2src_2eu_2render_2debug_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
       </node>

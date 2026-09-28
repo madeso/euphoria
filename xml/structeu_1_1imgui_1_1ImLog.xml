@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="structeu_1_1imgui_1_1ImLog" kind="struct" language="C++" prot="public">
+    <compoundname>eu::imgui::ImLog</compoundname>
+    <includes refid="imgui_2src_2eu_2imgui_2debug_8h" local="no">debug.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1imgui_1_1ImLog_1a3b07f72a2f7ccb5eaf51f5809d475e67" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; eu::imgui::ImLog::messages</definition>
+        <argsstring></argsstring>
+        <name>messages</name>
+        <qualifiedname>eu::imgui::ImLog::messages</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/debug.h" line="9" column="17" bodyfile="libs/imgui/src/eu/imgui/debug.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1imgui_1_1ImLog_1ae49b06913c0c8e3ec7b7b987525e6fa2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::imgui::ImLog::begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <qualifiedname>eu::imgui::ImLog::begin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/debug.h" line="11" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1imgui_1_1ImLog_1af17f132fc6fd0564e60fdb2605a0f09d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::imgui::ImLog::add</definition>
+        <argsstring>(std::string m)</argsstring>
+        <name>add</name>
+        <qualifiedname>eu::imgui::ImLog::add</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/debug.h" line="12" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1imgui_1_1ImLog_1a81ca8248f95e38922af9a2c4d01140df" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::imgui::ImLog::draw</definition>
+        <argsstring>() const</argsstring>
+        <name>draw</name>
+        <qualifiedname>eu::imgui::ImLog::draw</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/debug.h" line="13" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/imgui/src/eu/imgui/debug.h" line="7" column="1" bodyfile="libs/imgui/src/eu/imgui/debug.h" bodystart="8" bodyend="14"/>
+    <listofallmembers>
+      <member refid="structeu_1_1imgui_1_1ImLog_1af17f132fc6fd0564e60fdb2605a0f09d" prot="public" virt="non-virtual"><scope>eu::imgui::ImLog</scope><name>add</name></member>
+      <member refid="structeu_1_1imgui_1_1ImLog_1ae49b06913c0c8e3ec7b7b987525e6fa2" prot="public" virt="non-virtual"><scope>eu::imgui::ImLog</scope><name>begin</name></member>
+      <member refid="structeu_1_1imgui_1_1ImLog_1a81ca8248f95e38922af9a2c4d01140df" prot="public" virt="non-virtual"><scope>eu::imgui::ImLog</scope><name>draw</name></member>
+      <member refid="structeu_1_1imgui_1_1ImLog_1a3b07f72a2f7ccb5eaf51f5809d475e67" prot="public" virt="non-virtual"><scope>eu::imgui::ImLog</scope><name>messages</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

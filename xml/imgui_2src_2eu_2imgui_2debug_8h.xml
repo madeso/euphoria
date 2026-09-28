@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="imgui_2src_2eu_2imgui_2debug_8h" kind="file" language="C++">
+    <compoundname>debug.h</compoundname>
+    <innerclass refid="structeu_1_1imgui_1_1ImLog" prot="public">eu::imgui::ImLog</innerclass>
+    <innerclass refid="structeu_1_1imgui_1_1ImTweak" prot="public">eu::imgui::ImTweak</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <innernamespace refid="namespaceeu_1_1imgui">eu::imgui</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/imgui/src/eu/imgui/debug.h"/>
+  </compounddef>
+</doxygen>

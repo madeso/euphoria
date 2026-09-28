@@ -2,6 +2,8 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="namespaceeu_1_1imgui" kind="namespace" language="C++">
     <compoundname>eu::imgui</compoundname>
+    <innerclass refid="structeu_1_1imgui_1_1ImLog" prot="public">eu::imgui::ImLog</innerclass>
+    <innerclass refid="structeu_1_1imgui_1_1ImTweak" prot="public">eu::imgui::ImTweak</innerclass>
     <innerclass refid="structeu_1_1imgui_1_1SCurveGuiState" prot="public">eu::imgui::SCurveGuiState</innerclass>
     <innerclass refid="structeu_1_1imgui_1_1SCurveImguiSettings" prot="public">eu::imgui::SCurveImguiSettings</innerclass>
     <innerclass refid="structeu_1_1imgui_1_1ImguiShaderProgram" prot="public">eu::imgui::ImguiShaderProgram</innerclass>
@@ -68,6 +70,64 @@
       </memberdef>
     </sectiondef>
     <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeu_1_1imgui_1a3fcd3b4f33593d5e59a2c78a1cbcc0ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float eu::imgui::calculate_app_scale</definition>
+        <argsstring>()</argsstring>
+        <name>calculate_app_scale</name>
+        <qualifiedname>eu::imgui::calculate_app_scale</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/init.h" line="5" column="7" declfile="libs/imgui/src/eu/imgui/init.h" declline="5" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1imgui_1a427d1b1c25576910f8c887de7fa30e83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::pair&lt; int, int &gt;</type>
+        <definition>std::pair&lt; int, int &gt; eu::imgui::rescale_window</definition>
+        <argsstring>(int width, int height, float app_scale)</argsstring>
+        <name>rescale_window</name>
+        <qualifiedname>eu::imgui::rescale_window</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>app_scale</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/init.h" line="6" column="11" declfile="libs/imgui/src/eu/imgui/init.h" declline="6" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1imgui_1a533ffd5037b3df19cf5cd73ae07ce210" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::imgui::setup_scale</definition>
+        <argsstring>(float app_scale)</argsstring>
+        <name>setup_scale</name>
+        <qualifiedname>eu::imgui::setup_scale</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>app_scale</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/init.h" line="7" column="6" declfile="libs/imgui/src/eu/imgui/init.h" declline="7" declcolumn="6"/>
+      </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1imgui_1a78b11aa78f2ad17f6b073cf346e64850" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool eu::imgui::imgui_s_curve_editor</definition>
@@ -298,6 +358,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/imgui/src/eu/imgui/scurve.h" line="10" column="1"/>
+    <location file="libs/imgui/src/eu/imgui/debug.h" line="3" column="1"/>
   </compounddef>
 </doxygen>

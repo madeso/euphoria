@@ -68,6 +68,8 @@ $(function() { codefold.init(); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:ImLog" id="r_ImLog"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1imgui_1_1ImLog.html">ImLog</a></td></tr>
+<tr class="memitem:ImTweak" id="r_ImTweak"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1imgui_1_1ImTweak.html">ImTweak</a></td></tr>
 <tr class="memitem:SCurveGuiState" id="r_SCurveGuiState"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1imgui_1_1SCurveGuiState.html">SCurveGuiState</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the GUI state for an S-curve.  <a href="structeu_1_1imgui_1_1SCurveGuiState.html#details">More...</a><br /></td></tr>
 <tr class="memitem:SCurveImguiSettings" id="r_SCurveImguiSettings"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1imgui_1_1SCurveImguiSettings.html">SCurveImguiSettings</a></td></tr>
@@ -87,6 +89,9 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a3fcd3b4f33593d5e59a2c78a1cbcc0ab" id="r_a3fcd3b4f33593d5e59a2c78a1cbcc0ab"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3fcd3b4f33593d5e59a2c78a1cbcc0ab">calculate_app_scale</a> ()</td></tr>
+<tr class="memitem:a427d1b1c25576910f8c887de7fa30e83" id="r_a427d1b1c25576910f8c887de7fa30e83"><td class="memItemLeft" align="right" valign="top">std::pair&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a427d1b1c25576910f8c887de7fa30e83">rescale_window</a> (int width, int height, float app_scale)</td></tr>
+<tr class="memitem:a533ffd5037b3df19cf5cd73ae07ce210" id="r_a533ffd5037b3df19cf5cd73ae07ce210"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a533ffd5037b3df19cf5cd73ae07ce210">setup_scale</a> (float app_scale)</td></tr>
 <tr class="memitem:a78b11aa78f2ad17f6b073cf346e64850" id="r_a78b11aa78f2ad17f6b073cf346e64850"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78b11aa78f2ad17f6b073cf346e64850">imgui_s_curve_editor</a> (const char *title, <a class="el" href="structeu_1_1core_1_1SCurve.html">core::SCurve</a> *scurve, <a class="el" href="structeu_1_1imgui_1_1SCurveGuiState.html">SCurveGuiState</a> *gui, <a class="el" href="#a6887d690e8c91852b12a0aef78d2111f">FlipX</a> flip_x, const <a class="el" href="structeu_1_1imgui_1_1SCurveImguiSettings.html">SCurveImguiSettings</a> &amp;settings, bool force_init_curve)</td></tr>
 <tr class="memitem:a4219888c66154530236ef5bef9ba97e8" id="r_a4219888c66154530236ef5bef9ba97e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4219888c66154530236ef5bef9ba97e8">label</a> (const char *label)</td></tr>
 <tr class="memitem:aa5d8e0bdd238dd4b4287454e72b34eea" id="r_aa5d8e0bdd238dd4b4287454e72b34eea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa5d8e0bdd238dd4b4287454e72b34eea">centered_button</a> (const char *<a class="el" href="#a4219888c66154530236ef5bef9ba97e8">label</a>)</td></tr>
@@ -156,6 +161,23 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a3fcd3b4f33593d5e59a2c78a1cbcc0ab" name="a3fcd3b4f33593d5e59a2c78a1cbcc0ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fcd3b4f33593d5e59a2c78a1cbcc0ab">&#9670;&#160;</a></span>calculate_app_scale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float eu::imgui::calculate_app_scale </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aa5d8e0bdd238dd4b4287454e72b34eea" name="aa5d8e0bdd238dd4b4287454e72b34eea"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa5d8e0bdd238dd4b4287454e72b34eea">&#9670;&#160;</a></span>centered_button()</h2>
 
@@ -335,6 +357,49 @@ Functions</h2></td></tr>
           <td class="memname">void eu::imgui::label </td>
           <td>(</td>
           <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>label</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a427d1b1c25576910f8c887de7fa30e83" name="a427d1b1c25576910f8c887de7fa30e83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a427d1b1c25576910f8c887de7fa30e83">&#9670;&#160;</a></span>rescale_window()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt; int, int &gt; eu::imgui::rescale_window </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>width</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>height</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>app_scale</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a533ffd5037b3df19cf5cd73ae07ce210" name="a533ffd5037b3df19cf5cd73ae07ce210"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a533ffd5037b3df19cf5cd73ae07ce210">&#9670;&#160;</a></span>setup_scale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void eu::imgui::setup_scale </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>app_scale</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>

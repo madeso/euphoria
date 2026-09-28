@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="structeu_1_1imgui_1_1ImTweak" kind="struct" language="C++" prot="public">
+    <compoundname>eu::imgui::ImTweak</compoundname>
+    <includes refid="imgui_2src_2eu_2imgui_2debug_8h" local="no">debug.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1imgui_1_1ImTweak_1afc41537c7750e38714816cacd1ea4756" prot="public" static="no" mutable="no">
+        <type>std::unordered_map&lt; std::string, bool &gt;</type>
+        <definition>std::unordered_map&lt;std::string, bool&gt; eu::imgui::ImTweak::booleans</definition>
+        <argsstring></argsstring>
+        <name>booleans</name>
+        <qualifiedname>eu::imgui::ImTweak::booleans</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/debug.h" line="18" column="24" bodyfile="libs/imgui/src/eu/imgui/debug.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1imgui_1_1ImTweak_1a44f08bbca41db9faab51f736c0755702" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::imgui::ImTweak::get_bool</definition>
+        <argsstring>(const std::string &amp;name)</argsstring>
+        <name>get_bool</name>
+        <qualifiedname>eu::imgui::ImTweak::get_bool</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/debug.h" line="20" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1imgui_1_1ImTweak_1a3263178a0cdaa4d28bb876e81946a583" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::imgui::ImTweak::draw</definition>
+        <argsstring>()</argsstring>
+        <name>draw</name>
+        <qualifiedname>eu::imgui::ImTweak::draw</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/debug.h" line="21" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/imgui/src/eu/imgui/debug.h" line="16" column="1" bodyfile="libs/imgui/src/eu/imgui/debug.h" bodystart="17" bodyend="22"/>
+    <listofallmembers>
+      <member refid="structeu_1_1imgui_1_1ImTweak_1afc41537c7750e38714816cacd1ea4756" prot="public" virt="non-virtual"><scope>eu::imgui::ImTweak</scope><name>booleans</name></member>
+      <member refid="structeu_1_1imgui_1_1ImTweak_1a3263178a0cdaa4d28bb876e81946a583" prot="public" virt="non-virtual"><scope>eu::imgui::ImTweak</scope><name>draw</name></member>
+      <member refid="structeu_1_1imgui_1_1ImTweak_1a44f08bbca41db9faab51f736c0755702" prot="public" virt="non-virtual"><scope>eu::imgui::ImTweak</scope><name>get_bool</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -4,7 +4,7 @@
     <compoundname>renderer.h</compoundname>
     <includes local="no">memory</includes>
     <includes refid="vertex__layout_8h" local="yes">eu/core/vertex_layout.h</includes>
-    <includes refid="debug_8h" local="yes">eu/render/debug.h</includes>
+    <includes refid="render_2src_2eu_2render_2debug_8h" local="yes">eu/render/debug.h</includes>
     <includes refid="postproc_8h" local="yes">eu/render/postproc.h</includes>
     <includes refid="material_8h" local="yes">eu/render/material.h</includes>
     <includes refid="render__settings_8h" local="yes">eu/render/render_settings.h</includes>
@@ -45,7 +45,7 @@
       </node>
       <node id="7">
         <label>eu/render/debug.h</label>
-        <link refid="debug_8h"/>
+        <link refid="render_2src_2eu_2render_2debug_8h"/>
       </node>
       <node id="13">
         <label>eu/render/material.h</label>

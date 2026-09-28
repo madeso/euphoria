@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1render_1_1DebugLine" kind="struct" language="C++" prot="public">
     <compoundname>eu::render::DebugLine</compoundname>
-    <includes refid="debug_8h" local="no">debug.h</includes>
+    <includes refid="render_2src_2eu_2render_2debug_8h" local="no">debug.h</includes>
     <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1render_1_1DebugLine_1a3950af3896452045415ab1006761b7ff" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
