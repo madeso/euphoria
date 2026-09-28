@@ -2,9 +2,10 @@
 # imgui_extra project
 
 set(imgui_src
+    src/eu/imgui/debug.cc src/eu/imgui/debug.h
+    src/eu/imgui/init.cc src/eu/imgui/init.h
     src/eu/imgui/scurve.cc src/eu/imgui/scurve.h
     src/eu/imgui/ui.cc src/eu/imgui/ui.h
-    src/eu/imgui/init.cc src/eu/imgui/init.h
 
     src/eu/imgui/pch.private.h
 )
