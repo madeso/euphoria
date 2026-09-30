@@ -1,16 +1,25 @@
 #pragma once
+#include "imgui.h"
 
 namespace eu::imgui
 {
 
+enum class LogStyle
+{
+    basic, filter
+};
 
 struct ImLog
 {
+    ImGuiTextFilter filter;
     std::vector<std::string> messages;
 
     void begin();
     void add(std::string m);
-    void draw() const;
+    void draw(LogStyle style = LogStyle::basic);
+
+    void draw_basic() const;
+    void draw_filter();
 };
 
 struct ImTweak
