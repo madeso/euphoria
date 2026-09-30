@@ -2,6 +2,18 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="imgui_2src_2eu_2imgui_2debug_8h" kind="file" language="C++">
     <compoundname>debug.h</compoundname>
+    <includes local="yes">imgui.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>libs/imgui/src/eu/imgui/debug.h</label>
+        <link refid="imgui_2src_2eu_2imgui_2debug_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>imgui.h</label>
+      </node>
+    </incdepgraph>
     <innerclass refid="structeu_1_1imgui_1_1ImLog" prot="public">eu::imgui::ImLog</innerclass>
     <innerclass refid="structeu_1_1imgui_1_1ImTweak" prot="public">eu::imgui::ImTweak</innerclass>
     <innernamespace refid="namespaceeu">eu</innernamespace>

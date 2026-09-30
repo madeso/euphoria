@@ -9,6 +9,32 @@
     <innerclass refid="structeu_1_1imgui_1_1ImguiShaderProgram" prot="public">eu::imgui::ImguiShaderProgram</innerclass>
     <innerclass refid="structeu_1_1imgui_1_1ImguiShaderCache" prot="public">eu::imgui::ImguiShaderCache</innerclass>
     <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespaceeu_1_1imgui_1a9c9532b33a0ae19d02b70fc6bca9a069" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>LogStyle</name>
+        <qualifiedname>eu::imgui::LogStyle</qualifiedname>
+        <enumvalue id="namespaceeu_1_1imgui_1a9c9532b33a0ae19d02b70fc6bca9a069af17aaabc20bfe045075927934fed52d2" prot="public">
+          <name>basic</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeu_1_1imgui_1a9c9532b33a0ae19d02b70fc6bca9a069ab2c97ae425dd751b0e48a3acae79cf4a" prot="public">
+          <name>filter</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/debug.h" line="7" column="1" bodyfile="libs/imgui/src/eu/imgui/debug.h" bodystart="8" bodyend="10"/>
+      </memberdef>
       <memberdef kind="enum" id="namespaceeu_1_1imgui_1a6887d690e8c91852b12a0aef78d2111f" prot="public" static="no" strong="yes">
         <type></type>
         <name>FlipX</name>
@@ -358,6 +384,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/imgui/src/eu/imgui/debug.h" line="3" column="1"/>
+    <location file="libs/imgui/src/eu/imgui/debug.h" line="4" column="1"/>
   </compounddef>
 </doxygen>

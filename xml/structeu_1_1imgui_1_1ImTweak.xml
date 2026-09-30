@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/debug.h" line="18" column="24" bodyfile="libs/imgui/src/eu/imgui/debug.h" bodystart="18" bodyend="-1"/>
+        <location file="libs/imgui/src/eu/imgui/debug.h" line="27" column="24" bodyfile="libs/imgui/src/eu/imgui/debug.h" bodystart="27" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -36,7 +36,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/debug.h" line="20" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/debug.h" line="29" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1ImTweak_1a3263178a0cdaa4d28bb876e81946a583" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -50,14 +50,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/debug.h" line="21" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/debug.h" line="30" column="10"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/imgui/src/eu/imgui/debug.h" line="16" column="1" bodyfile="libs/imgui/src/eu/imgui/debug.h" bodystart="17" bodyend="22"/>
+    <location file="libs/imgui/src/eu/imgui/debug.h" line="25" column="1" bodyfile="libs/imgui/src/eu/imgui/debug.h" bodystart="26" bodyend="31"/>
     <listofallmembers>
       <member refid="structeu_1_1imgui_1_1ImTweak_1afc41537c7750e38714816cacd1ea4756" prot="public" virt="non-virtual"><scope>eu::imgui::ImTweak</scope><name>booleans</name></member>
       <member refid="structeu_1_1imgui_1_1ImTweak_1a3263178a0cdaa4d28bb876e81946a583" prot="public" virt="non-virtual"><scope>eu::imgui::ImTweak</scope><name>draw</name></member>

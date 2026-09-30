@@ -4,6 +4,20 @@
     <compoundname>eu::imgui::ImLog</compoundname>
     <includes refid="imgui_2src_2eu_2imgui_2debug_8h" local="no">debug.h</includes>
     <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1imgui_1_1ImLog_1ab95b1728a56229f5148736f1db53263e" prot="public" static="no" mutable="no">
+        <type>ImGuiTextFilter</type>
+        <definition>ImGuiTextFilter eu::imgui::ImLog::filter</definition>
+        <argsstring></argsstring>
+        <name>filter</name>
+        <qualifiedname>eu::imgui::ImLog::filter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/debug.h" line="14" column="21" bodyfile="libs/imgui/src/eu/imgui/debug.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
       <memberdef kind="variable" id="structeu_1_1imgui_1_1ImLog_1a3b07f72a2f7ccb5eaf51f5809d475e67" prot="public" static="no" mutable="no">
         <type>std::vector&lt; std::string &gt;</type>
         <definition>std::vector&lt;std::string&gt; eu::imgui::ImLog::messages</definition>
@@ -16,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/debug.h" line="9" column="17" bodyfile="libs/imgui/src/eu/imgui/debug.h" bodystart="9" bodyend="-1"/>
+        <location file="libs/imgui/src/eu/imgui/debug.h" line="15" column="17" bodyfile="libs/imgui/src/eu/imgui/debug.h" bodystart="15" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -32,7 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/debug.h" line="11" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/debug.h" line="17" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1ImLog_1af17f132fc6fd0564e60fdb2605a0f09d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -50,32 +64,68 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/debug.h" line="12" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/debug.h" line="18" column="10"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1imgui_1_1ImLog_1a81ca8248f95e38922af9a2c4d01140df" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1imgui_1_1ImLog_1a7b34915b90485b709a874ebc1c31d6f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::imgui::ImLog::draw</definition>
-        <argsstring>() const</argsstring>
+        <argsstring>(LogStyle style=LogStyle::basic)</argsstring>
         <name>draw</name>
         <qualifiedname>eu::imgui::ImLog::draw</qualifiedname>
+        <param>
+          <type><ref refid="namespaceeu_1_1imgui_1a9c9532b33a0ae19d02b70fc6bca9a069" kindref="member">LogStyle</ref></type>
+          <declname>style</declname>
+          <defval><ref refid="namespaceeu_1_1imgui_1a9c9532b33a0ae19d02b70fc6bca9a069af17aaabc20bfe045075927934fed52d2" kindref="member">LogStyle::basic</ref></defval>
+        </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/debug.h" line="13" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/debug.h" line="19" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1imgui_1_1ImLog_1ac4b2da5ac932c42669d55dfa9dec8508" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::imgui::ImLog::draw_basic</definition>
+        <argsstring>() const</argsstring>
+        <name>draw_basic</name>
+        <qualifiedname>eu::imgui::ImLog::draw_basic</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/debug.h" line="21" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1imgui_1_1ImLog_1a661f30b670b5c5d906310fd359aa2908" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::imgui::ImLog::draw_filter</definition>
+        <argsstring>()</argsstring>
+        <name>draw_filter</name>
+        <qualifiedname>eu::imgui::ImLog::draw_filter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/debug.h" line="22" column="10"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/imgui/src/eu/imgui/debug.h" line="7" column="1" bodyfile="libs/imgui/src/eu/imgui/debug.h" bodystart="8" bodyend="14"/>
+    <location file="libs/imgui/src/eu/imgui/debug.h" line="12" column="1" bodyfile="libs/imgui/src/eu/imgui/debug.h" bodystart="13" bodyend="23"/>
     <listofallmembers>
       <member refid="structeu_1_1imgui_1_1ImLog_1af17f132fc6fd0564e60fdb2605a0f09d" prot="public" virt="non-virtual"><scope>eu::imgui::ImLog</scope><name>add</name></member>
       <member refid="structeu_1_1imgui_1_1ImLog_1ae49b06913c0c8e3ec7b7b987525e6fa2" prot="public" virt="non-virtual"><scope>eu::imgui::ImLog</scope><name>begin</name></member>
-      <member refid="structeu_1_1imgui_1_1ImLog_1a81ca8248f95e38922af9a2c4d01140df" prot="public" virt="non-virtual"><scope>eu::imgui::ImLog</scope><name>draw</name></member>
+      <member refid="structeu_1_1imgui_1_1ImLog_1a7b34915b90485b709a874ebc1c31d6f6" prot="public" virt="non-virtual"><scope>eu::imgui::ImLog</scope><name>draw</name></member>
+      <member refid="structeu_1_1imgui_1_1ImLog_1ac4b2da5ac932c42669d55dfa9dec8508" prot="public" virt="non-virtual"><scope>eu::imgui::ImLog</scope><name>draw_basic</name></member>
+      <member refid="structeu_1_1imgui_1_1ImLog_1a661f30b670b5c5d906310fd359aa2908" prot="public" virt="non-virtual"><scope>eu::imgui::ImLog</scope><name>draw_filter</name></member>
+      <member refid="structeu_1_1imgui_1_1ImLog_1ab95b1728a56229f5148736f1db53263e" prot="public" virt="non-virtual"><scope>eu::imgui::ImLog</scope><name>filter</name></member>
       <member refid="structeu_1_1imgui_1_1ImLog_1a3b07f72a2f7ccb5eaf51f5809d475e67" prot="public" virt="non-virtual"><scope>eu::imgui::ImLog</scope><name>messages</name></member>
     </listofallmembers>
   </compounddef>
