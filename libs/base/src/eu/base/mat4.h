@@ -155,7 +155,7 @@ namespace eu
         /// Get the local Y axis.
         [[nodiscard]] n3 get_y_axis() const;
 
-        /// Get the local Z azis.
+        /// Get the local Z axis.
         [[nodiscard]] n3 get_z_axis() const;
 
         /// Gets the transpose of a matrix.
@@ -167,9 +167,9 @@ namespace eu
         void operator-=(const m4 &rhs);
 
     
+    private:
         /// stored in column major
         float data[16];
-    private:
         m4() = default;
 
         constexpr m4(
