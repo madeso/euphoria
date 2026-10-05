@@ -2,6 +2,15 @@
 
 #include <cmath>
 
+namespace
+{
+    template <typename T, size_t array_size>
+    size_t argmax(const std::array<T, array_size>& array)
+    {
+        ASSERT(array.empty() == false);
+        return std::distance(array.begin(), std::max_element(array.begin(), array.end()));
+    }
+}
 
 namespace eu
 {
@@ -270,30 +279,23 @@ namespace eu
         z = w1z2 + z1w2 + x1y2 - y1x2;
     }
 
-    Q Q::look_in_direction(const n3& dir, const n3&)
+    Q Q::look_in_direction(const n3& forward, const n3& upwards)
     {
-        // todo(Gustav): does this function work as expected?
-        const v3 in = kk::in;
-        const float dot_value = in.dot(dir);
+        const auto& z = forward;
+        const auto x_new = z.cross_norm(upwards);
 
-        if (cabs(dot_value - (-1.0f)) < 0.000001f)
+        if (x_new.has_value() == false)
         {
-            // todo(Gustav): replace with a constant in general but this line specifically
-            return q_identity; // {3.1415926535897932f, up};
+            return look_in_direction(forward, forward.y > 0 ? kk::out : kk::in);
         }
-        if (cabs(dot_value - (1.0f)) < 0.000001f)
-        {
-            return q_identity;
-        }
+        const auto& x = *x_new;
 
-        const auto rot_angle = acos(dot_value);
-        const auto rot_axis = in.cross(dir).get_normalized();
-        if(rot_axis.has_value() == false)
-        {
-            DIE("missing rot_axis");
-            return q_identity;
-        }
-        return Q::from(rha(*rot_axis, rot_angle));
+        const auto y_new = x.cross_norm(z);
+        ASSERT(y_new.has_value());
+        const auto& y = *y_new;
+
+        const auto m = m4::from_basis(x, y, -z);
+        return Q::from_rotation_matrix(m);
     }
 
 
@@ -331,6 +333,67 @@ namespace eu
         Q r = q;
         r *= scale;
         return r;
+    }
+
+    Q
+    Q::from_rotation_matrix(const m4& m)
+    {
+        /// Implements the "Shepperd's method" as described in
+        /// "3-D Computer Graphics A Mathematical Introduction with OpenGL" by Samuel R. Buss (2022)
+        /// in section XII 3.6 Quaternion and rotation matrix conversions on page 465
+        const auto m11 = m.get(0, 0);
+        const auto m22 = m.get(1, 1);
+        const auto m33 = m.get(2, 2);
+
+        // aka trace
+        const auto m00 = m11 + m22 + m33;
+
+        switch (argmax(std::array{ m00, m11, m22, m33 }))
+        {
+        case 0:
+        {
+            const auto d = 0.5f * std::sqrt(m00 + 1.0f);
+
+            const auto a = (m.get1(3, 2) - m.get1(2, 3)) / (4.0f * d);
+            const auto b = (m.get1(1, 3) - m.get1(3, 1)) / (4.0f * d);
+            const auto c = (m.get1(2, 1) - m.get1(1, 2)) / (4.0f * d);
+
+            return Q{ d, {a, b, c} }.get_normalized();
+        }
+        case 1:
+        {
+            const auto a = 0.5f * std::sqrt(2.0f * m11 - m00 + 1.0f);
+
+            const auto d = (m.get1(3, 2) - m.get1(2, 3)) / (4.0f * a);
+            const auto b = (m.get1(2, 1) + m.get1(1, 2)) / (4.0f * a);
+            const auto c = (m.get1(1, 3) + m.get1(3, 1)) / (4.0f * a);
+
+            return Q{ d, {a, b, c} }.get_normalized();
+        }
+        case 2:
+        {
+            const auto b = 0.5f * std::sqrt(2.0f * m22 - m00 + 1.0f);
+
+            const auto d = (m.get1(1, 3) - m.get1(3, 1)) / (4.0f * b);
+            const auto a = (m.get1(2, 1) + m.get1(1, 2)) / (4.0f * b);
+            const auto c = (m.get1(3, 2) + m.get1(2, 3)) / (4.0f * b);
+
+            return Q{ d, {a, b, c} }.get_normalized();
+        }
+        case 3:
+        {
+            const auto c = 0.5f * std::sqrt(2.0f * m33 - m00 + 1.0f);
+
+            const auto d = (m.get1(2, 1) - m.get1(1, 2)) / (4.0f * c);
+            const auto a = (m.get1(1, 3) + m.get1(3, 1)) / (4.0f * c);
+            const auto b = (m.get1(3, 2) + m.get1(2, 3)) / (4.0f * c);
+
+            return Q{ d, {a, b, c} }.get_normalized();
+        }
+        default:
+            DIE("shouldn't happen!!!");
+            return q_identity;
+        }
     }
 
     ADD_CATCH_FORMATTER_IMPL(Q)

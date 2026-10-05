@@ -14,6 +14,13 @@ namespace eu
 
     struct Q;
 
+    struct Rui
+    {
+        float right = 0;
+        float up = 0;
+        float in = 0;
+    };
+
     /// 4x4 matrix
     struct m4
     {
@@ -73,7 +80,7 @@ namespace eu
         [[nodiscard]] static m4 from(const AA &aa);
 
         /// Create a rotation matrix, from a quaternion.
-        [[nodiscard]] static std::optional<m4> from(const Q& q);
+        [[nodiscard]] static m4 from(const Q& q);
 
         /// Create an orthographic projection matrix.
         /// Also known as a `clip_from_view` transformation.
@@ -114,6 +121,9 @@ namespace eu
 
         /// Get a transformed vec3 assuming it's a point
         [[nodiscard]] v3 get_transformed_point(const v3 &p) const;
+
+        /// Get a transformed (right, up, in)
+        [[nodiscard]] v3 get_transformed(const Rui& rui) const;
 
         /// Get a transformed vec3, assuming it's a normal vector
         [[nodiscard]] v3 get_transformed_vec(const v3 &p) const;
@@ -156,10 +166,10 @@ namespace eu
         void operator+=(const m4 &rhs);
         void operator-=(const m4 &rhs);
 
-    private:
+    
         /// stored in column major
         float data[16];
-
+    private:
         m4() = default;
 
         constexpr m4(

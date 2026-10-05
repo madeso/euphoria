@@ -212,7 +212,7 @@ m4 transform_from_node_rec(const cgltf_node& node)
 {
     const m4 parent = node.parent != nullptr ? transform_from_node_rec(*node.parent) : m4_identity;
     const m4 translate = node.has_translation != 0 ? m4::from_translation(v3(node.translation)) : m4_identity;
-    const m4 rotate = node.has_rotation != 0 ? m4::from(Q(node.rotation)).value_or(m4_identity) : m4_identity;
+    const m4 rotate = node.has_rotation != 0 ? m4::from(Q(node.rotation)) : m4_identity;
     const m4 scale = node.has_scale != 0 ? m4::from_scale(v3(node.scale)) : m4_identity;
 
     const auto transform = translate * rotate * scale;

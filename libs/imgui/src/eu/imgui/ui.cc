@@ -404,6 +404,69 @@ namespace eu::imgui
 
             return changed;
         }
+
+        constexpr const char* gear_string = ".";
+        struct GearWidget
+        {
+            const char* label;
+            ImVec2 gear_size;
+            bool value_changed = false;
+
+            explicit GearWidget(const char* l)
+                : label(l)
+                , gear_size(calc_button_size(gear_string))
+            {
+                auto& style = ImGui::GetStyle();
+
+                ImGui::BeginGroup();
+                ImGui::PushID(label);
+
+                const float w_items = ImMax(0.0f, ImGui::CalcItemWidth() - style.ItemInnerSpacing.x * (6 - 1) - gear_size.x * 3);
+                for (int item_index = 0; item_index < 3; item_index += 1)
+                {
+                    ImGui::PushItemWidth(gear_size.x);
+                    ImGui::PushItemWidth(w_items / 3);
+                }
+            }
+
+            void widget(int i, float* p_data)
+            {
+                auto& style = ImGui::GetStyle();
+
+                ImGui::PushID(i);
+                if (i > 0)
+                {
+                    ImGui::SameLine(0, style.ItemInnerSpacing.x);
+                }
+                value_changed |= ImGui::DragFloat("", p_data);
+                ImGui::PopItemWidth();
+                ImGui::SameLine(0, style.ItemInnerSpacing.x);
+                value_changed |= gear_icon(gear_string, p_data, gear_size);
+                ImGui::PopItemWidth();
+                ImGui::PopID();
+            }
+
+            ~GearWidget()
+            {
+                auto& style = ImGui::GetStyle();
+
+                ImGui::PopID();
+
+                const char* label_end = ImGui::FindRenderedTextEnd(label);
+                if (label != label_end)
+                {
+                    ImGui::SameLine(0, style.ItemInnerSpacing.x);
+                    ImGui::TextEx(label, label_end);
+                }
+
+                ImGui::EndGroup();
+            }
+
+            GearWidget(const GearWidget&) = delete;
+            GearWidget(GearWidget&&) = delete;
+            void operator=(const GearWidget&) = delete;
+            void operator=(GearWidget&&) = delete;
+        };
     }
 }
 
@@ -642,53 +705,26 @@ bool drag(const char* label, Ypr* drag)
     return changed;
 }
 
+bool gear(const char* label, Rui* drag)
+{
+    GearWidget widget{ label };
+
+    widget.widget(0, &drag->right);
+    widget.widget(1, &drag->up);
+    widget.widget(2, &drag->in);
+
+    return widget.value_changed;
+}
+
 bool gear(const char* label, v3* drag)
 {
-    constexpr const char* gear_string = ".";
-    const auto gear_size = calc_button_size(gear_string);
+    GearWidget widget{ label };
 
-    auto& style = ImGui::GetStyle();
+    widget.widget(0, &drag->x);
+    widget.widget(1, &drag->y);
+    widget.widget(2, &drag->z);
 
-    bool value_changed = false;
-    ImGui::BeginGroup();
-    ImGui::PushID(label);
-    
-    const float w_items = ImMax(0.0f, ImGui::CalcItemWidth() - style.ItemInnerSpacing.x * (6 - 1) - gear_size.x * 3);
-    for (int item_index=0; item_index<3; item_index+=1)
-    {
-        ImGui::PushItemWidth(gear_size.x);
-        ImGui::PushItemWidth(w_items / 3);
-    }
-    
-    const auto widget = [&](int i, float* p_data)
-        {
-            ImGui::PushID(i);
-            if (i > 0)
-            {
-                ImGui::SameLine(0, style.ItemInnerSpacing.x);
-            }
-            value_changed |= ImGui::DragFloat("", p_data);
-            ImGui::PopItemWidth();
-            ImGui::SameLine(0, style.ItemInnerSpacing.x);
-            value_changed |= gear_icon(gear_string, p_data, gear_size);
-            ImGui::PopItemWidth();
-            ImGui::PopID();
-        };
-    widget(0, &drag->x);
-    widget(1, &drag->y);
-    widget(2, &drag->z);
-    ImGui::PopID();
-
-    const char* label_end = ImGui::FindRenderedTextEnd(label);
-    if (label != label_end)
-    {
-        ImGui::SameLine(0, style.ItemInnerSpacing.x);
-        ImGui::TextEx(label, label_end);
-    }
-
-    ImGui::EndGroup();
-
-    return value_changed;
+    return widget.value_changed;
 }
 
 }

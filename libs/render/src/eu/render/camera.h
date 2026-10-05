@@ -17,14 +17,7 @@ struct Camera
 	float near = 0.1f;
 	float far = 100.0f;
 
-	v3 position = v3{0.0f, 0.0f, 0.0f};
-
-    Ypr rotation = Ypr
-    {
-        .yaw = 0.0_rad,
-        .pitch = 0.0_rad,
-        .roll = 0.0_rad
-    };
+    m4 world_from_view = m4_identity;
 };
 
 /// A orthographic camera representation.

@@ -81,6 +81,15 @@ namespace eu
     }
 
     v3
+    m4::get_transformed(const Rui& rui) const
+    {
+        const auto right = get_transformed_vec(kk::right) * rui.right;
+        const auto up = get_transformed_vec(kk::up) * rui.up;
+        const auto in = get_transformed_vec(kk::in) * rui.in;
+        return right + up + in;
+    }
+
+    v3
     m4::get_transformed_vec(const v3& p) const
     {
         return get_transformed(v4{p, 0.0f}).to_vec3(0.0f);
@@ -178,13 +187,11 @@ namespace eu
     }
 
 
-    [[nodiscard]] std::optional<m4>
+    [[nodiscard]] m4
     m4::from(const Q& q)
     {
         const auto aa = AA::from(q);
-        if (!aa)
-            { return std::nullopt; }
-        return m4::from(*aa);
+        return m4::from(aa);
     }
 
     

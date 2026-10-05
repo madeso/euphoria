@@ -1,5 +1,7 @@
 #include "eu/base/axisangle.h"
 
+#include <algorithm>
+
 #include "eu/assert/assert.h"
 
 #include "eu/base/quat.h"
@@ -12,16 +14,19 @@ namespace eu
         ASSERT(ax.is_valid());
     }
 
-    [[nodiscard]] std::optional<AA>
+    [[nodiscard]] AA
     AA::from(const Q& q)
     {
-        const float cos_a = q.w;
+        const float cos_a = std::ranges::clamp(q.w , -1.0f, 1.0f); // todo(Gustav): is this needed?
         const auto angle = acos(cos_a) * 2;
         const auto sin_a = clamp_zero(std::sqrt(1.0f - cos_a * cos_a), 1, 0.0005f);
         // todo(Gustav): do we need to normalize here?
         const auto axis = (q.get_vec_part() / sin_a).get_normalized();
         if (!axis)
-            { return std::nullopt; }
+        {
+            // a "zero" rotation so any axis works
+            return rha(kk::up, no_rotation);
+        }
         return rha(*axis, angle);
     }
 

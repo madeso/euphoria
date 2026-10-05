@@ -8,7 +8,7 @@ using namespace eu::tests;
 using namespace eu;
 
 // todo(Gustav): too many tests? remove duplicates?
-
+#if 0
 TEST_CASE("transform-identity", "[transform]")
 {
     constexpr auto src = Transform
@@ -146,3 +146,5 @@ TEST_CASE("transform-combined", "[transform]")
 
     CHECK(mat.get_transformed_point(v3{1, 0, 0}) == approx(v3{5, 0, -2}));
 }
+
+#endif

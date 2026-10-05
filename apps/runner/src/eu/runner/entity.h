@@ -16,6 +16,7 @@ namespace eu::runner
         before_physics,
         physics,
         after_physics,
+        before_render,
         end_frame
     };
     constexpr unsigned int update_stage_count = static_cast<unsigned int>(UpdateStage::end_frame) + 1;

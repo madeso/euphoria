@@ -10,7 +10,7 @@ namespace eu::render
 m4 create_view_from_world_mat(const v3& pos, const CameraVectors& cv)
 {
     const auto trans = m4::from_translation(-pos);
-    const auto rot = m4::from(Q::look_in_direction(cv.front, kk::up)).value_or(m4_identity);
+    const auto rot = m4::from(Q::look_in_direction(cv.front, kk::up));
 	return trans * rot;
 }
 
@@ -20,14 +20,11 @@ CompiledCamera compile(const Camera& cam, const Size& window_size)
 	const float aspect = static_cast<float>(window_size.width) / static_cast<float>(window_size.height);
 	const auto clip_from_view = m4::create_perspective(cam.fov, aspect, cam.near, cam.far);
 
-	const auto camera_space = create_vectors(cam.rotation);
-	const auto view_from_world = create_view_from_world_mat(cam.position, camera_space);
-
 	return CompiledCamera{
 	    .clip_from_view = clip_from_view,
-        .view_from_world = view_from_world,
-        .position = cam.position,
-        .in = camera_space.front
+        .view_from_world = cam.world_from_view.get_inverted(),
+        .position = cam.world_from_view.get_translation(),
+        .in = cam.world_from_view.get_transformed_vec(kk::in)
 	};
 }
 

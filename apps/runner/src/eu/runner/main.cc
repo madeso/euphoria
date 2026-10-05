@@ -38,6 +38,7 @@
 #if FF_HAS(EU_DEBUG_RUNNER)
 #include "eu/imgui/ui.h"
 #include "eu/imgui/init.h"
+#include "eu/imgui/debug.h"
 
 #include "dear_imgui/imgui.h"
 #include "dear_imgui/backends/imgui_impl_sdl3.h"
@@ -328,13 +329,17 @@ struct FollowCameraSystem : runner::EntitySystem
         return "Follow camera";
     }
 
-    v3 offset = kk::out * 3;
+    imgui::ImLog log;
+    imgui::ImTweak tweak;
+    Rui offset = {.right = 0, .up = 0, .in = -3};
     void imgui() override
     {
         boolean("Target", target != nullptr);
         boolean("camera", camera != nullptr);
-        imgui::drag("offset", &offset);
-        imgui::gear("gear", &offset);
+        imgui::gear("Offset", &offset);
+
+        tweak.draw();
+        log.draw();
     }
 
     void on_root_changed(runner::SpatialComponent*) override
@@ -356,30 +361,26 @@ struct FollowCameraSystem : runner::EntitySystem
     }
     void update(float) override
     {
+        log.begin();
+
         if (!target) { return; }
         if (!camera) { return; }
 
         const auto focus = target->target.get_translation();
-        const auto pos_from_focus =
-            target->target.get_transformed_vec(kk::right) * offset.x +
-            target->target.get_transformed_vec(kk::up) * offset.y +
-            target->target.get_transformed_vec(kk::in) * offset.z ;
+        const auto pos_from_focus = target->target.get_transformed(offset);
         const auto pos = focus + pos_from_focus;
         const auto rot = Q::look_at(pos, focus, kk::up);
         if (!rot)
         {
             return;
         }
+        log.add(fmt::format("updated rotation: {}", *rot));
         
         const auto rot_mat = m4::from(*rot);
-        if (!rot_mat)
-        {
-            return;
-        }
+        const auto pos_mat = m4::from_translation(pos);
 
-        const auto mat = *rot_mat * m4::from_translation(pos);
+        const auto mat = pos_mat * rot_mat;
 
-        // const auto nt = target->target.get_translated(offset);
         camera->set_transform(mat);
     }
 };
@@ -449,7 +450,7 @@ struct CameraFetcherSystem : runner::WorldSystem
     runner::UpdateStageAndPrio get_stage() override
     {
         return {
-            .stage = runner::UpdateStage::end_frame,
+            .stage = runner::UpdateStage::before_render,
             .prio = 100
         };
     }
@@ -490,7 +491,7 @@ struct CameraFetcherSystem : runner::WorldSystem
     render::Camera fetch() const
     {
         render::Camera r;
-        r.position = transform.get_translation();
+        r.world_from_view = transform;
         return r;
     }
 };
@@ -834,6 +835,8 @@ int main(int, char**)
                 cmd.clear(eu::colors::black, screen);
             }
         }
+
+        runner_world.update(runner::UpdateStage::before_render, dt);
 
         // render 3d world
         {

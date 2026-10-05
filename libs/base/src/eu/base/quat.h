@@ -45,6 +45,8 @@ namespace eu
         [[nodiscard]] static Q from(const Ypr& ypr);
         [[nodiscard]] static Q from_fast(const Ypr& ypr);
 
+        [[nodiscard]] static Q from_rotation_matrix(const m4& m);
+
         /// Create a quaternion going from `from` to `to`.
         [[nodiscard]] static Q from_to(const Q& from, const Q& to);
 

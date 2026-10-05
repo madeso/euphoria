@@ -72,7 +72,7 @@ bool Renderer::is_loaded() const
 m4 transform_from_rotation(const v3& position, const Ypr& ypr)
 {
     const auto translation = m4::from_translation(position);
-    const auto rotation = m4::from(Q::from(ypr)).value_or(m4_identity);
+    const auto rotation = m4::from(Q::from(ypr));
     return translation * rotation;
 }
 m4 transform_from_billboard(const v3& position, Billboarding billboarding, const CompiledCamera& cc)

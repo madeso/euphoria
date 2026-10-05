@@ -19,7 +19,7 @@ OrthoCamera shadow_cam_from_light(const DirectionalLight& light, const World& wo
 	auto cam = OrthoCamera{};
 	const auto light_local_space = create_vectors(light);
 	const auto shadow_offset = light_local_space.front * world.lights.shadow_offset;
-	cam.position = camera.position - shadow_offset;
+	cam.position = camera.world_from_view.get_translation() - shadow_offset;
 	cam.rotation = light.rotation;
 	cam.near = world.lights.shadow_near;
 	cam.far = world.lights.shadow_far;
@@ -82,7 +82,7 @@ CompiledCamera calculate_tight_fitting_camera_around_perspective(
 	constexpr auto y_up = kk::up;
 	constexpr auto x_up = kk::right;
 	const auto up = std::abs(y_up.dot(dir)) > 0.99f ? x_up : y_up;
-    const auto light_view_from_world = m4::from(Q::look_in_direction(v3::from_to(world_pos_eye, world_pos_center).get_normalized().value_or(kk::in), up)).value_or(m4_identity);
+    const auto light_view_from_world = m4::from(Q::look_in_direction(v3::from_to(world_pos_eye, world_pos_center).get_normalized().value_or(kk::in), up));
 
 	// calculate aabb
 	auto view_pos_min = v3{std::numeric_limits<float>::max()};

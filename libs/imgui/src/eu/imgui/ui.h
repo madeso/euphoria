@@ -47,6 +47,7 @@ bool drag(const char* label, v3* drag);
 bool drag(const char* label, Ypr* drag);
 
 bool gear(const char* label, v3* drag);
+bool gear(const char* label, Rui* drag);
 
 
 }
