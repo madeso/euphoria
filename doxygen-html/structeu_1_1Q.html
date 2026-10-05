@@ -116,6 +116,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:afaa1c917caaf0a005f39bc0ba222ecac" id="r_afaa1c917caaf0a005f39bc0ba222ecac"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afaa1c917caaf0a005f39bc0ba222ecac">from</a> (const <a class="el" href="structeu_1_1Ypr.html">Ypr</a> &amp;ypr)</td></tr>
 <tr class="memdesc:afaa1c917caaf0a005f39bc0ba222ecac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a quaternion from a yaw-pitch-roll.  <br /></td></tr>
 <tr class="memitem:aa2b95f3c6963dab0e8b7f19098bbabcf" id="r_aa2b95f3c6963dab0e8b7f19098bbabcf"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa2b95f3c6963dab0e8b7f19098bbabcf">from_fast</a> (const <a class="el" href="structeu_1_1Ypr.html">Ypr</a> &amp;ypr)</td></tr>
+<tr class="memitem:a898a39f2806d441130ece5db7f38e362" id="r_a898a39f2806d441130ece5db7f38e362"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a898a39f2806d441130ece5db7f38e362">from_rotation_matrix</a> (const <a class="el" href="structeu_1_1m4.html">m4</a> &amp;m)</td></tr>
 <tr class="memitem:a0b7e97b743d06f8d4305a4f3ad54c26a" id="r_a0b7e97b743d06f8d4305a4f3ad54c26a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b7e97b743d06f8d4305a4f3ad54c26a">from_to</a> (const <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> &amp;<a class="el" href="#acf38e08247c681bffa8d6e4d3e731f96">from</a>, const <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> &amp;to)</td></tr>
 <tr class="memdesc:a0b7e97b743d06f8d4305a4f3ad54c26a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a quaternion going from <span class="tt">from</span> to <span class="tt">to</span>.  <br /></td></tr>
 <tr class="memitem:af80452ab6aa9531bb2cfc11ada256321" id="r_af80452ab6aa9531bb2cfc11ada256321"><td class="memItemLeft" align="right" valign="top">static std::optional&lt; <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af80452ab6aa9531bb2cfc11ada256321">look_at</a> (const <a class="el" href="structeu_1_1v3.html">v3</a> &amp;<a class="el" href="#acf38e08247c681bffa8d6e4d3e731f96">from</a>, const <a class="el" href="structeu_1_1v3.html">v3</a> &amp;to, const <a class="el" href="structeu_1_1n3.html">n3</a> &amp;up)</td></tr>
@@ -267,6 +268,31 @@ Public Attributes</h2></td></tr>
           <td class="memname"><a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> eu::Q::from_fast </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structeu_1_1Ypr.html">Ypr</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ypr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a898a39f2806d441130ece5db7f38e362" name="a898a39f2806d441130ece5db7f38e362"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a898a39f2806d441130ece5db7f38e362">&#9670;&#160;</a></span>from_rotation_matrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> eu::Q::from_rotation_matrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structeu_1_1m4.html">m4</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>m</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>

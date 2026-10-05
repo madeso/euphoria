@@ -102,19 +102,14 @@
         <label>eu::Size</label>
         <link refid="structeu_1_1Size"/>
       </node>
-      <node id="10">
-        <label>eu::Ypr</label>
-        <link refid="structeu_1_1Ypr"/>
-        <childnode refid="8" relation="usage">
-          <edgelabel>pitch</edgelabel>
-          <edgelabel>roll</edgelabel>
-          <edgelabel>yaw</edgelabel>
-        </childnode>
+      <node id="9">
+        <label>eu::m4</label>
+        <link refid="structeu_1_1m4"/>
       </node>
-      <node id="12">
+      <node id="11">
         <label>eu::render::Assets</label>
         <link refid="structeu_1_1render_1_1Assets"/>
-        <childnode refid="13" relation="usage">
+        <childnode refid="12" relation="usage">
           <edgelabel>default_shader_source</edgelabel>
           <edgelabel>skybox_shader_source</edgelabel>
         </childnode>
@@ -126,13 +121,10 @@
           <edgelabel>fov</edgelabel>
         </childnode>
         <childnode refid="9" relation="usage">
-          <edgelabel>position</edgelabel>
-        </childnode>
-        <childnode refid="10" relation="usage">
-          <edgelabel>rotation</edgelabel>
+          <edgelabel>world_from_view</edgelabel>
         </childnode>
       </node>
-      <node id="15">
+      <node id="14">
         <label>eu::render::DebugRender</label>
         <link refid="structeu_1_1render_1_1DebugRender"/>
       </node>
@@ -158,31 +150,31 @@
         <childnode refid="7" relation="usage">
           <edgelabel>camera</edgelabel>
         </childnode>
-        <childnode refid="11" relation="usage">
+        <childnode refid="10" relation="usage">
           <edgelabel>renderer</edgelabel>
         </childnode>
       </node>
-      <node id="14">
+      <node id="13">
         <label>eu::render::RenderSettings</label>
         <link refid="structeu_1_1render_1_1RenderSettings"/>
         <childnode refid="5" relation="usage">
           <edgelabel>shadow_map_resolution</edgelabel>
         </childnode>
       </node>
-      <node id="11">
+      <node id="10">
         <label>eu::render::Renderer</label>
         <link refid="structeu_1_1render_1_1Renderer"/>
-        <childnode refid="12" relation="usage">
+        <childnode refid="11" relation="usage">
           <edgelabel>assets</edgelabel>
         </childnode>
-        <childnode refid="14" relation="usage">
+        <childnode refid="13" relation="usage">
           <edgelabel>settings</edgelabel>
         </childnode>
-        <childnode refid="15" relation="usage">
+        <childnode refid="14" relation="usage">
           <edgelabel>debug</edgelabel>
         </childnode>
       </node>
-      <node id="13">
+      <node id="12">
         <label>eu::render::ShaderSource</label>
         <link refid="structeu_1_1render_1_1ShaderSource"/>
       </node>
@@ -195,10 +187,6 @@
         <childnode refid="4" relation="usage">
           <edgelabel>clear_color</edgelabel>
         </childnode>
-      </node>
-      <node id="9">
-        <label>eu::v3</label>
-        <link refid="structeu_1_1v3"/>
       </node>
     </collaborationgraph>
     <location file="libs/render/src/eu/render/postproc.h" line="26" column="1" bodyfile="libs/render/src/eu/render/postproc.h" bodystart="27" bodyend="33"/>

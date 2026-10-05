@@ -3,8 +3,8 @@
   <compounddef id="structeu_1_1m4" kind="struct" language="C++" prot="public">
     <compoundname>eu::m4</compoundname>
     <includes refid="mat4_8h" local="no">mat4.h</includes>
-    <sectiondef kind="private-attrib">
-      <memberdef kind="variable" id="structeu_1_1m4_1af7c3cf30f02fe7416cf478c3c49efea0" prot="private" static="no" mutable="no">
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1m4_1af7c3cf30f02fe7416cf478c3c49efea0" prot="public" static="no" mutable="no">
         <type>float</type>
         <definition>float eu::m4::data[16]</definition>
         <argsstring>[16]</argsstring>
@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="161" column="15" bodyfile="libs/base/src/eu/base/mat4.h" bodystart="161" bodyend="-1"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="171" column="15" bodyfile="libs/base/src/eu/base/mat4.h" bodystart="171" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-static-func">
@@ -98,7 +98,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="21" column="20"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="28" column="20"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a87e85f6fda44138f93d1d53565f0c4f2" prot="public" static="yes" nodiscard="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>m4</type>
@@ -177,7 +177,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="28" column="30" bodyfile="libs/base/src/eu/base/mat4.h" bodystart="28" bodyend="39"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="35" column="30" bodyfile="libs/base/src/eu/base/mat4.h" bodystart="35" bodyend="46"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1ae6eaf6bb5bd67c4e665537d0b1ac4ad7" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>m4</type>
@@ -199,7 +199,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="43" column="20"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="50" column="20"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1aa47c360516068b62237182dd1f005cd7" prot="public" static="yes" nodiscard="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>m4</type>
@@ -221,7 +221,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="47" column="30" bodyfile="libs/base/src/eu/base/mat4.h" bodystart="47" bodyend="55"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="54" column="30" bodyfile="libs/base/src/eu/base/mat4.h" bodystart="54" bodyend="62"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a3c1b03384f2c914db9f6a4cc021c14b9" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>m4</type>
@@ -247,7 +247,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="57" column="20"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="64" column="20"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1ab040c54a9e9923cad29504bb50cb8bd2" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>m4</type>
@@ -265,7 +265,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="58" column="20"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="65" column="20"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1aba676fc0ae9d7b1b6a26d36b8b91034c" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>m4</type>
@@ -284,7 +284,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="61" column="20"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="68" column="20"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a40ffd44fdb5e5afff26219ee1ca73686" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>m4</type>
@@ -303,7 +303,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="64" column="20"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="71" column="20"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a05aee86e518e28de0e30b59d1b45a044" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>m4</type>
@@ -322,7 +322,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="67" column="20"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="74" column="20"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a82ebadeb3686d4969a25ea562a77b69c" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>m4</type>
@@ -341,7 +341,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="70" column="20"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="77" column="20"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1afbf74cfa8215fe5c7c29f14095592a4d" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>m4</type>
@@ -360,11 +360,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="73" column="20"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="80" column="20"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1m4_1acedb3177529232cb02854aaa8ec1407f" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::optional&lt; m4 &gt;</type>
-        <definition>static std::optional&lt; m4 &gt; eu::m4::from</definition>
+      <memberdef kind="function" id="structeu_1_1m4_1a61c652ef3fa0b95f69e970fad0115995" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>m4</type>
+        <definition>static m4 eu::m4::from</definition>
         <argsstring>(const Q &amp;q)</argsstring>
         <name>from</name>
         <qualifiedname>eu::m4::from</qualifiedname>
@@ -379,7 +379,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="76" column="31"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="83" column="20"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a5594d6358050a71d2ad7e8743da5990b" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>m4</type>
@@ -468,7 +468,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="87" column="20"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="94" column="20"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1ab73ca9f6b73f4f9a1e6cde9d24ebcf8c" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>m4</type>
@@ -499,7 +499,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="90" column="20"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="97" column="20"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -516,7 +516,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="93" column="15"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="100" column="15"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1ade2bde04baa97bfe069b92942e5be37e" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>const float *</type>
@@ -531,7 +531,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="96" column="22"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="103" column="22"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a346dce537e994a3987082b7b3bb9c08a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -549,7 +549,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="100" column="14"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="107" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a7f9269dbbcf3f8dfdae73d470580fe93" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>m4</type>
@@ -567,7 +567,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="104" column="13"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="111" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a6014565213c198695d0c43f2ffd4f392" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -590,7 +590,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="107" column="16"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="114" column="16"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a3143565a88390442c28aac73a66c4619" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -613,7 +613,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="110" column="16"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="117" column="16"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1ac7a76a023788418920fc7df439b77749" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v4" kindref="compound">v4</ref></type>
@@ -632,7 +632,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="113" column="13"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="120" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a22ce98de455dd1288dbc11090812f947" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
@@ -651,7 +651,26 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="116" column="13"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="123" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1m4_1a35a55c13852fefa0117d2f529eedc360" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
+        <definition>v3 eu::m4::get_transformed</definition>
+        <argsstring>(const Rui &amp;rui) const</argsstring>
+        <name>get_transformed</name>
+        <qualifiedname>eu::m4::get_transformed</qualifiedname>
+        <param>
+          <type>const <ref refid="structeu_1_1Rui" kindref="compound">Rui</ref> &amp;</type>
+          <declname>rui</declname>
+        </param>
+        <briefdescription>
+<para>Get a transformed (right, up, in). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/mat4.h" line="126" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a4200aff0f233b6cc4d8737b7902d09f6" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
@@ -670,7 +689,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="119" column="13"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="129" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a1badedce78b896c369dce5bf9fbe2501" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
@@ -689,7 +708,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="122" column="13"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="132" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a365aa70652a02f999cffcba9b9e7fb0c" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v4" kindref="compound">v4</ref></type>
@@ -708,7 +727,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="125" column="13"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="135" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a077151f1e96cf410bab33a1cec955941" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v4" kindref="compound">v4</ref></type>
@@ -727,7 +746,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="128" column="13"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="138" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1aba8c57d5749a35d55dfcba7720a346f8" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>m4</type>
@@ -746,7 +765,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="131" column="13"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="141" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a962b8dc916fba399bce71f71e63d8def" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>m4</type>
@@ -765,7 +784,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="134" column="13"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="144" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1adeac0478f4b0cf3524a6307423c61b0d" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
@@ -780,7 +799,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="137" column="13"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="147" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1aaa003fa4e4763c74e009b1577e1c7f72" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v4" kindref="compound">v4</ref></type>
@@ -795,7 +814,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="140" column="13"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="150" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1af13b7226a0a5013932ebb9945cc065e1" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
@@ -810,7 +829,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="143" column="13"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="153" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1afbfa1868818fd2601cf2dcc48663cf8b" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
@@ -825,7 +844,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="146" column="13"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="156" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a2b52dc7ef3c427768e694d12722922a9" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1n3" kindref="compound">n3</ref></type>
@@ -840,7 +859,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="149" column="13"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="159" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a157926a01b83b752f5aca39fcc610992" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>m4</type>
@@ -856,7 +875,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="153" column="13"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="163" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a83c2d5a73883139aa0b97e37357bb22e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -874,7 +893,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="156" column="14"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="166" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a21b31d9f1ffceb8c98c98fc01bb2b4ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -892,7 +911,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="157" column="14"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="167" column="14"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="private-func">
@@ -908,7 +927,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="163" column="9"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="173" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1m4_1a62fa0da192dbb86ce59e53575bda7d86" prot="private" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>constexpr</type>
@@ -986,7 +1005,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/mat4.h" line="165" column="19" bodyfile="libs/base/src/eu/base/mat4.h" bodystart="165" bodyend="176"/>
+        <location file="libs/base/src/eu/base/mat4.h" line="175" column="19" bodyfile="libs/base/src/eu/base/mat4.h" bodystart="175" bodyend="186"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -994,13 +1013,13 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/base/src/eu/base/mat4.h" line="18" column="5" bodyfile="libs/base/src/eu/base/mat4.h" bodystart="19" bodyend="177"/>
+    <location file="libs/base/src/eu/base/mat4.h" line="25" column="5" bodyfile="libs/base/src/eu/base/mat4.h" bodystart="26" bodyend="187"/>
     <listofallmembers>
       <member refid="structeu_1_1m4_1a5594d6358050a71d2ad7e8743da5990b" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>create_ortho_lrud</name></member>
       <member refid="structeu_1_1m4_1ab73ca9f6b73f4f9a1e6cde9d24ebcf8c" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>create_perspective</name></member>
-      <member refid="structeu_1_1m4_1af7c3cf30f02fe7416cf478c3c49efea0" prot="private" virt="non-virtual"><scope>eu::m4</scope><name>data</name></member>
+      <member refid="structeu_1_1m4_1af7c3cf30f02fe7416cf478c3c49efea0" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>data</name></member>
       <member refid="structeu_1_1m4_1afbf74cfa8215fe5c7c29f14095592a4d" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>from</name></member>
-      <member refid="structeu_1_1m4_1acedb3177529232cb02854aaa8ec1407f" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>from</name></member>
+      <member refid="structeu_1_1m4_1a61c652ef3fa0b95f69e970fad0115995" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>from</name></member>
       <member refid="structeu_1_1m4_1a3c1b03384f2c914db9f6a4cc021c14b9" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>from_basis</name></member>
       <member refid="structeu_1_1m4_1a58645dabbcce1444dad58a89e7611fd3" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>from_col_major</name></member>
       <member refid="structeu_1_1m4_1ae6eaf6bb5bd67c4e665537d0b1ac4ad7" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>from_major</name></member>
@@ -1021,6 +1040,7 @@
       <member refid="structeu_1_1m4_1a962b8dc916fba399bce71f71e63d8def" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_rotated</name></member>
       <member refid="structeu_1_1m4_1a365aa70652a02f999cffcba9b9e7fb0c" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_row</name></member>
       <member refid="structeu_1_1m4_1ac7a76a023788418920fc7df439b77749" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_transformed</name></member>
+      <member refid="structeu_1_1m4_1a35a55c13852fefa0117d2f529eedc360" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_transformed</name></member>
       <member refid="structeu_1_1m4_1a22ce98de455dd1288dbc11090812f947" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_transformed_point</name></member>
       <member refid="structeu_1_1m4_1a4200aff0f233b6cc4d8737b7902d09f6" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_transformed_vec</name></member>
       <member refid="structeu_1_1m4_1a1badedce78b896c369dce5bf9fbe2501" prot="public" virt="non-virtual"><scope>eu::m4</scope><name>get_transformed_vec</name></member>

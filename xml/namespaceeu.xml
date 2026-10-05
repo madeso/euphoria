@@ -17,6 +17,7 @@
     <innerclass refid="structeu_1_1HshSt" prot="public">eu::HshSt</innerclass>
     <innerclass refid="structeu_1_1Hsh" prot="public">eu::Hsh</innerclass>
     <innerclass refid="structeu_1_1HshO" prot="public">eu::HshO</innerclass>
+    <innerclass refid="structeu_1_1Rui" prot="public">eu::Rui</innerclass>
     <innerclass refid="structeu_1_1m4" prot="public">eu::m4</innerclass>
     <innerclass refid="structeu_1_1MemoryChunk" prot="public">eu::MemoryChunk</innerclass>
     <innerclass refid="structeu_1_1MemoryChunkData" prot="public">eu::MemoryChunkData</innerclass>

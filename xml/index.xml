@@ -4,7 +4,7 @@
     <member refid="structeu_1_1AA_1a517bd92c9485430787c833f68eb42379" kind="variable"><name>axis</name></member>
     <member refid="structeu_1_1AA_1a0ef36e1500a96f32d75602e9a53596da" kind="variable"><name>angle</name></member>
     <member refid="structeu_1_1AA_1af1690aab94c15e9db117c61ea3265e8a" kind="function"><name>AA</name></member>
-    <member refid="structeu_1_1AA_1aa12744e9510b1a6de37d85d0c326eafc" kind="function"><name>from</name></member>
+    <member refid="structeu_1_1AA_1a01fd8ed962964dc8404291b42325b40e" kind="function"><name>from</name></member>
   </compound>
   <compound refid="structeu_1_1An" kind="struct"><name>eu::An</name>
     <member refid="structeu_1_1An_1a187f0b5cc79e5083d34ea80bc95ec1f0" kind="variable"><name>radians</name></member>
@@ -140,8 +140,7 @@
     <member refid="structeu_1_1render_1_1Camera_1acd91179ecb52f18d97170474d14dfad2" kind="variable"><name>fov</name></member>
     <member refid="structeu_1_1render_1_1Camera_1a35cbe89b5a82e7c74a81747fefa57777" kind="variable"><name>near</name></member>
     <member refid="structeu_1_1render_1_1Camera_1a8c48a5851ffe121998374838518ce4eb" kind="variable"><name>far</name></member>
-    <member refid="structeu_1_1render_1_1Camera_1a3084f57c20d8b30dcb7dc052f13bd7c6" kind="variable"><name>position</name></member>
-    <member refid="structeu_1_1render_1_1Camera_1a90c46ecc72ab95e0bd033e80d3998d6f" kind="variable"><name>rotation</name></member>
+    <member refid="structeu_1_1render_1_1Camera_1a7584dbfc385ff40c55bbc8361ef14ffe" kind="variable"><name>world_from_view</name></member>
   </compound>
   <compound refid="structeu_1_1render_1_1CameraUniformBuffer" kind="struct"><name>eu::render::CameraUniformBuffer</name>
     <member refid="structeu_1_1render_1_1CameraUniformBuffer_1a15c8ef6c8c0d5fa84ff510878da48438" kind="variable"><name>setup</name></member>
@@ -762,7 +761,7 @@
     <member refid="structeu_1_1m4_1a05aee86e518e28de0e30b59d1b45a044" kind="function"><name>from_rot_y</name></member>
     <member refid="structeu_1_1m4_1a82ebadeb3686d4969a25ea562a77b69c" kind="function"><name>from_rot_z</name></member>
     <member refid="structeu_1_1m4_1afbf74cfa8215fe5c7c29f14095592a4d" kind="function"><name>from</name></member>
-    <member refid="structeu_1_1m4_1acedb3177529232cb02854aaa8ec1407f" kind="function"><name>from</name></member>
+    <member refid="structeu_1_1m4_1a61c652ef3fa0b95f69e970fad0115995" kind="function"><name>from</name></member>
     <member refid="structeu_1_1m4_1a5594d6358050a71d2ad7e8743da5990b" kind="function"><name>create_ortho_lrud</name></member>
     <member refid="structeu_1_1m4_1ab73ca9f6b73f4f9a1e6cde9d24ebcf8c" kind="function"><name>create_perspective</name></member>
     <member refid="structeu_1_1m4_1aaf34521efbecbe4a057a6d0c90294e0c" kind="function"><name>get_column_major_data_ptr</name></member>
@@ -773,6 +772,7 @@
     <member refid="structeu_1_1m4_1a3143565a88390442c28aac73a66c4619" kind="function"><name>get1</name></member>
     <member refid="structeu_1_1m4_1ac7a76a023788418920fc7df439b77749" kind="function"><name>get_transformed</name></member>
     <member refid="structeu_1_1m4_1a22ce98de455dd1288dbc11090812f947" kind="function"><name>get_transformed_point</name></member>
+    <member refid="structeu_1_1m4_1a35a55c13852fefa0117d2f529eedc360" kind="function"><name>get_transformed</name></member>
     <member refid="structeu_1_1m4_1a4200aff0f233b6cc4d8737b7902d09f6" kind="function"><name>get_transformed_vec</name></member>
     <member refid="structeu_1_1m4_1a1badedce78b896c369dce5bf9fbe2501" kind="function"><name>get_transformed_vec</name></member>
     <member refid="structeu_1_1m4_1a365aa70652a02f999cffcba9b9e7fb0c" kind="function"><name>get_row</name></member>
@@ -977,6 +977,7 @@
     <member refid="structeu_1_1Q_1acf38e08247c681bffa8d6e4d3e731f96" kind="function"><name>from</name></member>
     <member refid="structeu_1_1Q_1afaa1c917caaf0a005f39bc0ba222ecac" kind="function"><name>from</name></member>
     <member refid="structeu_1_1Q_1aa2b95f3c6963dab0e8b7f19098bbabcf" kind="function"><name>from_fast</name></member>
+    <member refid="structeu_1_1Q_1a898a39f2806d441130ece5db7f38e362" kind="function"><name>from_rotation_matrix</name></member>
     <member refid="structeu_1_1Q_1a0b7e97b743d06f8d4305a4f3ad54c26a" kind="function"><name>from_to</name></member>
     <member refid="structeu_1_1Q_1af80452ab6aa9531bb2cfc11ada256321" kind="function"><name>look_at</name></member>
     <member refid="structeu_1_1Q_1abdf0df3ce5bdd1000bb0658c7838fc28" kind="function"><name>look_in_direction</name></member>
@@ -1177,6 +1178,11 @@
   <compound refid="structeu_1_1render_1_1RotateQuad" kind="struct"><name>eu::render::RotateQuad</name>
     <member refid="structeu_1_1render_1_1RotateQuad_1aae78b7011a22b8f2bf94839db1a661f5" kind="variable"><name>angle</name></member>
     <member refid="structeu_1_1render_1_1RotateQuad_1a2e295552472896cdff75a5e2531ab441" kind="variable"><name>center</name></member>
+  </compound>
+  <compound refid="structeu_1_1Rui" kind="struct"><name>eu::Rui</name>
+    <member refid="structeu_1_1Rui_1aaf1a1d3c20498977bd6d02da24bf4ad3" kind="variable"><name>right</name></member>
+    <member refid="structeu_1_1Rui_1a26c3b5f23940109d50385a111424a593" kind="variable"><name>up</name></member>
+    <member refid="structeu_1_1Rui_1aa712c58a743551debf84a6c62f2e9514" kind="variable"><name>in</name></member>
   </compound>
   <compound refid="structeu_1_1log_1_1ScopedLogger" kind="struct"><name>eu::log::ScopedLogger</name>
     <member refid="structeu_1_1log_1_1ScopedLogger_1a9268bca1b3ab62f4c0cf04fd293268d2" kind="function"><name>ScopedLogger</name></member>
@@ -1846,6 +1852,7 @@
     <member refid="namespaceeu_1_1imgui_1a25deb46cd40f718cd9fc56ac8d883207" kind="function"><name>drag</name></member>
     <member refid="namespaceeu_1_1imgui_1af0288431818b8d61edc215ad5d0ec7f8" kind="function"><name>drag</name></member>
     <member refid="namespaceeu_1_1imgui_1a71b22944824462e3666e064332b08a19" kind="function"><name>gear</name></member>
+    <member refid="namespaceeu_1_1imgui_1a6a4fde95738e4a942822afb6bc382048" kind="function"><name>gear</name></member>
   </compound>
   <compound refid="namespaceeu_1_1io" kind="namespace"><name>eu::io</name>
     <member refid="namespaceeu_1_1io_1af1eaadaf42c3183baed23e8545e34ed6" kind="function"><name>string_from_file</name></member>

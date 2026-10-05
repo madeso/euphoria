@@ -379,6 +379,28 @@
         </inbodydescription>
         <location file="libs/imgui/src/eu/imgui/ui.h" line="49" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="49" declcolumn="6"/>
       </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1imgui_1a6a4fde95738e4a942822afb6bc382048" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::imgui::gear</definition>
+        <argsstring>(const char *label, Rui *drag)</argsstring>
+        <name>gear</name>
+        <qualifiedname>eu::imgui::gear</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>label</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1Rui" kindref="compound">Rui</ref> *</type>
+          <declname>drag</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="50" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="50" declcolumn="6"/>
+      </memberdef>
     </sectiondef>
     <briefdescription>
     </briefdescription>

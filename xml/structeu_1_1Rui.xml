@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="structeu_1_1Rui" kind="struct" language="C++" prot="public">
+    <compoundname>eu::Rui</compoundname>
+    <includes refid="mat4_8h" local="no">mat4.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1Rui_1aaf1a1d3c20498977bd6d02da24bf4ad3" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::Rui::right</definition>
+        <argsstring></argsstring>
+        <name>right</name>
+        <qualifiedname>eu::Rui::right</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/mat4.h" line="19" column="15" bodyfile="libs/base/src/eu/base/mat4.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1Rui_1a26c3b5f23940109d50385a111424a593" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::Rui::up</definition>
+        <argsstring></argsstring>
+        <name>up</name>
+        <qualifiedname>eu::Rui::up</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/mat4.h" line="20" column="15" bodyfile="libs/base/src/eu/base/mat4.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1Rui_1aa712c58a743551debf84a6c62f2e9514" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float eu::Rui::in</definition>
+        <argsstring></argsstring>
+        <name>in</name>
+        <qualifiedname>eu::Rui::in</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/mat4.h" line="21" column="15" bodyfile="libs/base/src/eu/base/mat4.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/base/src/eu/base/mat4.h" line="17" column="5" bodyfile="libs/base/src/eu/base/mat4.h" bodystart="18" bodyend="22"/>
+    <listofallmembers>
+      <member refid="structeu_1_1Rui_1aa712c58a743551debf84a6c62f2e9514" prot="public" virt="non-virtual"><scope>eu::Rui</scope><name>in</name></member>
+      <member refid="structeu_1_1Rui_1aaf1a1d3c20498977bd6d02da24bf4ad3" prot="public" virt="non-virtual"><scope>eu::Rui</scope><name>right</name></member>
+      <member refid="structeu_1_1Rui_1a26c3b5f23940109d50385a111424a593" prot="public" virt="non-virtual"><scope>eu::Rui</scope><name>up</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
