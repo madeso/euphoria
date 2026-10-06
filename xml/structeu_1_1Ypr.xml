@@ -53,6 +53,26 @@
         <location file="libs/base/src/eu/base/axisangle.h" line="41" column="12" bodyfile="libs/base/src/eu/base/axisangle.h" bodystart="41" bodyend="-1"/>
       </memberdef>
     </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeu_1_1Ypr_1a0c11a5841c5011a044294012f9de21ab" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeu_1_1Ypr" kindref="compound">Ypr</ref></type>
+        <definition>static Ypr eu::Ypr::from</definition>
+        <argsstring>(const Q &amp;q)</argsstring>
+        <name>from</name>
+        <qualifiedname>eu::Ypr::from</qualifiedname>
+        <param>
+          <type>const <ref refid="structeu_1_1Q" kindref="compound">Q</ref> &amp;</type>
+          <declname>q</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/axisangle.h" line="43" column="21"/>
+      </memberdef>
+    </sectiondef>
     <briefdescription>
 <para>yaw + pitch + roll </para>
     </briefdescription>
@@ -73,8 +93,9 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/base/src/eu/base/axisangle.h" line="32" column="5" bodyfile="libs/base/src/eu/base/axisangle.h" bodystart="33" bodyend="42"/>
+    <location file="libs/base/src/eu/base/axisangle.h" line="32" column="5" bodyfile="libs/base/src/eu/base/axisangle.h" bodystart="33" bodyend="44"/>
     <listofallmembers>
+      <member refid="structeu_1_1Ypr_1a0c11a5841c5011a044294012f9de21ab" prot="public" virt="non-virtual"><scope>eu::Ypr</scope><name>from</name></member>
       <member refid="structeu_1_1Ypr_1a19ba5b756baa3ae5baa58d281e791ea2" prot="public" virt="non-virtual"><scope>eu::Ypr</scope><name>pitch</name></member>
       <member refid="structeu_1_1Ypr_1ac60be98970716f36245071ef9ef088ac" prot="public" virt="non-virtual"><scope>eu::Ypr</scope><name>roll</name></member>
       <member refid="structeu_1_1Ypr_1a876d894be0edc78d9250f3d5df68f7d4" prot="public" virt="non-virtual"><scope>eu::Ypr</scope><name>yaw</name></member>

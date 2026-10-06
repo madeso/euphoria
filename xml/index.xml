@@ -1608,6 +1608,7 @@
     <member refid="structeu_1_1Ypr_1a876d894be0edc78d9250f3d5df68f7d4" kind="variable"><name>yaw</name></member>
     <member refid="structeu_1_1Ypr_1a19ba5b756baa3ae5baa58d281e791ea2" kind="variable"><name>pitch</name></member>
     <member refid="structeu_1_1Ypr_1ac60be98970716f36245071ef9ef088ac" kind="variable"><name>roll</name></member>
+    <member refid="structeu_1_1Ypr_1a0c11a5841c5011a044294012f9de21ab" kind="function"><name>from</name></member>
   </compound>
   <compound refid="concepteu_1_1kdl_1_1arithmetic__concept" kind="concept"><name>eu::kdl::arithmetic_concept</name>
   </compound>

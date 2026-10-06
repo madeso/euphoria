@@ -63,7 +63,6 @@ $(function() { codefold.init(); });
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structeu_1_1m4-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">eu::m4 Struct Reference<div class="ingroups"><a class="el" href="group__math.html">Math</a></div></div></div>
 </div><!--header-->
@@ -113,7 +112,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afbfa1868818fd2601cf2dcc48663cf8b" id="r_afbfa1868818fd2601cf2dcc48663cf8b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1n3.html">n3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afbfa1868818fd2601cf2dcc48663cf8b">get_y_axis</a> () const</td></tr>
 <tr class="memdesc:afbfa1868818fd2601cf2dcc48663cf8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the local Y axis.  <br /></td></tr>
 <tr class="memitem:a2b52dc7ef3c427768e694d12722922a9" id="r_a2b52dc7ef3c427768e694d12722922a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeu_1_1n3.html">n3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b52dc7ef3c427768e694d12722922a9">get_z_axis</a> () const</td></tr>
-<tr class="memdesc:a2b52dc7ef3c427768e694d12722922a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the local Z azis.  <br /></td></tr>
+<tr class="memdesc:a2b52dc7ef3c427768e694d12722922a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the local Z axis.  <br /></td></tr>
 <tr class="memitem:a157926a01b83b752f5aca39fcc610992" id="r_a157926a01b83b752f5aca39fcc610992"><td class="memItemLeft" align="right" valign="top">m4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a157926a01b83b752f5aca39fcc610992">get_transposed</a> () const</td></tr>
 <tr class="memdesc:a157926a01b83b752f5aca39fcc610992"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the transpose of a matrix.  <br /></td></tr>
 <tr class="memitem:a83c2d5a73883139aa0b97e37357bb22e" id="r_a83c2d5a73883139aa0b97e37357bb22e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83c2d5a73883139aa0b97e37357bb22e">operator+=</a> (const m4 &amp;rhs)</td></tr>
@@ -147,11 +146,6 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memdesc:a5594d6358050a71d2ad7e8743da5990b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an orthographic projection matrix.  <br /></td></tr>
 <tr class="memitem:ab73ca9f6b73f4f9a1e6cde9d24ebcf8c" id="r_ab73ca9f6b73f4f9a1e6cde9d24ebcf8c"><td class="memItemLeft" align="right" valign="top">static m4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab73ca9f6b73f4f9a1e6cde9d24ebcf8c">create_perspective</a> (const <a class="el" href="structeu_1_1An.html">An</a> &amp;fov, float aspect_ratio, float near, float far)</td></tr>
 <tr class="memdesc:ab73ca9f6b73f4f9a1e6cde9d24ebcf8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a perspective projection matrix.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:af7c3cf30f02fe7416cf478c3c49efea0" id="r_af7c3cf30f02fe7416cf478c3c49efea0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7c3cf30f02fe7416cf478c3c49efea0">data</a> [16]</td></tr>
-<tr class="memdesc:af7c3cf30f02fe7416cf478c3c49efea0"><td class="mdescLeft">&#160;</td><td class="mdescRight">stored in column major  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>4x4 matrix </p>
@@ -1282,7 +1276,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the local Z azis. </p>
+<p>Get the local Z axis. </p>
 
 </div>
 </div>
@@ -1337,25 +1331,6 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="af7c3cf30f02fe7416cf478c3c49efea0" name="af7c3cf30f02fe7416cf478c3c49efea0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7c3cf30f02fe7416cf478c3c49efea0">&#9670;&#160;</a></span>data</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float eu::m4::data[16]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>stored in column major </p>
-
-<p class="definition">Definition at line <a class="el" href="mat4_8h_source.html#l00171">171</a> of file <a class="el" href="mat4_8h_source.html">mat4.h</a>.</p>
 
 </div>
 </div>

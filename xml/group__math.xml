@@ -565,7 +565,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/axisangle.h" line="45" column="5" declfile="libs/base/src/eu/base/axisangle.h" declline="45" declcolumn="5"/>
+        <location file="libs/base/src/eu/base/axisangle.h" line="47" column="5" declfile="libs/base/src/eu/base/axisangle.h" declline="47" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gaa507848ead7e3929ac34a5631d051638" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -583,7 +583,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/axisangle.h" line="47" column="17" declfile="libs/base/src/eu/base/axisangle.h" declline="47" declcolumn="17"/>
+        <location file="libs/base/src/eu/base/axisangle.h" line="49" column="17" declfile="libs/base/src/eu/base/axisangle.h" declline="49" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1gad902ccc075018be926b6d34aa5eb7d92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -601,7 +601,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/axisangle.h" line="48" column="17" declfile="libs/base/src/eu/base/axisangle.h" declline="48" declcolumn="17"/>
+        <location file="libs/base/src/eu/base/axisangle.h" line="50" column="17" declfile="libs/base/src/eu/base/axisangle.h" declline="50" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="group__math_1ga66e1820c967a20b5f47444560e472077" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
