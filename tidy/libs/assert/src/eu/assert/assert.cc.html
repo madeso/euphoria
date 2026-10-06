@@ -1,0 +1,69 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/assert/src/eu/assert/assert.cc</title>
+<style>
+.link-container {
+ position: relative;
+}
+.prev {
+ position: absolute;
+ top: 0;
+ left: 0;
+}
+.next {
+ position: absolute;
+ top: 0;
+ right: 0;
+}
+.index_link {
+ text-align: center;
+}
+</style>
+</head>
+<body>
+<h1>libs/assert/src/eu/assert/assert.cc</h1>
+<div class="link-container"><div class="prev">&lt;<a href="../../../../base/src/eu/base/vec3.h.html">libs/base/src/eu/base/vec3.h</a></div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../tests/src/eu/tests/false_string.cc.html">libs/tests/src/eu/tests/false_string.cc</a>&gt;</div></div>
+<span id='misc-const-correctness'>&nbsp;</span>
+<hr>
+<h3>warning: pointee of variable &#39;begin&#39; of type &#39;char *&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<ul>
+<li>Found in <a href="assert.cc.html">libs/assert/src/eu/assert/assert.cc</a></li>
+</ul>
+<p><i><a href="assert.cc.html">libs/assert/src/eu/assert/assert.cc</a> 86 : 17</i></p>
+<pre>
+   86 |                 char* begin = end;
+      |                 ^   
+      |                      const
+</pre>
+<span id='misc-use-internal-linkage'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;should_throw_variable&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="assert.cc.html">libs/assert/src/eu/assert/assert.cc</a></li>
+</ul>
+<p><i><a href="assert.cc.html">libs/assert/src/eu/assert/assert.cc</a> 124 : 5</i></p>
+<pre>
+  123 |     bool&amp;
+      |     static 
+  124 |     should_throw_variable()
+      |     ^
+</pre>
+<span id='bugprone-exception-copy-constructor-throws'>&nbsp;</span>
+<hr>
+<h3>warning: thrown exception type is not nothrow copy constructible</h3>
+<code>[bugprone-exception-copy-constructor-throws]</code>
+<ul>
+<li>Found in <a href="assert.cc.html">libs/assert/src/eu/assert/assert.cc</a></li>
+</ul>
+<p><i><a href="assert.cc.html">libs/assert/src/eu/assert/assert.cc</a> 171 : 19</i></p>
+<pre>
+  171 |             throw std::move(message);
+      |                   ^
+</pre>
+<div class="link-container"><div class="prev">&lt;<a href="../../../../base/src/eu/base/vec3.h.html">libs/base/src/eu/base/vec3.h</a></div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../tests/src/eu/tests/false_string.cc.html">libs/tests/src/eu/tests/false_string.cc</a>&gt;</div></div>
+</body>
+</html>

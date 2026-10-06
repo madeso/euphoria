@@ -1,0 +1,297 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>apps/editor/src/eu/editor/main.cc</title>
+<style>
+.link-container {
+ position: relative;
+}
+.prev {
+ position: absolute;
+ top: 0;
+ left: 0;
+}
+.next {
+ position: absolute;
+ top: 0;
+ right: 0;
+}
+.index_link {
+ text-align: center;
+}
+</style>
+</head>
+<body>
+<h1>apps/editor/src/eu/editor/main.cc</h1>
+<div class="link-container"><div class="prev">&lt;<a href="../../../../runner/src/eu/runner/main.cc.html">apps/runner/src/eu/runner/main.cc</a></div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../../libs/base/src/eu/base/colors.cc.html">libs/base/src/eu/base/colors.cc</a>&gt;</div></div>
+<span id='misc-use-internal-linkage'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;chunk_from_embed&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 36 : 17</i></p>
+<pre>
+   36 | eu::MemoryChunk chunk_from_embed(const embedded_binary&amp; binary)
+      |                 ^
+      | static 
+</pre>
+<hr>
+<h3>warning: enum &#39;AppState&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 41 : 12</i></p>
+<pre>
+   41 | enum class AppState
+      |            ^
+</pre>
+<hr>
+<h3>warning: struct &#39;App&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 46 : 8</i></p>
+<pre>
+   46 | struct App
+      |        ^
+</pre>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for public member &#39;glContext&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 64 : 25</i></p>
+<pre>
+   64 |     SDL_GLContextState* glContext = nullptr;
+      |                         ^~~~~~~~~
+      |                         gl_context
+</pre>
+<span id='readability-use-concise-preprocessor-directives'>&nbsp;</span>
+<hr>
+<h3>warning: preprocessor condition can be written more concisely using &#39;#ifdef&#39;</h3>
+<code>[readability-use-concise-preprocessor-directives]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 91 : 2</i></p>
+<pre>
+   91 | #if defined(__APPLE__)
+      |  ^~~~~~~~~~~~~~~~~~~~~
+      |  ifdef __APPLE__
+</pre>
+<span id='readability-implicit-bool-conversion'>&nbsp;</span>
+<hr>
+<h3>warning: implicit conversion &#39;SDL_Window *&#39; (aka &#39;struct SDL_Window *&#39;) -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 120 : 10</i></p>
+<pre>
+  120 |     if (!window)
+      |         ~^     
+      |                 == nullptr
+</pre>
+<hr>
+<h3>warning: implicit conversion &#39;SDL_GLContextState *&#39; -&gt; &#39;bool&#39;</h3>
+<code>[readability-implicit-bool-conversion]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 128 : 10</i></p>
+<pre>
+  128 |     if (!glContext) {
+      |         ~^        
+      |                    == nullptr
+</pre>
+<span id='misc-const-correctness'>&nbsp;</span>
+<hr>
+<h3>warning: pointee of variable &#39;font&#39; of type &#39;ImFont *&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 163 : 9</i></p>
+<pre>
+  163 |         ImFont* font = io.Fonts-&gt;AddFontFromMemoryTTF(
+      |         ^     
+      |                const
+</pre>
+<span id='cppcoreguidelines-pro-type-const-cast'>&nbsp;</span>
+<hr>
+<h3>warning: do not use const_cast to remove const qualifier</h3>
+<code>[cppcoreguidelines-pro-type-const-cast]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 164 : 13</i></p>
+<pre>
+  164 |             const_cast&lt;void*&gt;(static_cast&lt;const void*&gt;(OPENSANS_REGULAR_TTF_data)),
+      |             ^
+</pre>
+<span id='modernize-make-unique'>&nbsp;</span>
+<hr>
+<h3>warning: use std:: make_unique instead</h3>
+<code>[modernize-make-unique]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 174 : 12</i></p>
+<pre>
+    7 |     states.reset(new eu::render::State());
+      |           ~^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~
+      |            = std::make_unique&lt;eu::render::State&gt;
+</pre>
+<span id='cppcoreguidelines-owning-memory'>&nbsp;</span>
+<hr>
+<h3>warning: initializing non-owner argument of type &#39;pointer&#39; (aka &#39;eu::render::State *&#39;) with a newly created &#39;gsl:: owner&lt;&gt;&#39;</h3>
+<code>[cppcoreguidelines-owning-memory]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 174 : 18</i></p>
+<pre>
+  174 |     states.reset(new eu::render::State());
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning: use std:: make_unique instead</h3>
+<code>[modernize-make-unique]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 175 : 12</i></p>
+<pre>
+  175 |     render.reset(new eu::render::Render2(states.get()));
+      |           ~^~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~            ~
+      |            = std::make_unique&lt;eu::render::Render2&gt;
+</pre>
+<hr>
+<h3>warning: initializing non-owner argument of type &#39;pointer&#39; (aka &#39;eu::render::Render2 *&#39;) with a newly created &#39;gsl:: owner&lt;&gt;&#39;</h3>
+<code>[cppcoreguidelines-owning-memory]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 175 : 18</i></p>
+<pre>
+  175 |     render.reset(new eu::render::Render2(states.get()));
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning: variable &#39;cmd&#39; of type &#39;eu::render:: RenderCommand&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 231 : 9</i></p>
+<pre>
+  231 |         eu::render::RenderCommand cmd {.states = states.get(), .render = render.get(), .size = {.width = window_width, .height = window_height} };
+      |         ^
+      |                                   const 
+</pre>
+<hr>
+<h3>warning: function &#39;to_sdl_result&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 269 : 15</i></p>
+<pre>
+  269 | SDL_AppResult to_sdl_result(AppState state)
+      |               ^
+      | static 
+</pre>
+<span id='readability-qualified-auto'>&nbsp;</span>
+<hr>
+<h3>warning: &#39;auto app&#39; can be declared as &#39;auto *app&#39;</h3>
+<code>[readability-qualified-auto]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 283 : 5</i></p>
+<pre>
+  283 |     auto app = new App();
+      |     ^~~~
+      |     auto *
+</pre>
+<hr>
+<h3>warning: deleting a pointer through a type that is not marked &#39;gsl:: owner&lt;&gt;&#39;; consider using a smart pointer instead</h3>
+<code>[cppcoreguidelines-owning-memory]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 291 : 5</i></p>
+<pre>
+  291 |     delete app;
+      |     ^      ~~~
+</pre>
+<p>variable declared here</p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 283 : 5</i></p>
+<pre>
+  283 |     auto app = new App();
+      |     ^~~~~~~~~~~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning: &#39;auto app&#39; can be declared as &#39;auto *app&#39;</h3>
+<code>[readability-qualified-auto]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 297 : 5</i></p>
+<pre>
+  297 |     auto app = static_cast&lt;App*&gt;(app_arg);
+      |     ^~~~
+      |     auto *
+</pre>
+<hr>
+<h3>warning: &#39;auto app&#39; can be declared as &#39;auto *app&#39;</h3>
+<code>[readability-qualified-auto]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 304 : 5</i></p>
+<pre>
+  304 |     auto app = static_cast&lt;App*&gt;(app_arg);
+      |     ^~~~
+      |     auto *
+</pre>
+<hr>
+<h3>warning: &#39;auto app&#39; can be declared as &#39;auto *app&#39;</h3>
+<code>[readability-qualified-auto]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 316 : 5</i></p>
+<pre>
+  316 |     auto app = static_cast&lt;App*&gt;(app_arg);
+      |     ^~~~
+      |     auto *
+</pre>
+<hr>
+<h3>warning: deleting a pointer through a type that is not marked &#39;gsl:: owner&lt;&gt;&#39;; consider using a smart pointer instead</h3>
+<code>[cppcoreguidelines-owning-memory]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 317 : 5</i></p>
+<pre>
+  317 |     delete app;
+      |     ^      ~~~
+</pre>
+<p>variable declared here</p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 316 : 5</i></p>
+<pre>
+  316 |     auto app = static_cast&lt;App*&gt;(app_arg);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<div class="link-container"><div class="prev">&lt;<a href="../../../../runner/src/eu/runner/main.cc.html">apps/runner/src/eu/runner/main.cc</a></div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../../libs/base/src/eu/base/colors.cc.html">libs/base/src/eu/base/colors.cc</a>&gt;</div></div>
+</body>
+</html>
