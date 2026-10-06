@@ -40,7 +40,7 @@ namespace eu
         /// tilting rotation, positive tilting right/clockwise/right hand rule
         An roll = no_rotation;
 
-        static [[nodiscard]] Ypr from(const Q& q);
+        [[nodiscard]] static Ypr from(const Q& q);
     };
 
     [[nodiscard]] AA
