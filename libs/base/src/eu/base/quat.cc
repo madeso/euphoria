@@ -1,5 +1,6 @@
 #include "eu/base/quat.h"
 
+#include <algorithm>
 #include <cmath>
 
 namespace
