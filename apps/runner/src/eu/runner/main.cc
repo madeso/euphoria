@@ -9,6 +9,7 @@
 
 #include "eu/log/log.h"
 #include "eu/base/memorychunk.h"
+#include "eu/base/transform.h"
 
 #include "eu/core/geom.builder.h"
 #include "eu/core/geom.h"
@@ -331,7 +332,7 @@ struct FollowCameraSystem : runner::EntitySystem
 
     imgui::ImLog log;
     imgui::ImTweak tweak;
-    Rui offset = {.right = 0, .up = 0, .in = -3};
+    Rui offset = {.right = 0, .up = 3, .in = -10};
     void imgui() override
     {
         boolean("Target", target != nullptr);
@@ -366,21 +367,20 @@ struct FollowCameraSystem : runner::EntitySystem
         if (!target) { return; }
         if (!camera) { return; }
 
-        const auto focus = target->target.get_translation();
-        const auto pos_from_focus = target->target.get_transformed(offset);
+        const auto tr = transform_from_matrix(target->target);
+
+        const auto focus = tr.position;
+        const auto o_rot = Ypr::from(tr.rotation);
+        const auto pos_from_focus = m4::from(Q::from(Ypr{.yaw = o_rot.yaw})).get_transformed(offset);
         const auto pos = focus + pos_from_focus;
-        const auto rot = Q::look_at(pos, focus, kk::up);
-        if (!rot)
+        const auto look_at = Q::look_at(pos, focus, kk::up);
+        if (!look_at)
         {
             return;
         }
-        log.add(fmt::format("updated rotation: {}", *rot));
-        
-        const auto rot_mat = m4::from(*rot);
-        const auto pos_mat = m4::from_translation(pos);
+        log.add(fmt::format("updated rotation: {}", *look_at));
 
-        const auto mat = pos_mat * rot_mat;
-
+        const auto mat = m4::from_translation(pos) * m4::from(*look_at);
         camera->set_transform(mat);
     }
 };

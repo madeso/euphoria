@@ -33,12 +33,14 @@ namespace eu
     {
         /// left and right rotation, positive right
         An yaw = no_rotation;
-        
+
         /// up and down rotation, positive up
         An pitch = no_rotation;
-        
+
         /// tilting rotation, positive tilting right/clockwise/right hand rule
         An roll = no_rotation;
+
+        static [[nodiscard]] Ypr from(const Q& q);
     };
 
     [[nodiscard]] AA

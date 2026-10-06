@@ -30,6 +30,35 @@ namespace eu
         return rha(*axis, angle);
     }
 
+    [[nodiscard]] Ypr
+    Ypr::from(const Q& q)
+    {
+        const auto w = q.w;
+        const auto x = q.x;
+        const auto y = q.y;
+        const auto z = q.z;
+
+        // Protect against small floating-point errors.
+        const auto sin_pitch = std::clamp(
+            2.0f * (y * z - w * x),
+            -1.0f,
+            1.0f
+        );
+
+        return
+        {
+            .yaw = An::from_radians(std::atan2(
+                -2.0f * (w * y + x * z),
+                1.0f - 2.0f * (x * x + y * y)
+            )),
+            .pitch = An::from_radians(std::asin(sin_pitch)),
+            .roll = An::from_radians(std::atan2(
+                2.0f * (w * z + x * y),
+                1.0f - 2.0f * (x * x + z * z)
+            ))
+        };
+    }
+
     AA
     rha(const n3 &axis, const An &angle)
     {
