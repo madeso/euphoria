@@ -33,14 +33,9 @@ namespace eu
     [[nodiscard]] Ypr
     Ypr::from(const Q& q)
     {
-        const auto w = q.w;
-        const auto x = q.x;
-        const auto y = q.y;
-        const auto z = q.z;
-
         // Protect against small floating-point errors.
         const auto sin_pitch = std::clamp(
-            2.0f * (y * z - w * x),
+            2.0f * (q.y * q.z - q.w * q.x),
             -1.0f,
             1.0f
         );
@@ -48,13 +43,13 @@ namespace eu
         return
         {
             .yaw = An::from_radians(std::atan2(
-                -2.0f * (w * y + x * z),
-                1.0f - 2.0f * (x * x + y * y)
+                -2.0f * (q.w * q.y + q.x * q.z),
+                1.0f - 2.0f * (q.x * q.x + q.y * q.y)
             )),
             .pitch = An::from_radians(std::asin(sin_pitch)),
             .roll = An::from_radians(std::atan2(
-                2.0f * (w * z + x * y),
-                1.0f - 2.0f * (x * x + z * z)
+                2.0f * (q.w * q.z + q.x * q.y),
+                1.0f - 2.0f * (q.x * q.x + q.z * q.z)
             ))
         };
     }
