@@ -75,14 +75,96 @@
       | static 
 </pre>
 <hr>
+<h3>warning: enum &#39;RotationType&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 91 : 12</i></p>
+<pre>
+   91 | enum class RotationType
+      |            ^
+</pre>
+<hr>
+<h3>warning: function &#39;ypr_from_kdl_rotation&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 96 : 14</i></p>
+<pre>
+   96 | RotationType ypr_from_kdl_rotation(int rot)
+      |              ^
+      | static 
+</pre>
+<hr>
+<h3>warning: struct &#39;TileRotation&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 114 : 8</i></p>
+<pre>
+  114 | struct TileRotation
+      |        ^
+</pre>
+<span id='readability-braces-around-statements'>&nbsp;</span>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 121 : 52</i></p>
+<pre>
+  121 |         if (false == ImGui::CollapsingHeader(name)) return false;
+      |                                                    ^             
+      |                                                     {
+</pre>
+<hr>
+<h3>warning: struct &#39;RotationData&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 133 : 8</i></p>
+<pre>
+  133 | struct RotationData
+      |        ^
+</pre>
+<hr>
+<h3>warning: struct &#39;Tile&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 159 : 8</i></p>
+<pre>
+  159 | struct Tile
+      |        ^
+</pre>
+<span id='readability-make-member-function-const'>&nbsp;</span>
+<hr>
+<h3>warning: method &#39;update&#39; can be made const</h3>
+<code>[readability-make-member-function-const]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 165 : 10</i></p>
+<pre>
+  165 |     void update(const RotationData&amp; rotation_data)
+      |          ^                                        
+      |                                                    const
+</pre>
+<hr>
 <h3>warning: struct &#39;Level&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 91 : 8</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 172 : 8</i></p>
 <pre>
-   91 | struct Level
+  172 | struct Level
       |        ^
 </pre>
 <hr>
@@ -90,29 +172,10 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 125 : 32</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 224 : 32</i></p>
 <pre>
-  125 |                 const auto x = node.args[0].as_number().as&lt;float&gt;().value_or(0.0f);
+  224 |                 const auto x = node.args[0].as_number().as&lt;float&gt;().value_or(0.0f);
       |                                ^
-</pre>
-<span id='modernize-use-designated-initializers'>&nbsp;</span>
-<hr>
-<h3>warning: use designated initializer list to initialize &#39;Ypr&#39;</h3>
-<code>[modernize-use-designated-initializers]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 149 : 92</i></p>
-<pre>
-  149 |                     car.set_transform(eu::render::transform_from_rotation(offset + pos, Ypr{0_deg, 0_deg, 0_deg}));
-      |                                                                                            ^~~~~~~~~~~~~~~~~~~~~
-      |                                                                                             .yaw=  .pitch=.roll=
-</pre>
-<p>aggregate type is defined here</p>
-<p><i>libs/base/src/eu/base/axisangle.h 32 : 5</i></p>
-<pre>
-   32 |     struct Ypr
-      |     ^
 </pre>
 <hr>
 <h3>warning: struct &#39;Time&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
@@ -120,9 +183,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 165 : 8</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 268 : 8</i></p>
 <pre>
-  165 | struct Time
+  268 | struct Time
       |        ^
 </pre>
 <hr>
@@ -131,9 +194,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 183 : 8</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 286 : 8</i></p>
 <pre>
-  183 | struct MeshSpatialComponent : runner::SpatialComponent
+  286 | struct MeshSpatialComponent : runner::SpatialComponent
       |        ^
 </pre>
 <hr>
@@ -142,9 +205,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 219 : 6</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 322 : 6</i></p>
 <pre>
-  219 | void boolean(const char* label, bool b)
+  322 | void boolean(const char* label, bool b)
       |      ^
       | static 
 </pre>
@@ -154,9 +217,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 226 : 8</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 329 : 8</i></p>
 <pre>
-  226 | struct InputSystem : runner::EntitySystem
+  329 | struct InputSystem : runner::EntitySystem
       |        ^
 </pre>
 <span id='modernize-use-auto'>&nbsp;</span>
@@ -166,9 +229,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 260 : 13</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 363 : 13</i></p>
 <pre>
-  260 |         if (MeshSpatialComponent* mc = runner::component_cast&lt;MeshSpatialComponent&gt;(component); mc)
+  363 |         if (MeshSpatialComponent* mc = runner::component_cast&lt;MeshSpatialComponent&gt;(component); mc)
       |             ^~~~~~~~~~~~~~~~~~~~
       |             auto
 </pre>
@@ -179,9 +242,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 268 : 13</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 371 : 13</i></p>
 <pre>
-  268 |         if (mesh &amp;&amp; input &amp;&amp; input-&gt;get_current_frame().binds[0].current &gt; 0.5f)
+  371 |         if (mesh &amp;&amp; input &amp;&amp; input-&gt;get_current_frame().binds[0].current &gt; 0.5f)
       |             ^
       |             (    != nullptr)
 </pre>
@@ -191,9 +254,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 268 : 21</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 371 : 21</i></p>
 <pre>
-  268 |         if (mesh &amp;&amp; input &amp;&amp; input-&gt;get_current_frame().binds[0].current &gt; 0.5f)
+  371 |         if (mesh &amp;&amp; input &amp;&amp; input-&gt;get_current_frame().binds[0].current &gt; 0.5f)
       |                     ^
       |                     (     != nullptr)
 </pre>
@@ -203,9 +266,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 273 : 13</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 376 : 13</i></p>
 <pre>
-  273 |         if (mesh)
+  376 |         if (mesh)
       |             ^   
       |                  != nullptr
 </pre>
@@ -215,9 +278,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 280 : 8</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 383 : 8</i></p>
 <pre>
-  280 | struct TargetComponent : runner::Component
+  383 | struct TargetComponent : runner::Component
       |        ^
 </pre>
 <hr>
@@ -226,9 +289,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 298 : 8</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 401 : 8</i></p>
 <pre>
-  298 | struct CameraSpatialComponent : runner::SpatialComponent
+  401 | struct CameraSpatialComponent : runner::SpatialComponent
       |        ^
 </pre>
 <hr>
@@ -237,9 +300,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 314 : 8</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 417 : 8</i></p>
 <pre>
-  314 | struct FollowCameraSystem : runner::EntitySystem
+  417 | struct FollowCameraSystem : runner::EntitySystem
       |        ^
 </pre>
 <hr>
@@ -248,9 +311,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 367 : 14</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 470 : 14</i></p>
 <pre>
-  367 |         if (!target) { return; }
+  470 |         if (!target) { return; }
       |             ~^     
       |                     == nullptr
 </pre>
@@ -260,9 +323,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 368 : 14</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 471 : 14</i></p>
 <pre>
-  368 |         if (!camera) { return; }
+  471 |         if (!camera) { return; }
       |             ~^     
       |                     == nullptr
 </pre>
@@ -273,9 +336,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 390 : 15</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 493 : 15</i></p>
 <pre>
-  390 | constexpr Hsh CameraSpatialSource = &quot;camera_spatial_src_tag&quot;sv;
+  493 | constexpr Hsh CameraSpatialSource = &quot;camera_spatial_src_tag&quot;sv;
       |               ^~~~~~~~~~~~~~~~~~~
       |               camera_spatial_source
 </pre>
@@ -285,9 +348,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 391 : 15</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 494 : 15</i></p>
 <pre>
-  391 | constexpr Hsh CameraDestination = &quot;camera_dst_tag&quot;sv;
+  494 | constexpr Hsh CameraDestination = &quot;camera_dst_tag&quot;sv;
       |               ^~~~~~~~~~~~~~~~~
       |               camera_destination
 </pre>
@@ -297,9 +360,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 394 : 8</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 497 : 8</i></p>
 <pre>
-  394 | struct UpdateCameraTarget : runner::WorldSystem
+  497 | struct UpdateCameraTarget : runner::WorldSystem
       |        ^
 </pre>
 <hr>
@@ -308,9 +371,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 441 : 14</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 544 : 14</i></p>
 <pre>
-  441 |         if (!src_entity) { return; }
+  544 |         if (!src_entity) { return; }
       |             ~^         
       |                         == nullptr
 </pre>
@@ -320,9 +383,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 442 : 14</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 545 : 14</i></p>
 <pre>
-  442 |         if (!dst_entity) { return; }
+  545 |         if (!dst_entity) { return; }
       |             ~^         
       |                         == nullptr
 </pre>
@@ -332,9 +395,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 448 : 8</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 551 : 8</i></p>
 <pre>
-  448 | struct CameraFetcherSystem : runner::WorldSystem
+  551 | struct CameraFetcherSystem : runner::WorldSystem
       |        ^
 </pre>
 <span id='readability-qualified-auto'>&nbsp;</span>
@@ -344,9 +407,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 474 : 13</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 577 : 13</i></p>
 <pre>
-  474 |         if (auto cam = runner::component_cast&lt;CameraSpatialComponent&gt;(component))
+  577 |         if (auto cam = runner::component_cast&lt;CameraSpatialComponent&gt;(component))
       |             ^~~~
       |             auto *
 </pre>
@@ -356,22 +419,21 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 487 : 14</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 590 : 14</i></p>
 <pre>
-  487 |         if (!camera) return;
+  590 |         if (!camera) return;
       |             ~^     
       |                     == nullptr
 </pre>
-<span id='readability-braces-around-statements'>&nbsp;</span>
 <hr>
 <h3>warning: statement should be inside braces</h3>
 <code>[readability-braces-around-statements]</code>
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 487 : 21</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 590 : 21</i></p>
 <pre>
-  487 |         if (!camera) return;
+  590 |         if (!camera) return;
       |                     ^       
       |                      {
 </pre>
@@ -382,9 +444,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 491 : 5</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 594 : 5</i></p>
 <pre>
-  491 |     render::Camera fetch() const
+  594 |     render::Camera fetch() const
       |     ^
       |     [[nodiscard]] 
 </pre>
@@ -395,9 +457,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 499 : 5</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 602 : 5</i></p>
 <pre>
-  499 | int main(int, char**)
+  602 | int main(int, char**)
       |     ^
 </pre>
 <span id='readability-use-concise-preprocessor-directives'>&nbsp;</span>
@@ -407,9 +469,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 527 : 2</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 630 : 2</i></p>
 <pre>
-  527 | #if defined(__APPLE__)
+  630 | #if defined(__APPLE__)
       |  ^~~~~~~~~~~~~~~~~~~~~
       |  ifdef __APPLE__
 </pre>
@@ -419,9 +481,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 556 : 10</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 659 : 10</i></p>
 <pre>
-  556 |     if (!window) {
+  659 |     if (!window) {
       |         ~^     
       |                 == nullptr
 </pre>
@@ -431,13 +493,13 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 561 : 11</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 664 : 11</i></p>
 <pre>
-  561 |     auto* glContext = SDL_GL_CreateContext(window);
+  664 |     auto* glContext = SDL_GL_CreateContext(window);
       |           ^~~~~~~~~
       |           gl_context
-  562 |     SDL_GetWindowSize(window, &amp;window_width, &amp;window_height);
-  563 |     if (!glContext) {
+  665 |     SDL_GetWindowSize(window, &amp;window_width, &amp;window_height);
+  666 |     if (!glContext) {
       |          ~~~~~~~~~
       |          gl_context
 </pre>
@@ -447,9 +509,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 563 : 10</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 666 : 10</i></p>
 <pre>
-  563 |     if (!glContext) {
+  666 |     if (!glContext) {
       |         ~^        
       |                    == nullptr
 </pre>
@@ -459,9 +521,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 577 : 13</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 680 : 13</i></p>
 <pre>
-  577 |         if (GLAD_GL_VERSION_1_0) {
+  680 |         if (GLAD_GL_VERSION_1_0) {
       |             ^                  
       |                                 != 0
 </pre>
@@ -471,9 +533,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 586 : 13</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 689 : 13</i></p>
 <pre>
-  586 |         if (GLAD_GL_VERSION_2_0) {
+  689 |         if (GLAD_GL_VERSION_2_0) {
       |             ^                  
       |                                 != 0
 </pre>
@@ -483,9 +545,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 592 : 10</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 695 : 10</i></p>
 <pre>
-  592 |     if (!GLAD_GL_VERSION_4_3)
+  695 |     if (!GLAD_GL_VERSION_4_3)
       |         ~^                  
       |                              == 0
 </pre>
@@ -496,9 +558,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 601 : 5</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 704 : 5</i></p>
 <pre>
-  601 |     ImGuiIO&amp; io = ImGui::GetIO(); (void)io;
+  704 |     ImGuiIO&amp; io = ImGui::GetIO(); (void)io;
       |     ^      
       |             const
 </pre>
@@ -508,14 +570,14 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 662 : 24</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 765 : 24</i></p>
 <pre>
-  662 |         constexpr auto PLANE_SIZE = 100.0f;
+  765 |         constexpr auto PLANE_SIZE = 100.0f;
       |                        ^~~~~~~~~~
       |                        plane_size
-  663 |         auto plane_geom = eu::render::compile_geom(
-  664 |             USE_DEBUG_LABEL_MANY(&quot;plane&quot;)
-  665 |             eu::core::geom::create_xz_plane(PLANE_SIZE, PLANE_SIZE, false).to_geom(),
+  766 |         auto plane_geom = eu::render::compile_geom(
+  767 |             USE_DEBUG_LABEL_MANY(&quot;plane&quot;)
+  768 |             eu::core::geom::create_xz_plane(PLANE_SIZE, PLANE_SIZE, false).to_geom(),
       |                                             ~~~~~~~~~~  ~~~~~~~~~~
       |                                             plane_size  plane_size
 </pre>
@@ -526,9 +588,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 714 : 26</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 817 : 26</i></p>
 <pre>
-  714 |     CameraFetcherSystem* camera_fetcher;
+  817 |     CameraFetcherSystem* camera_fetcher;
       |                          ^             
       |                                         = nullptr
 </pre>
@@ -537,9 +599,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 754 : 9</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 858 : 9</i></p>
 <pre>
-  754 |         level.load(&quot;level.kdl&quot;, &amp;render_world, material, renderer.default_geom_layout());
+  858 |         level.load(&quot;level.kdl&quot;, &amp;render_world, material, renderer.default_geom_layout());
       |         ^
 </pre>
 <hr>
@@ -548,9 +610,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 768 : 16</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 872 : 16</i></p>
 <pre>
-  768 |         while (SDL_PollEvent(&amp;e) != 0)
+  872 |         while (SDL_PollEvent(&amp;e) != 0)
       |                ^
       |                static_cast&lt;int&gt;()
 </pre>
@@ -562,9 +624,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 778 : 30</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 882 : 30</i></p>
 <pre>
-  778 |                 input.on_key(e.key.key, e.type == SDL_EVENT_KEY_DOWN);
+  882 |                 input.on_key(e.key.key, e.type == SDL_EVENT_KEY_DOWN);
       |                              ^
 </pre>
 <hr>
@@ -573,9 +635,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 828 : 9</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 931 : 9</i></p>
 <pre>
-  828 |         eu::render::RenderCommand cmd{ .states = &amp;states, .render = &amp;render, .size = {.width = window_width, .height = window_height} };
+  931 |         eu::render::RenderCommand cmd{ .states = &amp;states, .render = &amp;render, .size = {.width = window_width, .height = window_height} };
       |         ^
       |                                   const 
 </pre>
@@ -585,9 +647,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 849 : 13</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 952 : 13</i></p>
 <pre>
-  849 |             eu::render::Camera camera = camera_fetcher-&gt;fetch();
+  952 |             eu::render::Camera camera = camera_fetcher-&gt;fetch();
       |             ^
       |                                const 
 </pre>
