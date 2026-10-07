@@ -88,10 +88,109 @@ std::shared_ptr<eu::render::Texture2d> create_texture(DEBUG_LABEL_ARG_MANY eu::c
     );
 }
 
+enum class RotationType
+{
+    a, b, c, d
+};
+
+RotationType ypr_from_kdl_rotation(int rot)
+{
+    switch (rot)
+    {
+    case 22: // 10x
+        return RotationType::a;
+    case 10: // 104x
+        return RotationType::b;
+    case 16: // 15x
+        return RotationType::c;
+    case 0: // 25x
+        return RotationType::d;
+    default:
+        DIE("invalid rotation");
+        return RotationType::a;
+    }
+}
+
+struct TileRotation
+{
+    Ypr rotation;
+    v3 offset;
+
+    bool imgui(const char* name)
+    {
+        if (false == ImGui::CollapsingHeader(name)) return false;
+        ImGui::PushID(name);
+
+        bool changed = false;
+        changed = imgui::drag("Rotation", &rotation) || changed;
+        changed = imgui::gear("Offset", &offset) || changed;
+
+        ImGui::PopID();
+        return changed;
+    }
+};
+
+struct RotationData
+{
+    TileRotation a = {.rotation = {.yaw = 90_deg, .pitch = 0_deg, .roll = 0_deg }, .offset = zero3f };
+    TileRotation b = {.rotation = {.yaw = 180_deg, .pitch = 0_deg, .roll = 0_deg }, .offset = zero3f };
+    TileRotation c = {.rotation = {.yaw = -90_deg, .pitch = 0_deg, .roll = 0_deg }, .offset = zero3f };
+    TileRotation d = {.rotation = {.yaw = 0_deg, .pitch = 0_deg, .roll = 0_deg }, .offset = zero3f };
+
+    [[nodiscard]] const TileRotation& get_rotation(RotationType type) const
+    {
+        switch (type)
+        {
+        case RotationType::a:
+            return a;
+        case RotationType::b:
+            return b;
+        case RotationType::c:
+            return c;
+        case RotationType::d:
+            return d;
+        default:
+            DIE("unknown rotation type");
+            return a;
+        }
+    }
+};
+
+struct Tile
+{
+    RotationType type;
+    v3 position;
+    std::unique_ptr<render::MeshInWorld> mesh;
+
+    void update(const RotationData& rotation_data)
+    {
+        const auto& rotation = rotation_data.get_rotation(type);
+        mesh->set_transform(eu::render::transform_from_rotation(position + rotation.offset, rotation.rotation));
+    }
+};
+
 struct Level
 {
     std::unordered_map<std::string, std::unique_ptr<eu::render::CompiledMesh>> meshes;
-    std::vector<std::unique_ptr<render::MeshInWorld>> instances;
+    std::vector<Tile> tiles;
+    RotationData rotation_data;
+
+    void imgui()
+    {
+        auto changed = false;
+        changed = rotation_data.a.imgui("a") || changed;
+        changed = rotation_data.b.imgui("b") || changed;
+        changed = rotation_data.c.imgui("c") || changed;
+        changed = rotation_data.d.imgui("d") || changed;
+
+        if (changed)
+        {
+            for (auto& tile: tiles)
+            {
+                tile.update(rotation_data);
+            }
+        }
+    }
 
     void load(const std::string& path, render::World* world, std::shared_ptr<render::DefaultMaterial> material, const core::CompiledGeomVertexAttributes& layout)
     {
@@ -139,14 +238,17 @@ struct Level
                 const auto x = node.args[0].as_number().as<float>().value_or(0.0f);
                 const auto y = node.args[1].as_number().as<float>().value_or(0.0f);
                 const auto z = node.args[2].as_number().as<float>().value_or(0.0f);
+                const auto rotation = node.properties.at("rot").as_number().as<int>().value_or(-1);
                 const v3 pos = { x*size.x, y*size.y, z*size.z };
                 const auto item = node.properties.at("item").as_string();
                 const auto found = meshes.find(item);
                 if (found != meshes.end())
                 {
-                    render::MeshInWorld car;
-                    car.add_to_world(found->second.get(), world, material);
-                    car.set_transform(eu::render::transform_from_rotation(offset + pos, Ypr{0_deg, 0_deg, 0_deg}));
+                    auto mesh_in_world = std::make_unique<render::MeshInWorld>();
+                    const auto rotation_type = ypr_from_kdl_rotation(rotation);
+                    mesh_in_world->add_to_world(found->second.get(), world, material);
+                    tiles.emplace_back(rotation_type, offset + pos, std::move(mesh_in_world))
+                        .update(rotation_data);
                 }
                 else
                 {
@@ -160,6 +262,7 @@ struct Level
         }
     }
 };
+
 
 
 struct Time
@@ -746,8 +849,9 @@ int main(int, char**)
         cam->add_component(std::move(spat));
         cam->add_system(std::make_unique<FollowCameraSystem>());
     }
+
+    Level level;
     {
-        Level level;
         auto material = renderer.make_default_material();
         material->diffuse = load_color_texture("models/textures/colormap.png");
         material->specular = assets.white;
@@ -818,9 +922,8 @@ int main(int, char**)
         // todo(Gustav): add introspection ui
         if (ImGui::Begin("Demo"))
         {
+            level.imgui();
             runner_world.gui();
-        //     imgui::drag("Position", &position);
-        //     imgui::drag("Rotation", &rotation);
         }
         ImGui::End();
 #endif
