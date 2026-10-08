@@ -1848,12 +1848,17 @@
     <member refid="namespaceeu_1_1imgui_1a4219888c66154530236ef5bef9ba97e8" kind="function"><name>label</name></member>
     <member refid="namespaceeu_1_1imgui_1aa5d8e0bdd238dd4b4287454e72b34eea" kind="function"><name>centered_button</name></member>
     <member refid="namespaceeu_1_1imgui_1a420ae25b84de7554562a2b45086d01fa" kind="function"><name>imgui_text</name></member>
+    <member refid="namespaceeu_1_1imgui_1a28d2ff34978673c61d89eabf8323714b" kind="function"><name>imgui_text</name></member>
+    <member refid="namespaceeu_1_1imgui_1a9280737386119ec25a921106885b3a96" kind="function"><name>imgui_text</name></member>
     <member refid="namespaceeu_1_1imgui_1a16ec0dc141f3a5c138f01887ee7b3b98" kind="function"><name>imgui_image</name></member>
     <member refid="namespaceeu_1_1imgui_1ab76823a0cdc47913592393872d8445ac" kind="function"><name>simple_gamma_slider</name></member>
     <member refid="namespaceeu_1_1imgui_1a25deb46cd40f718cd9fc56ac8d883207" kind="function"><name>drag</name></member>
     <member refid="namespaceeu_1_1imgui_1af0288431818b8d61edc215ad5d0ec7f8" kind="function"><name>drag</name></member>
     <member refid="namespaceeu_1_1imgui_1a71b22944824462e3666e064332b08a19" kind="function"><name>gear</name></member>
     <member refid="namespaceeu_1_1imgui_1a6a4fde95738e4a942822afb6bc382048" kind="function"><name>gear</name></member>
+    <member refid="namespaceeu_1_1imgui_1a9ccf4f05d405c6b8023dbf5463afee05" kind="function"><name>gear</name></member>
+    <member refid="namespaceeu_1_1imgui_1a7434f1c3ff2fb474512cf5fd236030d8" kind="function"><name>transform</name></member>
+    <member refid="namespaceeu_1_1imgui_1ae297cae278f3dacb47918011529f570b" kind="function"><name>transform</name></member>
   </compound>
   <compound refid="namespaceeu_1_1io" kind="namespace"><name>eu::io</name>
     <member refid="namespaceeu_1_1io_1af1eaadaf42c3183baed23e8545e34ed6" kind="function"><name>string_from_file</name></member>

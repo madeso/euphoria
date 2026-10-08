@@ -129,6 +129,8 @@
       <node id="12">
         <label>libs/base/src/eu/base/transform.h</label>
         <link refid="transform_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
       </node>
       <node id="1">
         <label>libs/base/src/eu/base/vec3.h</label>

@@ -170,6 +170,8 @@
       <node id="17">
         <label>libs/base/src/eu/base/transform.h</label>
         <link refid="transform_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
       </node>
       <node id="24">
         <label>libs/base/src/eu/base/vec2.h</label>

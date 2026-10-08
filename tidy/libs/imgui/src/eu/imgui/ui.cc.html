@@ -24,7 +24,81 @@
 </head>
 <body>
 <h1>libs/imgui/src/eu/imgui/ui.cc</h1>
-<div class="link-container"><div class="prev">&lt;<a href="../../../../core/src/eu/core/tablelayout.test.cc.html">libs/core/src/eu/core/tablelayout.test.cc</a></div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../base/src/eu/base/transform.test.cc.html">libs/base/src/eu/base/transform.test.cc</a>&gt;</div></div>
+<div class="link-container"><div class="prev">&lt;<a href="../../../../core/src/eu/core/geom.extract.cc.html">libs/core/src/eu/core/geom.extract.cc</a></div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../tests/src/eu/tests/vectortostring.h.html">libs/tests/src/eu/tests/vectortostring.h</a>&gt;</div></div>
+<span id='readability-make-member-function-const'>&nbsp;</span>
+<hr>
+<h3>warning: method &#39;setup&#39; can be made const</h3>
+<code>[readability-make-member-function-const]</code>
+<ul>
+<li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
+</ul>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 421 : 18</i></p>
+<pre>
+  421 |             void setup(float extra_x = -1.0f)
+      |                  ^                           
+      |                                               const
+</pre>
+<span id='bugprone-narrowing-conversions'>&nbsp;</span>
+<span id='cppcoreguidelines-narrowing-conversions'>&nbsp;</span>
+<hr>
+<h3>warning: narrowing conversion from &#39;int&#39; to &#39;float&#39;</h3>
+<code>[bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]</code>
+<ul>
+<li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
+</ul>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 424 : 104</i></p>
+<pre>
+  424 |                 const float w_items = ImMax(0.0f, ImGui::CalcItemWidth() - style.ItemInnerSpacing.x * (item_count*2.0f - 1.0f) - extra_x * item_count);
+      |                                                                                                        ^
+</pre>
+<hr>
+<h3>warning: narrowing conversion from &#39;int&#39; to &#39;float&#39;</h3>
+<code>[bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]</code>
+<ul>
+<li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
+</ul>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 424 : 140</i></p>
+<pre>
+  424 |                 const float w_items = ImMax(0.0f, ImGui::CalcItemWidth() - style.ItemInnerSpacing.x * (item_count*2.0f - 1.0f) - extra_x * item_count);
+      |                                                                                                                                            ^
+</pre>
+<span id='readability-convert-member-functions-to-static'>&nbsp;</span>
+<hr>
+<h3>warning: method &#39;begin_widget&#39; can be made static</h3>
+<code>[readability-convert-member-functions-to-static]</code>
+<ul>
+<li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
+</ul>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 435 : 18</i></p>
+<pre>
+  435 |             void begin_widget(int i)
+      |                  ^
+      |             static 
+</pre>
+<hr>
+<h3>warning: method &#39;next_sub_widget&#39; can be made static</h3>
+<code>[readability-convert-member-functions-to-static]</code>
+<ul>
+<li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
+</ul>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 446 : 18</i></p>
+<pre>
+  446 |             void next_sub_widget()
+      |                  ^
+      |             static 
+</pre>
+<hr>
+<h3>warning: method &#39;end_widget&#39; can be made static</h3>
+<code>[readability-convert-member-functions-to-static]</code>
+<ul>
+<li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
+</ul>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 453 : 18</i></p>
+<pre>
+  453 |             void end_widget()
+      |                  ^
+      |             static 
+</pre>
 <span id='google-readability-braces-around-statements'>&nbsp;</span>
 <span id='readability-braces-around-statements'>&nbsp;</span>
 <hr>
@@ -33,14 +107,14 @@
 <ul>
 <li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
 </ul>
-<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 577 : 74</i></p>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 649 : 74</i></p>
 <pre>
-  577 |         if (text_rect.GetWidth() &lt; text_size.x &amp;&amp; ImGui::IsItemHovered())
+  649 |         if (text_rect.GetWidth() &lt; text_size.x &amp;&amp; ImGui::IsItemHovered())
       |                                                                          ^
       |                                                                           {
-  578 |             ImGui::SetTooltip(&quot;%s&quot;, label);
+  650 |             ImGui::SetTooltip(&quot;%s&quot;, label);
       |                                            
 </pre>
-<div class="link-container"><div class="prev">&lt;<a href="../../../../core/src/eu/core/tablelayout.test.cc.html">libs/core/src/eu/core/tablelayout.test.cc</a></div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../base/src/eu/base/transform.test.cc.html">libs/base/src/eu/base/transform.test.cc</a>&gt;</div></div>
+<div class="link-container"><div class="prev">&lt;<a href="../../../../core/src/eu/core/geom.extract.cc.html">libs/core/src/eu/core/geom.extract.cc</a></div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../tests/src/eu/tests/vectortostring.h.html">libs/tests/src/eu/tests/vectortostring.h</a>&gt;</div></div>
 </body>
 </html>
