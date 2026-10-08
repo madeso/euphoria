@@ -8,9 +8,6 @@
 
 #include "OpenSans-Regular.ttf.h"
 
-#include "eu/log/log.h"
-#include "eu/base/memorychunk.h"
-
 #include "eu/render/canvas.h"
 #include "eu/render/state.h"
 #include "eu/render/font.h"

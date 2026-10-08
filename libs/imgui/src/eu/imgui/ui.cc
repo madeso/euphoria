@@ -405,48 +405,58 @@ namespace eu::imgui
             return changed;
         }
 
-        constexpr const char* gear_string = ".";
-        struct GearWidget
+        struct CompoundWidget
         {
             const char* label;
-            ImVec2 gear_size;
-            bool value_changed = false;
+            int item_count;
 
-            explicit GearWidget(const char* l)
+            explicit CompoundWidget(const char* l, int ic = 3)
                 : label(l)
-                , gear_size(calc_button_size(gear_string))
+                , item_count(ic)
             {
-                auto& style = ImGui::GetStyle();
-
                 ImGui::BeginGroup();
                 ImGui::PushID(label);
+            }
 
-                const float w_items = ImMax(0.0f, ImGui::CalcItemWidth() - style.ItemInnerSpacing.x * (6 - 1) - gear_size.x * 3);
-                for (int item_index = 0; item_index < 3; item_index += 1)
+            void setup(float extra_x = -1.0f)
+            {
+                auto& style = ImGui::GetStyle();
+                const float w_items = ImMax(0.0f, ImGui::CalcItemWidth() - style.ItemInnerSpacing.x * (item_count*2.0f - 1.0f) - extra_x * item_count);
+                for (int item_index = 0; item_index < item_count; item_index += 1)
                 {
-                    ImGui::PushItemWidth(gear_size.x);
-                    ImGui::PushItemWidth(w_items / 3);
+                    if (extra_x > -0.5f)
+                    {
+                        ImGui::PushItemWidth(extra_x);
+                    }
+                    ImGui::PushItemWidth(w_items / static_cast<float>(item_count));
                 }
             }
 
-            void widget(int i, float* p_data)
+            void begin_widget(int i)
             {
-                auto& style = ImGui::GetStyle();
-
                 ImGui::PushID(i);
+
                 if (i > 0)
                 {
+                    auto& style = ImGui::GetStyle();
                     ImGui::SameLine(0, style.ItemInnerSpacing.x);
                 }
-                value_changed |= ImGui::DragFloat("", p_data);
+            }
+
+            void next_sub_widget()
+            {
+                auto& style = ImGui::GetStyle();
                 ImGui::PopItemWidth();
                 ImGui::SameLine(0, style.ItemInnerSpacing.x);
-                value_changed |= gear_icon(gear_string, p_data, gear_size);
+            }
+
+            void end_widget()
+            {
                 ImGui::PopItemWidth();
                 ImGui::PopID();
             }
 
-            ~GearWidget()
+            ~CompoundWidget()
             {
                 auto& style = ImGui::GetStyle();
 
@@ -462,10 +472,72 @@ namespace eu::imgui
                 ImGui::EndGroup();
             }
 
-            GearWidget(const GearWidget&) = delete;
-            GearWidget(GearWidget&&) = delete;
-            void operator=(const GearWidget&) = delete;
-            void operator=(GearWidget&&) = delete;
+            CompoundWidget(const CompoundWidget&) = delete;
+            CompoundWidget(CompoundWidget&&) = delete;
+            void operator=(const CompoundWidget&) = delete;
+            void operator=(CompoundWidget&&) = delete;
+        };
+
+        constexpr const char* gear_string = ".";
+        struct GearWidget : CompoundWidget
+        {
+            ImVec2 gear_size;
+            bool value_changed = false;
+
+            explicit GearWidget(const char* l)
+                : CompoundWidget(l, 3)
+                , gear_size(calc_button_size(gear_string))
+            {
+                setup(gear_size.x);
+            }
+
+
+            void widget(int i, float* p_data)
+            {
+                begin_widget(i);
+
+                value_changed |= ImGui::DragFloat("", p_data);
+                next_sub_widget();
+                value_changed |= gear_icon(gear_string, p_data, gear_size);
+                end_widget();
+            }
+            void widget(int i, An* p_data)
+            {
+                begin_widget(i);
+
+                float deg = p_data->as_degrees();
+
+                const auto drag_changed = ImGui::DragFloat("", &deg);
+                next_sub_widget();
+                const auto gear_changed = gear_icon(gear_string, &deg, gear_size);
+                end_widget();
+
+                if (drag_changed || gear_changed)
+                {
+                    *p_data = An::from_degrees(deg);
+                }
+
+                value_changed = value_changed || drag_changed || gear_changed;
+            }
+        };
+
+        struct LabelWidget : CompoundWidget
+        {
+            explicit LabelWidget(const char* l) : CompoundWidget(l)
+            {
+                setup();
+            }
+
+            void widget_float(int i, float data)
+            {
+                widget_string(i, fmt::format("{}", data));
+            }
+            void widget_string(int i, const std::string& data)
+            {
+                begin_widget(i);
+                imgui_text(data);
+                end_widget();
+            }
         };
     }
 }
@@ -599,6 +671,22 @@ void imgui_text(const std::string& str)
     ImGui::Text("%s", str.c_str());
 }
 
+void imgui_text(const v3& v)
+{
+    LabelWidget w{""};
+    w.widget_float(0, v.x);
+    w.widget_float(1, v.y);
+    w.widget_float(2, v.z);
+}
+
+void imgui_text(const Ypr& y)
+{
+    LabelWidget w{""};
+    w.widget_float(0, y.yaw.as_degrees());
+    w.widget_float(1, y.pitch.as_degrees());
+    w.widget_float(2, y.roll.as_degrees());                                                                
+}
+
 
 void imgui_image(const char* name, const render::FrameBuffer& img, ImguiShaderCache* cache, ImageShader shader)
 {
@@ -725,6 +813,60 @@ bool gear(const char* label, v3* drag)
     widget.widget(2, &drag->z);
 
     return widget.value_changed;
+}
+
+bool gear(const char* label, Ypr* drag)
+{
+    GearWidget widget{ label };
+
+    widget.widget(0, &drag->yaw);
+    widget.widget(1, &drag->pitch);
+    widget.widget(2, &drag->roll);
+
+    return widget.value_changed;
+}
+
+void transform(const m4& m)
+{
+    const auto t = transform_from_matrix(m);
+    
+    label("Position");
+    imgui_text(t.position);
+    label("Rotation");
+    imgui_text(Ypr::from(t.rotation));
+    label("Scale");
+    imgui_text(t.scale);
+}
+
+bool transform(m4* m)
+{
+    auto t = transform_from_matrix(*m);
+
+    ImGui::PushID(m);
+
+    bool changed = false;
+
+    if (gear("Position", &t.position))
+    {
+        changed = true;
+        *m = matrix_from_transform(t);
+    }
+    auto y = Ypr::from(t.rotation);
+    if (gear("Rotation", &y))
+    {
+        changed = true;
+        t.rotation = Q::from(y);
+        *m = matrix_from_transform(t);
+    }
+    if (gear("Scale", &t.scale))
+    {
+        changed = true;
+        *m = matrix_from_transform(t);
+    }
+
+    ImGui::PopID();
+
+    return changed;
 }
 
 }

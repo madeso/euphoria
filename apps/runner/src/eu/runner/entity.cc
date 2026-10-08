@@ -3,6 +3,8 @@
 #include <algorithm>
 
 #include "dear_imgui/imgui.h"
+#include "eu/imgui/debug.h"
+#include "eu/imgui/ui.h"
 
 namespace eu::runner
 {
@@ -147,7 +149,8 @@ namespace eu::runner
 
     void SpatialComponent::imgui()
     {
-        // todo(Gustav): render transform
+        // todo(Gustav): use setter when there is a hierarchy
+        eu::imgui::transform(&transform);
     }
 
     // ------------------------------------------------------------------------

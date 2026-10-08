@@ -8,8 +8,6 @@
 // #include <string>
 
 #include "eu/log/log.h"
-#include "eu/base/memorychunk.h"
-#include "eu/base/transform.h"
 
 #include "eu/core/geom.builder.h"
 #include "eu/core/geom.h"
@@ -391,7 +389,7 @@ struct TargetComponent : runner::Component
 
     void imgui() override
     {
-        // todo(Gustav): display matrix
+        imgui::transform(target);
     }
 
     EU_DEC_COMPONENT_TYPE();
@@ -569,7 +567,7 @@ struct CameraFetcherSystem : runner::WorldSystem
     void imgui() override
     {
         boolean("camera", camera != nullptr);
-        //todo(Gustav): display transform
+        imgui::transform(transform);
     }
 
     void add_component(runner::Entity*, runner::Component* component) override
