@@ -41,8 +41,12 @@ void label(const char* label);
 bool centered_button(const char* label);
 
 void imgui_text(const std::string& str);
-void imgui_text(const v3& v);
-void imgui_text(const Ypr& y);
+
+bool imgui_edit(const char* label, std::string* str);
+
+void imgui_readonly(const char* label, const std::string& text);
+void imgui_readonly(const char* label, const v3& v);
+void imgui_readonly(const char* label, const Ypr& y);
 
 void imgui_image(const char* name, const render::FrameBuffer& img, ImguiShaderCache* cache, ImageShader shader);
 bool simple_gamma_slider(const char* label, float* gamma, float curve = 1.5f, float min_gamma = 1.6f, float max_gamma = 2.8f);

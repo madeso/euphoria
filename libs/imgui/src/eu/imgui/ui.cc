@@ -8,6 +8,7 @@
 #include <numbers>
 
 #include "dear_imgui/imgui.h"
+#include "dear_imgui/misc/cpp/imgui_stdlib.h"
 #include "dear_imgui/imgui_internal.h"
 
 namespace eu::imgui
@@ -520,25 +521,6 @@ namespace eu::imgui
                 value_changed = value_changed || drag_changed || gear_changed;
             }
         };
-
-        struct LabelWidget : CompoundWidget
-        {
-            explicit LabelWidget(const char* l) : CompoundWidget(l)
-            {
-                setup();
-            }
-
-            void widget_float(int i, float data)
-            {
-                widget_string(i, fmt::format("{}", data));
-            }
-            void widget_string(int i, const std::string& data)
-            {
-                begin_widget(i);
-                imgui_text(data);
-                end_widget();
-            }
-        };
     }
 }
 
@@ -671,22 +653,28 @@ void imgui_text(const std::string& str)
     ImGui::Text("%s", str.c_str());
 }
 
-void imgui_text(const v3& v)
+void imgui_readonly(const char* label, const std::string& text)
 {
-    LabelWidget w{""};
-    w.widget_float(0, v.x);
-    w.widget_float(1, v.y);
-    w.widget_float(2, v.z);
+    auto temp = text;
+    ImGui::InputText(label, &temp, ImGuiInputTextFlags_ReadOnly);
 }
 
-void imgui_text(const Ypr& y)
+void imgui_readonly(const char* label, const v3& v)
 {
-    LabelWidget w{""};
-    w.widget_float(0, y.yaw.as_degrees());
-    w.widget_float(1, y.pitch.as_degrees());
-    w.widget_float(2, y.roll.as_degrees());                                                                
+    auto temp = v;
+    ImGui::InputFloat3(label, temp.get_data_ptr(), "%.3f", ImGuiInputTextFlags_ReadOnly);
 }
 
+void imgui_readonly(const char* label, const Ypr& y)
+{
+    const auto temp = v3{ y.yaw.as_degrees() ,y.pitch.as_degrees(), y.roll.as_degrees() };
+    imgui_readonly(label, temp);
+}
+
+bool imgui_edit(const char* label, std::string* str)
+{
+    return ImGui::InputText(label, str);
+}
 
 void imgui_image(const char* name, const render::FrameBuffer& img, ImguiShaderCache* cache, ImageShader shader)
 {
@@ -830,12 +818,9 @@ void transform(const m4& m)
 {
     const auto t = transform_from_matrix(m);
     
-    label("Position");
-    imgui_text(t.position);
-    label("Rotation");
-    imgui_text(Ypr::from(t.rotation));
-    label("Scale");
-    imgui_text(t.scale);
+    imgui_readonly("Position", t.position);
+    imgui_readonly("Rotation", Ypr::from(t.rotation));
+    imgui_readonly("Scale", t.scale);
 }
 
 bool transform(m4* m)

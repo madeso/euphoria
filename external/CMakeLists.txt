@@ -297,6 +297,9 @@ set(dear_imgui_src
     dear_imgui/dear_imgui/imstb_textedit.h
     dear_imgui/dear_imgui/imstb_truetype.h
 
+    dear_imgui/dear_imgui/misc/cpp/imgui_stdlib.h
+    dear_imgui/dear_imgui/misc/cpp/imgui_stdlib.cpp
+
     dear_imgui/dear_imgui/backends/imgui_impl_sdl3.cpp
     dear_imgui/dear_imgui/backends/imgui_impl_sdl3.h
     dear_imgui/dear_imgui/backends/imgui_impl_opengl3.cpp
