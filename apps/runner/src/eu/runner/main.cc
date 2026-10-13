@@ -113,19 +113,6 @@ struct TileRotation
 {
     Ypr rotation;
     v3 offset;
-
-    bool imgui(const char* name)
-    {
-        if (false == ImGui::CollapsingHeader(name)) return false;
-        ImGui::PushID(name);
-
-        bool changed = false;
-        changed = imgui::drag("Rotation", &rotation) || changed;
-        changed = imgui::gear("Offset", &offset) || changed;
-
-        ImGui::PopID();
-        return changed;
-    }
 };
 
 struct RotationData
@@ -172,23 +159,6 @@ struct Level
     std::unordered_map<std::string, std::unique_ptr<eu::render::CompiledMesh>> meshes;
     std::vector<Tile> tiles;
     RotationData rotation_data;
-
-    void imgui()
-    {
-        auto changed = false;
-        changed = rotation_data.a.imgui("a") || changed;
-        changed = rotation_data.b.imgui("b") || changed;
-        changed = rotation_data.c.imgui("c") || changed;
-        changed = rotation_data.d.imgui("d") || changed;
-
-        if (changed)
-        {
-            for (auto& tile: tiles)
-            {
-                tile.update(rotation_data);
-            }
-        }
-    }
 
     void load(const std::string& path, render::World* world, std::shared_ptr<render::DefaultMaterial> material, const core::CompiledGeomVertexAttributes& layout)
     {
@@ -920,7 +890,6 @@ int main(int, char**)
         // todo(Gustav): add introspection ui
         if (ImGui::Begin("Demo"))
         {
-            level.imgui();
             runner_world.gui();
         }
         ImGui::End();
