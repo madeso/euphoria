@@ -138,7 +138,7 @@ AppState App::create()
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO();
-    ImGui::StyleColorsDark();
+    eu::imgui::setup_colors(); // ImGui::StyleColorsDark();
     ImGui_ImplSDL3_InitForOpenGL(window, glContext);
     ImGui_ImplOpenGL3_Init(glsl_version);
 
@@ -196,6 +196,8 @@ AppState App::on_event(const SDL_Event& ev)
 
 AppState App::iterate()
 {
+    eu::imgui::setup_colors();
+
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplSDL3_NewFrame();
     ImGui::NewFrame();

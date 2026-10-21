@@ -36,6 +36,7 @@ enum class ImageShader
 	depth_ortho
 };
 
+void setup_colors();
 
 void label(const char* label);
 bool centered_button(const char* label);
