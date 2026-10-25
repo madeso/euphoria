@@ -605,14 +605,14 @@ ImguiShaderCache::~ImguiShaderCache()
 	imgui_destroy_shader(&depth_ortho_shader);
 }
 
-float c(int x)
+constexpr float c(int x)
 {
     return static_cast<float>(x) / 255.0f;
 }
 
-ImVec4 rgb(int r, int g, int b, int a=255)
+constexpr ImVec4 rgb(int r, int g, int b, float a=1.0f)
 {
-    return { c(r), c(g), c(b), c(a) };
+    return { c(r), c(g), c(b), a };
 }
 
 void setup_colors()
@@ -623,66 +623,68 @@ void setup_colors()
     // Catppuccin Mocha Palette
     // https://github.com/ocornut/imgui/issues/707#issuecomment-3592676777
     // --------------------------------------------------------
-    const ImVec4 base     = rgb(30, 30, 46);
-    const ImVec4 mantle   = rgb(24, 24, 37);
-    const ImVec4 surface0 = rgb(49, 50, 68);
-    const ImVec4 surface1 = rgb(63, 64, 86);
-    const ImVec4 surface2 = rgb(74, 77, 99);
-    const ImVec4 overlay0 = rgb(101, 103, 124);
-    const ImVec4 overlay2 = rgb(147, 153, 178);
-    const ImVec4 text     = rgb(205, 214, 244);
-    const ImVec4 subtext0 = rgb(163, 168, 195);
-    const ImVec4 mauve    = rgb(203, 166, 247);
-    const ImVec4 peach    = rgb(250, 179, 135);
-    const ImVec4 yellow   = rgb(249, 226, 175);
-    const ImVec4 green    = rgb(166, 227, 161);
-    const ImVec4 teal     = rgb(148, 226, 213);
-    const ImVec4 sapphire = rgb(116, 199, 236);
-    const ImVec4 blue     = rgb(137, 180, 250);
-    const ImVec4 lavender = rgb(180, 190, 254);
+    constexpr ImVec4 base     = rgb(30, 30, 46);
+    constexpr ImVec4 mantle   = rgb(24, 24, 37);
+    constexpr ImVec4 surface0 = rgb(49, 50, 68);
+    constexpr ImVec4 surface1 = rgb(63, 64, 86);
+    constexpr ImVec4 surface2 = rgb(74, 77, 99);
+    constexpr ImVec4 overlay0 = rgb(101, 103, 124);
+    constexpr ImVec4 overlay2 = rgb(147, 153, 178);
+    constexpr ImVec4 text     = rgb(205, 214, 244);
+    constexpr ImVec4 subtext0 = rgb(163, 168, 195);
+    constexpr ImVec4 mauve    = rgb(203, 166, 247);
+    constexpr ImVec4 peach    = rgb(250, 179, 135);
+    constexpr ImVec4 yellow   = rgb(249, 226, 175);
+    constexpr ImVec4 green    = rgb(166, 227, 161);
+    constexpr ImVec4 teal     = rgb(148, 226, 213);
+    constexpr ImVec4 sapphire = rgb(116, 199, 236);
+    constexpr ImVec4 blue     = rgb(137, 180, 250);
+    constexpr ImVec4 lavender = rgb(180, 190, 254);
+
+    constexpr auto transparent = rgb(0, 0, 0, 0.0f);
 
     // Main window and backgrounds
     colors[ImGuiCol_Text] = text;
     colors[ImGuiCol_TextDisabled] = subtext0;
-    colors[ImGuiCol_WindowBg] = base; // Background of normal windows
-    colors[ImGuiCol_ChildBg] = base; // Background of child windows
-    colors[ImGuiCol_PopupBg] = surface0; // Background of popups, menus, tooltips windows
+    colors[ImGuiCol_WindowBg] = base;                      // Background of normal windows
+    colors[ImGuiCol_ChildBg] = base;                       // Background of child windows
+    colors[ImGuiCol_PopupBg] = surface0;                   // Background of popups, menus, tooltips windows
     colors[ImGuiCol_Border] = surface1;
-    colors[ImGuiCol_BorderShadow] = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
-    colors[ImGuiCol_FrameBg] = surface0;  // Background of checkbox, radio button, plot, slider, text input
+    colors[ImGuiCol_BorderShadow] = transparent;
+    colors[ImGuiCol_FrameBg] = surface0;                   // Background of checkbox, radio button, plot, slider, text input
     colors[ImGuiCol_FrameBgHovered] = surface1;
     colors[ImGuiCol_FrameBgActive] = surface2;
-    colors[ImGuiCol_TitleBg] = mantle; // Title bar
-    colors[ImGuiCol_TitleBgActive] = surface0; // Title bar when focused
-    colors[ImGuiCol_TitleBgCollapsed] = mantle; // Title bar when collapsed
+    colors[ImGuiCol_TitleBg] = mantle;                     // Title bar
+    colors[ImGuiCol_TitleBgActive] = surface0;             // Title bar when focused
+    colors[ImGuiCol_TitleBgCollapsed] = mantle;            // Title bar when collapsed
     colors[ImGuiCol_MenuBarBg] = mantle;
     colors[ImGuiCol_ScrollbarBg] = surface0;
     colors[ImGuiCol_ScrollbarGrab] = surface2;
     colors[ImGuiCol_ScrollbarGrabHovered] = overlay0;
     colors[ImGuiCol_ScrollbarGrabActive] = overlay2;
-    colors[ImGuiCol_CheckMark] = green; // Checkbox tick and RadioButton circle
+    colors[ImGuiCol_CheckMark] = green;                    // Checkbox tick and RadioButton circle
     colors[ImGuiCol_SliderGrab] = sapphire;
     colors[ImGuiCol_SliderGrabActive] = blue;
     colors[ImGuiCol_Button] = surface0;
     colors[ImGuiCol_ButtonHovered] = surface1;
     colors[ImGuiCol_ButtonActive] = surface2;
-    colors[ImGuiCol_Header] = surface0; // Header* colors are used for CollapsingHeader, TreeNode, Selectable, MenuItem
+    colors[ImGuiCol_Header] = surface0;                    // Header* colors are used for CollapsingHeader, TreeNode, Selectable, MenuItem
     colors[ImGuiCol_HeaderHovered] = surface1;
     colors[ImGuiCol_HeaderActive] = surface2;
     colors[ImGuiCol_Separator] = surface1;
     colors[ImGuiCol_SeparatorHovered] = mauve;
     colors[ImGuiCol_SeparatorActive] = mauve;
-    colors[ImGuiCol_ResizeGrip] = surface2;
+    colors[ImGuiCol_ResizeGrip] = surface2;                // Resize grip in lower-right and lower-left corners of windows.
     colors[ImGuiCol_ResizeGripHovered] = mauve;
     colors[ImGuiCol_ResizeGripActive] = mauve;
-    colors[ImGuiCol_InputTextCursor] = ImVec4(1.0f, 1.0f, 1.0f, 1.0f); // InputText cursor/caret
-    colors[ImGuiCol_TabHovered] = surface2; // Tab background, when hovered
-    colors[ImGuiCol_Tab] = surface0; // Tab background, when tab-bar is focused & tab is unselected
-    colors[ImGuiCol_TabSelected] = surface1; // Tab background, when tab-bar is focused & tab is selected
-    colors[ImGuiCol_TabSelectedOverline] = lavender;   // Tab horizontal overline, when tab-bar is focused & tab is selected
-    colors[ImGuiCol_TabDimmed] = surface0; // Tab background, when tab-bar is unfocused & tab is unselected
-    colors[ImGuiCol_TabDimmedSelected] = surface1; // Tab background, when tab-bar is unfocused & tab is selected
-    colors[ImGuiCol_TabDimmedSelectedOverline] = surface1; //horizontal overline, when tab-bar is unfocused & tab is selected
+    colors[ImGuiCol_InputTextCursor] = text;               // InputText cursor/caret
+    colors[ImGuiCol_TabHovered] = surface2;                 // Tab background, when hovered
+    colors[ImGuiCol_Tab] = surface0;                        // Tab background, when tab-bar is focused & tab is unselected
+    colors[ImGuiCol_TabSelected] = surface1;                // Tab background, when tab-bar is focused & tab is selected
+    colors[ImGuiCol_TabSelectedOverline] = lavender;        // Tab horizontal overline, when tab-bar is focused & tab is selected
+    colors[ImGuiCol_TabDimmed] = surface0;                  // Tab background, when tab-bar is unfocused & tab is unselected
+    colors[ImGuiCol_TabDimmedSelected] = surface1;          // Tab background, when tab-bar is unfocused & tab is selected
+    colors[ImGuiCol_TabDimmedSelectedOverline] = surface1;  // horizontal overline, when tab-bar is unfocused & tab is selected
     // colors[ImGuiCol_DockingPreview] = sapphire;
     // colors[ImGuiCol_DockingEmptyBg] = base;
     colors[ImGuiCol_PlotLines] = blue;
@@ -692,7 +694,7 @@ void setup_colors()
     colors[ImGuiCol_TableHeaderBg] = surface0;
     colors[ImGuiCol_TableBorderStrong] = surface1;
     colors[ImGuiCol_TableBorderLight] = surface0;
-    colors[ImGuiCol_TableRowBg] = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
+    colors[ImGuiCol_TableRowBg] = transparent;
     colors[ImGuiCol_TableRowBgAlt] = ImVec4(1.0f, 1.0f, 1.0f, 0.06f);
     colors[ImGuiCol_TextSelectedBg] = surface2;
     colors[ImGuiCol_DragDropTarget] = yellow;
