@@ -2,11 +2,24 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="imgui_2src_2eu_2imgui_2ui_8h" kind="file" language="C++">
     <compoundname>ui.h</compoundname>
+    <includes local="yes">dear_imgui/imgui.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>libs/imgui/src/eu/imgui/ui.h</label>
+        <link refid="imgui_2src_2eu_2imgui_2ui_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>dear_imgui/imgui.h</label>
+      </node>
+    </incdepgraph>
     <innerclass refid="structeu_1_1imgui_1_1ImguiShaderProgram" prot="public">eu::imgui::ImguiShaderProgram</innerclass>
     <innerclass refid="structeu_1_1imgui_1_1ImguiShaderCache" prot="public">eu::imgui::ImguiShaderCache</innerclass>
     <innernamespace refid="namespaceeu">eu</innernamespace>
     <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
     <innernamespace refid="namespaceeu_1_1imgui">eu::imgui</innernamespace>
+    <innernamespace refid="namespaceeu_1_1imgui_1_1colors">eu::imgui::colors</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

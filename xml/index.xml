@@ -1845,6 +1845,8 @@
     <member refid="namespaceeu_1_1imgui_1a427d1b1c25576910f8c887de7fa30e83" kind="function"><name>rescale_window</name></member>
     <member refid="namespaceeu_1_1imgui_1a533ffd5037b3df19cf5cd73ae07ce210" kind="function"><name>setup_scale</name></member>
     <member refid="namespaceeu_1_1imgui_1a78b11aa78f2ad17f6b073cf346e64850" kind="function"><name>imgui_s_curve_editor</name></member>
+    <member refid="namespaceeu_1_1imgui_1afc98c4009de6b5b86898b945320eb416" kind="function"><name>c</name></member>
+    <member refid="namespaceeu_1_1imgui_1add5972d84746eb56f70aa1bc110d2506" kind="function"><name>rgb</name></member>
     <member refid="namespaceeu_1_1imgui_1acf8a4e642b869547f693d356fd41dac5" kind="function"><name>setup_colors</name></member>
     <member refid="namespaceeu_1_1imgui_1a4219888c66154530236ef5bef9ba97e8" kind="function"><name>label</name></member>
     <member refid="namespaceeu_1_1imgui_1aa5d8e0bdd238dd4b4287454e72b34eea" kind="function"><name>centered_button</name></member>
@@ -1862,6 +1864,9 @@
     <member refid="namespaceeu_1_1imgui_1a9ccf4f05d405c6b8023dbf5463afee05" kind="function"><name>gear</name></member>
     <member refid="namespaceeu_1_1imgui_1a7434f1c3ff2fb474512cf5fd236030d8" kind="function"><name>transform</name></member>
     <member refid="namespaceeu_1_1imgui_1ae297cae278f3dacb47918011529f570b" kind="function"><name>transform</name></member>
+  </compound>
+  <compound refid="namespaceeu_1_1imgui_1_1colors" kind="namespace"><name>eu::imgui::colors</name>
+    <member refid="namespaceeu_1_1imgui_1_1colors_1a09741daf8826bef0f0fc2075cef85bb3" kind="variable"><name>text_label</name></member>
   </compound>
   <compound refid="namespaceeu_1_1io" kind="namespace"><name>eu::io</name>
     <member refid="namespaceeu_1_1io_1af1eaadaf42c3183baed23e8545e34ed6" kind="function"><name>string_from_file</name></member>

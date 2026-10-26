@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="28" column="20" bodyfile="libs/imgui/src/eu/imgui/ui.h" bodystart="28" bodyend="-1"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="30" column="20" bodyfile="libs/imgui/src/eu/imgui/ui.h" bodystart="30" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1imgui_1_1ImguiShaderCache_1aea7473ca513b700da3fe0616ce9ccd39" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1imgui_1_1ImguiShaderProgram" kindref="compound">ImguiShaderProgram</ref></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="29" column="20" bodyfile="libs/imgui/src/eu/imgui/ui.h" bodystart="29" bodyend="-1"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="31" column="20" bodyfile="libs/imgui/src/eu/imgui/ui.h" bodystart="31" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -46,7 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="20" column="1"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="22" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1ImguiShaderCache_1a02733456b03580bf540181c5bfd1bacf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -60,7 +60,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="21" column="1"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="23" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1ImguiShaderCache_1a0f74a753a86e828af2d36a3db64639e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -77,7 +77,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="23" column="1"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="25" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1ImguiShaderCache_1a477d38eef80fc0e06c5bf928ef1cf28e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -94,7 +94,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="24" column="1"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="26" column="1"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1ImguiShaderCache_1af3d8254af932af3e16038ed5f6f2035c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1imgui_1_1ImguiShaderCache_1abdb193cc0b9f1d5240c94eb4e7819bb8" kindref="member">ImguiShaderCache</ref> &amp;</type>
@@ -111,7 +111,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="25" column="18"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="27" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1ImguiShaderCache_1a19a72c10af949d01aae70d914aa55e19" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1imgui_1_1ImguiShaderCache_1abdb193cc0b9f1d5240c94eb4e7819bb8" kindref="member">ImguiShaderCache</ref> &amp;</type>
@@ -128,7 +128,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="26" column="18"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="28" column="18"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -149,7 +149,7 @@
         <link refid="structeu_1_1imgui_1_1ImguiShaderProgram"/>
       </node>
     </collaborationgraph>
-    <location file="libs/imgui/src/eu/imgui/ui.h" line="18" column="1" bodyfile="libs/imgui/src/eu/imgui/ui.h" bodystart="19" bodyend="30"/>
+    <location file="libs/imgui/src/eu/imgui/ui.h" line="20" column="1" bodyfile="libs/imgui/src/eu/imgui/ui.h" bodystart="21" bodyend="32"/>
     <listofallmembers>
       <member refid="structeu_1_1imgui_1_1ImguiShaderCache_1aea7473ca513b700da3fe0616ce9ccd39" prot="public" virt="non-virtual"><scope>eu::imgui::ImguiShaderCache</scope><name>depth_ortho_shader</name></member>
       <member refid="structeu_1_1imgui_1_1ImguiShaderCache_1abdb193cc0b9f1d5240c94eb4e7819bb8" prot="public" virt="non-virtual"><scope>eu::imgui::ImguiShaderCache</scope><name>ImguiShaderCache</name></member>
