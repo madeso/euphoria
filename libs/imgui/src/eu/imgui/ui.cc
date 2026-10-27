@@ -725,33 +725,37 @@ void setup_colors()
 
 void label(const char* label)
 {
-    ImGuiWindow* window = ImGui::GetCurrentWindow();
-    const float full_width = ImGui::GetContentRegionAvail().x;
-    const float item_width = full_width * 0.6f;
+    ImGui::PushStyleColor(ImGuiCol_Text, colors::text_label);
+    ImGui::TextUnformatted(label);
+    const auto used_size = ImGui::GetItemRectSize();
     const ImVec2 text_size = ImGui::CalcTextSize(label);
-    ImRect text_rect;
-    text_rect.Min = ImGui::GetCursorScreenPos();
-    text_rect.Max = text_rect.Min;
-    text_rect.Max.x += full_width - item_width;
-    text_rect.Max.y += text_size.y;
 
-    ImGui::AlignTextToFramePadding();
-    text_rect.Min.y += window->DC.CurrLineTextBaseOffset;
-    text_rect.Max.y += window->DC.CurrLineTextBaseOffset;
-
-    ImGui::ItemSize(text_rect);
-    if (ImGui::ItemAdd(text_rect, window->GetID(label)))
+    if (used_size.x < text_size.x ||
+        used_size.y < text_size.y )
     {
-        constexpr float ellipsis_max = 3.0f;
-        ImGui::RenderTextEllipsis(ImGui::GetWindowDrawList(), text_rect.Min, text_rect.Max, ellipsis_max, label, nullptr, &text_size);
-
-        if (text_rect.GetWidth() < text_size.x && ImGui::IsItemHovered())
-            ImGui::SetTooltip("%s", label);
+        ImGui::SetTooltip("%s", label);
     }
-    ImGui::SameLine();
-    ImGui::SetNextItemWidth(-1);
+
+    ImGui::PopStyleColor();
 }
 
+bool button(const char* label)
+{
+    ImGuiStyle& style = ImGui::GetStyle();
+    const auto clicked = ImGui::Button(label);
+
+    // todo(Gustav): when active, switch text color to lime
+
+    {
+        const auto min = ImGui::GetItemRectMin();
+        const auto max = ImGui::GetItemRectMax();
+
+        auto* draw = ImGui::GetWindowDrawList();
+        draw->AddRect(min, max, ImColor{ ImGui::IsItemHovered() ? colors::button_active_border : colors::button_default_border }, style.ChildRounding);
+    }
+
+    return clicked;
+}
 
 bool centered_button(const char* label)
 {
@@ -761,7 +765,7 @@ bool centered_button(const char* label)
     const auto whitespace = window_width - text_width - padding_hor;
     const float x = whitespace * 0.5f;
     ImGui::SetCursorPosX(x);
-    return ImGui::Button(label);
+    return button(label);
 }
 
 

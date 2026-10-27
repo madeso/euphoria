@@ -194,6 +194,35 @@ AppState App::on_event(const SDL_Event& ev)
     return AppState::continue_running;
 }
 
+void properties_table()
+{
+    static eu::v3 pos = { 0,0,0 };
+    static eu::v3 rot = { 0, 0, 0 };
+    static eu::v3 scale = { 1, 1, 1 };
+
+    if ( ImGui::BeginTable("Properties", 2) == false) return;
+
+    ImGui::TableNextRow();
+    ImGui::TableSetColumnIndex(0);
+    eu::imgui::label("Position");
+    ImGui::TableSetColumnIndex(1);
+    ImGui::DragFloat3("##Position", pos.get_data_ptr());
+
+    ImGui::TableNextRow();
+    ImGui::TableSetColumnIndex(0);
+    eu::imgui::label("Rotation");
+    ImGui::TableSetColumnIndex(1);
+    ImGui::DragFloat3("##Rotation", rot.get_data_ptr());
+
+    ImGui::TableNextRow();
+    ImGui::TableSetColumnIndex(0);
+    eu::imgui::label("Scale");
+    ImGui::TableSetColumnIndex(1);
+    ImGui::DragFloat3("##Scale", scale.get_data_ptr());
+
+    ImGui::EndTable();
+}
+
 AppState App::iterate()
 {
     eu::imgui::setup_colors();
@@ -209,18 +238,7 @@ AppState App::iterate()
 
     if (ImGui::Begin("Properties"))
     {
-        static eu::v3 pos = {0,0,0};
-        static eu::v3 rot = {0, 0, 0};
-        static eu::v3 scale = {1, 1, 1};
-
-        eu::imgui::label("Position");
-        ImGui::DragFloat3("##Position", pos.get_data_ptr());
-
-        eu::imgui::label("Rotation");
-        ImGui::DragFloat3("##Rotation", rot.get_data_ptr());
-
-        eu::imgui::label("Scale");
-        ImGui::DragFloat3("##Scale", scale.get_data_ptr());
+        properties_table();
 
         eu::imgui::centered_button("Add component");
     }

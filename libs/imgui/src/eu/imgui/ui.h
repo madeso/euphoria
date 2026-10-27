@@ -51,6 +51,7 @@ constexpr ImVec4 rgb(int r, int g, int b, float a = 1.0f)
 void setup_colors();
 
 void label(const char* label);
+bool button(const char* label);
 bool centered_button(const char* label);
 
 void imgui_text(const std::string& str);
@@ -77,6 +78,8 @@ bool transform(m4* m);
 namespace colors
 {
     constexpr ImVec4 text_label = rgb(139, 148, 125);
+    constexpr ImVec4 button_active_border = rgb(158, 233, 5);
+    constexpr ImVec4 button_default_border = rgb(48, 53, 64);
 }
 
 }
