@@ -742,6 +742,9 @@ void label(const char* label)
 bool button(const char* label)
 {
     ImGuiStyle& style = ImGui::GetStyle();
+
+    ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(10.0f, 7.0f)); // todo(Gustav): make configurable
+
     const auto clicked = ImGui::Button(label);
 
     // todo(Gustav): when active, switch text color to lime
@@ -753,6 +756,8 @@ bool button(const char* label)
         auto* draw = ImGui::GetWindowDrawList();
         draw->AddRect(min, max, ImColor{ ImGui::IsItemHovered() ? colors::button_active_border : colors::button_default_border }, style.ChildRounding);
     }
+
+    ImGui::PopStyleVar();
 
     return clicked;
 }
