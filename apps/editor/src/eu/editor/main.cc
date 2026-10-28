@@ -196,12 +196,33 @@ AppState App::on_event(const SDL_Event& ev)
 
 struct PropTable
 {
+    PropTable(const PropTable&) = delete;
+    void operator=(const PropTable&) = delete;
+    void operator=(const PropTable&&) = delete;
+
+    PropTable(PropTable&& r) noexcept
+        : started(r.started)
+    {
+        r.started = false;
+    }
+
     bool started;
 
     static PropTable begin(const char* label = "properties")
     {
-        const auto started = ImGui::BeginTable(label, 2);
-        return PropTable{ started };
+        constexpr ImGuiTableFlags table_flags = ImGuiTableFlags_SizingStretchProp;
+
+        const auto started = ImGui::BeginTable(label, 2, table_flags);
+        auto ret = PropTable{ started };
+        if (started == false) return ret;
+
+        ImGui::TableSetupColumn("Name", ImGuiTableColumnFlags_WidthFixed);
+        ImGui::TableSetupColumn("Value", ImGuiTableColumnFlags_WidthStretch);
+
+        // Should we display header???
+        ImGui::TableHeadersRow();
+
+        return ret;
     }
 
     ~PropTable()
