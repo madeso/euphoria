@@ -185,16 +185,15 @@
       |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 </pre>
 <hr>
-<h3>warning: function &#39;properties_table&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<h3>warning: struct &#39;PropTable&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
 <ul>
 <li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 197 : 6</i></p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 197 : 8</i></p>
 <pre>
-  197 | void properties_table()
-      |      ^
-      | static 
+  197 | struct PropTable
+      |        ^
 </pre>
 <span id='readability-braces-around-statements'>&nbsp;</span>
 <hr>
@@ -203,11 +202,23 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 203 : 54</i></p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 217 : 30</i></p>
 <pre>
-  203 |     if ( ImGui::BeginTable(&quot;Properties&quot;, 2) == false) return;
-      |                                                      ^       
-      |                                                       {
+  217 |         if (started == false) return ret;
+      |                              ^           
+      |                               {
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 230 : 30</i></p>
+<pre>
+  230 |         if (started == false) return;
+      |                              ^       
+      |                               {
 </pre>
 <hr>
 <h3>warning: variable &#39;cmd&#39; of type &#39;eu::render:: RenderCommand&#39; can be declared &#39;const&#39;</h3>
@@ -215,9 +226,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 248 : 9</i></p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 345 : 9</i></p>
 <pre>
-  248 |         eu::render::RenderCommand cmd {.states = states.get(), .render = render.get(), .size = {.width = window_width, .height = window_height} };
+  345 |         eu::render::RenderCommand cmd {.states = states.get(), .render = render.get(), .size = {.width = window_width, .height = window_height} };
       |         ^
       |                                   const 
 </pre>
@@ -227,9 +238,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 286 : 15</i></p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 383 : 15</i></p>
 <pre>
-  286 | SDL_AppResult to_sdl_result(AppState state)
+  383 | SDL_AppResult to_sdl_result(AppState state)
       |               ^
       | static 
 </pre>
@@ -241,9 +252,9 @@
 <li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
 <li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 300 : 5</i></p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 397 : 5</i></p>
 <pre>
-  300 |     auto app = new App();
+  397 |     auto app = new App();
       |     ^~~~
       |     auto *
 </pre>
@@ -253,15 +264,15 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 308 : 5</i></p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 405 : 5</i></p>
 <pre>
-  308 |     delete app;
+  405 |     delete app;
       |     ^      ~~~
 </pre>
 <p>variable declared here</p>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 300 : 5</i></p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 397 : 5</i></p>
 <pre>
-  300 |     auto app = new App();
+  397 |     auto app = new App();
       |     ^~~~~~~~~~~~~~~~~~~~
 </pre>
 <hr>
@@ -270,9 +281,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 314 : 5</i></p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 411 : 5</i></p>
 <pre>
-  314 |     auto app = static_cast&lt;App*&gt;(app_arg);
+  411 |     auto app = static_cast&lt;App*&gt;(app_arg);
       |     ^~~~
       |     auto *
 </pre>
@@ -282,9 +293,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 321 : 5</i></p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 418 : 5</i></p>
 <pre>
-  321 |     auto app = static_cast&lt;App*&gt;(app_arg);
+  418 |     auto app = static_cast&lt;App*&gt;(app_arg);
       |     ^~~~
       |     auto *
 </pre>
@@ -294,9 +305,9 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 333 : 5</i></p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 430 : 5</i></p>
 <pre>
-  333 |     auto app = static_cast&lt;App*&gt;(app_arg);
+  430 |     auto app = static_cast&lt;App*&gt;(app_arg);
       |     ^~~~
       |     auto *
 </pre>
@@ -306,15 +317,15 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 334 : 5</i></p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 431 : 5</i></p>
 <pre>
-  334 |     delete app;
+  431 |     delete app;
       |     ^      ~~~
 </pre>
 <p>variable declared here</p>
-<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 333 : 5</i></p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 430 : 5</i></p>
 <pre>
-  333 |     auto app = static_cast&lt;App*&gt;(app_arg);
+  430 |     auto app = static_cast&lt;App*&gt;(app_arg);
       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 </pre>
 <div class="link-container"><div class="prev">&lt;<a href="../../../../runner/src/eu/runner/main.cc.html">apps/runner/src/eu/runner/main.cc</a></div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../../libs/base/src/eu/base/colors.cc.html">libs/base/src/eu/base/colors.cc</a>&gt;</div></div>

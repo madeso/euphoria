@@ -19,7 +19,6 @@
     <innernamespace refid="namespaceeu">eu</innernamespace>
     <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
     <innernamespace refid="namespaceeu_1_1imgui">eu::imgui</innernamespace>
-    <innernamespace refid="namespaceeu_1_1imgui_1_1colors">eu::imgui::colors</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
