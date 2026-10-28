@@ -38,21 +38,13 @@ enum class ImageShader
 	depth_ortho
 };
 
-constexpr float c(int x)
-{
-    return static_cast<float>(x) / 255.0f;
-}
-
-constexpr ImVec4 rgb(int r, int g, int b, float a = 1.0f)
-{
-    return { c(r), c(g), c(b), a };
-}
-
 void setup_colors();
 
 void label(const char* label);
 bool button(const char* label);
 bool centered_button(const char* label);
+
+bool header(const char* label, bool* closeable = nullptr);
 
 void imgui_text(const std::string& str);
 
@@ -74,12 +66,5 @@ bool gear(const char* label, Ypr* drag);
 
 void transform(const m4& m);
 bool transform(m4* m);
-
-namespace colors
-{
-    constexpr ImVec4 text_label = rgb(139, 148, 125);
-    constexpr ImVec4 button_active_border = rgb(158, 233, 5);
-    constexpr ImVec4 button_default_border = rgb(48, 53, 64);
-}
 
 }

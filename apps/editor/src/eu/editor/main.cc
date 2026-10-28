@@ -194,34 +194,70 @@ AppState App::on_event(const SDL_Event& ev)
     return AppState::continue_running;
 }
 
-void properties_table()
+struct PropTable
 {
-    static eu::v3 pos = { 0,0,0 };
-    static eu::v3 rot = { 0, 0, 0 };
-    static eu::v3 scale = { 1, 1, 1 };
+    bool started;
 
-    if ( ImGui::BeginTable("Properties", 2) == false) return;
+    static PropTable begin(const char* label = "properties")
+    {
+        const auto started = ImGui::BeginTable(label, 2);
+        return PropTable{ started };
+    }
 
-    ImGui::TableNextRow();
-    ImGui::TableSetColumnIndex(0);
-    eu::imgui::label("Position");
-    ImGui::TableSetColumnIndex(1);
-    ImGui::DragFloat3("##Position", pos.get_data_ptr());
+    ~PropTable()
+    {
+        if (started == false) return;
+        ImGui::EndTable();
+    }
 
-    ImGui::TableNextRow();
-    ImGui::TableSetColumnIndex(0);
-    eu::imgui::label("Rotation");
-    ImGui::TableSetColumnIndex(1);
-    ImGui::DragFloat3("##Rotation", rot.get_data_ptr());
+    operator bool() const
+    {
+        return started;
+    }
 
-    ImGui::TableNextRow();
-    ImGui::TableSetColumnIndex(0);
-    eu::imgui::label("Scale");
-    ImGui::TableSetColumnIndex(1);
-    ImGui::DragFloat3("##Scale", scale.get_data_ptr());
+    bool drag3(const char* label, eu::v3* v) const
+    {
+        row(label);
+        ImGui::PushID(label);
+        const auto ret = ImGui::DragFloat3("", v->get_data_ptr());
+        ImGui::PopID();
+        return ret;
+    }
 
-    ImGui::EndTable();
-}
+    bool check(const char* label, bool* v) const
+    {
+        row(label);
+        ImGui::PushID(label);
+        const auto ret = ImGui::Checkbox("", v);
+        ImGui::PopID();
+        return ret;
+    }
+
+    bool slider(const char* label, float* v, float min, float max) const
+    {
+        row(label);
+        ImGui::PushID(label);
+        const auto ret = ImGui::SliderFloat("", v, min, max);
+        ImGui::PopID();
+        return ret;
+    }
+    bool slider(const char* label, float* v) const
+    {
+        return slider(label, v, 0.0f, 1.0f);
+    }
+
+private:
+    void row(const char* label) const
+    {
+        ASSERT(started);
+        ImGui::TableNextRow();
+        ImGui::TableSetColumnIndex(0);
+        eu::imgui::label(label);
+        ImGui::TableSetColumnIndex(1);
+    }
+    PropTable() = default;
+    explicit PropTable(bool b) : started(b) {}
+};
 
 AppState App::iterate()
 {
@@ -236,9 +272,49 @@ AppState App::iterate()
         ImGui::ShowDemoWindow(&show_demo_window);
     }
 
-    if (ImGui::Begin("Properties"))
+    if (ImGui::Begin("Demo"))
     {
-        properties_table();
+        static eu::v3 pos = { 0,0,0 };
+        static eu::v3 rot = { 0, 0, 0 };
+        static eu::v3 scale = { 1, 1, 1 };
+
+        static float roughness = 0.35f;
+        static float metallic = 0.85f;
+        static float normal_intensity = 1.20f;
+
+        static bool is_trigger = false;
+        static eu::v3 center = {0, 0, 0};
+        static eu::v3 size = { 0, 0, 0 };
+
+        if (eu::imgui::header("TRANSFORM"))
+        {
+            if (const auto prop = PropTable::begin())
+            {
+                prop.drag3("Position", &pos);
+                prop.drag3("Rotation", &rot);
+                prop.drag3("Scale", &scale);
+            }
+        }
+
+        if (eu::imgui::header("MATERIAL"))
+        {
+            if (const auto prop = PropTable::begin())
+            {
+                prop.slider("Roughness", &roughness);
+                prop.slider("Metallic", &metallic);
+                prop.slider("Normal intensity", &normal_intensity, 0.0f, 2.0f);
+            }
+        }
+
+        if (eu::imgui::header("BOX COLLIDER 3D"))
+        {
+            if (auto prop = PropTable::begin())
+            {
+                prop.check("Is Trigger", &is_trigger);
+                prop.drag3("Center", &center);
+                prop.drag3("Size", &size);
+            }
+        }
 
         eu::imgui::centered_button("Add component");
     }

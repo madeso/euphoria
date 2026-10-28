@@ -521,6 +521,23 @@ namespace eu::imgui
                 value_changed = value_changed || drag_changed || gear_changed;
             }
         };
+
+        constexpr float c(int r)
+        {
+            return static_cast<float>(r) * (1.0f / 255.0f);
+        }
+
+        constexpr ImVec4 rgb(int r, int g, int b, float a = 1.0f)
+        {
+            return { c(r), c(g), c(b), a};
+        }
+
+        namespace colors
+        {
+            constexpr ImVec4 text_label = rgb(139, 148, 125);
+            constexpr ImVec4 button_active_border = rgb(158, 233, 5);
+            constexpr ImVec4 button_default_border = rgb(48, 53, 64);
+        }
     }
 }
 
@@ -628,10 +645,10 @@ void setup_colors()
     constexpr auto scroll_hover = rgb(39, 43, 51); 
     constexpr auto scroll_active = rgb(132, 204, 22);
 
-    constexpr ImVec4 table_border_strong = colors::text_label;
-    constexpr ImVec4 text_selected_bg = rgb(31, 45, 24);
-    constexpr ImVec4 text     = rgb(225, 226, 233);
-    constexpr ImVec4 text_disabled = rgb(113, 113, 122);
+    constexpr auto table_border_strong = colors::text_label;
+    constexpr auto text_selected_bg = rgb(31, 45, 24);
+    constexpr auto text     = rgb(225, 226, 233);
+    constexpr auto text_disabled = rgb(113, 113, 122);
 
     constexpr auto transparent = rgb(0, 0, 0, 0.0f);
 
@@ -707,7 +724,7 @@ void setup_colors()
 
     // Padding and spacing
     style.WindowPadding = ImVec2(8.0f, 8.0f);
-    style.FramePadding = ImVec2(5.0f, 3.0f);
+    style.FramePadding = ImVec2(10.0f, 6.0f);
     style.ItemSpacing = ImVec2(8.0f, 4.0f);
     style.ItemInnerSpacing = ImVec2(4.0f, 4.0f);
     style.IndentSpacing = 21.0f;
@@ -754,7 +771,8 @@ bool button(const char* label)
         const auto max = ImGui::GetItemRectMax();
 
         auto* draw = ImGui::GetWindowDrawList();
-        draw->AddRect(min, max, ImColor{ ImGui::IsItemHovered() ? colors::button_active_border : colors::button_default_border }, style.ChildRounding);
+        draw->AddRect(min, max, ImColor{
+            ImGui::IsItemHovered() ? colors::button_active_border : colors::button_default_border }, style.ChildRounding);
     }
 
     ImGui::PopStyleVar();
@@ -771,6 +789,16 @@ bool centered_button(const char* label)
     const float x = whitespace * 0.5f;
     ImGui::SetCursorPosX(x);
     return button(label);
+}
+
+
+bool header(const char* label, bool* closeable)
+{
+    const ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_None;
+    const auto ret = closeable != nullptr
+        ? ImGui::CollapsingHeader(label, closeable, flags)
+        : ImGui::CollapsingHeader(label, flags);
+    return ret;
 }
 
 
