@@ -357,7 +357,45 @@ struct PropTable
             });
     }
 
-    // todo(Gustav): implement transform here
+    void transform(const eu::m4& m)
+    {
+        const auto t = eu::transform_from_matrix(m);
+
+        readonly("Position", t.position);
+        readonly("Rotation", eu::Ypr::from(t.rotation));
+        readonly("Scale", t.scale);
+    }
+
+    bool transform(eu::m4* m) const
+    {
+        auto t = eu::transform_from_matrix(*m);
+
+        ImGui::PushID(m);
+
+        bool changed = false;
+
+        if (gear("Position", &t.position))
+        {
+            changed = true;
+            *m = matrix_from_transform(t);
+        }
+        auto y = eu::Ypr::from(t.rotation);
+        if (gear("Rotation", &y))
+        {
+            changed = true;
+            t.rotation = eu::Q::from(y);
+            *m = matrix_from_transform(t);
+        }
+        if (gear("Scale", &t.scale))
+        {
+            changed = true;
+            *m = matrix_from_transform(t);
+        }
+
+        ImGui::PopID();
+
+        return changed;
+    }
 
 private:
     template<typename F>
@@ -391,7 +429,7 @@ void custom_widgets_demo()
         static auto vec = eu::v3{ 0.1f, 5.0f, 24.0f };
         static float gamma = 2.0f;
         static eu::Rui rui = { .right = 0.0f, .up = 0.0f, .in = 0.0f };
-        // static eu::m4 mat = eu::m4_identity;
+        static eu::m4 mat = eu::m4_identity;
 
         prop.text("Text", "This is a text");
         prop.edit("Editable", &text);
@@ -408,8 +446,8 @@ void custom_widgets_demo()
         prop.gear("Gear rui", &rui);
         prop.gear("Gear Rot", &rot);
 
-        // prop.transform("Transform readonly", mat);
-        // prop.transform("Transform edit", &mat);
+        prop.transform(mat);
+        prop.transform(&mat);
     }
 }
 
