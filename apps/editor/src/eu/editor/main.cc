@@ -238,36 +238,138 @@ struct PropTable
 
     bool drag3(const char* label, eu::v3* v) const
     {
-        row(label);
-        ImGui::PushID(label);
-        const auto ret = ImGui::DragFloat3("", v->get_data_ptr());
-        ImGui::PopID();
-        return ret;
+        return trow(label, [&]
+            {
+                return ImGui::DragFloat3("", v->get_data_ptr());
+            });
     }
 
     bool check(const char* label, bool* v) const
     {
-        row(label);
-        ImGui::PushID(label);
-        const auto ret = ImGui::Checkbox("", v);
-        ImGui::PopID();
-        return ret;
+        return trow(label, [&]
+            {
+                return ImGui::Checkbox("", v);
+            });
     }
 
     bool slider(const char* label, float* v, float min, float max) const
     {
-        row(label);
-        ImGui::PushID(label);
-        const auto ret = ImGui::SliderFloat("", v, min, max);
-        ImGui::PopID();
-        return ret;
+        return trow(label, [&]
+            {
+                return ImGui::SliderFloat("", v, min, max);
+            });
     }
     bool slider(const char* label, float* v) const
     {
         return slider(label, v, 0.0f, 1.0f);
     }
 
+    void text(const char* label, const std::string& str) const
+    {
+        trow(label, [&]
+            {
+                eu::imgui::imgui_text(str);
+                return false;
+            });
+    }
+
+    bool edit(const char* label, std::string* str) const
+    {
+        return trow(label, [&]
+            {
+                return eu::imgui::imgui_edit("", str);
+            });
+    }
+
+    
+    void readonly(const char* label, const std::string & text) const
+    {
+        trow(label, [&]
+            {
+                eu::imgui::imgui_readonly("", text);
+                return false;
+            });
+    }
+
+    void readonly(const char* label, const eu::v3 & v) const
+    {
+        trow(label, [&]
+            {
+                eu::imgui::imgui_readonly("", v);
+                return false;
+            });
+    }
+
+    void readonly(const char* label, const eu::Ypr & y) const
+    {
+        trow(label, [&]
+            {
+                eu::imgui::imgui_readonly("", y);
+                return false;
+            });
+    }
+        
+    bool simple_gamma_slider(const char* label, float* gamma, float curve = 1.5f, float min_gamma = 1.6f, float max_gamma = 2.8f) const
+    {
+        return trow(label, [&]
+            {
+                return eu::imgui::simple_gamma_slider("", gamma, curve, min_gamma, max_gamma);
+            });
+    }
+
+    bool drag(const char* label, eu::v3 * drag) const
+    {
+        return trow(label, [&]
+            {
+                return eu::imgui::drag("", drag);
+            });
+    }
+
+    bool drag(const char* label, eu::Ypr * drag) const
+    {
+        return trow(label, [&]
+            {
+                return eu::imgui::drag("", drag);
+            });
+    }
+
+    bool gear(const char* label, eu::v3 * drag) const
+    {
+        return trow(label, [&]
+            {
+                return eu::imgui::gear("", drag);
+            });
+    }
+
+    bool gear(const char* label, eu::Rui * drag) const
+    {
+        return trow(label, [&]
+            {
+                return eu::imgui::gear("", drag);
+            });
+    }
+
+    bool gear(const char* label, eu::Ypr * drag) const
+    {
+        return trow(label, [&]
+            {
+                return eu::imgui::gear("", drag);
+            });
+    }
+
+    // todo(Gustav): implement transform here
+
 private:
+    template<typename F>
+    bool trow(const char* label, const F& f) const
+    {
+        row(label);
+        ImGui::PushID(label);
+        const auto ret = f();
+        ImGui::PopID();
+        return ret;
+    }
+
     void row(const char* label) const
     {
         ASSERT(started);
@@ -279,6 +381,37 @@ private:
     PropTable() = default;
     explicit PropTable(bool b) : started(b) {}
 };
+
+void custom_widgets_demo()
+{
+    if (auto prop = PropTable::begin())
+    {
+        static std::string text;
+        static auto rot = eu::Ypr{ .yaw = eu::no_rotation, .pitch = eu::no_rotation, .roll = eu::no_rotation };
+        static auto vec = eu::v3{ 0.1f, 5.0f, 24.0f };
+        static float gamma = 2.0f;
+        static eu::Rui rui = { .right = 0.0f, .up = 0.0f, .in = 0.0f };
+        // static eu::m4 mat = eu::m4_identity;
+
+        prop.text("Text", "This is a text");
+        prop.edit("Editable", &text);
+
+        prop.readonly("Readonly text", "Some text");
+        prop.readonly("Readonly Vec", vec);
+        prop.readonly("Readonly Rot", rot);
+        prop.simple_gamma_slider("Gamma", &gamma);
+
+        prop.drag("Drag vec", &vec);
+        prop.drag("Drag Rotation", &rot);
+
+        prop.gear("Gear vec", &vec);
+        prop.gear("Gear rui", &rui);
+        prop.gear("Gear Rot", &rot);
+
+        // prop.transform("Transform readonly", mat);
+        // prop.transform("Transform edit", &mat);
+    }
+}
 
 AppState App::iterate()
 {
@@ -335,6 +468,11 @@ AppState App::iterate()
                 prop.drag3("Center", &center);
                 prop.drag3("Size", &size);
             }
+        }
+
+        if (eu::imgui::header("CUSTOM WIDGETS"))
+        {
+            custom_widgets_demo();
         }
 
         eu::imgui::centered_button("Add component");
