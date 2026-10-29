@@ -28,6 +28,9 @@
 #define SDL_MAIN_USE_CALLBACKS
 #include <SDL3/SDL_main.h>
 
+#include "eu/core/scurve.h"
+#include "eu/imgui/scurve.h"
+
 ENABLE_HIGH_PERFORMANCE_GRAPHICS
 
 eu::MemoryChunk chunk_from_embed(const embedded_binary& binary)
@@ -397,6 +400,14 @@ struct PropTable
         return changed;
     }
 
+    bool scurve(const char* label, eu::core::SCurve* scurve, eu::imgui::SCurveGuiState* gui, eu::imgui::FlipX flip_x, const eu::imgui::SCurveImguiSettings& settings, bool force_init_curve) const
+    {
+        return trow(label, [&]
+            {
+                return eu::imgui::imgui_s_curve_editor("", scurve, gui, flip_x, settings, force_init_curve);
+            });
+    }
+
 private:
     template<typename F>
     bool trow(const char* label, const F& f) const
@@ -511,6 +522,18 @@ AppState App::iterate()
         if (eu::imgui::header("CUSTOM WIDGETS"))
         {
             custom_widgets_demo();
+        }
+
+        if (eu::imgui::header("SCURVE"))
+        {
+            if (auto prop = PropTable::begin())
+            {
+                static eu::core::SCurve scurve;
+                static eu::imgui::SCurveGuiState gui;
+                static eu::imgui::SCurveImguiSettings settings;
+
+                prop.scurve("Default curve", &scurve, &gui, eu::imgui::FlipX::yes, settings, true);
+            }
         }
 
         eu::imgui::centered_button("Add component");
