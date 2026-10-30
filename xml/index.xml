@@ -950,6 +950,36 @@
     <member refid="structeu_1_1render_1_1PostProcArg_1ad657592510232f09cc22537c48306793" kind="variable"><name>camera</name></member>
     <member refid="structeu_1_1render_1_1PostProcArg_1afa2f789336e85a43f64cc496adfd0db5" kind="variable"><name>renderer</name></member>
   </compound>
+  <compound refid="structeu_1_1imgui_1_1PropTable" kind="struct"><name>eu::imgui::PropTable</name>
+    <member refid="structeu_1_1imgui_1_1PropTable_1a2587752663cce25cc1aa0f80f03d1970" kind="variable"><name>started</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1a42b95927bd717011912d4bf09c4c11c7" kind="function"><name>PropTable</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1a75fb7470ac3e54f7315e3efbf360817f" kind="function"><name>operator=</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1ac33ce3576832e207f86e38b8d9ce59d0" kind="function"><name>operator=</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1ae2e0eb36a340dd35b81847324c41154c" kind="function"><name>PropTable</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1a32099740dac0957fa6dfd95adb9fd141" kind="function"><name>operator bool</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1a70505695e2093f3367c979ae1823058b" kind="function"><name>~PropTable</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1a51c3c130acde0557610cf718cf920e70" kind="function"><name>check</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1ab71b4c71f757de2ca3a0671317b38262" kind="function"><name>slider</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1a1daf9d4e3fe6b5129fd2377a23ed1aad" kind="function"><name>slider</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1a532a523a3432878e5ba3a04b72517f0a" kind="function"><name>text</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1a9ed0d810d82b3af2fd23451ff584a941" kind="function"><name>edit</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1a03709f7b2d34d7e111c8674533bc4c68" kind="function"><name>boolean</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1ad5f6d921c3ec50b1adbccecdb3ea49ee" kind="function"><name>readonly</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1a364c1553ca9055477f57fa2929dfd048" kind="function"><name>readonly</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1a582723ca08780b5ff07cf749fca4c527" kind="function"><name>readonly</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1a0cca7a58e3eb30df02fcbbd2b7d6700b" kind="function"><name>simple_gamma_slider</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1accaf932d58cf894d55114ef321474f5c" kind="function"><name>drag</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1a75a70f298aebe6066549a6456cfbfe51" kind="function"><name>drag</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1ad262ba8ec8f2c6849e47251cd37aabd1" kind="function"><name>gear</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1a54c8ed7a4bb929aa844fdb0f9a3f2afd" kind="function"><name>gear</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1a2471e57291f6e9f6d46bd2c84d46f286" kind="function"><name>gear</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1a45c73e3889697106927100942fdab34b" kind="function"><name>transform</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1a3ec768eb2763438c97615e75b846d8ba" kind="function"><name>transform</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1a59b38939f3b0587d1a957d628755fdbe" kind="function"><name>scurve</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1aad66d61718c7947017ae182b2f0324a8" kind="function"><name>begin</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1ad021c7d740f63865102d8d8515a23ed2" kind="function"><name>PropTable</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1a253ebfb939c7a5b81c391749ecaebe82" kind="function"><name>PropTable</name></member>
+  </compound>
   <compound refid="structeu_1_1Q" kind="struct"><name>eu::Q</name>
     <member refid="structeu_1_1Q_1a7afdc2215833a3cb71c2bf1a8c90fe2c" kind="variable"><name>w</name></member>
     <member refid="structeu_1_1Q_1ad8aeb869310015e4272e78916026df82" kind="variable"><name>x</name></member>
@@ -1857,11 +1887,6 @@
     <member refid="namespaceeu_1_1imgui_1acb65124b71977015f4d2f8ea6ed32e1d" kind="function"><name>imgui_readonly</name></member>
     <member refid="namespaceeu_1_1imgui_1a16ec0dc141f3a5c138f01887ee7b3b98" kind="function"><name>imgui_image</name></member>
     <member refid="namespaceeu_1_1imgui_1ab76823a0cdc47913592393872d8445ac" kind="function"><name>simple_gamma_slider</name></member>
-    <member refid="namespaceeu_1_1imgui_1a25deb46cd40f718cd9fc56ac8d883207" kind="function"><name>drag</name></member>
-    <member refid="namespaceeu_1_1imgui_1af0288431818b8d61edc215ad5d0ec7f8" kind="function"><name>drag</name></member>
-    <member refid="namespaceeu_1_1imgui_1a71b22944824462e3666e064332b08a19" kind="function"><name>gear</name></member>
-    <member refid="namespaceeu_1_1imgui_1a6a4fde95738e4a942822afb6bc382048" kind="function"><name>gear</name></member>
-    <member refid="namespaceeu_1_1imgui_1a9ccf4f05d405c6b8023dbf5463afee05" kind="function"><name>gear</name></member>
     <member refid="namespaceeu_1_1imgui_1a7434f1c3ff2fb474512cf5fd236030d8" kind="function"><name>transform</name></member>
     <member refid="namespaceeu_1_1imgui_1ae297cae278f3dacb47918011529f570b" kind="function"><name>transform</name></member>
   </compound>

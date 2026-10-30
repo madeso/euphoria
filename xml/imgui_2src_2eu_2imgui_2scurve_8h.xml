@@ -3,6 +3,7 @@
   <compounddef id="imgui_2src_2eu_2imgui_2scurve_8h" kind="file" language="C++">
     <compoundname>scurve.h</compoundname>
     <includes local="yes">dear_imgui/imgui.h</includes>
+    <includedby refid="imgui_2src_2eu_2imgui_2ui_8h" local="yes">libs/imgui/src/eu/imgui/ui.h</includedby>
     <incdepgraph>
       <node id="1">
         <label>libs/imgui/src/eu/imgui/scurve.h</label>
@@ -14,6 +15,18 @@
         <label>dear_imgui/imgui.h</label>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/imgui/src/eu/imgui/scurve.h</label>
+        <link refid="imgui_2src_2eu_2imgui_2scurve_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/imgui/src/eu/imgui/ui.h</label>
+        <link refid="imgui_2src_2eu_2imgui_2ui_8h"/>
+      </node>
+    </invincdepgraph>
     <innerclass refid="structeu_1_1imgui_1_1SCurveGuiState" prot="public">eu::imgui::SCurveGuiState</innerclass>
     <innerclass refid="structeu_1_1imgui_1_1SCurveImguiSettings" prot="public">eu::imgui::SCurveImguiSettings</innerclass>
     <innernamespace refid="namespaceeu">eu</innernamespace>

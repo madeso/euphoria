@@ -3,11 +3,20 @@
   <compounddef id="imgui_2src_2eu_2imgui_2ui_8h" kind="file" language="C++">
     <compoundname>ui.h</compoundname>
     <includes local="yes">dear_imgui/imgui.h</includes>
+    <includes refid="imgui_2src_2eu_2imgui_2scurve_8h" local="yes">eu/imgui/scurve.h</includes>
     <incdepgraph>
+      <node id="3">
+        <label>eu/imgui/scurve.h</label>
+        <link refid="imgui_2src_2eu_2imgui_2scurve_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
       <node id="1">
         <label>libs/imgui/src/eu/imgui/ui.h</label>
         <link refid="imgui_2src_2eu_2imgui_2ui_8h"/>
         <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
         </childnode>
       </node>
       <node id="2">
@@ -16,6 +25,7 @@
     </incdepgraph>
     <innerclass refid="structeu_1_1imgui_1_1ImguiShaderProgram" prot="public">eu::imgui::ImguiShaderProgram</innerclass>
     <innerclass refid="structeu_1_1imgui_1_1ImguiShaderCache" prot="public">eu::imgui::ImguiShaderCache</innerclass>
+    <innerclass refid="structeu_1_1imgui_1_1PropTable" prot="public">eu::imgui::PropTable</innerclass>
     <innernamespace refid="namespaceeu">eu</innernamespace>
     <innernamespace refid="namespaceeu_1_1render">eu::render</innernamespace>
     <innernamespace refid="namespaceeu_1_1imgui">eu::imgui</innernamespace>
