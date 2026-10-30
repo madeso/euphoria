@@ -1008,5 +1008,318 @@ bool transform(m4* m)
     return changed;
 }
 
+
+
+static bool imgui_drag_with_reset(
+    float* xval, float* yval, float* zval,
+    float resetValue = 0.0f,
+    const char* xlabel = "X", const char* ylabel = "Y", const char* zlabel = "Z")
+{
+    bool changed = false;
+
+    const float line_height = GImGui->FontSize + GImGui->Style.FramePadding.y * 2.0f;
+    const ImVec2 button_size = { line_height + 3.0f, line_height };
+
+    ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2{ 0, 0 });
+    ImGui::PushMultiItemsWidths(3, ImGui::CalcItemWidth() - 3 * line_height);
+    float item_width = ImGui::CalcItemWidth() / 3;
+    // ImGui::PushItemWidth(item_width);
+    // ImGui::PushItemWidth(item_width);
+    // ImGui::PushItemWidth(item_width);
+
+    {
+        ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{ 0.8f, 0.1f, 0.15f, 1.0f });
+        ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.9f, 0.2f, 0.2f, 1.0f });
+        ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.8f, 0.1f, 0.15f, 1.0f });
+        if (ImGui::Button(xlabel, button_size))
+        {
+            *xval = resetValue;
+            changed = true;
+        }
+        ImGui::PopStyleColor(3);
+
+        ImGui::SameLine();
+    }
+
+    if (ImGui::DragFloat("##X", xval, 0.1f, 0.0f, 0.0f, "%.2f"))
+    {
+        changed = true;
+    }
+    ImGui::PopItemWidth();
+    ImGui::SameLine();
+
+    {
+        ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{ 0.2f, 0.7f, 0.2f, 1.0f });
+        ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.3f, 0.8f, 0.3f, 1.0f });
+        ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.2f, 0.7f, 0.2f, 1.0f });
+        if (ImGui::Button(ylabel, button_size))
+        {
+            *yval = resetValue;
+            changed = true;
+        }
+        ImGui::PopStyleColor(3);
+
+        ImGui::SameLine();
+    }
+
+    if (ImGui::DragFloat("##Y", yval, 0.1f, 0.0f, 0.0f, "%.2f"))
+    {
+        changed = true;
+    }
+    ImGui::PopItemWidth();
+    ImGui::SameLine();
+
+    {
+        ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{ 0.1f, 0.25f, 0.8f, 1.0f });
+        ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.2f, 0.35f, 0.9f, 1.0f });
+        ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.1f, 0.25f, 0.8f, 1.0f });
+        if (ImGui::Button(zlabel, button_size))
+        {
+            *zval = resetValue;
+            changed = true;
+        }
+        ImGui::PopStyleColor(3);
+
+        ImGui::SameLine();
+    }
+
+    if (ImGui::DragFloat("##Z", zval, 0.1f, 0.0f, 0.0f, "%.2f"))
+    {
+        changed = true;
+    }
+    ImGui::PopItemWidth();
+
+    ImGui::PopStyleVar();
+
+    return changed;
+}
+
+// -----
+void row(const PropTable& t, const char* label)
+{
+    ASSERT(t);
+    ImGui::TableNextRow();
+    ImGui::TableSetColumnIndex(0);
+    eu::imgui::label(label);
+    ImGui::TableSetColumnIndex(1);
+}
+
+template<typename F>
+bool trow(const PropTable& t, const char* label, const F& f)
+{
+    row(t, label);
+    ImGui::PushID(label);
+    const auto ret = f();
+    ImGui::PopID();
+    return ret;
+}
+
+
+PropTable::PropTable(PropTable&& r) noexcept
+    : started(r.started)
+{
+    r.started = false;
+}
+
+PropTable PropTable::begin(const char* label)
+{
+    constexpr ImGuiTableFlags table_flags = ImGuiTableFlags_SizingStretchProp;
+
+    const auto started = ImGui::BeginTable(label, 2, table_flags);
+    auto ret = PropTable{ started };
+    if (started == false) return ret;
+
+    ImGui::TableSetupColumn("Name", ImGuiTableColumnFlags_WidthFixed);
+    ImGui::TableSetupColumn("Value", ImGuiTableColumnFlags_WidthStretch);
+
+    // Should we display header???
+    ImGui::TableHeadersRow();
+
+    return ret;
+}
+
+PropTable::~PropTable()
+{
+    if (started == false) return;
+    ImGui::EndTable();
+}
+
+bool PropTable::check(const char* label, bool* v) const
+{
+    return trow(*this, label, [&]
+        {
+            return ImGui::Checkbox("", v);
+        });
+}
+
+bool PropTable::slider(const char* label, float* v, float min, float max) const
+{
+    return trow(*this, label, [&]
+        {
+            // ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{});
+            // ImGui::PushStyleVar(ImGuiStyleVar_ItemInnerSpacing, ImVec2{});
+            // ImGui::PushStyleVar(ImGuiStyleVar_GrabMinSize, 0.0f);
+            // ImGui::PushStyleVar(ImGuiStyleVar_GrabRounding, 0.0f);
+            const auto ret = ImGui::SliderFloat("", v, min, max);
+            // ImGui::PopStyleVar(4);
+            return ret;
+        });
+}
+bool PropTable::slider(const char* label, float* v) const
+{
+    return slider(label, v, 0.0f, 1.0f);
+}
+
+void PropTable::text(const char* label, const std::string& str) const
+{
+    trow(*this, label, [&]
+        {
+            eu::imgui::imgui_text(str);
+            return false;
+        });
+}
+
+bool PropTable::edit(const char* label, std::string* str) const
+{
+    return trow(*this, label, [&]
+        {
+            return eu::imgui::imgui_edit("", str);
+        });
+}
+
+
+void PropTable::readonly(const char* label, const std::string& text) const
+{
+    trow(*this, label, [&]
+        {
+            eu::imgui::imgui_readonly("", text);
+            return false;
+        });
+}
+
+void PropTable::readonly(const char* label, const eu::v3& v) const
+{
+    trow(*this, label, [&]
+        {
+            eu::imgui::imgui_readonly("", v);
+            return false;
+        });
+}
+
+void PropTable::readonly(const char* label, const eu::Ypr& y) const
+{
+    trow(*this, label, [&]
+        {
+            eu::imgui::imgui_readonly("", y);
+            return false;
+        });
+}
+
+bool PropTable::simple_gamma_slider(const char* label, float* gamma, float curve, float min_gamma, float max_gamma) const
+{
+    return trow(*this, label, [&]
+        {
+            return eu::imgui::simple_gamma_slider("", gamma, curve, min_gamma, max_gamma);
+        });
+}
+
+bool PropTable::drag(const char* label, eu::v3* drag) const
+{
+    return trow(*this, label, [&]
+        {
+            return imgui_drag_with_reset(&drag->x, &drag->y, &drag->z);
+        });
+}
+
+bool PropTable::drag(const char* label, eu::Ypr* drag) const
+{
+    return trow(*this, label, [&]
+        {
+            return eu::imgui::drag("", drag);
+        });
+}
+
+bool PropTable::gear(const char* label, eu::v3* drag) const
+{
+    return trow(*this, label, [&]
+        {
+            return eu::imgui::gear("", drag);
+        });
+}
+
+bool PropTable::gear(const char* label, eu::Rui* drag) const
+{
+    return trow(*this, label, [&]
+        {
+            return eu::imgui::gear("", drag);
+        });
+}
+
+bool PropTable::gear(const char* label, eu::Ypr* drag) const
+{
+    return trow(*this, label, [&]
+        {
+            return eu::imgui::gear("", drag);
+        });
+}
+
+void PropTable::transform(const eu::m4& m) const
+{
+    const auto t = eu::transform_from_matrix(m);
+
+    readonly("Position", t.position);
+    readonly("Rotation", eu::Ypr::from(t.rotation));
+    readonly("Scale", t.scale);
+}
+
+bool PropTable::transform(eu::m4* m) const
+{
+    auto t = eu::transform_from_matrix(*m);
+
+    ImGui::PushID(m);
+
+    bool changed = false;
+
+    if (gear("Position", &t.position))
+    {
+        changed = true;
+        *m = matrix_from_transform(t);
+    }
+    auto y = eu::Ypr::from(t.rotation);
+    if (gear("Rotation", &y))
+    {
+        changed = true;
+        t.rotation = eu::Q::from(y);
+        *m = matrix_from_transform(t);
+    }
+    if (gear("Scale", &t.scale))
+    {
+        changed = true;
+        *m = matrix_from_transform(t);
+    }
+
+    ImGui::PopID();
+
+    return changed;
+}
+
+bool PropTable::scurve(const char* label, eu::core::SCurve* scurve, eu::imgui::SCurveGuiState* gui, eu::imgui::FlipX flip_x, const eu::imgui::SCurveImguiSettings& settings, bool force_init_curve) const
+{
+    return trow(*this, label, [&]
+        {
+            return eu::imgui::imgui_s_curve_editor("", scurve, gui, flip_x, settings, force_init_curve);
+        });
+}
+
+PropTable::PropTable(bool b) : started(b) {}
+
+
+
+
+
+
+
+
+
 }
 

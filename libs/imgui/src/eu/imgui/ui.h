@@ -2,9 +2,11 @@
 
 #include "dear_imgui/imgui.h"
 
+#include "eu/imgui/scurve.h"
+
 namespace eu::render
 {
-    struct FrameBuffer;
+struct FrameBuffer;
 }
 
 namespace eu::imgui
@@ -66,5 +68,44 @@ bool gear(const char* label, Ypr* drag);
 
 void transform(const m4& m);
 bool transform(m4* m);
+
+struct PropTable
+{
+    PropTable(const PropTable&) = delete;
+    void operator=(const PropTable&) = delete;
+    void operator=(const PropTable&&) = delete;
+
+    PropTable(PropTable&& r) noexcept;
+
+    constexpr operator bool() const { return started; }
+
+    static PropTable begin(const char* label = "properties");
+    ~PropTable();
+    
+    bool check(const char* label, bool* v) const;
+    bool slider(const char* label, float* v, float min, float max) const;
+    bool slider(const char* label, float* v) const;
+    void text(const char* label, const std::string& str) const;
+    bool edit(const char* label, std::string* str) const;
+    void readonly(const char* label, const std::string& text) const;
+    void readonly(const char* label, const eu::v3& v) const;
+    void readonly(const char* label, const eu::Ypr& y) const;
+    bool simple_gamma_slider(const char* label, float* gamma, float curve = 1.5f, float min_gamma = 1.6f, float max_gamma = 2.8f) const;
+    bool drag(const char* label, eu::v3* drag) const;
+    bool drag(const char* label, eu::Ypr* drag) const;
+    bool gear(const char* label, eu::v3* drag) const;
+    bool gear(const char* label, eu::Rui* drag) const;
+    bool gear(const char* label, eu::Ypr* drag) const;
+    void transform(const eu::m4& m) const;
+    bool transform(eu::m4* m) const;
+    bool scurve(const char* label, eu::core::SCurve* scurve, eu::imgui::SCurveGuiState* gui, eu::imgui::FlipX flip_x, const eu::imgui::SCurveImguiSettings& settings, bool force_init_curve) const;
+
+private:
+    bool started;
+
+    PropTable() = default;
+    explicit PropTable(bool b);
+};
+
 
 }

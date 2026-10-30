@@ -197,243 +197,9 @@ AppState App::on_event(const SDL_Event& ev)
     return AppState::continue_running;
 }
 
-struct PropTable
-{
-    PropTable(const PropTable&) = delete;
-    void operator=(const PropTable&) = delete;
-    void operator=(const PropTable&&) = delete;
-
-    PropTable(PropTable&& r) noexcept
-        : started(r.started)
-    {
-        r.started = false;
-    }
-
-    bool started;
-
-    static PropTable begin(const char* label = "properties")
-    {
-        constexpr ImGuiTableFlags table_flags = ImGuiTableFlags_SizingStretchProp;
-
-        const auto started = ImGui::BeginTable(label, 2, table_flags);
-        auto ret = PropTable{ started };
-        if (started == false) return ret;
-
-        ImGui::TableSetupColumn("Name", ImGuiTableColumnFlags_WidthFixed);
-        ImGui::TableSetupColumn("Value", ImGuiTableColumnFlags_WidthStretch);
-
-        // Should we display header???
-        ImGui::TableHeadersRow();
-
-        return ret;
-    }
-
-    ~PropTable()
-    {
-        if (started == false) return;
-        ImGui::EndTable();
-    }
-
-    operator bool() const
-    {
-        return started;
-    }
-
-    bool drag3(const char* label, eu::v3* v) const
-    {
-        return trow(label, [&]
-            {
-                return ImGui::DragFloat3("", v->get_data_ptr());
-            });
-    }
-
-    bool check(const char* label, bool* v) const
-    {
-        return trow(label, [&]
-            {
-                return ImGui::Checkbox("", v);
-            });
-    }
-
-    bool slider(const char* label, float* v, float min, float max) const
-    {
-        return trow(label, [&]
-            {
-                return ImGui::SliderFloat("", v, min, max);
-            });
-    }
-    bool slider(const char* label, float* v) const
-    {
-        return slider(label, v, 0.0f, 1.0f);
-    }
-
-    void text(const char* label, const std::string& str) const
-    {
-        trow(label, [&]
-            {
-                eu::imgui::imgui_text(str);
-                return false;
-            });
-    }
-
-    bool edit(const char* label, std::string* str) const
-    {
-        return trow(label, [&]
-            {
-                return eu::imgui::imgui_edit("", str);
-            });
-    }
-
-    
-    void readonly(const char* label, const std::string & text) const
-    {
-        trow(label, [&]
-            {
-                eu::imgui::imgui_readonly("", text);
-                return false;
-            });
-    }
-
-    void readonly(const char* label, const eu::v3 & v) const
-    {
-        trow(label, [&]
-            {
-                eu::imgui::imgui_readonly("", v);
-                return false;
-            });
-    }
-
-    void readonly(const char* label, const eu::Ypr & y) const
-    {
-        trow(label, [&]
-            {
-                eu::imgui::imgui_readonly("", y);
-                return false;
-            });
-    }
-        
-    bool simple_gamma_slider(const char* label, float* gamma, float curve = 1.5f, float min_gamma = 1.6f, float max_gamma = 2.8f) const
-    {
-        return trow(label, [&]
-            {
-                return eu::imgui::simple_gamma_slider("", gamma, curve, min_gamma, max_gamma);
-            });
-    }
-
-    bool drag(const char* label, eu::v3 * drag) const
-    {
-        return trow(label, [&]
-            {
-                return eu::imgui::drag("", drag);
-            });
-    }
-
-    bool drag(const char* label, eu::Ypr * drag) const
-    {
-        return trow(label, [&]
-            {
-                return eu::imgui::drag("", drag);
-            });
-    }
-
-    bool gear(const char* label, eu::v3 * drag) const
-    {
-        return trow(label, [&]
-            {
-                return eu::imgui::gear("", drag);
-            });
-    }
-
-    bool gear(const char* label, eu::Rui * drag) const
-    {
-        return trow(label, [&]
-            {
-                return eu::imgui::gear("", drag);
-            });
-    }
-
-    bool gear(const char* label, eu::Ypr * drag) const
-    {
-        return trow(label, [&]
-            {
-                return eu::imgui::gear("", drag);
-            });
-    }
-
-    void transform(const eu::m4& m)
-    {
-        const auto t = eu::transform_from_matrix(m);
-
-        readonly("Position", t.position);
-        readonly("Rotation", eu::Ypr::from(t.rotation));
-        readonly("Scale", t.scale);
-    }
-
-    bool transform(eu::m4* m) const
-    {
-        auto t = eu::transform_from_matrix(*m);
-
-        ImGui::PushID(m);
-
-        bool changed = false;
-
-        if (gear("Position", &t.position))
-        {
-            changed = true;
-            *m = matrix_from_transform(t);
-        }
-        auto y = eu::Ypr::from(t.rotation);
-        if (gear("Rotation", &y))
-        {
-            changed = true;
-            t.rotation = eu::Q::from(y);
-            *m = matrix_from_transform(t);
-        }
-        if (gear("Scale", &t.scale))
-        {
-            changed = true;
-            *m = matrix_from_transform(t);
-        }
-
-        ImGui::PopID();
-
-        return changed;
-    }
-
-    bool scurve(const char* label, eu::core::SCurve* scurve, eu::imgui::SCurveGuiState* gui, eu::imgui::FlipX flip_x, const eu::imgui::SCurveImguiSettings& settings, bool force_init_curve) const
-    {
-        return trow(label, [&]
-            {
-                return eu::imgui::imgui_s_curve_editor("", scurve, gui, flip_x, settings, force_init_curve);
-            });
-    }
-
-private:
-    template<typename F>
-    bool trow(const char* label, const F& f) const
-    {
-        row(label);
-        ImGui::PushID(label);
-        const auto ret = f();
-        ImGui::PopID();
-        return ret;
-    }
-
-    void row(const char* label) const
-    {
-        ASSERT(started);
-        ImGui::TableNextRow();
-        ImGui::TableSetColumnIndex(0);
-        eu::imgui::label(label);
-        ImGui::TableSetColumnIndex(1);
-    }
-    PropTable() = default;
-    explicit PropTable(bool b) : started(b) {}
-};
-
 void custom_widgets_demo()
 {
-    if (auto prop = PropTable::begin())
+    if (auto prop = eu::imgui::PropTable::begin())
     {
         static std::string text;
         static auto rot = eu::Ypr{ .yaw = eu::no_rotation, .pitch = eu::no_rotation, .roll = eu::no_rotation };
@@ -491,17 +257,17 @@ AppState App::iterate()
 
         if (eu::imgui::header("TRANSFORM"))
         {
-            if (const auto prop = PropTable::begin())
+            if (const auto prop = eu::imgui::PropTable::begin())
             {
-                prop.drag3("Position", &pos);
-                prop.drag3("Rotation", &rot);
-                prop.drag3("Scale", &scale);
+                prop.drag("Position", &pos);
+                prop.drag("Rotation", &rot);
+                prop.drag("Scale", &scale);
             }
         }
 
         if (eu::imgui::header("MATERIAL"))
         {
-            if (const auto prop = PropTable::begin())
+            if (const auto prop = eu::imgui::PropTable::begin())
             {
                 prop.slider("Roughness", &roughness);
                 prop.slider("Metallic", &metallic);
@@ -511,11 +277,11 @@ AppState App::iterate()
 
         if (eu::imgui::header("BOX COLLIDER 3D"))
         {
-            if (auto prop = PropTable::begin())
+            if (auto prop = eu::imgui::PropTable::begin())
             {
                 prop.check("Is Trigger", &is_trigger);
-                prop.drag3("Center", &center);
-                prop.drag3("Size", &size);
+                prop.drag("Center", &center);
+                prop.drag("Size", &size);
             }
         }
 
@@ -526,7 +292,7 @@ AppState App::iterate()
 
         if (eu::imgui::header("SCURVE"))
         {
-            if (auto prop = PropTable::begin())
+            if (auto prop = eu::imgui::PropTable::begin())
             {
                 static eu::core::SCurve scurve;
                 static eu::imgui::SCurveGuiState gui;
