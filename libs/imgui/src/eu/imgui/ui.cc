@@ -1187,6 +1187,14 @@ bool PropTable::edit(const char* label, std::string* str) const
         });
 }
 
+void PropTable::boolean(const char* label, bool b) const
+{
+    trow(*this, label, [&]
+        {
+            ImGui::TextUnformatted(b ? "TRUE" : "false");
+            return false;
+        });
+}
 
 void PropTable::readonly(const char* label, const std::string& text) const
 {

@@ -263,11 +263,11 @@ struct MeshSpatialComponent : runner::SpatialComponent
         return "MeshSpatialComponent";
     }
 
-    void imgui() override
+    void imgui(const imgui::PropTable& table) override
     {
-        runner::SpatialComponent::imgui();
-        imgui::drag("Position", &position);
-        imgui::drag("Rotation", &rotation);
+        runner::SpatialComponent::imgui(table);
+        table.drag("Position", &position);
+        table.drag("Rotation", &rotation);
     }
 
     void update_transform()
@@ -287,12 +287,6 @@ struct MeshSpatialComponent : runner::SpatialComponent
 
 EU_IMP_COMPONENT_TYPE(MeshSpatialComponent, runner::Component)
 
-void boolean(const char* label, bool b)
-{
-    ImGui::TextUnformatted(label);
-    ImGui::SameLine();
-    ImGui::TextUnformatted(b ? "TRUE" : "false");
-}
 
 struct InputSystem : runner::EntitySystem
 {
@@ -304,9 +298,9 @@ struct InputSystem : runner::EntitySystem
         return "Input";
     }
 
-    void imgui() override
+    void imgui(const imgui::PropTable& table) override
     {
-        boolean("has mesh", mesh != nullptr);
+        table.boolean("has mesh", mesh != nullptr);
     }
 
     explicit InputSystem(runner::Input* in) : input(in)
@@ -357,9 +351,9 @@ struct TargetComponent : runner::Component
         return "target";
     }
 
-    void imgui() override
+    void imgui(const imgui::PropTable& table) override
     {
-        imgui::transform(target);
+        table.transform(target);
     }
 
     EU_DEC_COMPONENT_TYPE();
@@ -373,9 +367,9 @@ struct CameraSpatialComponent : runner::SpatialComponent
         return "camera spatial";
     }
 
-    void imgui() override
+    void imgui(const imgui::PropTable& table) override
     {
-        runner::SpatialComponent::imgui();
+        runner::SpatialComponent::imgui(table);
     }
     // todo(Gustav): add extra camera settings...
     EU_DEC_COMPONENT_TYPE();
@@ -404,11 +398,11 @@ struct FollowCameraSystem : runner::EntitySystem
     imgui::ImLog log;
     imgui::ImTweak tweak;
     Rui offset = {.right = 0, .up = 3, .in = -10};
-    void imgui() override
+    void imgui(const imgui::PropTable& table) override
     {
-        boolean("Target", target != nullptr);
-        boolean("camera", camera != nullptr);
-        imgui::gear("Offset", &offset);
+        table.boolean("Target", target != nullptr);
+        table.boolean("camera", camera != nullptr);
+        table.gear("Offset", &offset);
 
         tweak.draw();
         log.draw();
@@ -472,10 +466,10 @@ struct UpdateCameraTarget : runner::WorldSystem
         return "Update camera target";
     }
 
-    void imgui() override
+    void imgui(const imgui::PropTable& table) override
     {
-        boolean("src entity", src_entity != nullptr);
-        boolean("dst entity", dst_entity != nullptr);
+        table.boolean("src entity", src_entity != nullptr);
+        table.boolean("dst entity", dst_entity != nullptr);
     }
 
     runner::UpdateStageAndPrio get_stage() override
@@ -534,10 +528,10 @@ struct CameraFetcherSystem : runner::WorldSystem
         return "Camera fetcher";
     }
 
-    void imgui() override
+    void imgui(const imgui::PropTable& table) override
     {
-        boolean("camera", camera != nullptr);
-        imgui::transform(transform);
+        table.boolean("camera", camera != nullptr);
+        table.transform(transform);
     }
 
     void add_component(runner::Entity*, runner::Component* component) override
@@ -671,6 +665,7 @@ int main(int, char**)
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO(); (void)io;
     ImGui::StyleColorsDark();
+    imgui::setup_colors();
     if (false == ImGui_ImplSDL3_InitForOpenGL(window, glContext))
     {
         LOG_ERR("Failed to init ImGui SDL3 backend");

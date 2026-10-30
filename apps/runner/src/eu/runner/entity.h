@@ -2,6 +2,11 @@
 #include <algorithm>
 #include <set>
 
+namespace eu::imgui
+{
+    struct PropTable;
+}
+
 namespace eu::runner
 {
     struct Entity;
@@ -113,7 +118,7 @@ namespace eu::runner
         virtual const HshSt& get_type();
 
         virtual const char* display() = 0;
-        virtual void imgui() = 0;
+        virtual void imgui(const imgui::PropTable& table) = 0;
     };
 #define EU_DEC_COMPONENT_TYPE() static const HshSt& type(); const HshSt& get_type() override
 #define EU_IMP_COMPONENT_TYPE(COMP, PAREN) \
@@ -145,7 +150,7 @@ namespace eu::runner
 
         EU_DEC_COMPONENT_TYPE();
 
-        void imgui() override;
+        void imgui(const imgui::PropTable& table) override;
     private:
         m4 transform = m4_identity;
         // todo(gustav): add hierarchy
@@ -170,7 +175,7 @@ namespace eu::runner
         virtual void update(float dt) = 0;
 
         virtual const char* display() = 0;
-        virtual void imgui() = 0;
+        virtual void imgui(const imgui::PropTable& table) = 0;
     };
 
     struct WorldSystem
@@ -190,7 +195,7 @@ namespace eu::runner
 
         virtual const char* display() = 0;
         virtual void update(float dt) = 0;
-        virtual void imgui() = 0;
+        virtual void imgui(const imgui::PropTable& table) = 0;
     };
 
     struct World

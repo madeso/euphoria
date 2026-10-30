@@ -93,13 +93,13 @@ namespace eu::runner
         {
             for (auto& comp : components)
             {
-                ImGui::PushID(comp.get());
-                if (ImGui::TreeNodeEx(comp->display()))
+                if (imgui::header(comp->display()))
                 {
-                    comp->imgui();
-                    ImGui::TreePop();
+                    if (const auto prop = imgui::PropTable::begin())
+                    {
+                        comp->imgui(prop);
+                    }
                 }
-                ImGui::PopID();
             }
             ImGui::TreePop();
         }
@@ -108,13 +108,13 @@ namespace eu::runner
         {
             for (auto& sys : systems)
             {
-                ImGui::PushID(sys.get());
-                if (ImGui::TreeNodeEx(sys->display()))
+                if (imgui::header(sys->display()))
                 {
-                    sys->imgui();
-                    ImGui::TreePop();
+                    if (const auto prop = imgui::PropTable::begin())
+                    {
+                        sys->imgui(prop);
+                    }
                 }
-                ImGui::PopID();
             }
             ImGui::TreePop();
         }
@@ -147,10 +147,10 @@ namespace eu::runner
         return transform;
     }
 
-    void SpatialComponent::imgui()
+    void SpatialComponent::imgui(const imgui::PropTable& prop)
     {
         // todo(Gustav): use setter when there is a hierarchy
-        eu::imgui::transform(&transform);
+        prop.transform(&transform);
     }
 
     // ------------------------------------------------------------------------
@@ -233,7 +233,10 @@ namespace eu::runner
             if (ImGui::TreeNodeEx(sys->display()))
             {
                 ImGui::PushID(sys.get());
-                sys->imgui();
+                if (const auto prop = imgui::PropTable::begin())
+                {
+                    sys->imgui(prop);
+                }
                 ImGui::PopID();
                 ImGui::TreePop();
             }

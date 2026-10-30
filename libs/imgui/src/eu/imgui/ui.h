@@ -59,12 +59,12 @@ void imgui_readonly(const char* label, const Ypr& y);
 void imgui_image(const char* name, const render::FrameBuffer& img, ImguiShaderCache* cache, ImageShader shader);
 bool simple_gamma_slider(const char* label, float* gamma, float curve = 1.5f, float min_gamma = 1.6f, float max_gamma = 2.8f);
 
-bool drag(const char* label, v3* drag);
-bool drag(const char* label, Ypr* drag);
+// bool drag(const char* label, v3* drag);
+// bool drag(const char* label, Ypr* drag);
 
-bool gear(const char* label, v3* drag);
-bool gear(const char* label, Rui* drag);
-bool gear(const char* label, Ypr* drag);
+// bool gear(const char* label, v3* drag);
+// bool gear(const char* label, Rui* drag);
+// bool gear(const char* label, Ypr* drag);
 
 void transform(const m4& m);
 bool transform(m4* m);
@@ -87,6 +87,8 @@ struct PropTable
     bool slider(const char* label, float* v) const;
     void text(const char* label, const std::string& str) const;
     bool edit(const char* label, std::string* str) const;
+
+    void boolean(const char* label, bool b) const;
     void readonly(const char* label, const std::string& text) const;
     void readonly(const char* label, const eu::v3& v) const;
     void readonly(const char* label, const eu::Ypr& y) const;
