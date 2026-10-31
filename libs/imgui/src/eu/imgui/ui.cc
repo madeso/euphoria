@@ -909,32 +909,6 @@ bool simple_gamma_slider(const char* label, float* gamma, float curve, float min
 	return true;
 }
 
-
-bool drag(const char* label, v3* drag)
-{
-    return ImGui::DragFloat3(label, drag->get_data_ptr());
-}
-
-bool drag(const char* label, Ypr* drag)
-{
-    float angles[3] = {
-        drag->yaw.as_degrees(),
-        drag->pitch.as_degrees(),
-        drag->roll.as_degrees()
-    };
-
-    const auto changed = ImGui::DragFloat3(label, angles, 1.0f, -360.0f, 360.0f);
-    
-    if (changed)
-    {
-        drag->yaw = An::from_degrees(angles[0]);
-        drag->pitch = An::from_degrees(angles[1]);
-        drag->roll = An::from_degrees(angles[2]);
-    }
-
-    return changed;
-}
-
 bool gear(const char* label, Rui* drag)
 {
     GearWidget widget{ label };
@@ -1008,12 +982,19 @@ bool transform(m4* m)
     return changed;
 }
 
-
+struct Drags
+{
+    float v_speed = 1.0f;
+    float v_min = 0.0f;
+    float v_max = 0.0f;
+};
 
 static bool imgui_drag_with_reset(
     float* xval, float* yval, float* zval,
     float resetValue = 0.0f,
-    const char* xlabel = "X", const char* ylabel = "Y", const char* zlabel = "Z")
+    const char* xlabel = "X", const char* ylabel = "Y", const char* zlabel = "Z",
+    const Drags& drags = Drags{}
+)
 {
     bool changed = false;
 
@@ -1021,7 +1002,7 @@ static bool imgui_drag_with_reset(
     const ImVec2 button_size = { line_height + 3.0f, line_height };
 
     ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2{ 0, 0 });
-    ImGui::PushMultiItemsWidths(3, ImGui::CalcItemWidth() - 3 * line_height);
+    ImGui::PushMultiItemsWidths(3, ImGui::CalcItemWidth() - 3 * button_size.x);
     float item_width = ImGui::CalcItemWidth() / 3;
     // ImGui::PushItemWidth(item_width);
     // ImGui::PushItemWidth(item_width);
@@ -1041,7 +1022,7 @@ static bool imgui_drag_with_reset(
         ImGui::SameLine();
     }
 
-    if (ImGui::DragFloat("##X", xval, 0.1f, 0.0f, 0.0f, "%.2f"))
+    if (ImGui::DragFloat("##X", xval, drags.v_speed, drags.v_min, drags.v_max, "%.2f"))
     {
         changed = true;
     }
@@ -1062,7 +1043,7 @@ static bool imgui_drag_with_reset(
         ImGui::SameLine();
     }
 
-    if (ImGui::DragFloat("##Y", yval, 0.1f, 0.0f, 0.0f, "%.2f"))
+    if (ImGui::DragFloat("##Y", yval, drags.v_speed, drags.v_min, drags.v_max, "%.2f"))
     {
         changed = true;
     }
@@ -1083,7 +1064,7 @@ static bool imgui_drag_with_reset(
         ImGui::SameLine();
     }
 
-    if (ImGui::DragFloat("##Z", zval, 0.1f, 0.0f, 0.0f, "%.2f"))
+    if (ImGui::DragFloat("##Z", zval, drags.v_speed, drags.v_min, drags.v_max, "%.2f"))
     {
         changed = true;
     }
@@ -1109,7 +1090,9 @@ bool trow(const PropTable& t, const char* label, const F& f)
 {
     row(t, label);
     ImGui::PushID(label);
+    ImGui::PushItemWidth(-std::numeric_limits<float>::min()); // place widget right edge on the edge of the table
     const auto ret = f();
+    ImGui::PopItemWidth();
     ImGui::PopID();
     return ret;
 }
@@ -1243,7 +1226,25 @@ bool PropTable::drag(const char* label, eu::Ypr* drag) const
 {
     return trow(*this, label, [&]
         {
-            return eu::imgui::drag("", drag);
+            float angles[3] = {
+                drag->yaw.as_degrees(),
+                drag->pitch.as_degrees(),
+                drag->roll.as_degrees()
+            };
+
+            // const auto changed = ImGui::DragFloat3(label, angles, 1.0f, -360.0f, 360.0f);
+            const auto changed = imgui_drag_with_reset(&angles[0], &angles[1], &angles[2], 0.0f,
+                    "Y", "P", "R", Drags{.v_speed = 1.0f, .v_min = -360.0f, .v_max = 360.0f }
+                );
+
+            if (changed)
+            {
+                drag->yaw = An::from_degrees(angles[0]);
+                drag->pitch = An::from_degrees(angles[1]);
+                drag->roll = An::from_degrees(angles[2]);
+            }
+
+            return changed;
         });
 }
 
