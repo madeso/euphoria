@@ -1081,30 +1081,44 @@ static bool imgui_drag_with_reset(
     return changed;
 }
 
-bool flat_slider(const char* label, float* v, float min, float max, const char* format = "%.2f")
+[[gnu::format(printf, 1, 2)]]
+std::string format_float(const char* format, float f)
+{
+    char text[32];
+    ImFormatString(text, IM_ARRAYSIZE(text), format, f);
+    return text;
+}
+
+bool flat_slider(const char* label, float* value, float min_value, float max_value, const char* format = "%.2f")
 {
     ImGuiWindow* window = ImGui::GetCurrentWindow();
-    if (window->SkipItems) return false;
+    if (window->SkipItems)
+    {
+        return false;
+    }
 
-    const ImGuiStyle& style = ImGui::GetStyle();
-    const ImGuiID id = window->GetID(label);
+    const auto& style = ImGui::GetStyle();
+    const auto id = window->GetID(label);
 
-    char text[32];
-    ImFormatString(text, IM_ARRAYSIZE(text), format, max);
-    const float value_w = ImGui::CalcTextSize(text).x;
-    ImFormatString(text, IM_ARRAYSIZE(text), format, *v);
+    const auto max_label_width = ImGui::CalcTextSize(format_float(format, max_value).c_str()).x;
+    const auto text = format_float(format, *value);
 
-    const float height = ImGui::GetFrameHeight();
-    const float radius = height * 0.3f;
+    const auto height = ImGui::GetFrameHeight();
+    const auto radius = height * 0.3f;
+    const auto ring_radius = height * 0.4f;
+
     const ImVec2 pos = window->DC.CursorPos;
     const ImRect total(pos, pos + ImVec2(ImGui::CalcItemWidth(), height));
-    const ImRect track_bb(pos, ImVec2(total.Max.x - value_w - style.ItemInnerSpacing.x * 2, total.Max.y));
+    const ImRect track_bb(pos, ImVec2(total.Max.x - max_label_width - style.ItemInnerSpacing.x * 2, total.Max.y));
 
     ImGui::ItemSize(total, style.FramePadding.y);
-    if (!ImGui::ItemAdd(total, id)) return false;
+    if (!ImGui::ItemAdd(total, id))
+    {
+        return false;
+    }
 
-    const bool hovered = ImGui::ItemHoverable(track_bb, id, ImGuiItemFlags_None);
-    if ((hovered && ImGui::IsMouseClicked(ImGuiMouseButton_Left)) || GImGui->NavActivateId == id)
+    const bool is_hovering = ImGui::ItemHoverable(track_bb, id, ImGuiItemFlags_None);
+    if ((is_hovering && ImGui::IsMouseClicked(ImGuiMouseButton_Left)) || GImGui->NavActivateId == id)
     {
         ImGui::SetActiveID(id, window);
         ImGui::SetFocusID(id, window);
@@ -1113,27 +1127,64 @@ bool flat_slider(const char* label, float* v, float min, float max, const char* 
 
     ImGui::PushStyleVar(ImGuiStyleVar_GrabMinSize, radius * 2.0f);
     ImRect grab;
-    const bool changed = ImGui::SliderBehavior(track_bb, id, ImGuiDataType_Float, v, &min, &max, format, 0, &grab);
+    const bool value_was_changed = ImGui::SliderBehavior(track_bb, id, ImGuiDataType_Float, value, &min_value, &max_value, format, 0, &grab);
     ImGui::PopStyleVar();
-    if (changed) ImGui::MarkItemEdited(id);
+    if (value_was_changed)
+    {
+        ImGui::MarkItemEdited(id);
+    }
 
-    ImDrawList* dl = window->DrawList;
-    const float cy = track_bb.GetCenter().y;
-    const float track_h = ImMax(2.0f, height * 0.2f);
-    dl->AddRectFilled({ track_bb.Min.x + radius, cy - track_h * 0.5f }, { track_bb.Max.x - radius, cy + track_h * 0.5f },
-        IM_COL32(15, 17, 20, 255), track_h * 0.5f);
+    ImDrawList* draw = window->DrawList;
+    const auto center_y = track_bb.GetCenter().y;
+    const auto grab_center = grab.GetCenter().x;
+    const auto is_active = GImGui->ActiveId == id;
 
-    const ImVec2 c = { grab.GetCenter().x, cy };
-    const bool active = GImGui->ActiveId == id;
-    dl->AddCircleFilled(c + ImVec2(0, 1.5f), radius, IM_COL32(0, 0, 0, 90));    // soft shadow
-    dl->AddCircleFilled(c, radius, active ? IM_COL32(255, 255, 255, 255)
-        : hovered ? IM_COL32(245, 245, 245, 255)
-        : IM_COL32(230, 230, 230, 255));
+    {
+        const auto track_h = ImMax(2.0f, height * 0.2f);
 
-    const ImVec2 ts = ImGui::CalcTextSize(text);
-    dl->AddText({ total.Max.x - ts.x, cy - ts.y * 0.5f }, IM_COL32(170, 230, 60, 255), text);
+        const auto left = track_bb.Min.x + radius;
+        const auto right = track_bb.Max.x - radius;
+        const auto top = center_y - track_h * 0.5f;
+        const auto bottom = center_y + track_h * 0.5f;
+        const auto half_circle_rounding = track_h * 0.5f;
 
-    return changed;
+        constexpr auto background_color = rgb(11, 14, 19);
+        constexpr auto filled_color = rgb(132, 204, 22);
+
+        const auto middle = std::max(left, grab_center);
+
+        draw->AddRectFilled({ left, top }, { middle, bottom }, ImColor{filled_color}, half_circle_rounding);
+        draw->AddRectFilled({ middle, top }, { right, bottom }, ImColor{background_color}, half_circle_rounding);
+    }
+
+    {
+        constexpr auto default_color = rgb(225, 226, 233);
+        constexpr auto hover_color = rgb(163, 230, 53);
+        constexpr auto active_color = rgb(132, 204, 22);
+
+        const auto grab_color = is_active ? active_color
+            : is_hovering ? hover_color
+            : default_color;
+
+        const auto center = ImVec2{ grab_center, center_y };
+        draw->AddCircleFilled(center, radius, ImColor{ grab_color });
+
+        if (is_active || is_hovering)
+        {
+            constexpr auto line_thickness = 3.0f;
+            constexpr auto ring_hover = rgb(190, 242, 100);
+            constexpr auto ring_active = rgb(158, 233, 57);
+
+            const auto ring_color = is_active ? ring_active : ring_hover;
+
+            draw->AddCircle(center, ring_radius, ImColor{ ring_color }, 0, line_thickness);
+        }
+    }
+
+    const auto text_size = ImGui::CalcTextSize(text.c_str());
+    draw->AddText({ total.Max.x - text_size.x, center_y - text_size.y * 0.5f }, IM_COL32(170, 230, 60, 255), text.c_str());
+
+    return value_was_changed;
 }
 
 // -----
