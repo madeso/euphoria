@@ -756,6 +756,7 @@ void label(const char* label)
     ImGui::PopStyleColor();
 }
 
+
 bool button(const char* label)
 {
     ImGuiStyle& style = ImGui::GetStyle();
@@ -776,6 +777,11 @@ bool button(const char* label)
     }
 
     ImGui::PopStyleVar();
+
+    if (ImGui::IsItemHovered())
+    {
+        ImGui::SetMouseCursor(ImGuiMouseCursor_Hand);
+    }
 
     return clicked;
 }
@@ -1075,6 +1081,61 @@ static bool imgui_drag_with_reset(
     return changed;
 }
 
+bool flat_slider(const char* label, float* v, float min, float max, const char* format = "%.2f")
+{
+    ImGuiWindow* window = ImGui::GetCurrentWindow();
+    if (window->SkipItems) return false;
+
+    const ImGuiStyle& style = ImGui::GetStyle();
+    const ImGuiID id = window->GetID(label);
+
+    char text[32];
+    ImFormatString(text, IM_ARRAYSIZE(text), format, max);
+    const float value_w = ImGui::CalcTextSize(text).x;
+    ImFormatString(text, IM_ARRAYSIZE(text), format, *v);
+
+    const float height = ImGui::GetFrameHeight();
+    const float radius = height * 0.3f;
+    const ImVec2 pos = window->DC.CursorPos;
+    const ImRect total(pos, pos + ImVec2(ImGui::CalcItemWidth(), height));
+    const ImRect track_bb(pos, ImVec2(total.Max.x - value_w - style.ItemInnerSpacing.x * 2, total.Max.y));
+
+    ImGui::ItemSize(total, style.FramePadding.y);
+    if (!ImGui::ItemAdd(total, id)) return false;
+
+    const bool hovered = ImGui::ItemHoverable(track_bb, id, ImGuiItemFlags_None);
+    if ((hovered && ImGui::IsMouseClicked(ImGuiMouseButton_Left)) || GImGui->NavActivateId == id)
+    {
+        ImGui::SetActiveID(id, window);
+        ImGui::SetFocusID(id, window);
+        ImGui::FocusWindow(window);
+    }
+
+    ImGui::PushStyleVar(ImGuiStyleVar_GrabMinSize, radius * 2.0f);
+    ImRect grab;
+    const bool changed = ImGui::SliderBehavior(track_bb, id, ImGuiDataType_Float, v, &min, &max, format, 0, &grab);
+    ImGui::PopStyleVar();
+    if (changed) ImGui::MarkItemEdited(id);
+
+    ImDrawList* dl = window->DrawList;
+    const float cy = track_bb.GetCenter().y;
+    const float track_h = ImMax(2.0f, height * 0.2f);
+    dl->AddRectFilled({ track_bb.Min.x + radius, cy - track_h * 0.5f }, { track_bb.Max.x - radius, cy + track_h * 0.5f },
+        IM_COL32(15, 17, 20, 255), track_h * 0.5f);
+
+    const ImVec2 c = { grab.GetCenter().x, cy };
+    const bool active = GImGui->ActiveId == id;
+    dl->AddCircleFilled(c + ImVec2(0, 1.5f), radius, IM_COL32(0, 0, 0, 90));    // soft shadow
+    dl->AddCircleFilled(c, radius, active ? IM_COL32(255, 255, 255, 255)
+        : hovered ? IM_COL32(245, 245, 245, 255)
+        : IM_COL32(230, 230, 230, 255));
+
+    const ImVec2 ts = ImGui::CalcTextSize(text);
+    dl->AddText({ total.Max.x - ts.x, cy - ts.y * 0.5f }, IM_COL32(170, 230, 60, 255), text);
+
+    return changed;
+}
+
 // -----
 void row(const PropTable& t, const char* label)
 {
@@ -1139,12 +1200,7 @@ bool PropTable::slider(const char* label, float* v, float min, float max) const
 {
     return trow(*this, label, [&]
         {
-            // ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{});
-            // ImGui::PushStyleVar(ImGuiStyleVar_ItemInnerSpacing, ImVec2{});
-            // ImGui::PushStyleVar(ImGuiStyleVar_GrabMinSize, 0.0f);
-            // ImGui::PushStyleVar(ImGuiStyleVar_GrabRounding, 0.0f);
-            const auto ret = ImGui::SliderFloat("", v, min, max);
-            // ImGui::PopStyleVar(4);
+            const auto ret = flat_slider("", v, min, max);
             return ret;
         });
 }
