@@ -50,7 +50,7 @@ struct RenderWorld : RenderSource
 
 	void render(const PostProcArg& arg) override;
 
-	void gui(imgui::ImguiShaderCache* cache);
+	void gui(imgui::ImguiShaderCache* cache, const imgui::PropTable& prop);
 };
 
 
@@ -66,7 +66,7 @@ struct ShaderProp
 	virtual ~ShaderProp() = default;
 
 	virtual void use(const PostProcArg& a, ShaderProgram& shader) = 0;
-	virtual void gui() = 0;
+	virtual void gui(const imgui::PropTable& prop) = 0;
 };
 
 /// A float shader property that is dragged with the mouse.
@@ -81,7 +81,7 @@ struct FloatDragShaderProp : ShaderProp
 
 	void use(const PostProcArg&, ShaderProgram& shader) override;
 
-	void gui() override;
+	void gui(const imgui::PropTable& prop) override;
 };
 
 /// A float shader property that is a slider.
@@ -99,7 +99,7 @@ struct FloatSliderShaderProp : ShaderProp
 
 	void use(const PostProcArg&, ShaderProgram& shader) override;
 
-	void gui() override;
+	void gui(const imgui::PropTable& prop) override;
 };
 
 /// A effect that only performs a single step.

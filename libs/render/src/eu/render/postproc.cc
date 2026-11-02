@@ -266,16 +266,16 @@ void RenderWorld::render(const PostProcArg& arg)
 
 
 
-void RenderWorld::gui(imgui::ImguiShaderCache* cache)
+void RenderWorld::gui(imgui::ImguiShaderCache* cache, const imgui::PropTable& prop)
 {
     // todo(Gustav): refactor
 #if FF_HAS(EU_DEBUG_RUNNER)
 	if (bloom_render && bloom_render->bloom_buffer)
 	{
-        imgui::imgui_image("bloom buffer", *bloom_render->bloom_buffer, cache, imgui::ImageShader::tonemap_and_gamma);
+        prop.image("bloom buffer", *bloom_render->bloom_buffer, cache, imgui::ImageShader::tonemap_and_gamma);
 
-        imgui::imgui_image("ping-pong A", *bloom_render->ping_pong_buffer[0], cache, imgui::ImageShader::tonemap_and_gamma);
-        imgui::imgui_image("ping-pong B", *bloom_render->ping_pong_buffer[1], cache, imgui::ImageShader::tonemap_and_gamma);
+        prop.image("ping-pong A", *bloom_render->ping_pong_buffer[0], cache, imgui::ImageShader::tonemap_and_gamma);
+        prop.image("ping-pong B", *bloom_render->ping_pong_buffer[1], cache, imgui::ImageShader::tonemap_and_gamma);
 	}
 #endif
 }
@@ -435,17 +435,22 @@ void EffectStack::render(const PostProcArg& arg)
 	}
 }
 
-void EffectStack::gui(imgui::ImguiShaderCache* cache)
+void EffectStack::gui(imgui::ImguiShaderCache* cache, const imgui::PropTable& prop)
 {
 #if FF_HAS(EU_DEBUG_RUNNER)
-	ImGui::Checkbox("HDR", &use_hdr);
-	ImGui::SliderFloat("Exposure", &exposure, 0.01f, 20.0f);
+    prop.check("HDR", &use_hdr);
+    prop.slider("Exposure", &exposure, 0.01f, 20.0f);
 
-	if (render_world)
-	{
-		render_world->gui(cache);
-	}
+    if (render_world)
+    {
+        render_world->gui(cache, prop);
+    }
+#endif
+}
 
+void EffectStack::gui_effects()
+{
+#if FF_HAS(EU_DEBUG_RUNNER)
 	int index = 0;
 	for (const auto& e: effects)
 	{
@@ -495,10 +500,10 @@ void FloatDragShaderProp::use(const PostProcArg&, ShaderProgram& shader)
 	shader.set_float(uniform, value);
 }
 
-void FloatDragShaderProp::gui()
+void FloatDragShaderProp::gui(const imgui::PropTable& prop)
 {
 #if FF_HAS(EU_DEBUG_RUNNER)
-	ImGui::DragFloat(name.c_str(), &value, speed);
+	prop.drag(name.c_str(), &value, speed);
 #endif
 }
 
@@ -523,10 +528,10 @@ void FloatSliderShaderProp::use(const PostProcArg&, ShaderProgram& shader)
 	shader.set_float(uniform, value);
 }
 
-void FloatSliderShaderProp::gui()
+void FloatSliderShaderProp::gui(const imgui::PropTable& prop)
 {
 #if FF_HAS(EU_DEBUG_RUNNER)
-	ImGui::SliderFloat(name.c_str(), &value, min, max);
+	prop.slider(name.c_str(), &value, min, max);
 #endif
 }
 
@@ -561,20 +566,21 @@ void SimpleEffect::gui()
 
 	int index = 0;
 
-	if (ImGui::TreeNode(name.c_str()) == false)
-	{
-		return;
-	}
+	
+    if (eu::imgui::header((name.c_str())))
+    {
+        if (const auto prop = eu::imgui::PropTable::begin())
+        {
+            for (auto& p : properties)
+            {
+                ImGui::PushID(index);
+                p->gui(prop);
+                ImGui::PopID();
+                index += 1;
+            }
 
-	for (auto& p: properties)
-	{
-		ImGui::PushID(index);
-		p->gui();
-		ImGui::PopID();
-		index += 1;
-	}
-
-	ImGui::TreePop();
+        }
+    }
 #endif
 }
 
@@ -688,17 +694,18 @@ BlurEffect::BlurEffect(std::string n, std::shared_ptr<LoadedPostProcShader> v, s
 void BlurEffect::gui()
 {
 #if FF_HAS(EU_DEBUG_RUNNER)
-	if (ImGui::TreeNode(name.c_str()) == false)
-	{
-		return;
-	}
+    if (eu::imgui::header((name.c_str())))
+    {
+        if (const auto prop = eu::imgui::PropTable::begin())
+        {
 
-	ImGui::SliderFloat("Blur size", &blur_size, 0.0f, 0.2f);
+            prop.slider("Blur size", &blur_size, 0.0f, 0.2f);
 #if FF_HAS(BLUR_USE_GAUSS)
-	ImGui::SliderFloat("Standard deviation", &std_dev, 0.0f, 0.1f);
+            prop.slider("Standard deviation", &std_dev, 0.0f, 0.1f);
 #endif
 
-	ImGui::TreePop();
+        }
+    }
 #endif
 }
 

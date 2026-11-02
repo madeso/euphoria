@@ -42,11 +42,6 @@
 #include "dear_imgui/imgui.h"
 #include "dear_imgui/backends/imgui_impl_sdl3.h"
 #include "dear_imgui/backends/imgui_impl_opengl3.h"
-
-static void imgui_color(const char* const label, eu::Rgb* color)
-{
-    ImGui::ColorEdit3(label, &color->r);
-}
 #endif
 
 
@@ -300,7 +295,7 @@ struct InputSystem : runner::EntitySystem
 
     void imgui(const imgui::PropTable& table) override
     {
-        table.boolean("has mesh", mesh != nullptr);
+        table.display("has mesh", mesh != nullptr);
     }
 
     explicit InputSystem(runner::Input* in) : input(in)
@@ -400,8 +395,8 @@ struct FollowCameraSystem : runner::EntitySystem
     Rui offset = {.right = 0, .up = 3, .in = -10};
     void imgui(const imgui::PropTable& table) override
     {
-        table.boolean("Target", target != nullptr);
-        table.boolean("camera", camera != nullptr);
+        table.display("Target", target != nullptr);
+        table.display("camera", camera != nullptr);
         table.gear("Offset", &offset);
 
         tweak.draw();
@@ -468,8 +463,8 @@ struct UpdateCameraTarget : runner::WorldSystem
 
     void imgui(const imgui::PropTable& table) override
     {
-        table.boolean("src entity", src_entity != nullptr);
-        table.boolean("dst entity", dst_entity != nullptr);
+        table.display("src entity", src_entity != nullptr);
+        table.display("dst entity", dst_entity != nullptr);
     }
 
     runner::UpdateStageAndPrio get_stage() override
@@ -530,7 +525,7 @@ struct CameraFetcherSystem : runner::WorldSystem
 
     void imgui(const imgui::PropTable& table) override
     {
-        table.boolean("camera", camera != nullptr);
+        table.display("camera", camera != nullptr);
         table.transform(transform);
     }
 
@@ -872,13 +867,18 @@ int main(int, char**)
 
         if (ImGui::Begin("Renderer"))
         {
-            imgui_color("Clear color", &render_world.clear_color);
-            eu::imgui::simple_gamma_slider("Gamma/Brightness", &renderer.settings.gamma, -1.0f);
-            ImGui::Checkbox("Use bloom", &renderer.settings.use_bloom);
-            ImGui::DragFloat("Bloom cutoff", &renderer.settings.bloom_cutoff, 0.001f);
-            ImGui::SliderFloat("Softness", &renderer.settings.bloom_softness, 0.0f, 1.0f);
-            ImGui::DragInt("Bloom blur steps", &renderer.settings.bloom_blur_steps);
-            effects.gui(&imgui_shader_cache);
+            if (auto prop = eu::imgui::PropTable::begin())
+            {
+                prop.color("Clear color", &render_world.clear_color);
+                prop.simple_gamma_slider("Gamma/Brightness", &renderer.settings.gamma, -1.0f);
+                prop.check("Use bloom", &renderer.settings.use_bloom);
+                prop.drag("Bloom cutoff", &renderer.settings.bloom_cutoff, 0.001f);
+                prop.slider("Softness", &renderer.settings.bloom_softness, 0.0f, 1.0f);
+                prop.drag("Bloom blur steps", &renderer.settings.bloom_blur_steps);
+                effects.gui(&imgui_shader_cache, prop);
+            }
+
+            effects.gui_effects();
         }
         ImGui::End();
 

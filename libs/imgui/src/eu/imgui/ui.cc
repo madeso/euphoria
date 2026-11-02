@@ -1277,7 +1277,7 @@ bool PropTable::edit(const char* label, std::string* str) const
         });
 }
 
-void PropTable::boolean(const char* label, bool b) const
+void PropTable::display(const char* label, bool b) const
 {
     trow(*this, label, [&]
         {
@@ -1313,11 +1313,28 @@ void PropTable::readonly(const char* label, const eu::Ypr& y) const
         });
 }
 
+void PropTable::image(const char* label, const render::FrameBuffer& img, ImguiShaderCache* cache, ImageShader shader) const
+{
+    trow(*this, label, [&]
+        {
+            imgui::imgui_image("", img, cache, shader);
+            return false;
+        });
+}
+
 bool PropTable::simple_gamma_slider(const char* label, float* gamma, float curve, float min_gamma, float max_gamma) const
 {
     return trow(*this, label, [&]
         {
             return eu::imgui::simple_gamma_slider("", gamma, curve, min_gamma, max_gamma);
+        });
+}
+
+bool PropTable::color(const char* label, Rgb* color) const
+{
+    return trow(*this, label, [&]
+        {
+            return ImGui::ColorEdit3(label, &color->r);
         });
 }
 
@@ -1352,6 +1369,21 @@ bool PropTable::drag(const char* label, eu::Ypr* drag) const
             }
 
             return changed;
+        });
+}
+
+bool PropTable::drag(const char* label, float* drag, float speed) const
+{
+    return trow(*this, label, [&]
+        {
+            return ImGui::DragFloat("", drag, speed);
+        });
+}
+bool PropTable::drag(const char* label, int* drag) const
+{
+    return trow(*this, label, [&]
+        {
+            return ImGui::DragInt("", drag);
         });
 }
 

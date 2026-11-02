@@ -6,6 +6,7 @@
 
 namespace eu::imgui
 {
+    struct PropTable;
     struct ImguiShaderCache;
 }
 
@@ -170,7 +171,8 @@ struct EffectStack
 	/// rebuilds stack if dirty, update all targets, then render the last_source
 	void render(const PostProcArg& arg);
 	void update(float dt) const;
-	void gui(imgui::ImguiShaderCache* cache);
+	void gui(imgui::ImguiShaderCache* cache, const imgui::PropTable& prop);
+    void gui_effects();
 };
 
 /**
