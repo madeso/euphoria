@@ -891,30 +891,6 @@ void imgui_image(const char* name, const render::FrameBuffer& img, ImguiShaderCa
 	}
 }
 
-
-
-bool simple_gamma_slider(const char* label, float* gamma, float curve, float min_gamma, float max_gamma)
-{
-	if (curve < 0.0f)
-	{
-		return ImGui::SliderFloat(label, gamma, min_gamma, max_gamma);
-	}
-
-	// todo(Gustav): is this the correct way? it doesn't feel exactly right but perhaps that's just dear imgui
-	const auto gamma_range = max_gamma - min_gamma;
-	const auto t = (*gamma - min_gamma) / gamma_range;
-
-	auto slider_value = std::pow(t, 1.0f / curve);
-	if (ImGui::SliderFloat(label, &slider_value, 0.0f, 1.0f) == false)
-	{
-		return false;
-	}
-
-	const auto perceptual = std::pow(slider_value, curve);
-	*gamma = min_gamma + perceptual * gamma_range;
-	return true;
-}
-
 bool gear(const char* label, Rui* drag)
 {
     GearWidget widget{ label };
@@ -1089,7 +1065,13 @@ std::string format_float(const char* format, float f)
     return text;
 }
 
-bool flat_slider(const char* label, float* value, float min_value, float max_value, const char* format = "%.2f")
+float float_identity(float f)
+{
+    return f;
+}
+
+template<typename F>
+bool flat_slider(const char* label, float* value, float min_value, float max_value, F display, const char* format = "%.2f")
 {
     ImGuiWindow* window = ImGui::GetCurrentWindow();
     if (window->SkipItems)
@@ -1100,8 +1082,8 @@ bool flat_slider(const char* label, float* value, float min_value, float max_val
     const auto& style = ImGui::GetStyle();
     const auto id = window->GetID(label);
 
-    const auto max_label_width = ImGui::CalcTextSize(format_float(format, max_value).c_str()).x;
-    const auto text = format_float(format, *value);
+    const auto max_label_width = ImGui::CalcTextSize(format_float(format, display(max_value)).c_str()).x;
+    const auto text = format_float(format, display(*value));
 
     const auto height = ImGui::GetFrameHeight();
     const auto radius = height * 0.3f;
@@ -1187,6 +1169,34 @@ bool flat_slider(const char* label, float* value, float min_value, float max_val
     return value_was_changed;
 }
 
+
+bool simple_gamma_slider(const char* label, float* gamma, float curve, float min_gamma, float max_gamma)
+{
+    if (curve < 0.0f)
+    {
+        return flat_slider(label, gamma, min_gamma, max_gamma, float_identity);
+    }
+
+    // todo(Gustav): is this the correct way? it doesn't feel exactly right but perhaps that's just dear imgui
+    const auto gamma_range = max_gamma - min_gamma;
+    const auto t = (*gamma - min_gamma) / gamma_range;
+
+    const auto backf = [min_gamma, gamma_range, curve](float f)
+        {
+            const auto perceptual = std::pow(f, curve);
+            return min_gamma + perceptual * gamma_range;
+        };
+
+    auto slider_value = std::pow(t, 1.0f / curve);
+    if (flat_slider(label, &slider_value, 0.0f, 1.0f, backf) == false)
+    {
+        return false;
+    }
+
+    *gamma = backf(slider_value);
+    return true;
+}
+
 // -----
 void row(const PropTable& t, const char* label)
 {
@@ -1251,7 +1261,7 @@ bool PropTable::slider(const char* label, float* v, float min, float max) const
 {
     return trow(*this, label, [&]
         {
-            const auto ret = flat_slider("", v, min, max);
+            const auto ret = flat_slider("", v, min, max, float_identity);
             return ret;
         });
 }

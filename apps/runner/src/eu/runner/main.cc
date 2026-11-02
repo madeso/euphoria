@@ -870,7 +870,7 @@ int main(int, char**)
             if (auto prop = eu::imgui::PropTable::begin())
             {
                 prop.color("Clear color", &render_world.clear_color);
-                prop.simple_gamma_slider("Gamma/Brightness", &renderer.settings.gamma, -1.0f);
+                prop.simple_gamma_slider("Gamma/Brightness", &renderer.settings.gamma);
                 prop.check("Use bloom", &renderer.settings.use_bloom);
                 prop.drag("Bloom cutoff", &renderer.settings.bloom_cutoff, 0.001f);
                 prop.slider("Softness", &renderer.settings.bloom_softness, 0.0f, 1.0f);
