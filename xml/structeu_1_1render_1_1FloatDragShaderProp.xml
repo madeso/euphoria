@@ -115,13 +115,17 @@
         </inbodydescription>
         <location file="libs/render/src/eu/render/postproc.internal.h" line="82" column="6"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1FloatDragShaderProp_1ac33058166ad1f6fb7f43c77f63b56e87" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1FloatDragShaderProp_1a22a3cf1aeeff8f6ee6e2910e98f6f350" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
         <definition>void eu::render::FloatDragShaderProp::gui</definition>
-        <argsstring>() override</argsstring>
+        <argsstring>(const imgui::PropTable &amp;prop) override</argsstring>
         <name>gui</name>
         <qualifiedname>eu::render::FloatDragShaderProp::gui</qualifiedname>
-        <reimplements refid="structeu_1_1render_1_1ShaderProp_1ab7847971300744772f77dd41db42286d">gui</reimplements>
+        <reimplements refid="structeu_1_1render_1_1ShaderProp_1a50c664ec43290a4d1933bf33060d89b7">gui</reimplements>
+        <param>
+          <type>const <ref refid="structeu_1_1imgui_1_1PropTable" kindref="compound">imgui::PropTable</ref> &amp;</type>
+          <declname>prop</declname>
+        </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -170,7 +174,7 @@
     <location file="libs/render/src/eu/render/postproc.internal.h" line="73" column="1" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="74" bodyend="85"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1FloatDragShaderProp_1af1b4fdabc15b3ceb99ddc860fa460f10" prot="public" virt="non-virtual"><scope>eu::render::FloatDragShaderProp</scope><name>FloatDragShaderProp</name></member>
-      <member refid="structeu_1_1render_1_1FloatDragShaderProp_1ac33058166ad1f6fb7f43c77f63b56e87" prot="public" virt="virtual"><scope>eu::render::FloatDragShaderProp</scope><name>gui</name></member>
+      <member refid="structeu_1_1render_1_1FloatDragShaderProp_1a22a3cf1aeeff8f6ee6e2910e98f6f350" prot="public" virt="virtual"><scope>eu::render::FloatDragShaderProp</scope><name>gui</name></member>
       <member refid="structeu_1_1render_1_1FloatDragShaderProp_1aed6ab4d06c8f05f57793af35c07e1e98" prot="public" virt="non-virtual"><scope>eu::render::FloatDragShaderProp</scope><name>name</name></member>
       <member refid="structeu_1_1render_1_1ShaderProp_1ad5887ea7df968f0cde3239db166a50a0" prot="public" virt="non-virtual"><scope>eu::render::FloatDragShaderProp</scope><name>operator=</name></member>
       <member refid="structeu_1_1render_1_1ShaderProp_1a2aad6e450e170d4ca43fc62e7c9fa8b8" prot="public" virt="non-virtual"><scope>eu::render::FloatDragShaderProp</scope><name>operator=</name></member>

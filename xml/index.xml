@@ -360,7 +360,8 @@
     <member refid="structeu_1_1render_1_1EffectStack_1acafbedc23d801c735398fe4ad3b50847" kind="variable"><name>render_world</name></member>
     <member refid="structeu_1_1render_1_1EffectStack_1a117abdb61270a222fdfe9da5a0c684c2" kind="function"><name>render</name></member>
     <member refid="structeu_1_1render_1_1EffectStack_1aae5ff2d6e21d076e821f0a0b5aa4b238" kind="function"><name>update</name></member>
-    <member refid="structeu_1_1render_1_1EffectStack_1a408f46356d692e944e8d3d27f1f695b4" kind="function"><name>gui</name></member>
+    <member refid="structeu_1_1render_1_1EffectStack_1a5ef0db0cb72b11534e7a5e208105292a" kind="function"><name>gui</name></member>
+    <member refid="structeu_1_1render_1_1EffectStack_1ae067ea3429d69b04f6935420bc7bf2f9" kind="function"><name>gui_effects</name></member>
   </compound>
   <compound refid="structeu_1_1core_1_1ExtractedAttribute" kind="struct"><name>eu::core::ExtractedAttribute</name>
     <member refid="structeu_1_1core_1_1ExtractedAttribute_1abf80412461b7037f97f88cc9e6cdabc9" kind="variable"><name>type</name></member>
@@ -398,7 +399,7 @@
     <member refid="structeu_1_1render_1_1FloatDragShaderProp_1a00c1cc6968faeecb6417562034b6ae0d" kind="variable"><name>speed</name></member>
     <member refid="structeu_1_1render_1_1FloatDragShaderProp_1af1b4fdabc15b3ceb99ddc860fa460f10" kind="function"><name>FloatDragShaderProp</name></member>
     <member refid="structeu_1_1render_1_1FloatDragShaderProp_1a2b2643ed042b87d2d55277acb4a64c86" kind="function"><name>use</name></member>
-    <member refid="structeu_1_1render_1_1FloatDragShaderProp_1ac33058166ad1f6fb7f43c77f63b56e87" kind="function"><name>gui</name></member>
+    <member refid="structeu_1_1render_1_1FloatDragShaderProp_1a22a3cf1aeeff8f6ee6e2910e98f6f350" kind="function"><name>gui</name></member>
   </compound>
   <compound refid="structeu_1_1render_1_1FloatSliderShaderProp" kind="struct"><name>eu::render::FloatSliderShaderProp</name>
     <member refid="structeu_1_1render_1_1FloatSliderShaderProp_1a886bfbbc25422b16e3c9e28887cb4012" kind="variable"><name>uniform</name></member>
@@ -408,7 +409,7 @@
     <member refid="structeu_1_1render_1_1FloatSliderShaderProp_1a63cb6b37aae8153f50c16f8d788d8431" kind="variable"><name>max</name></member>
     <member refid="structeu_1_1render_1_1FloatSliderShaderProp_1ae634396b9a9ae29d05c97f8bc351b3bb" kind="function"><name>FloatSliderShaderProp</name></member>
     <member refid="structeu_1_1render_1_1FloatSliderShaderProp_1a917136553a660a39021001b3c39fb9dc" kind="function"><name>use</name></member>
-    <member refid="structeu_1_1render_1_1FloatSliderShaderProp_1a295e7936dce2b6597d767ac56e193b21" kind="function"><name>gui</name></member>
+    <member refid="structeu_1_1render_1_1FloatSliderShaderProp_1a0e697acb7bec28e65ba608bcc482ab1f" kind="function"><name>gui</name></member>
   </compound>
   <compound refid="structeu_1_1render_1_1FrameBuffer" kind="struct"><name>eu::render::FrameBuffer</name>
     <member refid="structeu_1_1render_1_1FrameBuffer_1a8dcaf7e7c4de65a365610d6aacccd320" kind="variable"><name>size</name></member>
@@ -963,19 +964,23 @@
     <member refid="structeu_1_1imgui_1_1PropTable_1a1daf9d4e3fe6b5129fd2377a23ed1aad" kind="function"><name>slider</name></member>
     <member refid="structeu_1_1imgui_1_1PropTable_1a532a523a3432878e5ba3a04b72517f0a" kind="function"><name>text</name></member>
     <member refid="structeu_1_1imgui_1_1PropTable_1a9ed0d810d82b3af2fd23451ff584a941" kind="function"><name>edit</name></member>
-    <member refid="structeu_1_1imgui_1_1PropTable_1a03709f7b2d34d7e111c8674533bc4c68" kind="function"><name>boolean</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1a927c8524dca330ab1ef144298692f0bb" kind="function"><name>display</name></member>
     <member refid="structeu_1_1imgui_1_1PropTable_1ad5f6d921c3ec50b1adbccecdb3ea49ee" kind="function"><name>readonly</name></member>
     <member refid="structeu_1_1imgui_1_1PropTable_1a364c1553ca9055477f57fa2929dfd048" kind="function"><name>readonly</name></member>
     <member refid="structeu_1_1imgui_1_1PropTable_1a582723ca08780b5ff07cf749fca4c527" kind="function"><name>readonly</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1afe688b594f2138013905ec4c1f02d7be" kind="function"><name>color</name></member>
     <member refid="structeu_1_1imgui_1_1PropTable_1a0cca7a58e3eb30df02fcbbd2b7d6700b" kind="function"><name>simple_gamma_slider</name></member>
     <member refid="structeu_1_1imgui_1_1PropTable_1accaf932d58cf894d55114ef321474f5c" kind="function"><name>drag</name></member>
     <member refid="structeu_1_1imgui_1_1PropTable_1a75a70f298aebe6066549a6456cfbfe51" kind="function"><name>drag</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1a9933267b36726b3e77acd64d28ca5eb9" kind="function"><name>drag</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1ac9ed402d06dd68622b63ebbd0197016f" kind="function"><name>drag</name></member>
     <member refid="structeu_1_1imgui_1_1PropTable_1ad262ba8ec8f2c6849e47251cd37aabd1" kind="function"><name>gear</name></member>
     <member refid="structeu_1_1imgui_1_1PropTable_1a54c8ed7a4bb929aa844fdb0f9a3f2afd" kind="function"><name>gear</name></member>
     <member refid="structeu_1_1imgui_1_1PropTable_1a2471e57291f6e9f6d46bd2c84d46f286" kind="function"><name>gear</name></member>
     <member refid="structeu_1_1imgui_1_1PropTable_1a45c73e3889697106927100942fdab34b" kind="function"><name>transform</name></member>
     <member refid="structeu_1_1imgui_1_1PropTable_1a3ec768eb2763438c97615e75b846d8ba" kind="function"><name>transform</name></member>
     <member refid="structeu_1_1imgui_1_1PropTable_1a59b38939f3b0587d1a957d628755fdbe" kind="function"><name>scurve</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1ae90896c6a81143a33ca4fd45a4598fb0" kind="function"><name>image</name></member>
     <member refid="structeu_1_1imgui_1_1PropTable_1aad66d61718c7947017ae182b2f0324a8" kind="function"><name>begin</name></member>
     <member refid="structeu_1_1imgui_1_1PropTable_1ad021c7d740f63865102d8d8515a23ed2" kind="function"><name>PropTable</name></member>
     <member refid="structeu_1_1imgui_1_1PropTable_1a253ebfb939c7a5b81c391749ecaebe82" kind="function"><name>PropTable</name></member>
@@ -1197,7 +1202,7 @@
     <member refid="structeu_1_1render_1_1RenderWorld_1ae912131371dd0ef9e84a1dacfbdb944b" kind="function"><name>RenderWorld</name></member>
     <member refid="structeu_1_1render_1_1RenderWorld_1ace02fdde73cf6bd1d6643e43abd17e33" kind="function"><name>update</name></member>
     <member refid="structeu_1_1render_1_1RenderWorld_1ad9cc968b3615dcf798ef77dc1ac59912" kind="function"><name>render</name></member>
-    <member refid="structeu_1_1render_1_1RenderWorld_1a283e637309965024a00646c07ed2db77" kind="function"><name>gui</name></member>
+    <member refid="structeu_1_1render_1_1RenderWorld_1aedfde2bb5d45d7f11b8ecabc21f24233" kind="function"><name>gui</name></member>
   </compound>
   <compound refid="structeu_1_1Rgb" kind="struct"><name>eu::Rgb</name>
     <member refid="structeu_1_1Rgb_1ad237426dd480df0ee3cfcc119c3c58c9" kind="variable"><name>r</name></member>
@@ -1295,7 +1300,7 @@
     <member refid="structeu_1_1render_1_1ShaderProp_1a2aad6e450e170d4ca43fc62e7c9fa8b8" kind="function"><name>operator=</name></member>
     <member refid="structeu_1_1render_1_1ShaderProp_1a01f7854e2d58ca2933cb20e667b8ba9c" kind="function"><name>~ShaderProp</name></member>
     <member refid="structeu_1_1render_1_1ShaderProp_1ab2ce18385f2de642e426d0bd33aefc3e" kind="function"><name>use</name></member>
-    <member refid="structeu_1_1render_1_1ShaderProp_1ab7847971300744772f77dd41db42286d" kind="function"><name>gui</name></member>
+    <member refid="structeu_1_1render_1_1ShaderProp_1a50c664ec43290a4d1933bf33060d89b7" kind="function"><name>gui</name></member>
   </compound>
   <compound refid="structeu_1_1render_1_1ShaderPropertyProvider" kind="struct"><name>eu::render::ShaderPropertyProvider</name>
     <member refid="structeu_1_1render_1_1ShaderPropertyProvider_1a9c02b1cca22a3d23ae04fe6012ce5630" kind="function"><name>ShaderPropertyProvider</name></member>
@@ -1886,7 +1891,6 @@
     <member refid="namespaceeu_1_1imgui_1a555f056479444df44710a9ee9bf83077" kind="function"><name>imgui_readonly</name></member>
     <member refid="namespaceeu_1_1imgui_1acb65124b71977015f4d2f8ea6ed32e1d" kind="function"><name>imgui_readonly</name></member>
     <member refid="namespaceeu_1_1imgui_1a16ec0dc141f3a5c138f01887ee7b3b98" kind="function"><name>imgui_image</name></member>
-    <member refid="namespaceeu_1_1imgui_1ab76823a0cdc47913592393872d8445ac" kind="function"><name>simple_gamma_slider</name></member>
     <member refid="namespaceeu_1_1imgui_1a7434f1c3ff2fb474512cf5fd236030d8" kind="function"><name>transform</name></member>
     <member refid="namespaceeu_1_1imgui_1ae297cae278f3dacb47918011529f570b" kind="function"><name>transform</name></member>
   </compound>

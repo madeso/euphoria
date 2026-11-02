@@ -126,14 +126,18 @@
         </inbodydescription>
         <location file="libs/render/src/eu/render/postproc.internal.h" line="68" column="14"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProp_1ab7847971300744772f77dd41db42286d" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1ShaderProp_1a50c664ec43290a4d1933bf33060d89b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
         <definition>virtual void eu::render::ShaderProp::gui</definition>
-        <argsstring>()=0</argsstring>
+        <argsstring>(const imgui::PropTable &amp;prop)=0</argsstring>
         <name>gui</name>
         <qualifiedname>eu::render::ShaderProp::gui</qualifiedname>
-        <reimplementedby refid="structeu_1_1render_1_1FloatDragShaderProp_1ac33058166ad1f6fb7f43c77f63b56e87">gui</reimplementedby>
-        <reimplementedby refid="structeu_1_1render_1_1FloatSliderShaderProp_1a295e7936dce2b6597d767ac56e193b21">gui</reimplementedby>
+        <reimplementedby refid="structeu_1_1render_1_1FloatDragShaderProp_1a22a3cf1aeeff8f6ee6e2910e98f6f350">gui</reimplementedby>
+        <reimplementedby refid="structeu_1_1render_1_1FloatSliderShaderProp_1a0e697acb7bec28e65ba608bcc482ab1f">gui</reimplementedby>
+        <param>
+          <type>const <ref refid="structeu_1_1imgui_1_1PropTable" kindref="compound">imgui::PropTable</ref> &amp;</type>
+          <declname>prop</declname>
+        </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -168,7 +172,7 @@
     </inheritancegraph>
     <location file="libs/render/src/eu/render/postproc.internal.h" line="58" column="1" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="59" bodyend="70"/>
     <listofallmembers>
-      <member refid="structeu_1_1render_1_1ShaderProp_1ab7847971300744772f77dd41db42286d" prot="public" virt="pure-virtual"><scope>eu::render::ShaderProp</scope><name>gui</name></member>
+      <member refid="structeu_1_1render_1_1ShaderProp_1a50c664ec43290a4d1933bf33060d89b7" prot="public" virt="pure-virtual"><scope>eu::render::ShaderProp</scope><name>gui</name></member>
       <member refid="structeu_1_1render_1_1ShaderProp_1ad5887ea7df968f0cde3239db166a50a0" prot="public" virt="non-virtual"><scope>eu::render::ShaderProp</scope><name>operator=</name></member>
       <member refid="structeu_1_1render_1_1ShaderProp_1a2aad6e450e170d4ca43fc62e7c9fa8b8" prot="public" virt="non-virtual"><scope>eu::render::ShaderProp</scope><name>operator=</name></member>
       <member refid="structeu_1_1render_1_1ShaderProp_1adb50236699f10ceb8e8da9d4a8e9b262" prot="public" virt="non-virtual"><scope>eu::render::ShaderProp</scope><name>ShaderProp</name></member>

@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="106" column="10" bodyfile="libs/imgui/src/eu/imgui/ui.h" bodystart="106" bodyend="-1"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="110" column="10" bodyfile="libs/imgui/src/eu/imgui/ui.h" bodystart="110" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -235,12 +235,12 @@
         </inbodydescription>
         <location file="libs/imgui/src/eu/imgui/ui.h" line="89" column="10"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a03709f7b2d34d7e111c8674533bc4c68" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a927c8524dca330ab1ef144298692f0bb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void eu::imgui::PropTable::boolean</definition>
+        <definition>void eu::imgui::PropTable::display</definition>
         <argsstring>(const char *label, bool b) const</argsstring>
-        <name>boolean</name>
-        <qualifiedname>eu::imgui::PropTable::boolean</qualifiedname>
+        <name>display</name>
+        <qualifiedname>eu::imgui::PropTable::display</qualifiedname>
         <param>
           <type>const char *</type>
           <declname>label</declname>
@@ -323,6 +323,28 @@
         </inbodydescription>
         <location file="libs/imgui/src/eu/imgui/ui.h" line="94" column="10"/>
       </memberdef>
+      <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1afe688b594f2138013905ec4c1f02d7be" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::imgui::PropTable::color</definition>
+        <argsstring>(const char *label, Rgb *color) const</argsstring>
+        <name>color</name>
+        <qualifiedname>eu::imgui::PropTable::color</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>label</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref> *</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="95" column="10"/>
+      </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a0cca7a58e3eb30df02fcbbd2b7d6700b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool eu::imgui::PropTable::simple_gamma_slider</definition>
@@ -358,7 +380,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="95" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="96" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1accaf932d58cf894d55114ef321474f5c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -380,7 +402,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="96" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="97" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a75a70f298aebe6066549a6456cfbfe51" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -402,7 +424,56 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="97" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="98" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a9933267b36726b3e77acd64d28ca5eb9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::imgui::PropTable::drag</definition>
+        <argsstring>(const char *label, float *drag, float speed=1.0f) const</argsstring>
+        <name>drag</name>
+        <qualifiedname>eu::imgui::PropTable::drag</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>label</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>drag</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>speed</declname>
+          <defval>1.0f</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="99" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1ac9ed402d06dd68622b63ebbd0197016f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eu::imgui::PropTable::drag</definition>
+        <argsstring>(const char *label, int *drag) const</argsstring>
+        <name>drag</name>
+        <qualifiedname>eu::imgui::PropTable::drag</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>label</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>drag</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="100" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1ad262ba8ec8f2c6849e47251cd37aabd1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -424,7 +495,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="98" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="101" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a54c8ed7a4bb929aa844fdb0f9a3f2afd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -446,7 +517,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="99" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="102" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a2471e57291f6e9f6d46bd2c84d46f286" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -468,7 +539,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="100" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="103" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a45c73e3889697106927100942fdab34b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -486,7 +557,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="101" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="104" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a3ec768eb2763438c97615e75b846d8ba" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -504,7 +575,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="102" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="105" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a59b38939f3b0587d1a957d628755fdbe" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -542,7 +613,37 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="103" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="106" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1ae90896c6a81143a33ca4fd45a4598fb0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::imgui::PropTable::image</definition>
+        <argsstring>(const char *label, const render::FrameBuffer &amp;img, ImguiShaderCache *cache, ImageShader shader) const</argsstring>
+        <name>image</name>
+        <qualifiedname>eu::imgui::PropTable::image</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>label</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeu_1_1render_1_1FrameBuffer" kindref="compound">render::FrameBuffer</ref> &amp;</type>
+          <declname>img</declname>
+        </param>
+        <param>
+          <type><ref refid="structeu_1_1imgui_1_1ImguiShaderCache" kindref="compound">ImguiShaderCache</ref> *</type>
+          <declname>cache</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeu_1_1imgui_1a502392178a28af7e2f21f36456f7ed43" kindref="member">ImageShader</ref></type>
+          <declname>shader</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="108" column="10"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-static-func">
@@ -579,7 +680,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="108" column="5"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="112" column="5"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a253ebfb939c7a5b81c391749ecaebe82" prot="private" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type></type>
@@ -597,24 +698,28 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="109" column="14"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="113" column="14"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/imgui/src/eu/imgui/ui.h" line="72" column="1" bodyfile="libs/imgui/src/eu/imgui/ui.h" bodystart="73" bodyend="110"/>
+    <location file="libs/imgui/src/eu/imgui/ui.h" line="72" column="1" bodyfile="libs/imgui/src/eu/imgui/ui.h" bodystart="73" bodyend="114"/>
     <listofallmembers>
       <member refid="structeu_1_1imgui_1_1PropTable_1aad66d61718c7947017ae182b2f0324a8" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>begin</name></member>
-      <member refid="structeu_1_1imgui_1_1PropTable_1a03709f7b2d34d7e111c8674533bc4c68" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>boolean</name></member>
       <member refid="structeu_1_1imgui_1_1PropTable_1a51c3c130acde0557610cf718cf920e70" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>check</name></member>
+      <member refid="structeu_1_1imgui_1_1PropTable_1afe688b594f2138013905ec4c1f02d7be" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>color</name></member>
+      <member refid="structeu_1_1imgui_1_1PropTable_1a927c8524dca330ab1ef144298692f0bb" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>display</name></member>
       <member refid="structeu_1_1imgui_1_1PropTable_1accaf932d58cf894d55114ef321474f5c" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>drag</name></member>
       <member refid="structeu_1_1imgui_1_1PropTable_1a75a70f298aebe6066549a6456cfbfe51" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>drag</name></member>
+      <member refid="structeu_1_1imgui_1_1PropTable_1a9933267b36726b3e77acd64d28ca5eb9" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>drag</name></member>
+      <member refid="structeu_1_1imgui_1_1PropTable_1ac9ed402d06dd68622b63ebbd0197016f" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>drag</name></member>
       <member refid="structeu_1_1imgui_1_1PropTable_1a9ed0d810d82b3af2fd23451ff584a941" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>edit</name></member>
       <member refid="structeu_1_1imgui_1_1PropTable_1ad262ba8ec8f2c6849e47251cd37aabd1" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>gear</name></member>
       <member refid="structeu_1_1imgui_1_1PropTable_1a54c8ed7a4bb929aa844fdb0f9a3f2afd" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>gear</name></member>
       <member refid="structeu_1_1imgui_1_1PropTable_1a2471e57291f6e9f6d46bd2c84d46f286" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>gear</name></member>
+      <member refid="structeu_1_1imgui_1_1PropTable_1ae90896c6a81143a33ca4fd45a4598fb0" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>image</name></member>
       <member refid="structeu_1_1imgui_1_1PropTable_1a32099740dac0957fa6dfd95adb9fd141" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>operator bool</name></member>
       <member refid="structeu_1_1imgui_1_1PropTable_1a75fb7470ac3e54f7315e3efbf360817f" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>operator=</name></member>
       <member refid="structeu_1_1imgui_1_1PropTable_1ac33ce3576832e207f86e38b8d9ce59d0" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>operator=</name></member>

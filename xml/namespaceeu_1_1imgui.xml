@@ -420,43 +420,6 @@
         </inbodydescription>
         <location file="libs/imgui/src/eu/imgui/ui.h" line="59" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="59" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1imgui_1ab76823a0cdc47913592393872d8445ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool eu::imgui::simple_gamma_slider</definition>
-        <argsstring>(const char *label, float *gamma, float curve=1.5f, float min_gamma=1.6f, float max_gamma=2.8f)</argsstring>
-        <name>simple_gamma_slider</name>
-        <qualifiedname>eu::imgui::simple_gamma_slider</qualifiedname>
-        <param>
-          <type>const char *</type>
-          <declname>label</declname>
-        </param>
-        <param>
-          <type>float *</type>
-          <declname>gamma</declname>
-        </param>
-        <param>
-          <type>float</type>
-          <declname>curve</declname>
-          <defval>1.5f</defval>
-        </param>
-        <param>
-          <type>float</type>
-          <declname>min_gamma</declname>
-          <defval>1.6f</defval>
-        </param>
-        <param>
-          <type>float</type>
-          <declname>max_gamma</declname>
-          <defval>2.8f</defval>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="60" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="60" declcolumn="6"/>
-      </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1imgui_1a7434f1c3ff2fb474512cf5fd236030d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::imgui::transform</definition>

@@ -85,7 +85,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae912131371dd0ef9e84a1dacfbdb944b" id="r_ae912131371dd0ef9e84a1dacfbdb944b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae912131371dd0ef9e84a1dacfbdb944b">RenderWorld</a> (const <a class="el" href="structeu_1_1Size.html">Size</a> &amp;size, <a class="el" href="structeu_1_1render_1_1RealizeShader.html">RealizeShader</a> *re_sh, <a class="el" href="structeu_1_1render_1_1ExtractShader.html">ExtractShader</a> *ex_sh, <a class="el" href="structeu_1_1render_1_1PingPongBlurShader.html">PingPongBlurShader</a> *ping_sh, int msaa_samples, bool *h, float *e)</td></tr>
 <tr class="memitem:ace02fdde73cf6bd1d6643e43abd17e33" id="r_ace02fdde73cf6bd1d6643e43abd17e33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace02fdde73cf6bd1d6643e43abd17e33">update</a> (const <a class="el" href="structeu_1_1render_1_1PostProcArg.html">PostProcArg</a> &amp;arg)</td></tr>
 <tr class="memitem:ad9cc968b3615dcf798ef77dc1ac59912" id="r_ad9cc968b3615dcf798ef77dc1ac59912"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9cc968b3615dcf798ef77dc1ac59912">render</a> (const <a class="el" href="structeu_1_1render_1_1PostProcArg.html">PostProcArg</a> &amp;arg) override</td></tr>
-<tr class="memitem:a283e637309965024a00646c07ed2db77" id="r_a283e637309965024a00646c07ed2db77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a283e637309965024a00646c07ed2db77">gui</a> (<a class="el" href="structeu_1_1imgui_1_1ImguiShaderCache.html">imgui::ImguiShaderCache</a> *cache)</td></tr>
+<tr class="memitem:aedfde2bb5d45d7f11b8ecabc21f24233" id="r_aedfde2bb5d45d7f11b8ecabc21f24233"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aedfde2bb5d45d7f11b8ecabc21f24233">gui</a> (<a class="el" href="structeu_1_1imgui_1_1ImguiShaderCache.html">imgui::ImguiShaderCache</a> *cache, const <a class="el" href="structeu_1_1imgui_1_1PropTable.html">imgui::PropTable</a> &amp;prop)</td></tr>
 <tr class="inherit_header pub_methods_structeu_1_1render_1_1RenderSource"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_structeu_1_1render_1_1RenderSource')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="structeu_1_1render_1_1RenderSource.html">eu::render::RenderSource</a></td></tr>
 <tr class="memitem:a7ab0a91ffe9aedba48886c6f530eaf1e inherit pub_methods_structeu_1_1render_1_1RenderSource" id="r_a7ab0a91ffe9aedba48886c6f530eaf1e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1render_1_1RenderSource.html#a7ab0a91ffe9aedba48886c6f530eaf1e">RenderSource</a> ()=default</td></tr>
 <tr class="memitem:a5229ea2ab88fbe9b6476251acf61e015 inherit pub_methods_structeu_1_1render_1_1RenderSource" id="r_a5229ea2ab88fbe9b6476251acf61e015"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeu_1_1render_1_1RenderSource.html#a5229ea2ab88fbe9b6476251acf61e015">~RenderSource</a> ()=default</td></tr>
@@ -158,8 +158,8 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a283e637309965024a00646c07ed2db77" name="a283e637309965024a00646c07ed2db77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a283e637309965024a00646c07ed2db77">&#9670;&#160;</a></span>gui()</h2>
+<a id="aedfde2bb5d45d7f11b8ecabc21f24233" name="aedfde2bb5d45d7f11b8ecabc21f24233"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedfde2bb5d45d7f11b8ecabc21f24233">&#9670;&#160;</a></span>gui()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -167,8 +167,12 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">void eu::render::RenderWorld::gui </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structeu_1_1imgui_1_1ImguiShaderCache.html">imgui::ImguiShaderCache</a> *</td>          <td class="paramname"><span class="paramname"><em>cache</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="structeu_1_1imgui_1_1ImguiShaderCache.html">imgui::ImguiShaderCache</a> *</td>          <td class="paramname"><span class="paramname"><em>cache</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="structeu_1_1imgui_1_1PropTable.html">imgui::PropTable</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>prop</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -133,13 +133,17 @@
         </inbodydescription>
         <location file="libs/render/src/eu/render/postproc.internal.h" line="100" column="6"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1render_1_1FloatSliderShaderProp_1a295e7936dce2b6597d767ac56e193b21" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="structeu_1_1render_1_1FloatSliderShaderProp_1a0e697acb7bec28e65ba608bcc482ab1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
         <definition>void eu::render::FloatSliderShaderProp::gui</definition>
-        <argsstring>() override</argsstring>
+        <argsstring>(const imgui::PropTable &amp;prop) override</argsstring>
         <name>gui</name>
         <qualifiedname>eu::render::FloatSliderShaderProp::gui</qualifiedname>
-        <reimplements refid="structeu_1_1render_1_1ShaderProp_1ab7847971300744772f77dd41db42286d">gui</reimplements>
+        <reimplements refid="structeu_1_1render_1_1ShaderProp_1a50c664ec43290a4d1933bf33060d89b7">gui</reimplements>
+        <param>
+          <type>const <ref refid="structeu_1_1imgui_1_1PropTable" kindref="compound">imgui::PropTable</ref> &amp;</type>
+          <declname>prop</declname>
+        </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -188,7 +192,7 @@
     <location file="libs/render/src/eu/render/postproc.internal.h" line="88" column="1" bodyfile="libs/render/src/eu/render/postproc.internal.h" bodystart="89" bodyend="103"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1FloatSliderShaderProp_1ae634396b9a9ae29d05c97f8bc351b3bb" prot="public" virt="non-virtual"><scope>eu::render::FloatSliderShaderProp</scope><name>FloatSliderShaderProp</name></member>
-      <member refid="structeu_1_1render_1_1FloatSliderShaderProp_1a295e7936dce2b6597d767ac56e193b21" prot="public" virt="virtual"><scope>eu::render::FloatSliderShaderProp</scope><name>gui</name></member>
+      <member refid="structeu_1_1render_1_1FloatSliderShaderProp_1a0e697acb7bec28e65ba608bcc482ab1f" prot="public" virt="virtual"><scope>eu::render::FloatSliderShaderProp</scope><name>gui</name></member>
       <member refid="structeu_1_1render_1_1FloatSliderShaderProp_1a63cb6b37aae8153f50c16f8d788d8431" prot="public" virt="non-virtual"><scope>eu::render::FloatSliderShaderProp</scope><name>max</name></member>
       <member refid="structeu_1_1render_1_1FloatSliderShaderProp_1a95752bb6657dd4c1be534ea968a5a433" prot="public" virt="non-virtual"><scope>eu::render::FloatSliderShaderProp</scope><name>min</name></member>
       <member refid="structeu_1_1render_1_1FloatSliderShaderProp_1a1b50d7f4695b865b0fef4f2afc0a3a3f" prot="public" virt="non-virtual"><scope>eu::render::FloatSliderShaderProp</scope><name>name</name></member>
