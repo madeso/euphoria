@@ -773,6 +773,13 @@ void label(const char* label)
     ImGui::PopStyleColor();
 }
 
+void set_hover_cursor()
+{
+    if (ImGui::IsItemHovered())
+    {
+        ImGui::SetMouseCursor(ImGuiMouseCursor_Hand);
+    }
+}
 
 bool button(const char* label)
 {
@@ -795,10 +802,7 @@ bool button(const char* label)
 
     ImGui::PopStyleVar();
 
-    if (ImGui::IsItemHovered())
-    {
-        ImGui::SetMouseCursor(ImGuiMouseCursor_Hand);
-    }
+    set_hover_cursor();
 
     return clicked;
 }
@@ -995,6 +999,42 @@ struct Drags
     float v_max = 0.0f;
 };
 
+struct ButtonStyle
+{
+    ImVec4 idle;
+    ImVec4 idle_border;
+    ImVec4 hover;
+    ImVec4 hover_border;
+    ImVec4 active;
+    ImVec4 active_border;
+};
+bool styled_button(const ButtonStyle& style, const char* label, const ImVec2& button_size = {0, 0})
+{
+    ImGui::PushStyleColor(ImGuiCol_Button, style.idle);
+    ImGui::PushStyleColor(ImGuiCol_ButtonHovered, style.hover);
+    ImGui::PushStyleColor(ImGuiCol_ButtonActive, style.active);
+    const auto ret = ImGui::Button(label, button_size); // todo(Gustav): replace with invisible button so we can do custom text color
+    ImGui::PopStyleColor(3);
+
+    {
+        const auto& imstyle = ImGui::GetStyle();
+        const auto min = ImGui::GetItemRectMin();
+        const auto max = ImGui::GetItemRectMax();
+
+        const auto is_active = ImGui::IsItemActive();
+        const auto is_hover = ImGui::IsItemHovered();
+
+        auto* draw = ImGui::GetWindowDrawList();
+        draw->AddRect(min, max, ImColor{
+            is_active ? style.active_border :
+            (is_hover ? style.hover_border : style.idle_border)}, imstyle.ChildRounding);
+    }
+
+    set_hover_cursor();
+
+    return ret;
+}
+
 static bool imgui_drag_with_reset(
     float* xval, float* yval, float* zval,
     float resetValue = 0.0f,
@@ -1009,72 +1049,69 @@ static bool imgui_drag_with_reset(
 
     ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2{ 0, 0 });
     ImGui::PushMultiItemsWidths(3, ImGui::CalcItemWidth() - 3 * button_size.x);
-    float item_width = ImGui::CalcItemWidth() / 3;
-    // ImGui::PushItemWidth(item_width);
-    // ImGui::PushItemWidth(item_width);
-    // ImGui::PushItemWidth(item_width);
 
+    constexpr auto red_style = ButtonStyle
     {
-        ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{ 0.8f, 0.1f, 0.15f, 1.0f });
-        ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.9f, 0.2f, 0.2f, 1.0f });
-        ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.8f, 0.1f, 0.15f, 1.0f });
-        if (ImGui::Button(xlabel, button_size))
+        .idle = rgb(76, 5, 25),
+        .idle_border = rgb(159, 18, 57),
+        .hover = rgb(244, 63, 94),
+        .hover_border = rgb(251, 113, 133),
+        .active = rgb(69, 36, 46),
+        .active_border = rgb(244, 63, 94)
+    };
+    constexpr auto green_style = ButtonStyle
+    {
+        .idle = rgb(2, 44, 34),
+        .idle_border = rgb(6, 95, 70),
+        .hover = rgb(158, 233, 57),
+        .hover_border = rgb(190, 242, 100),
+        .active = rgb(52, 70, 38),
+        .active_border = rgb(158, 233, 57)
+    };
+    constexpr auto blue_style = ButtonStyle
+    {
+        .idle = rgb(8, 47, 73),
+        .idle_border = rgb(7, 89, 133),
+        .hover = rgb(14, 165, 233),
+        .hover_border = rgb(56, 189, 248),
+        .active = rgb(23, 56, 74),
+        .active_border = rgb(14, 165, 233)
+    };
+
+    const auto draw_component = [&button_size, resetValue, &changed, &drags](const ButtonStyle& style, const char* label, float* val, const char* id)
         {
-            *xval = resetValue;
-            changed = true;
-        }
-        ImGui::PopStyleColor(3);
+            if (styled_button(style, label, button_size))
+            {
+                *val = resetValue;
+                changed = true;
+            }
+            const auto min = ImGui::GetItemRectMin();
+            ImGui::SameLine();
+            const auto dragging = ImGui::DragFloat(id, val, drags.v_speed, drags.v_min, drags.v_max, "%.2f");
+            if (dragging)
+            {
+                changed = true;
+            }
+            const auto max = ImGui::GetItemRectMax();
 
-        ImGui::SameLine();
-    }
+            if (dragging || ImGui::IsItemActive())
+            {
+                auto* draw = ImGui::GetWindowDrawList();
+                draw->AddRect(min, max, ImColor{ style.active_border }, ImGui::GetStyle().ChildRounding);
+            }
 
-    if (ImGui::DragFloat("##X", xval, drags.v_speed, drags.v_min, drags.v_max, "%.2f"))
-    {
-        changed = true;
-    }
-    ImGui::PopItemWidth();
+            ImGui::PopItemWidth();
+        };
+
+    draw_component(red_style, xlabel, xval, "##X");
+
     ImGui::SameLine();
 
-    {
-        ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{ 0.2f, 0.7f, 0.2f, 1.0f });
-        ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.3f, 0.8f, 0.3f, 1.0f });
-        ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.2f, 0.7f, 0.2f, 1.0f });
-        if (ImGui::Button(ylabel, button_size))
-        {
-            *yval = resetValue;
-            changed = true;
-        }
-        ImGui::PopStyleColor(3);
-
-        ImGui::SameLine();
-    }
-
-    if (ImGui::DragFloat("##Y", yval, drags.v_speed, drags.v_min, drags.v_max, "%.2f"))
-    {
-        changed = true;
-    }
-    ImGui::PopItemWidth();
+    draw_component(green_style, ylabel, yval, "##Y");
+    
     ImGui::SameLine();
 
-    {
-        ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{ 0.1f, 0.25f, 0.8f, 1.0f });
-        ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.2f, 0.35f, 0.9f, 1.0f });
-        ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.1f, 0.25f, 0.8f, 1.0f });
-        if (ImGui::Button(zlabel, button_size))
-        {
-            *zval = resetValue;
-            changed = true;
-        }
-        ImGui::PopStyleColor(3);
-
-        ImGui::SameLine();
-    }
-
-    if (ImGui::DragFloat("##Z", zval, drags.v_speed, drags.v_min, drags.v_max, "%.2f"))
-    {
-        changed = true;
-    }
-    ImGui::PopItemWidth();
+    draw_component(blue_style, zlabel, zval, "##Z");
 
     ImGui::PopStyleVar();
 
