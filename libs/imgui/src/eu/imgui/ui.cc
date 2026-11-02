@@ -534,6 +534,25 @@ namespace eu::imgui
 
         namespace colors
         {
+            constexpr auto base = rgb(25, 28, 33);
+            constexpr auto tab = rgb(29, 32, 37);
+            constexpr auto tab_other = rgb(25, 28, 33);
+            constexpr auto edit_bg = rgb(11, 14, 19);
+            constexpr auto button_bg = rgb(33, 37, 43);
+            constexpr auto header_bg = rgb(29, 32, 37);
+            constexpr auto button_hover = rgb(42, 48, 56);
+            constexpr auto button_active = rgb(31, 45, 24);
+            constexpr auto border = rgb(66, 73, 54, 0.3f);
+            constexpr auto lime = rgb(158, 233, 57);
+            constexpr auto scroll_bg = rgb(16, 20, 24);
+            constexpr auto scroll_grab = rgb(63, 69, 81);
+            constexpr auto scroll_hover = rgb(39, 43, 51);
+            constexpr auto scroll_active = rgb(132, 204, 22);
+            constexpr auto text_selected_bg = rgb(31, 45, 24);
+            constexpr auto text = rgb(225, 226, 233);
+            constexpr auto text_disabled = rgb(113, 113, 122);
+            constexpr auto transparent = rgb(0, 0, 0, 0.0f);
+
             constexpr ImVec4 text_label = rgb(139, 148, 125);
             constexpr ImVec4 button_active_border = rgb(158, 233, 5);
             constexpr ImVec4 button_default_border = rgb(48, 53, 64);
@@ -630,27 +649,25 @@ void setup_colors()
     // initially inspired and based on by Catppuccin Mocha Palette
     // https://github.com/ocornut/imgui/issues/707#issuecomment-3592676777
     
-    constexpr auto base     = rgb(25, 28, 33);
-    constexpr auto tab = rgb(29, 32, 37);
-    constexpr auto tab_other = rgb(25, 28, 33);
-    constexpr auto edit_bg = rgb(11, 14, 19);
-    constexpr auto button_bg = rgb(33, 37, 43);
-    constexpr auto header_bg = rgb(29, 32, 37);
-    constexpr auto button_hover = rgb(42, 48, 56);
-    constexpr auto button_active = rgb(31, 45, 24);
-    constexpr auto border = rgb(66, 73, 54, 0.3f);
-    constexpr auto lime = rgb(158, 233, 57);
-    constexpr auto scroll_bg = rgb(16, 20, 24);
-    constexpr auto scroll_grab = rgb(63, 69, 81);
-    constexpr auto scroll_hover = rgb(39, 43, 51); 
-    constexpr auto scroll_active = rgb(132, 204, 22);
-
+    constexpr auto base = colors::base;
+    constexpr auto tab = colors::tab;
+    constexpr auto tab_other = colors::tab_other;
+    constexpr auto edit_bg = colors::edit_bg;
+    constexpr auto button_bg = colors::button_bg;
+    constexpr auto header_bg = colors::header_bg;
+    constexpr auto button_hover = colors::button_hover;
+    constexpr auto button_active = colors::button_active;
+    constexpr auto border = colors::border;
+    constexpr auto lime = colors::lime;
+    constexpr auto scroll_bg = colors::scroll_bg;
+    constexpr auto scroll_grab = colors::scroll_grab;
+    constexpr auto scroll_hover = colors::scroll_hover;
+    constexpr auto scroll_active = colors::scroll_active;
+    constexpr auto text_selected_bg = colors::text_selected_bg;
+    constexpr auto text = colors::text;
+    constexpr auto text_disabled = colors::text_disabled;
+    constexpr auto transparent = colors::transparent;
     constexpr auto table_border_strong = colors::text_label;
-    constexpr auto text_selected_bg = rgb(31, 45, 24);
-    constexpr auto text     = rgb(225, 226, 233);
-    constexpr auto text_disabled = rgb(113, 113, 122);
-
-    constexpr auto transparent = rgb(0, 0, 0, 0.0f);
 
     // Main window and backgrounds
     colors[ImGuiCol_Text] = text;
@@ -816,13 +833,20 @@ void imgui_text(const std::string& str)
 void imgui_readonly(const char* label, const std::string& text)
 {
     auto temp = text;
+    // ImGuiCol_FrameBg
+    ImGui::PushStyleColor(ImGuiCol_FrameBg, colors::base);
+    ImGui::PushStyleColor(ImGuiCol_Text, colors::text_label);
     ImGui::InputText(label, &temp, ImGuiInputTextFlags_ReadOnly);
+    ImGui::PopStyleColor(2);
 }
 
 void imgui_readonly(const char* label, const v3& v)
 {
     auto temp = v;
+    ImGui::PushStyleColor(ImGuiCol_FrameBg, colors::base);
+    ImGui::PushStyleColor(ImGuiCol_Text, colors::text_label);
     ImGui::InputFloat3(label, temp.get_data_ptr(), "%.3f", ImGuiInputTextFlags_ReadOnly);
+    ImGui::PopStyleColor(2);
 }
 
 void imgui_readonly(const char* label, const Ypr& y)
