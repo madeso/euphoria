@@ -1123,7 +1123,7 @@ constexpr const char* default_format = "%.2f";
 std::string format_float(float f)
 {
     char text[32];
-    ImFormatString(text, IM_ARRAYSIZE(text), default_format, f);
+    ImFormatString(text, IM_ARRAYSIZE(text), default_format, static_cast<double>(f));
     return text;
 }
 
