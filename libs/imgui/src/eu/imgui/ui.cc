@@ -1118,11 +1118,12 @@ static bool imgui_drag_with_reset(
     return changed;
 }
 
-[[gnu::format(printf, 1, 2)]]
-std::string format_float(const char* format, float f)
+constexpr const char* default_format = "%.2f";
+
+std::string format_float(float f)
 {
     char text[32];
-    ImFormatString(text, IM_ARRAYSIZE(text), format, f);
+    ImFormatString(text, IM_ARRAYSIZE(text), default_format, f);
     return text;
 }
 
@@ -1132,7 +1133,7 @@ float float_identity(float f)
 }
 
 template<typename F>
-bool flat_slider(const char* label, float* value, float min_value, float max_value, F display, const char* format = "%.2f")
+bool flat_slider(const char* label, float* value, float min_value, float max_value, F display)
 {
     ImGuiWindow* window = ImGui::GetCurrentWindow();
     if (window->SkipItems)
@@ -1143,8 +1144,8 @@ bool flat_slider(const char* label, float* value, float min_value, float max_val
     const auto& style = ImGui::GetStyle();
     const auto id = window->GetID(label);
 
-    const auto max_label_width = ImGui::CalcTextSize(format_float(format, display(max_value)).c_str()).x;
-    const auto text = format_float(format, display(*value));
+    const auto max_label_width = ImGui::CalcTextSize(format_float(display(max_value)).c_str()).x;
+    const auto text = format_float(display(*value));
 
     const auto height = ImGui::GetFrameHeight();
     const auto radius = height * 0.3f;
@@ -1170,7 +1171,7 @@ bool flat_slider(const char* label, float* value, float min_value, float max_val
 
     ImGui::PushStyleVar(ImGuiStyleVar_GrabMinSize, radius * 2.0f);
     ImRect grab;
-    const bool value_was_changed = ImGui::SliderBehavior(track_bb, id, ImGuiDataType_Float, value, &min_value, &max_value, format, 0, &grab);
+    const bool value_was_changed = ImGui::SliderBehavior(track_bb, id, ImGuiDataType_Float, value, &min_value, &max_value, default_format, 0, &grab);
     ImGui::PopStyleVar();
     if (value_was_changed)
     {
