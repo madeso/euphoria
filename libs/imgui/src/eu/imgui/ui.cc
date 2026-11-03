@@ -287,12 +287,16 @@ namespace eu::imgui
         }
 
 
-        ImVec2 calc_button_size(const char* label, const ImVec2& size_arg = ImVec2(0, 0))
+        ImVec2 calc_button_size(const ImVec2& label_size, const ImVec2& size_arg = ImVec2(0, 0))
         {
             const auto style = ImGui::GetStyle();
-            const ImVec2 label_size = ImGui::CalcTextSize(label, nullptr, true);
-            ImVec2 size = ImGui::CalcItemSize(size_arg, label_size.x + style.FramePadding.x * 2.0f, label_size.y + style.FramePadding.y * 2.0f);
+            const auto size = ImGui::CalcItemSize(size_arg, label_size.x + style.FramePadding.x * 2.0f, label_size.y + style.FramePadding.y * 2.0f);
             return size;
+        }
+
+        ImVec2 calc_button_size(const char* label, const ImVec2& size_arg = ImVec2(0, 0))
+        {
+            return calc_button_size(ImGui::CalcTextSize(label, nullptr, true), size_arg);
         }
 
         // https://anttweakbar.sourceforge.io/doc/tools_anttweakbar_rotoslider.html
@@ -999,36 +1003,49 @@ struct Drags
     float v_max = 0.0f;
 };
 
+struct ButtonStateStyle
+{
+    ImVec4 background;
+    ImVec4 text;
+    ImVec4 border;
+};
 struct ButtonStyle
 {
-    ImVec4 idle;
-    ImVec4 idle_border;
-    ImVec4 hover;
-    ImVec4 hover_border;
-    ImVec4 active;
-    ImVec4 active_border;
+    ButtonStateStyle idle;
+    ButtonStateStyle hover;
+    ButtonStateStyle active;
 };
-bool styled_button(const ButtonStyle& style, const char* label, const ImVec2& button_size = {0, 0})
+
+bool styled_button(const ButtonStyle& style, const char* label, const std::optional<ImVec2>& button_size = std::nullopt)
 {
-    ImGui::PushStyleColor(ImGuiCol_Button, style.idle);
-    ImGui::PushStyleColor(ImGuiCol_ButtonHovered, style.hover);
-    ImGui::PushStyleColor(ImGuiCol_ButtonActive, style.active);
-    const auto ret = ImGui::Button(label, button_size); // todo(Gustav): replace with invisible button so we can do custom text color
-    ImGui::PopStyleColor(3);
+    const ImVec2 label_size = ImGui::CalcTextSize(label, nullptr, true);
+    const ImVec2 size = button_size.value_or(calc_button_size(label_size));
+    const auto pos = ImGui::GetCursorScreenPos();
+    const auto ret = ImGui::InvisibleButton(label, size);
+    const auto min = ImGui::GetItemRectMin();
+    const auto max = ImGui::GetItemRectMax();
 
+    const auto& imstyle = ImGui::GetStyle();
+    const auto is_active = ImGui::IsItemActive();
+    const auto is_hover = ImGui::IsItemHovered();
+    auto* draw = ImGui::GetWindowDrawList();
+
+    const auto& color = is_active ? style.active :
+        (is_hover ? style.hover : style.idle);
+
+    // background
+    draw->AddRectFilled(min, max, ImColor{ color.background }, imstyle.ChildRounding);
+
+    // label
     {
-        const auto& imstyle = ImGui::GetStyle();
-        const auto min = ImGui::GetItemRectMin();
-        const auto max = ImGui::GetItemRectMax();
-
-        const auto is_active = ImGui::IsItemActive();
-        const auto is_hover = ImGui::IsItemHovered();
-
-        auto* draw = ImGui::GetWindowDrawList();
-        draw->AddRect(min, max, ImColor{
-            is_active ? style.active_border :
-            (is_hover ? style.hover_border : style.idle_border)}, imstyle.ChildRounding);
+        const auto bb = ImRect{ pos, pos + size };
+        ImGui::PushStyleColor(ImGuiCol_Text, color.text);
+        ImGui::RenderTextClipped(bb.Min + imstyle.FramePadding, bb.Max - imstyle.FramePadding, label, nullptr, &label_size, imstyle.ButtonTextAlign, &bb);
+        ImGui::PopStyleColor();
     }
+
+    // border
+    draw->AddRect(min, max, ImColor{color.border}, imstyle.ChildRounding);
 
     set_hover_cursor();
 
@@ -1052,30 +1069,57 @@ static bool imgui_drag_with_reset(
 
     constexpr auto red_style = ButtonStyle
     {
-        .idle = rgb(76, 5, 25),
-        .idle_border = rgb(159, 18, 57),
-        .hover = rgb(244, 63, 94),
-        .hover_border = rgb(251, 113, 133),
-        .active = rgb(69, 36, 46),
-        .active_border = rgb(244, 63, 94)
+        .idle = {
+            .background = rgb(76, 5, 25),
+            .text = rgb(251, 113, 133),
+            .border = rgb(159, 18, 57)
+        },
+        .hover = {
+            .background = rgb(244, 63, 94),
+            .text = rgb(11, 14, 19),
+            .border = rgb(251, 113, 133)
+        },
+        .active = {
+            .background = rgb(69, 36, 46),
+            .text = rgb(251, 113, 133),
+            .border = rgb(244, 63, 94)
+        }
     };
     constexpr auto green_style = ButtonStyle
     {
-        .idle = rgb(2, 44, 34),
-        .idle_border = rgb(6, 95, 70),
-        .hover = rgb(158, 233, 57),
-        .hover_border = rgb(190, 242, 100),
-        .active = rgb(52, 70, 38),
-        .active_border = rgb(158, 233, 57)
+        .idle = {
+            .background = rgb(2, 44, 34),
+            .text = rgb(158, 233, 57),
+            .border = rgb(6, 95, 70)
+        },
+        .hover = {
+            .background = rgb(158, 233, 57),
+            .text = rgb(11, 14, 19),
+            .border = rgb(190, 242, 100)
+        },
+        .active = {
+            .background = rgb(52, 70, 38),
+            .text = rgb(158, 233, 57),
+            .border = rgb(158, 233, 57)
+        }
     };
     constexpr auto blue_style = ButtonStyle
     {
-        .idle = rgb(8, 47, 73),
-        .idle_border = rgb(7, 89, 133),
-        .hover = rgb(14, 165, 233),
-        .hover_border = rgb(56, 189, 248),
-        .active = rgb(23, 56, 74),
-        .active_border = rgb(14, 165, 233)
+        .idle = {
+            .background = rgb(8, 47, 73),
+            .text = rgb(56, 189, 248),
+            .border = rgb(7, 89, 133)
+        },
+        .hover = {
+            .background = rgb(14, 165, 233),
+            .text = rgb(11, 14, 19),
+            .border = rgb(56, 189, 248)
+        },
+        .active = {
+            .background = rgb(23, 56, 74),
+            .text = rgb(56, 189, 248),
+            .border = rgb(14, 165, 233)
+        }
     };
 
     const auto draw_component = [&button_size, resetValue, &changed, &drags](const ButtonStyle& style, const char* label, float* val, const char* id)
@@ -1097,7 +1141,7 @@ static bool imgui_drag_with_reset(
             if (dragging || ImGui::IsItemActive())
             {
                 auto* draw = ImGui::GetWindowDrawList();
-                draw->AddRect(min, max, ImColor{ style.active_border }, ImGui::GetStyle().ChildRounding);
+                draw->AddRect(min, max, ImColor{ style.active.border }, ImGui::GetStyle().ChildRounding);
             }
 
             ImGui::PopItemWidth();
