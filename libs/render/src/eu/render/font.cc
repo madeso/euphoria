@@ -28,6 +28,92 @@
 #include "eu/base/memorychunk.h"
 
 
+// ====================================================================================================================
+// Internal
+
+namespace internal
+{
+    namespace
+    {
+        using namespace eu;
+        using namespace eu::render;
+
+        std::pair<::eu::Rect, Rect>
+        construct_character_rects
+        (
+            const stbrp_rect& packed_rect,
+            const core::LoadedGlyph& glyph,
+            int image_width,
+            int image_height,
+            int half_margin
+        )
+        {
+            const int vert_left = glyph.bearing_x;
+            const int vert_right = vert_left + glyph.image.width;
+            const int vert_top = glyph.bearing_y;
+            const int vert_bottom = vert_top - std::max(1, glyph.image.height);
+
+            const stbrp_coord uv_left = packed_rect.x + half_margin;
+            const stbrp_coord uv_right = uv_left + packed_rect.w - half_margin * 2;
+            const stbrp_coord uv_bottom = packed_rect.y + half_margin;
+            const stbrp_coord uv_top = uv_bottom + std::max<int>(1, packed_rect.h - half_margin * 2);
+
+            // todo(Gustav): add ability to be a quad for tighter fit
+            ASSERTX(vert_top > vert_bottom, vert_top, vert_bottom, glyph.code_point);
+            ASSERTX(uv_top > uv_bottom, uv_top, uv_bottom, glyph.code_point);
+
+            const auto iw = float_from_int(image_width);
+            const auto ih = float_from_int(image_height);
+
+            const auto sprite = Rect::from_left_right_top_bottom
+            (
+                float_from_int(vert_left),
+                float_from_int(vert_right),
+                float_from_int(vert_top),
+                float_from_int(vert_bottom)
+            );
+            const auto texture = Rect::from_left_right_top_bottom
+            (
+                float_from_int(uv_left) / iw,
+                float_from_int(uv_right) / iw,
+                float_from_int(uv_top) / ih,
+                float_from_int(uv_bottom) / ih
+            );
+
+            // scale to make sure bake resolution is separate from rendering size
+            const float scale = 1.0f / glyph.size;
+            return std::make_pair(sprite.with_scale(scale, scale), texture);
+        }
+
+        v2
+        get_offset(Align alignment, const Rect& extent)
+        {
+            // todo(Gustav): test this more
+            const auto middle = -(extent.left + extent.right) / 2;
+            const auto right = -extent.right;
+            const auto top = extent.top;
+            const auto bottom = -extent.bottom;
+
+            switch (alignment)
+            {
+            case Align::top_left: return { 0.0f, top };
+            case Align::top_center: return { middle, top };
+            case Align::top_right: return { right, top };
+            case Align::baseline_left: return { 0.0f, 0.0f };
+            case Align::baseline_center: return { middle, 0.0f };
+            case Align::baseline_right: return { right, 0.0f };
+            case Align::bottom_left: return { 0.0f, bottom };
+            case Align::bottom_center: return { middle, bottom };
+            case Align::bottom_right: return { right, bottom };
+            default: DIE("Unhandled case"); return { 0.0f, 0.0f };
+            }
+        }
+    }
+}
+
+// ====================================================================================================================
+// API
+
 namespace eu::render
 {
     Glyph::Glyph
@@ -42,54 +128,6 @@ namespace eu::render
         , code_point(ch)
         , advance(ad)
     {
-    }
-
-
-    std::pair<Rect, Rect>
-    construct_character_rects
-    (
-        const stbrp_rect& packed_rect,
-        const core::LoadedGlyph& glyph,
-        int image_width,
-        int image_height,
-        int half_margin
-    )
-    {
-        const int vert_left = glyph.bearing_x;
-        const int vert_right = vert_left + glyph.image.width;
-        const int vert_top = glyph.bearing_y;
-        const int vert_bottom = vert_top - std::max(1, glyph.image.height);
-
-        const stbrp_coord uv_left = packed_rect.x + half_margin;
-        const stbrp_coord uv_right = uv_left + packed_rect.w - half_margin * 2;
-        const stbrp_coord uv_bottom = packed_rect.y + half_margin;
-        const stbrp_coord uv_top = uv_bottom + std::max<int>(1, packed_rect.h - half_margin * 2);
-
-        // todo(Gustav): add ability to be a quad for tighter fit
-        ASSERTX(vert_top > vert_bottom, vert_top, vert_bottom, glyph.code_point);
-        ASSERTX(uv_top > uv_bottom, uv_top, uv_bottom, glyph.code_point);
-
-        const auto iw = float_from_int(image_width);
-        const auto ih = float_from_int(image_height);
-
-        const auto sprite = Rect::from_left_right_top_bottom
-        (
-            float_from_int(vert_left),
-            float_from_int(vert_right),
-            float_from_int(vert_top),
-            float_from_int(vert_bottom)
-        );
-        const auto texture = Rect::from_left_right_top_bottom
-        (
-            float_from_int(uv_left) / iw,
-            float_from_int(uv_right) / iw,
-            float_from_int(uv_top) / ih,
-            float_from_int(uv_bottom) / ih
-        );
-
-        // scale to make sure bake resolution is separate from rendering size
-        const float scale = 1.0f / glyph.size;
-        return std::make_pair(sprite.with_scale(scale, scale), texture);
     }
 
 
@@ -174,7 +212,7 @@ namespace eu::render
                     src_char.image
                 );
             }
-            const auto sprite_and_texture_rects = construct_character_rects
+            const auto sprite_and_texture_rects = internal::construct_character_rects
             (
                 src_rect,
                 src_char,
@@ -183,15 +221,12 @@ namespace eu::render
                 half_margin
             );
 
-            std::shared_ptr<Glyph> dest
+            const auto dest = std::make_shared<Glyph>
             (
-                new Glyph
-                (
-                    sprite_and_texture_rects.first,
-                    sprite_and_texture_rects.second,
-                    src_char.code_point,
-                    static_cast<float>(src_char.advance) / src_char.size
-                )
+                sprite_and_texture_rects.first,
+                sprite_and_texture_rects.second,
+                src_char.code_point,
+                static_cast<float>(src_char.advance) / src_char.size
             );
             map.insert(CharToGlyphMap::value_type(dest->code_point, dest));
         }
@@ -274,7 +309,7 @@ namespace eu::render
 
     struct UiTextCompileVisitor// : public textparser::Visitor
     {
-        const DrawableFont& font;
+        const DrawableFont* font;
         float size;
         bool apply_highlight = false;
         v2 position = v2{0, 0}; // todo(Gustav): rename to offset
@@ -285,7 +320,7 @@ namespace eu::render
 
         UiTextCompileVisitor
         (
-            const DrawableFont& f,
+            const DrawableFont* f,
             float s,
             ListOfTextDrawCommands* li
         )
@@ -309,7 +344,7 @@ namespace eu::render
             );
         }
 
-#if 0
+#ifdef TODO_IMAGE_GLYPH_HANDLING
         void
         on_image(const std::string& image) override
         {
@@ -350,27 +385,27 @@ namespace eu::render
             if(code_point == '\n')
             {
                 position.x = 0;
-                position.y -= size*font.get_line_height();
+                position.y -= size*font->get_line_height();
             }
             else
             {
-                auto it = font.char_to_glyph.find(code_point);
-                if(it == font.char_to_glyph.end())
+                auto it = font->char_to_glyph.find(code_point);
+                if(it == font->char_to_glyph.end())
                 {
                     LOG_ERR("Failed to print '{0}'", code_point);
                     return;
                 }
-                std::shared_ptr<Glyph> ch = it->second;
+                const std::shared_ptr<Glyph> ch = it->second;
 
                 list->add
                 (
-                    font.texture.get(),
+                    font->texture.get(),
                     ch->sprite_rect.with_scale(size, size).with_translate(position),
                     ch->texture_rect,
                     apply_highlight
                 );
 
-                const auto kerning = font.kernings.find
+                const auto kerning = font->kernings.find
                 (
                     std::make_pair
                     (
@@ -378,7 +413,7 @@ namespace eu::render
                         code_point
                     )
                 );
-                const float the_kerning = kerning == font.kernings.end()
+                const float the_kerning = kerning == font->kernings.end()
                     ? 0.0f
                     : kerning->second
                     ;
@@ -394,7 +429,7 @@ namespace eu::render
     {
         ListOfTextDrawCommands list;
 
-        UiTextCompileVisitor vis {*this, size, &list};
+        UiTextCompileVisitor vis {this, size, &list};
         // text.accept(&vis);
         vis.on_begin();
         vis.on_text(text);
@@ -459,31 +494,6 @@ namespace eu::render
     }
 
 
-    v2
-    get_offset(Align alignment, const Rect& extent)
-    {
-        // todo(Gustav): test this more
-        const auto middle = -(extent.left + extent.right) / 2;
-        const auto right = -extent.right;
-        const auto top = extent.top;
-        const auto bottom = -extent.bottom;
-
-        switch(alignment)
-        {
-        case Align::top_left: return {0.0f, top};
-        case Align::top_center: return {middle, top};
-        case Align::top_right: return {right, top};
-        case Align::baseline_left: return {0.0f, 0.0f};
-        case Align::baseline_center: return {middle, 0.0f};
-        case Align::baseline_right: return {right, 0.0f};
-        case Align::bottom_left: return {0.0f, bottom};
-        case Align::bottom_center: return {middle, bottom};
-        case Align::bottom_right: return {right, bottom};
-        default: DIE("Unhandled case"); return {0.0f, 0.0f};
-        }
-    }
-
-
     void
     DrawableText::draw
     (
@@ -513,7 +523,7 @@ namespace eu::render
             return;
         }
         const auto e = get_extents();
-        const auto off = get_offset(alignment, e);
+        const auto off = internal::get_offset(alignment, e);
         if(use_background)
         {
             font->draw_background

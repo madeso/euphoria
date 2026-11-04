@@ -10,11 +10,67 @@
 // #include "skybox.frag.glsl.h"
 // #include "skybox.vert.glsl.h"
 
+// ====================================================================================================================
+// Internal
+
+namespace internal
+{
+    namespace
+    {
+        using namespace eu;
+        using namespace eu::render;
+
+        kainjow::mustache::mustache load_mustache(std::string_view str)
+        {
+            auto input = kainjow::mustache::mustache{ std::string{str.begin(), str.end()} };
+            if (input.is_valid() == false)
+            {
+                const auto& error = input.error_message();
+                LOG_ERR("Failed to parse mustache: {}", error);
+            }
+
+            input.set_custom_escape([](const std::string& s) { return s; });
+            return input;
+        }
+
+
+        std::string generate(std::string_view str, const ShaderOptions& options, const std::string& uniform_buffer_source)
+        {
+            auto input = load_mustache(str);
+            auto data = kainjow::mustache::data{};
+
+            data["use_lights"] = options.use_lights;
+            data["use_blinn_phong"] = options.use_blinn_phong;
+            data["use_texture"] = options.use_texture;
+            data["number_of_directional_lights"] = fmt::format("{}", options.number_of_directional_lights);
+            data["number_of_point_lights"] = fmt::format("{}", options.number_of_point_lights);
+            data["number_of_frustum_lights"] = fmt::format("{}", options.number_of_frustum_lights);
+            data["transparent_cutoff"] = options.transparent_cutoff;
+            data["use_instancing"] = options.use_instancing;
+            data["uniform_buffer_source"] = uniform_buffer_source;
+            data["only_depth"] = options.only_depth;
+
+            return input.render(data);
+        }
+
+
+        std::string generate(std::string_view str, const std::string& uniform_buffer_source)
+        {
+            auto input = load_mustache(str);
+            auto data = kainjow::mustache::data{};
+
+            data["uniform_buffer_source"] = uniform_buffer_source;
+
+            return input.render(data);
+        }
+    }
+}
+
+// ====================================================================================================================
+// API
+
 namespace eu::render
 {
-
-
-using Properties = std::unordered_map<std::string, std::string>;
 
 ShaderOptions ShaderOptions::with_transparent_cutoff() const
 {
@@ -30,22 +86,11 @@ ShaderOptions ShaderOptions::with_instanced_mat4() const
 	return ret;
 }
 
-kainjow::mustache::mustache load_mustache(std::string_view str)
-{
-	auto input = kainjow::mustache::mustache{std::string{str.begin(), str.end()}};
-	if (input.is_valid() == false)
-	{
-		const auto& error = input.error_message();
-		LOG_ERR("Failed to parse mustache: {}", error);
-	}
 
-	input.set_custom_escape([](const std::string& s) { return s; });
-	return input;
-}
 
 std::string generate_blur(std::string_view src, const BlurOptions& options)
 {
-	auto input = load_mustache(src);
+	auto input = internal::load_mustache(src);
 	auto data = kainjow::mustache::data{};
 
 	data["is_horizontal"] = options.blur == BlurType::horizontal;
@@ -56,61 +101,55 @@ std::string generate_blur(std::string_view src, const BlurOptions& options)
 	return input.render(data);
 }
 
-std::string generate(std::string_view str, const ShaderOptions& options, const std::string& uniform_buffer_source)
-{
-	auto input = load_mustache(str);
-	auto data = kainjow::mustache::data{};
 
-	data["use_lights"] = options.use_lights;
-	data["use_blinn_phong"] = options.use_blinn_phong;
-	data["use_texture"] = options.use_texture;
-	data["number_of_directional_lights"] = fmt::format("{}", options.number_of_directional_lights);
-	data["number_of_point_lights"] = fmt::format("{}", options.number_of_point_lights);
-	data["number_of_frustum_lights"] = fmt::format("{}", options.number_of_frustum_lights);
-	data["transparent_cutoff"] = options.transparent_cutoff;
-	data["use_instancing"] = options.use_instancing;
-	data["uniform_buffer_source"] = uniform_buffer_source;
-	data["only_depth"] = options.only_depth;
-
-	return input.render(data);
-}
-
-std::string generate(std::string_view str, const std::string& uniform_buffer_source)
-{
-	auto input = load_mustache(str);
-	auto data = kainjow::mustache::data{};
-
-	data["uniform_buffer_source"] = uniform_buffer_source;
-
-	return input.render(data);
-}
 
 ShaderSource_withLayout load_shader_source(const ShaderSource& source, const ShaderOptions& options, const std::string& uniform_buffer_source)
 {
-	auto layout = core::ShaderVertexAttributes{{core::VertexType::position3, "a_position"}, {core::VertexType::color3, "a_color"}};
+	auto layout = core::ShaderVertexAttributes
+    {
+	    {
+	        .type = core::VertexType::position3,
+            .name = "a_position"
+	    },
+        {
+            .type=core::VertexType::color3,
+            .name = "a_color"
+        }
+    };
 
 	if (options.use_texture)
 	{
-		layout.emplace_back(core::VertexElementDescription{core::VertexType::texture2, "a_tex_coord"});
+		layout.emplace_back(core::VertexElementDescription
+            {
+                .type = core::VertexType::texture2,
+                .name = "a_tex_coord"
+		    });
 	}
 
 	if (options.use_lights)
 	{
-		layout.emplace_back(core::VertexElementDescription{core::VertexType::normal3, "a_normal"});
+		layout.emplace_back(core::VertexElementDescription
+            {
+                .type = core::VertexType::normal3,
+                .name = "a_normal"
+            });
 	}
 
-	return ShaderSource_withLayout{
-		layout,
-		generate(source.vertex, options, uniform_buffer_source),
-		generate(source.fragment, options, uniform_buffer_source)
+	return ShaderSource_withLayout
+    {
+        .layout = layout,
+        .vertex = internal::generate(source.vertex, options, uniform_buffer_source),
+        .fragment = internal::generate(source.fragment, options, uniform_buffer_source)
 	};
 }
 
 ShaderSource load_skybox_source(const ShaderSource& source, const std::string& uniform_buffer_source)
 {
-	return ShaderSource{
-		generate(source.vertex, uniform_buffer_source), generate(source.fragment, uniform_buffer_source)
+	return ShaderSource
+    {
+        .vertex = internal::generate(source.vertex, uniform_buffer_source),
+        .fragment = internal::generate(source.fragment, uniform_buffer_source)
 	};
 }
 
-}  //  namespace eu::render
+}

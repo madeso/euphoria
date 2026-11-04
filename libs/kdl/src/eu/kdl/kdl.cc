@@ -440,8 +440,16 @@ std::optional<std::string> Document::to_string(Version version) const
 {
     kdl_emitter_options opts = KDL_DEFAULT_EMITTER_OPTIONS;
 
-    if (version == Version::kdl_1) opts.version = KDL_VERSION_1;
-    if (version == Version::kdl_2) opts.version = KDL_VERSION_2;
+    opts.version = ([&version] {
+        if (version == Version::kdl_1) {
+            return KDL_VERSION_1;
+        }
+        if (version == Version::kdl_2) {
+            return KDL_VERSION_2;
+        }
+        assert(false && "any version ");
+        return KDL_VERSION_2;
+    })();
 
     kdl_emitter* emitter = kdl_create_buffering_emitter(&opts);
     if (emitter == nullptr)
@@ -481,7 +489,7 @@ DocumentResult::DocumentResult(std::string err)
 namespace
 {
 
-    DocumentResult Document_read_from(kdl_parser* parser)
+    DocumentResult document_read_from(kdl_parser* parser)
     {
         Document doc;
         auto* node_list = &doc.nodes;
@@ -589,7 +597,7 @@ DocumentResult parse(std::string_view kdl_text, Version version)
     }
     auto defer_parser = Defer{[&]{ kdl_destroy_parser(parser); }};
 
-    auto doc = Document_read_from(parser);
+    auto doc = document_read_from(parser);
     return doc;
 }
 
