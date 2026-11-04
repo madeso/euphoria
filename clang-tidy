@@ -128,6 +128,9 @@ readability-identifier-naming
 # perhaps later???
 -readability-math-missing-parentheses
 
+# detects `std::string str = "";` that I think is clearer...
+-readability-redundant-string-init
+
 # false positive...
 # warning: 'long double' type from literal suffix 'L' is not portable and should not be used
 # Only the following parameter lists are allowed on literal operators:
