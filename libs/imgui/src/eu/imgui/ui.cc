@@ -1052,20 +1052,31 @@ bool styled_button(const ButtonStyle& style, const char* label, const std::optio
     return ret;
 }
 
+static ImVec2 calculate_square_button_size()
+{
+    const float line_height = GImGui->FontSize + GImGui->Style.FramePadding.y * 2.0f;
+    const ImVec2 button_size = { line_height + 3.0f, line_height };
+    return button_size;
+}
+
 static bool imgui_drag_with_reset(
     float* xval, float* yval, float* zval,
-    float resetValue = 0.0f,
-    const char* xlabel = "X", const char* ylabel = "Y", const char* zlabel = "Z",
+    float resetValue, std::optional<float> extra_spacing,
+    const char* xlabel, const char* ylabel, const char* zlabel,
     const Drags& drags = Drags{}
 )
 {
     bool changed = false;
 
-    const float line_height = GImGui->FontSize + GImGui->Style.FramePadding.y * 2.0f;
-    const ImVec2 button_size = { line_height + 3.0f, line_height };
+    const auto button_size = calculate_square_button_size();
 
     ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2{ 0, 0 });
-    ImGui::PushMultiItemsWidths(3, ImGui::CalcItemWidth() - 3 * button_size.x);
+    const auto full_width = ImGui::CalcItemWidth();
+    if (extra_spacing.has_value())
+    {
+        ImGui::PushItemWidth(*extra_spacing);
+    }
+    ImGui::PushMultiItemsWidths(3, full_width - 3 * button_size.x - extra_spacing.value_or(0.0f));
 
     constexpr auto red_style = ButtonStyle
     {
@@ -1158,6 +1169,11 @@ static bool imgui_drag_with_reset(
     draw_component(blue_style, zlabel, zval, "##Z");
 
     ImGui::PopStyleVar();
+
+    if (extra_spacing.has_value())
+    {
+        ImGui::SameLine();
+    }
 
     return changed;
 }
@@ -1450,7 +1466,26 @@ bool PropTable::color(const char* label, Rgb* color) const
 {
     return trow(*this, label, [&]
         {
-            return ImGui::ColorEdit3(label, &color->r);
+            ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2{ 0, 0 });
+            const auto button_size = calculate_square_button_size();
+            // todo(Gustav): change so drag is 0-255
+            // todo(Gustav): change colors?
+            bool changed = imgui_drag_with_reset(&color->r, &color->g, &color->b, 0.0f, button_size.x,
+                "R", "G", "B", Drags{ .v_speed = 0.1f, .v_min = 0.0f, .v_max = 1.0f }
+                );
+            constexpr const char* color_popup = "color-popup";
+            if (ImGui::ColorButton("color", ImVec4{color->r, color->g, color->b, 1.0f}))
+            {
+                ImGui::OpenPopup(color_popup);
+            }
+            ImGui::PopStyleVar();
+            if (ImGui::BeginPopup(color_popup))
+            {
+                // color dialog
+                changed = ImGui::ColorPicker3(label, &color->r);
+                ImGui::EndPopup();
+            }
+            return changed;
         });
 }
 
@@ -1458,7 +1493,7 @@ bool PropTable::drag(const char* label, eu::v3* drag) const
 {
     return trow(*this, label, [&]
         {
-            return imgui_drag_with_reset(&drag->x, &drag->y, &drag->z);
+            return imgui_drag_with_reset(&drag->x, &drag->y, &drag->z, 0.0f, std::nullopt, "X", "Y", "Z");
         });
 }
 
@@ -1473,7 +1508,7 @@ bool PropTable::drag(const char* label, eu::Ypr* drag) const
             };
 
             // const auto changed = ImGui::DragFloat3(label, angles, 1.0f, -360.0f, 360.0f);
-            const auto changed = imgui_drag_with_reset(&angles[0], &angles[1], &angles[2], 0.0f,
+            const auto changed = imgui_drag_with_reset(&angles[0], &angles[1], &angles[2], 0.0f, std::nullopt,
                     "Y", "P", "R", Drags{.v_speed = 1.0f, .v_min = -360.0f, .v_max = 360.0f }
                 );
 
