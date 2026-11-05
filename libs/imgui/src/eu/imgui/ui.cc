@@ -300,7 +300,7 @@ namespace eu::imgui
         }
 
         // https://anttweakbar.sourceforge.io/doc/tools_anttweakbar_rotoslider.html
-        bool gear_icon(const char* label, float* drag, const ImVec2& size)
+        bool gear_functionality(float* drag)
         {
             static std::optional<GearState> state = std::nullopt;
 
@@ -314,7 +314,6 @@ namespace eu::imgui
 
             const auto mp = ImGui::GetMousePos();
 
-            ImGui::Button(label, size);
             const auto id = ImGui::GetItemID();
             const auto active = ImGui::IsItemActive();
 
@@ -408,6 +407,12 @@ namespace eu::imgui
             }
 
             return changed;
+        }
+
+        bool gear_icon(const char* label, float* drag, const ImVec2& size)
+        {
+            ImGui::Button(label, size);
+            return gear_functionality(drag);
         }
 
         struct CompoundWidget
@@ -1061,7 +1066,7 @@ static ImVec2 calculate_square_button_size()
 
 static bool imgui_drag_with_reset(
     float* xval, float* yval, float* zval,
-    float resetValue, std::optional<float> extra_spacing,
+    float reset_value, std::optional<float> extra_spacing,
     const char* xlabel, const char* ylabel, const char* zlabel,
     const Drags& drags = Drags{}
 )
@@ -1133,11 +1138,19 @@ static bool imgui_drag_with_reset(
         }
     };
 
-    const auto draw_component = [&button_size, resetValue, &changed, &drags](const ButtonStyle& style, const char* label, float* val, const char* id)
+    const auto draw_component = [&button_size, reset_value, &changed, &drags](const ButtonStyle& style, const char* label, float* val, const char* id)
         {
-            if (styled_button(style, label, button_size))
+            // ImGui::Button(label, button_size);
+            const auto button_clicked = styled_button(style, label, button_size);
+
+            if (gear_functionality(val))
             {
-                *val = resetValue;
+                changed = true;
+            }
+
+            if (button_clicked)
+            {
+                *val = reset_value;
                 changed = true;
             }
             const auto min = ImGui::GetItemRectMin();
