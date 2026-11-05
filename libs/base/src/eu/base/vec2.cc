@@ -6,6 +6,21 @@
 #include "eu/assert/assert.h"
 
 
+namespace internal
+{
+    namespace
+    {
+        using namespace eu;
+
+        float
+        length_squared_from(const n2& n)
+        {
+            return n.x * n.x + n.y * n.y;
+        }
+    }
+}
+
+
 namespace eu
 {
     v2::v2(const std::tuple<float, float>& a)
@@ -164,16 +179,10 @@ namespace eu
         return n2{-x, -y};
     }
 
-    float
-    length_squared_from(const n2& n)
-    {
-        return n.x * n.x + n.y * n.y;
-    }
-
     [[nodiscard]] bool
     n2::is_valid() const
     {
-        return is_equal(length_squared_from(*this), 1.0f);
+        return is_equal(internal::length_squared_from(*this), 1.0f);
     }
 
     n2::n2(float ax, float ay) : x(ax), y(ay)

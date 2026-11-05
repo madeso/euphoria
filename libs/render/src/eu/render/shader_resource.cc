@@ -3,13 +3,122 @@
 #include "eu/assert/assert.h"
 
 
-
 #include "eu/render/camera.h"
 #include "eu/render/constants.h"
 #include "eu/render/fullscreen.h"
 #include "eu/render/render_settings.h"
 #include "eu/render/shader.h"
 #include "eu/render/shader.source.h"
+
+
+namespace internal
+{
+    namespace
+    {
+        using namespace eu;
+        using namespace eu::render;
+
+
+        std::optional<Uniform> get_uniform(
+            ShaderProgram& prog, const std::string& name, PostProcSetup setup, PostProcSetup flag
+        )
+        {
+            if (is_flag_set(setup, flag))
+            {
+                return prog.get_uniform(name);
+            }
+            else
+            {
+                return std::nullopt;
+            }
+        }
+
+
+        using BaseShaderData = std::vector<core::VertexType>;
+
+
+
+        template<std::size_t count>
+        BaseShaderData get_vertex_types(const std::array<const core::ShaderVertexAttributes*, count>& vas)
+        {
+            std::set<core::VertexType> unique_types;
+            auto ret = BaseShaderData{};
+            for (const auto& va : vas)
+            {
+                for (const auto& v : *va)
+                {
+                    const auto [_, is_unique] = unique_types.insert(v.type);
+                    if (is_unique)
+                    {
+                        ret.emplace_back(v.type);
+                    }
+                }
+            }
+            return ret;
+        }
+
+
+
+        // todo(Gustav): should this be a tuple instead? this way the members are named
+        struct LoadedShader
+        {
+            LoadedShader(std::shared_ptr<ShaderProgram> p, core::CompiledGeomVertexAttributes l)
+                : program(std::move(p))
+                , geom_layout(std::move(l))
+            {}
+
+            std::shared_ptr<ShaderProgram> program;
+            core::CompiledGeomVertexAttributes geom_layout;
+        };
+
+        std::optional<int> get_instance_start_index(const LoadedShader* shader)
+        {
+            if (shader == nullptr)
+            {
+                return std::nullopt;
+            }
+
+            const core::CompiledGeomVertexAttributes& layout = shader->geom_layout;
+
+            int max = 0;
+
+            for (const auto& entry : layout.elements)
+            {
+                max = std::max(entry.index, max);
+            }
+
+            return max + 1;
+        }
+
+        LoadedShader load_shader(DEBUG_LABEL_ARG_MANY const BaseShaderData& base_layout, const ShaderSource_withLayout& source, TransformSource model_source, const LoadedShader* instance_base = nullptr)
+        {
+            auto layout_compiler = compile_attribute_layouts(base_layout, { source.layout });
+            const auto geom_layout = get_geom_layout(layout_compiler);
+
+            std::optional<core::InstanceProp> instance_prop = std::nullopt;
+            std::optional<int> start_index = std::nullopt;
+            switch (model_source)
+            {
+            case TransformSource::instanced_mat4:
+                instance_prop = core::InstanceProp
+                {
+                    .type = core::VertexType::instance_transform,
+                    .name = "u_world_from_local"
+                };
+                start_index = get_instance_start_index(instance_base);
+                break;
+            case TransformSource::uniform: break;
+            default: ASSERT(false && "unhandled ModelSource");
+            }
+
+            const auto compiled_layout = compile_shader_layout(layout_compiler, source.layout, instance_prop, start_index);
+
+            auto program = std::make_shared<ShaderProgram>(USE_DEBUG_LABEL_MANY(debug_label) source.vertex, source.fragment, compiled_layout);
+
+            return { program, geom_layout };
+        }
+    }
+}
 
 
 namespace eu::render
@@ -121,28 +230,15 @@ PostProcSetup operator|(PostProcSetup lhs, PostProcSetup rhs)
 
 
 
-std::optional<Uniform> get_uniform(
-	ShaderProgram& prog, const std::string& name, PostProcSetup setup, PostProcSetup flag
-)
-{
-	if (is_flag_set(setup, flag))
-	{
-		return prog.get_uniform(name);
-	}
-	else
-	{
-		return std::nullopt;
-	}
-}
 
 
 
 LoadedPostProcShader::LoadedPostProcShader(std::shared_ptr<ShaderProgram> s, PostProcSetup setup)
 	: program(std::move(s))
 	, tex_input_uniform(program->get_uniform("u_texture"))
-	, factor_uni(get_uniform(*program, "u_factor", setup, PostProcSetup::factor))
-	, resolution_uni(get_uniform(*program, "u_resolution", setup, PostProcSetup::resolution))
-	, time_uni(get_uniform(*program, "u_time", setup, PostProcSetup::time))
+	, factor_uni(internal::get_uniform(*program, "u_factor", setup, PostProcSetup::factor))
+	, resolution_uni(internal::get_uniform(*program, "u_resolution", setup, PostProcSetup::resolution))
+	, time_uni(internal::get_uniform(*program, "u_time", setup, PostProcSetup::time))
 {
 	setup_textures(program.get(), {&tex_input_uniform});
 }
@@ -279,88 +375,6 @@ bool ShaderResource::is_loaded() const
 
 
 
-using BaseShaderData = std::vector<core::VertexType>;
-
-
-
-template<std::size_t count>
-BaseShaderData get_vertex_types(const std::array<const core::ShaderVertexAttributes*, count>& vas)
-{
-	std::set<core::VertexType> unique_types;
-	auto ret = BaseShaderData{};
-	for (const auto& va: vas)
-	{
-		for (const auto& v: *va)
-		{
-			const auto [_, is_unique] = unique_types.insert(v.type);
-			if (is_unique)
-			{
-				ret.emplace_back(v.type);
-			}
-		}
-	}
-	return ret;
-}
-
-
-
-// todo(Gustav): should this be a tuple instead? this way the members are named
-struct LoadedShader
-{
-	LoadedShader(std::shared_ptr<ShaderProgram> p, core::CompiledGeomVertexAttributes l)
-		: program(std::move(p))
-		, geom_layout(std::move(l))
-	{}
-
-	std::shared_ptr<ShaderProgram> program;
-    core::CompiledGeomVertexAttributes geom_layout;
-};
-
-std::optional<int> get_instance_start_index(const LoadedShader* shader)
-{
-	if (shader == nullptr)
-	{
-		return std::nullopt;
-	}
-
-	const core::CompiledGeomVertexAttributes& layout = shader->geom_layout;
-
-	int max = 0;
-
-	for (const auto& entry: layout.elements)
-	{
-		max = std::max(entry.index, max);
-	}
-
-	return max + 1;
-}
-
-LoadedShader load_shader(DEBUG_LABEL_ARG_MANY const BaseShaderData& base_layout, const ShaderSource_withLayout& source, TransformSource model_source, const LoadedShader* instance_base = nullptr)
-{
-	auto layout_compiler = compile_attribute_layouts(base_layout, {source.layout});
-	const auto geom_layout = get_geom_layout(layout_compiler);
-
-	std::optional<core::InstanceProp> instance_prop = std::nullopt;
-	std::optional<int> start_index = std::nullopt;
-	switch (model_source)
-	{
-	case TransformSource::instanced_mat4:
-		instance_prop = core::InstanceProp{core::VertexType::instance_transform, "u_world_from_local"};
-		start_index = get_instance_start_index(instance_base);
-		break;
-	case TransformSource::uniform: break;
-	default: ASSERT(false && "unhandled ModelSource");
-	}
-
-	const auto compiled_layout = compile_shader_layout(layout_compiler, source.layout, instance_prop, start_index);
-
-	auto program = std::make_shared<ShaderProgram>(USE_DEBUG_LABEL_MANY(debug_label) source.vertex, source.fragment, compiled_layout);
-
-	return {program, geom_layout};
-}
-
-
-
 ShaderResource load_shaders(const Assets& assets, const CameraUniformBuffer& desc, const RenderSettings& settings, const FullScreenGeom& full_screen)
 {
     const auto& default_shader_source = assets.default_shader_source;
@@ -375,10 +389,18 @@ ShaderResource load_shaders(const Assets& assets, const CameraUniformBuffer& des
 
 	const auto skybox_source = load_skybox_source(skybox_shader_source, desc.setup.source);
 	const auto skybox_shader = ShaderSource_withLayout{
-        core::ShaderVertexAttributes{{core::VertexType::position3, "a_position"}}, skybox_source.vertex, skybox_source.fragment
+        .layout = core::ShaderVertexAttributes
+	    {
+	        {
+	            .type = core::VertexType::position3,
+                .name = "a_position"
+	        }
+	    },
+        .vertex = skybox_source.vertex,
+        .fragment = skybox_source.fragment
 	};
 
-	const BaseShaderData global_shader_data = get_vertex_types<3>
+	const internal::BaseShaderData global_shader_data = internal::get_vertex_types<3>
 		({
 			&single_color_shader.layout,
 			&depth_transform_uniform.layout, 
@@ -395,30 +417,30 @@ ShaderResource load_shaders(const Assets& assets, const CameraUniformBuffer& des
 	default_shader_options.number_of_point_lights = settings.number_of_point_lights;
 	default_shader_options.number_of_frustum_lights = settings.number_of_frustum_lights;
 
-	auto loaded_unlit = load_shader(
+	auto loaded_unlit = internal::load_shader(
 		USE_DEBUG_LABEL_MANY("unlit")
 		global_shader_data,
 		load_shader_source(default_shader_source, unlit_shader_options.with_transparent_cutoff(), desc.setup.source),
 		TransformSource::uniform
 	);
-	auto loaded_default = load_shader(
+	auto loaded_default = internal::load_shader(
 		USE_DEBUG_LABEL_MANY("default")
 		global_shader_data,
 		load_shader_source(default_shader_source, default_shader_options.with_transparent_cutoff(), desc.setup.source),
 		TransformSource::uniform
 	);
-	auto loaded_default_instanced = load_shader(
+	auto loaded_default_instanced = internal::load_shader(
 		USE_DEBUG_LABEL_MANY("default instanced")
 		global_shader_data,
 		load_shader_source(default_shader_source, default_shader_options.with_transparent_cutoff().with_instanced_mat4(), desc.setup.source),
 		TransformSource::instanced_mat4
 	);
 
-	auto loaded_unlit_transparency = load_shader(
+	auto loaded_unlit_transparency = internal::load_shader(
 		USE_DEBUG_LABEL_MANY("unlit transparency")
 		global_shader_data, load_shader_source(default_shader_source, unlit_shader_options, desc.setup.source), TransformSource::uniform
 	);
-	auto loaded_default_transparency = load_shader(
+	auto loaded_default_transparency = internal::load_shader(
 		USE_DEBUG_LABEL_MANY("default transparency")
 		global_shader_data, load_shader_source(default_shader_source, default_shader_options, desc.setup.source), TransformSource::uniform
 	);
@@ -430,8 +452,7 @@ ShaderResource load_shaders(const Assets& assets, const CameraUniformBuffer& des
 		loaded_default.geom_layout.debug_types == loaded_default_instanced.geom_layout.debug_types
 	);	// is this valid? should this fail?
 
-#if 0
-
+#if TODO_ADD_CUSTOM_EFFECTS
 	auto pp_invert = std::make_shared<LoadedPostProcShader>(
 		std::make_shared<ShaderProgram>(
 			USE_DEBUG_LABEL_MANY("pp invert")
@@ -503,17 +524,17 @@ ShaderResource load_shaders(const Assets& assets, const CameraUniformBuffer& des
 		PostProcSetup::none
 	)};
 
-	auto loaded_single_color = load_shader(
+	auto loaded_single_color = internal::load_shader(
 		USE_DEBUG_LABEL_MANY("single color") global_shader_data, single_color_shader, TransformSource::uniform
 	);
-	auto loaded_depth_transform_uniform = load_shader(
+	auto loaded_depth_transform_uniform = internal::load_shader(
 		USE_DEBUG_LABEL_MANY("depth transform uniform") global_shader_data, depth_transform_uniform, TransformSource::uniform
 	);
 	auto loaded_depth_transform_instanced_mat4 = load_shader(
 		USE_DEBUG_LABEL_MANY("depth transform instanced") global_shader_data, depth_transform_instanced_mat4, TransformSource::instanced_mat4, &loaded_default_instanced
 	);
 	auto loaded_skybox_shader
-		= load_shader(USE_DEBUG_LABEL_MANY("skybox"){}, skybox_shader, TransformSource::uniform);
+		= internal::load_shader(USE_DEBUG_LABEL_MANY("skybox"){}, skybox_shader, TransformSource::uniform);
 
 
 	return ShaderResource{
@@ -532,15 +553,15 @@ ShaderResource load_shaders(const Assets& assets, const CameraUniformBuffer& des
 		},
 		.skybox_shader = LoadedShader_Skybox{std::move(loaded_skybox_shader.program), loaded_skybox_shader.geom_layout, desc},
 		.unlit_shader_container = LoadedShader_Unlit_Container{
-			loaded_unlit.geom_layout,
-			LoadedShader_Unlit{TransformSource::uniform, std::move(loaded_unlit.program), desc},
-			LoadedShader_Unlit{TransformSource::uniform, std::move(loaded_unlit_transparency.program), desc}
+            .geom_layout = loaded_unlit.geom_layout,
+            .default_shader = LoadedShader_Unlit{TransformSource::uniform, std::move(loaded_unlit.program), desc},
+            .transparency_shader = LoadedShader_Unlit{TransformSource::uniform, std::move(loaded_unlit_transparency.program), desc}
 		},
 		.default_shader_container = LoadedShader_Default_Container{
-			loaded_default.geom_layout,
-			LoadedShader_Default{TransformSource::uniform, std::move(loaded_default.program), settings, desc},
-			LoadedShader_Default{TransformSource::uniform, std::move(loaded_default_transparency.program), settings, desc},
-			LoadedShader_Default{TransformSource::instanced_mat4, std::move(loaded_default_instanced.program), settings, desc}
+            .geom_layout = loaded_default.geom_layout,
+            .default_shader = LoadedShader_Default{TransformSource::uniform, std::move(loaded_default.program), settings, desc},
+            .transparency_shader = LoadedShader_Default{TransformSource::uniform, std::move(loaded_default_transparency.program), settings, desc},
+            .default_shader_instance = LoadedShader_Default{TransformSource::instanced_mat4, std::move(loaded_default_instanced.program), settings, desc}
 		},
 		// .pp_invert = pp_invert,
 		// .pp_grayscale = pp_grayscale,

@@ -16,6 +16,229 @@
 using namespace std::literals;
 
 
+namespace internal
+{
+    namespace
+    {
+        using namespace eu;
+        using namespace eu::render;
+
+
+        void add_vertex(SpriteBatch* batch, const Vertex2& v)
+        {
+            batch->data.push_back(v.position.x);
+            batch->data.push_back(v.position.y);
+            batch->data.push_back(v.position.z);
+
+            batch->data.push_back(v.color.rgb.r);
+            batch->data.push_back(v.color.rgb.g);
+            batch->data.push_back(v.color.rgb.b);
+            batch->data.push_back(v.color.alpha);
+
+            batch->data.push_back(v.texturecoord.x);
+            batch->data.push_back(v.texturecoord.y);
+        }
+
+
+
+        struct ViewportDef
+        {
+            Rect screen_rect;
+
+            float virtual_width;
+            float virtual_height;
+        };
+
+
+        ViewportDef
+        fit_with_black_bars
+            (
+                float width,
+                float height,
+                int window_width,
+                int window_height
+            )
+        {
+            ASSERTX(width > 0, width);
+            ASSERTX(height > 0, height);
+            ASSERTX(window_width >= 0, window_width);
+            ASSERTX(window_height >= 0, window_height);
+            const float w = float_from_int(window_width) / width;
+            const float h = float_from_int(window_height) / height;
+            const float s = std::min(w, h);
+            ASSERTX(s > 0, s, w, h);
+            const float new_width = width * s;
+            const float new_height = height * s;
+
+            return ViewportDef
+            {
+                .screen_rect = Rect::from_size({new_width, new_height}).with_bottom_left_at
+                ({
+                    (float_from_int(window_width) - new_width) / 2.0f,
+                    (float_from_int(window_height) - new_height) / 2.0f
+                }),
+                .virtual_width = width,
+                .virtual_height = height
+            };
+        }
+
+
+        float
+        determine_extend_scale(float scale, float height, int window_height)
+        {
+            const auto scaled_height = height * scale;
+            const auto s = static_cast<float>(window_height) / scaled_height;
+            return s;
+        }
+
+
+        ViewportDef
+        extended_viewport
+            (
+                float width,
+                float height,
+                int window_width,
+                int window_height
+            )
+        {
+            ASSERTX(width >= 0, width);
+            ASSERTX(height >= 0, height);
+            ASSERTX(window_width >= 0, window_width);
+            ASSERTX(window_height >= 0, window_height);
+            const auto w = float_from_int(window_width) / width;
+            const auto h = float_from_int(window_height) / height;
+            const auto r = Rect::from_size({ float_from_int(window_width), float_from_int(window_height) }).with_bottom_left_at({ 0, 0 });
+            if (w < h)
+            {
+                const auto s = determine_extend_scale(w, height, window_height);
+                return ViewportDef{ .screen_rect = r, .virtual_width = width, .virtual_height = height * s };
+            }
+            else
+            {
+                const auto s = determine_extend_scale(h, width, window_width);
+                return ViewportDef{ .screen_rect = r, .virtual_width = width * s, .virtual_height = height };
+            }
+        }
+
+
+        float lerp(float lhs, float t, float rhs)
+        {
+            return lhs + t * (rhs - lhs);
+        }
+
+        Rect lerp(const Rect& lhs, float t, const Rect& rhs)
+        {
+#define V(x) lerp(lhs.x, t, rhs.x)
+            return Rect::from_left_right_top_bottom
+            (
+                V(left),
+                V(right),
+                V(top),
+                V(bottom)
+            );
+#undef V
+        }
+
+
+        [[nodiscard]]
+        ViewportDef
+        lerp
+            (
+                const ViewportDef& lhs,
+                float t,
+                const ViewportDef& rhs
+            )
+        {
+#define V(x) lerp(lhs.x, t, rhs.x)
+            return
+            {
+                .screen_rect = V(screen_rect),
+                .virtual_width = V(virtual_width),
+                .virtual_height = V(virtual_height)
+            };
+#undef V
+        }
+
+
+        Layer create_layer(const ViewportDef& vp)
+        {
+            return { .viewport_aabb_in_worldspace = Rect::from_size({vp.virtual_width, vp.virtual_height}), .screen = vp.screen_rect };
+        }
+
+
+        RenderLayer2 create_layer2(const RenderCommand& rc, const ViewportDef& vp)
+        {
+            set_gl_viewport(vp.screen_rect);
+
+            // prepare for 2d rendering
+            StateChanger{ rc.states }
+                .depth_test(false)
+                .blend_mode(Blend::src_alpha, Blend::one_minus_src_alpha)
+                .blending(true);
+
+            const auto camera = m4_identity;
+            const auto projection = m4::create_ortho_lrud(0.0f, vp.virtual_width, vp.virtual_height, 0.0f, -1.0f, 1.0f);
+
+            rc.render->quad_shader.use();
+            rc.render->quad_shader.set_mat(rc.render->view_projection_uniform, projection);
+            rc.render->quad_shader.set_mat(rc.render->transform_uniform, camera);
+
+            // todo(Gustav): transform viewport according to the camera
+            return RenderLayer2{ create_layer(vp), &rc.render->batch };
+        }
+
+        RenderLayer3 create_layer3(const RenderCommand&, const ViewportDef& vp)
+        {
+            // set_gl_viewport(vp.screen_rect);
+
+            // todo(Gustav): prepare states for 3d rendering
+            // StateChanger{rc.states}.depth_test(true).blending(false);
+
+            return RenderLayer3{ create_layer(vp) };
+        }
+
+
+        ViewportDef create_viewport(const LayoutData& ld, const Size& size)
+        {
+            if (ld.style == ViewportStyle::black_bars)
+            {
+                return fit_with_black_bars(ld.requested_width, ld.requested_height, size.width, size.height);
+            }
+            else
+            {
+                return extended_viewport(ld.requested_width, ld.requested_height, size.width, size.height);
+            }
+        }
+
+
+        ViewportDef create_viewport(const LerpData& ld, const Size& size)
+        {
+            return lerp
+            (
+                create_viewport(ld.lhs, size),
+                ld.t,
+                create_viewport(ld.rhs, size)
+            );
+        }
+
+
+        bool
+        is_fullscreen(const LerpData& ld)
+        {
+            if (ld.lhs.style == ld.rhs.style || (ld.t <= 0.0f || ld.t >= 1.0f))
+            {
+                const auto style = ld.t >= 1.0f ? ld.rhs.style : ld.lhs.style;
+                return style == ViewportStyle::extended;
+            }
+
+            return false;
+        }
+    }
+}
+
+
+
+
 namespace eu::render
 {
 
@@ -104,21 +327,6 @@ SpriteBatch::~SpriteBatch()
 }
 
 
-void add_vertex(SpriteBatch* batch, const Vertex2& v)
-{
-    batch->data.push_back(v.position.x);
-    batch->data.push_back(v.position.y);
-    batch->data.push_back(v.position.z);
-
-    batch->data.push_back(v.color.rgb.r);
-    batch->data.push_back(v.color.rgb.g);
-    batch->data.push_back(v.color.rgb.b);
-    batch->data.push_back(v.color.alpha);
-
-    batch->data.push_back(v.texturecoord.x);
-    batch->data.push_back(v.texturecoord.y);
-}
-
 void SpriteBatch::quad(std::optional<const Texture2d*> texture_argument, const Vertex2& v0, const Vertex2& v1, const Vertex2& v2, const Vertex2& v3)
 {
     const Texture2d* texture = texture_argument.value_or(&white_texture);
@@ -140,10 +348,10 @@ void SpriteBatch::quad(std::optional<const Texture2d*> texture_argument, const V
 
     quads += 1;
 
-    add_vertex(this, v0);
-    add_vertex(this, v1);
-    add_vertex(this, v2);
-    add_vertex(this, v3);
+    internal::add_vertex(this, v0);
+    internal::add_vertex(this, v1);
+    internal::add_vertex(this, v2);
+    internal::add_vertex(this, v3);
 }
 
 void Quad::draw(SpriteBatch* batch, const Rect& scr)
@@ -265,128 +473,6 @@ Render2::Render2(State* states)
 }
 
 
-struct ViewportDef
-{
-    Rect screen_rect;
-
-    float virtual_width;
-    float virtual_height;
-};
-
-
-ViewportDef
-fit_with_black_bars
-(
-    float width,
-    float height,
-    int window_width,
-    int window_height
-)
-{
-    ASSERTX(width > 0, width);
-    ASSERTX(height > 0, height);
-    ASSERTX(window_width >= 0, window_width);
-    ASSERTX(window_height >= 0, window_height);
-    const float w = float_from_int(window_width) / width;
-    const float h = float_from_int(window_height) / height;
-    const float s = std::min(w, h);
-    ASSERTX(s > 0, s, w, h);
-    const float new_width = width * s;
-    const float new_height = height * s;
-
-    return ViewportDef
-    {
-        .screen_rect = Rect::from_size({new_width, new_height}).with_bottom_left_at
-        ({
-            (float_from_int(window_width) - new_width) / 2.0f,
-            (float_from_int(window_height) - new_height) / 2.0f
-        }),
-        .virtual_width = width,
-        .virtual_height = height
-    };
-}
-
-
-float
-determine_extend_scale(float scale, float height, int window_height)
-{
-    const auto scaled_height = height * scale;
-    const auto s = static_cast<float>(window_height) / scaled_height;
-    return s;
-}
-
-
-ViewportDef
-extended_viewport
-(
-    float width,
-    float height,
-    int window_width,
-    int window_height
-)
-{
-    ASSERTX(width >= 0, width);
-    ASSERTX(height >= 0, height);
-    ASSERTX(window_width >= 0, window_width);
-    ASSERTX(window_height >= 0, window_height);
-    const auto w = float_from_int(window_width) / width;
-    const auto h = float_from_int(window_height) / height;
-    const auto r = Rect::from_size({float_from_int(window_width), float_from_int(window_height)}).with_bottom_left_at({ 0, 0 });
-    if(w < h)
-    {
-        const auto s = determine_extend_scale(w, height, window_height);
-        return ViewportDef {.screen_rect = r, .virtual_width = width, .virtual_height = height * s};
-    }
-    else
-    {
-        const auto s = determine_extend_scale(h, width, window_width);
-        return ViewportDef {.screen_rect = r, .virtual_width = width * s, .virtual_height = height};
-    }
-}
-
-
-namespace
-{
-    float lerp(float lhs, float t, float rhs)
-    {
-        return lhs + t * (rhs - lhs);
-    }
-
-    Rect lerp(const Rect& lhs, float t, const Rect& rhs)
-    {
-        #define V(x) lerp(lhs.x, t, rhs.x)
-        return Rect::from_left_right_top_bottom
-        (
-            V(left),
-            V(right),
-            V(top),
-            V(bottom)
-        );
-        #undef V
-    }
-}
-
-
-[[nodiscard]]
-ViewportDef
-lerp
-(
-    const ViewportDef& lhs,
-    float t,
-    const ViewportDef& rhs
-)
-{
-    #define V(x) lerp(lhs.x, t, rhs.x)
-    return
-    {
-        .screen_rect = V(screen_rect),
-        .virtual_width = V(virtual_width),
-        .virtual_height = V(virtual_height)
-    };
-    #undef V
-}
-
-
 RenderLayer2::~RenderLayer2()
 {
     batch->submit();
@@ -404,76 +490,12 @@ RenderLayer3::RenderLayer3(const Layer& l)
 {
 }
 
-
-Layer create_layer(const ViewportDef& vp)
-{
-    return {.viewport_aabb_in_worldspace = Rect::from_size({vp.virtual_width, vp.virtual_height}), .screen = vp.screen_rect};
-}
-
-
-RenderLayer2 create_layer2(const RenderCommand& rc, const ViewportDef& vp)
-{
-    set_gl_viewport(vp.screen_rect);
-    
-    // prepare for 2d rendering
-    StateChanger{rc.states}
-        .depth_test(false)
-        .blend_mode(Blend::src_alpha, Blend::one_minus_src_alpha)
-        .blending(true);
-
-    const auto camera = m4_identity;
-    const auto projection = m4::create_ortho_lrud(0.0f, vp.virtual_width, vp.virtual_height, 0.0f, -1.0f, 1.0f);
-
-    rc.render->quad_shader.use();
-    rc.render->quad_shader.set_mat(rc.render->view_projection_uniform, projection);
-    rc.render->quad_shader.set_mat(rc.render->transform_uniform, camera);
-
-    // todo(Gustav): transform viewport according to the camera
-    return RenderLayer2{create_layer(vp), &rc.render->batch};
-}
-
-RenderLayer3 create_layer3(const RenderCommand&, const ViewportDef& vp)
-{
-    // set_gl_viewport(vp.screen_rect);
-    
-    // todo(Gustav): prepare states for 3d rendering
-    // StateChanger{rc.states}.depth_test(true).blending(false);
-
-    return RenderLayer3{create_layer(vp)};
-}
-
-
 v2 Layer::mouse_to_world(const v2& p) const
 {
     // transform from mouse pixels to window 0-1
     const auto n = to_01(screen, p);
     return from_01(viewport_aabb_in_worldspace, n);
 }
-
-
-ViewportDef create_viewport(const LayoutData& ld, const Size& size)
-{
-    if(ld.style==ViewportStyle::black_bars)
-    {
-        return fit_with_black_bars(ld.requested_width, ld.requested_height, size.width, size.height);
-    }
-    else
-    {
-        return extended_viewport(ld.requested_width, ld.requested_height, size.width, size.height);
-    }
-}
-
-
-ViewportDef create_viewport(const LerpData& ld, const Size& size)
-{
-    return lerp
-    (
-        create_viewport(ld.lhs, size),
-        ld.t,
-        create_viewport(ld.rhs, size)
-    );
-}
-
 
 void
 RenderCommand::clear(const Rgb& color, const LayoutData& ld) const
@@ -491,23 +513,12 @@ RenderCommand::clear(const Rgb& color, const LayoutData& ld) const
 }
 
 
-bool
-is_fullscreen(const LerpData& ld)
-{
-    if(ld.lhs.style == ld.rhs.style || (ld.t <= 0.0f || ld.t >= 1.0f))
-    {
-        const auto style = ld.t >= 1.0f ? ld.rhs.style : ld.lhs.style;
-        return style == ViewportStyle::extended;
-    }
-
-    return false;
-}
 
 
 void
 RenderCommand::clear(const Rgb& color, const LerpData& ld) const
 {
-    if(is_fullscreen(ld))
+    if(internal::is_fullscreen(ld))
     {
         glClearColor(color.r, color.g, color.b, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
@@ -522,22 +533,22 @@ RenderCommand::clear(const Rgb& color, const LerpData& ld) const
 
 RenderLayer2 with_layer2(const RenderCommand& rc, const LayoutData& ld)
 {
-    const auto vp = create_viewport(ld, rc.size);
-    return create_layer2(rc, vp);
+    const auto vp = internal::create_viewport(ld, rc.size);
+    return internal::create_layer2(rc, vp);
 }
 
 
 RenderLayer3 with_layer3(const RenderCommand& rc, const LayoutData& ld)
 {
-    const auto vp = create_viewport(ld, rc.size);
-    return create_layer3(rc, vp);
+    const auto vp = internal::create_viewport(ld, rc.size);
+    return internal::create_layer3(rc, vp);
 }
 
 
 Layer with_layer(const InputCommand& rc, const LayoutData& ld)
 {
-    const auto vp = create_viewport(ld, rc.size);
-    return create_layer(vp);
+    const auto vp = internal::create_viewport(ld, rc.size);
+    return internal::create_layer(vp);
 }
 
 
@@ -546,22 +557,22 @@ Layer with_layer(const InputCommand& rc, const LayoutData& ld)
 
 RenderLayer2 with_layer2(const RenderCommand& rc, const LerpData& ld)
 {
-    const auto vp = create_viewport(ld, rc.size);
-    return create_layer2(rc, vp);
+    const auto vp = internal::create_viewport(ld, rc.size);
+    return internal::create_layer2(rc, vp);
 }
 
 
 RenderLayer3 with_layer3(const RenderCommand& rc, const LerpData& ld)
 {
-    const auto vp = create_viewport(ld, rc.size);
-    return create_layer3(rc, vp);
+    const auto vp = internal::create_viewport(ld, rc.size);
+    return internal::create_layer3(rc, vp);
 }
 
 
 Layer with_layer(const InputCommand& rc, const LerpData& ld)
 {
-    const auto vp = create_viewport(ld, rc.size);
-    return create_layer(vp);
+    const auto vp = internal::create_viewport(ld, rc.size);
+    return internal::create_layer(vp);
 }
 
 }

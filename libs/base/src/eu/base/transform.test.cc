@@ -8,7 +8,7 @@ using namespace eu::tests;
 using namespace eu;
 
 // todo(Gustav): too many tests? remove duplicates?
-#if 0
+#ifdef TODO_REMOVE_DUPLICATES
 TEST_CASE("transform-identity", "[transform]")
 {
     constexpr auto src = Transform
