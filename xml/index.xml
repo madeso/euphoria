@@ -2397,7 +2397,7 @@
     <member refid="group__geom-builder_1ggac6f831c259b84253f395b1ef239dcf33aefeb369cccbd560588a756610865664c" kind="enumvalue"><name>In</name></member>
     <member refid="group__geom-builder_1ggac6f831c259b84253f395b1ef239dcf33a7c147cda9e49590f6abe83d118b7353b" kind="enumvalue"><name>Out</name></member>
     <member refid="group__geom-builder_1ga5e464d0d67d6ed4c57fed1a834e23741" kind="enum"><name>ExtractedAttributeType</name></member>
-    <member refid="group__geom-builder_1gga5e464d0d67d6ed4c57fed1a834e23741a22ae0e2b89e5e3d477f988cc36d3272b" kind="enumvalue"><name>Float</name></member>
+    <member refid="group__geom-builder_1gga5e464d0d67d6ed4c57fed1a834e23741a909eb2f2282643673abdd584be0bff4d" kind="enumvalue"><name>FloatType</name></member>
     <member refid="group__geom-builder_1gab3d342a617cc37061b9466839a40e222" kind="typedef"><name>Index</name></member>
     <member refid="group__geom-builder_1gaa1f4652aea2012fd2f3720108d8b548a" kind="typedef"><name>Influence4</name></member>
     <member refid="group__geom-builder_1ga6b5f4d952543bb7c1e0b232ffd78e633" kind="function"><name>create_box</name></member>
