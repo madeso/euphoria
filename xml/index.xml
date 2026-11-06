@@ -1718,7 +1718,7 @@
     <member refid="namespaceeu_1a8d6cdbd18794e2cd97ec34c12c240478" kind="function"><name>gamut_clip_preserve_chroma</name></member>
     <member refid="namespaceeu_1abdcfba2a48039578217f2b963b90825b" kind="function"><name>gamut_clip_project_to_0_5</name></member>
     <member refid="namespaceeu_1acaf1c38abc7de32afeceea053b3c0447" kind="function"><name>gamut_clip_project_to_l_cusp</name></member>
-    <member refid="namespaceeu_1afe08c4e62d23186e400cdb07c5f435c0" kind="function"><name>gamut_clip_adaptive_L0_0_5</name></member>
+    <member refid="namespaceeu_1a85d1c8aa24de3710be2d645b125c518e" kind="function"><name>gamut_clip_adaptive_l0_0_5</name></member>
     <member refid="namespaceeu_1a75d44af5584b46c6409c2185f936acba" kind="function"><name>gamut_clip_adaptive_l0_l_cusp</name></member>
     <member refid="namespaceeu_1a63babf486a08b24dd41e1b58bbe8db21" kind="function"><name>srgb_from_okhsv</name></member>
     <member refid="namespaceeu_1a6e5f403b34cdd24b76e974131e0178f9" kind="function"><name>okhsv_from_srgb</name></member>
@@ -2397,7 +2397,7 @@
     <member refid="group__geom-builder_1ggac6f831c259b84253f395b1ef239dcf33aefeb369cccbd560588a756610865664c" kind="enumvalue"><name>In</name></member>
     <member refid="group__geom-builder_1ggac6f831c259b84253f395b1ef239dcf33a7c147cda9e49590f6abe83d118b7353b" kind="enumvalue"><name>Out</name></member>
     <member refid="group__geom-builder_1ga5e464d0d67d6ed4c57fed1a834e23741" kind="enum"><name>ExtractedAttributeType</name></member>
-    <member refid="group__geom-builder_1gga5e464d0d67d6ed4c57fed1a834e23741a909eb2f2282643673abdd584be0bff4d" kind="enumvalue"><name>FloatType</name></member>
+    <member refid="group__geom-builder_1gga5e464d0d67d6ed4c57fed1a834e23741afd7170216efb2a7d32648e80919fb0ff" kind="enumvalue"><name>float_type</name></member>
     <member refid="group__geom-builder_1gab3d342a617cc37061b9466839a40e222" kind="typedef"><name>Index</name></member>
     <member refid="group__geom-builder_1gaa1f4652aea2012fd2f3720108d8b548a" kind="typedef"><name>Influence4</name></member>
     <member refid="group__geom-builder_1ga6b5f4d952543bb7c1e0b232ffd78e633" kind="function"><name>create_box</name></member>

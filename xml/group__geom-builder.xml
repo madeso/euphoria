@@ -67,8 +67,8 @@
         <type></type>
         <name>ExtractedAttributeType</name>
         <qualifiedname>eu::core::ExtractedAttributeType</qualifiedname>
-        <enumvalue id="group__geom-builder_1gga5e464d0d67d6ed4c57fed1a834e23741a909eb2f2282643673abdd584be0bff4d" prot="public">
-          <name>FloatType</name>
+        <enumvalue id="group__geom-builder_1gga5e464d0d67d6ed4c57fed1a834e23741afd7170216efb2a7d32648e80919fb0ff" prot="public">
+          <name>float_type</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>

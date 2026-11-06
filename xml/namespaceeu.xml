@@ -678,12 +678,12 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/colors.h" line="109" column="9" declfile="libs/base/src/eu/base/colors.h" declline="109" declcolumn="9"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1afe08c4e62d23186e400cdb07c5f435c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeu_1a85d1c8aa24de3710be2d645b125c518e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Lin__rgb" kindref="compound">Lin_rgb</ref></type>
-        <definition>Lin_rgb eu::gamut_clip_adaptive_L0_0_5</definition>
+        <definition>Lin_rgb eu::gamut_clip_adaptive_l0_0_5</definition>
         <argsstring>(const Lin_rgb &amp;rgb, float alpha=0.05f)</argsstring>
-        <name>gamut_clip_adaptive_L0_0_5</name>
-        <qualifiedname>eu::gamut_clip_adaptive_L0_0_5</qualifiedname>
+        <name>gamut_clip_adaptive_l0_0_5</name>
+        <qualifiedname>eu::gamut_clip_adaptive_l0_0_5</qualifiedname>
         <param>
           <type>const <ref refid="structeu_1_1Lin__rgb" kindref="compound">Lin_rgb</ref> &amp;</type>
           <declname>rgb</declname>
