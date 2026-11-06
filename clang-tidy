@@ -130,6 +130,8 @@ readability-identifier-naming
 
 # detects `std::string str = "";` that I think is clearer...
 -readability-redundant-string-init
+# same thing for `Foo foo = {}`
+-readability-redundant-member-init
 
 # false positive...
 # warning: 'long double' type from literal suffix 'L' is not portable and should not be used

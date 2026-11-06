@@ -5,21 +5,26 @@
 #include "lax/lax.h"
 #include "lax/printhandler.h"
 
+namespace internal
+{
+    namespace
+    {
+        struct PrintLaxError : lax::PrintHandler
+        {
+            void on_line(std::string_view line) override
+            {
+                LOG_ERR("> {0}", line);
+            }
+        };
+    }
+}
+
 namespace eu::runner
 {
 
-    
-struct PrintLaxError : lax::PrintHandler
-{
-    void on_line(std::string_view line) override
-    {
-        LOG_ERR("> {0}", line);
-    }
-};
-
 
 Script:: Script()
-: lax(std::make_unique<PrintLaxError>(), [](const std::string& str) { LOG_INFO("> {0}", str); })
+: lax(std::make_unique<internal::PrintLaxError>(), [](const std::string& str) { LOG_INFO("> {0}", str); })
 {
 }
 

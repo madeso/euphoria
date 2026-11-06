@@ -3,7 +3,8 @@
 namespace eu::tests
 {
     
-#if 0
+// todo(Gustav): look into string comparing
+#if TODO_LOOK_INTO_STRING_COMPARES
 // mit from https://github.com/guilhermeagostinelli/levenshtein/blob/master/levenshtein.cpp
 int levenshtein(const std::string& foo, const std::string& bar) {
     const auto foo_size = foo.size();

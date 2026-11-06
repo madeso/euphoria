@@ -452,6 +452,7 @@ ShaderResource load_shaders(const Assets& assets, const CameraUniformBuffer& des
 		loaded_default.geom_layout.debug_types == loaded_default_instanced.geom_layout.debug_types
 	);	// is this valid? should this fail?
 
+// todo(Gustav): add custom rendering effects
 #if TODO_ADD_CUSTOM_EFFECTS
 	auto pp_invert = std::make_shared<LoadedPostProcShader>(
 		std::make_shared<ShaderProgram>(

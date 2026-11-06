@@ -5,13 +5,9 @@
 
 #include <cmath>
 
+
 namespace eu::core
 {
-
-float square(float x)
-{
-	return x * x;
-}
 
 SCurve s_curve_from_input(float mx, float my)
 {

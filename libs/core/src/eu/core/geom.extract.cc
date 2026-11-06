@@ -90,7 +90,7 @@ ExtractedGeom extract_geom(const Geom& geom, const CompiledGeomVertexAttributes&
 			{
 #define MAP(VT, PROP, COUNT) \
 	case VT: \
-		data.attributes.emplace_back(ExtractedAttribute{ExtractedAttributeType::FloatType, COUNT, sizeof(float) * (COUNT)}); \
+		data.attributes.emplace_back(ExtractedAttribute{ExtractedAttributeType::float_type, COUNT, sizeof(float) * (COUNT)}); \
 		data.per_vertex.emplace_back([](ByteBuffer* vertices, const Vertex& vertex) { push##COUNT(vertices, PROP); }); \
 		break
 				MAP(VertexType::position2xy, (v2{vertex.position.x, vertex.position.y}), 2);

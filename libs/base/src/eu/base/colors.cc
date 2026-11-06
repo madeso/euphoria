@@ -487,7 +487,7 @@ Lin_rgb gamut_clip_project_to_l_cusp(const Lin_rgb& rgb)
 }
 
 
-Lin_rgb gamut_clip_adaptive_L0_0_5(const Lin_rgb& rgb, float alpha)
+Lin_rgb gamut_clip_adaptive_l0_0_5(const Lin_rgb& rgb, float alpha)
 {
 	if (rgb.r < 1 && rgb.g < 1 && rgb.b < 1 &&
 		rgb.r > 0 && rgb.g > 0 && rgb.b > 0)

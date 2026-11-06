@@ -45,8 +45,13 @@ TEST_CASE("aa-print", "[aa]")
 
 TEST_CASE("ypr-print", "[angle]")
 {   
-    // todo(Gustav): how reliable are theese tests, switch to regex?
-    const auto h = Ypr{0_deg, 45_deg, 90_deg};
+    // todo(Gustav): how reliable are these tests, switch to regex?
+    const auto h = Ypr
+    {
+        .yaw = 0_deg,
+        .pitch = 45_deg,
+        .roll = 90_deg
+    };
     SECTION("fmt")
     {
         std::string oh = fmt::format("{0}", h);

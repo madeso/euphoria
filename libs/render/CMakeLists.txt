@@ -76,4 +76,3 @@ if(EU_DEBUG_RUNNER)
             external::dear_imgui
     )
 endif()
-

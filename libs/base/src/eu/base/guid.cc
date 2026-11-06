@@ -7,6 +7,81 @@
     #include <uuid/uuid.h>
 #endif
 
+namespace internal
+{
+    namespace
+    {
+        struct Parser
+        {
+            std::string_view str;
+
+            explicit Parser(const std::string_view s) : str(s) {}
+
+            [[nodiscard]] bool has_more() const
+            {
+                return str.empty() == false;
+            }
+
+            char read()
+            {
+                if (has_more() == false)
+                {
+                    return '\0';
+                }
+                const char r = str[0];
+                str = str.substr(1);
+                return r;
+            }
+
+            [[nodiscard]] char peek() const
+            {
+                if (has_more() == false)
+                {
+                    return '\0';
+                }
+                return str[0];
+            }
+
+            void skip(char c)
+            {
+                while (peek() == c)
+                {
+                    read();
+                }
+            }
+
+            void skip_spaces()
+            {
+                skip(' ');
+            }
+
+            static std::optional<uint8_t> as_hex(char c)
+            {
+                if ('0' <= c && c <= '9') { return static_cast<uint8_t>(c - '0'); }
+                if ('a' <= c && c <= 'f') { return static_cast<uint8_t>(10 + (c - 'a')); }
+                if ('A' <= c && c <= 'F') { return static_cast<uint8_t>(10 + (c - 'A')); }
+                return std::nullopt;
+            }
+
+            std::optional<uint8_t> read_hex()
+            {
+                const auto first = as_hex(read());
+                if (first.has_value() == false) { return std::nullopt; }
+
+                const auto second = as_hex(peek());
+                if (second.has_value())
+                {
+                    read();
+                    return static_cast<uint8_t>((*first << 4) | *second);
+                }
+                else
+                {
+                    return first;
+                }
+            }
+        };
+    }
+}
 
 namespace eu
 {
@@ -66,75 +141,9 @@ namespace eu
         return !(lhs == rhs);
     }
 
-    struct Parser
-    {
-        std::string_view str;
-
-        explicit Parser(const std::string_view s) : str(s) {}
-
-        [[nodiscard]] bool has_more() const
-        {
-            return str.empty() == false;
-        }
-
-        char read()
-        {
-            if(has_more() == false)
-                { return '\0'; }    
-            const char r = str[0];
-            str = str.substr(1);
-            return r;
-        }
-
-        [[nodiscard]] char peek() const
-        {
-            if(has_more() == false)
-                { return '\0'; }
-            return str[0];
-        }
-
-        void skip(char c)
-        {
-            while(peek() == c)
-            {
-                read();
-            }
-        }
-
-        void skip_spaces()
-        {
-            skip(' ');
-        }
-
-        static std::optional<uint8_t> as_hex(char c)
-        {
-            if ('0' <= c && c <= '9') { return static_cast<uint8_t>(c - '0'); }
-            if ('a' <= c && c <= 'f') { return static_cast<uint8_t>(10 + (c - 'a')); }
-            if ('A' <= c && c <= 'F') { return static_cast<uint8_t>(10 + (c - 'A')); }
-            return std::nullopt;
-        }
-
-        std::optional<uint8_t> read_hex()
-        {
-            const auto first = as_hex(read());
-            if(first.has_value() == false) { return std::nullopt; }
-
-            const auto second = as_hex(peek());
-            if(second.has_value())
-            {
-                read();
-                return static_cast<uint8_t>((*first << 4) | *second);
-            }
-            else
-            {
-                return first;
-            }
-        }
-    };
-
     std::optional<Guid> guid_from(const std::string& str)
     {
-        auto parser = Parser{str};
+        auto parser = internal::Parser{str};
         parser.skip_spaces();
         parser.skip('{');
         parser.skip_spaces();

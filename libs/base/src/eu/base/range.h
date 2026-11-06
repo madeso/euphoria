@@ -67,7 +67,7 @@ namespace eu
             value
         );
 
-        if constexpr (std::is_unsigned<T>::value)
+        if constexpr (std::is_unsigned_v<T>)
         {
             ASSERT(r >= 0.0f);
         }
