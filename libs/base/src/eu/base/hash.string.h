@@ -99,7 +99,7 @@ struct HshO
 #undef OP
 
 
-std::string string_from(const Hsh h);
+std::string string_from(const Hsh& h);
 std::string string_from(const HshO& h);
 
 

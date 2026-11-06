@@ -16,7 +16,7 @@ namespace eu::core
 /// The type of a extracted attribute, like 'float'
 enum class ExtractedAttributeType
 {
-	Float
+	FloatType
 };
 
 /// A extracted attribute like `float 3`

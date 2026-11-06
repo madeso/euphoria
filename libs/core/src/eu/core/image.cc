@@ -2,6 +2,20 @@
 
 #include "eu/assert/assert.h"
 
+namespace internal
+{
+    namespace
+    {
+        using namespace eu;
+        using namespace eu::core;
+
+        std::size_t bytes_from_size(int width, int height, int bpp)
+        {
+            return sizet_from_int(width) * sizet_from_int(height) * sizet_from_int(bpp);
+        }
+    }
+}
+
 namespace eu::core
 {
 
@@ -9,14 +23,9 @@ namespace eu::core
 
 Image::Image() = default;
 
-std::size_t bytes_from_size(int width, int height, int bpp)
-{
-    return sizet_from_int(width) * sizet_from_int(height) * sizet_from_int(bpp);
-}
-
 bool Image::is_valid() const
 {
-    return width > 0 && height > 0 && data.size() == bytes_from_size(width, height, 4);
+    return width > 0 && height > 0 && data.size() == internal::bytes_from_size(width, height, 4);
 }
 
 
@@ -25,7 +34,7 @@ void Image::setup_with_alpha_support(int w, int h)
 {
     width = w;
     height = h;
-    data.resize(bytes_from_size(width, height, 4), 0);
+    data.resize(internal::bytes_from_size(width, height, 4), 0);
 }
 
 

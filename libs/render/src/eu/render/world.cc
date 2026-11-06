@@ -72,7 +72,7 @@ std::shared_ptr<CompiledGeom> compile_geom(DEBUG_LABEL_ARG_MANY const core::Geom
 	{
 		switch (extracted.type)
 		{
-		case core::ExtractedAttributeType::Float: return GL_FLOAT;
+		case core::ExtractedAttributeType::FloatType: return GL_FLOAT;
 		default: DIE("invalid extracted attribute"); return GL_FLOAT;
 		}
 	};
@@ -144,7 +144,7 @@ std::shared_ptr<CompiledGeom_TransformInstance> compile_geom_with_transform_inst
 	{
 		switch (extracted.type)
 		{
-		case core::ExtractedAttributeType::Float: return GL_FLOAT;
+		case core::ExtractedAttributeType::FloatType: return GL_FLOAT;
 		default: DIE("invalid extracted attribute"); return GL_FLOAT;
 		}
 	};

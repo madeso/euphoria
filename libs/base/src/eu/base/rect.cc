@@ -1,8 +1,20 @@
 #include "eu/base/rect.h"
 
+namespace internal
+{
+    namespace
+    {
+        using namespace eu;
+
+        Rect lbrt(float l, float b, float r, float t)
+        {
+            return Rect::from_left_right_top_bottom(l, r, t, b);
+        }
+    }
+}
+
 namespace eu
 {
-
     Rect::Rect()
         : left(0)
         , right(0)
@@ -271,16 +283,11 @@ namespace eu
         }
     }
 
-    Rect lbrt(float l, float b, float r, float t)
-    {
-        return Rect::from_left_right_top_bottom(l, r, t, b);
-    }
-
     Rect Rect::cut_top(float amount, float v_spacing)
     {
         const float old_max_y = top;
         top = std::max(left, top - amount);
-        Rect area = lbrt(left, top, right, old_max_y);
+        Rect area = internal::lbrt(left, top, right, old_max_y);
         top -= v_spacing;
         return area;
     }
@@ -289,7 +296,7 @@ namespace eu
     {
         const float old_max_x = right;
         right = std::max(left, right - amount);
-        Rect area = lbrt(right, bottom, old_max_x, top);
+        Rect area = internal::lbrt(right, bottom, old_max_x, top);
         right -= h_spacing;
         return area;
     }
@@ -298,7 +305,7 @@ namespace eu
     {
         const float old_min_y = bottom;
         bottom = std::min(top, bottom + amount);
-        Rect area = lbrt(left, old_min_y, right, bottom);
+        Rect area = internal::lbrt(left, old_min_y, right, bottom);
         bottom += v_spacing;
         return area;
     }
@@ -307,7 +314,7 @@ namespace eu
     {
         const float old_min_x = left;
         left = std::min(right, left + amount);
-        Rect area = lbrt(old_min_x, bottom, left, top);
+        Rect area = internal::lbrt(old_min_x, bottom, left, top);
         left += h_spacing;
         return area;
     }
@@ -315,45 +322,45 @@ namespace eu
     Rect Rect::get_top(float amount) const
     {
         const float new_min_y = std::max(bottom, top - amount);
-        return lbrt(left, new_min_y, right, top);
+        return internal::lbrt(left, new_min_y, right, top);
     }
 
     Rect Rect::get_right(float amount) const
     {
         const float new_min_x = std::max(left, right - amount);
-        return lbrt(new_min_x, bottom, right, top);
+        return internal::lbrt(new_min_x, bottom, right, top);
     }
 
     Rect Rect::get_bottom(float amount) const
     {
         const float new_max_y = std::min(top, bottom + amount);
-        return lbrt(left, bottom, right, new_max_y);
+        return internal::lbrt(left, bottom, right, new_max_y);
     }
 
     Rect Rect::get_left(float amount) const
     {
         const float new_max_x = std::min(right, left + amount);
-        return lbrt(left, bottom, new_max_x, top);
+        return internal::lbrt(left, bottom, new_max_x, top);
     }
 
     Rect Rect::add_top(float amount) const
     {
-        return lbrt(left, top, right, top + amount);
+        return internal::lbrt(left, top, right, top + amount);
     }
 
     Rect Rect::add_right(float amount) const
     {
-        return lbrt(right, bottom, right + amount, top);
+        return internal::lbrt(right, bottom, right + amount, top);
     }
 
     Rect Rect::add_bottom(float amount) const
     {
-        return lbrt(left, bottom - amount, right, bottom);
+        return internal::lbrt(left, bottom - amount, right, bottom);
     }
 
     Rect Rect::add_left(float amount) const
     {
-        return lbrt(left - amount, bottom, left, top);
+        return internal::lbrt(left - amount, bottom, left, top);
     }
 
 

@@ -80,7 +80,7 @@ RenderWorld::RenderWorld(const Size& size, RealizeShader* re_sh, ExtractShader* 
 	, realized_buffer(build_hdr_floating_framebuffer(USE_DEBUG_LABEL_MANY("realized msaa buffer") size, render_world_color_bits_per_pixel))
 	, realize_shader(re_sh)
 	, bloom_render(build_bloom(size, ex_sh, ping_sh))
-	, last_bloom_blur_index(0)
+	// , last_bloom_blur_index(0)
 {
 	ASSERT(use_hdr);
 	ASSERT(exposure);

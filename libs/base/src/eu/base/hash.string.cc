@@ -3,7 +3,7 @@
 namespace eu
 {
 
-    std::string string_from(const Hsh hash)
+    std::string string_from(const Hsh& hash)
     {
         
 #if USE_HASH_TEXT == 1

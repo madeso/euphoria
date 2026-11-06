@@ -184,7 +184,12 @@ TEST_CASE("quat-from-ypr-fast-matches-slow", "[quat]")
         {
             for(const auto& roll : angles)
             {
-                const auto ypr = Ypr{yaw, pitch, roll};
+                const auto ypr = Ypr
+                {
+                    .yaw = yaw,
+                    .pitch = pitch,
+                    .roll = roll
+                };
                 INFO("ypr: " << string_from(ypr));
                 CHECK(Q::from_fast(ypr) == approx(Q::from(ypr)));
             }
