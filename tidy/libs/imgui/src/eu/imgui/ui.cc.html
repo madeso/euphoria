@@ -1,0 +1,308 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/imgui/src/eu/imgui/ui.cc</title>
+<style>
+.link-container {
+ position: relative;
+}
+.prev {
+ position: absolute;
+ top: 0;
+ left: 0;
+}
+.next {
+ position: absolute;
+ top: 0;
+ right: 0;
+}
+.index_link {
+ text-align: center;
+}
+</style>
+</head>
+<body>
+<h1>libs/imgui/src/eu/imgui/ui.cc</h1>
+<div class="link-container"><div class="prev">&lt;<a href="../../../../../apps/editor/src/eu/editor/main.cc.html">apps/editor/src/eu/editor/main.cc</a></div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../base/src/eu/base/mat4.h.html">libs/base/src/eu/base/mat4.h</a>&gt;</div></div>
+<span id='readability-make-member-function-const'>&nbsp;</span>
+<hr>
+<h3>warning: method &#39;setup&#39; can be made const</h3>
+<code>[readability-make-member-function-const]</code>
+<ul>
+<li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
+</ul>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 431 : 18</i></p>
+<pre>
+  431 |             void setup(float extra_x = -1.0f)
+      |                  ^                           
+      |                                               const
+</pre>
+<span id='bugprone-narrowing-conversions'>&nbsp;</span>
+<span id='cppcoreguidelines-narrowing-conversions'>&nbsp;</span>
+<hr>
+<h3>warning: narrowing conversion from &#39;int&#39; to &#39;float&#39;</h3>
+<code>[bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]</code>
+<ul>
+<li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
+</ul>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 434 : 104</i></p>
+<pre>
+  434 |                 const float w_items = ImMax(0.0f, ImGui::CalcItemWidth() - style.ItemInnerSpacing.x * (item_count*2.0f - 1.0f) - extra_x * item_count);
+      |                                                                                                        ^
+</pre>
+<hr>
+<h3>warning: narrowing conversion from &#39;int&#39; to &#39;float&#39;</h3>
+<code>[bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]</code>
+<ul>
+<li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
+</ul>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 434 : 140</i></p>
+<pre>
+  434 |                 const float w_items = ImMax(0.0f, ImGui::CalcItemWidth() - style.ItemInnerSpacing.x * (item_count*2.0f - 1.0f) - extra_x * item_count);
+      |                                                                                                                                            ^
+</pre>
+<span id='readability-convert-member-functions-to-static'>&nbsp;</span>
+<hr>
+<h3>warning: method &#39;begin_widget&#39; can be made static</h3>
+<code>[readability-convert-member-functions-to-static]</code>
+<ul>
+<li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
+</ul>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 445 : 18</i></p>
+<pre>
+  445 |             void begin_widget(int i)
+      |                  ^
+      |             static 
+</pre>
+<hr>
+<h3>warning: method &#39;next_sub_widget&#39; can be made static</h3>
+<code>[readability-convert-member-functions-to-static]</code>
+<ul>
+<li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
+</ul>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 456 : 18</i></p>
+<pre>
+  456 |             void next_sub_widget()
+      |                  ^
+      |             static 
+</pre>
+<hr>
+<h3>warning: method &#39;end_widget&#39; can be made static</h3>
+<code>[readability-convert-member-functions-to-static]</code>
+<ul>
+<li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
+</ul>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 463 : 18</i></p>
+<pre>
+  463 |             void end_widget()
+      |                  ^
+      |             static 
+</pre>
+<span id='misc-use-internal-linkage'>&nbsp;</span>
+<hr>
+<h3>warning: function &#39;set_hover_cursor&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
+</ul>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 785 : 6</i></p>
+<pre>
+  785 | void set_hover_cursor()
+      |      ^
+      | static 
+</pre>
+<span id='misc-const-correctness'>&nbsp;</span>
+<hr>
+<h3>warning: variable &#39;style&#39; of type &#39;ImGuiStyle &amp;&#39; can be declared &#39;const&#39;</h3>
+<code>[misc-const-correctness]</code>
+<ul>
+<li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
+</ul>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 795 : 5</i></p>
+<pre>
+  795 |     ImGuiStyle&amp; style = ImGui::GetStyle();
+      |     ^         
+      |                const
+</pre>
+<hr>
+<h3>warning: function &#39;gear&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
+</ul>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 931 : 6</i></p>
+<pre>
+  931 | bool gear(const char* label, Rui* drag)
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;gear&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
+</ul>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 942 : 6</i></p>
+<pre>
+  942 | bool gear(const char* label, v3* drag)
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;gear&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
+</ul>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 953 : 6</i></p>
+<pre>
+  953 | bool gear(const char* label, Ypr* drag)
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: struct &#39;Drags&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
+</ul>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 1004 : 8</i></p>
+<pre>
+ 1004 | struct Drags
+      |        ^
+</pre>
+<hr>
+<h3>warning: struct &#39;ButtonStateStyle&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
+</ul>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 1011 : 8</i></p>
+<pre>
+ 1011 | struct ButtonStateStyle
+      |        ^
+</pre>
+<hr>
+<h3>warning: struct &#39;ButtonStyle&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
+</ul>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 1017 : 8</i></p>
+<pre>
+ 1017 | struct ButtonStyle
+      |        ^
+</pre>
+<hr>
+<h3>warning: function &#39;styled_button&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
+</ul>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 1024 : 6</i></p>
+<pre>
+ 1024 | bool styled_button(const ButtonStyle&amp; style, const char* label, const std::optional&lt;ImVec2&gt;&amp; button_size = std::nullopt)
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;format_float&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
+</ul>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 1196 : 13</i></p>
+<pre>
+ 1196 | std::string format_float(float f)
+      |             ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;float_identity&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
+</ul>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 1203 : 7</i></p>
+<pre>
+ 1203 | float float_identity(float f)
+      |       ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;flat_slider&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
+</ul>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 1209 : 6</i></p>
+<pre>
+ 1209 | bool flat_slider(const char* label, float* value, float min_value, float max_value, F display)
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;simple_gamma_slider&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
+</ul>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 1308 : 6</i></p>
+<pre>
+ 1308 | bool simple_gamma_slider(const char* label, float* gamma, float curve, float min_gamma, float max_gamma)
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;row&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
+</ul>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 1336 : 6</i></p>
+<pre>
+ 1336 | void row(const PropTable&amp; t, const char* label)
+      |      ^
+      | static 
+</pre>
+<hr>
+<h3>warning: function &#39;trow&#39; can be made static or moved into an anonymous namespace to enforce internal linkage</h3>
+<code>[misc-use-internal-linkage]</code>
+<ul>
+<li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
+</ul>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 1346 : 6</i></p>
+<pre>
+ 1346 | bool trow(const PropTable&amp; t, const char* label, const F&amp; f)
+      |      ^
+      | static 
+</pre>
+<span id='readability-braces-around-statements'>&nbsp;</span>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<ul>
+<li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
+</ul>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 1370 : 26</i></p>
+<pre>
+ 1370 |     if (started == false) return ret;
+      |                          ^           
+      |                           {
+</pre>
+<hr>
+<h3>warning: statement should be inside braces</h3>
+<code>[readability-braces-around-statements]</code>
+<ul>
+<li>Found in <a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a></li>
+</ul>
+<p><i><a href="ui.cc.html">libs/imgui/src/eu/imgui/ui.cc</a> 1383 : 26</i></p>
+<pre>
+ 1383 |     if (started == false) return;
+      |                          ^       
+      |                           {
+</pre>
+<div class="link-container"><div class="prev">&lt;<a href="../../../../../apps/editor/src/eu/editor/main.cc.html">apps/editor/src/eu/editor/main.cc</a></div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../base/src/eu/base/mat4.h.html">libs/base/src/eu/base/mat4.h</a>&gt;</div></div>
+</body>
+</html>
