@@ -1,26 +1,33 @@
 #include "eu/tests/approx_equal.h"
 
+namespace internal
+{
+    namespace
+    {
+        using namespace eu;
+        using namespace eu::tests;
+
+        template <typename T>
+        bool
+            is_approximately_equal_xyz(T const& lhs, T const& rhs, const ApproxData& data)
+        {
+            return is_approximately_equal(lhs.x, rhs.x, data)
+                && is_approximately_equal(lhs.y, rhs.y, data)
+                && is_approximately_equal(lhs.z, rhs.z, data);
+        }
+
+        template <typename T>
+        bool
+            is_approximately_equal_xy(T const& lhs, T const& rhs, const ApproxData& data)
+        {
+            return is_approximately_equal(lhs.x, rhs.x, data)
+                && is_approximately_equal(lhs.y, rhs.y, data);
+        }
+    }
+}
+
 namespace eu::tests
 {
-    template <typename T>
-    bool
-    is_approximately_equal_xyz(T const& lhs, T const& rhs, const ApproxData& data)
-    {
-        return is_approximately_equal(lhs.x, rhs.x, data)
-               && is_approximately_equal(lhs.y, rhs.y, data)
-               && is_approximately_equal(lhs.z, rhs.z, data);
-    }
-
-    template <typename T>
-    bool
-    is_approximately_equal_xy(T const& lhs, T const& rhs, const ApproxData& data)
-    {
-        return is_approximately_equal(lhs.x, rhs.x, data)
-               && is_approximately_equal(lhs.y, rhs.y, data);
-    }
-
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
     template <>
     bool
     is_approximately_equal(
@@ -28,7 +35,7 @@ namespace eu::tests
             v2 const& rhs,
             const ApproxData& data)
     {
-        return is_approximately_equal_xy(lhs, rhs, data);
+        return internal::is_approximately_equal_xy(lhs, rhs, data);
     }
 
     template <>
@@ -38,7 +45,7 @@ namespace eu::tests
             n2 const& rhs,
             const ApproxData& data)
     {
-        return is_approximately_equal_xy(lhs, rhs, data);
+        return internal::is_approximately_equal_xy(lhs, rhs, data);
     }
 
     template <>
@@ -48,7 +55,7 @@ namespace eu::tests
             v3 const& rhs,
             const ApproxData& data)
     {
-        return is_approximately_equal_xyz(lhs, rhs, data);
+        return internal::is_approximately_equal_xyz(lhs, rhs, data);
     }
 
     template <>
@@ -72,7 +79,7 @@ namespace eu::tests
             n3 const& rhs,
             const ApproxData& data)
     {
-        return is_approximately_equal_xyz(lhs, rhs, data);
+        return internal::is_approximately_equal_xyz(lhs, rhs, data);
     }
 
 

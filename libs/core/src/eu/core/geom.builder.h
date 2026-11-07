@@ -28,8 +28,8 @@ enum class SideCount
 /// The possible directions that normals can face.
 enum class NormalsFacing
 {
-	In,
-	Out
+	in,
+	out
 };
 
 /// A single vertex referencing the shared data in the Builder

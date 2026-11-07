@@ -5,71 +5,81 @@
 #include "eu/io/file.h"
 #include "eu/kdl/kdl.h"
 
+namespace internal
+{
+    namespace
+    {
+        using namespace eu::runner;
+
+        std::string lower(const std::string& str)
+        {
+            std::string result;
+            result.reserve(str.size());
+            for (const char c : str)
+            {
+                result.push_back(static_cast<char>(std::tolower(c)));
+            }
+            return result;
+        }
+
+
+        std::optional<KeyboardKey> key_from_name(const std::string& name)
+        {
+            static const std::unordered_map<std::string, KeyboardKey> key_map = {
+        #define K(name){lower(#name), SDLK_##name}
+            K(RETURN), K(ESCAPE), K(BACKSPACE), K(TAB), K(SPACE), K(EXCLAIM), K(DBLAPOSTROPHE),
+            K(HASH), K(PERCENT), K(DOLLAR), K(AMPERSAND), K(APOSTROPHE), K(LEFTPAREN),
+            K(RIGHTPAREN), K(ASTERISK), K(PLUS), K(COMMA), K(MINUS), K(PERIOD), K(SLASH),
+            K(0), K(1), K(2), K(3), K(4), K(5), K(6), K(7), K(8), K(9),
+            K(COLON), K(SEMICOLON), K(LESS), K(EQUALS), K(GREATER), K(QUESTION), K(AT),
+            K(LEFTBRACKET), K(BACKSLASH), K(RIGHTBRACKET), K(CARET), K(UNDERSCORE), K(GRAVE),
+            K(A), K(B), K(C), K(D), K(E), K(F), K(G), K(H), K(I), K(J),
+            K(K), K(L), K(M), K(N), K(O), K(P), K(Q), K(R), K(S), K(T),
+            K(U), K(V), K(W), K(X), K(Y), K(Z),
+            K(CAPSLOCK), K(F1), K(F2), K(F3), K(F4), K(F5), K(F6), K(F7), K(F8), K(F9), K(F10), K(F11), K(F12),
+            K(PRINTSCREEN), K(SCROLLLOCK), K(PAUSE), K(INSERT), K(HOME), K(PAGEUP), K(DELETE),
+            K(END), K(PAGEDOWN), K(RIGHT), K(LEFT), K(DOWN), K(UP), K(NUMLOCKCLEAR),
+            K(KP_DIVIDE), K(KP_MULTIPLY), K(KP_MINUS), K(KP_PLUS), K(KP_ENTER),
+            K(KP_1), K(KP_2), K(KP_3), K(KP_4), K(KP_5), K(KP_6), K(KP_7), K(KP_8), K(KP_9), K(KP_0),
+            K(KP_PERIOD), K(APPLICATION), K(POWER), K(KP_EQUALS),
+            K(F13), K(F14), K(F15), K(F16), K(F17), K(F18), K(F19), K(F20), K(F21), K(F22), K(F23), K(F24),
+            K(EXECUTE), K(HELP), K(MENU), K(SELECT), K(STOP), K(AGAIN), K(UNDO),
+            K(CUT), K(COPY), K(PASTE), K(FIND), K(MUTE), K(VOLUMEUP), K(VOLUMEDOWN),
+            K(KP_COMMA), K(KP_EQUALSAS400), K(ALTERASE), K(SYSREQ), K(CANCEL), K(CLEAR),
+            K(PRIOR), K(RETURN2), K(SEPARATOR), K(OUT), K(OPER), K(CLEARAGAIN), K(CRSEL),
+            K(EXSEL), K(KP_00), K(KP_000), K(THOUSANDSSEPARATOR), K(DECIMALSEPARATOR),
+            K(CURRENCYUNIT), K(CURRENCYSUBUNIT), K(KP_LEFTPAREN), K(KP_RIGHTPAREN), K(KP_LEFTBRACE),
+            K(KP_RIGHTBRACE), K(KP_TAB), K(KP_BACKSPACE), K(KP_A), K(KP_B), K(KP_C), K(KP_D),
+            K(KP_E), K(KP_F), K(KP_XOR), K(KP_POWER), K(KP_PERCENT), K(KP_LESS), K(KP_GREATER),
+            K(KP_AMPERSAND), K(KP_DBLAMPERSAND), K(KP_VERTICALBAR), K(KP_DBLVERTICALBAR), K(KP_COLON),
+            K(KP_HASH), K(KP_SPACE), K(KP_AT), K(KP_EXCLAM), K(KP_MEMSTORE), K(KP_MEMRECALL),
+            K(KP_MEMCLEAR), K(KP_MEMADD), K(KP_MEMSUBTRACT), K(KP_MEMMULTIPLY), K(KP_MEMDIVIDE),
+            K(KP_PLUSMINUS), K(KP_CLEAR), K(KP_CLEARENTRY), K(KP_BINARY), K(KP_OCTAL), K(KP_DECIMAL),
+            K(KP_HEXADECIMAL), K(LCTRL), K(LSHIFT), K(LALT), K(LGUI), K(RCTRL), K(RSHIFT), K(RALT),
+            K(RGUI), K(MODE), K(MEDIA_NEXT_TRACK), K(MEDIA_PREVIOUS_TRACK), K(MEDIA_STOP), K(MEDIA_PLAY), K(MUTE),
+            K(MEDIA_SELECT), K(AC_SEARCH), K(AC_HOME), K(AC_BACK),
+            K(AC_FORWARD), K(AC_STOP), K(AC_REFRESH), K(AC_BOOKMARKS),
+            K(MEDIA_EJECT), K(SLEEP), K(MEDIA_REWIND), K(MEDIA_FAST_FORWARD),
+            K(SOFTLEFT), K(SOFTRIGHT), K(CALL), K(ENDCALL),
+        #undef K
+            };
+
+            const auto it = key_map.find(lower(name));
+            if (it != key_map.end())
+            {
+                return it->second;
+            }
+
+            LOG_WARN("Unknown key name: '{}'", name);
+            return std::nullopt;
+        }
+
+    }
+}
+
 namespace eu::runner
 {
 
-std::string lower(const std::string& str)
-{
-    std::string result;
-    result.reserve(str.size());
-    for (const char c : str)
-    {
-        result.push_back(static_cast<char>(std::tolower(c)));
-    }
-    return result;
-}
-
-std::optional<KeyboardKey> key_from_name(const std::string& name)
-{
-    static const std::unordered_map<std::string, KeyboardKey> key_map = {
-#define K(name){lower(#name), SDLK_##name}
-    K(RETURN), K(ESCAPE), K(BACKSPACE), K(TAB), K(SPACE), K(EXCLAIM), K(DBLAPOSTROPHE),
-    K(HASH), K(PERCENT), K(DOLLAR), K(AMPERSAND), K(APOSTROPHE), K(LEFTPAREN),
-    K(RIGHTPAREN), K(ASTERISK), K(PLUS), K(COMMA), K(MINUS), K(PERIOD), K(SLASH),
-    K(0), K(1), K(2), K(3), K(4), K(5), K(6), K(7), K(8), K(9),
-    K(COLON), K(SEMICOLON), K(LESS), K(EQUALS), K(GREATER), K(QUESTION), K(AT),
-    K(LEFTBRACKET), K(BACKSLASH), K(RIGHTBRACKET), K(CARET), K(UNDERSCORE), K(GRAVE),
-    K(A), K(B), K(C), K(D), K(E), K(F), K(G), K(H), K(I), K(J),
-    K(K), K(L), K(M), K(N), K(O), K(P), K(Q), K(R), K(S), K(T),
-    K(U), K(V), K(W), K(X), K(Y), K(Z),
-    K(CAPSLOCK), K(F1), K(F2), K(F3), K(F4), K(F5), K(F6), K(F7), K(F8), K(F9), K(F10), K(F11), K(F12),
-    K(PRINTSCREEN), K(SCROLLLOCK), K(PAUSE), K(INSERT), K(HOME), K(PAGEUP), K(DELETE),
-    K(END), K(PAGEDOWN), K(RIGHT), K(LEFT), K(DOWN), K(UP), K(NUMLOCKCLEAR),
-    K(KP_DIVIDE), K(KP_MULTIPLY), K(KP_MINUS), K(KP_PLUS), K(KP_ENTER),
-    K(KP_1), K(KP_2), K(KP_3), K(KP_4), K(KP_5), K(KP_6), K(KP_7), K(KP_8), K(KP_9), K(KP_0),
-    K(KP_PERIOD), K(APPLICATION), K(POWER), K(KP_EQUALS),
-    K(F13), K(F14), K(F15), K(F16), K(F17), K(F18), K(F19), K(F20), K(F21), K(F22), K(F23), K(F24),
-    K(EXECUTE), K(HELP), K(MENU), K(SELECT), K(STOP), K(AGAIN), K(UNDO),
-    K(CUT), K(COPY), K(PASTE), K(FIND), K(MUTE), K(VOLUMEUP), K(VOLUMEDOWN),
-    K(KP_COMMA), K(KP_EQUALSAS400), K(ALTERASE), K(SYSREQ), K(CANCEL), K(CLEAR),
-    K(PRIOR), K(RETURN2), K(SEPARATOR), K(OUT), K(OPER), K(CLEARAGAIN), K(CRSEL),
-    K(EXSEL), K(KP_00), K(KP_000), K(THOUSANDSSEPARATOR), K(DECIMALSEPARATOR),
-    K(CURRENCYUNIT), K(CURRENCYSUBUNIT), K(KP_LEFTPAREN), K(KP_RIGHTPAREN), K(KP_LEFTBRACE),
-    K(KP_RIGHTBRACE), K(KP_TAB), K(KP_BACKSPACE), K(KP_A), K(KP_B), K(KP_C), K(KP_D),
-    K(KP_E), K(KP_F), K(KP_XOR), K(KP_POWER), K(KP_PERCENT), K(KP_LESS), K(KP_GREATER),
-    K(KP_AMPERSAND), K(KP_DBLAMPERSAND), K(KP_VERTICALBAR), K(KP_DBLVERTICALBAR), K(KP_COLON),
-    K(KP_HASH), K(KP_SPACE), K(KP_AT), K(KP_EXCLAM), K(KP_MEMSTORE), K(KP_MEMRECALL),
-    K(KP_MEMCLEAR), K(KP_MEMADD), K(KP_MEMSUBTRACT), K(KP_MEMMULTIPLY), K(KP_MEMDIVIDE),
-    K(KP_PLUSMINUS), K(KP_CLEAR), K(KP_CLEARENTRY), K(KP_BINARY), K(KP_OCTAL), K(KP_DECIMAL),
-    K(KP_HEXADECIMAL), K(LCTRL), K(LSHIFT), K(LALT), K(LGUI), K(RCTRL), K(RSHIFT), K(RALT),
-    K(RGUI), K(MODE), K(MEDIA_NEXT_TRACK), K(MEDIA_PREVIOUS_TRACK), K(MEDIA_STOP), K(MEDIA_PLAY), K(MUTE),
-    K(MEDIA_SELECT), K(AC_SEARCH), K(AC_HOME), K(AC_BACK),
-    K(AC_FORWARD), K(AC_STOP), K(AC_REFRESH), K(AC_BOOKMARKS),
-    K(MEDIA_EJECT), K(SLEEP), K(MEDIA_REWIND), K(MEDIA_FAST_FORWARD),
-    K(SOFTLEFT), K(SOFTRIGHT), K(CALL), K(ENDCALL),
-#undef K
-    };
-
-    const auto it = key_map.find(lower(name));
-    if (it != key_map.end())
-    {
-        return it->second;
-    }
-
-    LOG_WARN("Unknown key name: '{}'", name);
-    return std::nullopt;
-}
-    
 bool Input::load_from_file(const std::string& path)
 {
     const auto parsed = kdl::parse(eu::io::string_from_file(path));
@@ -116,7 +126,7 @@ bool Input::load_from_file(const std::string& path)
             }
 
             const auto key_name = node.args[1].as_string();
-            const auto key = key_from_name(key_name);
+            const auto key = internal::key_from_name(key_name);
             if (!key)
             {
                 LOG_WARN("Invalid key name: {}", key_name);

@@ -36,7 +36,7 @@ namespace eu::runner
             sys->add_component(nc);
         }
 
-        if (world)
+        if (world != nullptr)
         {
             world->on_add_component(this, nc);
         }
@@ -50,7 +50,7 @@ namespace eu::runner
         {
             ne->add_component(c.get());
         }
-        if (root)
+        if (root != nullptr)
         {
             ne->on_root_changed(root);
         }
@@ -75,7 +75,7 @@ namespace eu::runner
             sys->on_root_changed(c);
         }
 
-        if (world)
+        if (world != nullptr)
         {
             world->on_root_changed(this, c);
         }
@@ -198,7 +198,7 @@ namespace eu::runner
             for (auto& comp: ent->components) {
                 sys->add_component(ent.get(), comp.get());
             }
-            if (ent->get_root())
+            if (ent->get_root() != nullptr)
             {
                 sys->on_root_changed(ent.get(), ent->get_root());
             }

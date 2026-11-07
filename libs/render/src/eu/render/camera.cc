@@ -2,6 +2,27 @@
 
 #include <cmath>
 
+namespace internal
+{
+    namespace
+    {
+        using namespace eu;
+
+        /** Convert from -1..1 to 0..1
+         */
+        float r01_from_r11(float f)
+        {
+            return (f + 1.0f) / 2.0f;
+        }
+
+        v2 screen_from_clip(const v2& resolution, const v4& clip_pos)
+        {
+            const auto ndc = clip_pos.to_vec3_persp_div();
+            return v2{ r01_from_r11(ndc.x), r01_from_r11(ndc.y) } * resolution;
+        }
+    }
+}
+
 namespace eu::render
 {
 
@@ -48,23 +69,10 @@ CompiledCamera compile(const OrthoCamera& cam, const Size& window_size)
 	};
 }
 
-/** Convert from -1..1 to 0..1
- */
-float r01_from_r11(float f)
-{
-	return (f + 1.0f) / 2.0f;
-}
-
-v2 screen_from_clip(const v2& resolution, const v4& clip_pos)
-{
-	const auto ndc = clip_pos.to_vec3_persp_div();
-	return v2{r01_from_r11(ndc.x), r01_from_r11(ndc.y)} * resolution;
-}
-
 v2 screen_from_world(const CompiledCamera& cam, const v3& world_pos, const v2& resolution)
 {
 	const auto clip_pos = cam.clip_from_view * cam.view_from_world * v4(world_pos, 1.0f);
-	return screen_from_clip(resolution, clip_pos);
+	return internal::screen_from_clip(resolution, clip_pos);
 }
 
 }  //  namespace eu::render

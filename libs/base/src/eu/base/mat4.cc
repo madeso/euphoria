@@ -2,6 +2,30 @@
 
 #include "eu/base/quat.h"
 
+namespace internal
+{
+    using namespace eu;
+
+    namespace
+    {
+        n3
+        get_axis(const m4& m, int col)
+        {
+            return n3{ m.get_column(col).to_vec3(0.0f) };
+        }
+
+        float
+        get_component_multiply_sum(const v4& lhs, const v4& rhs)
+        {
+            const auto x = lhs.x * rhs.x;
+            const auto y = lhs.y * rhs.y;
+            const auto z = lhs.z * rhs.z;
+            const auto w = lhs.w * rhs.w;
+            return x + y + z + w;
+        }
+    }
+}
+
 namespace eu
 {
     [[nodiscard]]
@@ -202,27 +226,21 @@ namespace eu
     }
 
     n3
-    get_axis(const m4& m, int col)
-    {
-        return n3{m.get_column(col).to_vec3(0.0f)};
-    }
-
-    n3
     m4::get_x_axis() const
     {
-        return get_axis(*this, 0);
+        return internal::get_axis(*this, 0);
     }
 
     n3
     m4::get_y_axis() const
     {
-        return get_axis(*this, 1);
+        return internal::get_axis(*this, 1);
     }
 
     n3
     m4::get_z_axis() const
     {
-        return get_axis(*this, 2);
+        return internal::get_axis(*this, 2);
     }
 
     m4
@@ -246,7 +264,7 @@ namespace eu
 
         float inv[16];
 
-        float* m = data;
+        const float* m = data;
 
         inv[0] =
             m[5] * m[10] * m[15] - m[5] * m[11] * m[14] -
@@ -504,22 +522,12 @@ namespace eu
         t -= rhs;
         return t;
     }
-
-    float
-    get_component_multiply_sum(const v4& lhs, const v4& rhs)
-    {
-        const auto x = lhs.x * rhs.x;
-        const auto y = lhs.y * rhs.y;
-        const auto z = lhs.z * rhs.z;
-        const auto w  = lhs.w* rhs.w;
-        return x + y + z + w;
-    }
     
     m4 operator*(const m4& lhs, const m4& rhs)
     {
         const auto op = [&lhs, &rhs](int r, int c) -> float
         {
-            return get_component_multiply_sum(lhs.get_row(r), rhs.get_column(c));
+            return internal::get_component_multiply_sum(lhs.get_row(r), rhs.get_column(c));
         };
         return m4::from_row_major
         (
@@ -535,7 +543,7 @@ namespace eu
     {
         const auto op = [&lhs, &rhs](int r) -> float
         {
-            return get_component_multiply_sum(lhs.get_row(r), rhs);
+            return internal::get_component_multiply_sum(lhs.get_row(r), rhs);
         };
 
         return {op(0), op(1), op(2), op(3)};

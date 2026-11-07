@@ -41,7 +41,7 @@ struct Equaler
 		const auto l = convert(lhs);
 		const auto r = convert(rhs);
 		const FalseString c = compare(l, r);
-		if (c.IsTrue() == false)
+		if (c.reason.has_value())
 		{
 			std::ostringstream ss;
 			ss << name << ": " << l << " != " << r;
@@ -59,7 +59,11 @@ struct Equaler
 	Self& add(const std::string& name, const C& convert){
 		return impl(name, convert, [](const auto& l, const auto& r) {
 			const auto same = l == r;
-			if (same) return FalseString::True();
+            if (same)
+            {
+                return FalseString::True();
+            }
+
 			return FalseString::False(" ");
 		});
 	}
@@ -69,7 +73,11 @@ struct Equaler
 		return impl(name, convert, [](const std::string& l, const std::string& r)
 		{
 			const auto same = l == r;
-			if (same) return FalseString::True();
+            if (same)
+            {
+                return FalseString::True();
+            }
+
 			std::ostringstream ss;
 			const auto edit = levenshtein(l, r);
 			const auto diff_index = find_index_of_first_diff(l, r);
@@ -85,7 +93,11 @@ struct Equaler
 		return impl(name, convert, [min](const auto& l, const auto& r) {
 			const auto diff = std::abs(l - r);
 			const auto close = diff < min;
-			if (close) return FalseString::True();
+            if (close)
+            {
+                return FalseString::True();
+            }
+
 			std::ostringstream ss;
 			ss << "difference " << diff << " is larger than " << min;
 			return FalseString::False(ss.str());

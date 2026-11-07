@@ -83,7 +83,7 @@ namespace eu
                 {
                     --end;
                 }
-                char* begin = end;
+                const char* begin = end;
                 while(begin != symbol && *begin != '(')
                 {
                     --begin;
@@ -117,26 +117,40 @@ template <> struct fmt::formatter<eu::assertlib::AssertArgumentValue> : formatte
         return formatter<string_view>::format(c.value, ctx);
     }
 };
+
+namespace internal
+{
+    namespace
+    {
+        bool&
+        should_throw_variable()
+        {
+            static bool should_throw = false;
+            return should_throw;
+        }
+    }
+
+    struct AssertException : std::runtime_error
+    {
+        explicit AssertException(const char* msg)
+            : runtime_error(msg)
+        {
+        }
+    };
+}
    
 namespace eu::assertlib
 {
-    bool&
-    should_throw_variable()
-    {
-        static bool should_throw = false;
-        return should_throw;
-    }
-
     void
     begin_throwing()
     {
-        should_throw_variable() = true;
+        internal::should_throw_variable() = true;
     }
 
     bool
     is_throwing()
     {
-        return should_throw_variable();
+        return internal::should_throw_variable();
     }
 
     void
@@ -166,9 +180,9 @@ namespace eu::assertlib
             : fmt::format("{}Backtrace:\n{}\n", with_arguments, fmt::join(trace, "\n"))
             ;
 
-        if(should_throw_variable())
+        if(internal::should_throw_variable())
         {
-            throw std::move(message);
+            throw internal::AssertException(message.c_str());
         }
         else
         {

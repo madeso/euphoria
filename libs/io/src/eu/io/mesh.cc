@@ -266,7 +266,7 @@ core::Mesh unable_to_load_geom()
                 .geoms = {
                     core::MeshGeom
                     {
-                        .geom = eu::core::geom::create_box(1.0f, 1.0f, 1.0f, core::geom::NormalsFacing::Out).to_geom()
+                        .geom = eu::core::geom::create_box(1.0f, 1.0f, 1.0f, core::geom::NormalsFacing::out).to_geom()
                     }
                 }
             }

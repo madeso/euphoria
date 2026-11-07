@@ -16,123 +16,131 @@
 #include "eu/core/utf8.h"
 
 
-
-namespace eu::core
+namespace internal
 {
-    struct FontData
+    namespace
     {
-        stbtt_fontinfo font;
-        float size;
-        bool was_loaded;
-        float ascent_in_pixels = 0.0f;
-        float descent_in_pixels = 0.0f;
-        float line_gap_in_pixels = 0.0f;
+        using namespace eu;
+        using namespace eu::core;
 
-        std::vector<stbtt_kerningentry> kernings;
-        std::map<int, int> index_to_unicode;
-
-        FontData(const unsigned char* ttf_buffer, float s)
-            : font{}
-            , size{s}
-            , was_loaded{stbtt_InitFont(&font, ttf_buffer, stbtt_GetFontOffsetForIndex(ttf_buffer,0)) == 1}
+        struct FontData
         {
-            if(was_loaded == false) {return;}
+            stbtt_fontinfo font;
+            float size;
+            bool was_loaded;
+            float ascent_in_pixels = 0.0f;
+            float descent_in_pixels = 0.0f;
+            float line_gap_in_pixels = 0.0f;
 
-            const int count = stbtt_GetKerningTableLength(&font);
-            kernings.reserve(count);
-            stbtt_GetKerningTable(&font, kernings.data(), count);
-            
-            int ascent_in_points = 0;
-            int descent_in_points = 0;
-            int line_gap_in_points = 0;
-            stbtt_GetFontVMetrics(&font, &ascent_in_points, &descent_in_points, &line_gap_in_points);
-            const float points_to_pixels = stbtt_ScaleForPixelHeight(&font, size);
-            ascent_in_pixels = float_from_int(ascent_in_points) * points_to_pixels;
-            descent_in_pixels = float_from_int(descent_in_points) * points_to_pixels;
-            line_gap_in_pixels = float_from_int(line_gap_in_points) * points_to_pixels;
-        }
+            std::vector<stbtt_kerningentry> kernings;
+            std::map<int, int> index_to_unicode;
 
-        void define_codepoint(int cp)
-        {
-            const int index = stbtt_FindGlyphIndex(&font, cp);
-            index_to_unicode[index] = cp;
-        }
-
-        [[nodiscard]] std::optional<int> from_glyph_index_to_unicode(int glyph) const
-        {
-            auto found = index_to_unicode.find(glyph);
-            if(found == index_to_unicode.end())
+            FontData(const unsigned char* ttf_buffer, float s)
+                : font{}
+                , size{ s }
+                , was_loaded{ stbtt_InitFont(&font, ttf_buffer, stbtt_GetFontOffsetForIndex(ttf_buffer,0)) == 1 }
             {
-                return {};
+                if (was_loaded == false) { return; }
+
+                const int count = stbtt_GetKerningTableLength(&font);
+                kernings.reserve(count);
+                stbtt_GetKerningTable(&font, kernings.data(), count);
+
+                int ascent_in_points = 0;
+                int descent_in_points = 0;
+                int line_gap_in_points = 0;
+                stbtt_GetFontVMetrics(&font, &ascent_in_points, &descent_in_points, &line_gap_in_points);
+                const float points_to_pixels = stbtt_ScaleForPixelHeight(&font, size);
+                ascent_in_pixels = float_from_int(ascent_in_points) * points_to_pixels;
+                descent_in_pixels = float_from_int(descent_in_points) * points_to_pixels;
+                line_gap_in_pixels = float_from_int(line_gap_in_points) * points_to_pixels;
             }
-            else
-            {
-                return found->second;
-            }
-        }
 
-        [[nodiscard]] LoadedGlyph
-        load_glyph(int code_point) const
-        {
-            int width=0; int height=0;
-            int xoffset=0; int yoffset=0;
-            const auto scale = stbtt_ScaleForPixelHeight(&font, size);
-            unsigned char *bitmap = stbtt_GetCodepointBitmap
-            (
-                &font,
-                scale,
-                scale,
-                code_point,
-                &width,
-                &height,
-                &xoffset,
-                &yoffset
-            );
-
-            LoadedGlyph ch;
-            ch.code_point= code_point;
-            ch.size = size;
-            ch.bearing_x = xoffset;
-            ch.bearing_y = -yoffset;
-            ch.valid = true;
+            void define_codepoint(int cp)
             {
-                int advance_width = 0;
-                stbtt_GetCodepointHMetrics(&font, code_point, &advance_width, nullptr);
-                ch.advance = int_from_float(float_from_int(advance_width) * scale);
+                const int index = stbtt_FindGlyphIndex(&font, cp);
+                index_to_unicode[index] = cp;
             }
-            if(width == 0 && height == 0)
-            {
-                ch.image.make_invalid();
-            }
-            else
-            {
-                ch.image.setup_with_alpha_support(width, height);
 
-                for(int y = 0; y < ch.image.height; y += 1)
+            [[nodiscard]] std::optional<int> from_glyph_index_to_unicode(int glyph) const
+            {
+                auto found = index_to_unicode.find(glyph);
+                if (found == index_to_unicode.end())
                 {
-                    for(int x = 0; x < ch.image.width; x += 1)
-                    {
-                        const auto alpha = bitmap[ch.image.width * y + x];
-                        ch.image.set_pixel
-                        (
-                            x, ch.image.height-y-1,
-                            255, 255, 255,
-                            alpha
-                        );
-                    }
+                    return {};
+                }
+                else
+                {
+                    return found->second;
                 }
             }
 
-            if(bitmap != nullptr)
+            [[nodiscard]] LoadedGlyph
+                load_glyph(int code_point) const
             {
-                stbtt_FreeBitmap(bitmap, nullptr);
+                int width = 0; int height = 0;
+                int xoffset = 0; int yoffset = 0;
+                const auto scale = stbtt_ScaleForPixelHeight(&font, size);
+                unsigned char* bitmap = stbtt_GetCodepointBitmap
+                (
+                    &font,
+                    scale,
+                    scale,
+                    code_point,
+                    &width,
+                    &height,
+                    &xoffset,
+                    &yoffset
+                );
+
+                LoadedGlyph ch;
+                ch.code_point = code_point;
+                ch.size = size;
+                ch.bearing_x = xoffset;
+                ch.bearing_y = -yoffset;
+                ch.valid = true;
+                {
+                    int advance_width = 0;
+                    stbtt_GetCodepointHMetrics(&font, code_point, &advance_width, nullptr);
+                    ch.advance = int_from_float(float_from_int(advance_width) * scale);
+                }
+                if (width == 0 && height == 0)
+                {
+                    ch.image.make_invalid();
+                }
+                else
+                {
+                    ch.image.setup_with_alpha_support(width, height);
+
+                    for (int y = 0; y < ch.image.height; y += 1)
+                    {
+                        for (int x = 0; x < ch.image.width; x += 1)
+                        {
+                            const auto alpha = bitmap[ch.image.width * y + x];
+                            ch.image.set_pixel
+                            (
+                                x, ch.image.height - y - 1,
+                                255, 255, 255,
+                                alpha
+                            );
+                        }
+                    }
+                }
+
+                if (bitmap != nullptr)
+                {
+                    stbtt_FreeBitmap(bitmap, nullptr);
+                }
+
+                return ch;
             }
+        };
+    }
+}
 
-            return ch;
-        }
-    };
 
-
+namespace eu::core
+{
     int
     LoadedFont::generate_new_index_from_private_use(const std::string& alias)
     {
@@ -151,7 +159,7 @@ namespace eu::core
         const std::string& chars
     )
     {
-        auto f = FontData
+        auto f = internal::FontData
         {
             reinterpret_cast<const unsigned char*>(file_memory.bytes),
             float_from_int(font_size)
@@ -209,7 +217,8 @@ namespace eu::core
         return true;
     }
 
-#if 0
+    // todo(Gustav): expand font loading or remove
+#ifdef TODO_EXPAND_FONT_LOADING_OR_REMOVE
     LoadedFont
     get_characters_from_single_image
     (

@@ -13,10 +13,10 @@ struct HshSt
     Hsh primary;
 
     void add(const Hsh& h);
-    HshSt combine(const Hsh& h) const;
+    [[nodiscard]] HshSt combine(const Hsh& h) const;
 
-    bool contains(const Hsh& h) const;
-    bool is(const HshSt& h) const;
+    [[nodiscard]] bool contains(const Hsh& h) const;
+    [[nodiscard]] bool is(const HshSt& h) const;
 };
 
 }

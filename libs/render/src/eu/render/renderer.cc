@@ -13,6 +13,51 @@
 #include "eu/render/state.h"
 #include "eu/render/constants.h"
 
+
+namespace internal
+{
+    namespace
+    {
+        using namespace eu;
+        using namespace eu::render;
+
+        struct TransparentMesh
+        {
+            std::shared_ptr<MeshInstance> mesh;
+            float squared_distance_to_camera;
+        };
+
+        void batch_lines(LineDrawer* drawer, const std::vector<DebugLine>& debug_lines, float gamma)
+        {
+            for (const auto& line : debug_lines)
+            {
+                drawer->line(line.from, line.to, linear_from_srgb(line.color, gamma));
+            }
+            drawer->submit();
+        }
+
+        void render_debug_lines(const std::vector<DebugLine>& debug_lines, State* states, LineDrawer* drawer, const CompiledCamera& compiled_camera, const Size& window_size, float gamma)
+        {
+            if (debug_lines.empty())
+            {
+                return;
+            }
+
+            drawer->shader.use();
+            drawer->set_camera(compiled_camera);
+
+            StateChanger{ states }.depth_func(Compare::less_equal).depth_test(true);
+            drawer->set_line_to_solid();
+            batch_lines(drawer, debug_lines, gamma);
+
+            StateChanger{ states }.depth_func(Compare::greater).depth_test(true);
+            drawer->set_line_to_dash({ float_from_int(window_size.width), float_from_int(window_size.height) }, 20.0f, 20.0f);
+            batch_lines(drawer, debug_lines, gamma);
+        }
+    }
+}
+
+
 namespace eu::render
 {
 
@@ -31,18 +76,15 @@ Skybox Renderer::make_skybox(std::shared_ptr<TextureCubemap> texture) const
 
 	const auto layout = pimpl->shaders_resources.skybox_shader.geom_layout;
 
-	const auto triangle = core::geom::create_box(size, size, size, core::geom::NormalsFacing::In, colors::white).to_geom();
+	const auto triangle = core::geom::create_box(size, size, size, core::geom::NormalsFacing::in, colors::white).to_geom();
 	auto geom = compile_geom(USE_DEBUG_LABEL_MANY("skybox") triangle, layout);
 
 	LOG_INFO("Created skybox");
-	return {geom, std::move(texture)};
+	return {
+	    .geom = geom,
+        .cubemap = std::move(texture)
+	};
 }
-
-struct TransparentMesh
-{
-	std::shared_ptr<MeshInstance> mesh;
-	float squared_distance_to_camera;
-};
 
 std::shared_ptr<UnlitMaterial> Renderer::make_unlit_material() const
 {
@@ -128,33 +170,6 @@ m4 transform_from_billboard(const v3& position, Billboarding billboarding, const
 	}
 };
 
-void batch_lines(LineDrawer* drawer, const std::vector<DebugLine>& debug_lines, float gamma)
-{
-	for (const auto& line: debug_lines)
-	{
-		drawer->line(line.from, line.to, linear_from_srgb(line.color, gamma));
-	}
-	drawer->submit();
-}
-
-void render_debug_lines(const std::vector<DebugLine>& debug_lines, State* states, LineDrawer* drawer, const CompiledCamera& compiled_camera, const Size& window_size, float gamma)
-{
-	if (debug_lines.empty())
-	{
-		return;
-	}
-
-	drawer->shader.use();
-	drawer->set_camera(compiled_camera);
-
-	StateChanger{states}.depth_func(Compare::less_equal).depth_test(true);
-	drawer->set_line_to_solid();
-	batch_lines(drawer, debug_lines, gamma);
-
-	StateChanger{states}.depth_func(Compare::greater).depth_test(true);
-	drawer->set_line_to_dash({float_from_int(window_size.width), float_from_int(window_size.height)}, 20.0f, 20.0f);
-	batch_lines(drawer, debug_lines, gamma);
-}
 
 void Renderer::render_world(const Size& window_size, const World& world, const CompiledCamera& compiled_camera, const ShadowContext& shadow_context)
 {
@@ -179,7 +194,7 @@ void Renderer::render_world(const Size& window_size, const World& world, const C
 	auto bound_camera_buffer = BoundUniformBuffer{pimpl->camera_uniform_buffer.buffer.get()};
 	pimpl->camera_uniform_buffer.set_props(compiled_camera);
 
-	std::vector<TransparentMesh> transparent_meshes;
+	std::vector<internal::TransparentMesh> transparent_meshes;
 
 	// render solids
 	{
@@ -194,7 +209,7 @@ void Renderer::render_world(const Size& window_size, const World& world, const C
 				if (mesh->material->is_transparent())
 				{
 					transparent_meshes.emplace_back(
-						TransparentMesh{
+                        internal::TransparentMesh{
 						    .mesh = mesh,
                             .squared_distance_to_camera = v3::from_to(compiled_camera.position, mesh->transform.get_translation()).get_length_squared()
 						}
@@ -258,7 +273,7 @@ void Renderer::render_world(const Size& window_size, const World& world, const C
 		if (debug.lines.empty() == false)
 		{
 			SCOPED_DEBUG_GROUP("render debug lines"sv);
-			render_debug_lines(
+            internal::render_debug_lines(
 				debug.lines, pimpl->states, &pimpl->debug_drawer, compiled_camera, window_size, settings.gamma
 			);
 		}
@@ -419,7 +434,7 @@ void Renderer::render_shadows(const Size& window_size, const World& world, const
 		if (debug.lines.empty() == false)
 		{
 			SCOPED_DEBUG_GROUP("render debug lines"sv);
-			render_debug_lines(
+            internal::render_debug_lines(
 				debug.lines, pimpl->states, &pimpl->debug_drawer, compiled_camera, window_size, settings.gamma
 			);
 		}

@@ -8,68 +8,78 @@
 #include "eu/render/uniform.h"
 #include "eu/render/opengl_utils.h"
 
+namespace internal
+{
+    namespace
+    {
+        using namespace eu;
+        using namespace eu::render;
+
+        template<typename T>
+        bool should_change(std::optional<T>* current_state, T new_state)
+        {
+            // if there is a value, and that is the same... then don't update opengl
+            if (*current_state && *current_state == new_state)
+            {
+                return false;
+            }
+
+            *current_state = new_state;
+            return true;
+        }
+
+        void apply(std::optional<bool>* current_state, bool new_state, GLenum gl_type)
+        {
+            if (should_change(current_state, new_state))
+            {
+                if (new_state)
+                {
+                    glEnable(gl_type);
+                }
+                else
+                {
+                    glDisable(gl_type);
+                }
+            }
+        }
+
+        GLenum enum_from_c(Compare new_state)
+        {
+            switch (new_state)
+            {
+            case Compare::always: return GL_ALWAYS;
+            case Compare::never: return GL_NEVER;
+            case Compare::less: return GL_LESS;
+            case Compare::equal: return GL_EQUAL;
+            case Compare::less_equal: return GL_LEQUAL;
+            case Compare::greater: return GL_GREATER;
+            case Compare::not_equal: return GL_NOTEQUAL;
+            case Compare::greater_equal: return GL_GEQUAL;
+            default: DIE("Invalid depth func"); return GL_LESS;
+            }
+        }
+
+        GLenum enum_from_sa(StencilAction sa)
+        {
+            switch (sa)
+            {
+            case StencilAction::keep: return GL_KEEP;
+            case StencilAction::zero: return GL_ZERO;
+            case StencilAction::replace: return GL_REPLACE;
+            case StencilAction::increase: return GL_INCR;
+            case StencilAction::increase_wrap: return GL_INCR_WRAP;
+            case StencilAction::decrease: return GL_DECR;
+            case StencilAction::decrease_wrap: return GL_DECR_WRAP;
+            case StencilAction::invert: return GL_INVERT;
+            default: DIE("Invalid stencil action"); return GL_KEEP;
+            }
+        };
+
+    }
+}
+
 namespace eu::render
 {
-
-template<typename T>
-bool should_change(std::optional<T>* current_state, T new_state)
-{
-	// if there is a value, and that is the same... then don't update opengl
-	if (*current_state && *current_state == new_state)
-	{
-		return false;
-	}
-
-	*current_state = new_state;
-	return true;
-}
-
-void apply(std::optional<bool>* current_state, bool new_state, GLenum gl_type)
-{
-	if (should_change(current_state, new_state))
-	{
-		if (new_state)
-		{
-			glEnable(gl_type);
-		}
-		else
-		{
-			glDisable(gl_type);
-		}
-	}
-}
-
-GLenum enum_from_c(Compare new_state)
-{
-	switch (new_state)
-	{
-	case Compare::always: return GL_ALWAYS;
-	case Compare::never: return GL_NEVER;
-	case Compare::less: return GL_LESS;
-	case Compare::equal: return GL_EQUAL;
-	case Compare::less_equal: return GL_LEQUAL;
-	case Compare::greater: return GL_GREATER;
-	case Compare::not_equal: return GL_NOTEQUAL;
-	case Compare::greater_equal: return GL_GEQUAL;
-	default: DIE("Invalid depth func"); return GL_LESS;
-	}
-}
-
-GLenum enum_from_sa (StencilAction sa)
-{
-	switch (sa)
-	{
-	case StencilAction::keep: return GL_KEEP;
-	case StencilAction::zero: return GL_ZERO;
-	case StencilAction::replace: return GL_REPLACE;
-	case StencilAction::increase: return GL_INCR;
-	case StencilAction::increase_wrap: return GL_INCR_WRAP;
-	case StencilAction::decrease: return GL_DECR;
-	case StencilAction::decrease_wrap: return GL_DECR_WRAP;
-	case StencilAction::invert: return GL_INVERT;
-	default: DIE("Invalid stencil action"); return GL_KEEP;
-	}
-};
 
 StateChanger::StateChanger(State* s)
 	: states(s)
@@ -78,25 +88,25 @@ StateChanger::StateChanger(State* s)
 
 StateChanger& StateChanger::cull_face(bool new_state)
 {
-	apply(&states->cull_face, new_state, GL_CULL_FACE);
+    internal::apply(&states->cull_face, new_state, GL_CULL_FACE);
 	return *this;
 }
 
 StateChanger& StateChanger::blending(bool new_state)
 {
-	apply(&states->blending, new_state, GL_BLEND);
+    internal::apply(&states->blending, new_state, GL_BLEND);
 	return *this;
 }
 
 StateChanger& StateChanger::depth_test(bool new_state)
 {
-	apply(&states->depth_test, new_state, GL_DEPTH_TEST);
+	internal::apply(&states->depth_test, new_state, GL_DEPTH_TEST);
 	return *this;
 }
 
 StateChanger& StateChanger::depth_mask(bool new_state)
 {
-	if (should_change(&states->depth_mask, new_state))
+	if (internal::should_change(&states->depth_mask, new_state))
 	{
 		glDepthMask(new_state ? GL_TRUE : GL_FALSE);
 	}
@@ -105,9 +115,9 @@ StateChanger& StateChanger::depth_mask(bool new_state)
 
 StateChanger& StateChanger::depth_func(Compare new_state)
 {
-	if (should_change(&states->depth_func, new_state))
+	if (internal::should_change(&states->depth_func, new_state))
 	{
-		const auto mode = enum_from_c(new_state);
+		const auto mode = internal::enum_from_c(new_state);
 		glDepthFunc(mode);
 	}
 
@@ -116,14 +126,14 @@ StateChanger& StateChanger::depth_func(Compare new_state)
 
 StateChanger& StateChanger::stencil_test(bool new_state)
 {
-	apply(&states->stencil_test, new_state, GL_STENCIL_TEST);
+    internal::apply(&states->stencil_test, new_state, GL_STENCIL_TEST);
 	return *this;
 }
 
 /// Set a bitmask that is ANDed with the stencil value about to be written to the buffer.
 StateChanger& StateChanger::stencil_mask(u32 new_state)
 {
-	if (should_change(&states->stencil_mask, new_state))
+	if (internal::should_change(&states->stencil_mask, new_state))
 	{
 		glStencilMask(new_state);
 	}
@@ -133,9 +143,9 @@ StateChanger& StateChanger::stencil_mask(u32 new_state)
 
 StateChanger& StateChanger::stencil_func(Compare func, i32 ref, u32 mask)
 {
-	if (should_change(&states->stencil_func, {func, ref, mask}))
+	if (internal::should_change(&states->stencil_func, {func, ref, mask}))
 	{
-		glStencilFunc(enum_from_c(func), ref, mask);
+		glStencilFunc(internal::enum_from_c(func), ref, mask);
 	}
 
 	return *this;
@@ -143,7 +153,7 @@ StateChanger& StateChanger::stencil_func(Compare func, i32 ref, u32 mask)
 
 StateChanger& StateChanger::render_mode(RenderMode new_state)
 {
-	if (should_change(&states->render_mode, new_state))
+	if (internal::should_change(&states->render_mode, new_state))
 	{
 		const auto mode = ([new_state]() -> GLenum
 			{
@@ -162,11 +172,11 @@ StateChanger& StateChanger::render_mode(RenderMode new_state)
 
 StateChanger& StateChanger::stencil_op(StencilAction stencil_fail, StencilAction depth_fail, StencilAction pass)
 {
-	if (should_change(&states->stencil_op, {stencil_fail, depth_fail, pass}))
+	if (internal::should_change(&states->stencil_op, {stencil_fail, depth_fail, pass}))
 	{
 		// todo(Gustav): look into using glStencilOpSeparate instead to specify front and back faces
 		// https://registry.khronos.org/OpenGL-Refpages/gl4/html/glStencilOpSeparate.xhtml
-		glStencilOp(enum_from_sa(stencil_fail), enum_from_sa(depth_fail), enum_from_sa(pass));
+		glStencilOp(internal::enum_from_sa(stencil_fail), internal::enum_from_sa(depth_fail), internal::enum_from_sa(pass));
 	}
 
 	return *this;
@@ -174,7 +184,7 @@ StateChanger& StateChanger::stencil_op(StencilAction stencil_fail, StencilAction
 
 StateChanger& StateChanger::cull_face_mode(CullFace new_state)
 {
-	if (should_change(&states->cull_face_mode, new_state))
+	if (internal::should_change(&states->cull_face_mode, new_state))
 	{
 		const auto mode = ([new_state]() -> GLenum
 			{
@@ -193,7 +203,7 @@ StateChanger& StateChanger::cull_face_mode(CullFace new_state)
 
 StateChanger& StateChanger::blend_mode(Blend src, Blend dst)
 {
-	if (should_change(&states->blend_mode, {src, dst}))
+	if (internal::should_change(&states->blend_mode, {src, dst}))
 	{
 		const auto convert = [](Blend b) -> GLenum
 		{
@@ -228,7 +238,7 @@ StateChanger& StateChanger::blend_mode(Blend src, Blend dst)
 
 StateChanger& StateChanger::activate_texture(int new_texture)
 {
-	if (should_change(&states->active_texture, new_texture))
+	if (internal::should_change(&states->active_texture, new_texture))
 	{
 		glActiveTexture(glenum_from_int(GL_TEXTURE0 + new_texture));
 	}
@@ -238,7 +248,7 @@ StateChanger& StateChanger::activate_texture(int new_texture)
 StateChanger& StateChanger::bind_texture_2d(int slot, unsigned int texture)
 {
 	ASSERT(slot == states->active_texture);
-	if (should_change(&states->texture_bound[sizet_from_int(slot)], texture))
+	if (internal::should_change(&states->texture_bound[sizet_from_int(slot)], texture))
 	{
 		glBindTexture(GL_TEXTURE_2D, texture);
 	}
@@ -248,7 +258,7 @@ StateChanger& StateChanger::bind_texture_2d(int slot, unsigned int texture)
 StateChanger& StateChanger::bind_texture_cubemap(int slot, unsigned int texture)
 {
 	ASSERT(slot == states->active_texture);
-	if (should_change(&states->texture_bound[sizet_from_int(slot)], texture))
+	if (internal::should_change(&states->texture_bound[sizet_from_int(slot)], texture))
 	{
 		glBindTexture(GL_TEXTURE_CUBE_MAP, texture);
 	}

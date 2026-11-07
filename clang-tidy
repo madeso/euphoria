@@ -186,6 +186,8 @@ ExcludeHeaderFilterRegex: '(build/libs)|(build/apps)'
     {"key": "readability-identifier-naming.EnumCase",                     "value": "CamelCase"},
     {"key": "readability-identifier-naming.TypedefCase",                  "value": "CamelCase"},
     {"key": "readability-identifier-naming.UnionCase",                    "value": "CamelCase"},
+    // class method case is static methods https://stackoverflow.com/questions/79565477/clang-tidy-uses-functioncase-for-class-methods
+    {"key": "readability-identifier-naming.ClassMethodCase",              "value": "CamelCase"},
 
     // template <typename THIS> class Foo {};
     {"key": "readability-identifier-naming.TemplateParameterCase",        "value": "CamelCase"},
@@ -206,7 +208,6 @@ ExcludeHeaderFilterRegex: '(build/libs)|(build/apps)'
     {"key": "readability-identifier-naming.ValueTemplateParameterCase",   "value": "lower_case"},
     {"key": "readability-identifier-naming.ClassConstantCase",            "value": "lower_case"},
     {"key": "readability-identifier-naming.ClassMemberCase",              "value": "lower_case"},
-    {"key": "readability-identifier-naming.ClassMethodCase",              "value": "lower_case"},
     {"key": "readability-identifier-naming.ConstantCase",                 "value": "lower_case"},
     {"key": "readability-identifier-naming.ConstantMemberCase",           "value": "lower_case"},
     {"key": "readability-identifier-naming.ConstantParameterCase",        "value": "lower_case"},

@@ -10,8 +10,14 @@ namespace eu::render
 FullScreenGeom::FullScreenGeom()
 {
 	const auto layout_shader_material = core::ShaderVertexAttributes{
-		{core::VertexType::position2xy, "a_position"},
-		{core::VertexType::texture2, "a_tex_coord"}
+		{
+		    .type = core::VertexType::position2xy,
+            .name = "a_position"
+		},
+		{
+		    .type = core::VertexType::texture2,
+            .name = "a_tex_coord"
+		}
 	};
 	const auto layout_compiler = core::compile_attribute_layouts({layout_shader_material});
 	const auto geom_layout = get_geom_layout(layout_compiler);

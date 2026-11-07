@@ -381,7 +381,7 @@ namespace
 
 Builder create_box(float x, float y, float z, NormalsFacing normals_facing, const Rgb& color)
 {
-	const auto invert = normals_facing == NormalsFacing::In;
+	const auto invert = normals_facing == NormalsFacing::in;
 	Builder b;
 
 	// texel scale
@@ -541,7 +541,7 @@ Builder create_uv_sphere(float diameter, int longitude_count, int latitude_count
 	const auto delta_lat = pi / float_from_int(latitude_count);
 	const auto delta_lon = 2 * pi / float_from_int(longitude_count);
 
-	const auto invert = normals_facing == NormalsFacing::In;
+	const auto invert = normals_facing == NormalsFacing::in;
 
 	for (int latitude_index = 0; latitude_index <= latitude_count; ++latitude_index)
 	{

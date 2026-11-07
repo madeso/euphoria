@@ -17,7 +17,7 @@ namespace eu::tests
         FalseString
         True();
 
-        bool
+        [[nodiscard]] bool
         IsTrue() const;
 
         operator bool() const;

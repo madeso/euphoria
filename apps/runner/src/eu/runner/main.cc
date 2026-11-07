@@ -260,7 +260,7 @@ struct MeshSpatialComponent : runner::SpatialComponent
 
     void imgui(const imgui::PropTable& table) override
     {
-        runner::SpatialComponent::imgui(table);
+        // runner::SpatialComponent::imgui(table);
         table.drag("Position", &position);
         table.drag("Rotation", &rotation);
     }
@@ -306,8 +306,8 @@ struct InputSystem : runner::EntitySystem
     {
         return
         {
-        .stage = runner::UpdateStage::before_physics,
-        .prio = 100
+            .stage = runner::UpdateStage::before_physics,
+            .prio = 100
         };
     }
 

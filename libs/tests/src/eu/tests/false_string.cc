@@ -35,7 +35,7 @@ namespace eu::tests
     {
         if(lhs.IsTrue() && rhs.IsTrue()) { return FalseString::True(); }
 
-        if(!lhs.IsTrue() && !rhs.IsTrue())
+        if(lhs.reason.has_value() && rhs.reason.has_value())
         {
             return FalseString::False( *lhs.reason + "\n" + *rhs.reason );
         }
@@ -52,13 +52,13 @@ namespace eu::tests
     std::ostream&
     operator<<(std::ostream& s, const FalseString& f)
     {
-        if(f)
+        if(f.reason.has_value())
         {
-            s << "<true>";
+            s << *f.reason; 
         }
         else
         {
-            s << *f.reason;
+            s << "<true>";
         }
         return s;
     }

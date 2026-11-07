@@ -3,13 +3,23 @@
 #include <algorithm>
 #include <cmath>
 
-namespace
+namespace internal
 {
-    template <typename T, size_t array_size>
-    size_t argmax(const std::array<T, array_size>& array)
+    namespace
     {
-        ASSERT(array.empty() == false);
-        return std::distance(array.begin(), std::max_element(array.begin(), array.end()));
+        using namespace eu;
+
+        template <typename T, size_t array_size>
+        size_t argmax(const std::array<T, array_size>& array)
+        {
+            ASSERT(array.empty() == false);
+            return std::distance(array.begin(), std::max_element(array.begin(), array.end()));
+        }
+
+        Q add(const Q& lhs, const Q& rhs)
+        {
+            return { lhs.w + rhs.w, {lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z} };
+        }
     }
 }
 
@@ -173,18 +183,13 @@ namespace eu
         return *normalized;
     }
 
-    Q add(const Q& lhs, const Q& rhs)
-    {
-        return { lhs.w + rhs.w, {lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z} };
-    }
-
 
     Q
     Q::nlerp(const Q& f, const float scale, const Q& t)
     {
         const auto lhs = f * (1 - scale);
         const auto rhs = t * scale;
-        return add(lhs, rhs).get_normalized();
+        return internal::add(lhs, rhs).get_normalized();
     }
 
 
@@ -207,7 +212,7 @@ namespace eu
         {
             // if theta = 180 degrees then result is not fully defined
             // we could rotate around any axis normal to qa or qb
-            const Q qt = add(qa, qb);
+            const Q qt = internal::add(qa, qb);
             return Q
             {
                 qt.w * 0.5f,
@@ -221,7 +226,7 @@ namespace eu
         }
         const float ratio_a = eu::sin((1 - t) * half_theta) / sin_half_theta;
         const float ratio_b = eu::sin(t * half_theta) / sin_half_theta;
-        return add(qa * ratio_a, qb * ratio_b);
+        return internal::add(qa * ratio_a, qb * ratio_b);
     }
 
 
@@ -293,6 +298,10 @@ namespace eu
 
         const auto y_new = x.cross_norm(z);
         ASSERT(y_new.has_value());
+        [[unlikely]] if (y_new.has_value() == false)
+        {
+            return q_identity;
+        }
         const auto& y = *y_new;
 
         const auto m = m4::from_basis(x, y, -z);
@@ -349,7 +358,7 @@ namespace eu
         // aka trace
         const auto m00 = m11 + m22 + m33;
 
-        switch (argmax(std::array{ m00, m11, m22, m33 }))
+        switch (internal::argmax(std::array{ m00, m11, m22, m33 }))
         {
         case 0:
         {

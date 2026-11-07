@@ -14,6 +14,57 @@
 #include "eu/render/constants.h"
 
 
+namespace internal
+{
+    namespace
+    {
+        using namespace eu;
+        using namespace eu::render;
+
+
+        void set_optional_mat(
+            ShaderProgram* program, const std::optional<Uniform>& uniform, const std::optional<m4>& transform
+        )
+        {
+            if (uniform && transform)
+            {
+                program->set_mat(*uniform, *transform);
+            }
+            else
+            {
+                ASSERT(uniform.has_value() == false);
+                ASSERT(transform.has_value() == false);
+            }
+        }
+
+        std::shared_ptr<Texture2d> get_or_white(Assets* assets, std::shared_ptr<Texture2d> t)
+        {
+            if (t == nullptr)
+            {
+                return assets->white;
+            }
+            else
+            {
+                return t;
+            }
+        };
+
+        std::shared_ptr<Texture2d> get_or_black(Assets* assets, std::shared_ptr<Texture2d> t)
+        {
+            if (t == nullptr)
+            {
+                return assets->black;
+            }
+            else
+            {
+                return t;
+            }
+        };
+
+    }
+}
+
+
 namespace eu::render
 {
 
@@ -27,21 +78,6 @@ void UnlitMaterial::use_shader(const RenderContext& rc)
 	shader_from_container(*shader_container, rc).program->use();
 }
 
-void set_optional_mat(
-	ShaderProgram* program, const std::optional<Uniform>& uniform, const std::optional<m4>& transform
-)
-{
-	if (uniform && transform)
-	{
-		program->set_mat(*uniform, *transform);
-	}
-	else
-	{
-		ASSERT(uniform.has_value() == false);
-		ASSERT(transform.has_value() == false);
-	}
-}
-
 v3 vec_from_lin(const Lin_rgb& lin)
 {
     return { lin.r, lin.g, lin.b };
@@ -53,7 +89,7 @@ void UnlitMaterial::set_uniforms(
 {
 	const auto& shader = shader_from_container(*shader_container, rc);
     shader.program->set_vec4(shader.tint_color_uni, { vec_from_lin(linear_from_srgb(color, rc.gamma)), alpha });
-	set_optional_mat(shader.program.get(), shader.world_from_local_uni, world_from_local);
+    internal::set_optional_mat(shader.program.get(), shader.world_from_local_uni, world_from_local);
 }
 
 void UnlitMaterial::bind_textures(const RenderContext& rc, State* states, Assets* assets)
@@ -100,40 +136,16 @@ void DefaultMaterial::set_uniforms(
 	shader.program->set_float(shader.shininess_uni, shininess);
 	shader.program->set_float(shader.emissive_factor_uni, emissive_factor);
 
-	set_optional_mat(shader.program.get(), shader.world_from_local_uni, world_from_local);
+    internal::set_optional_mat(shader.program.get(), shader.world_from_local_uni, world_from_local);
 	shader.program->set_vec3(shader.view_position_uni, cc.position);
 }
-
-std::shared_ptr<Texture2d> get_or_white(Assets* assets, std::shared_ptr<Texture2d> t)
-{
-	if (t == nullptr)
-	{
-		return assets->white;
-	}
-	else
-	{
-		return t;
-	}
-};
-
-std::shared_ptr<Texture2d> get_or_black(Assets* assets, std::shared_ptr<Texture2d> t)
-{
-	if (t == nullptr)
-	{
-		return assets->black;
-	}
-	else
-	{
-		return t;
-	}
-};
 
 void DefaultMaterial::bind_textures(const RenderContext& rc, State* states, Assets* assets)
 {
 	const auto& shader = shader_from_container(*shader_container, rc);
-	bind_texture_2d(states, shader.tex_diffuse_uniform, *get_or_white(assets, diffuse));
-	bind_texture_2d(states, shader.tex_specular_uniform, *get_or_white(assets, specular));
-	bind_texture_2d(states, shader.tex_emissive_uniform, *get_or_black(assets, emissive));
+	bind_texture_2d(states, shader.tex_diffuse_uniform, *internal::get_or_white(assets, diffuse));
+	bind_texture_2d(states, shader.tex_specular_uniform, *internal::get_or_white(assets, specular));
+	bind_texture_2d(states, shader.tex_emissive_uniform, *internal::get_or_black(assets, emissive));
 }
 
 void DefaultMaterial::apply_lights(
@@ -205,7 +217,7 @@ void DefaultMaterial::apply_lights(
 		const auto clip_from_view = m4::create_perspective(p.fov, p.aspect, 0.1f, p.max_range);
 		shader.program->set_mat(u.clip_from_world_uni, clip_from_view * view_from_world);
 
-		bind_texture_2d(states, u.tex_cookie_uniform, *get_or_white(assets, p.cookie));
+		bind_texture_2d(states, u.tex_cookie_uniform, *internal::get_or_white(assets, p.cookie));
 	}
 
 	// directional light shadows
