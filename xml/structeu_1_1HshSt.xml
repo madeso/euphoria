@@ -52,7 +52,7 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/hash.set.h" line="15" column="10"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1HshSt_1aba3fa8c83b9f71ae67f3f784829553a9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1HshSt_1aba3fa8c83b9f71ae67f3f784829553a9" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1HshSt" kindref="compound">HshSt</ref></type>
         <definition>HshSt eu::HshSt::combine</definition>
         <argsstring>(const Hsh &amp;h) const</argsstring>
@@ -68,9 +68,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/hash.set.h" line="16" column="11"/>
+        <location file="libs/base/src/eu/base/hash.set.h" line="16" column="12"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1HshSt_1a7610bbb384f0ee7eaa2f5f5fd4de6040" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1HshSt_1a7610bbb384f0ee7eaa2f5f5fd4de6040" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool eu::HshSt::contains</definition>
         <argsstring>(const Hsh &amp;h) const</argsstring>
@@ -86,9 +86,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/hash.set.h" line="18" column="10"/>
+        <location file="libs/base/src/eu/base/hash.set.h" line="18" column="11"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1HshSt_1adc7d730067e99f29fa27a4f970002d63" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1HshSt_1adc7d730067e99f29fa27a4f970002d63" prot="public" static="no" nodiscard="yes" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool eu::HshSt::is</definition>
         <argsstring>(const HshSt &amp;h) const</argsstring>
@@ -104,7 +104,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/base/src/eu/base/hash.set.h" line="19" column="10"/>
+        <location file="libs/base/src/eu/base/hash.set.h" line="19" column="11"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

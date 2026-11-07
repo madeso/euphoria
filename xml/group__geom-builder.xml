@@ -40,15 +40,15 @@
         <type></type>
         <name>NormalsFacing</name>
         <qualifiedname>eu::core::geom::NormalsFacing</qualifiedname>
-        <enumvalue id="group__geom-builder_1ggac6f831c259b84253f395b1ef239dcf33aefeb369cccbd560588a756610865664c" prot="public">
-          <name>In</name>
+        <enumvalue id="group__geom-builder_1ggac6f831c259b84253f395b1ef239dcf33a13b5bfe96f3e2fe411c9f66f4a582adf" prot="public">
+          <name>in</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
-        <enumvalue id="group__geom-builder_1ggac6f831c259b84253f395b1ef239dcf33a7c147cda9e49590f6abe83d118b7353b" prot="public">
-          <name>Out</name>
+        <enumvalue id="group__geom-builder_1ggac6f831c259b84253f395b1ef239dcf33ac68271a63ddbc431c307beb7d2918275" prot="public">
+          <name>out</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>

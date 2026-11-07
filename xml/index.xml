@@ -2394,8 +2394,8 @@
     <member refid="group__geom-builder_1ggac555f9aea27c201510827fa4c4485e17af79c1cf5bdb2893fa5975241da0de3cb" kind="enumvalue"><name>one_sided</name></member>
     <member refid="group__geom-builder_1ggac555f9aea27c201510827fa4c4485e17ad508e7494fb2417728b99ecbf116c08a" kind="enumvalue"><name>two_sided</name></member>
     <member refid="group__geom-builder_1gac6f831c259b84253f395b1ef239dcf33" kind="enum"><name>NormalsFacing</name></member>
-    <member refid="group__geom-builder_1ggac6f831c259b84253f395b1ef239dcf33aefeb369cccbd560588a756610865664c" kind="enumvalue"><name>In</name></member>
-    <member refid="group__geom-builder_1ggac6f831c259b84253f395b1ef239dcf33a7c147cda9e49590f6abe83d118b7353b" kind="enumvalue"><name>Out</name></member>
+    <member refid="group__geom-builder_1ggac6f831c259b84253f395b1ef239dcf33a13b5bfe96f3e2fe411c9f66f4a582adf" kind="enumvalue"><name>in</name></member>
+    <member refid="group__geom-builder_1ggac6f831c259b84253f395b1ef239dcf33ac68271a63ddbc431c307beb7d2918275" kind="enumvalue"><name>out</name></member>
     <member refid="group__geom-builder_1ga5e464d0d67d6ed4c57fed1a834e23741" kind="enum"><name>ExtractedAttributeType</name></member>
     <member refid="group__geom-builder_1gga5e464d0d67d6ed4c57fed1a834e23741afd7170216efb2a7d32648e80919fb0ff" kind="enumvalue"><name>float_type</name></member>
     <member refid="group__geom-builder_1gab3d342a617cc37061b9466839a40e222" kind="typedef"><name>Index</name></member>
