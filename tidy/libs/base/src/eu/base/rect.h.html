@@ -1,0 +1,122 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/base/src/eu/base/rect.h</title>
+<style>
+.link-container {
+ position: relative;
+}
+.prev {
+ position: absolute;
+ top: 0;
+ left: 0;
+}
+.next {
+ position: absolute;
+ top: 0;
+ right: 0;
+}
+.index_link {
+ text-align: center;
+}
+</style>
+</head>
+<body>
+<h1>libs/base/src/eu/base/rect.h</h1>
+<div class="link-container"><div class="prev">&lt;<a href="../../../../core/src/eu/core/geom.extract.cc.html">libs/core/src/eu/core/geom.extract.cc</a></div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../../_/_/_/_/_/usr/include/c++/15/variant.html">../../../../../usr/include/c++/15/variant</a>&gt;</div></div>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for class method &#39;from_left_right_top_bottom&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<ul>
+<li>Found in <a href="rect.cc.html">libs/base/src/eu/base/rect.cc</a></li>
+<li>Found in <a href="rect.test.cc.html">libs/base/src/eu/base/rect.test.cc</a></li>
+</ul>
+<p><i><a href="rect.h.html">libs/base/src/eu/base/rect.h</a> 45 : 35</i></p>
+<pre>
+   45 |         [[nodiscard]] static Rect from_left_right_top_bottom(float left_side, float right_side, float top_side, float bottom_side);
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                   FromLeftRightTopBottom
+</pre>
+<hr>
+<h3>warning: invalid case style for class method &#39;from_bottom_left_size&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<ul>
+<li>Found in <a href="rect.cc.html">libs/base/src/eu/base/rect.cc</a></li>
+<li>Found in <a href="rect.test.cc.html">libs/base/src/eu/base/rect.test.cc</a></li>
+</ul>
+<p><i><a href="rect.h.html">libs/base/src/eu/base/rect.h</a> 46 : 35</i></p>
+<pre>
+   46 |         [[nodiscard]] static Rect from_bottom_left_size(const v2&amp; bl, const v2&amp; size);
+      |                                   ^~~~~~~~~~~~~~~~~~~~~
+      |                                   FromBottomLeftSize
+</pre>
+<hr>
+<h3>warning: invalid case style for class method &#39;from_top_left_size&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<ul>
+<li>Found in <a href="rect.cc.html">libs/base/src/eu/base/rect.cc</a></li>
+<li>Found in <a href="rect.test.cc.html">libs/base/src/eu/base/rect.test.cc</a></li>
+</ul>
+<p><i><a href="rect.h.html">libs/base/src/eu/base/rect.h</a> 47 : 35</i></p>
+<pre>
+   47 |         [[nodiscard]] static Rect from_top_left_size(const v2&amp; top_left, const v2&amp; size);
+      |                                   ^~~~~~~~~~~~~~~~~~
+      |                                   FromTopLeftSize
+</pre>
+<hr>
+<h3>warning: invalid case style for class method &#39;from_size&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<ul>
+<li>Found in <a href="rect.cc.html">libs/base/src/eu/base/rect.cc</a></li>
+<li>Found in <a href="rect.test.cc.html">libs/base/src/eu/base/rect.test.cc</a></li>
+</ul>
+<p><i><a href="rect.h.html">libs/base/src/eu/base/rect.h</a> 48 : 35</i></p>
+<pre>
+   48 |         [[nodiscard]] static Rect from_size(const v2&amp; size);
+      |                                   ^~~~~~~~~
+      |                                   FromSize
+</pre>
+<hr>
+<h3>warning: invalid case style for class method &#39;from_point&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<ul>
+<li>Found in <a href="rect.cc.html">libs/base/src/eu/base/rect.cc</a></li>
+<li>Found in <a href="rect.test.cc.html">libs/base/src/eu/base/rect.test.cc</a></li>
+</ul>
+<p><i><a href="rect.h.html">libs/base/src/eu/base/rect.h</a> 49 : 35</i></p>
+<pre>
+   49 |         [[nodiscard]] static Rect from_point(const v2&amp; point);
+      |                                   ^~~~~~~~~~
+      |                                   FromPoint
+</pre>
+<hr>
+<h3>warning: invalid case style for class method &#39;from_center_inside_other&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<ul>
+<li>Found in <a href="rect.cc.html">libs/base/src/eu/base/rect.cc</a></li>
+<li>Found in <a href="rect.test.cc.html">libs/base/src/eu/base/rect.test.cc</a></li>
+</ul>
+<p><i><a href="rect.h.html">libs/base/src/eu/base/rect.h</a> 60 : 35</i></p>
+<pre>
+   60 |         [[nodiscard]] static Rect from_center_inside_other(const Rect&amp; self, const Rect&amp; other);
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                                   FromCenterInsideOther
+</pre>
+<hr>
+<h3>warning: invalid case style for class method &#39;from_scaled&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<ul>
+<li>Found in <a href="rect.cc.html">libs/base/src/eu/base/rect.cc</a></li>
+<li>Found in <a href="rect.test.cc.html">libs/base/src/eu/base/rect.test.cc</a></li>
+</ul>
+<p><i><a href="rect.h.html">libs/base/src/eu/base/rect.h</a> 63 : 35</i></p>
+<pre>
+   63 |         [[nodiscard]] static Rect from_scaled(const Rect&amp; self, float scale);
+      |                                   ^~~~~~~~~~~
+      |                                   FromScaled
+</pre>
+<div class="link-container"><div class="prev">&lt;<a href="../../../../core/src/eu/core/geom.extract.cc.html">libs/core/src/eu/core/geom.extract.cc</a></div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../../_/_/_/_/_/usr/include/c++/15/variant.html">../../../../../usr/include/c++/15/variant</a>&gt;</div></div>
+</body>
+</html>
