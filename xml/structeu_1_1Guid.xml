@@ -93,12 +93,12 @@
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeu_1_1Guid_1a8ef712e40958a0c96ee7bf46140ec0e8" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Guid_1acb08eea6e6e6ef5fe451f71edb54f215" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::optional&lt; <ref refid="structeu_1_1Guid_1a0a314dc9e3b9e79a4444a1689494d1aa" kindref="member">Guid</ref> &gt;</type>
-        <definition>static std::optional&lt; Guid &gt; eu::Guid::generate</definition>
+        <definition>static std::optional&lt; Guid &gt; eu::Guid::Generate</definition>
         <argsstring>()</argsstring>
-        <name>generate</name>
-        <qualifiedname>eu::Guid::generate</qualifiedname>
+        <name>Generate</name>
+        <qualifiedname>eu::Guid::Generate</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -116,7 +116,7 @@
     <location file="libs/base/src/eu/base/guid.h" line="13" column="5" bodyfile="libs/base/src/eu/base/guid.h" bodystart="14" bodyend="57"/>
     <listofallmembers>
       <member refid="structeu_1_1Guid_1ac9c5c042647a79b26ba31966a708f3fc" prot="public" virt="non-virtual"><scope>eu::Guid</scope><name>data</name></member>
-      <member refid="structeu_1_1Guid_1a8ef712e40958a0c96ee7bf46140ec0e8" prot="public" virt="non-virtual"><scope>eu::Guid</scope><name>generate</name></member>
+      <member refid="structeu_1_1Guid_1acb08eea6e6e6ef5fe451f71edb54f215" prot="public" virt="non-virtual"><scope>eu::Guid</scope><name>Generate</name></member>
       <member refid="structeu_1_1Guid_1a0a314dc9e3b9e79a4444a1689494d1aa" prot="public" virt="non-virtual"><scope>eu::Guid</scope><name>Guid</name></member>
       <member refid="structeu_1_1Guid_1ad0a6db57ed177d9ca1cc00a7901856b8" prot="public" virt="non-virtual"><scope>eu::Guid</scope><name>Guid</name></member>
       <member refid="structeu_1_1Guid_1ace14985038971c105d7e99afc29a060e" prot="public" virt="non-virtual"><scope>eu::Guid</scope><name>Guid</name></member>

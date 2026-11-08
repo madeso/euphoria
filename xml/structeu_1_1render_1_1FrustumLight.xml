@@ -105,7 +105,7 @@
         <argsstring></argsstring>
         <name>curve</name>
         <qualifiedname>eu::render::FrustumLight::curve</qualifiedname>
-        <initializer>= <ref refid="structeu_1_1core_1_1SCurve_1a19eee5149440ec64c8e76bf4262aa5cd" kindref="member">core::SCurve::light_curve</ref>()</initializer>
+        <initializer>= <ref refid="structeu_1_1core_1_1SCurve_1ad50636ed189be52aff629e717cb1afcd" kindref="member">core::SCurve::LightCurve</ref>()</initializer>
         <briefdescription>
 <para>curve and ui, needs to be trimmed down for actual renderer </para>
         </briefdescription>

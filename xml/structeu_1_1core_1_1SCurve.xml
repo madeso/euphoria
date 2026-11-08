@@ -76,12 +76,12 @@
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeu_1_1core_1_1SCurve_1a19eee5149440ec64c8e76bf4262aa5cd" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1core_1_1SCurve_1ad50636ed189be52aff629e717cb1afcd" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeu_1_1core_1_1SCurve_1ab47545d6792fbefd9456bdf12e0ad36b" kindref="member">SCurve</ref></type>
-        <definition>static constexpr SCurve eu::core::SCurve::light_curve</definition>
+        <definition>static constexpr SCurve eu::core::SCurve::LightCurve</definition>
         <argsstring>()</argsstring>
-        <name>light_curve</name>
-        <qualifiedname>eu::core::SCurve::light_curve</qualifiedname>
+        <name>LightCurve</name>
+        <qualifiedname>eu::core::SCurve::LightCurve</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -98,7 +98,7 @@
     </detaileddescription>
     <location file="libs/core/src/eu/core/scurve.h" line="14" column="1" bodyfile="libs/core/src/eu/core/scurve.h" bodystart="15" bodyend="31"/>
     <listofallmembers>
-      <member refid="structeu_1_1core_1_1SCurve_1a19eee5149440ec64c8e76bf4262aa5cd" prot="public" virt="non-virtual"><scope>eu::core::SCurve</scope><name>light_curve</name></member>
+      <member refid="structeu_1_1core_1_1SCurve_1ad50636ed189be52aff629e717cb1afcd" prot="public" virt="non-virtual"><scope>eu::core::SCurve</scope><name>LightCurve</name></member>
       <member refid="structeu_1_1core_1_1SCurve_1ab47545d6792fbefd9456bdf12e0ad36b" prot="public" virt="non-virtual"><scope>eu::core::SCurve</scope><name>SCurve</name></member>
       <member refid="structeu_1_1core_1_1SCurve_1a9c73decf2170584cef4884fdc7ecbecc" prot="public" virt="non-virtual"><scope>eu::core::SCurve</scope><name>SCurve</name></member>
       <member refid="structeu_1_1core_1_1SCurve_1a5a398ee69035c0d81271221e007d2f11" prot="public" virt="non-virtual"><scope>eu::core::SCurve</scope><name>slope</name></member>

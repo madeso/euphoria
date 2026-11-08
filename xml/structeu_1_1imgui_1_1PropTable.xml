@@ -647,12 +647,12 @@
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1aad66d61718c7947017ae182b2f0324a8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a275a40085aa04e1cc0154348dd207623" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1imgui_1_1PropTable_1a42b95927bd717011912d4bf09c4c11c7" kindref="member">PropTable</ref></type>
-        <definition>static PropTable eu::imgui::PropTable::begin</definition>
+        <definition>static PropTable eu::imgui::PropTable::Begin</definition>
         <argsstring>(const char *label=&quot;properties&quot;)</argsstring>
-        <name>begin</name>
-        <qualifiedname>eu::imgui::PropTable::begin</qualifiedname>
+        <name>Begin</name>
+        <qualifiedname>eu::imgui::PropTable::Begin</qualifiedname>
         <param>
           <type>const char *</type>
           <declname>label</declname>
@@ -707,7 +707,7 @@
     </detaileddescription>
     <location file="libs/imgui/src/eu/imgui/ui.h" line="72" column="1" bodyfile="libs/imgui/src/eu/imgui/ui.h" bodystart="73" bodyend="114"/>
     <listofallmembers>
-      <member refid="structeu_1_1imgui_1_1PropTable_1aad66d61718c7947017ae182b2f0324a8" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>begin</name></member>
+      <member refid="structeu_1_1imgui_1_1PropTable_1a275a40085aa04e1cc0154348dd207623" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>Begin</name></member>
       <member refid="structeu_1_1imgui_1_1PropTable_1a51c3c130acde0557610cf718cf920e70" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>check</name></member>
       <member refid="structeu_1_1imgui_1_1PropTable_1afe688b594f2138013905ec4c1f02d7be" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>color</name></member>
       <member refid="structeu_1_1imgui_1_1PropTable_1a927c8524dca330ab1ef144298692f0bb" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>display</name></member>
