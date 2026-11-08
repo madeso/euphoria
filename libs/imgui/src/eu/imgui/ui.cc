@@ -358,7 +358,7 @@ namespace eu::imgui
                             }
                         }
                         const auto new_ang = ang - *initial_angle + static_cast<float>(turns) * 360.0f;
-                        const auto val = orig + (new_ang / 360.0f) * one_turn;
+                        const auto val = orig - (new_ang / 360.0f) * one_turn;
 
                         if (drag != nullptr)
                         {
