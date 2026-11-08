@@ -86,7 +86,7 @@ namespace internal
 namespace eu
 {
 #ifndef _WIN32
-    std::optional<Guid> Guid::generate()
+    std::optional<Guid> Guid::Generate()
     {
         Guid guid {};
         uuid_generate(guid.data.data());
