@@ -1,0 +1,60 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>libs/base/src/eu/base/guid.cc</title>
+<style>
+.link-container {
+ position: relative;
+}
+.prev {
+ position: absolute;
+ top: 0;
+ left: 0;
+}
+.next {
+ position: absolute;
+ top: 0;
+ right: 0;
+}
+.index_link {
+ text-align: center;
+}
+</style>
+</head>
+<body>
+<h1>libs/base/src/eu/base/guid.cc</h1>
+<div class="link-container"><div class="prev">&lt;<a href="../../../../render/src/eu/render/font.cc.html">libs/render/src/eu/render/font.cc</a></div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../render/src/eu/render/renderer.cc.html">libs/render/src/eu/render/renderer.cc</a>&gt;</div></div>
+<span id='readability-identifier-naming'>&nbsp;</span>
+<hr>
+<h3>warning: invalid case style for class method &#39;AsHex&#39;</h3>
+<code>[readability-identifier-naming]</code>
+<ul>
+<li>Found in <a href="guid.cc.html">libs/base/src/eu/base/guid.cc</a></li>
+</ul>
+<p><i><a href="guid.cc.html">libs/base/src/eu/base/guid.cc</a> 58 : 43</i></p>
+<pre>
+   58 |             static std::optional&lt;uint8_t&gt; AsHex(char c)
+      |                                           ^~~~~
+      |                                           As_Hex
+   59 |             {
+   60 |                 if (&#39;0&#39; &lt;= c &amp;&amp; c &lt;= &#39;9&#39;) { return static_cast&lt;uint8_t&gt;(c - &#39;0&#39;); }
+   61 |                 if (&#39;a&#39; &lt;= c &amp;&amp; c &lt;= &#39;f&#39;) { return static_cast&lt;uint8_t&gt;(10 + (c - &#39;a&#39;)); }
+   62 |                 if (&#39;A&#39; &lt;= c &amp;&amp; c &lt;= &#39;F&#39;) { return static_cast&lt;uint8_t&gt;(10 + (c - &#39;A&#39;)); }
+   63 |                 return std::nullopt;
+   64 |             }
+   65 | 
+   66 |             std::optional&lt;uint8_t&gt; read_hex()
+   67 |             {
+   68 |                 const auto first = AsHex(read());
+      |                                    ~~~~~
+      |                                    As_Hex
+   69 |                 if (first.has_value() == false) { return std::nullopt; }
+   70 | 
+   71 |                 const auto second = AsHex(peek());
+      |                                     ~~~~~
+      |                                     As_Hex
+</pre>
+<div class="link-container"><div class="prev">&lt;<a href="../../../../render/src/eu/render/font.cc.html">libs/render/src/eu/render/font.cc</a></div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../render/src/eu/render/renderer.cc.html">libs/render/src/eu/render/renderer.cc</a>&gt;</div></div>
+</body>
+</html>
