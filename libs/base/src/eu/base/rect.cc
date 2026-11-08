@@ -76,7 +76,7 @@ namespace eu
     }
 
     Rect
-    Rect::from_center_inside_other(const Rect& self, const Rect& other)
+    Rect::From_Center_Inside_Other(const Rect& self, const Rect& other)
     {
         const auto size = self.get_size();
         const auto lower_left = other.get_center_pos() - self.get_relative_center_pos();
@@ -87,7 +87,7 @@ namespace eu
     }
 
     Rect
-    Rect::FromScaled(const Rect& self, float scale)
+    Rect::From_Scaled(const Rect& self, float scale)
     {
         const auto s = self.get_size();
         const auto ns = s * scale;
