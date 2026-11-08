@@ -22,12 +22,6 @@ struct SCurve
 		: slope(s)
 		, threshold(t)
 	{}
-
-    // todo(Gustav): give a better name
-	constexpr static SCurve LightCurve()
-	{
-		return {5.0f, 1.0f};
-	}
 };
 
 /// Generate an S-Curve from user input.

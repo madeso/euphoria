@@ -133,13 +133,15 @@ struct DirectionalLight
 	float diffuse_strength = 1.0f;
 };
 
+constexpr core::SCurve default_light_curve = { 5.0f, 1.0f };
+
 /// A point light.
 struct PointLight
 {
 	v3 position = {0.0f, 0.0f, 0.0f};
 	float min_range = 10.0f;
 	float max_range = 20.0f;
-    core::SCurve curve = core::SCurve::LightCurve();	///< curve and ui, needs to be trimmed down for actual renderer
+    core::SCurve curve = default_light_curve;	///< curve and ui, needs to be trimmed down for actual renderer
 
 	Rgb color = colors::white;
 	float specular_strength = 1.0f;
@@ -163,7 +165,7 @@ struct FrustumLight
 
 	float min_range = 10.0f;
 	float max_range = 20.0f;
-    core::SCurve curve = core::SCurve::LightCurve();  ///< curve and ui, needs to be trimmed down for actual renderer
+    core::SCurve curve = default_light_curve;  ///< curve and ui, needs to be trimmed down for actual renderer
 
 	Rgb color = colors::white;
 	float specular_strength = 1.0f;

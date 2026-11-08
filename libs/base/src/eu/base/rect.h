@@ -57,10 +57,10 @@ namespace eu
         void set_empty();
 
         /// centers the self rectangle inside the other rectangle
-        [[nodiscard]] static Rect from_center_inside_other(const Rect& self, const Rect& other);
+        [[nodiscard]] static Rect From_Center_Inside_Other(const Rect& self, const Rect& other);
 
         /// scaled copy around rect center
-        [[nodiscard]] static Rect from_scaled(const Rect& self, float scale);
+        [[nodiscard]] static Rect From_Scaled(const Rect& self, float scale);
 
         /// does this contains the argument?
         [[nodiscard]] bool contains_exclusive(const Rect& r) const;

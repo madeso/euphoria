@@ -87,7 +87,7 @@ namespace eu
     }
 
     Rect
-    Rect::from_scaled(const Rect& self, float scale)
+    Rect::FromScaled(const Rect& self, float scale)
     {
         const auto s = self.get_size();
         const auto ns = s * scale;

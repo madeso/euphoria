@@ -24,7 +24,8 @@ ExcludeHeaderFilterRegex: '(build/libs)|(build/apps)'
     {"key": "readability-identifier-naming.EnumCase",                     "value": "CamelCase"},
     {"key": "readability-identifier-naming.TypedefCase",                  "value": "CamelCase"},
     {"key": "readability-identifier-naming.UnionCase",                    "value": "CamelCase"},
-    {"key": "readability-identifier-naming.ClassMethodCase",              "value": "CamelCase"},
+
+    {"key": "readability-identifier-naming.ClassMethodCase",              "value": "Camel_Snake_Case"},
 
     {"key": "readability-identifier-naming.TemplateParameterCase",        "value": "CamelCase"},
 
