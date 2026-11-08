@@ -676,6 +676,23 @@
         <location file="libs/render/src/eu/render/state.h" line="110" column="1" bodyfile="libs/render/src/eu/render/state.h" bodystart="110" bodyend="-1"/>
       </memberdef>
     </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="group__render_1ga09d681306d395fb2cf599d47d8921788" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>core::SCurve</type>
+        <definition>core::SCurve eu::render::default_light_curve</definition>
+        <argsstring></argsstring>
+        <name>default_light_curve</name>
+        <qualifiedname>eu::render::default_light_curve</qualifiedname>
+        <initializer>= { 5.0f, 1.0f }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/eu/render/world.h" line="136" column="24" bodyfile="libs/render/src/eu/render/world.h" bodystart="136" bodyend="136"/>
+      </memberdef>
+    </sectiondef>
     <sectiondef kind="func">
       <memberdef kind="function" id="group__render_1gadbbc30dc5b709d2c5378943ea468c5a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>CameraVectors</type>
@@ -1199,7 +1216,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="149" column="15" declfile="libs/render/src/eu/render/world.h" declline="149" declcolumn="15"/>
+        <location file="libs/render/src/eu/render/world.h" line="151" column="15" declfile="libs/render/src/eu/render/world.h" declline="151" declcolumn="15"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

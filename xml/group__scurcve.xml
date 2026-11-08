@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/eu/core/scurve.h" line="37" column="8" declfile="libs/core/src/eu/core/scurve.h" declline="37" declcolumn="8"/>
+        <location file="libs/core/src/eu/core/scurve.h" line="31" column="8" declfile="libs/core/src/eu/core/scurve.h" declline="31" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group__scurcve_1ga7b67c48a7749ea27a30bcf466601f027" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -97,7 +97,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/eu/core/scurve.h" line="44" column="7" declfile="libs/core/src/eu/core/scurve.h" declline="44" declcolumn="7"/>
+        <location file="libs/core/src/eu/core/scurve.h" line="38" column="7" declfile="libs/core/src/eu/core/scurve.h" declline="38" declcolumn="7"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

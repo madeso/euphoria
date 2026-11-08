@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="154" column="4" bodyfile="libs/render/src/eu/render/world.h" bodystart="154" bodyend="154"/>
+        <location file="libs/render/src/eu/render/world.h" line="156" column="4" bodyfile="libs/render/src/eu/render/world.h" bodystart="156" bodyend="156"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1FrustumLight_1a3002b0ba04b31aa4d8ea1658f936a51b" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1Ypr" kindref="compound">Ypr</ref></type>
@@ -37,7 +37,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="155" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="155" bodyend="160"/>
+        <location file="libs/render/src/eu/render/world.h" line="157" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="157" bodyend="162"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1FrustumLight_1af095349d734b3498314c55631b11630b" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1An" kindref="compound">An</ref></type>
@@ -52,7 +52,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="161" column="4" bodyfile="libs/render/src/eu/render/world.h" bodystart="161" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="163" column="4" bodyfile="libs/render/src/eu/render/world.h" bodystart="163" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1FrustumLight_1ac7c9bb7390f10c249f832003c7fcc286" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="162" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="162" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="164" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="164" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1FrustumLight_1a89f56e3595c26b902dd3715b7b44dcaf" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -82,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="164" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="164" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="166" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="166" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1FrustumLight_1a8594a296544f7fdd7686c15c1625adf6" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -97,7 +97,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="165" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="165" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="167" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="167" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1FrustumLight_1a98712379cc1176d0b98be83b0f42d3e7" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1core_1_1SCurve" kindref="compound">core::SCurve</ref></type>
@@ -105,7 +105,7 @@
         <argsstring></argsstring>
         <name>curve</name>
         <qualifiedname>eu::render::FrustumLight::curve</qualifiedname>
-        <initializer>= <ref refid="structeu_1_1core_1_1SCurve_1ad50636ed189be52aff629e717cb1afcd" kindref="member">core::SCurve::LightCurve</ref>()</initializer>
+        <initializer>= <ref refid="group__render_1ga09d681306d395fb2cf599d47d8921788" kindref="member">default_light_curve</ref></initializer>
         <briefdescription>
 <para>curve and ui, needs to be trimmed down for actual renderer </para>
         </briefdescription>
@@ -113,7 +113,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="166" column="18" bodyfile="libs/render/src/eu/render/world.h" bodystart="166" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="168" column="18" bodyfile="libs/render/src/eu/render/world.h" bodystart="168" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1FrustumLight_1acf01a809bfe1d2762b0edbcc41799df1" prot="public" static="no" mutable="no">
         <type><ref refid="structeu_1_1Rgb" kindref="compound">Rgb</ref></type>
@@ -128,7 +128,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="168" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="168" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="170" column="5" bodyfile="libs/render/src/eu/render/world.h" bodystart="170" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1FrustumLight_1a76a7b8f20bfe4eeda85bfc0d3a0ba2db" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -143,7 +143,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="169" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="169" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="171" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="171" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1FrustumLight_1a2127cdbd7cbdb2dca9f0ab05da9f38fe" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -158,7 +158,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="170" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="170" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="172" column="7" bodyfile="libs/render/src/eu/render/world.h" bodystart="172" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1render_1_1FrustumLight_1aef06a7c5cc3baa3f77f067e737d0d69d" prot="public" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="structeu_1_1render_1_1Texture2d" kindref="compound">Texture2d</ref> &gt;</type>
@@ -172,7 +172,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/eu/render/world.h" line="172" column="17" bodyfile="libs/render/src/eu/render/world.h" bodystart="172" bodyend="-1"/>
+        <location file="libs/render/src/eu/render/world.h" line="174" column="17" bodyfile="libs/render/src/eu/render/world.h" bodystart="174" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -226,7 +226,7 @@
         <link refid="structeu_1_1v3"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/eu/render/world.h" line="152" column="1" bodyfile="libs/render/src/eu/render/world.h" bodystart="153" bodyend="173"/>
+    <location file="libs/render/src/eu/render/world.h" line="154" column="1" bodyfile="libs/render/src/eu/render/world.h" bodystart="155" bodyend="175"/>
     <listofallmembers>
       <member refid="structeu_1_1render_1_1FrustumLight_1ac7c9bb7390f10c249f832003c7fcc286" prot="public" virt="non-virtual"><scope>eu::render::FrustumLight</scope><name>aspect</name></member>
       <member refid="structeu_1_1render_1_1FrustumLight_1acf01a809bfe1d2762b0edbcc41799df1" prot="public" virt="non-virtual"><scope>eu::render::FrustumLight</scope><name>color</name></member>

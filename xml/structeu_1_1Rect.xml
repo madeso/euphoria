@@ -852,12 +852,12 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/rect.h" line="49" column="22"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Rect_1a8b6434638758009365d038adbada4143" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Rect_1a2dffd83f6807c8be564fab4c77ea5533" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Rect_1a63b60c39516cf6e4be087b8628b38044" kindref="member">Rect</ref></type>
-        <definition>static Rect eu::Rect::from_center_inside_other</definition>
+        <definition>static Rect eu::Rect::From_Center_Inside_Other</definition>
         <argsstring>(const Rect &amp;self, const Rect &amp;other)</argsstring>
-        <name>from_center_inside_other</name>
-        <qualifiedname>eu::Rect::from_center_inside_other</qualifiedname>
+        <name>From_Center_Inside_Other</name>
+        <qualifiedname>eu::Rect::From_Center_Inside_Other</qualifiedname>
         <param>
           <type>const <ref refid="structeu_1_1Rect_1a63b60c39516cf6e4be087b8628b38044" kindref="member">Rect</ref> &amp;</type>
           <declname>self</declname>
@@ -875,12 +875,12 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/rect.h" line="60" column="22"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Rect_1a78bc1b7a19106a05c9ecb5c50d2d41f6" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Rect_1a04239a558a565f99f939ddc02754e65e" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Rect_1a63b60c39516cf6e4be087b8628b38044" kindref="member">Rect</ref></type>
-        <definition>static Rect eu::Rect::from_scaled</definition>
+        <definition>static Rect eu::Rect::From_Scaled</definition>
         <argsstring>(const Rect &amp;self, float scale)</argsstring>
-        <name>from_scaled</name>
-        <qualifiedname>eu::Rect::from_scaled</qualifiedname>
+        <name>From_Scaled</name>
+        <qualifiedname>eu::Rect::From_Scaled</qualifiedname>
         <param>
           <type>const <ref refid="structeu_1_1Rect_1a63b60c39516cf6e4be087b8628b38044" kindref="member">Rect</ref> &amp;</type>
           <declname>self</declname>
@@ -950,11 +950,11 @@
       <member refid="structeu_1_1Rect_1ad760740db6603c5ebd34557e93aa8dfd" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>cut_top</name></member>
       <member refid="structeu_1_1Rect_1a822d88039fe24617a4bdd0286ebc49d8" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>extend</name></member>
       <member refid="structeu_1_1Rect_1acb48eb3101d3ad50657d7c9fd27f66ed" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>from_bottom_left_size</name></member>
-      <member refid="structeu_1_1Rect_1a8b6434638758009365d038adbada4143" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>from_center_inside_other</name></member>
+      <member refid="structeu_1_1Rect_1a2dffd83f6807c8be564fab4c77ea5533" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>From_Center_Inside_Other</name></member>
       <member refid="structeu_1_1Rect_1acddc755695250c77a4132936d0dbf37b" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>from_left_right_bottom_top</name></member>
       <member refid="structeu_1_1Rect_1a1c69ca2953de13022c21e04f5e9959de" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>from_left_right_top_bottom</name></member>
       <member refid="structeu_1_1Rect_1a080cd6dbe8d9c93eaaaf46b30520a3be" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>from_point</name></member>
-      <member refid="structeu_1_1Rect_1a78bc1b7a19106a05c9ecb5c50d2d41f6" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>from_scaled</name></member>
+      <member refid="structeu_1_1Rect_1a04239a558a565f99f939ddc02754e65e" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>From_Scaled</name></member>
       <member refid="structeu_1_1Rect_1a4813f449e47554090fb8a7716f31c4a4" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>from_size</name></member>
       <member refid="structeu_1_1Rect_1a9f0f207b63729d5b646a0aca09388167" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>from_top_left_size</name></member>
       <member refid="structeu_1_1Rect_1a6c8eef03f18b7d73903f726832fadd25" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>get_bottom</name></member>

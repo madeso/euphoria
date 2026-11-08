@@ -298,6 +298,7 @@
     </sectiondef>
     <sectiondef kind="var">
       <member refid="group__texture_1gac79b1d9294cd27d6bd858386a5d3b0b9" kind="variable"><name>cubemap_size</name></member>
+      <member refid="group__render_1ga09d681306d395fb2cf599d47d8921788" kind="variable"><name>default_light_curve</name></member>
     </sectiondef>
     <sectiondef kind="func">
       <member refid="group__render_1gadbbc30dc5b709d2c5378943ea468c5a4" kind="function"><name>create_vectors</name></member>

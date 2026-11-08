@@ -1090,8 +1090,8 @@
     <member refid="structeu_1_1Rect_1a9f0f207b63729d5b646a0aca09388167" kind="function"><name>from_top_left_size</name></member>
     <member refid="structeu_1_1Rect_1a4813f449e47554090fb8a7716f31c4a4" kind="function"><name>from_size</name></member>
     <member refid="structeu_1_1Rect_1a080cd6dbe8d9c93eaaaf46b30520a3be" kind="function"><name>from_point</name></member>
-    <member refid="structeu_1_1Rect_1a8b6434638758009365d038adbada4143" kind="function"><name>from_center_inside_other</name></member>
-    <member refid="structeu_1_1Rect_1a78bc1b7a19106a05c9ecb5c50d2d41f6" kind="function"><name>from_scaled</name></member>
+    <member refid="structeu_1_1Rect_1a2dffd83f6807c8be564fab4c77ea5533" kind="function"><name>From_Center_Inside_Other</name></member>
+    <member refid="structeu_1_1Rect_1a04239a558a565f99f939ddc02754e65e" kind="function"><name>From_Scaled</name></member>
     <member refid="structeu_1_1Rect_1ad8be8ce8b0eed9fa9d4df992b5c8bf09" kind="function"><name>Rect</name></member>
   </compound>
   <compound refid="structeu_1_1render_1_1Render2" kind="struct"><name>eu::render::Render2</name>
@@ -1232,7 +1232,6 @@
     <member refid="structeu_1_1core_1_1SCurve_1ad30eba46655fbd5d56f787f0280f2729" kind="variable"><name>threshold</name></member>
     <member refid="structeu_1_1core_1_1SCurve_1ab47545d6792fbefd9456bdf12e0ad36b" kind="function"><name>SCurve</name></member>
     <member refid="structeu_1_1core_1_1SCurve_1a9c73decf2170584cef4884fdc7ecbecc" kind="function"><name>SCurve</name></member>
-    <member refid="structeu_1_1core_1_1SCurve_1ad50636ed189be52aff629e717cb1afcd" kind="function"><name>LightCurve</name></member>
   </compound>
   <compound refid="structeu_1_1imgui_1_1SCurveGuiState" kind="struct"><name>eu::imgui::SCurveGuiState</name>
     <member refid="structeu_1_1imgui_1_1SCurveGuiState_1a1e223b925acfb7be3089879fea8df4e4" kind="variable"><name>drag</name></member>
@@ -1987,6 +1986,7 @@
     <member refid="group__render_1ga43fb2392c6b77e1684dc495d4b77c461" kind="typedef"><name>StencilFunc</name></member>
     <member refid="group__render_1gac2414627ce6884064c21ae9b773b3b72" kind="typedef"><name>StencilOp</name></member>
     <member refid="group__texture_1gac79b1d9294cd27d6bd858386a5d3b0b9" kind="variable"><name>cubemap_size</name></member>
+    <member refid="group__render_1ga09d681306d395fb2cf599d47d8921788" kind="variable"><name>default_light_curve</name></member>
     <member refid="group__render_1gadbbc30dc5b709d2c5378943ea468c5a4" kind="function"><name>create_vectors</name></member>
     <member refid="group__render_1ga294fc5bce51cf7db33bfcfbed0d0afc1" kind="function"><name>create_view_from_world_mat</name></member>
     <member refid="group__render_1ga49f20d8d8f4cf168bca0b9802eebbbee" kind="function"><name>compile</name></member>
@@ -2493,6 +2493,7 @@
     <member refid="group__render_1ga7e2c947b3161d42b9b1360f266b56c88" kind="typedef"><name>BlendMode</name></member>
     <member refid="group__render_1ga43fb2392c6b77e1684dc495d4b77c461" kind="typedef"><name>StencilFunc</name></member>
     <member refid="group__render_1gac2414627ce6884064c21ae9b773b3b72" kind="typedef"><name>StencilOp</name></member>
+    <member refid="group__render_1ga09d681306d395fb2cf599d47d8921788" kind="variable"><name>default_light_curve</name></member>
     <member refid="group__render_1gadbbc30dc5b709d2c5378943ea468c5a4" kind="function"><name>create_vectors</name></member>
     <member refid="group__render_1ga294fc5bce51cf7db33bfcfbed0d0afc1" kind="function"><name>create_view_from_world_mat</name></member>
     <member refid="group__render_1ga49f20d8d8f4cf168bca0b9802eebbbee" kind="function"><name>compile</name></member>
