@@ -55,7 +55,7 @@ namespace internal
                 skip(' ');
             }
 
-            static std::optional<uint8_t> as_hex(char c)
+            static std::optional<uint8_t> AsHex(char c)
             {
                 if ('0' <= c && c <= '9') { return static_cast<uint8_t>(c - '0'); }
                 if ('a' <= c && c <= 'f') { return static_cast<uint8_t>(10 + (c - 'a')); }
@@ -65,10 +65,10 @@ namespace internal
 
             std::optional<uint8_t> read_hex()
             {
-                const auto first = as_hex(read());
+                const auto first = AsHex(read());
                 if (first.has_value() == false) { return std::nullopt; }
 
-                const auto second = as_hex(peek());
+                const auto second = AsHex(peek());
                 if (second.has_value())
                 {
                     read();
@@ -93,7 +93,7 @@ namespace eu
         return guid;
     }
 #else
-    std::optional<Guid> Guid::generate()
+    std::optional<Guid> Guid::Generate()
     {
         GUID g;
 

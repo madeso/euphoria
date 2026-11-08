@@ -140,7 +140,7 @@ m4 transform_from_billboard(const v3& position, Billboarding billboarding, const
 	{
 	case Billboarding::screen:
 		{
-			const auto rotation = calc_fixed_right(v3::from_to(cc.position, position).get_normalized().value_or(kk::in), kk::up);
+			const auto rotation = calc_fixed_right(v3::FromTo(cc.position, position).get_normalized().value_or(kk::in), kk::up);
 			return translation * rotation;
 		}
 	case Billboarding::screen_fast:
@@ -151,7 +151,7 @@ m4 transform_from_billboard(const v3& position, Billboarding billboarding, const
 		}
 	case Billboarding::axial_y:
 		{
-			const auto rotation = calc_fixed_up(v3::from_to(cc.position, position).get_normalized().value_or(kk::in), kk::up);
+			const auto rotation = calc_fixed_up(v3::FromTo(cc.position, position).get_normalized().value_or(kk::in), kk::up);
 			return translation * rotation;
 		}
 	case Billboarding::axial_y_fast:
@@ -211,7 +211,7 @@ void Renderer::render_world(const Size& window_size, const World& world, const C
 					transparent_meshes.emplace_back(
                         internal::TransparentMesh{
 						    .mesh = mesh,
-                            .squared_distance_to_camera = v3::from_to(compiled_camera.position, mesh->transform.get_translation()).get_length_squared()
+                            .squared_distance_to_camera = v3::FromTo(compiled_camera.position, mesh->transform.get_translation()).get_length_squared()
 						}
 					);
 

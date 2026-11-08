@@ -214,7 +214,7 @@ namespace eu
     [[nodiscard]] m4
     m4::from(const Q& q)
     {
-        const auto aa = AA::from(q);
+        const auto aa = AA::From(q);
         return m4::from(aa);
     }
 

@@ -53,7 +53,7 @@ namespace eu
             ASSERT((e >> 48) == 0);
         }
 
-        [[nodiscard]] static std::optional<Guid> generate();
+        [[nodiscard]] static std::optional<Guid> Generate();
     };
 
     bool operator==(const Guid& lhs, const Guid& rhs);

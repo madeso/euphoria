@@ -40,7 +40,7 @@ vector_equals
             << lhs.size()
             << " vs "
             << rhs.size();
-        ss << VectorToString(lhs, fun_to_string) << " " << VectorToString(rhs, fun_to_string);
+        ss << vector_to_string(lhs, fun_to_string) << " " << vector_to_string(rhs, fun_to_string);
         size_equal = FalseString::False(ss.str());
     }
 
@@ -58,11 +58,11 @@ vector_equals
             }
             else
             {
-                const auto a_lhs = VectorToStringEx(lhs, fun_to_string);
-                const auto a_rhs = VectorToStringEx(rhs, fun_to_string);
+                const auto a_lhs = vector_to_string_ex(lhs, fun_to_string);
+                const auto a_rhs = vector_to_string_ex(rhs, fun_to_string);
                 const auto same = a_lhs.second == a_rhs.second;
-                const auto lhs_str = same || a_lhs.second==false? a_lhs.first : VectorToString(lhs, false, fun_to_string);
-                const auto rhs_str = same || a_rhs.second==false? a_rhs.first : VectorToString(rhs, false, fun_to_string);
+                const auto lhs_str = same || a_lhs.second==false? a_lhs.first : vector_to_string(lhs, false, fun_to_string);
+                const auto rhs_str = same || a_rhs.second==false? a_rhs.first : vector_to_string(rhs, false, fun_to_string);
                 const auto oneliner = same && a_lhs.second == true;
                 const auto vs = oneliner ? " vs " : "vs";
                 if (oneliner == false)

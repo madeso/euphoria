@@ -25,7 +25,7 @@ namespace eu
 
         AA(const n3 &ax, const An &ang);
 
-        [[nodiscard]] static AA from(const Q& q);
+        [[nodiscard]] static AA From(const Q& q);
     };
 
     /// yaw + pitch + roll
@@ -40,7 +40,7 @@ namespace eu
         /// tilting rotation, positive tilting right/clockwise/right hand rule
         An roll = no_rotation;
 
-        [[nodiscard]] static Ypr from(const Q& q);
+        [[nodiscard]] static Ypr From(const Q& q);
     };
 
     [[nodiscard]] AA

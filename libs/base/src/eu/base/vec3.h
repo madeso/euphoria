@@ -40,10 +40,10 @@ namespace eu
         explicit v3(const float *a);
 
         /// creates a vector going from `from` to `to`
-        static v3 from_to(const v3 &from, const v3 &to);
+        static v3 FromTo(const v3 &from, const v3 &to);
 
-        /// Creates a vector in quaterion local space from Right Up In.
-        [[nodiscard]] static v3 from_localspace_rui(const Q& rotation, float right, float up, float in);
+        /// Creates a vector in quaternion local space from Right Up In.
+        [[nodiscard]] static v3 FromLocalSpaceRUI(const Q& rotation, float right, float up, float in);
 
         [[nodiscard]] float dot(const v3 &rhs) const;
         [[nodiscard]] v3 cross(const v3 &u) const;

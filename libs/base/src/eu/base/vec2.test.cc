@@ -84,14 +84,14 @@ TEST_CASE("vec2-from_to", "[vec2]")
 {
     const auto from = v2(1.0f, 2.0f);
     const auto to = v2(4.0f, 6.0f);
-    const auto v = v2::from_to(from, to);
+    const auto v = v2::FromTo(from, to);
     REQUIRE(v == approx(v2{3.0f, 4.0f}));
 }
 
 TEST_CASE("vec2-from", "[vec2]")
 {
     const auto n = n2(1.0f, 0.0f);
-    const auto v = v2::from(n);
+    const auto v = v2::From(n);
     REQUIRE(v == approx(v2{1.0f, 0.0f}));
 }
 

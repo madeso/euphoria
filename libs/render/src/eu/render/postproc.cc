@@ -569,7 +569,7 @@ void SimpleEffect::gui()
 	
     if (eu::imgui::header((name.c_str())))
     {
-        if (const auto prop = eu::imgui::PropTable::begin())
+        if (const auto prop = eu::imgui::PropTable::Begin())
         {
             for (auto& p : properties)
             {
@@ -696,7 +696,7 @@ void BlurEffect::gui()
 #if FF_HAS(EU_DEBUG_RUNNER)
     if (eu::imgui::header((name.c_str())))
     {
-        if (const auto prop = eu::imgui::PropTable::begin())
+        if (const auto prop = eu::imgui::PropTable::Begin())
         {
 
             prop.slider("Blur size", &blur_size, 0.0f, 0.2f);

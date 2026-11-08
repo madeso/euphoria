@@ -24,7 +24,7 @@ struct SCurve
 	{}
 
     // todo(Gustav): give a better name
-	constexpr static SCurve light_curve()
+	constexpr static SCurve LightCurve()
 	{
 		return {5.0f, 1.0f};
 	}

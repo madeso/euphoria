@@ -79,7 +79,7 @@ struct PropTable
 
     constexpr operator bool() const { return started; }
 
-    static PropTable begin(const char* label = "properties");
+    static PropTable Begin(const char* label = "properties");
     ~PropTable();
     
     bool check(const char* label, bool* v) const;

@@ -15,22 +15,27 @@
 #include <vector>
 #include <sstream>
 
-namespace eu
+template <> struct fmt::formatter<eu::assertlib::AssertArgumentValue> : formatter<std::string>
 {
-#ifdef _MSC_VER
-    // todo(Gustav): implement backtrace for windows?
+    template <typename FormatContext>
+    auto format(const eu::assertlib::AssertArgumentValue& c, FormatContext& ctx) const
+    {
+        return formatter<string_view>::format(c.value, ctx);
+    }
+};
+
+namespace internal
+{
     namespace
     {
+#ifdef _MSC_VER
+        // todo(Gustav): implement backtrace for windows?
         std::vector<std::string>
         run_backtrace(int)
         {
             return {};
         }
-    }
-
 #else
-    namespace
-    {
         // backtrace code stolen from:
         // http://stackoverflow.com/questions/19190273/how-to-print-call-stack-in-c-c-more-beautifully
 
@@ -104,39 +109,22 @@ namespace eu
 
             return ret;
         }
-    }
 #endif
 
-}
-
-template <> struct fmt::formatter<eu::assertlib::AssertArgumentValue> : formatter<std::string>
-{
-    template <typename FormatContext>
-    auto format(const eu::assertlib::AssertArgumentValue& c, FormatContext& ctx) const
-    {
-        return formatter<string_view>::format(c.value, ctx);
-    }
-};
-
-namespace internal
-{
-    namespace
-    {
         bool&
         should_throw_variable()
         {
             static bool should_throw = false;
             return should_throw;
         }
-    }
 
-    struct AssertException : std::runtime_error
-    {
-        explicit AssertException(const char* msg)
-            : runtime_error(msg)
+        struct AssertException : std::runtime_error
         {
-        }
-    };
+            explicit AssertException(const char* msg)
+                : runtime_error(msg)
+            {}
+        };
+    }
 }
    
 namespace eu::assertlib
@@ -174,7 +162,7 @@ namespace eu::assertlib
             : fmt::format("{}({}) = {}\n", start, argstr, fmt::join(arguments, ", "))
             ;
 
-        const auto trace = run_backtrace(2);
+        const auto trace = internal::run_backtrace(2);
         const auto message = trace.empty()
             ? with_arguments
             : fmt::format("{}Backtrace:\n{}\n", with_arguments, fmt::join(trace, "\n"))

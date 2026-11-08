@@ -18,7 +18,7 @@ namespace eu::tests
     }
 
     bool
-    FalseString::IsTrue() const
+    FalseString::is_true() const
     {
         return reason.has_value() == false;
     }
@@ -26,24 +26,24 @@ namespace eu::tests
 
     FalseString::operator bool() const
     {
-        return IsTrue();
+        return is_true();
     }
 
 
     FalseString
     FalseString::Combine(const FalseString& lhs, const FalseString& rhs)
     {
-        if(lhs.IsTrue() && rhs.IsTrue()) { return FalseString::True(); }
+        if(lhs.is_true() && rhs.is_true()) { return FalseString::True(); }
 
         if(lhs.reason.has_value() && rhs.reason.has_value())
         {
             return FalseString::False( *lhs.reason + "\n" + *rhs.reason );
         }
 
-        if( !lhs.IsTrue() ) { return lhs; }
+        if( !lhs.is_true() ) { return lhs; }
         else
         {
-            assert(!rhs.IsTrue());
+            assert(!rhs.is_true());
             return rhs;
         }
     }

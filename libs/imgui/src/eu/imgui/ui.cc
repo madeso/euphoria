@@ -966,7 +966,7 @@ void transform(const m4& m)
     const auto t = transform_from_matrix(m);
     
     imgui_readonly("Position", t.position);
-    imgui_readonly("Rotation", Ypr::from(t.rotation));
+    imgui_readonly("Rotation", Ypr::From(t.rotation));
     imgui_readonly("Scale", t.scale);
 }
 
@@ -983,7 +983,7 @@ bool transform(m4* m)
         changed = true;
         *m = matrix_from_transform(t);
     }
-    auto y = Ypr::from(t.rotation);
+    auto y = Ypr::From(t.rotation);
     if (gear("Rotation", &y))
     {
         changed = true;
@@ -1361,7 +1361,7 @@ PropTable::PropTable(PropTable&& r) noexcept
     r.started = false;
 }
 
-PropTable PropTable::begin(const char* label)
+PropTable PropTable::Begin(const char* label)
 {
     constexpr ImGuiTableFlags table_flags = ImGuiTableFlags_SizingStretchProp;
 
@@ -1580,7 +1580,7 @@ void PropTable::transform(const eu::m4& m) const
     const auto t = eu::transform_from_matrix(m);
 
     readonly("Position", t.position);
-    readonly("Rotation", eu::Ypr::from(t.rotation));
+    readonly("Rotation", eu::Ypr::From(t.rotation));
     readonly("Scale", t.scale);
 }
 
@@ -1597,7 +1597,7 @@ bool PropTable::transform(eu::m4* m) const
         changed = true;
         *m = matrix_from_transform(t);
     }
-    auto y = eu::Ypr::from(t.rotation);
+    auto y = eu::Ypr::From(t.rotation);
     if (gear("Rotation", &y))
     {
         changed = true;

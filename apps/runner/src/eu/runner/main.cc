@@ -430,7 +430,7 @@ struct FollowCameraSystem : runner::EntitySystem
         const auto tr = transform_from_matrix(target->target);
 
         const auto focus = tr.position;
-        const auto o_rot = Ypr::from(tr.rotation);
+        const auto o_rot = Ypr::From(tr.rotation);
         const auto pos_from_focus = m4::from(Q::from(Ypr{.yaw = o_rot.yaw})).get_transformed(offset);
         const auto pos = focus + pos_from_focus;
         const auto look_at = Q::look_at(pos, focus, kk::up);
@@ -867,7 +867,7 @@ int main(int, char**)
 
         if (ImGui::Begin("Renderer"))
         {
-            if (auto prop = eu::imgui::PropTable::begin())
+            if (auto prop = eu::imgui::PropTable::Begin())
             {
                 prop.color("Clear color", &render_world.clear_color);
                 prop.simple_gamma_slider("Gamma/Brightness", &renderer.settings.gamma);

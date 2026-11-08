@@ -199,7 +199,7 @@ AppState App::on_event(const SDL_Event& ev)
 
 void custom_widgets_demo()
 {
-    if (auto prop = eu::imgui::PropTable::begin())
+    if (auto prop = eu::imgui::PropTable::Begin())
     {
         static std::string text;
         static auto rot = eu::Ypr{ .yaw = eu::no_rotation, .pitch = eu::no_rotation, .roll = eu::no_rotation };
@@ -257,7 +257,7 @@ AppState App::iterate()
 
         if (eu::imgui::header("TRANSFORM"))
         {
-            if (const auto prop = eu::imgui::PropTable::begin())
+            if (const auto prop = eu::imgui::PropTable::Begin())
             {
                 prop.drag("Position", &pos);
                 prop.drag("Rotation", &rot);
@@ -267,7 +267,7 @@ AppState App::iterate()
 
         if (eu::imgui::header("MATERIAL"))
         {
-            if (const auto prop = eu::imgui::PropTable::begin())
+            if (const auto prop = eu::imgui::PropTable::Begin())
             {
                 prop.slider("Roughness", &roughness);
                 prop.slider("Metallic", &metallic);
@@ -277,7 +277,7 @@ AppState App::iterate()
 
         if (eu::imgui::header("BOX COLLIDER 3D"))
         {
-            if (auto prop = eu::imgui::PropTable::begin())
+            if (auto prop = eu::imgui::PropTable::Begin())
             {
                 prop.check("Is Trigger", &is_trigger);
                 prop.drag("Center", &center);
@@ -292,7 +292,7 @@ AppState App::iterate()
 
         if (eu::imgui::header("SCURVE"))
         {
-            if (auto prop = eu::imgui::PropTable::begin())
+            if (auto prop = eu::imgui::PropTable::Begin())
             {
                 static eu::core::SCurve scurve;
                 static eu::imgui::SCurveGuiState gui;

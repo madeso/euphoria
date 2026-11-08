@@ -86,7 +86,7 @@ namespace eu
     [[nodiscard]] std::optional<Q>
     Q::look_at(const v3& from, const v3& to, const n3& up)
     {
-        const auto direction = v3::from_to(from, to).get_normalized();
+        const auto direction = v3::FromTo(from, to).get_normalized();
         if (direction.has_value() == false)
             { return std::nullopt; }
         return look_in_direction(*direction, up);

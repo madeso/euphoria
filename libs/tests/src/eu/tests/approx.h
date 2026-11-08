@@ -133,6 +133,8 @@ namespace Catch
     template <typename T>
     struct StringMaker<eu::tests::custom::Approx<T>>
     {
+        // this is a catch name, not euph
+        // NOLINTNEXTLINE(readability-identifier-naming)
         static std::string convert(eu::tests::custom::Approx<T> const& value)
         {
             return value.to_string();

@@ -14,6 +14,8 @@ namespace Catch
 	template <typename T>
 	struct StringMaker<std::optional<T>>
 	{
+        // this is a catch name, not euph
+        // NOLINTNEXTLINE(readability-identifier-naming)
 		static std::string convert(std::optional<T> const& value)
 		{
 			if (!value)
@@ -26,6 +28,8 @@ namespace Catch
 	template <>
 	struct StringMaker<std::nullopt_t>
 	{
+        // this is a catch name, not euph
+        // NOLINTNEXTLINE(readability-identifier-naming)
 		static std::string convert(std::nullopt_t const&)
 		{
 			return "<empty>";
@@ -136,9 +140,9 @@ TEST_CASE("quat-checkAxisAngle", "[quat]")
 	// CHECK(std::nullopt == AA::from(Q::from(rha(kk::up, no_rotation))));
 	// CHECK(std::nullopt == AA::from(Q::from(rha(kk::right, no_rotation))));
 
-	CHECK(AA::from(Q::from(rha(kk::right, 90_deg))) == approx(rha(kk::right, 90_deg)));
-	CHECK(AA::from(Q::from(rha(-kk::up, 45_deg))) == approx(rha(kk::up, -45_deg)));
-	CHECK(AA::from(Q::from(rha(-kk::right, -90_deg))) == approx(rha(kk::right, 90_deg)));
+	CHECK(AA::From(Q::from(rha(kk::right, 90_deg))) == approx(rha(kk::right, 90_deg)));
+	CHECK(AA::From(Q::from(rha(-kk::up, 45_deg))) == approx(rha(kk::up, -45_deg)));
+	CHECK(AA::From(Q::from(rha(-kk::right, -90_deg))) == approx(rha(kk::right, 90_deg)));
 }
 
 TEST_CASE("quat-checkQuatConjugate", "[quat]")

@@ -15,7 +15,7 @@ namespace eu
     }
 
     [[nodiscard]] AA
-    AA::from(const Q& q)
+    AA::From(const Q& q)
     {
         const float cos_a = std::ranges::clamp(q.w , -1.0f, 1.0f); // todo(Gustav): is this needed?
         const auto angle = acos(cos_a) * 2;
@@ -31,7 +31,7 @@ namespace eu
     }
 
     [[nodiscard]] Ypr
-    Ypr::from(const Q& q)
+    Ypr::From(const Q& q)
     {
         // Protect against small floating-point errors.
         const auto sin_pitch = std::clamp(

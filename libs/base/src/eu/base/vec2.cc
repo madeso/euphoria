@@ -90,13 +90,13 @@ namespace eu
 
 
     [[nodiscard]] v2
-    v2::from_to(const v2& from, const v2& to)
+    v2::FromTo(const v2& from, const v2& to)
     {
         return {to.x - from.x, to.y - from.y};
     }
 
     v2
-    v2::from(const n2& n)
+    v2::From(const n2& n)
     {
         return {n.x, n.y};
     }

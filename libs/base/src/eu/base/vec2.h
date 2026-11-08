@@ -27,8 +27,8 @@ namespace eu
         explicit v2(const std::tuple<float, float>& a);
         explicit v2(const n2& u);
 
-        [[nodiscard]] static v2 from_to(const v2& from, const v2& to);
-        [[nodiscard]] static v2 from(const n2& n);
+        [[nodiscard]] static v2 FromTo(const v2& from, const v2& to);
+        [[nodiscard]] static v2 From(const n2& n);
 
         /** Changes the length to 1.
         * If the calculated length is zero, the vector is changed to a known value and false is returned

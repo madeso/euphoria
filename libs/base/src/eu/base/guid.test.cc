@@ -21,7 +21,7 @@ TEST_CASE("guid-test", "[guid]")
 
     SECTION("generate does not return nill")
     {
-        const auto g = Guid::generate();
+        const auto g = Guid::Generate();
         REQUIRE(g);
         if(g.has_value())
         {

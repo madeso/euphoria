@@ -95,7 +95,7 @@ namespace eu::runner
             {
                 if (imgui::header(comp->display()))
                 {
-                    if (const auto prop = imgui::PropTable::begin())
+                    if (const auto prop = imgui::PropTable::Begin())
                     {
                         comp->imgui(prop);
                     }
@@ -110,7 +110,7 @@ namespace eu::runner
             {
                 if (imgui::header(sys->display()))
                 {
-                    if (const auto prop = imgui::PropTable::begin())
+                    if (const auto prop = imgui::PropTable::Begin())
                     {
                         sys->imgui(prop);
                     }
@@ -233,7 +233,7 @@ namespace eu::runner
             if (ImGui::TreeNodeEx(sys->display()))
             {
                 ImGui::PushID(sys.get());
-                if (const auto prop = imgui::PropTable::begin())
+                if (const auto prop = imgui::PropTable::Begin())
                 {
                     sys->imgui(prop);
                 }

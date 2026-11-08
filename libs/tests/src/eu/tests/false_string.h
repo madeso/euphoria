@@ -18,7 +18,7 @@ namespace eu::tests
         True();
 
         [[nodiscard]] bool
-        IsTrue() const;
+        is_true() const;
 
         operator bool() const;
 
