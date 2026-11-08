@@ -42,11 +42,11 @@ namespace eu
             return { left_side, right_side, top_side, bottom_side };
         }
 
-        [[nodiscard]] static Rect from_left_right_top_bottom(float left_side, float right_side, float top_side, float bottom_side);
-        [[nodiscard]] static Rect from_bottom_left_size(const v2& bl, const v2& size);
-        [[nodiscard]] static Rect from_top_left_size(const v2& top_left, const v2& size);
-        [[nodiscard]] static Rect from_size(const v2& size);
-        [[nodiscard]] static Rect from_point(const v2& point);
+        [[nodiscard]] static Rect From_Left_Right_Top_Bottom(float left_side, float right_side, float top_side, float bottom_side);
+        [[nodiscard]] static Rect From_Bottom_Left_Size(const v2& bl, const v2& size);
+        [[nodiscard]] static Rect From_Top_Left_Size(const v2& top_left, const v2& size);
+        [[nodiscard]] static Rect From_Size(const v2& size);
+        [[nodiscard]] static Rect From_Point(const v2& point);
 
         // extend/include/union current rect with another point/rect
         void extend(const Rect& o);

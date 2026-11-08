@@ -25,7 +25,7 @@ namespace internal
 
 TEST_CASE("rect-cut", "[rect]")
 {
-    auto rect = Rect::from_bottom_left_size({ 0.0, 0.0 }, { 10.0, 10.0 });
+    auto rect = Rect::From_Bottom_Left_Size({ 0.0, 0.0 }, { 10.0, 10.0 });
 
     SECTION("cut-left")
     {
@@ -97,7 +97,7 @@ TEST_CASE("rect-cut", "[rect]")
 
 TEST_CASE("rect-cut-spacing", "[rect]")
 {
-    auto rect = Rect::from_bottom_left_size({ 0.0, 0.0 }, { 10.0, 10.0 });
+    auto rect = Rect::From_Bottom_Left_Size({ 0.0, 0.0 }, { 10.0, 10.0 });
 
     SECTION("cut-left")
     {
@@ -173,7 +173,7 @@ TEST_CASE("rect-cut-spacing", "[rect]")
 
 TEST_CASE("rect-get", "[rect]")
 {
-    const auto rect = Rect::from_bottom_left_size({ 0.0, 0.0 }, { 10.0, 10.0 });
+    const auto rect = Rect::From_Bottom_Left_Size({ 0.0, 0.0 }, { 10.0, 10.0 });
 
     SECTION("get-left")
     {
@@ -239,7 +239,7 @@ TEST_CASE("rect-get", "[rect]")
 
 TEST_CASE("rect-add", "[rect]")
 {
-    const auto rect = Rect::from_bottom_left_size({ 0.0, 0.0 }, { 10.0, 10.0 });
+    const auto rect = Rect::From_Bottom_Left_Size({ 0.0, 0.0 }, { 10.0, 10.0 });
 
     SECTION("add-left")
     {

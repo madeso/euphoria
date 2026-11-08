@@ -8,79 +8,88 @@
 
 #include <numeric>
 
+namespace internal
+{
+    namespace
+    {
+        using namespace eu;
+        using namespace eu::core;
+
+        using ByteBuffer = std::vector<char>;
+
+        std::vector<u32> compile_indices(const Geom& geom)
+        {
+            std::vector<u32> indices;
+            const auto push = [&indices](const u32 i)
+                {
+                    indices.emplace_back(i);
+                };
+            for (const auto& f : geom.faces)
+            {
+                push(f.a);
+                push(f.b);
+                push(f.c);
+            }
+            return indices;
+        }
+
+        void push_float(ByteBuffer* vv, float f)
+        {
+            // todo(Gustav): is this safe?
+            union
+            {
+                float f;
+                char bytes[4];
+            } convert{};
+
+            convert.f = f;
+            for (int byte_index = 0; byte_index < 4; byte_index += 1)
+            {
+                vv->emplace_back(convert.bytes[byte_index]);
+            }
+        }
+
+        void push2(ByteBuffer* vv, const v2& p)
+        {
+            push_float(vv, p.x);
+            push_float(vv, p.y);
+        }
+
+        void push3(ByteBuffer* vv, const v3& p)
+        {
+            push_float(vv, p.x);
+            push_float(vv, p.y);
+            push_float(vv, p.z);
+        }
+
+        void push4(ByteBuffer* vv, const v4& p)
+        {
+            push_float(vv, p.x);
+            push_float(vv, p.y);
+            push_float(vv, p.z);
+            push_float(vv, p.w);
+        }
+
+        struct BufferData
+        {
+            using PerVertex = void (*)(ByteBuffer*, const Vertex&);
+
+            std::vector<ExtractedAttribute> attributes;
+            std::vector<PerVertex> per_vertex;
+        };
+
+    }
+}
+
 namespace eu::core
 {
-
-using ByteBuffer = std::vector<char>;
-
-std::vector<u32> compile_indices(const Geom& geom)
-{
-	std::vector<u32> indices;
-	const auto push = [&indices](const u32 i)
-	{
-		indices.emplace_back(i);
-	};
-	for (const auto& f: geom.faces)
-	{
-		push(f.a);
-		push(f.b);
-		push(f.c);
-	}
-	return indices;
-}
-
-void push_float(ByteBuffer* vv, float f)
-{
-	// todo(Gustav): is this safe?
-	union
-	{
-		float f;
-		char bytes[4];
-	} convert {};
-
-	convert.f = f;
-	for (int byte_index = 0; byte_index < 4; byte_index += 1)
-	{
-		vv->emplace_back(convert.bytes[byte_index]);
-	}
-}
-
-void push2(ByteBuffer* vv, const v2& p)
-{
-	push_float(vv, p.x);
-	push_float(vv, p.y);
-}
-
-void push3(ByteBuffer* vv, const v3& p)
-{
-	push_float(vv, p.x);
-	push_float(vv, p.y);
-	push_float(vv, p.z);
-}
-
-void push4(ByteBuffer* vv, const v4& p)
-{
-	push_float(vv, p.x);
-	push_float(vv, p.y);
-	push_float(vv, p.z);
-	push_float(vv, p.w);
-}
-
-struct BufferData
-{
-	using PerVertex = void (*)(ByteBuffer*, const Vertex&);
-
-	std::vector<ExtractedAttribute> attributes;
-	std::vector<PerVertex> per_vertex;
-};
-
 ExtractedGeom extract_geom(const Geom& geom, const CompiledGeomVertexAttributes& layout)
 {
-	const auto indices = compile_indices(geom);
+	const auto indices = internal::compile_indices(geom);
 
-	const BufferData attribute_descriptions = [&]()
+	const internal::BufferData attribute_descriptions = [&]()
 	{
-		auto data = BufferData{};
+		auto data = internal::BufferData{};
 		data.attributes.reserve(layout.elements.size());
 		data.per_vertex.reserve(layout.elements.size());
 
@@ -91,7 +100,7 @@ ExtractedGeom extract_geom(const Geom& geom, const CompiledGeomVertexAttributes&
 #define MAP(VT, PROP, COUNT) \
 	case VT: \
 		data.attributes.emplace_back(ExtractedAttribute{ExtractedAttributeType::float_type, COUNT, sizeof(float) * (COUNT)}); \
-		data.per_vertex.emplace_back([](ByteBuffer* vertices, const Vertex& vertex) { push##COUNT(vertices, PROP); }); \
+		data.per_vertex.emplace_back([](internal::ByteBuffer* vertices, const Vertex& vertex) { internal::push##COUNT(vertices, PROP); }); \
 		break
 				MAP(VertexType::position2xy, (v2{vertex.position.x, vertex.position.y}), 2);
 				MAP(VertexType::position2xz, (v2{vertex.position.x, vertex.position.z}), 2);
@@ -118,7 +127,7 @@ ExtractedGeom extract_geom(const Geom& geom, const CompiledGeomVertexAttributes&
 	);
 	const auto vertices = [&]()
 	{
-		auto verts = ByteBuffer{};
+		auto verts = internal::ByteBuffer{};
 		verts.reserve(geom.vertices.size() * bytes_per_vertex);
 		for (const auto& vertex: geom.vertices)
 		{
@@ -132,7 +141,13 @@ ExtractedGeom extract_geom(const Geom& geom, const CompiledGeomVertexAttributes&
 
 	const auto face_size = static_cast<i32>(geom.faces.size());
 
-	return {vertices, bytes_per_vertex, attribute_descriptions.attributes, indices, face_size};
+	return {
+	    .data = vertices,
+        .stride = bytes_per_vertex,
+        .attributes = attribute_descriptions.attributes,
+        .indices = indices,
+        .face_size = face_size
+	};
 }
 
 }  //  namespace eu::core

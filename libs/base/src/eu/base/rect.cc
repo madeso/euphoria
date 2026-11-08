@@ -8,7 +8,7 @@ namespace internal
 
         Rect lbrt(float l, float b, float r, float t)
         {
-            return Rect::from_left_right_top_bottom(l, r, t, b);
+            return Rect::From_Left_Right_Top_Bottom(l, r, t, b);
         }
     }
 }
@@ -24,7 +24,7 @@ namespace eu
     }
 
     [[nodiscard]] Rect
-    Rect::from_left_right_top_bottom(float left_side, float right_side, float top_side, float bottom_side)
+    Rect::From_Left_Right_Top_Bottom(float left_side, float right_side, float top_side, float bottom_side)
     {
         ASSERTX(left_side <= right_side, left_side, right_side);
         ASSERTX(top_side >= bottom_side, top_side, bottom_side);
@@ -32,11 +32,11 @@ namespace eu
     }
 
     [[nodiscard]] Rect
-    Rect::from_bottom_left_size(const v2& bl, const v2& size)
+    Rect::From_Bottom_Left_Size(const v2& bl, const v2& size)
     {
         ASSERT(size.x >= 0);
         ASSERT(size.y >= 0);
-        return from_left_right_top_bottom
+        return From_Left_Right_Top_Bottom
         (
             bl.x, bl.x + size.x,
             bl.y + size.y, bl.y
@@ -44,11 +44,11 @@ namespace eu
     }
 
     [[nodiscard]] Rect
-    Rect::from_top_left_size(const v2& tl, const v2& size)
+    Rect::From_Top_Left_Size(const v2& tl, const v2& size)
     {
         ASSERT(size.x >= 0);
         ASSERT(size.y >= 0);
-        return from_left_right_top_bottom
+        return From_Left_Right_Top_Bottom
         (
             tl.x, tl.x + size.x,
             tl.y, tl.y - size.y
@@ -56,7 +56,7 @@ namespace eu
     }
 
     [[nodiscard]] Rect
-    Rect::from_size(const v2& size)
+    Rect::From_Size(const v2& size)
     {
         ASSERTX(size.x >= 0, size.x);
         ASSERTX(size.y >= 0, size.y);
@@ -64,9 +64,9 @@ namespace eu
     }
 
     [[nodiscard]] Rect
-    Rect::from_point(const v2& point)
+    Rect::From_Point(const v2& point)
     {
-        return from_top_left_size(point, {0.0f, 0.0f});
+        return From_Top_Left_Size(point, {0.0f, 0.0f});
     }
 
     v2
@@ -80,7 +80,7 @@ namespace eu
     {
         const auto size = self.get_size();
         const auto lower_left = other.get_center_pos() - self.get_relative_center_pos();
-        return Rect::from_top_left_size
+        return Rect::From_Top_Left_Size
         (
             {lower_left.x, lower_left.y + size.y}, size
         );
@@ -192,7 +192,7 @@ namespace eu
     Rect
     Rect::with_top_left_at(const v2& p) const
     {
-        return from_top_left_size
+        return From_Top_Left_Size
         (
             p,
             get_size()
@@ -203,7 +203,7 @@ namespace eu
     Rect::with_bottom_left_at(const v2& p) const
     {
         const auto size = get_size();
-        return from_top_left_size
+        return From_Top_Left_Size
         (
             v2{p.x, p.y + size.y},
             size
@@ -213,14 +213,14 @@ namespace eu
     [[nodiscard]] Rect
     Rect::with_offset(const v2& p) const
     {
-        return from_top_left_size(get_top_left() + p, get_size());
+        return From_Top_Left_Size(get_top_left() + p, get_size());
     }
 
 
     [[nodiscard]] Rect
     Rect::with_scale(float hor, float vert) const
     {
-        return from_left_right_top_bottom(left * hor, right * hor, top * vert, bottom * vert);
+        return From_Left_Right_Top_Bottom(left * hor, right * hor, top * vert, bottom * vert);
     }
 
     void

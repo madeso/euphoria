@@ -72,7 +72,7 @@ namespace internal
 
             return ViewportDef
             {
-                .screen_rect = Rect::from_size({new_width, new_height}).with_bottom_left_at
+                .screen_rect = Rect::From_Size({new_width, new_height}).with_bottom_left_at
                 ({
                     (float_from_int(window_width) - new_width) / 2.0f,
                     (float_from_int(window_height) - new_height) / 2.0f
@@ -107,7 +107,7 @@ namespace internal
             ASSERTX(window_height >= 0, window_height);
             const auto w = float_from_int(window_width) / width;
             const auto h = float_from_int(window_height) / height;
-            const auto r = Rect::from_size({ float_from_int(window_width), float_from_int(window_height) }).with_bottom_left_at({ 0, 0 });
+            const auto r = Rect::From_Size({ float_from_int(window_width), float_from_int(window_height) }).with_bottom_left_at({ 0, 0 });
             if (w < h)
             {
                 const auto s = determine_extend_scale(w, height, window_height);
@@ -129,7 +129,7 @@ namespace internal
         Rect lerp(const Rect& lhs, float t, const Rect& rhs)
         {
 #define V(x) lerp(lhs.x, t, rhs.x)
-            return Rect::from_left_right_top_bottom
+            return Rect::From_Left_Right_Top_Bottom
             (
                 V(left),
                 V(right),
@@ -162,7 +162,7 @@ namespace internal
 
         Layer create_layer(const ViewportDef& vp)
         {
-            return { .viewport_aabb_in_worldspace = Rect::from_size({vp.virtual_width, vp.virtual_height}), .screen = vp.screen_rect };
+            return { .viewport_aabb_in_worldspace = Rect::From_Size({vp.virtual_width, vp.virtual_height}), .screen = vp.screen_rect };
         }
 
 
@@ -356,7 +356,7 @@ void SpriteBatch::quad(std::optional<const Texture2d*> texture_argument, const V
 
 void Quad::draw(SpriteBatch* batch, const Rect& scr)
 {
-    const auto tc = texturecoord.value_or(Rect::from_size({1.0f, 1.0f}));
+    const auto tc = texturecoord.value_or(Rect::From_Size({1.0f, 1.0f}));
     const auto size = scr.get_size();
     const auto local_offset =  size * (rotation ? rotation->center : v2{0.5f, 0.5f});
     const auto offset = scr.get_bottom_left() + local_offset;

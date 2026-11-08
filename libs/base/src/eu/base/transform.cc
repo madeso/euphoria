@@ -30,7 +30,7 @@ namespace eu
         return
         {
             .position = m.get_translation(),
-            .rotation = Q::from_rotation_matrix(rotation_matrix).get_normalized(),
+            .rotation = Q::From_Rotation_Matrix(rotation_matrix).get_normalized(),
             .scale = scale
         };
     }

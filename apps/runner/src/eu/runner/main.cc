@@ -431,9 +431,9 @@ struct FollowCameraSystem : runner::EntitySystem
 
         const auto focus = tr.position;
         const auto o_rot = Ypr::From(tr.rotation);
-        const auto pos_from_focus = m4::from(Q::from(Ypr{.yaw = o_rot.yaw})).get_transformed(offset);
+        const auto pos_from_focus = m4::from(Q::From(Ypr{.yaw = o_rot.yaw})).get_transformed(offset);
         const auto pos = focus + pos_from_focus;
-        const auto look_at = Q::look_at(pos, focus, kk::up);
+        const auto look_at = Q::Look_At(pos, focus, kk::up);
         if (!look_at)
         {
             return;

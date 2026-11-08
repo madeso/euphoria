@@ -39,23 +39,23 @@ namespace eu
         }
 
         /// Create a quaternion from an axis angle
-        [[nodiscard]] static Q from(const AA& aa);
+        [[nodiscard]] static Q From(const AA& aa);
 
         /// Create a quaternion from a yaw-pitch-roll
-        [[nodiscard]] static Q from(const Ypr& ypr);
-        [[nodiscard]] static Q from_fast(const Ypr& ypr);
+        [[nodiscard]] static Q From(const Ypr& ypr);
+        [[nodiscard]] static Q From_Fast(const Ypr& ypr);
 
-        [[nodiscard]] static Q from_rotation_matrix(const m4& m);
+        [[nodiscard]] static Q From_Rotation_Matrix(const m4& m);
 
         /// Create a quaternion going from `from` to `to`.
-        [[nodiscard]] static Q from_to(const Q& from, const Q& to);
+        [[nodiscard]] static Q From_To(const Q& from, const Q& to);
 
         /// Creates a look-at quaternion from 2 positions.
         /// Standing at `from` and up is `up`,  the result will be a quaternion looking at `to`
-        [[nodiscard]] static std::optional<Q> look_at(const v3& from, const v3& to, const n3& up);
+        [[nodiscard]] static std::optional<Q> Look_At(const v3& from, const v3& to, const n3& up);
 
         /// Creates a look-at quaternion looking in a direction.
-        [[nodiscard]] static Q look_in_direction(const n3& dir, const n3& up);
+        [[nodiscard]] static Q Look_In_Direction(const n3& dir, const n3& up);
 
         /// Normalize the quaternion.
         /// If it can't be normalized, it is set to the identity.
@@ -114,18 +114,18 @@ namespace eu
         /// Normalized lerp between 2 quaternions
         /// This will result in a non-linear rotation
         /// @see \ref slerp()
-        static Q nlerp(const Q& f, float scale, const Q& t);
+        static Q Nlerp(const Q& f, float scale, const Q& t);
 
         /// Spherical lerp between 2 quaternions.
         /// Will take the longer route sometimes but is technically faster.
         /// @see \ref nlerp()
-        static Q slerp_fast(const Q& qa, float t, const Q& qb);
+        static Q Slerp_Fast(const Q& qa, float t, const Q& qb);
 
         /// Shortest spherical lerp between 2 quaternions.
         /// Has extra logic to take the shortest route.
         /// @see \ref slerp_fast()
         /// @see \ref nlerp()
-        static Q slerp(const Q& from, float scale, const Q& to);
+        static Q Slerp(const Q& from, float scale, const Q& to);
     };
 
     /// The identity quaternion.

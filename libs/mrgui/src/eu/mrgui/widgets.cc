@@ -227,7 +227,7 @@ bool slider(u32 id, float* val, const Rect& rect, UiState& uistate, render::Spri
     const auto avail = inner.get_size().x - grab_size;
     const auto pos = avail * *val;
 
-    const auto grabber_rect = Rect::from_size({ grab_size, inner.get_size().y }).with_bottom_left_at({ inner.left + pos, inner.bottom });
+    const auto grabber_rect = Rect::From_Size({ grab_size, inner.get_size().y }).with_bottom_left_at({ inner.left + pos, inner.bottom });
 
     if (is_within(uistate.mouse, inner))
     {
@@ -418,7 +418,7 @@ bool textfield(u32 id, std::string* val, render::DrawableFont* font, float size,
             }
             const auto ascent = font->ascent * size;
             const auto descent = font->descent * size;
-            render::Quad{ .tint = colors::black }.draw(batch, Rect::from_size({ 1, ascent + -descent }).with_bottom_left_at({ cursor_x, pos.y + descent }));
+            render::Quad{ .tint = colors::black }.draw(batch, Rect::From_Size({ 1, ascent + -descent }).with_bottom_left_at({ cursor_x, pos.y + descent }));
         }
     }
 

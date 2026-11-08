@@ -90,7 +90,7 @@ namespace eu
 
 
     [[nodiscard]] v2
-    v2::FromTo(const v2& from, const v2& to)
+    v2::From_To(const v2& from, const v2& to)
     {
         return {to.x - from.x, to.y - from.y};
     }

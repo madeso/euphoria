@@ -201,34 +201,34 @@ int  main(int, char**)
             eu::render::Quad{
                 .texture = &sample_texture,
                 // select bottom right of the texture, assuming it is split in 4 smaller rects
-                .texturecoord = eu::Rect::from_bottom_left_size({0.5f, 0}, {0.5f, 0.5f}),
+                .texturecoord = eu::Rect::From_Bottom_Left_Size({0.5f, 0}, {0.5f, 0.5f}),
                 .rotation = eu::render::RotateQuad{.angle = rotation, .center = {slider_a, slider_b} }
-            }.draw(layer.batch, eu::Rect::from_bottom_left_size({ 300, 300 }, { 300, 300 }));
+            }.draw(layer.batch, eu::Rect::From_Bottom_Left_Size({ 300, 300 }, { 300, 300 }));
 
             const auto button_size = eu::v2{ 64, 64 };
 
             uistate.begin();
-            if (basic_button(idstack.get("a"), eu::Rect::from_bottom_left_size({ 100, 100 }, button_size), uistate, layer.batch))
+            if (basic_button(idstack.get("a"), eu::Rect::From_Bottom_Left_Size({ 100, 100 }, button_size), uistate, layer.batch))
             {
                 rotation -= eu::An::from_degrees(15.0f);
             }
-            if (basic_button(idstack.get("b"), eu::Rect::from_bottom_left_size({ 200, 100 }, button_size), uistate, layer.batch))
+            if (basic_button(idstack.get("b"), eu::Rect::From_Bottom_Left_Size({ 200, 100 }, button_size), uistate, layer.batch))
             {
                 rotation += eu::An::from_degrees(15.0f);
             }
-            if (basic_button(idstack.get("c"), eu::Rect::from_bottom_left_size({ 300, 100 }, button_size), uistate, layer.batch))
+            if (basic_button(idstack.get("c"), eu::Rect::From_Bottom_Left_Size({ 300, 100 }, button_size), uistate, layer.batch))
             {
                 rotation = eu::no_rotation;
             }
-            button_texture(idstack.get("d"), eu::Rect::from_bottom_left_size({ 400, 100 }, button_size), uistate, layer.batch, &spritesheet,
+            button_texture(idstack.get("d"), eu::Rect::From_Bottom_Left_Size({ 400, 100 }, button_size), uistate, layer.batch, &spritesheet,
                 ::spritesheet::button_square_flat,
                 ::spritesheet::button_square_depth_flat,
                 ::spritesheet::button_square_depth_gradient
             );
 
             const auto slider_size = eu::v2{ 256, 25 };
-            slider(idstack.get("slider_a"), &slider_a, eu::Rect::from_bottom_left_size({ 100, 200 }, slider_size), uistate, layer.batch);
-            slider(idstack.get("slider_b"), &slider_b, eu::Rect::from_bottom_left_size({ 100, 250 }, slider_size), uistate, layer.batch);
+            slider(idstack.get("slider_a"), &slider_a, eu::Rect::From_Bottom_Left_Size({ 100, 200 }, slider_size), uistate, layer.batch);
+            slider(idstack.get("slider_b"), &slider_b, eu::Rect::From_Bottom_Left_Size({ 100, 250 }, slider_size), uistate, layer.batch);
             textfield(idstack.get("textfield"), &editable_text, &font, 20, {100, 300}, uistate, layer.batch);
             uistate.end();
 

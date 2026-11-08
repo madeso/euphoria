@@ -65,14 +65,14 @@ namespace internal
             const auto iw = float_from_int(image_width);
             const auto ih = float_from_int(image_height);
 
-            const auto sprite = Rect::from_left_right_top_bottom
+            const auto sprite = Rect::From_Left_Right_Top_Bottom
             (
                 float_from_int(vert_left),
                 float_from_int(vert_right),
                 float_from_int(vert_top),
                 float_from_int(vert_bottom)
             );
-            const auto texture = Rect::from_left_right_top_bottom
+            const auto texture = Rect::From_Left_Right_Top_Bottom
             (
                 float_from_int(uv_left) / iw,
                 float_from_int(uv_right) / iw,

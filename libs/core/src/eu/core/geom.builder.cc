@@ -85,11 +85,11 @@ namespace
 
     float get_distance_squared(const v3& lhs, const v3& rhs)
     {
-        return v3::FromTo(lhs, rhs).get_length_squared();
+        return v3::From_To(lhs, rhs).get_length_squared();
     }
     float get_distance_squared(const v2& lhs, const v2& rhs)
     {
-        return v2::FromTo(lhs, rhs).get_length_squared();
+        return v2::From_To(lhs, rhs).get_length_squared();
     }
 
 	template<typename T>

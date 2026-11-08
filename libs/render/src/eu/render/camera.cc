@@ -31,7 +31,7 @@ namespace eu::render
 m4 create_view_from_world_mat(const v3& pos, const CameraVectors& cv)
 {
     const auto trans = m4::from_translation(-pos);
-    const auto rot = m4::from(Q::look_in_direction(cv.front, kk::up));
+    const auto rot = m4::from(Q::Look_In_Direction(cv.front, kk::up));
 	return trans * rot;
 }
 

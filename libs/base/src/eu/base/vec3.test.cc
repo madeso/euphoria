@@ -70,9 +70,9 @@ TEST_CASE("vec3-neg_test", "[vec3]")
 
 TEST_CASE("vec3-from_to", "[vec3]")
 {
-    REQUIRE(v3::FromTo(v3(0.0f, 0.0f, 0.0f), v3(0.0f, 0.0f, 0.0f)) == approx(v3(0.0f, 0.0f, 0.0f)));
-    REQUIRE(v3::FromTo(v3(0.0f, 0.0f, 0.0f), v3(1.0f, 0.0f, 0.0f)) == approx(v3(1.0f, 0.0f, 0.0f)));
-    REQUIRE(v3::FromTo(v3(0.0f, -5.0f, 0.0f), v3(0.0f, 25.0f, 0.0f)) == approx(v3(0.0f, 30.0f, 0.0f)));
+    REQUIRE(v3::From_To(v3(0.0f, 0.0f, 0.0f), v3(0.0f, 0.0f, 0.0f)) == approx(v3(0.0f, 0.0f, 0.0f)));
+    REQUIRE(v3::From_To(v3(0.0f, 0.0f, 0.0f), v3(1.0f, 0.0f, 0.0f)) == approx(v3(1.0f, 0.0f, 0.0f)));
+    REQUIRE(v3::From_To(v3(0.0f, -5.0f, 0.0f), v3(0.0f, 25.0f, 0.0f)) == approx(v3(0.0f, 30.0f, 0.0f)));
 }
 
 TEST_CASE("vec3-get_data_ptr", "[vec3]")
@@ -97,7 +97,7 @@ TEST_CASE("vec3-get_data_ptr", "[vec3]")
 TEST_CASE("vec3-from_localspace_rui", "[vec3]")
 {
     const auto q = q_identity;
-    const auto v = v3::FromLocalSpaceRUI(q, 1.0f, 2.0f, 3.0f);
+    const auto v = v3::From_Local_Space_Rui(q, 1.0f, 2.0f, 3.0f);
     REQUIRE(v == approx(v3{1.0f, 2.0f, -3.0f}));
 }
 

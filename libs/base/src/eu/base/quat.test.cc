@@ -64,7 +64,7 @@ TEST_CASE("quat-testLocalAxis", "[quat]")
 
 	SECTION("look left")
 	{
-		const auto q = Q::from(rha(kk::up, 90_deg));
+		const auto q = Q::From(rha(kk::up, 90_deg));
 		CHECK(q.get_local_right() == approx(kk::in));
 		CHECK(q.get_local_up() == approx(kk::up));
 		CHECK(q.get_local_in() == approx(kk::left));
@@ -72,7 +72,7 @@ TEST_CASE("quat-testLocalAxis", "[quat]")
 
 	SECTION("look up")
 	{
-		const auto q = Q::from(rha(kk::right, 90_deg));
+		const auto q = Q::From(rha(kk::right, 90_deg));
 		CHECK(q.get_local_right() == approx(kk::right));
 		CHECK(q.get_local_up() == approx(kk::out));
 		CHECK(q.get_local_in() == approx(kk::up));
@@ -80,7 +80,7 @@ TEST_CASE("quat-testLocalAxis", "[quat]")
 
 	SECTION("roll right")
 	{
-		const auto q = Q::from(rha(kk::in, 90_deg));
+		const auto q = Q::From(rha(kk::in, 90_deg));
 		CHECK(q.get_local_right() == approx(kk::down));
 		CHECK(q.get_local_up() == approx(kk::right));
 		CHECK(q.get_local_in() == approx(kk::in));
@@ -90,20 +90,20 @@ TEST_CASE("quat-testLocalAxis", "[quat]")
 
 TEST_CASE("quat-testLook", "[quat]")
 {
-	CHECK(Q::look_at(v3(0, 0, 0), v3(5, 0, 0), kk::up ) == approx(Q::from (rha(kk::up, -90_deg))));
-	CHECK(Q::look_at(v3(0, 0, 0), v3(2, 0, 0), kk::up) == approx(Q::from(rha(kk::up, -90_deg))));
-	CHECK(Q::look_at(v3(0, 0, 0), v3(0.25f, 0, 0), kk::up) == approx(Q::from(rha(kk::up, -90_deg))));
+	CHECK(Q::Look_At(v3(0, 0, 0), v3(5, 0, 0), kk::up ) == approx(Q::From (rha(kk::up, -90_deg))));
+	CHECK(Q::Look_At(v3(0, 0, 0), v3(2, 0, 0), kk::up) == approx(Q::From(rha(kk::up, -90_deg))));
+	CHECK(Q::Look_At(v3(0, 0, 0), v3(0.25f, 0, 0), kk::up) == approx(Q::From(rha(kk::up, -90_deg))));
 
 	// need to pass in a normalized vec3 or it won't compile, hence the
 	// .get_normalized() call
 	// Z looks reversed, but remember, negative direction is in
-	CHECK(Q::look_in_direction(n3(0, 0, -1), kk::up) == approx(Q::from(rha(kk::up, no_rotation))));
+	CHECK(Q::Look_In_Direction(n3(0, 0, -1), kk::up) == approx(Q::From(rha(kk::up, no_rotation))));
 
     // CHECK(Q::look_in_direction(n3(0, 0, 1), kk::up)
-	// 	== approx(Q::from(rha(kk::up, 180_deg))));
+	// 	== approx(Q::From(rha(kk::up, 180_deg))));
 
-	CHECK(Q::look_in_direction(n3(1, 0, 0), kk::up) == approx(Q::from(rha(kk::up, -90_deg))));
-	CHECK(Q::look_in_direction(n3(-1, 0, 0), kk::up) == approx(Q::from(rha(kk::up, 90_deg))));
+	CHECK(Q::Look_In_Direction(n3(1, 0, 0), kk::up) == approx(Q::From(rha(kk::up, -90_deg))));
+	CHECK(Q::Look_In_Direction(n3(-1, 0, 0), kk::up) == approx(Q::From(rha(kk::up, 90_deg))));
 
 	// todo(Gustav): add more test where up != up()
 }
@@ -112,17 +112,17 @@ TEST_CASE("quat-testLook", "[quat]")
 TEST_CASE("quat-testCombine", "[quat]")
 {
 	CHECK(q_identity
-		.then_get_rotated(Q::from(rha(kk::up, 90_deg)))
-				== approx(Q::from(rha(kk::up, 90_deg))));
+		.then_get_rotated(Q::From(rha(kk::up, 90_deg)))
+				== approx(Q::From(rha(kk::up, 90_deg))));
 	
-    CHECK(Q::from(rha(kk::up, 90_deg))
+    CHECK(Q::From(rha(kk::up, 90_deg))
 		.then_get_rotated(q_identity)
-				== approx(Q::from(rha(kk::up, 90_deg))));
+				== approx(Q::From(rha(kk::up, 90_deg))));
 
-	CHECK(Q::from(rha(kk::right, 90_deg))
-		.then_get_rotated(Q::from(rha(kk::up, -90_deg)))
-		== approx(Q::from(rha(kk::up, -90_deg))
-				.then_get_rotated(Q::from(rha(kk::out, 90_deg)))));
+	CHECK(Q::From(rha(kk::right, 90_deg))
+		.then_get_rotated(Q::From(rha(kk::up, -90_deg)))
+		== approx(Q::From(rha(kk::up, -90_deg))
+				.then_get_rotated(Q::From(rha(kk::out, 90_deg)))));
 }
 
 
@@ -137,18 +137,18 @@ TEST_CASE("quat-verifyTestAxisAngle", "[quat]")
 TEST_CASE("quat-checkAxisAngle", "[quat]")
 {
     // todo(Gustav): validate that no rotation gives a no rotation up
-	// CHECK(std::nullopt == AA::from(Q::from(rha(kk::up, no_rotation))));
-	// CHECK(std::nullopt == AA::from(Q::from(rha(kk::right, no_rotation))));
+	// CHECK(std::nullopt == AA::from(Q::From(rha(kk::up, no_rotation))));
+	// CHECK(std::nullopt == AA::from(Q::From(rha(kk::right, no_rotation))));
 
-	CHECK(AA::From(Q::from(rha(kk::right, 90_deg))) == approx(rha(kk::right, 90_deg)));
-	CHECK(AA::From(Q::from(rha(-kk::up, 45_deg))) == approx(rha(kk::up, -45_deg)));
-	CHECK(AA::From(Q::from(rha(-kk::right, -90_deg))) == approx(rha(kk::right, 90_deg)));
+	CHECK(AA::From(Q::From(rha(kk::right, 90_deg))) == approx(rha(kk::right, 90_deg)));
+	CHECK(AA::From(Q::From(rha(-kk::up, 45_deg))) == approx(rha(kk::up, -45_deg)));
+	CHECK(AA::From(Q::From(rha(-kk::right, -90_deg))) == approx(rha(kk::right, 90_deg)));
 }
 
 TEST_CASE("quat-checkQuatConjugate", "[quat]")
 {
-	const auto a = Q::from(rha(kk::up, 90_deg));
-	const auto b = Q::from(rha(kk::up, -90_deg)).get_conjugate();
+	const auto a = Q::From(rha(kk::up, 90_deg));
+	const auto b = Q::From(rha(kk::up, -90_deg)).get_conjugate();
 	CHECK(b == approx(a));
 }
 
@@ -175,7 +175,7 @@ TEST_CASE("quat-from-ypr", "[quat]")
     // ypr pitch 90 = look up.
     // right hand around right, positive is up, negative is down.
     // todo(Gustav): this looks weird...
-	CHECK(Q::from(Ypr{0_deg, 45_deg, 0_deg}) == approx(Q::from(rha(kk::left, 45_deg))));
+	CHECK(Q::From(Ypr{0_deg, 45_deg, 0_deg}) == approx(Q::From(rha(kk::left, 45_deg))));
 }
 
 TEST_CASE("quat-from-ypr-fast-matches-slow", "[quat]")
@@ -195,7 +195,7 @@ TEST_CASE("quat-from-ypr-fast-matches-slow", "[quat]")
                     .roll = roll
                 };
                 INFO("ypr: " << string_from(ypr));
-                CHECK(Q::from_fast(ypr) == approx(Q::from(ypr)));
+                CHECK(Q::From_Fast(ypr) == approx(Q::From(ypr)));
             }
         }
     }
@@ -203,17 +203,17 @@ TEST_CASE("quat-from-ypr-fast-matches-slow", "[quat]")
 
 TEST_CASE("quat-from-to", "[quat]")
 {
-	const auto q1 = Q::from(rha(kk::up, 0_deg));
-	const auto q2 = Q::from(rha(kk::up, 90_deg));
-	const auto q = Q::from_to(q1, q2);
-	CHECK(q == approx(Q::from(rha(kk::up, 90_deg))));
+	const auto q1 = Q::From(rha(kk::up, 0_deg));
+	const auto q2 = Q::From(rha(kk::up, 90_deg));
+	const auto q = Q::From_To(q1, q2);
+	CHECK(q == approx(Q::From(rha(kk::up, 90_deg))));
 }
 
 TEST_CASE("quat-get-inverse", "[quat]")
 {
-	const auto q = Q::from(rha(kk::up, 90_deg));
+	const auto q = Q::From(rha(kk::up, 90_deg));
 	const auto inv = q.get_inverse();
-	CHECK(inv == approx(Q::from(rha(kk::up, -90_deg))));
+	CHECK(inv == approx(Q::From(rha(kk::up, -90_deg))));
 }
 
 TEST_CASE("quat-get-negated", "[quat]")
@@ -225,31 +225,31 @@ TEST_CASE("quat-get-negated", "[quat]")
 
 TEST_CASE("quat-nlerp-n-slerp", "[quat]")
 {
-	const auto from = Q::from(rha(kk::up, 0_deg));
-	const auto to = Q::from(rha(kk::up, 90_deg));
+	const auto from = Q::From(rha(kk::up, 0_deg));
+	const auto to = Q::From(rha(kk::up, 90_deg));
 
     // todo(Gustav): provide actual nlerp values for 25% and 75%
-    const auto q25 = Q::from(rha(kk::up, 22.5_deg));
-    const auto q50 = Q::from(rha(kk::up, 45_deg));
-    const auto q75 = Q::from(rha(kk::up, 67.5_deg));
+    const auto q25 = Q::From(rha(kk::up, 22.5_deg));
+    const auto q50 = Q::From(rha(kk::up, 45_deg));
+    const auto q75 = Q::From(rha(kk::up, 67.5_deg));
 
     SECTION("nlerp")
     {
-        CHECK(Q::nlerp(from, 0.0f, to) == approx(from));
-	    CHECK(Q::nlerp(from, 0.25f, to) != approx(q25));
-	    CHECK(Q::nlerp(from, 0.5f, to) == approx(q50));
-	    CHECK(Q::nlerp(from, 0.75f, to) != approx(q75));
-        CHECK(Q::nlerp(from, 1.0f, to) == approx(to));
+        CHECK(Q::Nlerp(from, 0.0f, to) == approx(from));
+	    CHECK(Q::Nlerp(from, 0.25f, to) != approx(q25));
+	    CHECK(Q::Nlerp(from, 0.5f, to) == approx(q50));
+	    CHECK(Q::Nlerp(from, 0.75f, to) != approx(q75));
+        CHECK(Q::Nlerp(from, 1.0f, to) == approx(to));
     }
 
 
     SECTION("slerp")
     {
-        CHECK(Q::slerp(from, 0.0f, to) == approx(from));
-	    CHECK(Q::slerp(from, 0.25f, to) == approx(q25));
-	    CHECK(Q::slerp(from, 0.5f, to) == approx(q50));
-	    CHECK(Q::slerp(from, 0.75f, to) == approx(q75));
-        CHECK(Q::slerp(from, 1.0f, to) == approx(to));
+        CHECK(Q::Slerp(from, 0.0f, to) == approx(from));
+	    CHECK(Q::Slerp(from, 0.25f, to) == approx(q25));
+	    CHECK(Q::Slerp(from, 0.5f, to) == approx(q50));
+	    CHECK(Q::Slerp(from, 0.75f, to) == approx(q75));
+        CHECK(Q::Slerp(from, 1.0f, to) == approx(to));
     }
 }
 
@@ -294,7 +294,7 @@ TEST_CASE("quat-get-local", "[quat]")
 
 	SECTION("rotated 90 degrees around up")
 	{
-		const auto q = Q::from(rha(kk::up, 90_deg));
+		const auto q = Q::From(rha(kk::up, 90_deg));
 
 		CHECK(q.get_local_right() == approx(kk::in));
 		CHECK(q.get_local_left() == approx(kk::out));
@@ -306,7 +306,7 @@ TEST_CASE("quat-get-local", "[quat]")
 
 	SECTION("rotated 90 degrees around right")
 	{
-		const auto q = Q::from(rha(kk::right, 90_deg));
+		const auto q = Q::From(rha(kk::right, 90_deg));
 
 		CHECK(q.get_local_right() == approx(kk::right));
 		CHECK(q.get_local_left() == approx(kk::left));
@@ -318,7 +318,7 @@ TEST_CASE("quat-get-local", "[quat]")
 
 	SECTION("rotated 90 degrees around in")
 	{
-		const auto q = Q::from(rha(kk::in, 90_deg));
+		const auto q = Q::From(rha(kk::in, 90_deg));
 
 		CHECK(q.get_local_right() == approx(kk::down));
 		CHECK(q.get_local_left() == approx(kk::up));

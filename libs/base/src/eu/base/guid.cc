@@ -55,7 +55,7 @@ namespace internal
                 skip(' ');
             }
 
-            static std::optional<uint8_t> AsHex(char c)
+            static std::optional<uint8_t> As_Hex(char c)
             {
                 if ('0' <= c && c <= '9') { return static_cast<uint8_t>(c - '0'); }
                 if ('a' <= c && c <= 'f') { return static_cast<uint8_t>(10 + (c - 'a')); }
@@ -65,10 +65,10 @@ namespace internal
 
             std::optional<uint8_t> read_hex()
             {
-                const auto first = AsHex(read());
+                const auto first = As_Hex(read());
                 if (first.has_value() == false) { return std::nullopt; }
 
-                const auto second = AsHex(peek());
+                const auto second = As_Hex(peek());
                 if (second.has_value())
                 {
                     read();

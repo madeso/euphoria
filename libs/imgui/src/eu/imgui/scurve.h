@@ -18,8 +18,6 @@ struct SCurveGuiState
 	SCurveGuiState() = default;
 	SCurveGuiState(float x, float y);
 
-	static SCurveGuiState light_curve();
-
 	std::vector<ImVec2> point_cache;
 };
 

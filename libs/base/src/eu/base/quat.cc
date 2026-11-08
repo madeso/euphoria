@@ -32,7 +32,7 @@ namespace eu
 
 
     [[nodiscard]] Q
-    Q::from(const AA& aa)
+    Q::From(const AA& aa)
     {
         const float sin_a = sin(aa.angle / 2);
         const float cos_a = cos(aa.angle / 2);
@@ -43,17 +43,17 @@ namespace eu
 
 
     [[nodiscard]] Q
-    Q::from(const Ypr& ypr)
+    Q::From(const Ypr& ypr)
     {
-        const auto yaw = Q::from(AA{kk::y_axis, -ypr.yaw});
-        const auto pitch = Q::from(AA{ kk::x_axis, -ypr.pitch});
+        const auto yaw = Q::From(AA{kk::y_axis, -ypr.yaw});
+        const auto pitch = Q::From(AA{ kk::x_axis, -ypr.pitch});
         const auto yp = pitch.then_get_rotated(yaw);
-        const auto roll = Q::from(AA{ yp.get_local_out(), ypr.roll });
+        const auto roll = Q::From(AA{ yp.get_local_out(), ypr.roll });
         return yp.then_get_rotated(roll);
     }
 
     [[nodiscard]] Q
-    Q::from_fast(const Ypr& ypr)
+    Q::From_Fast(const Ypr& ypr)
     {
         // Abbreviations for the various angular functions
         const auto cy = cos(ypr.yaw * 0.5);
@@ -76,7 +76,7 @@ namespace eu
 
 
     [[nodiscard]] Q
-    Q::from_to(const Q& from, const Q& to)
+    Q::From_To(const Q& from, const Q& to)
     {
         // https://stackoverflow.com/a/22167097
         return to * from.get_inverse();
@@ -84,12 +84,12 @@ namespace eu
 
 
     [[nodiscard]] std::optional<Q>
-    Q::look_at(const v3& from, const v3& to, const n3& up)
+    Q::Look_At(const v3& from, const v3& to, const n3& up)
     {
-        const auto direction = v3::FromTo(from, to).get_normalized();
+        const auto direction = v3::From_To(from, to).get_normalized();
         if (direction.has_value() == false)
             { return std::nullopt; }
-        return look_in_direction(*direction, up);
+        return Look_In_Direction(*direction, up);
     }
 
 
@@ -185,7 +185,7 @@ namespace eu
 
 
     Q
-    Q::nlerp(const Q& f, const float scale, const Q& t)
+    Q::Nlerp(const Q& f, const float scale, const Q& t)
     {
         const auto lhs = f * (1 - scale);
         const auto rhs = t * scale;
@@ -194,7 +194,7 @@ namespace eu
 
 
     Q
-    Q::slerp_fast(const Q& qa, const float t, const Q& qb)
+    Q::Slerp_Fast(const Q& qa, const float t, const Q& qb)
     {
         // from:
         // http://www.euclideanspace.com/maths/algebra/realNormedAlgebra/quaternions/slerp/
@@ -231,15 +231,15 @@ namespace eu
 
 
     Q
-    Q::slerp(const Q& from, const float scale, const Q& to)
+    Q::Slerp(const Q& from, const float scale, const Q& to)
     {
         if(dot(from, to) < 0)
         {
-            return slerp_fast(from.get_negated(), scale, to);
+            return Slerp_Fast(from.get_negated(), scale, to);
         }
         else
         {
-            return slerp_fast(from, scale, to);
+            return Slerp_Fast(from, scale, to);
         }
     }
 
@@ -285,14 +285,14 @@ namespace eu
         z = w1z2 + z1w2 + x1y2 - y1x2;
     }
 
-    Q Q::look_in_direction(const n3& forward, const n3& upwards)
+    Q Q::Look_In_Direction(const n3& forward, const n3& upwards)
     {
         const auto& z = forward;
         const auto x_new = z.cross_norm(upwards);
 
         if (x_new.has_value() == false)
         {
-            return look_in_direction(forward, forward.y > 0 ? kk::out : kk::in);
+            return Look_In_Direction(forward, forward.y > 0 ? kk::out : kk::in);
         }
         const auto& x = *x_new;
 
@@ -305,7 +305,7 @@ namespace eu
         const auto& y = *y_new;
 
         const auto m = m4::from_basis(x, y, -z);
-        return Q::from_rotation_matrix(m);
+        return Q::From_Rotation_Matrix(m);
     }
 
 
@@ -346,7 +346,7 @@ namespace eu
     }
 
     Q
-    Q::from_rotation_matrix(const m4& m)
+    Q::From_Rotation_Matrix(const m4& m)
     {
         /// Implements the "Shepperd's method" as described in
         /// "3-D Computer Graphics A Mathematical Introduction with OpenGL" by Samuel R. Buss (2022)

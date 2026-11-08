@@ -19,11 +19,6 @@ SCurveGuiState::SCurveGuiState(float x, float y)
 {
 }
 
-SCurveGuiState SCurveGuiState::light_curve()
-{
-	return {0.2f, 0.0f};
-}
-
 bool imgui_s_curve_editor(const char* title, core::SCurve* curve, SCurveGuiState* gui, FlipX flip_x, const SCurveImguiSettings& settings, bool force_init_curve)
 {
     imgui_text(fmt::format("{} ({} {})", title, curve->slope, curve->threshold));

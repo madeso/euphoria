@@ -78,7 +78,7 @@ namespace eu
         }
     };
 
-    // todo(Gustav): add std::map and std::unoredered map support
+    // todo(Gustav): add std::map and std::unordered map support
 
     ADD_CATCH_FORMATTER_DEF(Guid)
 }

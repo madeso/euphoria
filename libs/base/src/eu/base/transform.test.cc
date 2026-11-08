@@ -65,8 +65,8 @@ TEST_CASE("transform-scale-only", "[transform]")
 
 TEST_CASE("transform-rotation-matches-quaternion-rotation", "[transform]")
 {
-    const auto rotation = Q::from(rha(kk::up, 90_deg))
-        .then_get_rotated(Q::from(rha(kk::right, 45_deg)));
+    const auto rotation = Q::From(rha(kk::up, 90_deg))
+        .then_get_rotated(Q::From(rha(kk::right, 45_deg)));
     
     const auto trans = Transform
     {
@@ -86,11 +86,11 @@ TEST_CASE("transform-roundtrip", "[transform]")
     const auto rotation = GENERATE
     (
         q_identity,
-        Q::from(rha(kk::up, 90_deg)),
-        Q::from(rha(kk::right, -45_deg)),
-        Q::from(rha(kk::in, 30_deg)),
-        Q::from(rha(kk::up, 45_deg)).then_get_rotated(Q::from(rha(kk::right, 60_deg))),
-        Q::from(rha(kk::right, 20_deg)).then_get_rotated(Q::from(rha(kk::up, -70_deg))).then_get_rotated(Q::from(rha(kk::in, 15_deg)))
+        Q::From(rha(kk::up, 90_deg)),
+        Q::From(rha(kk::right, -45_deg)),
+        Q::From(rha(kk::in, 30_deg)),
+        Q::From(rha(kk::up, 45_deg)).then_get_rotated(Q::From(rha(kk::right, 60_deg))),
+        Q::From(rha(kk::right, 20_deg)).then_get_rotated(Q::From(rha(kk::up, -70_deg))).then_get_rotated(Q::From(rha(kk::in, 15_deg)))
     );
 
     const auto position = GENERATE
@@ -130,12 +130,12 @@ TEST_CASE("transform-from-matrix-of-known-rotation", "[transform]")
 
     CHECK(trans.position == approx(v3{0, 0, 0}));
     CHECK(trans.scale == approx(v3{1, 1, 1}));
-    CHECK(trans.rotation == approx(Q::from(rha(kk::up, 90_deg))));
+    CHECK(trans.rotation == approx(Q::From(rha(kk::up, 90_deg))));
 }
 
 TEST_CASE("transform-combined", "[transform]")
 {
-    const auto rotation = Q::from(rha(kk::up, 90_deg));
+    const auto rotation = Q::From(rha(kk::up, 90_deg));
     const auto trans = Transform
     {
         .position = {5, 0, 0},

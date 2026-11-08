@@ -987,7 +987,7 @@ bool transform(m4* m)
     if (gear("Rotation", &y))
     {
         changed = true;
-        t.rotation = Q::from(y);
+        t.rotation = Q::From(y);
         *m = matrix_from_transform(t);
     }
     if (gear("Scale", &t.scale))
@@ -1601,7 +1601,7 @@ bool PropTable::transform(eu::m4* m) const
     if (gear("Rotation", &y))
     {
         changed = true;
-        t.rotation = eu::Q::from(y);
+        t.rotation = eu::Q::From(y);
         *m = matrix_from_transform(t);
     }
     if (gear("Scale", &t.scale))

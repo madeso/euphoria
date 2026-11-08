@@ -59,13 +59,13 @@ namespace eu
     }
 
     v3
-    v3::FromTo(const v3 &from, const v3 &to)
+    v3::From_To(const v3 &from, const v3 &to)
     {
         return {to.x - from.x, to.y - from.y, to.z - from.z};
     }
 
     v3
-    v3::FromLocalSpaceRUI(const Q& r, float right, float up, float in)
+    v3::From_Local_Space_Rui(const Q& r, float right, float up, float in)
     {
         const auto vright = r.get_local_right() * right;
         const auto vup = r.get_local_up() * up;
