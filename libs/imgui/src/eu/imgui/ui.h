@@ -57,17 +57,7 @@ void imgui_readonly(const char* label, const v3& v);
 void imgui_readonly(const char* label, const Ypr& y);
 
 void imgui_image(const char* name, const render::FrameBuffer& img, ImguiShaderCache* cache, ImageShader shader);
-// bool simple_gamma_slider(const char* label, float* gamma, float curve = 1.5f, float min_gamma = 1.6f, float max_gamma = 2.8f);
 
-// bool drag(const char* label, v3* drag);
-// bool drag(const char* label, Ypr* drag);
-
-// bool gear(const char* label, v3* drag);
-// bool gear(const char* label, Rui* drag);
-// bool gear(const char* label, Ypr* drag);
-
-void transform(const m4& m);
-bool transform(m4* m);
 
 struct PropTable
 {
@@ -94,13 +84,11 @@ struct PropTable
     void readonly(const char* label, const eu::Ypr& y) const;
     bool color(const char* label, Rgb* color) const;
     bool simple_gamma_slider(const char* label, float* gamma, float curve = 1.5f, float min_gamma = 1.6f, float max_gamma = 2.8f) const;
-    bool drag(const char* label, eu::v3* drag) const;
+    bool drag(const char* label, eu::v3* drag, float reset_value = 0.0f) const;
     bool drag(const char* label, eu::Ypr* drag) const;
+    bool drag(const char* label, eu::Rui* drag) const;
     bool drag(const char* label, float* drag, float speed = 1.0f) const;
     bool drag(const char* label, int* drag) const;
-    bool gear(const char* label, eu::v3* drag) const;
-    bool gear(const char* label, eu::Rui* drag) const;
-    bool gear(const char* label, eu::Ypr* drag) const;
     void transform(const eu::m4& m) const;
     bool transform(eu::m4* m) const;
     bool scurve(const char* label, eu::core::SCurve* scurve, eu::imgui::SCurveGuiState* gui, eu::imgui::FlipX flip_x, const eu::imgui::SCurveImguiSettings& settings, bool force_init_curve) const;

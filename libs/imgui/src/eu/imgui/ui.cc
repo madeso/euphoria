@@ -409,12 +409,6 @@ namespace eu::imgui
             return changed;
         }
 
-        bool gear_icon(const char* label, float* drag, const ImVec2& size)
-        {
-            ImGui::Button(label, size);
-            return gear_functionality(drag);
-        }
-
         struct CompoundWidget
         {
             const char* label;
@@ -486,49 +480,6 @@ namespace eu::imgui
             CompoundWidget(CompoundWidget&&) = delete;
             void operator=(const CompoundWidget&) = delete;
             void operator=(CompoundWidget&&) = delete;
-        };
-
-        constexpr const char* gear_string = ".";
-        struct GearWidget : CompoundWidget
-        {
-            ImVec2 gear_size;
-            bool value_changed = false;
-
-            explicit GearWidget(const char* l)
-                : CompoundWidget(l, 3)
-                , gear_size(calc_button_size(gear_string))
-            {
-                setup(gear_size.x);
-            }
-
-
-            void widget(int i, float* p_data)
-            {
-                begin_widget(i);
-
-                value_changed |= ImGui::DragFloat("", p_data);
-                next_sub_widget();
-                value_changed |= gear_icon(gear_string, p_data, gear_size);
-                end_widget();
-            }
-            void widget(int i, An* p_data)
-            {
-                begin_widget(i);
-
-                float deg = p_data->as_degrees();
-
-                const auto drag_changed = ImGui::DragFloat("", &deg);
-                next_sub_widget();
-                const auto gear_changed = gear_icon(gear_string, &deg, gear_size);
-                end_widget();
-
-                if (drag_changed || gear_changed)
-                {
-                    *p_data = An::from_degrees(deg);
-                }
-
-                value_changed = value_changed || drag_changed || gear_changed;
-            }
         };
 
         constexpr float c(int r)
@@ -926,79 +877,6 @@ void imgui_image(const char* name, const render::FrameBuffer& img, ImguiShaderCa
 			ImGui::EndTooltip();
 		}
 	}
-}
-
-bool gear(const char* label, Rui* drag)
-{
-    GearWidget widget{ label };
-
-    widget.widget(0, &drag->right);
-    widget.widget(1, &drag->up);
-    widget.widget(2, &drag->in);
-
-    return widget.value_changed;
-}
-
-bool gear(const char* label, v3* drag)
-{
-    GearWidget widget{ label };
-
-    widget.widget(0, &drag->x);
-    widget.widget(1, &drag->y);
-    widget.widget(2, &drag->z);
-
-    return widget.value_changed;
-}
-
-bool gear(const char* label, Ypr* drag)
-{
-    GearWidget widget{ label };
-
-    widget.widget(0, &drag->yaw);
-    widget.widget(1, &drag->pitch);
-    widget.widget(2, &drag->roll);
-
-    return widget.value_changed;
-}
-
-void transform(const m4& m)
-{
-    const auto t = transform_from_matrix(m);
-    
-    imgui_readonly("Position", t.position);
-    imgui_readonly("Rotation", Ypr::From(t.rotation));
-    imgui_readonly("Scale", t.scale);
-}
-
-bool transform(m4* m)
-{
-    auto t = transform_from_matrix(*m);
-
-    ImGui::PushID(m);
-
-    bool changed = false;
-
-    if (gear("Position", &t.position))
-    {
-        changed = true;
-        *m = matrix_from_transform(t);
-    }
-    auto y = Ypr::From(t.rotation);
-    if (gear("Rotation", &y))
-    {
-        changed = true;
-        t.rotation = Q::From(y);
-        *m = matrix_from_transform(t);
-    }
-    if (gear("Scale", &t.scale))
-    {
-        changed = true;
-        *m = matrix_from_transform(t);
-    }
-
-    ImGui::PopID();
-
-    return changed;
 }
 
 struct Drags
@@ -1502,11 +1380,11 @@ bool PropTable::color(const char* label, Rgb* color) const
         });
 }
 
-bool PropTable::drag(const char* label, eu::v3* drag) const
+bool PropTable::drag(const char* label, eu::v3* drag, float reset_value) const
 {
     return trow(*this, label, [&]
         {
-            return imgui_drag_with_reset(&drag->x, &drag->y, &drag->z, 0.0f, std::nullopt, "X", "Y", "Z");
+            return imgui_drag_with_reset(&drag->x, &drag->y, &drag->z, reset_value, std::nullopt, "X", "Y", "Z");
         });
 }
 
@@ -1551,27 +1429,11 @@ bool PropTable::drag(const char* label, int* drag) const
         });
 }
 
-bool PropTable::gear(const char* label, eu::v3* drag) const
+bool PropTable::drag(const char* label, eu::Rui* drag) const
 {
     return trow(*this, label, [&]
         {
-            return eu::imgui::gear("", drag);
-        });
-}
-
-bool PropTable::gear(const char* label, eu::Rui* drag) const
-{
-    return trow(*this, label, [&]
-        {
-            return eu::imgui::gear("", drag);
-        });
-}
-
-bool PropTable::gear(const char* label, eu::Ypr* drag) const
-{
-    return trow(*this, label, [&]
-        {
-            return eu::imgui::gear("", drag);
+            return imgui_drag_with_reset(&drag->right, &drag->up, &drag->in, 0.0f, std::nullopt, "R", "U", "I");
         });
 }
 
@@ -1592,19 +1454,19 @@ bool PropTable::transform(eu::m4* m) const
 
     bool changed = false;
 
-    if (gear("Position", &t.position))
+    if (drag("Position", &t.position))
     {
         changed = true;
         *m = matrix_from_transform(t);
     }
     auto y = eu::Ypr::From(t.rotation);
-    if (gear("Rotation", &y))
+    if (drag("Rotation", &y))
     {
         changed = true;
         t.rotation = eu::Q::From(y);
         *m = matrix_from_transform(t);
     }
-    if (gear("Scale", &t.scale))
+    if (drag("Scale", &t.scale, 1.0f))
     {
         changed = true;
         *m = matrix_from_transform(t);

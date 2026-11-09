@@ -218,10 +218,7 @@ void custom_widgets_demo()
 
         prop.drag("Drag vec", &vec);
         prop.drag("Drag Rotation", &rot);
-
-        prop.gear("Gear vec", &vec);
-        prop.gear("Gear rui", &rui);
-        prop.gear("Gear Rot", &rot);
+        prop.drag("Drag rui", &rui);
 
         prop.transform(mat);
         prop.transform(&mat);

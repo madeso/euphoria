@@ -397,7 +397,7 @@ struct FollowCameraSystem : runner::EntitySystem
     {
         table.display("Target", target != nullptr);
         table.display("camera", camera != nullptr);
-        table.gear("Offset", &offset);
+        table.drag("Offset", &offset);
 
         tweak.draw();
         log.draw();
