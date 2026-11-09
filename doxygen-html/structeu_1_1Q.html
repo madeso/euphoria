@@ -111,24 +111,24 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:acf38e08247c681bffa8d6e4d3e731f96" id="r_acf38e08247c681bffa8d6e4d3e731f96"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf38e08247c681bffa8d6e4d3e731f96">from</a> (const <a class="el" href="structeu_1_1AA.html">AA</a> &amp;aa)</td></tr>
-<tr class="memdesc:acf38e08247c681bffa8d6e4d3e731f96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a quaternion from an axis angle.  <br /></td></tr>
-<tr class="memitem:afaa1c917caaf0a005f39bc0ba222ecac" id="r_afaa1c917caaf0a005f39bc0ba222ecac"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afaa1c917caaf0a005f39bc0ba222ecac">from</a> (const <a class="el" href="structeu_1_1Ypr.html">Ypr</a> &amp;ypr)</td></tr>
-<tr class="memdesc:afaa1c917caaf0a005f39bc0ba222ecac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a quaternion from a yaw-pitch-roll.  <br /></td></tr>
-<tr class="memitem:aa2b95f3c6963dab0e8b7f19098bbabcf" id="r_aa2b95f3c6963dab0e8b7f19098bbabcf"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa2b95f3c6963dab0e8b7f19098bbabcf">from_fast</a> (const <a class="el" href="structeu_1_1Ypr.html">Ypr</a> &amp;ypr)</td></tr>
-<tr class="memitem:a898a39f2806d441130ece5db7f38e362" id="r_a898a39f2806d441130ece5db7f38e362"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a898a39f2806d441130ece5db7f38e362">from_rotation_matrix</a> (const <a class="el" href="structeu_1_1m4.html">m4</a> &amp;m)</td></tr>
-<tr class="memitem:a0b7e97b743d06f8d4305a4f3ad54c26a" id="r_a0b7e97b743d06f8d4305a4f3ad54c26a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b7e97b743d06f8d4305a4f3ad54c26a">from_to</a> (const <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> &amp;<a class="el" href="#acf38e08247c681bffa8d6e4d3e731f96">from</a>, const <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> &amp;to)</td></tr>
-<tr class="memdesc:a0b7e97b743d06f8d4305a4f3ad54c26a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a quaternion going from <span class="tt">from</span> to <span class="tt">to</span>.  <br /></td></tr>
-<tr class="memitem:af80452ab6aa9531bb2cfc11ada256321" id="r_af80452ab6aa9531bb2cfc11ada256321"><td class="memItemLeft" align="right" valign="top">static std::optional&lt; <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af80452ab6aa9531bb2cfc11ada256321">look_at</a> (const <a class="el" href="structeu_1_1v3.html">v3</a> &amp;<a class="el" href="#acf38e08247c681bffa8d6e4d3e731f96">from</a>, const <a class="el" href="structeu_1_1v3.html">v3</a> &amp;to, const <a class="el" href="structeu_1_1n3.html">n3</a> &amp;up)</td></tr>
-<tr class="memdesc:af80452ab6aa9531bb2cfc11ada256321"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a look-at quaternion from 2 positions.  <br /></td></tr>
-<tr class="memitem:abdf0df3ce5bdd1000bb0658c7838fc28" id="r_abdf0df3ce5bdd1000bb0658c7838fc28"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abdf0df3ce5bdd1000bb0658c7838fc28">look_in_direction</a> (const <a class="el" href="structeu_1_1n3.html">n3</a> &amp;dir, const <a class="el" href="structeu_1_1n3.html">n3</a> &amp;up)</td></tr>
-<tr class="memdesc:abdf0df3ce5bdd1000bb0658c7838fc28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a look-at quaternion looking in a direction.  <br /></td></tr>
-<tr class="memitem:ad00dec4c8c27dccc03671098080bb817" id="r_ad00dec4c8c27dccc03671098080bb817"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad00dec4c8c27dccc03671098080bb817">nlerp</a> (const <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> &amp;f, float scale, const <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> &amp;t)</td></tr>
-<tr class="memdesc:ad00dec4c8c27dccc03671098080bb817"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalized lerp between 2 quaternions This will result in a non-linear rotation.  <br /></td></tr>
-<tr class="memitem:ade6b9d81f9750befb4d67af5324263a9" id="r_ade6b9d81f9750befb4d67af5324263a9"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade6b9d81f9750befb4d67af5324263a9">slerp_fast</a> (const <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> &amp;qa, float t, const <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> &amp;qb)</td></tr>
-<tr class="memdesc:ade6b9d81f9750befb4d67af5324263a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spherical lerp between 2 quaternions.  <br /></td></tr>
-<tr class="memitem:a9cd9f45333d77f435568cba66c0be12c" id="r_a9cd9f45333d77f435568cba66c0be12c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9cd9f45333d77f435568cba66c0be12c">slerp</a> (const <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> &amp;<a class="el" href="#acf38e08247c681bffa8d6e4d3e731f96">from</a>, float scale, const <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> &amp;to)</td></tr>
-<tr class="memdesc:a9cd9f45333d77f435568cba66c0be12c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shortest spherical lerp between 2 quaternions.  <br /></td></tr>
+<tr class="memitem:a86df0f893641b6f730433fa5e0c2ab5d" id="r_a86df0f893641b6f730433fa5e0c2ab5d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86df0f893641b6f730433fa5e0c2ab5d">From</a> (const <a class="el" href="structeu_1_1AA.html">AA</a> &amp;aa)</td></tr>
+<tr class="memdesc:a86df0f893641b6f730433fa5e0c2ab5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a quaternion from an axis angle.  <br /></td></tr>
+<tr class="memitem:aa9734a591860aa3f45b89a77236c1453" id="r_aa9734a591860aa3f45b89a77236c1453"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9734a591860aa3f45b89a77236c1453">From</a> (const <a class="el" href="structeu_1_1Ypr.html">Ypr</a> &amp;ypr)</td></tr>
+<tr class="memdesc:aa9734a591860aa3f45b89a77236c1453"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a quaternion from a yaw-pitch-roll.  <br /></td></tr>
+<tr class="memitem:aeaeb521c4eb131aefcb8ce61c4e84ae1" id="r_aeaeb521c4eb131aefcb8ce61c4e84ae1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeaeb521c4eb131aefcb8ce61c4e84ae1">From_Fast</a> (const <a class="el" href="structeu_1_1Ypr.html">Ypr</a> &amp;ypr)</td></tr>
+<tr class="memitem:aa331aaba0a93e881301c49413ee7f28e" id="r_aa331aaba0a93e881301c49413ee7f28e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa331aaba0a93e881301c49413ee7f28e">From_Rotation_Matrix</a> (const <a class="el" href="structeu_1_1m4.html">m4</a> &amp;m)</td></tr>
+<tr class="memitem:af780ab64c96ad20bd69dce74d1e4eb73" id="r_af780ab64c96ad20bd69dce74d1e4eb73"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af780ab64c96ad20bd69dce74d1e4eb73">From_To</a> (const <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> &amp;from, const <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> &amp;to)</td></tr>
+<tr class="memdesc:af780ab64c96ad20bd69dce74d1e4eb73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a quaternion going from <span class="tt">from</span> to <span class="tt">to</span>.  <br /></td></tr>
+<tr class="memitem:a06b272cb797b0524b248f01323c19531" id="r_a06b272cb797b0524b248f01323c19531"><td class="memItemLeft" align="right" valign="top">static std::optional&lt; <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06b272cb797b0524b248f01323c19531">Look_At</a> (const <a class="el" href="structeu_1_1v3.html">v3</a> &amp;from, const <a class="el" href="structeu_1_1v3.html">v3</a> &amp;to, const <a class="el" href="structeu_1_1n3.html">n3</a> &amp;up)</td></tr>
+<tr class="memdesc:a06b272cb797b0524b248f01323c19531"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a look-at quaternion from 2 positions.  <br /></td></tr>
+<tr class="memitem:ace1cbd9bd7a6a550cae4b9bd380303a0" id="r_ace1cbd9bd7a6a550cae4b9bd380303a0"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace1cbd9bd7a6a550cae4b9bd380303a0">Look_In_Direction</a> (const <a class="el" href="structeu_1_1n3.html">n3</a> &amp;dir, const <a class="el" href="structeu_1_1n3.html">n3</a> &amp;up)</td></tr>
+<tr class="memdesc:ace1cbd9bd7a6a550cae4b9bd380303a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a look-at quaternion looking in a direction.  <br /></td></tr>
+<tr class="memitem:a0cd85cb2b5cba3eecd31968b2a357fbd" id="r_a0cd85cb2b5cba3eecd31968b2a357fbd"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0cd85cb2b5cba3eecd31968b2a357fbd">Nlerp</a> (const <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> &amp;f, float scale, const <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> &amp;t)</td></tr>
+<tr class="memdesc:a0cd85cb2b5cba3eecd31968b2a357fbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalized lerp between 2 quaternions This will result in a non-linear rotation.  <br /></td></tr>
+<tr class="memitem:abe9e337ed8d4e81e98fb1c17e2bd453b" id="r_abe9e337ed8d4e81e98fb1c17e2bd453b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe9e337ed8d4e81e98fb1c17e2bd453b">Slerp_Fast</a> (const <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> &amp;qa, float t, const <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> &amp;qb)</td></tr>
+<tr class="memdesc:abe9e337ed8d4e81e98fb1c17e2bd453b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spherical lerp between 2 quaternions.  <br /></td></tr>
+<tr class="memitem:ae24d1ba5a6e1a47446a38b7b2fe70276" id="r_ae24d1ba5a6e1a47446a38b7b2fe70276"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae24d1ba5a6e1a47446a38b7b2fe70276">Slerp</a> (const <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> &amp;from, float scale, const <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> &amp;to)</td></tr>
+<tr class="memdesc:ae24d1ba5a6e1a47446a38b7b2fe70276"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shortest spherical lerp between 2 quaternions.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -201,8 +201,8 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="acf38e08247c681bffa8d6e4d3e731f96" name="acf38e08247c681bffa8d6e4d3e731f96"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf38e08247c681bffa8d6e4d3e731f96">&#9670;&#160;</a></span>from() <span class="overload">[1/2]</span></h2>
+<a id="a86df0f893641b6f730433fa5e0c2ab5d" name="a86df0f893641b6f730433fa5e0c2ab5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86df0f893641b6f730433fa5e0c2ab5d">&#9670;&#160;</a></span>From() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -211,7 +211,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> eu::Q::from </td>
+          <td class="memname"><a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> eu::Q::From </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structeu_1_1AA.html">AA</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>aa</em></span></td><td>)</td>
           <td></td>
@@ -228,8 +228,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="afaa1c917caaf0a005f39bc0ba222ecac" name="afaa1c917caaf0a005f39bc0ba222ecac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afaa1c917caaf0a005f39bc0ba222ecac">&#9670;&#160;</a></span>from() <span class="overload">[2/2]</span></h2>
+<a id="aa9734a591860aa3f45b89a77236c1453" name="aa9734a591860aa3f45b89a77236c1453"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9734a591860aa3f45b89a77236c1453">&#9670;&#160;</a></span>From() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -238,7 +238,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> eu::Q::from </td>
+          <td class="memname"><a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> eu::Q::From </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structeu_1_1Ypr.html">Ypr</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ypr</em></span></td><td>)</td>
           <td></td>
@@ -255,8 +255,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aa2b95f3c6963dab0e8b7f19098bbabcf" name="aa2b95f3c6963dab0e8b7f19098bbabcf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2b95f3c6963dab0e8b7f19098bbabcf">&#9670;&#160;</a></span>from_fast()</h2>
+<a id="aeaeb521c4eb131aefcb8ce61c4e84ae1" name="aeaeb521c4eb131aefcb8ce61c4e84ae1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeaeb521c4eb131aefcb8ce61c4e84ae1">&#9670;&#160;</a></span>From_Fast()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -265,7 +265,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> eu::Q::from_fast </td>
+          <td class="memname"><a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> eu::Q::From_Fast </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structeu_1_1Ypr.html">Ypr</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ypr</em></span></td><td>)</td>
           <td></td>
@@ -280,8 +280,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a898a39f2806d441130ece5db7f38e362" name="a898a39f2806d441130ece5db7f38e362"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a898a39f2806d441130ece5db7f38e362">&#9670;&#160;</a></span>from_rotation_matrix()</h2>
+<a id="aa331aaba0a93e881301c49413ee7f28e" name="aa331aaba0a93e881301c49413ee7f28e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa331aaba0a93e881301c49413ee7f28e">&#9670;&#160;</a></span>From_Rotation_Matrix()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -290,7 +290,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> eu::Q::from_rotation_matrix </td>
+          <td class="memname"><a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> eu::Q::From_Rotation_Matrix </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structeu_1_1m4.html">m4</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>m</em></span></td><td>)</td>
           <td></td>
@@ -305,8 +305,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a0b7e97b743d06f8d4305a4f3ad54c26a" name="a0b7e97b743d06f8d4305a4f3ad54c26a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b7e97b743d06f8d4305a4f3ad54c26a">&#9670;&#160;</a></span>from_to()</h2>
+<a id="af780ab64c96ad20bd69dce74d1e4eb73" name="af780ab64c96ad20bd69dce74d1e4eb73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af780ab64c96ad20bd69dce74d1e4eb73">&#9670;&#160;</a></span>From_To()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -315,7 +315,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> eu::Q::from_to </td>
+          <td class="memname"><a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> eu::Q::From_To </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>from</em></span>, </td>
         </tr>
@@ -690,8 +690,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="af80452ab6aa9531bb2cfc11ada256321" name="af80452ab6aa9531bb2cfc11ada256321"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af80452ab6aa9531bb2cfc11ada256321">&#9670;&#160;</a></span>look_at()</h2>
+<a id="a06b272cb797b0524b248f01323c19531" name="a06b272cb797b0524b248f01323c19531"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06b272cb797b0524b248f01323c19531">&#9670;&#160;</a></span>Look_At()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -700,7 +700,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::optional&lt; <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> &gt; eu::Q::look_at </td>
+          <td class="memname">std::optional&lt; <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> &gt; eu::Q::Look_At </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structeu_1_1v3.html">v3</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>from</em></span>, </td>
         </tr>
@@ -727,8 +727,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="abdf0df3ce5bdd1000bb0658c7838fc28" name="abdf0df3ce5bdd1000bb0658c7838fc28"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abdf0df3ce5bdd1000bb0658c7838fc28">&#9670;&#160;</a></span>look_in_direction()</h2>
+<a id="ace1cbd9bd7a6a550cae4b9bd380303a0" name="ace1cbd9bd7a6a550cae4b9bd380303a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace1cbd9bd7a6a550cae4b9bd380303a0">&#9670;&#160;</a></span>Look_In_Direction()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -737,7 +737,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> eu::Q::look_in_direction </td>
+          <td class="memname"><a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> eu::Q::Look_In_Direction </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structeu_1_1n3.html">n3</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dir</em></span>, </td>
         </tr>
@@ -758,8 +758,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ad00dec4c8c27dccc03671098080bb817" name="ad00dec4c8c27dccc03671098080bb817"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad00dec4c8c27dccc03671098080bb817">&#9670;&#160;</a></span>nlerp()</h2>
+<a id="a0cd85cb2b5cba3eecd31968b2a357fbd" name="a0cd85cb2b5cba3eecd31968b2a357fbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cd85cb2b5cba3eecd31968b2a357fbd">&#9670;&#160;</a></span>Nlerp()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -768,7 +768,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> eu::Q::nlerp </td>
+          <td class="memname"><a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> eu::Q::Nlerp </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>f</em></span>, </td>
         </tr>
@@ -791,7 +791,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Normalized lerp between 2 quaternions This will result in a non-linear rotation. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a9cd9f45333d77f435568cba66c0be12c">slerp()</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>slerp() </dd></dl>
 
 </div>
 </div>
@@ -849,8 +849,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a9cd9f45333d77f435568cba66c0be12c" name="a9cd9f45333d77f435568cba66c0be12c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9cd9f45333d77f435568cba66c0be12c">&#9670;&#160;</a></span>slerp()</h2>
+<a id="ae24d1ba5a6e1a47446a38b7b2fe70276" name="ae24d1ba5a6e1a47446a38b7b2fe70276"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae24d1ba5a6e1a47446a38b7b2fe70276">&#9670;&#160;</a></span>Slerp()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -859,7 +859,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> eu::Q::slerp </td>
+          <td class="memname"><a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> eu::Q::Slerp </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>from</em></span>, </td>
         </tr>
@@ -882,14 +882,14 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Shortest spherical lerp between 2 quaternions. </p>
-<p>Has extra logic to take the shortest route. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="#ade6b9d81f9750befb4d67af5324263a9">slerp_fast()</a> </dd>
+<p>Has extra logic to take the shortest route. </p><dl class="section see"><dt>See also</dt><dd>slerp_fast() </dd>
 <dd>
-<a class="el" href="#ad00dec4c8c27dccc03671098080bb817">nlerp()</a> </dd></dl>
+nlerp() </dd></dl>
 
 </div>
 </div>
-<a id="ade6b9d81f9750befb4d67af5324263a9" name="ade6b9d81f9750befb4d67af5324263a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ade6b9d81f9750befb4d67af5324263a9">&#9670;&#160;</a></span>slerp_fast()</h2>
+<a id="abe9e337ed8d4e81e98fb1c17e2bd453b" name="abe9e337ed8d4e81e98fb1c17e2bd453b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe9e337ed8d4e81e98fb1c17e2bd453b">&#9670;&#160;</a></span>Slerp_Fast()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -898,7 +898,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> eu::Q::slerp_fast </td>
+          <td class="memname"><a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> eu::Q::Slerp_Fast </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="#a4a94b2934844952ebb8fc9b0f51fa41f">Q</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>qa</em></span>, </td>
         </tr>
@@ -921,7 +921,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Spherical lerp between 2 quaternions. </p>
-<p>Will take the longer route sometimes but is technically faster. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="#ad00dec4c8c27dccc03671098080bb817">nlerp()</a> </dd></dl>
+<p>Will take the longer route sometimes but is technically faster. </p><dl class="section see"><dt>See also</dt><dd>nlerp() </dd></dl>
 
 </div>
 </div>

@@ -379,12 +379,12 @@
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeu_1_1Q_1acf38e08247c681bffa8d6e4d3e731f96" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Q_1a86df0f893641b6f730433fa5e0c2ab5d" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref></type>
-        <definition>static Q eu::Q::from</definition>
+        <definition>static Q eu::Q::From</definition>
         <argsstring>(const AA &amp;aa)</argsstring>
-        <name>from</name>
-        <qualifiedname>eu::Q::from</qualifiedname>
+        <name>From</name>
+        <qualifiedname>eu::Q::From</qualifiedname>
         <param>
           <type>const <ref refid="structeu_1_1AA" kindref="compound">AA</ref> &amp;</type>
           <declname>aa</declname>
@@ -398,12 +398,12 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/quat.h" line="42" column="19"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1afaa1c917caaf0a005f39bc0ba222ecac" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Q_1aa9734a591860aa3f45b89a77236c1453" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref></type>
-        <definition>static Q eu::Q::from</definition>
+        <definition>static Q eu::Q::From</definition>
         <argsstring>(const Ypr &amp;ypr)</argsstring>
-        <name>from</name>
-        <qualifiedname>eu::Q::from</qualifiedname>
+        <name>From</name>
+        <qualifiedname>eu::Q::From</qualifiedname>
         <param>
           <type>const <ref refid="structeu_1_1Ypr" kindref="compound">Ypr</ref> &amp;</type>
           <declname>ypr</declname>
@@ -417,12 +417,12 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/quat.h" line="45" column="19"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1aa2b95f3c6963dab0e8b7f19098bbabcf" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Q_1aeaeb521c4eb131aefcb8ce61c4e84ae1" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref></type>
-        <definition>static Q eu::Q::from_fast</definition>
+        <definition>static Q eu::Q::From_Fast</definition>
         <argsstring>(const Ypr &amp;ypr)</argsstring>
-        <name>from_fast</name>
-        <qualifiedname>eu::Q::from_fast</qualifiedname>
+        <name>From_Fast</name>
+        <qualifiedname>eu::Q::From_Fast</qualifiedname>
         <param>
           <type>const <ref refid="structeu_1_1Ypr" kindref="compound">Ypr</ref> &amp;</type>
           <declname>ypr</declname>
@@ -435,12 +435,12 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/quat.h" line="46" column="19"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1a898a39f2806d441130ece5db7f38e362" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Q_1aa331aaba0a93e881301c49413ee7f28e" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref></type>
-        <definition>static Q eu::Q::from_rotation_matrix</definition>
+        <definition>static Q eu::Q::From_Rotation_Matrix</definition>
         <argsstring>(const m4 &amp;m)</argsstring>
-        <name>from_rotation_matrix</name>
-        <qualifiedname>eu::Q::from_rotation_matrix</qualifiedname>
+        <name>From_Rotation_Matrix</name>
+        <qualifiedname>eu::Q::From_Rotation_Matrix</qualifiedname>
         <param>
           <type>const <ref refid="structeu_1_1m4" kindref="compound">m4</ref> &amp;</type>
           <declname>m</declname>
@@ -453,12 +453,12 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/quat.h" line="48" column="19"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1a0b7e97b743d06f8d4305a4f3ad54c26a" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Q_1af780ab64c96ad20bd69dce74d1e4eb73" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref></type>
-        <definition>static Q eu::Q::from_to</definition>
+        <definition>static Q eu::Q::From_To</definition>
         <argsstring>(const Q &amp;from, const Q &amp;to)</argsstring>
-        <name>from_to</name>
-        <qualifiedname>eu::Q::from_to</qualifiedname>
+        <name>From_To</name>
+        <qualifiedname>eu::Q::From_To</qualifiedname>
         <param>
           <type>const <ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref> &amp;</type>
           <declname>from</declname>
@@ -476,12 +476,12 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/quat.h" line="51" column="19"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1af80452ab6aa9531bb2cfc11ada256321" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Q_1a06b272cb797b0524b248f01323c19531" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::optional&lt; <ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref> &gt;</type>
-        <definition>static std::optional&lt; Q &gt; eu::Q::look_at</definition>
+        <definition>static std::optional&lt; Q &gt; eu::Q::Look_At</definition>
         <argsstring>(const v3 &amp;from, const v3 &amp;to, const n3 &amp;up)</argsstring>
-        <name>look_at</name>
-        <qualifiedname>eu::Q::look_at</qualifiedname>
+        <name>Look_At</name>
+        <qualifiedname>eu::Q::Look_At</qualifiedname>
         <param>
           <type>const <ref refid="structeu_1_1v3" kindref="compound">v3</ref> &amp;</type>
           <declname>from</declname>
@@ -504,12 +504,12 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/quat.h" line="55" column="31"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1abdf0df3ce5bdd1000bb0658c7838fc28" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Q_1ace1cbd9bd7a6a550cae4b9bd380303a0" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref></type>
-        <definition>static Q eu::Q::look_in_direction</definition>
+        <definition>static Q eu::Q::Look_In_Direction</definition>
         <argsstring>(const n3 &amp;dir, const n3 &amp;up)</argsstring>
-        <name>look_in_direction</name>
-        <qualifiedname>eu::Q::look_in_direction</qualifiedname>
+        <name>Look_In_Direction</name>
+        <qualifiedname>eu::Q::Look_In_Direction</qualifiedname>
         <param>
           <type>const <ref refid="structeu_1_1n3" kindref="compound">n3</ref> &amp;</type>
           <declname>dir</declname>
@@ -527,12 +527,12 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/quat.h" line="58" column="19"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1ad00dec4c8c27dccc03671098080bb817" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Q_1a0cd85cb2b5cba3eecd31968b2a357fbd" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref></type>
-        <definition>static Q eu::Q::nlerp</definition>
+        <definition>static Q eu::Q::Nlerp</definition>
         <argsstring>(const Q &amp;f, float scale, const Q &amp;t)</argsstring>
-        <name>nlerp</name>
-        <qualifiedname>eu::Q::nlerp</qualifiedname>
+        <name>Nlerp</name>
+        <qualifiedname>eu::Q::Nlerp</qualifiedname>
         <param>
           <type>const <ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref> &amp;</type>
           <declname>f</declname>
@@ -549,7 +549,7 @@
 <para>Normalized lerp between 2 quaternions This will result in a non-linear rotation. </para>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="see"><para><ref refid="structeu_1_1Q_1a9cd9f45333d77f435568cba66c0be12c" kindref="member">slerp()</ref> </para>
+<para><simplesect kind="see"><para>slerp() </para>
 </simplesect>
 </para>
         </detaileddescription>
@@ -557,12 +557,12 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/quat.h" line="117" column="18"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1ade6b9d81f9750befb4d67af5324263a9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Q_1abe9e337ed8d4e81e98fb1c17e2bd453b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref></type>
-        <definition>static Q eu::Q::slerp_fast</definition>
+        <definition>static Q eu::Q::Slerp_Fast</definition>
         <argsstring>(const Q &amp;qa, float t, const Q &amp;qb)</argsstring>
-        <name>slerp_fast</name>
-        <qualifiedname>eu::Q::slerp_fast</qualifiedname>
+        <name>Slerp_Fast</name>
+        <qualifiedname>eu::Q::Slerp_Fast</qualifiedname>
         <param>
           <type>const <ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref> &amp;</type>
           <declname>qa</declname>
@@ -579,7 +579,7 @@
 <para>Spherical lerp between 2 quaternions. </para>
         </briefdescription>
         <detaileddescription>
-<para>Will take the longer route sometimes but is technically faster. <simplesect kind="see"><para><ref refid="structeu_1_1Q_1ad00dec4c8c27dccc03671098080bb817" kindref="member">nlerp()</ref> </para>
+<para>Will take the longer route sometimes but is technically faster. <simplesect kind="see"><para>nlerp() </para>
 </simplesect>
 </para>
         </detaileddescription>
@@ -587,12 +587,12 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/quat.h" line="122" column="18"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Q_1a9cd9f45333d77f435568cba66c0be12c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Q_1ae24d1ba5a6e1a47446a38b7b2fe70276" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref></type>
-        <definition>static Q eu::Q::slerp</definition>
+        <definition>static Q eu::Q::Slerp</definition>
         <argsstring>(const Q &amp;from, float scale, const Q &amp;to)</argsstring>
-        <name>slerp</name>
-        <qualifiedname>eu::Q::slerp</qualifiedname>
+        <name>Slerp</name>
+        <qualifiedname>eu::Q::Slerp</qualifiedname>
         <param>
           <type>const <ref refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" kindref="member">Q</ref> &amp;</type>
           <declname>from</declname>
@@ -609,9 +609,9 @@
 <para>Shortest spherical lerp between 2 quaternions. </para>
         </briefdescription>
         <detaileddescription>
-<para>Has extra logic to take the shortest route. <simplesect kind="see"><para><ref refid="structeu_1_1Q_1ade6b9d81f9750befb4d67af5324263a9" kindref="member">slerp_fast()</ref> </para>
+<para>Has extra logic to take the shortest route. <simplesect kind="see"><para>slerp_fast() </para>
 </simplesect>
-<simplesect kind="see"><para><ref refid="structeu_1_1Q_1ad00dec4c8c27dccc03671098080bb817" kindref="member">nlerp()</ref> </para>
+<simplesect kind="see"><para>nlerp() </para>
 </simplesect>
 </para>
         </detaileddescription>
@@ -627,11 +627,11 @@
     </detaileddescription>
     <location file="libs/base/src/eu/base/quat.h" line="18" column="5" bodyfile="libs/base/src/eu/base/quat.h" bodystart="19" bodyend="129"/>
     <listofallmembers>
-      <member refid="structeu_1_1Q_1acf38e08247c681bffa8d6e4d3e731f96" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>from</name></member>
-      <member refid="structeu_1_1Q_1afaa1c917caaf0a005f39bc0ba222ecac" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>from</name></member>
-      <member refid="structeu_1_1Q_1aa2b95f3c6963dab0e8b7f19098bbabcf" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>from_fast</name></member>
-      <member refid="structeu_1_1Q_1a898a39f2806d441130ece5db7f38e362" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>from_rotation_matrix</name></member>
-      <member refid="structeu_1_1Q_1a0b7e97b743d06f8d4305a4f3ad54c26a" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>from_to</name></member>
+      <member refid="structeu_1_1Q_1a86df0f893641b6f730433fa5e0c2ab5d" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>From</name></member>
+      <member refid="structeu_1_1Q_1aa9734a591860aa3f45b89a77236c1453" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>From</name></member>
+      <member refid="structeu_1_1Q_1aeaeb521c4eb131aefcb8ce61c4e84ae1" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>From_Fast</name></member>
+      <member refid="structeu_1_1Q_1aa331aaba0a93e881301c49413ee7f28e" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>From_Rotation_Matrix</name></member>
+      <member refid="structeu_1_1Q_1af780ab64c96ad20bd69dce74d1e4eb73" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>From_To</name></member>
       <member refid="structeu_1_1Q_1aa68e076abf7fa7b0c888ae7e7d77f9b5" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>get_conjugate</name></member>
       <member refid="structeu_1_1Q_1ae7d04e804c60452ca2bdcfa519c97b08" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>get_inverse</name></member>
       <member refid="structeu_1_1Q_1a4e47f55d29c27a6d91c9f17123fccc0f" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>get_length</name></member>
@@ -645,16 +645,16 @@
       <member refid="structeu_1_1Q_1af2147d76f7cb77cf06cb71fab354aab3" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>get_normalized</name></member>
       <member refid="structeu_1_1Q_1ac3a95299a10db635df3c150ddb614224" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>get_rotated</name></member>
       <member refid="structeu_1_1Q_1a504bd4cb431623cb546353b9e7543d6c" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>get_vec_part</name></member>
-      <member refid="structeu_1_1Q_1af80452ab6aa9531bb2cfc11ada256321" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>look_at</name></member>
-      <member refid="structeu_1_1Q_1abdf0df3ce5bdd1000bb0658c7838fc28" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>look_in_direction</name></member>
-      <member refid="structeu_1_1Q_1ad00dec4c8c27dccc03671098080bb817" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>nlerp</name></member>
+      <member refid="structeu_1_1Q_1a06b272cb797b0524b248f01323c19531" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>Look_At</name></member>
+      <member refid="structeu_1_1Q_1ace1cbd9bd7a6a550cae4b9bd380303a0" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>Look_In_Direction</name></member>
+      <member refid="structeu_1_1Q_1a0cd85cb2b5cba3eecd31968b2a357fbd" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>Nlerp</name></member>
       <member refid="structeu_1_1Q_1a92b5e5a95a0ff772e72d89c30cc29c54" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>normalize</name></member>
       <member refid="structeu_1_1Q_1a0d598e8d983468dd130394a0fcab90fa" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>operator*=</name></member>
       <member refid="structeu_1_1Q_1a5157e607b25efe618c69117897b19daa" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>operator*=</name></member>
       <member refid="structeu_1_1Q_1a4a94b2934844952ebb8fc9b0f51fa41f" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>Q</name></member>
       <member refid="structeu_1_1Q_1aa0754949d89be87e7ddfe43461a33d60" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>Q</name></member>
-      <member refid="structeu_1_1Q_1a9cd9f45333d77f435568cba66c0be12c" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>slerp</name></member>
-      <member refid="structeu_1_1Q_1ade6b9d81f9750befb4d67af5324263a9" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>slerp_fast</name></member>
+      <member refid="structeu_1_1Q_1ae24d1ba5a6e1a47446a38b7b2fe70276" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>Slerp</name></member>
+      <member refid="structeu_1_1Q_1abe9e337ed8d4e81e98fb1c17e2bd453b" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>Slerp_Fast</name></member>
       <member refid="structeu_1_1Q_1a9bd27b1649ccaa89974b6b8fea7e24d0" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>then_get_rotated</name></member>
       <member refid="structeu_1_1Q_1a7afdc2215833a3cb71c2bf1a8c90fe2c" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>w</name></member>
       <member refid="structeu_1_1Q_1ad8aeb869310015e4272e78916026df82" prot="public" virt="non-virtual"><scope>eu::Q</scope><name>x</name></member>

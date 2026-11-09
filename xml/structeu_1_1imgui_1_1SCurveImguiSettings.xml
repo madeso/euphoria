@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/scurve.h" line="29" column="6" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="29" bodyend="-1"/>
+        <location file="libs/imgui/src/eu/imgui/scurve.h" line="27" column="6" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="27" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1imgui_1_1SCurveImguiSettings_1a27cb5788aa1fb267434757e054e2360a" prot="public" static="no" mutable="no">
         <type>ImVec2</type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/scurve.h" line="30" column="8" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="30" bodyend="30"/>
+        <location file="libs/imgui/src/eu/imgui/scurve.h" line="28" column="8" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="28" bodyend="28"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1imgui_1_1SCurveImguiSettings_1ac36eecc9ab4c8ba8680ca253966008a9" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -49,7 +49,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/scurve.h" line="32" column="7" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="32" bodyend="-1"/>
+        <location file="libs/imgui/src/eu/imgui/scurve.h" line="30" column="7" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="30" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1imgui_1_1SCurveImguiSettings_1a0b7c6d01db7de09ebea6ecaa666c19dc" prot="public" static="no" mutable="no">
         <type>ImU32</type>
@@ -64,7 +64,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/scurve.h" line="33" column="7" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="33" bodyend="-1"/>
+        <location file="libs/imgui/src/eu/imgui/scurve.h" line="31" column="7" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="31" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1imgui_1_1SCurveImguiSettings_1af2117d7cdd56c8f188f5fab625741066" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -79,7 +79,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/scurve.h" line="35" column="7" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="35" bodyend="-1"/>
+        <location file="libs/imgui/src/eu/imgui/scurve.h" line="33" column="7" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="33" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1imgui_1_1SCurveImguiSettings_1a49ad198cf656dbc68ab065c84016f696" prot="public" static="no" mutable="no">
         <type>ImU32</type>
@@ -94,7 +94,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/scurve.h" line="36" column="7" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="36" bodyend="-1"/>
+        <location file="libs/imgui/src/eu/imgui/scurve.h" line="34" column="7" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="34" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1imgui_1_1SCurveImguiSettings_1a090f7311c3d0648ad904e9348608be77" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -109,7 +109,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/scurve.h" line="37" column="6" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="37" bodyend="-1"/>
+        <location file="libs/imgui/src/eu/imgui/scurve.h" line="35" column="6" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1imgui_1_1SCurveImguiSettings_1a2937eb420a9f35b7ec6ec254cb4bdd05" prot="public" static="no" mutable="no">
         <type>ImGuiMouseButton_</type>
@@ -124,7 +124,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/scurve.h" line="39" column="19" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="39" bodyend="-1"/>
+        <location file="libs/imgui/src/eu/imgui/scurve.h" line="37" column="19" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="37" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1imgui_1_1SCurveImguiSettings_1a880e21325183a351155608834639ae1d" prot="public" static="no" mutable="no">
         <type>ImU32</type>
@@ -139,7 +139,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/scurve.h" line="41" column="7" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="41" bodyend="-1"/>
+        <location file="libs/imgui/src/eu/imgui/scurve.h" line="39" column="7" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="39" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1imgui_1_1SCurveImguiSettings_1a6b771c37d5696df7af23db99400ac06d" prot="public" static="no" mutable="no">
         <type>ImU32</type>
@@ -154,7 +154,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/scurve.h" line="42" column="7" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="42" bodyend="-1"/>
+        <location file="libs/imgui/src/eu/imgui/scurve.h" line="40" column="7" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="40" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeu_1_1imgui_1_1SCurveImguiSettings_1a2edab6149e363b7a511eac100f7644b7" prot="public" static="no" mutable="no">
         <type>std::size_t</type>
@@ -170,7 +170,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/scurve.h" line="44" column="13" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="44" bodyend="-1"/>
+        <location file="libs/imgui/src/eu/imgui/scurve.h" line="42" column="13" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="42" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -178,7 +178,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/imgui/src/eu/imgui/scurve.h" line="27" column="1" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="28" bodyend="45"/>
+    <location file="libs/imgui/src/eu/imgui/scurve.h" line="25" column="1" bodyfile="libs/imgui/src/eu/imgui/scurve.h" bodystart="26" bodyend="43"/>
     <listofallmembers>
       <member refid="structeu_1_1imgui_1_1SCurveImguiSettings_1a880e21325183a351155608834639ae1d" prot="public" virt="non-virtual"><scope>eu::imgui::SCurveImguiSettings</scope><name>background_color</name></member>
       <member refid="structeu_1_1imgui_1_1SCurveImguiSettings_1a2937eb420a9f35b7ec6ec254cb4bdd05" prot="public" virt="non-virtual"><scope>eu::imgui::SCurveImguiSettings</scope><name>button</name></member>

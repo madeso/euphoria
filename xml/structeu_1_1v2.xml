@@ -340,12 +340,12 @@
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeu_1_1v2_1a253ce17799f413fd1a33d65f17d194d6" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1v2_1ac40fc3ae0908f65518bab125ecfa220e" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1v2_1ad9533356205d5ad9be8ded0839728431" kindref="member">v2</ref></type>
-        <definition>static v2 eu::v2::FromTo</definition>
+        <definition>static v2 eu::v2::From_To</definition>
         <argsstring>(const v2 &amp;from, const v2 &amp;to)</argsstring>
-        <name>FromTo</name>
-        <qualifiedname>eu::v2::FromTo</qualifiedname>
+        <name>From_To</name>
+        <qualifiedname>eu::v2::From_To</qualifiedname>
         <param>
           <type>const <ref refid="structeu_1_1v2_1ad9533356205d5ad9be8ded0839728431" kindref="member">v2</ref> &amp;</type>
           <declname>from</declname>
@@ -389,7 +389,7 @@
     <location file="libs/base/src/eu/base/vec2.h" line="16" column="5" bodyfile="libs/base/src/eu/base/vec2.h" bodystart="17" bodyend="69"/>
     <listofallmembers>
       <member refid="structeu_1_1v2_1afc4b4c95bd62606305116037f925a6d7" prot="public" virt="non-virtual"><scope>eu::v2</scope><name>From</name></member>
-      <member refid="structeu_1_1v2_1a253ce17799f413fd1a33d65f17d194d6" prot="public" virt="non-virtual"><scope>eu::v2</scope><name>FromTo</name></member>
+      <member refid="structeu_1_1v2_1ac40fc3ae0908f65518bab125ecfa220e" prot="public" virt="non-virtual"><scope>eu::v2</scope><name>From_To</name></member>
       <member refid="structeu_1_1v2_1a69af00c77b62d73ffcfd60afcc6cbcb2" prot="public" virt="non-virtual"><scope>eu::v2</scope><name>get_data_ptr</name></member>
       <member refid="structeu_1_1v2_1a498f7b5158e712297989cabb562f5932" prot="public" virt="non-virtual"><scope>eu::v2</scope><name>get_data_ptr</name></member>
       <member refid="structeu_1_1v2_1a7ff570a559152323759a8a52799f58ef" prot="public" virt="non-virtual"><scope>eu::v2</scope><name>get_flipped_y</name></member>

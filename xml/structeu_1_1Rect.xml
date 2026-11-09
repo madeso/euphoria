@@ -742,12 +742,12 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/rect.h" line="38" column="32" bodyfile="libs/base/src/eu/base/rect.h" bodystart="38" bodyend="43"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Rect_1a1c69ca2953de13022c21e04f5e9959de" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Rect_1a52cac5b37989c3f873aad7f7d7ea9b9f" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Rect_1a63b60c39516cf6e4be087b8628b38044" kindref="member">Rect</ref></type>
-        <definition>static Rect eu::Rect::from_left_right_top_bottom</definition>
+        <definition>static Rect eu::Rect::From_Left_Right_Top_Bottom</definition>
         <argsstring>(float left_side, float right_side, float top_side, float bottom_side)</argsstring>
-        <name>from_left_right_top_bottom</name>
-        <qualifiedname>eu::Rect::from_left_right_top_bottom</qualifiedname>
+        <name>From_Left_Right_Top_Bottom</name>
+        <qualifiedname>eu::Rect::From_Left_Right_Top_Bottom</qualifiedname>
         <param>
           <type>float</type>
           <declname>left_side</declname>
@@ -772,12 +772,12 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/rect.h" line="45" column="22"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Rect_1acb48eb3101d3ad50657d7c9fd27f66ed" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Rect_1a9efd9ad03ed186765ffe707e39f93df1" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Rect_1a63b60c39516cf6e4be087b8628b38044" kindref="member">Rect</ref></type>
-        <definition>static Rect eu::Rect::from_bottom_left_size</definition>
+        <definition>static Rect eu::Rect::From_Bottom_Left_Size</definition>
         <argsstring>(const v2 &amp;bl, const v2 &amp;size)</argsstring>
-        <name>from_bottom_left_size</name>
-        <qualifiedname>eu::Rect::from_bottom_left_size</qualifiedname>
+        <name>From_Bottom_Left_Size</name>
+        <qualifiedname>eu::Rect::From_Bottom_Left_Size</qualifiedname>
         <param>
           <type>const <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
           <declname>bl</declname>
@@ -794,12 +794,12 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/rect.h" line="46" column="22"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Rect_1a9f0f207b63729d5b646a0aca09388167" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Rect_1ad06c77e6954f9144800dbf465e515d58" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Rect_1a63b60c39516cf6e4be087b8628b38044" kindref="member">Rect</ref></type>
-        <definition>static Rect eu::Rect::from_top_left_size</definition>
+        <definition>static Rect eu::Rect::From_Top_Left_Size</definition>
         <argsstring>(const v2 &amp;top_left, const v2 &amp;size)</argsstring>
-        <name>from_top_left_size</name>
-        <qualifiedname>eu::Rect::from_top_left_size</qualifiedname>
+        <name>From_Top_Left_Size</name>
+        <qualifiedname>eu::Rect::From_Top_Left_Size</qualifiedname>
         <param>
           <type>const <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
           <declname>top_left</declname>
@@ -816,12 +816,12 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/rect.h" line="47" column="22"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Rect_1a4813f449e47554090fb8a7716f31c4a4" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Rect_1ab07628bb9e204dc5414dbcb80f063859" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Rect_1a63b60c39516cf6e4be087b8628b38044" kindref="member">Rect</ref></type>
-        <definition>static Rect eu::Rect::from_size</definition>
+        <definition>static Rect eu::Rect::From_Size</definition>
         <argsstring>(const v2 &amp;size)</argsstring>
-        <name>from_size</name>
-        <qualifiedname>eu::Rect::from_size</qualifiedname>
+        <name>From_Size</name>
+        <qualifiedname>eu::Rect::From_Size</qualifiedname>
         <param>
           <type>const <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
           <declname>size</declname>
@@ -834,12 +834,12 @@
         </inbodydescription>
         <location file="libs/base/src/eu/base/rect.h" line="48" column="22"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1Rect_1a080cd6dbe8d9c93eaaaf46b30520a3be" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1Rect_1a5531b2ad23a0673eb9068a050ce5ae7e" prot="public" static="yes" nodiscard="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeu_1_1Rect_1a63b60c39516cf6e4be087b8628b38044" kindref="member">Rect</ref></type>
-        <definition>static Rect eu::Rect::from_point</definition>
+        <definition>static Rect eu::Rect::From_Point</definition>
         <argsstring>(const v2 &amp;point)</argsstring>
-        <name>from_point</name>
-        <qualifiedname>eu::Rect::from_point</qualifiedname>
+        <name>From_Point</name>
+        <qualifiedname>eu::Rect::From_Point</qualifiedname>
         <param>
           <type>const <ref refid="structeu_1_1v2" kindref="compound">v2</ref> &amp;</type>
           <declname>point</declname>
@@ -949,14 +949,14 @@
       <member refid="structeu_1_1Rect_1ab4073102dc4a45f89ba1d62a7d93a2fd" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>cut_right</name></member>
       <member refid="structeu_1_1Rect_1ad760740db6603c5ebd34557e93aa8dfd" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>cut_top</name></member>
       <member refid="structeu_1_1Rect_1a822d88039fe24617a4bdd0286ebc49d8" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>extend</name></member>
-      <member refid="structeu_1_1Rect_1acb48eb3101d3ad50657d7c9fd27f66ed" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>from_bottom_left_size</name></member>
+      <member refid="structeu_1_1Rect_1a9efd9ad03ed186765ffe707e39f93df1" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>From_Bottom_Left_Size</name></member>
       <member refid="structeu_1_1Rect_1a2dffd83f6807c8be564fab4c77ea5533" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>From_Center_Inside_Other</name></member>
       <member refid="structeu_1_1Rect_1acddc755695250c77a4132936d0dbf37b" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>from_left_right_bottom_top</name></member>
-      <member refid="structeu_1_1Rect_1a1c69ca2953de13022c21e04f5e9959de" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>from_left_right_top_bottom</name></member>
-      <member refid="structeu_1_1Rect_1a080cd6dbe8d9c93eaaaf46b30520a3be" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>from_point</name></member>
+      <member refid="structeu_1_1Rect_1a52cac5b37989c3f873aad7f7d7ea9b9f" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>From_Left_Right_Top_Bottom</name></member>
+      <member refid="structeu_1_1Rect_1a5531b2ad23a0673eb9068a050ce5ae7e" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>From_Point</name></member>
       <member refid="structeu_1_1Rect_1a04239a558a565f99f939ddc02754e65e" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>From_Scaled</name></member>
-      <member refid="structeu_1_1Rect_1a4813f449e47554090fb8a7716f31c4a4" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>from_size</name></member>
-      <member refid="structeu_1_1Rect_1a9f0f207b63729d5b646a0aca09388167" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>from_top_left_size</name></member>
+      <member refid="structeu_1_1Rect_1ab07628bb9e204dc5414dbcb80f063859" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>From_Size</name></member>
+      <member refid="structeu_1_1Rect_1ad06c77e6954f9144800dbf465e515d58" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>From_Top_Left_Size</name></member>
       <member refid="structeu_1_1Rect_1a6c8eef03f18b7d73903f726832fadd25" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>get_bottom</name></member>
       <member refid="structeu_1_1Rect_1aae42aa2bb46920582103dc9dc1e31330" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>get_bottom_left</name></member>
       <member refid="structeu_1_1Rect_1ab3ef9deea35f7f348ba71473878a5cb5" prot="public" virt="non-virtual"><scope>eu::Rect</scope><name>get_bottom_right</name></member>
