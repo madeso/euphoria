@@ -29,7 +29,6 @@
 #include <SDL3/SDL_main.h>
 
 #include "eu/core/scurve.h"
-#include "eu/imgui/scurve.h"
 
 ENABLE_HIGH_PERFORMANCE_GRAPHICS
 
