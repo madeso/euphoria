@@ -401,7 +401,7 @@ namespace eu::imgui
                     auto* fg = ImGui::GetForegroundDrawList();
                     // fg->AddCircle(center, radius, circle_col, gear_segments, thickness);
                     constexpr auto segment_factor = 1.0f / static_cast<float>(gear_segments - 1);
-                    const auto turn_factor = std::fmodf(*drag, one_turn) / one_turn;
+                    const auto turn_factor = std::fmodf(1.0f - *drag, one_turn) / one_turn;
                     const auto ang = (turn_factor + segment_factor) * -2.0f * IM_PI;
                     dl_add_circle(fg, center, radius, circle_col, gear_segments, circle_thickness, ang);
 
