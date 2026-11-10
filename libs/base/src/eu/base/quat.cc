@@ -304,7 +304,7 @@ namespace eu
         }
         const auto& y = *y_new;
 
-        const auto m = m4::from_basis(x, y, -z);
+        const auto m = m4::From_Basis(x, y, -z);
         return Q::From_Rotation_Matrix(m);
     }
 

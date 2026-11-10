@@ -177,7 +177,7 @@ namespace internal
                 .blending(true);
 
             const auto camera = m4_identity;
-            const auto projection = m4::create_ortho_lrud(0.0f, vp.virtual_width, vp.virtual_height, 0.0f, -1.0f, 1.0f);
+            const auto projection = m4::Create_Ortho_Lrud(0.0f, vp.virtual_width, vp.virtual_height, 0.0f, -1.0f, 1.0f);
 
             rc.render->quad_shader.use();
             rc.render->quad_shader.set_mat(rc.render->view_projection_uniform, projection);

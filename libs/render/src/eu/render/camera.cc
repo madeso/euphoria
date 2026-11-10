@@ -30,8 +30,8 @@ namespace eu::render
 
 m4 create_view_from_world_mat(const v3& pos, const CameraVectors& cv)
 {
-    const auto trans = m4::from_translation(-pos);
-    const auto rot = m4::from(Q::Look_In_Direction(cv.front, kk::up));
+    const auto trans = m4::From_Translation(-pos);
+    const auto rot = m4::From(Q::Look_In_Direction(cv.front, kk::up));
 	return trans * rot;
 }
 
@@ -39,7 +39,7 @@ CompiledCamera compile(const Camera& cam, const Size& window_size)
 {
 	// todo(Gustav): use the near and far from the camera struct
 	const float aspect = static_cast<float>(window_size.width) / static_cast<float>(window_size.height);
-	const auto clip_from_view = m4::create_perspective(cam.fov, aspect, cam.near, cam.far);
+	const auto clip_from_view = m4::Create_Perspective(cam.fov, aspect, cam.near, cam.far);
 
 	return CompiledCamera{
 	    .clip_from_view = clip_from_view,
@@ -56,7 +56,7 @@ CompiledCamera compile(const OrthoCamera& cam, const Size& window_size)
 	const float width = cam.size * aspect;
 	const float height = cam.size;
 
-	const auto clip_from_view = m4::create_ortho_lrud(-width/2.0f, width/2.0f, height/2.0f, -height/2.0f, cam.near, cam.far);
+	const auto clip_from_view = m4::Create_Ortho_Lrud(-width/2.0f, width/2.0f, height/2.0f, -height/2.0f, cam.near, cam.far);
 
 	const auto camera_space = create_vectors(cam.rotation);
 	const auto view_from_world = create_view_from_world_mat(cam.position, camera_space);

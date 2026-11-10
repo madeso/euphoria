@@ -25,7 +25,7 @@ namespace eu
         const auto normalized_up = up.get_normalized().value_or(kk::up);
         const auto normalized_out = out.get_normalized().value_or(kk::out);
         
-        const auto rotation_matrix = m4::from_basis(normalized_right, normalized_up, normalized_out);
+        const auto rotation_matrix = m4::From_Basis(normalized_right, normalized_up, normalized_out);
 
         return
         {
@@ -41,13 +41,13 @@ namespace eu
     {
         // heavily inspired by RecomposeMatrixFromComponents from imguizmo
 
-        const auto rotation = m4::from_basis
+        const auto rotation = m4::From_Basis
         (
             t.rotation.get_local_right(),
             t.rotation.get_local_up(),
             t.rotation.get_local_out()
         );
 
-        return m4::from_translation(t.position) * rotation * m4::from_scale(t.scale);
+        return m4::From_Translation(t.position) * rotation * m4::From_Scale(t.scale);
     }
 }

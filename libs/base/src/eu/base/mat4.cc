@@ -30,7 +30,7 @@ namespace eu
 {
     [[nodiscard]]
     m4
-    m4::from_col_major
+    m4::From_Col_Major
     (
         float t00, float t01, float t02, float t03,
         float t10, float t11, float t12, float t13,
@@ -49,10 +49,10 @@ namespace eu
 
     [[nodiscard]]
     m4
-    m4::from_major(const v4& major)
+    m4::From_Major(const v4& major)
     {
         const float zero = 0;
-        return from_row_major
+        return From_Row_Major
         (
             major.x, zero, zero, zero,
             zero, major.y, zero, zero,
@@ -61,9 +61,9 @@ namespace eu
         );
     }
 
-    [[nodiscard]] m4 m4::from_basis(const n3& a, const n3& b, const n3& c)
+    [[nodiscard]] m4 m4::From_Basis(const n3& a, const n3& b, const n3& c)
     {
-        return from_row_major
+        return From_Row_Major
         (
             a.x, b.x, c.x, 0,
             a.y, b.y, c.y, 0,
@@ -72,18 +72,18 @@ namespace eu
         );
     }
 
-    [[nodiscard]] m4 m4::from_scale(const v3& s)
+    [[nodiscard]] m4 m4::From_Scale(const v3& s)
     {
-        return from_major({s, 1.0f});
+        return From_Major({s, 1.0f});
     }
 
     [[nodiscard]]
     m4
-    m4::from_translation(const v3& v)
+    m4::From_Translation(const v3& v)
     {
         const float one = 1;
         const float z = 0;
-        return from_row_major
+        return From_Row_Major
         (
             one, z, z, v.x,
             z, one, z, v.y,
@@ -133,11 +133,11 @@ namespace eu
 
     [[nodiscard]]
     m4
-    m4::from_rot_x(const An& a)
+    m4::From_Rot_X(const An& a)
     {
         const auto c = cos(a);
         const auto s = sin(a);
-        return from_row_major
+        return From_Row_Major
         (
             1, 0, 0, 0,
             0, c, -s, 0,
@@ -147,11 +147,11 @@ namespace eu
     }
 
     m4
-    m4::from_rot_y(const An& a)
+    m4::From_Rot_Y(const An& a)
     {
         const auto c = cos(a);
         const auto s = sin(a);
-        return from_row_major
+        return From_Row_Major
         (
             c, 0, s, 0,
             0, 1, 0, 0,
@@ -162,11 +162,11 @@ namespace eu
 
     [[nodiscard]]
     m4
-    m4::from_rot_z(const An& a)
+    m4::From_Rot_Z(const An& a)
     {
         const auto c = cos(a);
         const auto s = sin(a);
-        return from_row_major
+        return From_Row_Major
         (
             c, -s, 0, 0,
             s, c, 0, 0,
@@ -177,7 +177,7 @@ namespace eu
 
     [[nodiscard]]
     m4
-    m4::from(const AA& aa)
+    m4::From(const AA& aa)
     {
         const float rcos = cos(aa.angle);
         const float rsin = sin(aa.angle);
@@ -186,7 +186,7 @@ namespace eu
         const auto v = aa.axis.y;
         const auto w = aa.axis.z;
 
-        return m4::from_col_major
+        return m4::From_Col_Major
         (
             rcos + u * u * (1 - rcos),
             w * rsin + v * u * (1 - rcos),
@@ -212,10 +212,10 @@ namespace eu
 
 
     [[nodiscard]] m4
-    m4::from(const Q& q)
+    m4::From(const Q& q)
     {
         const auto aa = AA::From(q);
-        return m4::from(aa);
+        return m4::From(aa);
     }
 
     
@@ -247,7 +247,7 @@ namespace eu
     m4::get_transposed() const
     {
         // https://www.j3d.org/matrix_faq/matrfaq_latest.html
-        return from_col_major
+        return From_Col_Major
         (
             get(0, 0), get(0, 1), get(0, 2), get(0, 3),
             get(1, 0), get(1, 1), get(1, 2), get(1, 3),
@@ -414,10 +414,10 @@ namespace eu
 
     [[nodiscard]]
     m4
-    m4::create_ortho_lrud(float l, float r, float t, float b, float n, float f)
+    m4::Create_Ortho_Lrud(float l, float r, float t, float b, float n, float f)
     {
         // http://www.songho.ca/opengl/gl_projectionmatrix.html
-        return from_row_major
+        return From_Row_Major
         (
             2 / (r - l), 0, 0, -(r + l) / (r - l),
             0, 2 / (t - b), 0, -(t + b) / (t - b),
@@ -428,12 +428,12 @@ namespace eu
 
     [[nodiscard]]
     m4
-    m4::create_perspective(const An& fov, float a, float near, float far)
+    m4::Create_Perspective(const An& fov, float a, float near, float far)
     {
         const float t = 1 / tan(fov / 2);
         const float zm = far - near;
         const float zp = far + near;
-        return from_row_major
+        return From_Row_Major
         (
             t / a, 0, 0, 0,
             0, t, 0, 0,
@@ -445,13 +445,13 @@ namespace eu
     m4
     m4::get_translated(const v3& t) const
     {
-        return *this * from_translation(t);
+        return *this * From_Translation(t);
     }
 
     m4
     m4::get_rotated(const AA& aa) const
     {
-        return *this * from(aa);
+        return *this * From(aa);
     }
 
     const float*
@@ -529,7 +529,7 @@ namespace eu
         {
             return internal::get_component_multiply_sum(lhs.get_row(r), rhs.get_column(c));
         };
-        return m4::from_row_major
+        return m4::From_Row_Major
         (
             op(0, 0), op(0, 1), op(0, 2), op(0, 3),
             op(1, 0), op(1, 1), op(1, 2), op(1, 3),

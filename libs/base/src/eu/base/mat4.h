@@ -25,14 +25,14 @@ namespace eu
     struct m4
     {
         /// Create a new matrix from column major format.
-        [[nodiscard]] static m4 from_col_major(
+        [[nodiscard]] static m4 From_Col_Major(
             float t00, float t01, float t02, float t03,
             float t10, float t11, float t12, float t13,
             float t20, float t21, float t22, float t23,
             float t30, float t31, float t32, float t33);
 
         /// Create a new matrix from row major format.
-        [[nodiscard]] constexpr static m4 from_row_major(
+        [[nodiscard]] constexpr static m4 From_Row_Major(
             float t00, float t10, float t20, float t30,
             float t01, float t11, float t21, float t31,
             float t02, float t12, float t22, float t32,
@@ -47,40 +47,40 @@ namespace eu
 
         /// Create a matrix from the major, aka the diagonal.
         /// @see from_scalar
-        [[nodiscard]] static m4 from_major(const v4 &major);
+        [[nodiscard]] static m4 From_Major(const v4 &major);
 
         /// Create a matrix from a single scalar.
         /// @see from_major
-        [[nodiscard]] constexpr static m4 from_scalar(float scalar)
+        [[nodiscard]] constexpr static m4 From_Scalar(float scalar)
         {
             const float z = 0;
-            return from_row_major(
+            return From_Row_Major(
                 scalar, z, z, z,
                 z, scalar, z, z,
                 z, z, scalar, z,
                 z, z, z, scalar);
         }
 
-        [[nodiscard]] static m4 from_basis(const n3& a, const n3& b, const n3& c);
-        [[nodiscard]] static m4 from_scale(const v3& s);
+        [[nodiscard]] static m4 From_Basis(const n3& a, const n3& b, const n3& c);
+        [[nodiscard]] static m4 From_Scale(const v3& s);
         
         /// Create a translation matrix.
-        [[nodiscard]] static m4 from_translation(const v3 &v);
+        [[nodiscard]] static m4 From_Translation(const v3 &v);
 
         /// Create a rotation matrix, around the X axis.
-        [[nodiscard]] static m4 from_rot_x(const An &a);
+        [[nodiscard]] static m4 From_Rot_X(const An &a);
 
         /// Create a rotation matrix, around the Y axis.
-        [[nodiscard]] static m4 from_rot_y(const An &a);
+        [[nodiscard]] static m4 From_Rot_Y(const An &a);
 
         /// Create a rotation matrix, around the Z axis.
-        [[nodiscard]] static m4 from_rot_z(const An &a);
+        [[nodiscard]] static m4 From_Rot_Z(const An &a);
 
         /// Create a rotation matrix, from an axis angle.
-        [[nodiscard]] static m4 from(const AA &aa);
+        [[nodiscard]] static m4 From(const AA &aa);
 
         /// Create a rotation matrix, from a quaternion.
-        [[nodiscard]] static m4 from(const Q& q);
+        [[nodiscard]] static m4 From(const Q& q);
 
         /// Create an orthographic projection matrix.
         /// Also known as a `clip_from_view` transformation.
@@ -91,10 +91,10 @@ namespace eu
         /// @param b the down side
         /// @param n near
         /// @param f far
-        [[nodiscard]] static m4 create_ortho_lrud(float l, float r, float t, float b, float n, float f);
+        [[nodiscard]] static m4 Create_Ortho_Lrud(float l, float r, float t, float b, float n, float f);
 
         /// Create a perspective projection matrix.
-        [[nodiscard]] static m4 create_perspective(const An &fov, float aspect_ratio, float near, float far);
+        [[nodiscard]] static m4 Create_Perspective(const An &fov, float aspect_ratio, float near, float far);
 
         /// Get a direct pointer to the data in column major format, for API integration.
         float *get_column_major_data_ptr();
@@ -187,7 +187,7 @@ namespace eu
     };
 
     /// The identity matrix.
-    constexpr m4 m4_identity = m4::from_scalar(1);
+    constexpr m4 m4_identity = m4::From_Scalar(1);
 
     /// Convert a matrix to a string representation, prefer fmt.
     std::string string_from(const m4 &m);

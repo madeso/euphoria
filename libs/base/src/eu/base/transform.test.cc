@@ -125,7 +125,7 @@ TEST_CASE("transform-roundtrip", "[transform]")
 
 TEST_CASE("transform-from-matrix-of-known-rotation", "[transform]")
 {
-    const auto mat = m4::from(rha(kk::up, 90_deg));
+    const auto mat = m4::From(rha(kk::up, 90_deg));
     const auto trans = transform_from_matrix(mat);
 
     CHECK(trans.position == approx(v3{0, 0, 0}));

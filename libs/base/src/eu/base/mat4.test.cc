@@ -11,7 +11,7 @@ using namespace eu::tests;
 
 TEST_CASE("mat4-colmajor", "[mat]")
 {
-    const auto m = m4::from_col_major
+    const auto m = m4::From_Col_Major
     (
          0.0f,   1.0f,   2.0f,   3.0f,
          4.0f,   5.0f,   6.0f,   7.0f,
@@ -26,7 +26,7 @@ TEST_CASE("mat4-colmajor", "[mat]")
 
 TEST_CASE("mat4-rowmajor", "[mat]")
 {
-    const auto m = m4::from_row_major
+    const auto m = m4::From_Row_Major
     (
          0.0f,   1.0f,  2.0f,   3.0f,
          4.0f,   5.0f,  6.0f,   7.0f,
@@ -41,7 +41,7 @@ TEST_CASE("mat4-rowmajor", "[mat]")
 
 TEST_CASE("mat4-rowmajor_row", "[mat]")
 {
-    const auto m = m4::from_row_major
+    const auto m = m4::From_Row_Major
     (
          0.0f,   1.0f,   2.0f,   3.0f,
          4.0f,   5.0f,   6.0f,   7.0f,
@@ -56,7 +56,7 @@ TEST_CASE("mat4-rowmajor_row", "[mat]")
 
 TEST_CASE("mat4-identity", "[mat]")
 {
-    const auto m = m4::from_row_major
+    const auto m = m4::From_Row_Major
     (
         1.0f,  0.0f,  0.0f,  0.0f,
         0.0f,  1.0f,  0.0f,  0.0f,
@@ -72,7 +72,7 @@ TEST_CASE("mat4-identity", "[mat]")
 
 TEST_CASE("mat4-index", "[mat]")
 {
-    const auto m = m4::from_row_major
+    const auto m = m4::From_Row_Major
     (
          0.0f,   1.0f,   2.0f,   3.0f,
          4.0f,   5.0f,   6.0f,   7.0f,
@@ -85,7 +85,7 @@ TEST_CASE("mat4-index", "[mat]")
 
 TEST_CASE("mat4-major", "[mat]")
 {
-    const auto m = m4::from_row_major
+    const auto m = m4::From_Row_Major
         (
              0.0f,   1.0f,   2.0f,   3.0f,
              4.0f,   5.0f,   6.0f,   7.0f,
@@ -98,7 +98,7 @@ TEST_CASE("mat4-major", "[mat]")
 
 TEST_CASE("mat4-transposed", "[mat]")
 {
-    const auto m = m4::from_row_major
+    const auto m = m4::From_Row_Major
         (
              0.0f,   1.0f,   2.0f,   3.0f,
              4.0f,   5.0f,   6.0f,   7.0f,
@@ -107,7 +107,7 @@ TEST_CASE("mat4-transposed", "[mat]")
         )
         .get_transposed()
         ;
-    REQUIRE(m == approx(m4::from_col_major
+    REQUIRE(m == approx(m4::From_Col_Major
         (
              0.0f,   1.0f,   2.0f,   3.0f,
              4.0f,   5.0f,   6.0f,   7.0f,
@@ -119,7 +119,7 @@ TEST_CASE("mat4-transposed", "[mat]")
 
 TEST_CASE("mat4-get_transposed", "[mat]")
 {
-    const auto m = m4::from_row_major
+    const auto m = m4::From_Row_Major
     (
          0.0f,   1.0f,   2.0f,   3.0f,
          4.0f,   5.0f,   6.0f,   7.0f,
@@ -127,7 +127,7 @@ TEST_CASE("mat4-get_transposed", "[mat]")
         12.0f,  13.0f,  14.0f,  15.0f
     );
     const auto transposed = m.get_transposed();
-    REQUIRE(transposed == approx(m4::from_col_major
+    REQUIRE(transposed == approx(m4::From_Col_Major
     (
          0.0f,   1.0f,   2.0f,   3.0f,
          4.0f,   5.0f,   6.0f,   7.0f,
@@ -146,14 +146,14 @@ TEST_CASE("mat4-axis", "[mat]")
 
 TEST_CASE("mat4-math", "[mat]")
 {
-    const auto lhs = m4::from_row_major
+    const auto lhs = m4::From_Row_Major
     (
          0.0f,  1.0f,  2.0f,  3.0f,
          4.0f,  5.0f,  6.0f,  7.0f,
          8.0f,  9.0f, 10.0f, 11.0f,
         12.0f, 13.0f, 14.0f, 15.0f
     );
-    const auto rhs = m4::from_row_major
+    const auto rhs = m4::From_Row_Major
     (
         16.0f, 17.0f, 18.0f, 19.0f,
         20.0f, 21.0f, 22.0f, 23.0f,
@@ -169,7 +169,7 @@ TEST_CASE("mat4-math", "[mat]")
         // simplify({{0,1,2,3},{4,5,6,7},{8,9,10,11},{12,13,14,15}}.{{16,17,18,19},{20,21,22,23},{24,25,26,27},{28,29,30,31}})
         REQUIRE
         (
-            m == approx(m4::from_row_major
+            m == approx(m4::From_Row_Major
             (
                  152.0f,  158.0f,  164.0f,  170.0f,
                  504.0f,  526.0f,  548.0f,  570.0f,
@@ -184,7 +184,7 @@ TEST_CASE("mat4-math", "[mat]")
         const auto m = lhs + rhs;
         REQUIRE
         (
-            m == approx(m4::from_row_major
+            m == approx(m4::From_Row_Major
             (
                 16.0f, 18.0f, 20.0f, 22.0f,
                 24.0f, 26.0f, 28.0f, 30.0f,
@@ -199,7 +199,7 @@ TEST_CASE("mat4-math", "[mat]")
         const auto m = rhs - lhs;
         REQUIRE
         (
-            m == approx(m4::from_row_major
+            m == approx(m4::From_Row_Major
             (
                 16.0f, 16.0f, 16.0f, 16.0f,
                 16.0f, 16.0f, 16.0f, 16.0f,
@@ -212,7 +212,7 @@ TEST_CASE("mat4-math", "[mat]")
 
 TEST_CASE("mat4-get_inverted", "[mat]")
 {
-    const auto m = m4::from_row_major
+    const auto m = m4::From_Row_Major
     (
         1.0f, 0.0f, 0.0f, 0.0f,
         0.0f, 1.0f, 0.0f, 0.0f,
@@ -226,7 +226,7 @@ TEST_CASE("mat4-get_inverted", "[mat]")
 TEST_CASE("mat4-inverse", "[mat]")
 {
     // example from https://www.youtube.com/watch?v=95dYWsZEXmM
-    const auto m0 = m4::from_col_major
+    const auto m0 = m4::From_Col_Major
     (
         1.0f, 1.0f, 1.0f, 0.0f,
         0.0f, 3.0f, 1.0f, 2.0f,
@@ -237,7 +237,7 @@ TEST_CASE("mat4-inverse", "[mat]")
     auto inv = m0;
     REQUIRE(inv.invert());
 
-    const auto res = m4::from_col_major
+    const auto res = m4::From_Col_Major
     (
         -3.0f, -0.5f,   1.5f,   1.0f,
          1.0f,  0.25f, -0.25f, -0.5f,
@@ -250,14 +250,14 @@ TEST_CASE("mat4-inverse", "[mat]")
 TEST_CASE("mat4-from_major", "[mat]")
 {
     const auto major = v4(1.0f, 2.0f, 3.0f, 4.0f);
-    const auto m = m4::from_major(major);
+    const auto m = m4::From_Major(major);
     REQUIRE(m.get_major() == approx(major));
 }
 
 
 TEST_CASE("mat4-get_transformed_vec_point", "[mat]")
 {
-    const auto m = m4::from_translation(v3(1.0f, 2.0f, 3.0f));
+    const auto m = m4::From_Translation(v3(1.0f, 2.0f, 3.0f));
     const auto v = v3(4.0f, 5.0f, 6.0f);
     const auto transformed = m.get_transformed_point(v);
     REQUIRE(transformed == approx(v3(5.0f, 7.0f, 9.0f)));
@@ -265,7 +265,7 @@ TEST_CASE("mat4-get_transformed_vec_point", "[mat]")
 
 TEST_CASE("mat4-get_transformed_vec_normal", "[mat]")
 {
-    const auto m = m4::from_rot_x(An::from_degrees(90));
+    const auto m = m4::From_Rot_X(An::from_degrees(90));
     const auto v = n3(0.0f, 1.0f, 0.0f);
     const auto transformed = m.get_transformed_vec(v);
     REQUIRE(transformed == approx(n3(0.0f, 0.0f, 1.0f)));
@@ -274,7 +274,7 @@ TEST_CASE("mat4-get_transformed_vec_normal", "[mat]")
 TEST_CASE("mat4-from_quaternion", "[mat]")
 {
     const auto q = Q::From(AA{n3(0.0f, 1.0f, 0.0f), An::from_degrees(90)});
-    const auto m = m4::from(q);
+    const auto m = m4::From(q);
     const auto v = v3(1.0f, 0.0f, 0.0f);
     const auto transformed = m.get_transformed_point(v);
     REQUIRE(transformed == approx(v3(0.0f, 0.0f, -1.0f)));
@@ -285,7 +285,7 @@ TEST_CASE("mat4-TestTransformation", "[mat]")
 {
     const auto src = v3(1.0f, 2.0f, 3.0f);
     const auto translated =
-        m4::from_translation(src)
+        m4::From_Translation(src)
         .get_translation()
         ;
     REQUIRE(translated == approx(src));
@@ -333,7 +333,7 @@ TEST_CASE("mat4-from-axisangle", "[mat]")
     const auto axis = n3{0.0f, 1.0f, 0.0f};
     const auto angle = An::from_degrees(90);
     const auto aa = AA{axis, angle};
-    const auto m = m4::from(aa);
+    const auto m = m4::From(aa);
     const auto v = v3(1.0f, 0.0f, 0.0f);
     const auto rotated = m.get_transformed_point(v);
     REQUIRE(rotated == approx(v3(0.0f, 0.0f, -1.0f)));
@@ -415,7 +415,7 @@ TEST_CASE("mat4-TestIentityMultiply", "[mat]")
 
 TEST_CASE("mat4-TestVec4Multiply", "[mat]")
 {
-    const auto lhs = m4::from_row_major
+    const auto lhs = m4::From_Row_Major
     (
          0.0f,  1.0f,  2.0f,  3.0f,
          4.0f,  5.0f,  6.0f,  7.0f,
@@ -433,7 +433,7 @@ TEST_CASE("mat4-projection-tests", "[mat]")
 
     SECTION("ortho")
     {
-        const auto o = m4::create_ortho_lrud(0.0f, 10.0f, 10.0f, 0.0f, 0.0f, 10.0f);
+        const auto o = m4::Create_Ortho_Lrud(0.0f, 10.0f, 10.0f, 0.0f, 0.0f, 10.0f);
         
         CHECK(o.get_transformed_point({0.0, 0.0, 0.0}) == approx(v3(-1.0f, -1.0f, -1.0f)));
         CHECK(o.get_transformed_point({10.0, 10.0, -10.0}) == approx(v3(1.0f, 1.0f, 1.0f)));
@@ -441,7 +441,7 @@ TEST_CASE("mat4-projection-tests", "[mat]")
 
     SECTION("perspective")
     {
-        const auto o = m4::create_perspective(An::from_degrees(90), 1.0f, 1.0f, 10.0f);
+        const auto o = m4::Create_Perspective(An::from_degrees(90), 1.0f, 1.0f, 10.0f);
         CHECK(o.get_transformed_point({0.0, 0.0, -1.0}) == approx(v3(0.0f, 0.0f, -1.0f)));
         CHECK(o.get_transformed_point({10.0, 10.0, -10.0}) == approx(v3(1.0f, 1.0f, 1.0f)));
     }
@@ -450,7 +450,7 @@ TEST_CASE("mat4-projection-tests", "[mat]")
 TEST_CASE("mat4-rotation-x", "[mat]")
 {
     const auto angle = An::from_degrees(90);
-    const auto m = m4::from_rot_x(angle);
+    const auto m = m4::From_Rot_X(angle);
     const auto v = v3(0.0f, 1.0f, 0.0f);
     const auto rotated = m.get_transformed_point(v);
     REQUIRE(rotated == approx(v3(0.0f, 0.0f, 1.0f)));
@@ -459,7 +459,7 @@ TEST_CASE("mat4-rotation-x", "[mat]")
 TEST_CASE("mat4-rotation-y", "[mat]")
 {
     const auto angle = An::from_degrees(90);
-    const auto m = m4::from_rot_y(angle);
+    const auto m = m4::From_Rot_Y(angle);
     const auto v = v3(1.0f, 0.0f, 0.0f);
     const auto rotated = m.get_transformed_point(v);
     REQUIRE(rotated == approx(v3(0.0f, 0.0f, -1.0f)));
@@ -468,7 +468,7 @@ TEST_CASE("mat4-rotation-y", "[mat]")
 TEST_CASE("mat4-rotation-z", "[mat]")
 {
     const auto angle = An::from_degrees(90);
-    const auto m = m4::from_rot_z(angle);
+    const auto m = m4::From_Rot_Z(angle);
     const auto v = v3(1.0f, 0.0f, 0.0f);
     const auto rotated = m.get_transformed_point(v);
     REQUIRE(rotated == approx(v3(0.0f, 1.0f, 0.0f)));
@@ -476,7 +476,7 @@ TEST_CASE("mat4-rotation-z", "[mat]")
 
 TEST_CASE("mat4-column_major_data_ptr", "[mat]")
 {
-    const auto m = m4::from_row_major
+    const auto m = m4::From_Row_Major
     (
          0.0f,   1.0f,   2.0f,   3.0f,
          4.0f,   5.0f,   6.0f,   7.0f,
@@ -504,7 +504,7 @@ TEST_CASE("mat4-column_major_data_ptr", "[mat]")
 
 TEST_CASE("mat4-modify_column_major_data_ptr", "[mat]")
 {
-    auto m = m4::from_row_major
+    auto m = m4::From_Row_Major
     (
          0.0f,   1.0f,   2.0f,   3.0f,
          4.0f,   5.0f,   6.0f,   7.0f,
@@ -525,7 +525,7 @@ TEST_CASE("mat4-modify_column_major_data_ptr", "[mat]")
 
 TEST_CASE("mat4-print", "[mat]")
 {
-    const auto m = m4::from_row_major
+    const auto m = m4::From_Row_Major
     (
          0.0f,   1.0f,   2.0f,   3.0f,
          4.0f,   5.0f,   6.0f,   7.0f,

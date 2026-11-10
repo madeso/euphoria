@@ -113,8 +113,8 @@ bool Renderer::is_loaded() const
 
 m4 transform_from_rotation(const v3& position, const Ypr& ypr)
 {
-    const auto translation = m4::from_translation(position);
-    const auto rotation = m4::from(Q::From(ypr));
+    const auto translation = m4::From_Translation(position);
+    const auto rotation = m4::From(Q::From(ypr));
     return translation * rotation;
 }
 m4 transform_from_billboard(const v3& position, Billboarding billboarding, const CompiledCamera& cc)
@@ -123,17 +123,17 @@ m4 transform_from_billboard(const v3& position, Billboarding billboarding, const
 	{
 		const auto right = normal.cross_norm(up).value_or(kk::right);
 		const auto new_up = right.cross_norm(normal).value_or(kk::up);
-		return m4::from_basis(right, new_up, normal);
+		return m4::From_Basis(right, new_up, normal);
 	};
 
 	const auto calc_fixed_up = [](const n3& normal, const n3& up)
 	{
 		const auto right = normal.cross_norm(up).value_or(kk::right);
 		const auto new_normal = right.cross_norm(up).value_or(kk::up);
-		return m4::from_basis(right, up, new_normal);
+		return m4::From_Basis(right, up, new_normal);
 	};
 
-	const auto translation = m4::from_translation(position);
+	const auto translation = m4::From_Translation(position);
 
 	// todo(Gustav): verify that the billboards are oriented correctly, grass in example 3 is twosided...
 	switch (billboarding)
@@ -349,7 +349,7 @@ void Renderer::render_world(const Size& window_size, const World& world, const C
 					.stencil_func(Compare::not_equal, 1, 0xFF)
 					.stencil_mask(0x00)
 					.depth_test(false);
-				const m4 small_scale_mat = m4::from_scale(v3{ kk::outline_scale, kk::outline_scale, kk::outline_scale});
+				const m4 small_scale_mat = m4::From_Scale(v3{ kk::outline_scale, kk::outline_scale, kk::outline_scale});
 
 				auto& shader = pimpl->shaders_resources.single_color_shader;
 				shader.program->use();

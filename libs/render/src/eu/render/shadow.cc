@@ -87,7 +87,7 @@ namespace internal
             constexpr auto y_up = kk::up;
             constexpr auto x_up = kk::right;
             const auto up = std::abs(y_up.dot(dir)) > 0.99f ? x_up : y_up;
-            const auto light_view_from_world = m4::from(Q::Look_In_Direction(v3::From_To(world_pos_eye, world_pos_center).get_normalized().value_or(kk::in), up));
+            const auto light_view_from_world = m4::From(Q::Look_In_Direction(v3::From_To(world_pos_eye, world_pos_center).get_normalized().value_or(kk::in), up));
 
             // calculate aabb
             auto view_pos_min = v3{ std::numeric_limits<float>::max() };
@@ -108,7 +108,7 @@ namespace internal
 
             // calculate ortho projection
             const auto light_clip_from_view
-                = m4::create_ortho_lrud(view_pos_min.x, view_pos_max.x, view_pos_max.y, view_pos_min.y, min_z, max_z);
+                = m4::Create_Ortho_Lrud(view_pos_min.x, view_pos_max.x, view_pos_max.y, view_pos_min.y, min_z, max_z);
 
             return {
                 .clip_from_view = light_clip_from_view,

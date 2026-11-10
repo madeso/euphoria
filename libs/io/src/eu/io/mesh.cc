@@ -211,9 +211,9 @@ core::Geom create_geom_from_gltf_primitive(const cgltf_data& data, const cgltf_n
 m4 transform_from_node_rec(const cgltf_node& node)
 {
     const m4 parent = node.parent != nullptr ? transform_from_node_rec(*node.parent) : m4_identity;
-    const m4 translate = node.has_translation != 0 ? m4::from_translation(v3(node.translation)) : m4_identity;
-    const m4 rotate = node.has_rotation != 0 ? m4::from(Q(node.rotation)) : m4_identity;
-    const m4 scale = node.has_scale != 0 ? m4::from_scale(v3(node.scale)) : m4_identity;
+    const m4 translate = node.has_translation != 0 ? m4::From_Translation(v3(node.translation)) : m4_identity;
+    const m4 rotate = node.has_rotation != 0 ? m4::From(Q(node.rotation)) : m4_identity;
+    const m4 scale = node.has_scale != 0 ? m4::From_Scale(v3(node.scale)) : m4_identity;
 
     const auto transform = translate * rotate * scale;
     return parent * transform;

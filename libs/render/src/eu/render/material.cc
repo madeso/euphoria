@@ -214,7 +214,7 @@ void DefaultMaterial::apply_lights(
 		shader.program->set_vec4(u.attenuation_uni, {p.min_range, p.max_range, p.curve.slope, p.curve.threshold});
 
 		const auto view_from_world = create_view_from_world_mat(p.position, create_vectors(p.rotation));
-		const auto clip_from_view = m4::create_perspective(p.fov, p.aspect, 0.1f, p.max_range);
+		const auto clip_from_view = m4::Create_Perspective(p.fov, p.aspect, 0.1f, p.max_range);
 		shader.program->set_mat(u.clip_from_world_uni, clip_from_view * view_from_world);
 
 		bind_texture_2d(states, u.tex_cookie_uniform, *internal::get_or_white(assets, p.cookie));

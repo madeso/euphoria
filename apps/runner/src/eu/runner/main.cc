@@ -431,7 +431,7 @@ struct FollowCameraSystem : runner::EntitySystem
 
         const auto focus = tr.position;
         const auto o_rot = Ypr::From(tr.rotation);
-        const auto pos_from_focus = m4::from(Q::From(Ypr{.yaw = o_rot.yaw})).get_transformed(offset);
+        const auto pos_from_focus = m4::From(Q::From(Ypr{.yaw = o_rot.yaw})).get_transformed(offset);
         const auto pos = focus + pos_from_focus;
         const auto look_at = Q::Look_At(pos, focus, kk::up);
         if (!look_at)
@@ -440,7 +440,7 @@ struct FollowCameraSystem : runner::EntitySystem
         }
         log.add(fmt::format("updated rotation: {}", *look_at));
 
-        const auto mat = m4::from_translation(pos) * m4::from(*look_at);
+        const auto mat = m4::From_Translation(pos) * m4::From(*look_at);
         camera->set_transform(mat);
     }
 };
@@ -733,7 +733,7 @@ int main(int, char**)
 
         auto plane = make_mesh_instance(plane_geom, material);
         render_world.meshes.emplace_back(plane);
-        plane->transform = eu::m4::from_translation({ 0.0f, -3.0f, 0.0f });
+        plane->transform = eu::m4::From_Translation({ 0.0f, -3.0f, 0.0f });
 
         render_world.lights.point_lights.emplace_back();
     }
