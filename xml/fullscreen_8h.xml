@@ -15,7 +15,7 @@
       </node>
       <node id="5">
         <label>eu/core/scurve.h</label>
-        <link refid="core_2src_2eu_2core_2scurve_8h"/>
+        <link refid="scurve_8h"/>
       </node>
       <node id="13">
         <label>eu/core/vertex_layout.h</label>

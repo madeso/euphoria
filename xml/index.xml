@@ -2128,6 +2128,8 @@
   </compound>
   <compound refid="loadedfont_8h" kind="file"><name>loadedfont.h</name>
   </compound>
+  <compound refid="scurve_8h" kind="file"><name>scurve.h</name>
+  </compound>
   <compound refid="tablelayout_8h" kind="file"><name>tablelayout.h</name>
   </compound>
   <compound refid="core_2src_2eu_2core_2uniform__buffer_8h" kind="file"><name>uniform_buffer.h</name>
@@ -2160,10 +2162,6 @@
   <compound refid="render_2src_2eu_2render_2debug_8h" kind="file"><name>debug.h</name>
   </compound>
   <compound refid="init_8h" kind="file"><name>init.h</name>
-  </compound>
-  <compound refid="core_2src_2eu_2core_2scurve_8h" kind="file"><name>scurve.h</name>
-  </compound>
-  <compound refid="imgui_2src_2eu_2imgui_2scurve_8h" kind="file"><name>scurve.h</name>
   </compound>
   <compound refid="core_2src_2eu_2core_2ui_8h" kind="file"><name>ui.h</name>
   </compound>

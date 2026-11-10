@@ -17,7 +17,7 @@
       </node>
       <node id="18">
         <label>eu/core/scurve.h</label>
-        <link refid="core_2src_2eu_2core_2scurve_8h"/>
+        <link refid="scurve_8h"/>
       </node>
       <node id="16">
         <label>eu/core/uniform_buffer.h</label>

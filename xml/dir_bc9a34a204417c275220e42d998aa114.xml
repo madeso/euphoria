@@ -11,7 +11,7 @@
     <innerfile refid="loadedfont_8h">loadedfont.h</innerfile>
     <innerfile refid="core_2src_2eu_2core_2mesh_8h">mesh.h</innerfile>
     <innerfile refid="core_2src_2eu_2core_2pch_8private_8h">pch.private.h</innerfile>
-    <innerfile refid="core_2src_2eu_2core_2scurve_8h">scurve.h</innerfile>
+    <innerfile refid="scurve_8h">scurve.h</innerfile>
     <innerfile refid="tablelayout_8h">tablelayout.h</innerfile>
     <innerfile refid="core_2src_2eu_2core_2ui_8h">ui.h</innerfile>
     <innerfile refid="core_2src_2eu_2core_2uniform__buffer_8h">uniform_buffer.h</innerfile>

@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="98" column="10" bodyfile="libs/imgui/src/eu/imgui/ui.h" bodystart="98" bodyend="-1"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="142" column="10" bodyfile="libs/imgui/src/eu/imgui/ui.h" bodystart="142" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -35,7 +35,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="64" column="5"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="108" column="5"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a75fb7470ac3e54f7315e3efbf360817f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -52,7 +52,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="65" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="109" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1ac33ce3576832e207f86e38b8d9ce59d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -69,7 +69,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="66" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="110" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1ae2e0eb36a340dd35b81847324c41154c" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -87,7 +87,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="68" column="5"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="112" column="5"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a32099740dac0957fa6dfd95adb9fd141" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>constexpr</type>
@@ -101,7 +101,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="70" column="15" bodyfile="libs/imgui/src/eu/imgui/ui.h" bodystart="70" bodyend="70"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="114" column="15" bodyfile="libs/imgui/src/eu/imgui/ui.h" bodystart="114" bodyend="114"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a70505695e2093f3367c979ae1823058b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -115,7 +115,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="73" column="5"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="117" column="5"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a51c3c130acde0557610cf718cf920e70" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -137,7 +137,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="75" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="119" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1ab71b4c71f757de2ca3a0671317b38262" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -167,7 +167,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="76" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="120" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a1daf9d4e3fe6b5129fd2377a23ed1aad" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -189,7 +189,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="77" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="121" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a532a523a3432878e5ba3a04b72517f0a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -211,7 +211,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="78" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="122" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a9ed0d810d82b3af2fd23451ff584a941" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -233,7 +233,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="79" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="123" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a927c8524dca330ab1ef144298692f0bb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -255,7 +255,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="81" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="125" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1ad5f6d921c3ec50b1adbccecdb3ea49ee" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -277,7 +277,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="82" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="126" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a364c1553ca9055477f57fa2929dfd048" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -299,7 +299,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="83" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="127" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a582723ca08780b5ff07cf749fca4c527" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -321,7 +321,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="84" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="128" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1afe688b594f2138013905ec4c1f02d7be" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -343,7 +343,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="85" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="129" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a0cca7a58e3eb30df02fcbbd2b7d6700b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -380,7 +380,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="86" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="130" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1aabde8140bc0ddc50179fa80a009d3784" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -407,7 +407,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="87" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="131" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a75a70f298aebe6066549a6456cfbfe51" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -429,7 +429,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="88" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="132" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a05cce3d9c67116df29e3505d23acd5a8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -451,7 +451,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="89" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="133" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a9933267b36726b3e77acd64d28ca5eb9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -478,7 +478,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="90" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="134" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1ac9ed402d06dd68622b63ebbd0197016f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -500,7 +500,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="91" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="135" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a45c73e3889697106927100942fdab34b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -518,7 +518,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="92" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="136" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a3ec768eb2763438c97615e75b846d8ba" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -536,7 +536,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="93" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="137" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a59b38939f3b0587d1a957d628755fdbe" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -574,7 +574,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="94" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="138" column="10"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1ae90896c6a81143a33ca4fd45a4598fb0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -604,7 +604,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="96" column="10"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="140" column="10"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-static-func">
@@ -625,7 +625,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="72" column="22"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="116" column="22"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="private-func">
@@ -641,7 +641,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="100" column="5"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="144" column="5"/>
       </memberdef>
       <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a253ebfb939c7a5b81c391749ecaebe82" prot="private" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type></type>
@@ -659,14 +659,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="101" column="14"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="145" column="14"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/imgui/src/eu/imgui/ui.h" line="62" column="1" bodyfile="libs/imgui/src/eu/imgui/ui.h" bodystart="63" bodyend="102"/>
+    <location file="libs/imgui/src/eu/imgui/ui.h" line="106" column="1" bodyfile="libs/imgui/src/eu/imgui/ui.h" bodystart="107" bodyend="146"/>
     <listofallmembers>
       <member refid="structeu_1_1imgui_1_1PropTable_1a275a40085aa04e1cc0154348dd207623" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>Begin</name></member>
       <member refid="structeu_1_1imgui_1_1PropTable_1a51c3c130acde0557610cf718cf920e70" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>check</name></member>

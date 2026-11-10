@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
   <compounddef id="structeu_1_1core_1_1SCurve" kind="struct" language="C++" prot="public">
     <compoundname>eu::core::SCurve</compoundname>
-    <includes refid="core_2src_2eu_2core_2scurve_8h" local="no">scurve.h</includes>
+    <includes refid="scurve_8h" local="no">scurve.h</includes>
     <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeu_1_1core_1_1SCurve_1a5a398ee69035c0d81271221e007d2f11" prot="public" static="no" mutable="no">
         <type>float</type>

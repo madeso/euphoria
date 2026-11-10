@@ -4,7 +4,7 @@
     <compoundname>world.h</compoundname>
     <includes local="no">unordered_set</includes>
     <includes local="no">memory</includes>
-    <includes refid="core_2src_2eu_2core_2scurve_8h" local="yes">eu/core/scurve.h</includes>
+    <includes refid="scurve_8h" local="yes">eu/core/scurve.h</includes>
     <includes refid="material_8h" local="yes">eu/render/material.h</includes>
     <includes refid="vertex__layout_8h" local="yes">eu/core/vertex_layout.h</includes>
     <includes refid="space_8h" local="yes">eu/render/space.h</includes>
@@ -22,7 +22,7 @@
       </node>
       <node id="4">
         <label>eu/core/scurve.h</label>
-        <link refid="core_2src_2eu_2core_2scurve_8h"/>
+        <link refid="scurve_8h"/>
       </node>
       <node id="12">
         <label>eu/core/vertex_layout.h</label>
