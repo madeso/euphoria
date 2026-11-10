@@ -303,13 +303,30 @@ namespace eu::imgui
         //     return calc_button_size(ImGui::CalcTextSize(label, nullptr, true), size_arg);
         // }
 
+        constexpr float c(int r)
+        {
+            return static_cast<float>(r) * (1.0f / 255.0f);
+        }
+
+        constexpr ImVec4 rgb(int r, int g, int b, float a = 1.0f)
+        {
+            return { c(r), c(g), c(b), a };
+        }
+
+        struct GearActivity
+        {
+            bool changed;
+            bool is_outside;
+            // todo(Gustav): reset click
+        };
+
         // https://anttweakbar.sourceforge.io/doc/tools_anttweakbar_rotoslider.html
-        bool gear_functionality(float* drag)
+        GearActivity gear_functionality(float* drag, const ImVec4& base_color)
         {
             static std::optional<GearState> state = std::nullopt;
 
             // config
-            const auto circle_col = ImColor(100, 100, 255);
+            const auto circle_col = rgb(132, 204, 22);
             const float min_radius = 20.0f;
             const float radius = min_radius;
             const float one_turn = 10.0f;
@@ -332,6 +349,8 @@ namespace eu::imgui
 
             // interaction
             bool changed = false;
+            bool is_outside = false;
+
             if (state.has_value() == false || state->id == id)
             {
                 // only change state if we are the interactive item or there is no interactive item
@@ -342,6 +361,7 @@ namespace eu::imgui
                     std::optional<float> initial_angle = state ? state->initial_angle : std::nullopt;
                     if (length2(input) > (min_radius * min_radius))
                     {
+                        is_outside = true;
                         const auto dir_cur = normalize(input);
                         const auto ang_right = std::acos(dot(dir_cur, { 1, 0 })) * (180.0f / std::numbers::pi_v<float>);
                         const auto ang = dir_cur.y < 0 ? ang_right : 360 - ang_right;
@@ -403,14 +423,20 @@ namespace eu::imgui
                     constexpr auto segment_factor = 1.0f / static_cast<float>(gear_segments - 1);
                     const auto turn_factor = std::fmodf(1.0f - *drag, one_turn) / one_turn;
                     const auto ang = (turn_factor + segment_factor) * -2.0f * IM_PI;
-                    dl_add_circle(fg, center, radius, circle_col, gear_segments, circle_thickness, ang);
+                    dl_add_circle(fg, center, radius, ImColor{ is_outside ? base_color : circle_col }, gear_segments, circle_thickness, ang);
 
-                    // draw wrench instead?
-                    fg->AddLine(center, mp, circle_col);
+                    if (is_outside)
+                    {
+                        // draw wrench instead?
+                        fg->AddLine(center, mp, ImColor{ circle_col });
+                    }
                 }
             }
 
-            return changed;
+            return {
+                .changed = changed,
+                .is_outside = is_outside
+            };
         }
 
         struct CompoundWidget
@@ -485,16 +511,6 @@ namespace eu::imgui
             void operator=(const CompoundWidget&) = delete;
             void operator=(CompoundWidget&&) = delete;
         };
-
-        constexpr float c(int r)
-        {
-            return static_cast<float>(r) * (1.0f / 255.0f);
-        }
-
-        constexpr ImVec4 rgb(int r, int g, int b, float a = 1.0f)
-        {
-            return { c(r), c(g), c(b), a};
-        }
 
         namespace colors
         {
@@ -1042,7 +1058,8 @@ static bool imgui_drag_with_reset(
             // ImGui::Button(label, button_size);
             const auto button_clicked = styled_button(style, label, button_size);
 
-            if (gear_functionality(val))
+            const auto gear = gear_functionality(val, style.active.border);
+            if (gear.changed)
             {
                 changed = true;
             }
@@ -1061,7 +1078,7 @@ static bool imgui_drag_with_reset(
             }
             const auto max = ImGui::GetItemRectMax();
 
-            if (dragging || ImGui::IsItemActive())
+            if (dragging || ImGui::IsItemActive() || gear.is_outside)
             {
                 auto* draw = ImGui::GetWindowDrawList();
                 draw->AddRect(min, max, ImColor{ style.active.border }, ImGui::GetStyle().ChildRounding);
