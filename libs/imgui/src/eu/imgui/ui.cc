@@ -520,6 +520,23 @@ namespace eu::imgui
             constexpr ImVec4 text_label = rgb(139, 148, 125);
             constexpr ImVec4 button_active_border = rgb(158, 233, 5);
             constexpr ImVec4 button_default_border = rgb(48, 53, 64);
+
+            constexpr auto graph_background = rgb(11, 14, 19);
+            constexpr auto graph_major_line = rgb(39, 43, 51);
+            constexpr auto graph_minor_line = rgb(21, 25, 33);
+
+            constexpr auto graph_line = rgb(132, 204, 22);
+            constexpr auto graph_alt_line = rgb(158, 233, 57);
+
+            constexpr auto graph_point_idle = rgb(39, 43, 51);
+            constexpr auto graph_point_idle_border = rgb(63, 63, 70);
+
+            constexpr auto graph_active_point = rgb(158, 233, 57);
+            constexpr auto graph_active_point_middle = rgb(255, 255, 255);
+            constexpr auto graph_active_point_border = rgb(92, 131, 46);
+
+            constexpr auto graph_outline_point = rgb(190, 242, 100);
+            constexpr auto graph_outline_point_border = rgb(16, 20, 24);
         }
     }
 }
@@ -1513,7 +1530,7 @@ bool imgui_s_curve_editor(const char* title, core::SCurve* curve, SCurveGuiState
     bool changed = false;
 
     auto* draw = ImGui::GetWindowDrawList();
-    draw->AddRectFilled(widget_min, widget_max, settings.background_color);
+    draw->AddRectFilled(widget_min, widget_max, ImColor{ colors::graph_background });
 
 
     if (points.max_size() != settings.num_points)
@@ -1527,16 +1544,27 @@ bool imgui_s_curve_editor(const char* title, core::SCurve* curve, SCurveGuiState
         const float y = core::calculate_s_curve(srcx, curve->slope, curve->threshold);
         points[point_index] = ImVec2{ x * widget_size.x, (1 - y) * widget_size.y } + widget_min;
     }
-    draw->AddPolyline(points.data(), int_from_sizet(settings.num_points), settings.line_color, ImDrawFlags_None, 1.0f);
+    draw->AddPolyline(points.data(), int_from_sizet(settings.num_points), ImColor{colors::graph_line}, ImDrawFlags_None, 1.0f);
 
     if (settings.draw_points)
     {
         for (std::size_t point_index = 0; point_index < settings.num_points; point_index += 1)
         {
-            draw->AddCircleFilled(points[point_index], settings.point_radius, settings.point_color);
+            draw->AddCircleFilled(points[point_index], settings.point_radius, ImColor{colors::graph_point_idle});
+            draw->AddCircle(points[point_index], settings.point_radius, ImColor{colors::graph_point_idle_border});
         }
     }
-    draw->AddCircleFilled(ImVec2{ gui->drag.x * widget_size.x, (1 - gui->drag.y) * widget_size.y } + widget_min, settings.drag_radius, settings.drag_color);
+    const auto is_hover = ImGui::IsItemHovered();
+    const auto drag_position = ImVec2{ gui->drag.x * widget_size.x, (1 - gui->drag.y) * widget_size.y } + widget_min;
+
+    const auto drag_radius = is_hover ? 6.0f : 4.0f;
+    constexpr auto drag_hover_step = 4.0f;
+    draw->AddCircleFilled(drag_position, drag_radius, ImColor{is_hover ? colors::graph_active_point : colors::graph_outline_point });
+    draw->AddCircle(drag_position, drag_radius, ImColor{ is_hover ? colors::graph_active_point_middle : colors::graph_outline_point_border }, 0, is_hover ? drag_hover_step : 1.0f);
+    if (is_hover)
+    {
+        draw->AddCircle(drag_position, drag_radius + drag_hover_step/2.0f, ImColor{ colors::graph_active_point_border}, 0, 2.0f);
+    }
 
     if (is_active)
     {

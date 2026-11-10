@@ -33,17 +33,10 @@ namespace eu::imgui
         bool widget_border = false;	 ///< draw a border around the widget
         ImVec2 widget_size = ImVec2{ 100, 100 };	///< size of the widget
 
-        float drag_radius = 10.0f;
-        ImU32 drag_color = IM_COL32(100, 0, 0, 255);
-
         float point_radius = 3.0f;
-        ImU32 point_color = IM_COL32(0, 100, 0, 255);
         bool draw_points = false;
 
         ImGuiMouseButton_ button = ImGuiMouseButton_Left;
-
-        ImU32 background_color = IM_COL32(50, 50, 50, 255);
-        ImU32 line_color = IM_COL32(100, 100, 100, 255);
 
         std::size_t num_points = 21;  ///< number of points to draw, more points means smoother curve, but more expensive
     };
