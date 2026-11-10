@@ -292,9 +292,8 @@ AppState App::iterate()
             {
                 static eu::core::SCurve scurve;
                 static eu::imgui::SCurveGuiState gui;
-                static eu::imgui::SCurveImguiSettings settings;
 
-                prop.scurve("Default curve", &scurve, &gui, eu::imgui::FlipX::yes, settings, true);
+                prop.scurve("Default curve", &scurve, &gui, eu::imgui::FlipX::yes);
             }
         }
 

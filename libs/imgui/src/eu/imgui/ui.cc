@@ -1498,11 +1498,11 @@ bool PropTable::transform(eu::m4* m) const
     return changed;
 }
 
-bool PropTable::scurve(const char* label, eu::core::SCurve* scurve, eu::imgui::SCurveGuiState* gui, eu::imgui::FlipX flip_x, const eu::imgui::SCurveImguiSettings& settings, bool force_init_curve) const
+bool PropTable::scurve(const char* label, eu::core::SCurve* scurve, eu::imgui::SCurveGuiState* gui, eu::imgui::FlipX flip_x, const ImVec2& requested_widget_size) const
 {
     return trow(*this, label, [&]
         {
-            return eu::imgui::imgui_s_curve_editor("", scurve, gui, flip_x, settings, force_init_curve);
+            return eu::imgui::imgui_s_curve_editor("", scurve, gui, flip_x, requested_widget_size);
         });
 }
 
@@ -1515,45 +1515,39 @@ SCurveGuiState::SCurveGuiState(float x, float y)
     : drag(x, y)
 {}
 
-bool imgui_s_curve_editor(const char* title, core::SCurve* curve, SCurveGuiState* gui, FlipX flip_x, const SCurveImguiSettings& settings, bool force_init_curve)
+bool imgui_s_curve_editor(const char* title, core::SCurve* curve, SCurveGuiState* gui, FlipX flip_x, const ImVec2& requested_widget_size)
 {
     imgui_text(fmt::format("{} ({} {})", title, curve->slope, curve->threshold));
 
-    ImGui::InvisibleButton(title, settings.widget_size);
+    ImGui::InvisibleButton(title, requested_widget_size);
     const auto widget_min = ImGui::GetItemRectMin();
     const auto widget_max = ImGui::GetItemRectMax();
     const auto widget_size = ImGui::GetItemRectSize();
     const auto is_active = ImGui::IsItemActive();
+    const auto is_visible = ImGui::IsItemVisible();
+
+    if (is_visible)
+    {
+        const auto new_curve = core::s_curve_from_input(flip_x == FlipX::yes ? 1 - gui->drag.x : gui->drag.x, gui->drag.y);
+        *curve = new_curve;
+    }
 
     auto& points = gui->point_cache;
-
     bool changed = false;
 
     auto* draw = ImGui::GetWindowDrawList();
     draw->AddRectFilled(widget_min, widget_max, ImColor{ colors::graph_background });
 
 
-    if (points.max_size() != settings.num_points)
+    for (std::size_t point_index = 0; point_index < SCurveGuiState::num_points; point_index += 1)
     {
-        points.resize(settings.num_points);
-    }
-    for (std::size_t point_index = 0; point_index < settings.num_points; point_index += 1)
-    {
-        const float srcx = static_cast<float>(point_index) / static_cast<float>(settings.num_points - 1); // -1 here to include 1.0f when evaluating the curve
+        const float srcx = static_cast<float>(point_index) / static_cast<float>(SCurveGuiState::num_points - 1); // -1 here to include 1.0f when evaluating the curve
         const float x = flip_x == FlipX::yes ? 1 - srcx : srcx;
         const float y = core::calculate_s_curve(srcx, curve->slope, curve->threshold);
         points[point_index] = ImVec2{ x * widget_size.x, (1 - y) * widget_size.y } + widget_min;
     }
-    draw->AddPolyline(points.data(), int_from_sizet(settings.num_points), ImColor{colors::graph_line}, ImDrawFlags_None, 1.0f);
+    draw->AddPolyline(points.data(), int_from_sizet(SCurveGuiState::num_points), ImColor{colors::graph_line}, ImDrawFlags_None, 1.0f);
 
-    if (settings.draw_points)
-    {
-        for (std::size_t point_index = 0; point_index < settings.num_points; point_index += 1)
-        {
-            draw->AddCircleFilled(points[point_index], settings.point_radius, ImColor{colors::graph_point_idle});
-            draw->AddCircle(points[point_index], settings.point_radius, ImColor{colors::graph_point_idle_border});
-        }
-    }
     const auto is_hover = ImGui::IsItemHovered();
     const auto drag_position = ImVec2{ gui->drag.x * widget_size.x, (1 - gui->drag.y) * widget_size.y } + widget_min;
 
@@ -1575,11 +1569,6 @@ bool imgui_s_curve_editor(const char* title, core::SCurve* curve, SCurveGuiState
         gui->drag.x = std::min(1.0f, std::max(n_x, 0.0f));
         gui->drag.y = std::min(1.0f, std::max(n_y, 0.0f));
         changed = true;
-    }
-
-    if (changed || force_init_curve)
-    {
-        *curve = core::s_curve_from_input(flip_x == FlipX::yes ? 1 - gui->drag.x : gui->drag.x, gui->drag.y);
     }
 
     return changed;

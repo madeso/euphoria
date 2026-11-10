@@ -24,21 +24,8 @@ namespace eu::imgui
         SCurveGuiState() = default;
         SCurveGuiState(float x, float y);
 
-        std::vector<ImVec2> point_cache;
-    };
-
-    /// Configuration settings for displaying and interacting with an S-curve widget.
-    struct SCurveImguiSettings
-    {
-        bool widget_border = false;	 ///< draw a border around the widget
-        ImVec2 widget_size = ImVec2{ 100, 100 };	///< size of the widget
-
-        float point_radius = 3.0f;
-        bool draw_points = false;
-
-        ImGuiMouseButton_ button = ImGuiMouseButton_Left;
-
-        std::size_t num_points = 21;  ///< number of points to draw, more points means smoother curve, but more expensive
+        static constexpr std::size_t num_points = 21;  ///< number of points to draw, more points means smoother curve, but more expensive
+        std::array<ImVec2, num_points> point_cache;
     };
 
     enum class FlipX
@@ -46,7 +33,7 @@ namespace eu::imgui
         no, yes
     };
 
-    bool imgui_s_curve_editor(const char* title, core::SCurve* scurve, SCurveGuiState* gui, FlipX flip_x, const SCurveImguiSettings& settings, bool force_init_curve);
+    bool imgui_s_curve_editor(const char* title, core::SCurve* scurve, SCurveGuiState* gui, FlipX flip_x, const ImVec2& requested_widget_size = ImVec2{ 100, 100 });
 
 
 struct ImguiShaderProgram
@@ -128,7 +115,7 @@ struct PropTable
     bool drag(const char* label, int* drag) const;
     void transform(const eu::m4& m) const;
     bool transform(eu::m4* m) const;
-    bool scurve(const char* label, eu::core::SCurve* scurve, eu::imgui::SCurveGuiState* gui, eu::imgui::FlipX flip_x, const eu::imgui::SCurveImguiSettings& settings, bool force_init_curve) const;
+    bool scurve(const char* label, eu::core::SCurve* scurve, eu::imgui::SCurveGuiState* gui, eu::imgui::FlipX flip_x, const ImVec2& requested_widget_size = ImVec2{ 100, 100 }) const;
 
     void image(const char* label, const render::FrameBuffer& img, ImguiShaderCache* cache, ImageShader shader) const;
 private:
