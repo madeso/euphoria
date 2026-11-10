@@ -297,10 +297,11 @@ namespace eu::imgui
             return size;
         }
 
-        ImVec2 calc_button_size(const char* label, const ImVec2& size_arg = ImVec2(0, 0))
-        {
-            return calc_button_size(ImGui::CalcTextSize(label, nullptr, true), size_arg);
-        }
+        // todo(Gustav): remove
+        // ImVec2 calc_button_size(const char* label, const ImVec2& size_arg = ImVec2(0, 0))
+        // {
+        //     return calc_button_size(ImGui::CalcTextSize(label, nullptr, true), size_arg);
+        // }
 
         // https://anttweakbar.sourceforge.io/doc/tools_anttweakbar_rotoslider.html
         bool gear_functionality(float* drag)
