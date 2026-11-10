@@ -1152,7 +1152,7 @@
           </details>
         </td>
         <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">translation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">from_translation</span><span class="p">(</span><span class="n">position</span><span class="p">);</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">translation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">From_Translation</span><span class="p">(</span><span class="n">position</span><span class="p">);</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="L117" href="#L117">117</a></td>
@@ -1168,7 +1168,7 @@
           </details>
         </td>
         <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">rotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">from</span><span class="p">(</span><span class="n">Q</span><span class="o">::</span><span class="n">From</span><span class="p">(</span><span class="n">ypr</span><span class="p">));</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">rotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">From</span><span class="p">(</span><span class="n">Q</span><span class="o">::</span><span class="n">From</span><span class="p">(</span><span class="n">ypr</span><span class="p">));</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="L118" href="#L118">118</a></td>
@@ -1259,7 +1259,7 @@
           </details>
         </td>
         <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">from_basis</span><span class="p">(</span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">new_up</span><span class="p">,</span><span class="w"> </span><span class="n">normal</span><span class="p">);</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">From_Basis</span><span class="p">(</span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">new_up</span><span class="p">,</span><span class="w"> </span><span class="n">normal</span><span class="p">);</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="L127" href="#L127">127</a></td>
@@ -1329,7 +1329,7 @@
           </details>
         </td>
         <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">from_basis</span><span class="p">(</span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">up</span><span class="p">,</span><span class="w"> </span><span class="n">new_normal</span><span class="p">);</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">From_Basis</span><span class="p">(</span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">up</span><span class="p">,</span><span class="w"> </span><span class="n">new_normal</span><span class="p">);</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="L134" href="#L134">134</a></td>
@@ -1357,7 +1357,7 @@
           </details>
         </td>
         <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">translation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">from_translation</span><span class="p">(</span><span class="n">position</span><span class="p">);</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">translation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">From_Translation</span><span class="p">(</span><span class="n">position</span><span class="p">);</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="L137" href="#L137">137</a></td>
@@ -3637,7 +3637,7 @@
           </details>
         </td>
         <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">				</span><span class="k">const</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="n">small_scale_mat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">from_scale</span><span class="p">(</span><span class="n">v3</span><span class="p">{</span><span class="w"> </span><span class="n">kk</span><span class="o">::</span><span class="n">outline_scale</span><span class="p">,</span><span class="w"> </span><span class="n">kk</span><span class="o">::</span><span class="n">outline_scale</span><span class="p">,</span><span class="w"> </span><span class="n">kk</span><span class="o">::</span><span class="n">outline_scale</span><span class="p">});</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">				</span><span class="k">const</span><span class="w"> </span><span class="n">m4</span><span class="w"> </span><span class="n">small_scale_mat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">From_Scale</span><span class="p">(</span><span class="n">v3</span><span class="p">{</span><span class="w"> </span><span class="n">kk</span><span class="o">::</span><span class="n">outline_scale</span><span class="p">,</span><span class="w"> </span><span class="n">kk</span><span class="o">::</span><span class="n">outline_scale</span><span class="p">,</span><span class="w"> </span><span class="n">kk</span><span class="o">::</span><span class="n">outline_scale</span><span class="p">});</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="L353" href="#L353">353</a></td>
@@ -4592,7 +4592,7 @@
         <hr class="block-separator"/>
         <footer class="text-center">
           Created using <a href="http://gcovr.com/en/8.8">GCOVR (Version 8.8)</a>
-          at 2026-11-10 10:11:49+00:00
+          at 2026-11-10 18:30:05+00:00
         </footer>
       </div>
     </div>

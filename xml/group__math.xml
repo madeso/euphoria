@@ -84,7 +84,7 @@
         <argsstring></argsstring>
         <name>m4_identity</name>
         <qualifiedname>eu::m4_identity</qualifiedname>
-        <initializer>= m4::from_scalar(1)</initializer>
+        <initializer>= m4::From_Scalar(1)</initializer>
         <briefdescription>
 <para>The identity matrix. </para>
         </briefdescription>

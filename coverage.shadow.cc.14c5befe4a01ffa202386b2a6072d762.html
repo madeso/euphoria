@@ -943,7 +943,7 @@
           </details>
         </td>
         <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">light_view_from_world</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">from</span><span class="p">(</span><span class="n">Q</span><span class="o">::</span><span class="n">Look_In_Direction</span><span class="p">(</span><span class="n">v3</span><span class="o">::</span><span class="n">From_To</span><span class="p">(</span><span class="n">world_pos_eye</span><span class="p">,</span><span class="w"> </span><span class="n">world_pos_center</span><span class="p">).</span><span class="n">get_normalized</span><span class="p">().</span><span class="n">value_or</span><span class="p">(</span><span class="n">kk</span><span class="o">::</span><span class="n">in</span><span class="p">),</span><span class="w"> </span><span class="n">up</span><span class="p">));</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">light_view_from_world</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">From</span><span class="p">(</span><span class="n">Q</span><span class="o">::</span><span class="n">Look_In_Direction</span><span class="p">(</span><span class="n">v3</span><span class="o">::</span><span class="n">From_To</span><span class="p">(</span><span class="n">world_pos_eye</span><span class="p">,</span><span class="w"> </span><span class="n">world_pos_center</span><span class="p">).</span><span class="n">get_normalized</span><span class="p">().</span><span class="n">value_or</span><span class="p">(</span><span class="n">kk</span><span class="o">::</span><span class="n">in</span><span class="p">),</span><span class="w"> </span><span class="n">up</span><span class="p">));</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="L91" href="#L91">91</a></td>
@@ -1129,7 +1129,7 @@
           </details>
         </td>
         <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">                </span><span class="o">=</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">create_ortho_lrud</span><span class="p">(</span><span class="n">view_pos_min</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">view_pos_max</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">view_pos_max</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">view_pos_min</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">min_z</span><span class="p">,</span><span class="w"> </span><span class="n">max_z</span><span class="p">);</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">                </span><span class="o">=</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">Create_Ortho_Lrud</span><span class="p">(</span><span class="n">view_pos_min</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">view_pos_max</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">view_pos_max</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">view_pos_min</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">min_z</span><span class="p">,</span><span class="w"> </span><span class="n">max_z</span><span class="p">);</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="L112" href="#L112">112</a></td>
@@ -1861,7 +1861,7 @@
         <hr class="block-separator"/>
         <footer class="text-center">
           Created using <a href="http://gcovr.com/en/8.8">GCOVR (Version 8.8)</a>
-          at 2026-11-10 10:11:49+00:00
+          at 2026-11-10 18:30:05+00:00
         </footer>
       </div>
     </div>

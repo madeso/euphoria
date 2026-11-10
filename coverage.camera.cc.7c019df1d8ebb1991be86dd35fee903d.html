@@ -390,7 +390,7 @@
           </details>
         </td>
         <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">trans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">from_translation</span><span class="p">(</span><span class="o">-</span><span class="n">pos</span><span class="p">);</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">trans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">From_Translation</span><span class="p">(</span><span class="o">-</span><span class="n">pos</span><span class="p">);</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="L34" href="#L34">34</a></td>
@@ -406,7 +406,7 @@
           </details>
         </td>
         <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">rot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">from</span><span class="p">(</span><span class="n">Q</span><span class="o">::</span><span class="n">Look_In_Direction</span><span class="p">(</span><span class="n">cv</span><span class="p">.</span><span class="n">front</span><span class="p">,</span><span class="w"> </span><span class="n">kk</span><span class="o">::</span><span class="n">up</span><span class="p">));</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">rot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">From</span><span class="p">(</span><span class="n">Q</span><span class="o">::</span><span class="n">Look_In_Direction</span><span class="p">(</span><span class="n">cv</span><span class="p">.</span><span class="n">front</span><span class="p">,</span><span class="w"> </span><span class="n">kk</span><span class="o">::</span><span class="n">up</span><span class="p">));</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="L35" href="#L35">35</a></td>
@@ -476,7 +476,7 @@
           </details>
         </td>
         <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">clip_from_view</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">create_perspective</span><span class="p">(</span><span class="n">cam</span><span class="p">.</span><span class="n">fov</span><span class="p">,</span><span class="w"> </span><span class="n">aspect</span><span class="p">,</span><span class="w"> </span><span class="n">cam</span><span class="p">.</span><span class="n">near</span><span class="p">,</span><span class="w"> </span><span class="n">cam</span><span class="p">.</span><span class="n">far</span><span class="p">);</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">clip_from_view</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">Create_Perspective</span><span class="p">(</span><span class="n">cam</span><span class="p">.</span><span class="n">fov</span><span class="p">,</span><span class="w"> </span><span class="n">aspect</span><span class="p">,</span><span class="w"> </span><span class="n">cam</span><span class="p">.</span><span class="n">near</span><span class="p">,</span><span class="w"> </span><span class="n">cam</span><span class="p">.</span><span class="n">far</span><span class="p">);</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="L43" href="#L43">43</a></td>
@@ -623,7 +623,7 @@
           </details>
         </td>
         <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">clip_from_view</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">create_ortho_lrud</span><span class="p">(</span><span class="o">-</span><span class="n">width</span><span class="o">/</span><span class="mf">2.0f</span><span class="p">,</span><span class="w"> </span><span class="n">width</span><span class="o">/</span><span class="mf">2.0f</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="o">/</span><span class="mf">2.0f</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">height</span><span class="o">/</span><span class="mf">2.0f</span><span class="p">,</span><span class="w"> </span><span class="n">cam</span><span class="p">.</span><span class="n">near</span><span class="p">,</span><span class="w"> </span><span class="n">cam</span><span class="p">.</span><span class="n">far</span><span class="p">);</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">	</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">clip_from_view</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">Create_Ortho_Lrud</span><span class="p">(</span><span class="o">-</span><span class="n">width</span><span class="o">/</span><span class="mf">2.0f</span><span class="p">,</span><span class="w"> </span><span class="n">width</span><span class="o">/</span><span class="mf">2.0f</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="o">/</span><span class="mf">2.0f</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">height</span><span class="o">/</span><span class="mf">2.0f</span><span class="p">,</span><span class="w"> </span><span class="n">cam</span><span class="p">.</span><span class="n">near</span><span class="p">,</span><span class="w"> </span><span class="n">cam</span><span class="p">.</span><span class="n">far</span><span class="p">);</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="L60" href="#L60">60</a></td>
@@ -804,7 +804,7 @@
         <hr class="block-separator"/>
         <footer class="text-center">
           Created using <a href="http://gcovr.com/en/8.8">GCOVR (Version 8.8)</a>
-          at 2026-11-10 10:11:49+00:00
+          at 2026-11-10 18:30:05+00:00
         </footer>
       </div>
     </div>

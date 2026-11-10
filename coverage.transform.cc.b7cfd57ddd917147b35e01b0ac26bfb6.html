@@ -370,7 +370,7 @@
           </details>
         </td>
         <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">rotation_matrix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">from_basis</span><span class="p">(</span><span class="n">normalized_right</span><span class="p">,</span><span class="w"> </span><span class="n">normalized_up</span><span class="p">,</span><span class="w"> </span><span class="n">normalized_out</span><span class="p">);</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">rotation_matrix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">From_Basis</span><span class="p">(</span><span class="n">normalized_right</span><span class="p">,</span><span class="w"> </span><span class="n">normalized_up</span><span class="p">,</span><span class="w"> </span><span class="n">normalized_out</span><span class="p">);</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="L29" href="#L29">29</a></td>
@@ -498,7 +498,7 @@
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="linecount pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">rotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">from_basis</span></td>
+        <td class="src"><span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">rotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">From_Basis</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="L45" href="#L45">45</a></td>
@@ -588,7 +588,7 @@
           </details>
         </td>
         <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">from_translation</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">position</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rotation</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">from_scale</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">scale</span><span class="p">);</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">From_Translation</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">position</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rotation</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m4</span><span class="o">::</span><span class="n">From_Scale</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">scale</span><span class="p">);</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="L52" href="#L52">52</a></td>
@@ -618,7 +618,7 @@
         <hr class="block-separator"/>
         <footer class="text-center">
           Created using <a href="http://gcovr.com/en/8.8">GCOVR (Version 8.8)</a>
-          at 2026-11-10 10:11:49+00:00
+          at 2026-11-10 18:30:05+00:00
         </footer>
       </div>
     </div>
