@@ -4,6 +4,72 @@
 
 #include "eu/assert/assert.h"
 
+namespace internal
+{
+    namespace
+    {
+        using namespace eu;
+        using namespace eu::core;
+
+
+        /** A list of things we need to extract from the Geom when compiling */
+        struct VertexTypeList
+        {
+            explicit VertexTypeList(const std::vector<VertexType>& a_base_layout)
+                : base_layout(a_base_layout)
+            {}
+
+            void add(const ShaderVertexAttributes& elements)
+            {
+                for (const auto& e : elements)
+                {
+                    indices.insert(e.type);
+                }
+            }
+
+            std::vector<VertexType> base_layout;
+            std::set<VertexType> indices;
+        };
+
+
+        int calculate_shader_attribute_size(const VertexType&)
+        {
+            return 1;
+        }
+
+        CompiledVertexTypeList compile_vertex_type_list(const VertexTypeList& list)
+        {
+            std::map<VertexType, int> indices;
+
+            int next_index = 0;
+
+            for (const auto type : list.base_layout)
+            {
+                indices.insert({ type, next_index });
+                next_index += calculate_shader_attribute_size(type);
+            }
+
+            for (const auto type : list.indices)
+            {
+                // already in base layout, don't add again
+                if (indices.contains(type))
+                {
+                    continue;
+                }
+
+                indices.insert({ type, next_index });
+                next_index += calculate_shader_attribute_size(type);
+            }
+
+            return {
+                .indices = indices,
+                .debug_types = {list.indices.begin(), list.indices.end()},
+                .next_index = next_index
+            };
+        }
+    }
+}
+
 namespace eu::core
 {
 
@@ -24,25 +90,6 @@ std::vector<VertexType> find_duplicates(const ShaderVertexAttributes& attributes
 	return ret;
 }
 
-/** A list of things we need to extract from the Geom when compiling */
-struct VertexTypeList
-{
-	explicit VertexTypeList(const std::vector<VertexType>& a_base_layout)
-		: base_layout(a_base_layout)
-	{
-	}
-
-	void add(const ShaderVertexAttributes& elements)
-	{
-		for (const auto& e: elements)
-		{
-			indices.insert(e.type);
-		}
-	}
-
-	std::vector<VertexType> base_layout;
-	std::set<VertexType> indices;
-};
 
 CompiledShaderVertexAttributes compile_shader_layout(
 	const CompiledVertexTypeList& l,
@@ -59,7 +106,11 @@ CompiledShaderVertexAttributes compile_shader_layout(
 		ASSERT(found != l.indices.end() && "layout wasn't added to the compilation list");
 		if (found != l.indices.end())
 		{
-			list.push_back({e.type, e.name, found->second});
+			list.push_back({
+                .type = e.type,
+                .name = e.name,
+                .index = found->second
+			});
 		}
 	}
 
@@ -67,10 +118,17 @@ CompiledShaderVertexAttributes compile_shader_layout(
 	{
 		// if the value was provided, it can't be less than what we have already used
 		ASSERT(start_index.has_value() == false || start_index.value() >= l.next_index);
-		list.push_back({instance_prop->type, instance_prop->name, start_index.value_or(l.next_index)});
+		list.push_back({
+            .type = instance_prop->type,
+            .name = instance_prop->name,
+            .index = start_index.value_or(l.next_index)
+		});
 	}
 
-	return {list, l.debug_types};
+	return {
+	    .elements = list,
+        .debug_types = l.debug_types
+	};
 }
 
 [[nodiscard]]
@@ -81,7 +139,10 @@ CompiledGeomVertexAttributes get_geom_layout(const CompiledVertexTypeList& l)
 
 	for (const auto& [first, second]: l.indices)
 	{
-		list.push_back({first, second});
+		list.push_back({
+            .type = first,
+            .index = second
+		});
 	}
 
 	std::sort(
@@ -93,46 +154,18 @@ CompiledGeomVertexAttributes get_geom_layout(const CompiledVertexTypeList& l)
 
 	// todo(Gustav): the index property is confusing and error-prone, just remove it
 
-	return {list, l.debug_types};
+	return {
+	    .elements = list,
+        .debug_types = l.debug_types
+	};
 }
 
-int calculate_shader_attribute_size(const VertexType&)
-{
-	return 1;
-}
-
-CompiledVertexTypeList compile_vertex_type_list(const VertexTypeList& list)
-{
-	std::map<VertexType, int> indices;
-
-	int next_index = 0;
-
-	for (const auto type: list.base_layout)
-	{
-		indices.insert({type, next_index});
-		next_index += calculate_shader_attribute_size(type);
-	}
-
-	for (const auto type: list.indices)
-	{
-		// already in base layout, don't add again
-		if (indices.find(type) != indices.end())
-		{
-			continue;
-		}
-
-		indices.insert({type, next_index});
-		next_index += calculate_shader_attribute_size(type);
-	}
-
-	return {indices, {list.indices.begin(), list.indices.end()}, next_index};
-}
 
 CompiledVertexTypeList compile_attribute_layouts(
 	const std::vector<VertexType>& base_layout, const std::vector<ShaderVertexAttributes>& descriptions
 )
 {
-	auto list = VertexTypeList{base_layout};
+	auto list = internal::VertexTypeList{base_layout};
 
 	for (const auto& d: descriptions)
 	{
