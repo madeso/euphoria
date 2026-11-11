@@ -330,7 +330,6 @@ namespace eu::imgui
             const float min_radius = 20.0f;
             const float radius = min_radius;
             const float one_turn = 10.0f;
-            constexpr float circle_thickness = 1.0f;
             constexpr int gear_segments = 6;
 
             const auto mp = ImGui::GetMousePos();
@@ -423,12 +422,13 @@ namespace eu::imgui
                     constexpr auto segment_factor = 1.0f / static_cast<float>(gear_segments - 1);
                     const auto turn_factor = std::fmodf(1.0f - *drag, one_turn) / one_turn;
                     const auto ang = (turn_factor + segment_factor) * -2.0f * IM_PI;
-                    dl_add_circle(fg, center, radius, ImColor{ is_outside ? base_color : circle_col }, gear_segments, circle_thickness, ang);
+                    const float gear_thickness = is_outside ? 1.0f : 3.0f;
+                    dl_add_circle(fg, center, radius, ImColor{ is_outside ? base_color : circle_col }, gear_segments, gear_thickness, ang);
 
                     if (is_outside)
                     {
                         // draw wrench instead?
-                        fg->AddLine(center, mp, ImColor{ circle_col });
+                        fg->AddLine(center, mp, ImColor{ circle_col }, 2.0f);
                     }
                 }
             }
