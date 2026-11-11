@@ -538,14 +538,14 @@ namespace eu::imgui
             constexpr ImVec4 button_default_border = rgb(48, 53, 64);
 
             constexpr auto graph_background = rgb(11, 14, 19);
-            constexpr auto graph_major_line = rgb(39, 43, 51);
-            constexpr auto graph_minor_line = rgb(21, 25, 33);
+            // constexpr auto graph_major_line = rgb(39, 43, 51);
+            // constexpr auto graph_minor_line = rgb(21, 25, 33);
 
             constexpr auto graph_line = rgb(132, 204, 22);
-            constexpr auto graph_alt_line = rgb(158, 233, 57);
+            // constexpr auto graph_alt_line = rgb(158, 233, 57);
 
-            constexpr auto graph_point_idle = rgb(39, 43, 51);
-            constexpr auto graph_point_idle_border = rgb(63, 63, 70);
+            // constexpr auto graph_point_idle = rgb(39, 43, 51);
+            // constexpr auto graph_point_idle_border = rgb(63, 63, 70);
 
             constexpr auto graph_active_point = rgb(158, 233, 57);
             constexpr auto graph_active_point_middle = rgb(255, 255, 255);
