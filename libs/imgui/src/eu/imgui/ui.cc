@@ -231,16 +231,6 @@ namespace eu::imgui
             return f >= 0.0f;
         }
 
-        struct GearState
-        {
-            ImGuiID id;
-            ImVec2 center;
-            ImVec2 pos;
-            int turns;
-            float orig;
-            std::optional<float> initial_angle;
-        };
-
         // dl functions are copied directly from ImDrawList with an additional starting angle and "special cases" removed.
 
         void dl_path_arc_to_n(ImDrawList* dl, const ImVec2& center, float radius, float a_min, float a_max, int num_segments, float ang)
@@ -317,7 +307,18 @@ namespace eu::imgui
         {
             bool changed;
             bool is_outside;
-            // todo(Gustav): reset click
+            bool was_reset;
+        };
+
+        struct GearState
+        {
+            ImGuiID id;
+            ImVec2 center;
+            ImVec2 pos;
+            int turns;
+            float orig;
+            std::optional<float> initial_angle;
+            bool has_modified;
         };
 
         // https://anttweakbar.sourceforge.io/doc/tools_anttweakbar_rotoslider.html
@@ -349,6 +350,7 @@ namespace eu::imgui
             // interaction
             bool changed = false;
             bool is_outside = false;
+            bool was_reset = false;
 
             if (state.has_value() == false || state->id == id)
             {
@@ -396,6 +398,8 @@ namespace eu::imgui
                         orig = *drag;
                     }
 
+                    const auto has_modified = state.has_value() ? state->has_modified : false;
+
                     state = GearState
                     {
                         .id = id,
@@ -403,11 +407,16 @@ namespace eu::imgui
                         .pos = input,
                         .turns = turns,
                         .orig = orig,
-                        .initial_angle = initial_angle
+                        .initial_angle = initial_angle,
+                        .has_modified = has_modified || changed
                     };
                 }
                 else
                 {
+                    if (state.has_value() && state->has_modified == false)
+                    {
+                        was_reset = true;
+                    }
                     state = std::nullopt;
                 }
             }
@@ -435,7 +444,8 @@ namespace eu::imgui
 
             return {
                 .changed = changed,
-                .is_outside = is_outside
+                .is_outside = is_outside,
+                .was_reset = was_reset
             };
         }
 
@@ -1055,8 +1065,7 @@ static bool imgui_drag_with_reset(
 
     const auto draw_component = [&button_size, reset_value, &changed, &drags](const ButtonStyle& style, const char* label, float* val, const char* id)
         {
-            // ImGui::Button(label, button_size);
-            const auto button_clicked = styled_button(style, label, button_size);
+            styled_button(style, label, button_size);
 
             const auto gear = gear_functionality(val, style.active.border);
             if (gear.changed)
@@ -1064,7 +1073,7 @@ static bool imgui_drag_with_reset(
                 changed = true;
             }
 
-            if (button_clicked)
+            if (gear.was_reset)
             {
                 *val = reset_value;
                 changed = true;
