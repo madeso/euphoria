@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="structeu_1_1kdl_1_1DocumentResult" kind="struct" language="C++" prot="public">
+    <compoundname>eu::kdl::DocumentResult</compoundname>
+    <includes refid="kdl_8h" local="no">kdl.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1kdl_1_1DocumentResult_1ac9248488aa3f4ae19eb2742689462356" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeu_1_1kdl_1_1Document" kindref="compound">Document</ref> &gt;</type>
+        <definition>std::optional&lt;Document&gt; eu::kdl::DocumentResult::document</definition>
+        <argsstring></argsstring>
+        <name>document</name>
+        <qualifiedname>eu::kdl::DocumentResult::document</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="215" column="19" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="215" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1kdl_1_1DocumentResult_1a91b5e6cc4cd7cb7c31dbb4cb9e1584ad" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string eu::kdl::DocumentResult::error</definition>
+        <argsstring></argsstring>
+        <name>error</name>
+        <qualifiedname>eu::kdl::DocumentResult::error</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="216" column="17" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="216" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1kdl_1_1DocumentResult_1abe5354bf273445e11a2c75add14b8153" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::kdl::DocumentResult::DocumentResult</definition>
+        <argsstring>(Document doc)</argsstring>
+        <name>DocumentResult</name>
+        <qualifiedname>eu::kdl::DocumentResult::DocumentResult</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1kdl_1_1Document" kindref="compound">Document</ref></type>
+          <declname>doc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="218" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1kdl_1_1DocumentResult_1a55375c724840a3765f13ae15f6fdd319" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::kdl::DocumentResult::DocumentResult</definition>
+        <argsstring>(std::string error)</argsstring>
+        <name>DocumentResult</name>
+        <qualifiedname>eu::kdl::DocumentResult::DocumentResult</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/kdl/src/eu/kdl/kdl.h" line="219" column="14"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/kdl/src/eu/kdl/kdl.h" line="213" column="1" bodyfile="libs/kdl/src/eu/kdl/kdl.h" bodystart="214" bodyend="220"/>
+    <listofallmembers>
+      <member refid="structeu_1_1kdl_1_1DocumentResult_1ac9248488aa3f4ae19eb2742689462356" prot="public" virt="non-virtual"><scope>eu::kdl::DocumentResult</scope><name>document</name></member>
+      <member refid="structeu_1_1kdl_1_1DocumentResult_1abe5354bf273445e11a2c75add14b8153" prot="public" virt="non-virtual"><scope>eu::kdl::DocumentResult</scope><name>DocumentResult</name></member>
+      <member refid="structeu_1_1kdl_1_1DocumentResult_1a55375c724840a3765f13ae15f6fdd319" prot="public" virt="non-virtual"><scope>eu::kdl::DocumentResult</scope><name>DocumentResult</name></member>
+      <member refid="structeu_1_1kdl_1_1DocumentResult_1a91b5e6cc4cd7cb7c31dbb4cb9e1584ad" prot="public" virt="non-virtual"><scope>eu::kdl::DocumentResult</scope><name>error</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

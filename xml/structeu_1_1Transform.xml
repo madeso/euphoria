@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="structeu_1_1Transform" kind="struct" language="C++" prot="public">
+    <compoundname>eu::Transform</compoundname>
+    <includes refid="transform_8h" local="no">transform.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1Transform_1af16aa13dbb9f36ec60f30d479d292ee4" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
+        <definition>v3 eu::Transform::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <qualifiedname>eu::Transform::position</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/transform.h" line="12" column="12" bodyfile="libs/base/src/eu/base/transform.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1Transform_1afccad52df0e2adbfbc4424596f0adea1" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1Q" kindref="compound">Q</ref></type>
+        <definition>Q eu::Transform::rotation</definition>
+        <argsstring></argsstring>
+        <name>rotation</name>
+        <qualifiedname>eu::Transform::rotation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/transform.h" line="13" column="11" bodyfile="libs/base/src/eu/base/transform.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeu_1_1Transform_1ac17d21c71bc2209a58218d0a76cbe449" prot="public" static="no" mutable="no">
+        <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref></type>
+        <definition>v3 eu::Transform::scale</definition>
+        <argsstring></argsstring>
+        <name>scale</name>
+        <qualifiedname>eu::Transform::scale</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/transform.h" line="14" column="12" bodyfile="libs/base/src/eu/base/transform.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>eu::Q</label>
+        <link refid="structeu_1_1Q"/>
+      </node>
+      <node id="1">
+        <label>eu::Transform</label>
+        <link refid="structeu_1_1Transform"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>position</edgelabel>
+          <edgelabel>scale</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>rotation</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>eu::v3</label>
+        <link refid="structeu_1_1v3"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/base/src/eu/base/transform.h" line="10" column="5" bodyfile="libs/base/src/eu/base/transform.h" bodystart="11" bodyend="15"/>
+    <listofallmembers>
+      <member refid="structeu_1_1Transform_1af16aa13dbb9f36ec60f30d479d292ee4" prot="public" virt="non-virtual"><scope>eu::Transform</scope><name>position</name></member>
+      <member refid="structeu_1_1Transform_1afccad52df0e2adbfbc4424596f0adea1" prot="public" virt="non-virtual"><scope>eu::Transform</scope><name>rotation</name></member>
+      <member refid="structeu_1_1Transform_1ac17d21c71bc2209a58218d0a76cbe449" prot="public" virt="non-virtual"><scope>eu::Transform</scope><name>scale</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
