@@ -197,56 +197,6 @@
   286 | struct InputSystem : runner::EntitySystem
       |        ^
 </pre>
-<span id='modernize-use-auto'>&nbsp;</span>
-<hr>
-<h3>warning: use auto when initializing with a template cast to avoid duplicating the type name</h3>
-<code>[modernize-use-auto]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 320 : 13</i></p>
-<pre>
-  320 |         if (MeshSpatialComponent* mc = runner::component_cast&lt;MeshSpatialComponent&gt;(component); mc)
-      |             ^~~~~~~~~~~~~~~~~~~~
-      |             auto
-</pre>
-<span id='readability-implicit-bool-conversion'>&nbsp;</span>
-<hr>
-<h3>warning: implicit conversion &#39;MeshSpatialComponent *&#39; -&gt; &#39;bool&#39;</h3>
-<code>[readability-implicit-bool-conversion]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 328 : 13</i></p>
-<pre>
-  328 |         if (mesh &amp;&amp; input &amp;&amp; input-&gt;get_current_frame().binds[0].current &gt; 0.5f)
-      |             ^
-      |             (    != nullptr)
-</pre>
-<hr>
-<h3>warning: implicit conversion &#39;runner:: Input *&#39; -&gt; &#39;bool&#39;</h3>
-<code>[readability-implicit-bool-conversion]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 328 : 21</i></p>
-<pre>
-  328 |         if (mesh &amp;&amp; input &amp;&amp; input-&gt;get_current_frame().binds[0].current &gt; 0.5f)
-      |                     ^
-      |                     (     != nullptr)
-</pre>
-<hr>
-<h3>warning: implicit conversion &#39;MeshSpatialComponent *&#39; -&gt; &#39;bool&#39;</h3>
-<code>[readability-implicit-bool-conversion]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 333 : 13</i></p>
-<pre>
-  333 |         if (mesh)
-      |             ^   
-      |                  != nullptr
-</pre>
 <hr>
 <h3>warning: struct &#39;TargetComponent&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
@@ -281,55 +231,6 @@
       |        ^
 </pre>
 <hr>
-<h3>warning: implicit conversion &#39;TargetComponent *&#39; -&gt; &#39;bool&#39;</h3>
-<code>[readability-implicit-bool-conversion]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 427 : 14</i></p>
-<pre>
-  427 |         if (!target) { return; }
-      |             ~^     
-      |                     == nullptr
-</pre>
-<hr>
-<h3>warning: implicit conversion &#39;CameraSpatialComponent *&#39; -&gt; &#39;bool&#39;</h3>
-<code>[readability-implicit-bool-conversion]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 428 : 14</i></p>
-<pre>
-  428 |         if (!camera) { return; }
-      |             ~^     
-      |                     == nullptr
-</pre>
-<span id='readability-identifier-naming'>&nbsp;</span>
-<hr>
-<h3>warning: invalid case style for constexpr variable &#39;CameraSpatialSource&#39;</h3>
-<code>[readability-identifier-naming]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 450 : 15</i></p>
-<pre>
-  450 | constexpr Hsh CameraSpatialSource = &quot;camera_spatial_src_tag&quot;sv;
-      |               ^~~~~~~~~~~~~~~~~~~
-      |               camera_spatial_source
-</pre>
-<hr>
-<h3>warning: invalid case style for constexpr variable &#39;CameraDestination&#39;</h3>
-<code>[readability-identifier-naming]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 451 : 15</i></p>
-<pre>
-  451 | constexpr Hsh CameraDestination = &quot;camera_dst_tag&quot;sv;
-      |               ^~~~~~~~~~~~~~~~~
-      |               camera_destination
-</pre>
-<hr>
 <h3>warning: struct &#39;UpdateCameraTarget&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
 <code>[misc-use-internal-linkage]</code>
 <ul>
@@ -339,30 +240,6 @@
 <pre>
   454 | struct UpdateCameraTarget : runner::WorldSystem
       |        ^
-</pre>
-<hr>
-<h3>warning: implicit conversion &#39;runner:: SpatialComponent *&#39; -&gt; &#39;bool&#39;</h3>
-<code>[readability-implicit-bool-conversion]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 501 : 14</i></p>
-<pre>
-  501 |         if (!src_entity) { return; }
-      |             ~^         
-      |                         == nullptr
-</pre>
-<hr>
-<h3>warning: implicit conversion &#39;TargetComponent *&#39; -&gt; &#39;bool&#39;</h3>
-<code>[readability-implicit-bool-conversion]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 502 : 14</i></p>
-<pre>
-  502 |         if (!dst_entity) { return; }
-      |             ~^         
-      |                         == nullptr
 </pre>
 <hr>
 <h3>warning: struct &#39;CameraFetcherSystem&#39; can be moved into an anonymous namespace to enforce internal linkage</h3>
@@ -375,57 +252,6 @@
   508 | struct CameraFetcherSystem : runner::WorldSystem
       |        ^
 </pre>
-<span id='readability-qualified-auto'>&nbsp;</span>
-<hr>
-<h3>warning: &#39;auto cam&#39; can be declared as &#39;auto *cam&#39;</h3>
-<code>[readability-qualified-auto]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 534 : 13</i></p>
-<pre>
-  534 |         if (auto cam = runner::component_cast&lt;CameraSpatialComponent&gt;(component))
-      |             ^~~~
-      |             auto *
-</pre>
-<hr>
-<h3>warning: implicit conversion &#39;CameraSpatialComponent *&#39; -&gt; &#39;bool&#39;</h3>
-<code>[readability-implicit-bool-conversion]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 547 : 14</i></p>
-<pre>
-  547 |         if (!camera) return;
-      |             ~^     
-      |                     == nullptr
-</pre>
-<span id='readability-braces-around-statements'>&nbsp;</span>
-<hr>
-<h3>warning: statement should be inside braces</h3>
-<code>[readability-braces-around-statements]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 547 : 21</i></p>
-<pre>
-  547 |         if (!camera) return;
-      |                     ^       
-      |                      {
-</pre>
-<span id='modernize-use-nodiscard'>&nbsp;</span>
-<hr>
-<h3>warning: function &#39;fetch&#39; should be marked [[nodiscard]]</h3>
-<code>[modernize-use-nodiscard]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 551 : 5</i></p>
-<pre>
-  551 |     render::Camera fetch() const
-      |     ^
-      |     [[nodiscard]] 
-</pre>
 <span id='bugprone-exception-escape'>&nbsp;</span>
 <hr>
 <h3>warning: an exception may be thrown in function &#39;main&#39; which should not throw exceptions</h3>
@@ -433,201 +259,33 @@
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 559 : 5</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 562 : 5</i></p>
 <pre>
-  559 | int main(int, char**)
+  562 | int main(int, char**)
       |     ^
-</pre>
-<span id='readability-use-concise-preprocessor-directives'>&nbsp;</span>
-<hr>
-<h3>warning: preprocessor condition can be written more concisely using &#39;#ifdef&#39;</h3>
-<code>[readability-use-concise-preprocessor-directives]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 587 : 2</i></p>
-<pre>
-  587 | #if defined(__APPLE__)
-      |  ^~~~~~~~~~~~~~~~~~~~~
-      |  ifdef __APPLE__
-</pre>
-<hr>
-<h3>warning: implicit conversion &#39;SDL_Window *&#39; (aka &#39;struct SDL_Window *&#39;) -&gt; &#39;bool&#39;</h3>
-<code>[readability-implicit-bool-conversion]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 616 : 10</i></p>
-<pre>
-  616 |     if (!window) {
-      |         ~^     
-      |                 == nullptr
-</pre>
-<hr>
-<h3>warning: invalid case style for local pointer &#39;glContext&#39;</h3>
-<code>[readability-identifier-naming]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 621 : 11</i></p>
-<pre>
-  621 |     auto* glContext = SDL_GL_CreateContext(window);
-      |           ^~~~~~~~~
-      |           gl_context
-  622 |     SDL_GetWindowSize(window, &amp;window_width, &amp;window_height);
-  623 |     if (!glContext) {
-      |          ~~~~~~~~~
-      |          gl_context
-</pre>
-<hr>
-<h3>warning: implicit conversion &#39;struct SDL_GLContextState *&#39; -&gt; &#39;bool&#39;</h3>
-<code>[readability-implicit-bool-conversion]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 623 : 10</i></p>
-<pre>
-  623 |     if (!glContext) {
-      |         ~^        
-      |                    == nullptr
-</pre>
-<hr>
-<h3>warning: implicit conversion &#39;int&#39; -&gt; &#39;bool&#39;</h3>
-<code>[readability-implicit-bool-conversion]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 637 : 13</i></p>
-<pre>
-  637 |         if (GLAD_GL_VERSION_1_0) {
-      |             ^                  
-      |                                 != 0
-</pre>
-<hr>
-<h3>warning: implicit conversion &#39;int&#39; -&gt; &#39;bool&#39;</h3>
-<code>[readability-implicit-bool-conversion]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 646 : 13</i></p>
-<pre>
-  646 |         if (GLAD_GL_VERSION_2_0) {
-      |             ^                  
-      |                                 != 0
-</pre>
-<hr>
-<h3>warning: implicit conversion &#39;int&#39; -&gt; &#39;bool&#39;</h3>
-<code>[readability-implicit-bool-conversion]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 652 : 10</i></p>
-<pre>
-  652 |     if (!GLAD_GL_VERSION_4_3)
-      |         ~^                  
-      |                              == 0
 </pre>
 <span id='misc-const-correctness'>&nbsp;</span>
 <hr>
-<h3>warning: variable &#39;io&#39; of type &#39;ImGuiIO &amp;&#39; can be declared &#39;const&#39;</h3>
+<h3>warning: pointee of variable &#39;camera_fetcher&#39; of type &#39;CameraFetcherSystem *&#39; can be declared &#39;const&#39;</h3>
 <code>[misc-const-correctness]</code>
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 661 : 5</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 778 : 5</i></p>
 <pre>
-  661 |     ImGuiIO&amp; io = ImGui::GetIO(); (void)io;
-      |     ^      
-      |             const
-</pre>
-<hr>
-<h3>warning: invalid case style for constexpr variable &#39;PLANE_SIZE&#39;</h3>
-<code>[readability-identifier-naming]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 723 : 24</i></p>
-<pre>
-  723 |         constexpr auto PLANE_SIZE = 100.0f;
-      |                        ^~~~~~~~~~
-      |                        plane_size
-  724 |         auto plane_geom = eu::render::compile_geom(
-  725 |             USE_DEBUG_LABEL_MANY(&quot;plane&quot;)
-  726 |             eu::core::geom::create_xz_plane(PLANE_SIZE, PLANE_SIZE, false).to_geom(),
-      |                                             ~~~~~~~~~~  ~~~~~~~~~~
-      |                                             plane_size  plane_size
-</pre>
-<span id='cppcoreguidelines-init-variables'>&nbsp;</span>
-<hr>
-<h3>warning: variable &#39;camera_fetcher&#39; is not initialized</h3>
-<code>[cppcoreguidelines-init-variables]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 775 : 26</i></p>
-<pre>
-  775 |     CameraFetcherSystem* camera_fetcher;
-      |                          ^             
-      |                                         = nullptr
+  778 |     CameraFetcherSystem* camera_fetcher = nullptr;
+      |     ^                  
+      |                         const
 </pre>
 <hr>
 <h3>note: frame #5: function &#39;main&#39; calls function &#39;load&#39; here</h3>
 <ul>
 <li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
 </ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 816 : 9</i></p>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 819 : 9</i></p>
 <pre>
-  816 |         level.load(&quot;level.kdl&quot;, &amp;render_world, material, renderer.default_geom_layout());
+  819 |         level.load(&quot;level.kdl&quot;, &amp;render_world, material, renderer.default_geom_layout());
       |         ^
-</pre>
-<hr>
-<h3>warning: implicit conversion &#39;bool&#39; -&gt; &#39;int&#39;</h3>
-<code>[readability-implicit-bool-conversion]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 830 : 16</i></p>
-<pre>
-  830 |         while (SDL_PollEvent(&amp;e) != 0)
-      |                ^
-      |                static_cast&lt;int&gt;()
-</pre>
-<span id='bugprone-narrowing-conversions'>&nbsp;</span>
-<span id='cppcoreguidelines-narrowing-conversions'>&nbsp;</span>
-<hr>
-<h3>warning: narrowing conversion from &#39;SDL_Keycode&#39; (aka &#39;unsigned int&#39;) to signed type &#39;KeyboardKey&#39; (aka &#39;int&#39;) is implementation-defined</h3>
-<code>[bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 840 : 30</i></p>
-<pre>
-  840 |                 input.on_key(e.key.key, e.type == SDL_EVENT_KEY_DOWN);
-      |                              ^
-</pre>
-<hr>
-<h3>warning: variable &#39;cmd&#39; of type &#39;eu::render:: RenderCommand&#39; can be declared &#39;const&#39;</h3>
-<code>[misc-const-correctness]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 893 : 9</i></p>
-<pre>
-  893 |         eu::render::RenderCommand cmd{ .states = &amp;states, .render = &amp;render, .size = {.width = window_width, .height = window_height} };
-      |         ^
-      |                                   const 
-</pre>
-<hr>
-<h3>warning: variable &#39;camera&#39; of type &#39;eu::render:: Camera&#39; can be declared &#39;const&#39;</h3>
-<code>[misc-const-correctness]</code>
-<ul>
-<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
-</ul>
-<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 914 : 13</i></p>
-<pre>
-  914 |             eu::render::Camera camera = camera_fetcher-&gt;fetch();
-      |             ^
-      |                                const 
 </pre>
 <div class="link-container"><div class="prev">&lt;</div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../editor/src/eu/editor/main.cc.html">apps/editor/src/eu/editor/main.cc</a>&gt;</div></div>
 </body>
