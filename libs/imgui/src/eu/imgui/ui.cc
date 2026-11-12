@@ -14,13 +14,16 @@
 #include "dear_imgui/misc/cpp/imgui_stdlib.h"
 #include "dear_imgui/imgui_internal.h"
 
-namespace eu::imgui
+namespace internal
 {
     // opengl code copied from the imgui opengl3 backend with minor modifications
     // todo(Gustav): should we use the imgui backend code for "backend" rendering or use our own shader?
     
     namespace
     {
+        using namespace eu;
+        using namespace eu::imgui;
+
         bool check_imgui_shader(GLuint handle, const char* desc)
         {
             GLint status = 0;
@@ -491,6 +494,368 @@ namespace eu::imgui
             constexpr auto graph_outline_point = rgb(190, 242, 100);
             constexpr auto graph_outline_point_border = rgb(16, 20, 24);
         }
+
+
+        void set_hover_cursor()
+        {
+            if (ImGui::IsItemHovered())
+            {
+                ImGui::SetMouseCursor(ImGuiMouseCursor_Hand);
+            }
+        }
+
+
+        struct Drags
+        {
+            float v_speed = 1.0f;
+            float v_min = 0.0f;
+            float v_max = 0.0f;
+        };
+
+        struct ButtonStateStyle
+        {
+            ImVec4 background;
+            ImVec4 text;
+            ImVec4 border;
+        };
+
+        struct ButtonStyle
+        {
+            ButtonStateStyle idle;
+            ButtonStateStyle hover;
+            ButtonStateStyle active;
+        };
+
+        bool styled_button(const ButtonStyle& style, const char* label, const std::optional<ImVec2>& button_size = std::nullopt)
+        {
+            const ImVec2 label_size = ImGui::CalcTextSize(label, nullptr, true);
+            const ImVec2 size = button_size.value_or(calc_button_size(label_size));
+            const auto pos = ImGui::GetCursorScreenPos();
+            const auto ret = ImGui::InvisibleButton(label, size);
+            const auto min = ImGui::GetItemRectMin();
+            const auto max = ImGui::GetItemRectMax();
+
+            const auto& imstyle = ImGui::GetStyle();
+            const auto is_active = ImGui::IsItemActive();
+            const auto is_hover = ImGui::IsItemHovered();
+            auto* draw = ImGui::GetWindowDrawList();
+
+            const auto& color = is_active ? style.active :
+                (is_hover ? style.hover : style.idle);
+
+            // background
+            draw->AddRectFilled(min, max, ImColor{ color.background }, imstyle.ChildRounding);
+
+            // label
+            {
+                const auto bb = ImRect{ pos, pos + size };
+                ImGui::PushStyleColor(ImGuiCol_Text, color.text);
+                ImGui::RenderTextClipped(bb.Min + imstyle.FramePadding, bb.Max - imstyle.FramePadding, label, nullptr, &label_size, imstyle.ButtonTextAlign, &bb);
+                ImGui::PopStyleColor();
+            }
+
+            // border
+            draw->AddRect(min, max, ImColor{ color.border }, imstyle.ChildRounding);
+
+            set_hover_cursor();
+
+            return ret;
+        }
+
+        static ImVec2 calculate_square_button_size()
+        {
+            const float line_height = GImGui->FontSize + GImGui->Style.FramePadding.y * 2.0f;
+            const ImVec2 button_size = { line_height + 3.0f, line_height };
+            return button_size;
+        }
+
+        static bool imgui_drag_with_reset(
+            float* xval, float* yval, float* zval,
+            float reset_value, std::optional<float> extra_spacing,
+            const char* xlabel, const char* ylabel, const char* zlabel,
+            const Drags& drags = Drags{}
+        )
+        {
+            bool changed = false;
+
+            const auto button_size = calculate_square_button_size();
+
+            ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2{ 0, 0 });
+            const auto full_width = ImGui::CalcItemWidth();
+            if (extra_spacing.has_value())
+            {
+                ImGui::PushItemWidth(*extra_spacing);
+            }
+            ImGui::PushMultiItemsWidths(3, full_width - 3 * button_size.x - extra_spacing.value_or(0.0f));
+
+            constexpr auto red_style = ButtonStyle
+            {
+                .idle = {
+                    .background = rgb(76, 5, 25),
+                    .text = rgb(251, 113, 133),
+                    .border = rgb(159, 18, 57)
+                },
+                .hover = {
+                    .background = rgb(244, 63, 94),
+                    .text = rgb(11, 14, 19),
+                    .border = rgb(251, 113, 133)
+                },
+                .active = {
+                    .background = rgb(69, 36, 46),
+                    .text = rgb(251, 113, 133),
+                    .border = rgb(244, 63, 94)
+                }
+            };
+            constexpr auto green_style = ButtonStyle
+            {
+                .idle = {
+                    .background = rgb(2, 44, 34),
+                    .text = rgb(158, 233, 57),
+                    .border = rgb(6, 95, 70)
+                },
+                .hover = {
+                    .background = rgb(158, 233, 57),
+                    .text = rgb(11, 14, 19),
+                    .border = rgb(190, 242, 100)
+                },
+                .active = {
+                    .background = rgb(52, 70, 38),
+                    .text = rgb(158, 233, 57),
+                    .border = rgb(158, 233, 57)
+                }
+            };
+            constexpr auto blue_style = ButtonStyle
+            {
+                .idle = {
+                    .background = rgb(8, 47, 73),
+                    .text = rgb(56, 189, 248),
+                    .border = rgb(7, 89, 133)
+                },
+                .hover = {
+                    .background = rgb(14, 165, 233),
+                    .text = rgb(11, 14, 19),
+                    .border = rgb(56, 189, 248)
+                },
+                .active = {
+                    .background = rgb(23, 56, 74),
+                    .text = rgb(56, 189, 248),
+                    .border = rgb(14, 165, 233)
+                }
+            };
+
+            const auto draw_component = [&button_size, reset_value, &changed, &drags](const ButtonStyle& style, const char* label, float* val, const char* id)
+                {
+                    styled_button(style, label, button_size);
+
+                    const auto gear = gear_functionality(val, style.active.border);
+                    if (gear.changed)
+                    {
+                        changed = true;
+                    }
+
+                    if (gear.was_reset)
+                    {
+                        *val = reset_value;
+                        changed = true;
+                    }
+                    const auto min = ImGui::GetItemRectMin();
+                    ImGui::SameLine();
+                    const auto dragging = ImGui::DragFloat(id, val, drags.v_speed, drags.v_min, drags.v_max, "%.2f");
+                    if (dragging)
+                    {
+                        changed = true;
+                    }
+                    const auto max = ImGui::GetItemRectMax();
+
+                    if (dragging || ImGui::IsItemActive() || gear.is_outside)
+                    {
+                        auto* draw = ImGui::GetWindowDrawList();
+                        draw->AddRect(min, max, ImColor{ style.active.border }, ImGui::GetStyle().ChildRounding);
+                    }
+
+                    ImGui::PopItemWidth();
+                };
+
+            draw_component(red_style, xlabel, xval, "##X");
+
+            ImGui::SameLine();
+
+            draw_component(green_style, ylabel, yval, "##Y");
+
+            ImGui::SameLine();
+
+            draw_component(blue_style, zlabel, zval, "##Z");
+
+            ImGui::PopStyleVar();
+
+            if (extra_spacing.has_value())
+            {
+                ImGui::SameLine();
+            }
+
+            return changed;
+        }
+
+        constexpr const char* default_format = "%.2f";
+
+        std::string format_float(float f)
+        {
+            char text[32];
+            ImFormatString(text, IM_ARRAYSIZE(text), default_format, static_cast<double>(f));
+            return text;
+        }
+
+        float float_identity(float f)
+        {
+            return f;
+        }
+
+        template<typename F>
+        bool flat_slider(const char* label, float* value, float min_value, float max_value, F display)
+        {
+            ImGuiWindow* window = ImGui::GetCurrentWindow();
+            if (window->SkipItems)
+            {
+                return false;
+            }
+
+            const auto& style = ImGui::GetStyle();
+            const auto id = window->GetID(label);
+
+            const auto max_label_width = ImGui::CalcTextSize(format_float(display(max_value)).c_str()).x;
+            const auto text = format_float(display(*value));
+
+            const auto height = ImGui::GetFrameHeight();
+            const auto radius = height * 0.3f;
+            const auto ring_radius = height * 0.4f;
+
+            const ImVec2 pos = window->DC.CursorPos;
+            const ImRect total(pos, pos + ImVec2(ImGui::CalcItemWidth(), height));
+            const ImRect track_bb(pos, ImVec2(total.Max.x - max_label_width - style.ItemInnerSpacing.x * 2, total.Max.y));
+
+            ImGui::ItemSize(total, style.FramePadding.y);
+            if (!ImGui::ItemAdd(total, id))
+            {
+                return false;
+            }
+
+            const bool is_hovering = ImGui::ItemHoverable(track_bb, id, ImGuiItemFlags_None);
+            if ((is_hovering && ImGui::IsMouseClicked(ImGuiMouseButton_Left)) || GImGui->NavActivateId == id)
+            {
+                ImGui::SetActiveID(id, window);
+                ImGui::SetFocusID(id, window);
+                ImGui::FocusWindow(window);
+            }
+
+            ImGui::PushStyleVar(ImGuiStyleVar_GrabMinSize, radius * 2.0f);
+            ImRect grab;
+            const bool value_was_changed = ImGui::SliderBehavior(track_bb, id, ImGuiDataType_Float, value, &min_value, &max_value, default_format, 0, &grab);
+            ImGui::PopStyleVar();
+            if (value_was_changed)
+            {
+                ImGui::MarkItemEdited(id);
+            }
+
+            ImDrawList* draw = window->DrawList;
+            const auto center_y = track_bb.GetCenter().y;
+            const auto grab_center = grab.GetCenter().x;
+            const auto is_active = GImGui->ActiveId == id;
+
+            {
+                const auto track_h = ImMax(2.0f, height * 0.2f);
+
+                const auto left = track_bb.Min.x + radius;
+                const auto right = track_bb.Max.x - radius;
+                const auto top = center_y - track_h * 0.5f;
+                const auto bottom = center_y + track_h * 0.5f;
+                const auto half_circle_rounding = track_h * 0.5f;
+
+                constexpr auto background_color = rgb(11, 14, 19);
+                constexpr auto filled_color = rgb(132, 204, 22);
+
+                const auto middle = std::max(left, grab_center);
+
+                draw->AddRectFilled({ left, top }, { middle, bottom }, ImColor{ filled_color }, half_circle_rounding);
+                draw->AddRectFilled({ middle, top }, { right, bottom }, ImColor{ background_color }, half_circle_rounding);
+            }
+
+            {
+                constexpr auto default_color = rgb(225, 226, 233);
+                constexpr auto hover_color = rgb(163, 230, 53);
+                constexpr auto active_color = rgb(132, 204, 22);
+
+                const auto grab_color = is_active ? active_color
+                    : is_hovering ? hover_color
+                    : default_color;
+
+                const auto center = ImVec2{ grab_center, center_y };
+                draw->AddCircleFilled(center, radius, ImColor{ grab_color });
+
+                if (is_active || is_hovering)
+                {
+                    constexpr auto line_thickness = 3.0f;
+                    constexpr auto ring_hover = rgb(190, 242, 100);
+                    constexpr auto ring_active = rgb(158, 233, 57);
+
+                    const auto ring_color = is_active ? ring_active : ring_hover;
+
+                    draw->AddCircle(center, ring_radius, ImColor{ ring_color }, 0, line_thickness);
+                }
+            }
+
+            const auto text_size = ImGui::CalcTextSize(text.c_str());
+            draw->AddText({ total.Max.x - text_size.x, center_y - text_size.y * 0.5f }, IM_COL32(170, 230, 60, 255), text.c_str());
+
+            return value_was_changed;
+        }
+
+        bool simple_gamma_slider(const char* label, float* gamma, float curve, float min_gamma, float max_gamma)
+        {
+            if (curve < 0.0f)
+            {
+                return flat_slider(label, gamma, min_gamma, max_gamma, float_identity);
+            }
+
+            // todo(Gustav): is this the correct way? it doesn't feel exactly right but perhaps that's just dear imgui
+            const auto gamma_range = max_gamma - min_gamma;
+            const auto t = (*gamma - min_gamma) / gamma_range;
+
+            const auto backf = [min_gamma, gamma_range, curve](float f)
+                {
+                    const auto perceptual = std::pow(f, curve);
+                    return min_gamma + perceptual * gamma_range;
+                };
+
+            auto slider_value = std::pow(t, 1.0f / curve);
+            if (flat_slider(label, &slider_value, 0.0f, 1.0f, backf) == false)
+            {
+                return false;
+            }
+
+            *gamma = backf(slider_value);
+            return true;
+        }
+
+        void row(const PropTable& t, const char* label)
+        {
+            ASSERT(t);
+            ImGui::TableNextRow();
+            ImGui::TableSetColumnIndex(0);
+            eu::imgui::label(label);
+            ImGui::TableSetColumnIndex(1);
+        }
+
+        template<typename F>
+        bool trow(const PropTable& t, const char* label, const F& f)
+        {
+            row(t, label);
+            ImGui::PushID(label);
+            ImGui::PushItemWidth(-std::numeric_limits<float>::min()); // place widget right edge on the edge of the table
+            const auto ret = f();
+            ImGui::PopItemWidth();
+            ImGui::PopID();
+            return ret;
+        }
     }
 }
 
@@ -561,18 +926,18 @@ void main()
 
 
 ImguiShaderCache::ImguiShaderCache()
-	: linear_to_gamma_shader(imgui_load_shader(dear_imgui_shader_version,
-		linear_to_gamma_glsl_vert, linear_to_gamma_glsl_frag))
-	, depth_ortho_shader(imgui_load_shader(dear_imgui_shader_version,
-		depth_ortho_glsl_vert, depth_ortho_glsl_frag)
+	: linear_to_gamma_shader(internal::imgui_load_shader(dear_imgui_shader_version,
+                                                         linear_to_gamma_glsl_vert, linear_to_gamma_glsl_frag))
+	, depth_ortho_shader(internal::imgui_load_shader(dear_imgui_shader_version,
+                                                     depth_ortho_glsl_vert, depth_ortho_glsl_frag)
 	  )
 {
 }
 
 ImguiShaderCache::~ImguiShaderCache()
 {
-	imgui_destroy_shader(&linear_to_gamma_shader);
-	imgui_destroy_shader(&depth_ortho_shader);
+    internal::imgui_destroy_shader(&linear_to_gamma_shader);
+    internal::imgui_destroy_shader(&depth_ortho_shader);
 }
 
 void setup_colors()
@@ -583,25 +948,25 @@ void setup_colors()
     // initially inspired and based on by Catppuccin Mocha Palette
     // https://github.com/ocornut/imgui/issues/707#issuecomment-3592676777
     
-    constexpr auto base = colors::base;
-    constexpr auto tab = colors::tab;
-    constexpr auto tab_other = colors::tab_other;
-    constexpr auto edit_bg = colors::edit_bg;
-    constexpr auto button_bg = colors::button_bg;
-    constexpr auto header_bg = colors::header_bg;
-    constexpr auto button_hover = colors::button_hover;
-    constexpr auto button_active = colors::button_active;
-    constexpr auto border = colors::border;
-    constexpr auto lime = colors::lime;
-    constexpr auto scroll_bg = colors::scroll_bg;
-    constexpr auto scroll_grab = colors::scroll_grab;
-    constexpr auto scroll_hover = colors::scroll_hover;
-    constexpr auto scroll_active = colors::scroll_active;
-    constexpr auto text_selected_bg = colors::text_selected_bg;
-    constexpr auto text = colors::text;
-    constexpr auto text_disabled = colors::text_disabled;
-    constexpr auto transparent = colors::transparent;
-    constexpr auto table_border_strong = colors::text_label;
+    constexpr auto base = internal::colors::base;
+    constexpr auto tab = internal::colors::tab;
+    constexpr auto tab_other = internal::colors::tab_other;
+    constexpr auto edit_bg = internal::colors::edit_bg;
+    constexpr auto button_bg = internal::colors::button_bg;
+    constexpr auto header_bg = internal::colors::header_bg;
+    constexpr auto button_hover = internal::colors::button_hover;
+    constexpr auto button_active = internal::colors::button_active;
+    constexpr auto border = internal::colors::border;
+    constexpr auto lime = internal::colors::lime;
+    constexpr auto scroll_bg = internal::colors::scroll_bg;
+    constexpr auto scroll_grab = internal::colors::scroll_grab;
+    constexpr auto scroll_hover = internal::colors::scroll_hover;
+    constexpr auto scroll_active = internal::colors::scroll_active;
+    constexpr auto text_selected_bg = internal::colors::text_selected_bg;
+    constexpr auto text = internal::colors::text;
+    constexpr auto text_disabled = internal::colors::text_disabled;
+    constexpr auto transparent = internal::colors::transparent;
+    constexpr auto table_border_strong = internal::colors::text_label;
 
     // Main window and backgrounds
     colors[ImGuiCol_Text] = text;
@@ -693,7 +1058,7 @@ void setup_colors()
 
 void label(const char* label)
 {
-    ImGui::PushStyleColor(ImGuiCol_Text, colors::text_label);
+    ImGui::PushStyleColor(ImGuiCol_Text, internal::colors::text_label);
     ImGui::TextUnformatted(label);
     const auto used_size = ImGui::GetItemRectSize();
     const ImVec2 text_size = ImGui::CalcTextSize(label);
@@ -707,17 +1072,9 @@ void label(const char* label)
     ImGui::PopStyleColor();
 }
 
-void set_hover_cursor()
-{
-    if (ImGui::IsItemHovered())
-    {
-        ImGui::SetMouseCursor(ImGuiMouseCursor_Hand);
-    }
-}
-
 bool button(const char* label)
 {
-    ImGuiStyle& style = ImGui::GetStyle();
+    const ImGuiStyle& style = ImGui::GetStyle();
 
     ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(10.0f, 7.0f)); // todo(Gustav): make configurable
 
@@ -731,12 +1088,12 @@ bool button(const char* label)
 
         auto* draw = ImGui::GetWindowDrawList();
         draw->AddRect(min, max, ImColor{
-            ImGui::IsItemHovered() ? colors::button_active_border : colors::button_default_border }, style.ChildRounding);
+            ImGui::IsItemHovered() ? internal::colors::button_active_border : internal::colors::button_default_border }, style.ChildRounding);
     }
 
     ImGui::PopStyleVar();
 
-    set_hover_cursor();
+    internal::set_hover_cursor();
 
     return clicked;
 }
@@ -772,8 +1129,8 @@ void imgui_readonly(const char* label, const std::string& text)
 {
     auto temp = text;
     // ImGuiCol_FrameBg
-    ImGui::PushStyleColor(ImGuiCol_FrameBg, colors::base);
-    ImGui::PushStyleColor(ImGuiCol_Text, colors::text_label);
+    ImGui::PushStyleColor(ImGuiCol_FrameBg, internal::colors::base);
+    ImGui::PushStyleColor(ImGuiCol_Text, internal::colors::text_label);
     ImGui::InputText(label, &temp, ImGuiInputTextFlags_ReadOnly);
     ImGui::PopStyleColor(2);
 }
@@ -781,8 +1138,8 @@ void imgui_readonly(const char* label, const std::string& text)
 void imgui_readonly(const char* label, const v3& v)
 {
     auto temp = v;
-    ImGui::PushStyleColor(ImGuiCol_FrameBg, colors::base);
-    ImGui::PushStyleColor(ImGuiCol_Text, colors::text_label);
+    ImGui::PushStyleColor(ImGuiCol_FrameBg, internal::colors::base);
+    ImGui::PushStyleColor(ImGuiCol_Text, internal::colors::text_label);
     ImGui::InputFloat3(label, temp.get_data_ptr(), "%.3f", ImGuiInputTextFlags_ReadOnly);
     ImGui::PopStyleColor(2);
 }
@@ -823,7 +1180,7 @@ void imgui_image(const char* name, const render::FrameBuffer& img, ImguiShaderCa
 
 	const constexpr char* const popup_id = "image config popup";
 
-	draw_imgui_image(img, widget_size, uv_min, uv_max, border_col, cache, shader);
+    internal::draw_imgui_image(img, widget_size, uv_min, uv_max, border_col, cache, shader);
 	const auto id = ImGui::GetID(name);
 
 	if (id == current_id && ImGui::BeginPopupContextItem(popup_id))
@@ -831,7 +1188,7 @@ void imgui_image(const char* name, const render::FrameBuffer& img, ImguiShaderCa
 		ImGui::DragFloat("Base", &widget_height, 1.0f);
 		ImGui::DragFloat("Size", &region_size, 0.01f);
 		ImGui::DragFloat("Scale", &hover_size, 1.0f);
-		image_tooltip(img, texture_size, region_size, hover_size, latest_tooltip, widget_size, pos, border_col, cache, shader);
+        internal::image_tooltip(img, texture_size, region_size, hover_size, latest_tooltip, widget_size, pos, border_col, cache, shader);
 		if (ImGui::Button("Close"))
 		{
 			ImGui::CloseCurrentPopup();
@@ -847,363 +1204,10 @@ void imgui_image(const char* name, const render::FrameBuffer& img, ImguiShaderCa
 		latest_tooltip = io.MousePos;
 		if (ImGui::BeginTooltip())
 		{
-			image_tooltip(img, texture_size, region_size, hover_size, io.MousePos, widget_size, pos, border_col, cache, shader);
+            internal::image_tooltip(img, texture_size, region_size, hover_size, io.MousePos, widget_size, pos, border_col, cache, shader);
 			ImGui::EndTooltip();
 		}
 	}
-}
-
-struct Drags
-{
-    float v_speed = 1.0f;
-    float v_min = 0.0f;
-    float v_max = 0.0f;
-};
-
-struct ButtonStateStyle
-{
-    ImVec4 background;
-    ImVec4 text;
-    ImVec4 border;
-};
-struct ButtonStyle
-{
-    ButtonStateStyle idle;
-    ButtonStateStyle hover;
-    ButtonStateStyle active;
-};
-
-bool styled_button(const ButtonStyle& style, const char* label, const std::optional<ImVec2>& button_size = std::nullopt)
-{
-    const ImVec2 label_size = ImGui::CalcTextSize(label, nullptr, true);
-    const ImVec2 size = button_size.value_or(calc_button_size(label_size));
-    const auto pos = ImGui::GetCursorScreenPos();
-    const auto ret = ImGui::InvisibleButton(label, size);
-    const auto min = ImGui::GetItemRectMin();
-    const auto max = ImGui::GetItemRectMax();
-
-    const auto& imstyle = ImGui::GetStyle();
-    const auto is_active = ImGui::IsItemActive();
-    const auto is_hover = ImGui::IsItemHovered();
-    auto* draw = ImGui::GetWindowDrawList();
-
-    const auto& color = is_active ? style.active :
-        (is_hover ? style.hover : style.idle);
-
-    // background
-    draw->AddRectFilled(min, max, ImColor{ color.background }, imstyle.ChildRounding);
-
-    // label
-    {
-        const auto bb = ImRect{ pos, pos + size };
-        ImGui::PushStyleColor(ImGuiCol_Text, color.text);
-        ImGui::RenderTextClipped(bb.Min + imstyle.FramePadding, bb.Max - imstyle.FramePadding, label, nullptr, &label_size, imstyle.ButtonTextAlign, &bb);
-        ImGui::PopStyleColor();
-    }
-
-    // border
-    draw->AddRect(min, max, ImColor{color.border}, imstyle.ChildRounding);
-
-    set_hover_cursor();
-
-    return ret;
-}
-
-static ImVec2 calculate_square_button_size()
-{
-    const float line_height = GImGui->FontSize + GImGui->Style.FramePadding.y * 2.0f;
-    const ImVec2 button_size = { line_height + 3.0f, line_height };
-    return button_size;
-}
-
-static bool imgui_drag_with_reset(
-    float* xval, float* yval, float* zval,
-    float reset_value, std::optional<float> extra_spacing,
-    const char* xlabel, const char* ylabel, const char* zlabel,
-    const Drags& drags = Drags{}
-)
-{
-    bool changed = false;
-
-    const auto button_size = calculate_square_button_size();
-
-    ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2{ 0, 0 });
-    const auto full_width = ImGui::CalcItemWidth();
-    if (extra_spacing.has_value())
-    {
-        ImGui::PushItemWidth(*extra_spacing);
-    }
-    ImGui::PushMultiItemsWidths(3, full_width - 3 * button_size.x - extra_spacing.value_or(0.0f));
-
-    constexpr auto red_style = ButtonStyle
-    {
-        .idle = {
-            .background = rgb(76, 5, 25),
-            .text = rgb(251, 113, 133),
-            .border = rgb(159, 18, 57)
-        },
-        .hover = {
-            .background = rgb(244, 63, 94),
-            .text = rgb(11, 14, 19),
-            .border = rgb(251, 113, 133)
-        },
-        .active = {
-            .background = rgb(69, 36, 46),
-            .text = rgb(251, 113, 133),
-            .border = rgb(244, 63, 94)
-        }
-    };
-    constexpr auto green_style = ButtonStyle
-    {
-        .idle = {
-            .background = rgb(2, 44, 34),
-            .text = rgb(158, 233, 57),
-            .border = rgb(6, 95, 70)
-        },
-        .hover = {
-            .background = rgb(158, 233, 57),
-            .text = rgb(11, 14, 19),
-            .border = rgb(190, 242, 100)
-        },
-        .active = {
-            .background = rgb(52, 70, 38),
-            .text = rgb(158, 233, 57),
-            .border = rgb(158, 233, 57)
-        }
-    };
-    constexpr auto blue_style = ButtonStyle
-    {
-        .idle = {
-            .background = rgb(8, 47, 73),
-            .text = rgb(56, 189, 248),
-            .border = rgb(7, 89, 133)
-        },
-        .hover = {
-            .background = rgb(14, 165, 233),
-            .text = rgb(11, 14, 19),
-            .border = rgb(56, 189, 248)
-        },
-        .active = {
-            .background = rgb(23, 56, 74),
-            .text = rgb(56, 189, 248),
-            .border = rgb(14, 165, 233)
-        }
-    };
-
-    const auto draw_component = [&button_size, reset_value, &changed, &drags](const ButtonStyle& style, const char* label, float* val, const char* id)
-        {
-            styled_button(style, label, button_size);
-
-            const auto gear = gear_functionality(val, style.active.border);
-            if (gear.changed)
-            {
-                changed = true;
-            }
-
-            if (gear.was_reset)
-            {
-                *val = reset_value;
-                changed = true;
-            }
-            const auto min = ImGui::GetItemRectMin();
-            ImGui::SameLine();
-            const auto dragging = ImGui::DragFloat(id, val, drags.v_speed, drags.v_min, drags.v_max, "%.2f");
-            if (dragging)
-            {
-                changed = true;
-            }
-            const auto max = ImGui::GetItemRectMax();
-
-            if (dragging || ImGui::IsItemActive() || gear.is_outside)
-            {
-                auto* draw = ImGui::GetWindowDrawList();
-                draw->AddRect(min, max, ImColor{ style.active.border }, ImGui::GetStyle().ChildRounding);
-            }
-
-            ImGui::PopItemWidth();
-        };
-
-    draw_component(red_style, xlabel, xval, "##X");
-
-    ImGui::SameLine();
-
-    draw_component(green_style, ylabel, yval, "##Y");
-    
-    ImGui::SameLine();
-
-    draw_component(blue_style, zlabel, zval, "##Z");
-
-    ImGui::PopStyleVar();
-
-    if (extra_spacing.has_value())
-    {
-        ImGui::SameLine();
-    }
-
-    return changed;
-}
-
-constexpr const char* default_format = "%.2f";
-
-std::string format_float(float f)
-{
-    char text[32];
-    ImFormatString(text, IM_ARRAYSIZE(text), default_format, static_cast<double>(f));
-    return text;
-}
-
-float float_identity(float f)
-{
-    return f;
-}
-
-template<typename F>
-bool flat_slider(const char* label, float* value, float min_value, float max_value, F display)
-{
-    ImGuiWindow* window = ImGui::GetCurrentWindow();
-    if (window->SkipItems)
-    {
-        return false;
-    }
-
-    const auto& style = ImGui::GetStyle();
-    const auto id = window->GetID(label);
-
-    const auto max_label_width = ImGui::CalcTextSize(format_float(display(max_value)).c_str()).x;
-    const auto text = format_float(display(*value));
-
-    const auto height = ImGui::GetFrameHeight();
-    const auto radius = height * 0.3f;
-    const auto ring_radius = height * 0.4f;
-
-    const ImVec2 pos = window->DC.CursorPos;
-    const ImRect total(pos, pos + ImVec2(ImGui::CalcItemWidth(), height));
-    const ImRect track_bb(pos, ImVec2(total.Max.x - max_label_width - style.ItemInnerSpacing.x * 2, total.Max.y));
-
-    ImGui::ItemSize(total, style.FramePadding.y);
-    if (!ImGui::ItemAdd(total, id))
-    {
-        return false;
-    }
-
-    const bool is_hovering = ImGui::ItemHoverable(track_bb, id, ImGuiItemFlags_None);
-    if ((is_hovering && ImGui::IsMouseClicked(ImGuiMouseButton_Left)) || GImGui->NavActivateId == id)
-    {
-        ImGui::SetActiveID(id, window);
-        ImGui::SetFocusID(id, window);
-        ImGui::FocusWindow(window);
-    }
-
-    ImGui::PushStyleVar(ImGuiStyleVar_GrabMinSize, radius * 2.0f);
-    ImRect grab;
-    const bool value_was_changed = ImGui::SliderBehavior(track_bb, id, ImGuiDataType_Float, value, &min_value, &max_value, default_format, 0, &grab);
-    ImGui::PopStyleVar();
-    if (value_was_changed)
-    {
-        ImGui::MarkItemEdited(id);
-    }
-
-    ImDrawList* draw = window->DrawList;
-    const auto center_y = track_bb.GetCenter().y;
-    const auto grab_center = grab.GetCenter().x;
-    const auto is_active = GImGui->ActiveId == id;
-
-    {
-        const auto track_h = ImMax(2.0f, height * 0.2f);
-
-        const auto left = track_bb.Min.x + radius;
-        const auto right = track_bb.Max.x - radius;
-        const auto top = center_y - track_h * 0.5f;
-        const auto bottom = center_y + track_h * 0.5f;
-        const auto half_circle_rounding = track_h * 0.5f;
-
-        constexpr auto background_color = rgb(11, 14, 19);
-        constexpr auto filled_color = rgb(132, 204, 22);
-
-        const auto middle = std::max(left, grab_center);
-
-        draw->AddRectFilled({ left, top }, { middle, bottom }, ImColor{filled_color}, half_circle_rounding);
-        draw->AddRectFilled({ middle, top }, { right, bottom }, ImColor{background_color}, half_circle_rounding);
-    }
-
-    {
-        constexpr auto default_color = rgb(225, 226, 233);
-        constexpr auto hover_color = rgb(163, 230, 53);
-        constexpr auto active_color = rgb(132, 204, 22);
-
-        const auto grab_color = is_active ? active_color
-            : is_hovering ? hover_color
-            : default_color;
-
-        const auto center = ImVec2{ grab_center, center_y };
-        draw->AddCircleFilled(center, radius, ImColor{ grab_color });
-
-        if (is_active || is_hovering)
-        {
-            constexpr auto line_thickness = 3.0f;
-            constexpr auto ring_hover = rgb(190, 242, 100);
-            constexpr auto ring_active = rgb(158, 233, 57);
-
-            const auto ring_color = is_active ? ring_active : ring_hover;
-
-            draw->AddCircle(center, ring_radius, ImColor{ ring_color }, 0, line_thickness);
-        }
-    }
-
-    const auto text_size = ImGui::CalcTextSize(text.c_str());
-    draw->AddText({ total.Max.x - text_size.x, center_y - text_size.y * 0.5f }, IM_COL32(170, 230, 60, 255), text.c_str());
-
-    return value_was_changed;
-}
-
-
-bool simple_gamma_slider(const char* label, float* gamma, float curve, float min_gamma, float max_gamma)
-{
-    if (curve < 0.0f)
-    {
-        return flat_slider(label, gamma, min_gamma, max_gamma, float_identity);
-    }
-
-    // todo(Gustav): is this the correct way? it doesn't feel exactly right but perhaps that's just dear imgui
-    const auto gamma_range = max_gamma - min_gamma;
-    const auto t = (*gamma - min_gamma) / gamma_range;
-
-    const auto backf = [min_gamma, gamma_range, curve](float f)
-        {
-            const auto perceptual = std::pow(f, curve);
-            return min_gamma + perceptual * gamma_range;
-        };
-
-    auto slider_value = std::pow(t, 1.0f / curve);
-    if (flat_slider(label, &slider_value, 0.0f, 1.0f, backf) == false)
-    {
-        return false;
-    }
-
-    *gamma = backf(slider_value);
-    return true;
-}
-
-// -----
-void row(const PropTable& t, const char* label)
-{
-    ASSERT(t);
-    ImGui::TableNextRow();
-    ImGui::TableSetColumnIndex(0);
-    eu::imgui::label(label);
-    ImGui::TableSetColumnIndex(1);
-}
-
-template<typename F>
-bool trow(const PropTable& t, const char* label, const F& f)
-{
-    row(t, label);
-    ImGui::PushID(label);
-    ImGui::PushItemWidth(-std::numeric_limits<float>::min()); // place widget right edge on the edge of the table
-    const auto ret = f();
-    ImGui::PopItemWidth();
-    ImGui::PopID();
-    return ret;
 }
 
 
@@ -1219,7 +1223,10 @@ PropTable PropTable::Begin(const char* label)
 
     const auto started = ImGui::BeginTable(label, 2, table_flags);
     auto ret = PropTable{ started };
-    if (started == false) return ret;
+    if (started == false)
+    {
+        return ret;
+    }
 
     ImGui::TableSetupColumn("Name", ImGuiTableColumnFlags_WidthFixed);
     ImGui::TableSetupColumn("Value", ImGuiTableColumnFlags_WidthStretch);
@@ -1232,25 +1239,28 @@ PropTable PropTable::Begin(const char* label)
 
 PropTable::~PropTable()
 {
-    if (started == false) return;
+    if (started == false)
+    {
+        return;
+    }
     ImGui::EndTable();
 }
 
 bool PropTable::check(const char* label, bool* v) const
 {
-    return trow(*this, label, [&]
-        {
-            return ImGui::Checkbox("", v);
-        });
+    return internal::trow(*this, label, [&]
+    {
+        return ImGui::Checkbox("", v);
+    });
 }
 
 bool PropTable::slider(const char* label, float* v, float min, float max) const
 {
-    return trow(*this, label, [&]
-        {
-            const auto ret = flat_slider("", v, min, max, float_identity);
-            return ret;
-        });
+    return internal::trow(*this, label, [&]
+    {
+        const auto ret = internal::flat_slider("", v, min, max, internal::float_identity);
+        return ret;
+    });
 }
 bool PropTable::slider(const char* label, float* v) const
 {
@@ -1259,156 +1269,156 @@ bool PropTable::slider(const char* label, float* v) const
 
 void PropTable::text(const char* label, const std::string& str) const
 {
-    trow(*this, label, [&]
-        {
-            eu::imgui::imgui_text(str);
-            return false;
-        });
+    internal::trow(*this, label, [&]
+    {
+        eu::imgui::imgui_text(str);
+        return false;
+    });
 }
 
 bool PropTable::edit(const char* label, std::string* str) const
 {
-    return trow(*this, label, [&]
-        {
-            return eu::imgui::imgui_edit("", str);
-        });
+    return internal::trow(*this, label, [&]
+    {
+        return eu::imgui::imgui_edit("", str);
+    });
 }
 
 void PropTable::display(const char* label, bool b) const
 {
-    trow(*this, label, [&]
-        {
-            ImGui::TextUnformatted(b ? "TRUE" : "false");
-            return false;
-        });
+    internal::trow(*this, label, [&]
+    {
+        ImGui::TextUnformatted(b ? "TRUE" : "false");
+        return false;
+    });
 }
 
 void PropTable::readonly(const char* label, const std::string& text) const
 {
-    trow(*this, label, [&]
-        {
-            eu::imgui::imgui_readonly("", text);
-            return false;
-        });
+    internal::trow(*this, label, [&]
+    {
+        eu::imgui::imgui_readonly("", text);
+        return false;
+    });
 }
 
 void PropTable::readonly(const char* label, const eu::v3& v) const
 {
-    trow(*this, label, [&]
-        {
-            eu::imgui::imgui_readonly("", v);
-            return false;
-        });
+    internal::trow(*this, label, [&]
+    {
+        eu::imgui::imgui_readonly("", v);
+        return false;
+    });
 }
 
 void PropTable::readonly(const char* label, const eu::Ypr& y) const
 {
-    trow(*this, label, [&]
-        {
-            eu::imgui::imgui_readonly("", y);
-            return false;
-        });
+    internal::trow(*this, label, [&]
+    {
+        eu::imgui::imgui_readonly("", y);
+        return false;
+    });
 }
 
 void PropTable::image(const char* label, const render::FrameBuffer& img, ImguiShaderCache* cache, ImageShader shader) const
 {
-    trow(*this, label, [&]
-        {
-            imgui::imgui_image("", img, cache, shader);
-            return false;
-        });
+    internal::trow(*this, label, [&]
+    {
+        imgui::imgui_image("", img, cache, shader);
+        return false;
+    });
 }
 
 bool PropTable::simple_gamma_slider(const char* label, float* gamma, float curve, float min_gamma, float max_gamma) const
 {
-    return trow(*this, label, [&]
-        {
-            return eu::imgui::simple_gamma_slider("", gamma, curve, min_gamma, max_gamma);
-        });
+    return internal::trow(*this, label, [&]
+    {
+        return internal::simple_gamma_slider("", gamma, curve, min_gamma, max_gamma);
+    });
 }
 
 bool PropTable::color(const char* label, Rgb* color) const
 {
-    return trow(*this, label, [&]
+    return internal::trow(*this, label, [&]
+    {
+        ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2{ 0, 0 });
+        const auto button_size = internal::calculate_square_button_size();
+        // todo(Gustav): change so drag is 0-255
+        // todo(Gustav): change colors?
+        bool changed = imgui_drag_with_reset(&color->r, &color->g, &color->b, 0.0f, button_size.x,
+                                             "R", "G", "B", internal::Drags{ .v_speed = 0.1f, .v_min = 0.0f, .v_max = 1.0f }
+        );
+        constexpr const char* color_popup = "color-popup";
+        if (ImGui::ColorButton("color", ImVec4{color->r, color->g, color->b, 1.0f}))
         {
-            ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2{ 0, 0 });
-            const auto button_size = calculate_square_button_size();
-            // todo(Gustav): change so drag is 0-255
-            // todo(Gustav): change colors?
-            bool changed = imgui_drag_with_reset(&color->r, &color->g, &color->b, 0.0f, button_size.x,
-                "R", "G", "B", Drags{ .v_speed = 0.1f, .v_min = 0.0f, .v_max = 1.0f }
-                );
-            constexpr const char* color_popup = "color-popup";
-            if (ImGui::ColorButton("color", ImVec4{color->r, color->g, color->b, 1.0f}))
-            {
-                ImGui::OpenPopup(color_popup);
-            }
-            ImGui::PopStyleVar();
-            if (ImGui::BeginPopup(color_popup))
-            {
-                // color dialog
-                changed = ImGui::ColorPicker3(label, &color->r);
-                ImGui::EndPopup();
-            }
-            return changed;
-        });
+            ImGui::OpenPopup(color_popup);
+        }
+        ImGui::PopStyleVar();
+        if (ImGui::BeginPopup(color_popup))
+        {
+            // color dialog
+            changed = ImGui::ColorPicker3(label, &color->r);
+            ImGui::EndPopup();
+        }
+        return changed;
+    });
 }
 
 bool PropTable::drag(const char* label, eu::v3* drag, float reset_value) const
 {
-    return trow(*this, label, [&]
-        {
-            return imgui_drag_with_reset(&drag->x, &drag->y, &drag->z, reset_value, std::nullopt, "X", "Y", "Z");
-        });
+    return internal::trow(*this, label, [&]
+    {
+        return internal::imgui_drag_with_reset(&drag->x, &drag->y, &drag->z, reset_value, std::nullopt, "X", "Y", "Z");
+    });
 }
 
 bool PropTable::drag(const char* label, eu::Ypr* drag) const
 {
-    return trow(*this, label, [&]
+    return internal::trow(*this, label, [&]
+    {
+        float angles[3] = {
+            drag->yaw.as_degrees(),
+            drag->pitch.as_degrees(),
+            drag->roll.as_degrees()
+        };
+
+        // const auto changed = ImGui::DragFloat3(label, angles, 1.0f, -360.0f, 360.0f);
+        const auto changed = internal::imgui_drag_with_reset(&angles[0], &angles[1], &angles[2], 0.0f, std::nullopt,
+                                                             "Y", "P", "R", internal::Drags{.v_speed = 1.0f, .v_min = -360.0f, .v_max = 360.0f }
+        );
+
+        if (changed)
         {
-            float angles[3] = {
-                drag->yaw.as_degrees(),
-                drag->pitch.as_degrees(),
-                drag->roll.as_degrees()
-            };
+            drag->yaw = An::from_degrees(angles[0]);
+            drag->pitch = An::from_degrees(angles[1]);
+            drag->roll = An::from_degrees(angles[2]);
+        }
 
-            // const auto changed = ImGui::DragFloat3(label, angles, 1.0f, -360.0f, 360.0f);
-            const auto changed = imgui_drag_with_reset(&angles[0], &angles[1], &angles[2], 0.0f, std::nullopt,
-                    "Y", "P", "R", Drags{.v_speed = 1.0f, .v_min = -360.0f, .v_max = 360.0f }
-                );
-
-            if (changed)
-            {
-                drag->yaw = An::from_degrees(angles[0]);
-                drag->pitch = An::from_degrees(angles[1]);
-                drag->roll = An::from_degrees(angles[2]);
-            }
-
-            return changed;
-        });
+        return changed;
+    });
 }
 
 bool PropTable::drag(const char* label, float* drag, float speed) const
 {
-    return trow(*this, label, [&]
-        {
-            return ImGui::DragFloat("", drag, speed);
-        });
+    return internal::trow(*this, label, [&]
+    {
+        return ImGui::DragFloat("", drag, speed);
+    });
 }
 bool PropTable::drag(const char* label, int* drag) const
 {
-    return trow(*this, label, [&]
-        {
-            return ImGui::DragInt("", drag);
-        });
+    return internal::trow(*this, label, [&]
+    {
+        return ImGui::DragInt("", drag);
+    });
 }
 
 bool PropTable::drag(const char* label, eu::Rui* drag) const
 {
-    return trow(*this, label, [&]
-        {
-            return imgui_drag_with_reset(&drag->right, &drag->up, &drag->in, 0.0f, std::nullopt, "R", "U", "I");
-        });
+    return internal::trow(*this, label, [&]
+    {
+        return internal::imgui_drag_with_reset(&drag->right, &drag->up, &drag->in, 0.0f, std::nullopt, "R", "U", "I");
+    });
 }
 
 void PropTable::transform(const eu::m4& m) const
@@ -1453,10 +1463,10 @@ bool PropTable::transform(eu::m4* m) const
 
 bool PropTable::scurve(const char* label, eu::core::SCurve* scurve, eu::imgui::SCurveGuiState* gui, eu::imgui::FlipX flip_x, const ImVec2& requested_widget_size) const
 {
-    return trow(*this, label, [&]
-        {
-            return eu::imgui::imgui_s_curve_editor("", scurve, gui, flip_x, requested_widget_size);
-        });
+    return internal::trow(*this, label, [&]
+    {
+        return eu::imgui::imgui_s_curve_editor("", scurve, gui, flip_x, requested_widget_size);
+    });
 }
 
 PropTable::PropTable(bool b) : started(b) {}
@@ -1489,7 +1499,7 @@ bool imgui_s_curve_editor(const char* title, core::SCurve* curve, SCurveGuiState
     bool changed = false;
 
     auto* draw = ImGui::GetWindowDrawList();
-    draw->AddRectFilled(widget_min, widget_max, ImColor{ colors::graph_background });
+    draw->AddRectFilled(widget_min, widget_max, ImColor{ internal::colors::graph_background });
 
 
     for (std::size_t point_index = 0; point_index < SCurveGuiState::num_points; point_index += 1)
@@ -1499,18 +1509,18 @@ bool imgui_s_curve_editor(const char* title, core::SCurve* curve, SCurveGuiState
         const float y = core::calculate_s_curve(srcx, curve->slope, curve->threshold);
         points[point_index] = ImVec2{ x * widget_size.x, (1 - y) * widget_size.y } + widget_min;
     }
-    draw->AddPolyline(points.data(), int_from_sizet(SCurveGuiState::num_points), ImColor{colors::graph_line}, ImDrawFlags_None, 1.0f);
+    draw->AddPolyline(points.data(), int_from_sizet(SCurveGuiState::num_points), ImColor{internal::colors::graph_line}, ImDrawFlags_None, 1.0f);
 
     const auto is_hover = ImGui::IsItemHovered();
     const auto drag_position = ImVec2{ gui->drag.x * widget_size.x, (1 - gui->drag.y) * widget_size.y } + widget_min;
 
     const auto drag_radius = is_hover ? 6.0f : 4.0f;
     constexpr auto drag_hover_step = 4.0f;
-    draw->AddCircleFilled(drag_position, drag_radius, ImColor{is_hover ? colors::graph_active_point : colors::graph_outline_point });
-    draw->AddCircle(drag_position, drag_radius, ImColor{ is_hover ? colors::graph_active_point_middle : colors::graph_outline_point_border }, 0, is_hover ? drag_hover_step : 1.0f);
+    draw->AddCircleFilled(drag_position, drag_radius, ImColor{is_hover ? internal::colors::graph_active_point : internal::colors::graph_outline_point });
+    draw->AddCircle(drag_position, drag_radius, ImColor{ is_hover ? internal::colors::graph_active_point_middle : internal::colors::graph_outline_point_border }, 0, is_hover ? drag_hover_step : 1.0f);
     if (is_hover)
     {
-        draw->AddCircle(drag_position, drag_radius + drag_hover_step/2.0f, ImColor{ colors::graph_active_point_border}, 0, 2.0f);
+        draw->AddCircle(drag_position, drag_radius + drag_hover_step/2.0f, ImColor{ internal::colors::graph_active_point_border}, 0, 2.0f);
     }
 
     if (is_active)

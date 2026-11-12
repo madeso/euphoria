@@ -23,9 +23,9 @@ namespace internal
         }
 
 
-        std::optional<KeyboardKey> key_from_name(const std::string& name)
+        std::optional<SDL_Keycode> key_from_name(const std::string& name)
         {
-            static const std::unordered_map<std::string, KeyboardKey> key_map = {
+            static const std::unordered_map<std::string, SDL_Keycode> key_map = {
         #define K(name){lower(#name), SDLK_##name}
             K(RETURN), K(ESCAPE), K(BACKSPACE), K(TAB), K(SPACE), K(EXCLAIM), K(DBLAPOSTROPHE),
             K(HASH), K(PERCENT), K(DOLLAR), K(AMPERSAND), K(APOSTROPHE), K(LEFTPAREN),
@@ -160,7 +160,7 @@ void Input::update()
 }
 
 
-void Input::on_key(int key, bool state)
+void Input::on_key(SDL_Keycode key, bool state)
 {
     const auto found = bind_from_key.find(key);
     if (found == bind_from_key.end())

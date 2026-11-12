@@ -317,7 +317,7 @@ struct InputSystem : runner::EntitySystem
 
     void add_component(runner::Component* component) override
     {
-        if (MeshSpatialComponent* mc = runner::component_cast<MeshSpatialComponent>(component); mc)
+        if (auto* mc = runner::component_cast<MeshSpatialComponent>(component); mc)
         {
             mesh = mc;
         }
@@ -325,12 +325,12 @@ struct InputSystem : runner::EntitySystem
 
     void update(float dt) override
     {
-        if (mesh && input && input->get_current_frame().binds[0].current > 0.5f)
+        if (mesh != nullptr && input != nullptr && input->get_current_frame().binds[0].current > 0.5f)
         {
             mesh->position += kk::in * dt;
         }
 
-        if (mesh)
+        if (mesh != nullptr)
         {
             mesh->update_transform();
         }
@@ -424,8 +424,8 @@ struct FollowCameraSystem : runner::EntitySystem
     {
         log.begin();
 
-        if (!target) { return; }
-        if (!camera) { return; }
+        if (target == nullptr) { return; }
+        if (camera == nullptr) { return; }
 
         const auto tr = transform_from_matrix(target->target);
 
@@ -447,8 +447,8 @@ struct FollowCameraSystem : runner::EntitySystem
 
 namespace tag
 {
-constexpr Hsh CameraSpatialSource = "camera_spatial_src_tag"sv;
-constexpr Hsh CameraDestination = "camera_dst_tag"sv;
+constexpr Hsh camera_spatial_source_tag = "camera_spatial_src_tag"sv;
+constexpr Hsh camera_destination_tag = "camera_dst_tag"sv;
 }
 
 struct UpdateCameraTarget : runner::WorldSystem
@@ -477,7 +477,7 @@ struct UpdateCameraTarget : runner::WorldSystem
 
     void on_root_changed(runner::Entity* entity, runner::SpatialComponent* component) override
     {
-        if (entity->has_tag(tag::CameraSpatialSource))
+        if (entity->has_tag(tag::camera_spatial_source_tag))
         {
             LOG_INFO("Found spatial source");
             src_entity = component;
@@ -486,7 +486,7 @@ struct UpdateCameraTarget : runner::WorldSystem
     
     void add_component(runner::Entity* entity, runner::Component* component) override
     {
-        if (entity->has_tag(tag::CameraDestination))
+        if (entity->has_tag(tag::camera_destination_tag))
         {
             if (auto* target = runner::component_cast<TargetComponent>(component))
             {
@@ -498,8 +498,8 @@ struct UpdateCameraTarget : runner::WorldSystem
 
     void update(float) override
     {
-        if (!src_entity) { return; }
-        if (!dst_entity) { return; }
+        if (src_entity == nullptr) { return; }
+        if (dst_entity == nullptr) { return; }
 
         dst_entity->target = src_entity->get_transform();
     }
@@ -531,7 +531,7 @@ struct CameraFetcherSystem : runner::WorldSystem
 
     void add_component(runner::Entity*, runner::Component* component) override
     {
-        if (auto cam = runner::component_cast<CameraSpatialComponent>(component))
+        if (auto* cam = runner::component_cast<CameraSpatialComponent>(component))
         {
             LOG_INFO("Fetcher found camera");
             camera = cam;
@@ -544,11 +544,14 @@ struct CameraFetcherSystem : runner::WorldSystem
 
     void update(float) override
     {
-        if (!camera) return;
+        if (camera == nullptr)
+        {
+            return;
+        }
         transform = camera->get_transform();
     }
 
-    render::Camera fetch() const
+    [[nodiscard]] render::Camera fetch() const
     {
         render::Camera r;
         r.world_from_view = transform;
@@ -584,7 +587,7 @@ int main(int, char**)
     const auto app_scale = eu::imgui::calculate_app_scale();
     auto [window_width, window_height] = eu::imgui::rescale_window(1280, 720, app_scale);
 
-#if defined(__APPLE__)
+#ifdef __APPLE__
     // GL 3.2 Core + GLSL 150
     const char* glsl_version = "#version 150";
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG);	// Always required on Mac
@@ -613,14 +616,14 @@ int main(int, char**)
 
     SDL_Window* window = SDL_CreateWindow("Runner",
         window_width, window_height, SDL_WINDOW_OPENGL | SDL_WINDOW_HIGH_PIXEL_DENSITY | SDL_WINDOW_RESIZABLE);
-    if (!window) {
+    if (window == nullptr) {
         LOG_ERR("Error creating window: {}", SDL_GetError());
         return -1;
     }
 
-    auto* glContext = SDL_GL_CreateContext(window);
+    auto* gl_context = SDL_GL_CreateContext(window);
     SDL_GetWindowSize(window, &window_width, &window_height);
-    if (!glContext) {
+    if (gl_context == nullptr) {
         LOG_ERR("Error creating gl context: {}", SDL_GetError());
         return -1;
     }
@@ -634,7 +637,7 @@ int main(int, char**)
     }
 
     {
-        if (GLAD_GL_VERSION_1_0) {
+        if (GLAD_GL_VERSION_1_0 != 0) {
             const std::string gl_vendor = reinterpret_cast<const char*>(glGetString(GL_VENDOR));
             const std::string gl_renderer = reinterpret_cast<const char*>(glGetString(GL_RENDERER));
             const std::string gl_version = reinterpret_cast<const char*>(glGetString(GL_VERSION));
@@ -643,13 +646,13 @@ int main(int, char**)
             LOG_INFO("OpenGL Version:  {0}", gl_version);
         }
 
-        if (GLAD_GL_VERSION_2_0) {
+        if (GLAD_GL_VERSION_2_0 != 0) {
             const std::string gl_shading_language_version = reinterpret_cast<const char*>(glGetString(GL_SHADING_LANGUAGE_VERSION));
             LOG_INFO("Version GLSL:   {0}", gl_shading_language_version);
         }
     }
 
-    if (!GLAD_GL_VERSION_4_3)
+    if (GLAD_GL_VERSION_4_3 == 0)
     {
         LOG_ERR("OpenGL 4.3 not supported ({0}.{1} detected), aborting...", GLVersion.major, GLVersion.minor);
         return -1;
@@ -658,10 +661,10 @@ int main(int, char**)
 #if FF_HAS(EU_DEBUG_RUNNER)
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
-    ImGuiIO& io = ImGui::GetIO(); (void)io;
+    const ImGuiIO& io = ImGui::GetIO(); (void)io;
     ImGui::StyleColorsDark();
     imgui::setup_colors();
-    if (false == ImGui_ImplSDL3_InitForOpenGL(window, glContext))
+    if (false == ImGui_ImplSDL3_InitForOpenGL(window, gl_context))
     {
         LOG_ERR("Failed to init ImGui SDL3 backend");
         return -1;
@@ -720,10 +723,10 @@ int main(int, char**)
 
     // add demo world
     {
-        constexpr auto PLANE_SIZE = 100.0f;
+        constexpr auto plane_size = 100.0f;
         auto plane_geom = eu::render::compile_geom(
             USE_DEBUG_LABEL_MANY("plane")
-            eu::core::geom::create_xz_plane(PLANE_SIZE, PLANE_SIZE, false).to_geom(),
+            eu::core::geom::create_xz_plane(plane_size, plane_size, false).to_geom(),
             renderer.default_geom_layout()
         );
 
@@ -772,7 +775,7 @@ int main(int, char**)
 
     runner_world.add_system(std::make_unique<UpdateCameraTarget>());
     
-    CameraFetcherSystem* camera_fetcher;
+    CameraFetcherSystem* camera_fetcher = nullptr;
     {
         auto fetch = std::make_unique<CameraFetcherSystem>();
         camera_fetcher = fetch.get();
@@ -780,7 +783,7 @@ int main(int, char**)
     }
 
     {
-        auto* car = runner_world.add_entity("car", { tag::CameraSpatialSource });
+        auto* car = runner_world.add_entity("car", { tag::camera_spatial_source_tag });
 
         // mesh component
         // debug/axis.glb
@@ -799,7 +802,7 @@ int main(int, char**)
         car->add_system(std::make_unique<InputSystem>(&input));
     }
     {
-        auto* cam = runner_world.add_entity("camera", { tag::CameraDestination });
+        auto* cam = runner_world.add_entity("camera", { tag::camera_destination_tag });
 
         cam->add_component(std::make_unique<TargetComponent>());
         auto spat = std::make_unique<CameraSpatialComponent>();
@@ -827,7 +830,7 @@ int main(int, char**)
         
         SDL_Event e;
         input.update();
-        while (SDL_PollEvent(&e) != 0)
+        while (SDL_PollEvent(&e) != false)
         {
 #if FF_HAS(EU_DEBUG_RUNNER)
             ImGui_ImplSDL3_ProcessEvent(&e);
@@ -890,7 +893,7 @@ int main(int, char**)
         ImGui::End();
 #endif
 
-        eu::render::RenderCommand cmd{ .states = &states, .render = &render, .size = {.width = window_width, .height = window_height} };
+        const eu::render::RenderCommand cmd{ .states = &states, .render = &render, .size = {.width = window_width, .height = window_height} };
 
         // clear
         {
@@ -911,7 +914,7 @@ int main(int, char**)
             auto layer = eu::render::with_layer3(cmd, screen);
             // todo(Gustav): get transform from camera entity
             effects.update(dt);
-            eu::render::Camera camera = camera_fetcher->fetch();
+            const eu::render::Camera camera = camera_fetcher->fetch();
             effects.render(eu::render::PostProcArg{
                 .world = &render_world,
                 .window_size = size_from_v2(layer.screen.get_size()),
@@ -947,7 +950,7 @@ int main(int, char**)
 #endif
 
     LOG_INFO("Shutting down");
-    SDL_GL_DestroyContext(glContext);
+    SDL_GL_DestroyContext(gl_context);
     SDL_DestroyWindow(window);
     SDL_Quit();
 
