@@ -50,7 +50,8 @@ ENABLE_HIGH_PERFORMANCE_GRAPHICS
 using namespace eu;
 using namespace std::string_view_literals;
 
-// todo(Gustav): move to io
+namespace
+{
 eu::render::ShaderSource load_shader(const std::string& name)
 {
     return {
@@ -558,6 +559,7 @@ struct CameraFetcherSystem : runner::WorldSystem
         return r;
     }
 };
+} // internal
 
 int main(int, char**)
 {
@@ -775,7 +777,7 @@ int main(int, char**)
 
     runner_world.add_system(std::make_unique<UpdateCameraTarget>());
     
-    CameraFetcherSystem* camera_fetcher = nullptr;
+    const CameraFetcherSystem* camera_fetcher = nullptr;
     {
         auto fetch = std::make_unique<CameraFetcherSystem>();
         camera_fetcher = fetch.get();

@@ -32,6 +32,9 @@
 
 ENABLE_HIGH_PERFORMANCE_GRAPHICS
 
+namespace
+{
+
 eu::MemoryChunk chunk_from_embed(const embedded_binary& binary)
 {
     return { .bytes = reinterpret_cast<const char*>(binary.data), .size = binary.size };
@@ -60,7 +63,7 @@ struct App
     int window_width = 0;
     int window_height = 0;
     SDL_Window* window = nullptr;
-    SDL_GLContextState* glContext = nullptr;
+    SDL_GLContextState* gl_context = nullptr;
     bool show_demo_window = true;
 
     std::unique_ptr<eu::render::State> states;
@@ -87,7 +90,7 @@ AppState App::create()
     const auto app_scale = eu::imgui::calculate_app_scale();
     std::tie(window_width, window_height) = eu::imgui::rescale_window(1280, 720, app_scale);
 
-#if defined(__APPLE__)
+#ifdef __APPLE__
     // GL 3.2 Core + GLSL 150
     const char* glsl_version = "#version 150";
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG);	// Always required on Mac
@@ -116,15 +119,15 @@ AppState App::create()
 
     window = SDL_CreateWindow("Editor sample",
         window_width, window_height, SDL_WINDOW_OPENGL | SDL_WINDOW_HIGH_PIXEL_DENSITY | SDL_WINDOW_RESIZABLE);
-    if (!window)
+    if (window == nullptr)
     {
         LOG_ERR("Error creating window: {}", SDL_GetError());
         return AppState::exit_failure;
     }
 
-    glContext = SDL_GL_CreateContext(window);
+    gl_context = SDL_GL_CreateContext(window);
     SDL_GetWindowSize(window, &window_width, &window_height);
-    if (!glContext) {
+    if (gl_context == nullptr) {
         LOG_ERR("Error creating gl context: {}", SDL_GetError());
         return AppState::exit_failure;
     }
@@ -141,7 +144,7 @@ AppState App::create()
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO();
     eu::imgui::setup_colors(); // ImGui::StyleColorsDark();
-    ImGui_ImplSDL3_InitForOpenGL(window, glContext);
+    ImGui_ImplSDL3_InitForOpenGL(window, gl_context);
     ImGui_ImplOpenGL3_Init(glsl_version);
 
     {
@@ -159,7 +162,8 @@ AppState App::create()
     {
         ImFontConfig config;
         config.FontDataOwnedByAtlas = false;
-        ImFont* font = io.Fonts->AddFontFromMemoryTTF(
+        // todo(Gustav): look into AddFontFromMemoryCompressedTTF
+        const ImFont* font = io.Fonts->AddFontFromMemoryTTF(
             const_cast<void*>(static_cast<const void*>(OPENSANS_REGULAR_TTF_data)),
             OPENSANS_REGULAR_TTF_size,
             18.0f,
@@ -170,8 +174,8 @@ AppState App::create()
         eu::imgui::setup_scale(app_scale);
     }
 
-    states.reset(new eu::render::State());
-    render.reset(new eu::render::Render2(states.get()));
+    states = std::make_unique<eu::render::State>();
+    render = std::make_unique<eu::render::Render2>(states.get());
 
     LOG_INFO("Editor started");
     return AppState::continue_running;
@@ -302,7 +306,7 @@ AppState App::iterate()
     ImGui::End();
 
     {
-        eu::render::RenderCommand cmd {.states = states.get(), .render = render.get(), .size = {.width = window_width, .height = window_height} };
+        const eu::render::RenderCommand cmd {.states = states.get(), .render = render.get(), .size = {.width = window_width, .height = window_height} };
 
         // todo(Gustav): provide a pixel layout
         const auto screen = eu::render::LayoutData{ .style = eu::render::ViewportStyle::extended,
@@ -331,8 +335,8 @@ void App::destroy()
     ImGui::DestroyContext();
 
     LOG_INFO("Shutting down");
-    SDL_GL_DestroyContext(glContext);
-    glContext = nullptr;
+    SDL_GL_DestroyContext(gl_context);
+    gl_context = nullptr;
 
     SDL_DestroyWindow(window);
     window = nullptr;
@@ -351,10 +355,11 @@ SDL_AppResult to_sdl_result(AppState state)
 
     return SDL_APP_FAILURE;
 }
+}
 
 SDL_AppResult SDL_AppInit(void** out_app, int, char**)
 {
-    auto app = new App();
+    auto* app = new App();
     const auto create_result = app->create();
     if (create_result == AppState::continue_running)
     {
@@ -368,14 +373,14 @@ SDL_AppResult SDL_AppInit(void** out_app, int, char**)
 
 SDL_AppResult SDL_AppIterate(void* app_arg)
 {
-    auto app = static_cast<App*>(app_arg);
+    auto* app = static_cast<App*>(app_arg);
     const auto result = app->iterate();
     return to_sdl_result(result);
 }
 
 SDL_AppResult SDL_AppEvent(void* app_arg, SDL_Event* ev)
 {
-    auto app = static_cast<App*>(app_arg);
+    auto* app = static_cast<App*>(app_arg);
     const auto result = app->on_event(*ev);
     return to_sdl_result(result);
 }
@@ -387,7 +392,7 @@ void SDL_AppQuit(void* app_arg, SDL_AppResult result)
         LOG_ERR("App crashed :(");
     }
 
-    auto app = static_cast<App*>(app_arg);
+    const auto* app = static_cast<App*>(app_arg);
     delete app;
     app = nullptr;
 }
