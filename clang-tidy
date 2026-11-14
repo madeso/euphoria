@@ -22,6 +22,7 @@ cppcoreguidelines-*
 
 # ignore all gsl related settings, that is just ugly, fix the language instead!
 -cppcoreguidelines-pro-bounds-constant-array-index
+-cppcoreguidelines-owning-memory
 
 misc-*
 -misc-non-private-member-variables-in-classes
