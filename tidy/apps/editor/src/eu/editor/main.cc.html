@@ -1,0 +1,88 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>apps/editor/src/eu/editor/main.cc</title>
+<style>
+.link-container {
+ position: relative;
+}
+.prev {
+ position: absolute;
+ top: 0;
+ left: 0;
+}
+.next {
+ position: absolute;
+ top: 0;
+ right: 0;
+}
+.index_link {
+ text-align: center;
+}
+</style>
+</head>
+<body>
+<h1>apps/editor/src/eu/editor/main.cc</h1>
+<div class="link-container"><div class="prev">&lt;<a href="../../../../runner/src/eu/runner/main.cc.html">apps/runner/src/eu/runner/main.cc</a></div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../../_/_/_/_/_/usr/include/c++/15/variant.html">../../../../../usr/include/c++/15/variant</a>&gt;</div></div>
+<span id='cppcoreguidelines-pro-type-const-cast'>&nbsp;</span>
+<hr>
+<h3>warning: do not use const_cast to remove const qualifier</h3>
+<code>[cppcoreguidelines-pro-type-const-cast]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 169 : 13</i></p>
+<pre>
+  169 |             const_cast&lt;void*&gt;(static_cast&lt;const void*&gt;(OPENSANS_REGULAR_TTF_data)),
+      |             ^
+</pre>
+<span id='cppcoreguidelines-owning-memory'>&nbsp;</span>
+<hr>
+<h3>warning: initializing non-owner &#39;App *&#39; with a newly created &#39;gsl:: owner&lt;&gt;&#39;</h3>
+<code>[cppcoreguidelines-owning-memory]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 364 : 5</i></p>
+<pre>
+  364 |     auto* app = new App();
+      |     ^~~~~~~~~~~~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning: deleting a pointer through a type that is not marked &#39;gsl:: owner&lt;&gt;&#39;; consider using a smart pointer instead</h3>
+<code>[cppcoreguidelines-owning-memory]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 372 : 5</i></p>
+<pre>
+  372 |     delete app;
+      |     ^      ~~~
+</pre>
+<p>variable declared here</p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 364 : 5</i></p>
+<pre>
+  364 |     auto* app = new App();
+      |     ^~~~~~~~~~~~~~~~~~~~~
+</pre>
+<hr>
+<h3>warning: deleting a pointer through a type that is not marked &#39;gsl:: owner&lt;&gt;&#39;; consider using a smart pointer instead</h3>
+<code>[cppcoreguidelines-owning-memory]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 398 : 5</i></p>
+<pre>
+  398 |     delete app;
+      |     ^      ~~~
+</pre>
+<p>variable declared here</p>
+<p><i><a href="main.cc.html">apps/editor/src/eu/editor/main.cc</a> 397 : 5</i></p>
+<pre>
+  397 |     const auto* app = static_cast&lt;App*&gt;(app_arg);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<div class="link-container"><div class="prev">&lt;<a href="../../../../runner/src/eu/runner/main.cc.html">apps/runner/src/eu/runner/main.cc</a></div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../../_/_/_/_/_/usr/include/c++/15/variant.html">../../../../../usr/include/c++/15/variant</a>&gt;</div></div>
+</body>
+</html>

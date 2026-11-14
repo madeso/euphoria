@@ -1,0 +1,75 @@
+﻿<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>apps/runner/src/eu/runner/main.cc</title>
+<style>
+.link-container {
+ position: relative;
+}
+.prev {
+ position: absolute;
+ top: 0;
+ left: 0;
+}
+.next {
+ position: absolute;
+ top: 0;
+ right: 0;
+}
+.index_link {
+ text-align: center;
+}
+</style>
+</head>
+<body>
+<h1>apps/runner/src/eu/runner/main.cc</h1>
+<div class="link-container"><div class="prev">&lt;</div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../editor/src/eu/editor/main.cc.html">apps/editor/src/eu/editor/main.cc</a>&gt;</div></div>
+<span id='readability-make-member-function-const'>&nbsp;</span>
+<hr>
+<h3>warning: method &#39;update&#39; can be made const</h3>
+<code>[readability-make-member-function-const]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 146 : 10</i></p>
+<pre>
+  146 |     void update(const RotationData&amp; rotation_data)
+      |          ^                                        
+      |                                                    const
+</pre>
+<hr>
+<h3>note: frame #4: function &#39;load&#39; calls function &#39;as&lt;float&gt;&#39; here</h3>
+<ul>
+<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 188 : 32</i></p>
+<pre>
+  188 |                 const auto x = node.args[0].as_number().as&lt;float&gt;().value_or(0.0f);
+      |                                ^
+</pre>
+<span id='bugprone-exception-escape'>&nbsp;</span>
+<hr>
+<h3>warning: an exception may be thrown in function &#39;main&#39; which should not throw exceptions</h3>
+<code>[bugprone-exception-escape]</code>
+<ul>
+<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 564 : 5</i></p>
+<pre>
+  564 | int main(int, char**)
+      |     ^
+</pre>
+<hr>
+<h3>note: frame #5: function &#39;main&#39; calls function &#39;load&#39; here</h3>
+<ul>
+<li>Found in <a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a></li>
+</ul>
+<p><i><a href="main.cc.html">apps/runner/src/eu/runner/main.cc</a> 821 : 9</i></p>
+<pre>
+  821 |         level.load(&quot;level.kdl&quot;, &amp;render_world, material, renderer.default_geom_layout());
+      |         ^
+</pre>
+<div class="link-container"><div class="prev">&lt;</div> <div class="index_link"><a href="../../../../../index.html">[index]</a></div> <div class="next"><a href="../../../../editor/src/eu/editor/main.cc.html">apps/editor/src/eu/editor/main.cc</a>&gt;</div></div>
+</body>
+</html>
