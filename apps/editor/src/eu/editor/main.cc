@@ -35,10 +35,12 @@ ENABLE_HIGH_PERFORMANCE_GRAPHICS
 namespace
 {
 
+/*
 eu::MemoryChunk chunk_from_embed(const embedded_binary& binary)
 {
     return { .bytes = reinterpret_cast<const char*>(binary.data), .size = binary.size };
 }
+*/
 
 enum class AppState
 {
