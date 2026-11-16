@@ -41,7 +41,7 @@ struct Image
     /// @param g The green color component (0-255).
     /// @param b The blue color component (0-255).
     /// @param a The alpha (transparency) component (0-255).
-    void set_pixel(int x, int y, int r, unsigned char g, unsigned char b, unsigned char a);
+    void set_pixel(int x, int y, unsigned char r, unsigned char g, unsigned char b, unsigned char a);
 
     /// Overload: Sets the color of a pixel using a PixelColor struct.
     void set_pixel(int x, int y, const PixelColor& color);

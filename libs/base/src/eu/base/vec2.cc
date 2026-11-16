@@ -131,14 +131,14 @@ namespace eu
     bool
     v2::normalize()
     {
-        const auto l2 = get_length();
-        if (is_equal(l2, 0.0f))
+        const auto l2 = get_length_squared();
+        if (std::isfinite(l2) == false || is_equal(l2, 0.0f))
         {
             *this = v2{ 1.0f, 0.0f };
             return false;
         }
 
-        *this /= l2;
+        *this /= std::sqrt(l2);
         return true;
     }
 

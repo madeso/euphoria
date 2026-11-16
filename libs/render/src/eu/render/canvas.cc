@@ -101,8 +101,8 @@ namespace internal
                 int window_height
             )
         {
-            ASSERTX(width >= 0, width);
-            ASSERTX(height >= 0, height);
+            ASSERTX(width > 0, width);
+            ASSERTX(height > 0, height);
             ASSERTX(window_width >= 0, window_width);
             ASSERTX(window_height >= 0, window_height);
             const auto w = float_from_int(window_width) / width;

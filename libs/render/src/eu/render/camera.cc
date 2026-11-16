@@ -37,8 +37,7 @@ m4 create_view_from_world_mat(const v3& pos, const CameraVectors& cv)
 
 CompiledCamera compile(const Camera& cam, const Size& window_size)
 {
-	// todo(Gustav): use the near and far from the camera struct
-	const float aspect = static_cast<float>(window_size.width) / static_cast<float>(window_size.height);
+	const float aspect = window_size.height <= 0 ? 1.0f : static_cast<float>(window_size.width) / static_cast<float>(window_size.height);
 	const auto clip_from_view = m4::Create_Perspective(cam.fov, aspect, cam.near, cam.far);
 
 	return CompiledCamera{

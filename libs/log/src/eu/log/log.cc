@@ -43,7 +43,8 @@ namespace eu::log
     
     ScopedLogger::ScopedLogger(Logger* new_log)
     {
-        assert(global_logger);
+        assert(new_log != nullptr);
+        assert(global_logger == nullptr);
         global_logger = new_log;
     }
 

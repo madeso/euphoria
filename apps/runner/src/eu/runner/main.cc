@@ -559,6 +559,25 @@ struct CameraFetcherSystem : runner::WorldSystem
         return r;
     }
 };
+
+template<typename T>
+struct Defer
+{
+    T defer;
+    explicit Defer(T t) : defer(t) {}
+    ~Defer()
+    {
+        defer();
+    }
+
+    explicit Defer(const Defer&) = delete;
+    explicit Defer(Defer&&) = delete;
+    void operator=(const Defer&) = delete;
+    void operator=(Defer&&) = delete;
+};
+#define EU_JOIN(lhs, rhs) lhs ## rhs
+#define EU_PASTE(lhs, rhs) EU_JOIN(lhs, rhs)
+#define EU_DEFER(x) const auto EU_PASTE(defer_, __LINE__) = Defer{[&] {x;}}
 } // internal
 
 int main(int, char**)
@@ -572,6 +591,7 @@ int main(int, char**)
         LOG_ERR("Error initializing SDL: {}", SDL_GetError());
         return -1;
     }
+    EU_DEFER(SDL_Quit());
 
     {
         const auto str = [](int version)
@@ -622,6 +642,7 @@ int main(int, char**)
         LOG_ERR("Error creating window: {}", SDL_GetError());
         return -1;
     }
+    EU_DEFER(SDL_DestroyWindow(window));
 
     auto* gl_context = SDL_GL_CreateContext(window);
     SDL_GetWindowSize(window, &window_width, &window_height);
@@ -629,6 +650,7 @@ int main(int, char**)
         LOG_ERR("Error creating gl context: {}", SDL_GetError());
         return -1;
     }
+    EU_DEFER(SDL_GL_DestroyContext(gl_context));
 
     /* OpenGL setup */
     const int glad_result = gladLoadGLLoader(SDL_GL_GetProcAddress);
@@ -663,6 +685,8 @@ int main(int, char**)
 #if FF_HAS(EU_DEBUG_RUNNER)
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
+    EU_DEFER(ImGui::DestroyContext());
+
     const ImGuiIO& io = ImGui::GetIO(); (void)io;
     ImGui::StyleColorsDark();
     imgui::setup_colors();
@@ -671,11 +695,14 @@ int main(int, char**)
         LOG_ERR("Failed to init ImGui SDL3 backend");
         return -1;
     }
+    EU_DEFER(ImGui_ImplSDL3_Shutdown());
+
     if (false == ImGui_ImplOpenGL3_Init(glsl_version))
     {
         LOG_ERR("Failed to init ImGui OpenGL3 backend");
         return -1;
     }
+    EU_DEFER(ImGui_ImplOpenGL3_Shutdown());
 
     eu::imgui::setup_scale(app_scale);
 
@@ -945,16 +972,7 @@ int main(int, char**)
         runner_world.update(runner::UpdateStage::end_frame, dt);
     }
 
-#if FF_HAS(EU_DEBUG_RUNNER)
-    ImGui_ImplOpenGL3_Shutdown();
-    ImGui_ImplSDL3_Shutdown();
-    ImGui::DestroyContext();
-#endif
-
     LOG_INFO("Shutting down");
-    SDL_GL_DestroyContext(gl_context);
-    SDL_DestroyWindow(window);
-    SDL_Quit();
 
     return 0;
 }

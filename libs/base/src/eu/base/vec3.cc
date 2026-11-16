@@ -98,17 +98,15 @@ namespace eu
     bool
     v3::normalize()
     {
-        const float l2 = get_length_squared();
-        if (is_equal(l2, 0.0f) || std::isinf(l2))
+        const auto l2 = get_length_squared();
+        if (std::isfinite(l2) == false || is_equal(l2, 0.0f))
         {
             *this = kk::up;
             return false;
         }
-        else
-        {
-            *this /= std::sqrt(l2);
-            return true;
-        }
+        
+        *this /= std::sqrt(l2);
+        return true;
     }
 
     [[nodiscard]] std::optional<n3>

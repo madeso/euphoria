@@ -235,18 +235,18 @@ void render_geom_instanced(const MeshInstance_TransformInstanced& instanced)
 	{
 		const std::size_t step_size
 			= std::min(instanced.world_from_locals.size() - start_index, instanced.geom->max_instances);
-		glBindBuffer(GL_ARRAY_BUFFER, instanced.geom->instance_vbo);
+		glBindBuffer(GL_ARRAY_BUFFER, instanced.geom->instance_vbo); // todo(Gustav): move outside of loop
 		glBufferSubData(
 			GL_ARRAY_BUFFER, 0, glsizeiptr_from_sizet(sizeof(m4) * step_size), &instanced.world_from_locals[start_index]
 		);
 
-		glBindVertexArray(geom->vao);
+		glBindVertexArray(geom->vao);  // todo(Gustav): move outside of loop
 		glDrawElementsInstanced(
 			GL_TRIANGLES,
 			geom->number_of_triangles * 3,
 			GL_UNSIGNED_INT,
 			nullptr,
-			glsizei_from_sizet(instanced.world_from_locals.size())
+			glsizei_from_sizet(step_size)
 		);
 	}
 }

@@ -11,7 +11,8 @@ namespace internal
 
         std::size_t bytes_from_size(int width, int height, int bpp)
         {
-            return sizet_from_int(width) * sizet_from_int(height) * sizet_from_int(bpp);
+            ASSERTX(height > 0 && width > 0 && bpp > 0, width, height, bpp);
+            return sizet_from_int(std::max(width, 0)) * sizet_from_int(std::max(height, 0)) * sizet_from_int(std::max(bpp, 0));
         }
     }
 }
@@ -32,6 +33,7 @@ bool Image::is_valid() const
 
 void Image::setup_with_alpha_support(int w, int h)
 {
+    ASSERTX(height > 0 && width > 0, width, height);
     width = w;
     height = h;
     data.resize(internal::bytes_from_size(width, height, 4), 0);
@@ -48,9 +50,11 @@ void Image::make_invalid()
 
 
 
-void Image::set_pixel(int x, int y, int r, unsigned char g, unsigned char b, unsigned char a)
+void Image::set_pixel(int x, int y, unsigned char r, unsigned char g, unsigned char b, unsigned char a)
 {
-    const int index = (y * width + x) * 4;
+    ASSERTX(x >= 0 && x < width && y >= 0 && y < height, x, y, width, height);
+    const auto width_offset = sizet_from_int(y) * sizet_from_int(width);
+    const auto index = (width_offset + sizet_from_int(x)) * 4;
     data[index + 0] = r;
     data[index + 1] = g;
     data[index + 2] = b;
