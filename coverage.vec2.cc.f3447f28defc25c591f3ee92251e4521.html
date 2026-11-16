@@ -46,8 +46,8 @@
       </div>
       <div class="d-flex">
         <div class="mr-2">Branches:</div>
-        <div class="mr-2" style="margin: auto;">14 / 36</div>
-        <div class="Label--minw"><span class="coverage-low IssueLabel color-fg-on-emphasis mr-1">38.9%</span></div>
+        <div class="mr-2" style="margin: auto;">16 / 40</div>
+        <div class="Label--minw"><span class="coverage-low IssueLabel color-fg-on-emphasis mr-1">40.0%</span></div>
       </div>
       <div class="d-flex">
         <div class="mr-2">Functions:</div>
@@ -255,7 +255,7 @@
   </div>
   <div class="Box-row Box-row--focus-gray py-2 d-flex">
     <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#L126">eu::v2::get_length() const (libs/base/src/eu/base/vec2.cc:126)</a>    </div>
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="2">called 2 times</div>
+    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="1">called 1 time</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">100.0%</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">-%</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">100.0%</div>
@@ -286,7 +286,7 @@
     <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="1">called 1 time</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">71.4%</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">50.0%</div>
-    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">75.0%</div>
+    <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">78.6%</div>
   </div>
   <div class="Box-row Box-row--focus-gray py-2 d-flex">
     <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#L119">eu::v2::operator*=(eu::v2 const&amp;) (libs/base/src/eu/base/vec2.cc:119)</a>    </div>
@@ -1257,7 +1257,7 @@
         <td class="text-right src linenos"><a class="normal" id="L126" href="#L126">126</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="linecount coveredLine show_coveredLine pr-2 pl-2 color-fg-muted text-right">2</td>
+        <td class="linecount coveredLine show_coveredLine pr-2 pl-2 color-fg-muted text-right">1</td>
         <td class="src coveredLine show_coveredLine"><span class="w">    </span><span class="n">v2</span><span class="o">::</span><span class="n">get_length</span><span class="p">()</span><span class="w"> </span><span class="k">const</span></td>
       </tr>
       <tr>
@@ -1271,7 +1271,7 @@
         <td class="text-right src linenos"><a class="normal" id="L128" href="#L128">128</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="linecount coveredLine show_coveredLine pr-2 pl-2 color-fg-muted text-right">2</td>
+        <td class="linecount coveredLine show_coveredLine pr-2 pl-2 color-fg-muted text-right">1</td>
         <td class="src coveredLine show_coveredLine"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">sqrt</span><span class="p">(</span><span class="n">get_length_squared</span><span class="p">());</span></td>
       </tr>
       <tr>
@@ -1314,21 +1314,25 @@
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="linecount coveredLine show_coveredLine pr-2 pl-2 color-fg-muted text-right">1</td>
-        <td class="src coveredLine show_coveredLine"><span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">l2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_length</span><span class="p">();</span></td>
+        <td class="src coveredLine show_coveredLine"><span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">l2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_length_squared</span><span class="p">();</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="L135" href="#L135">135</a></td>
         <td class="text-right src linenos ws-unset">
           <details class="normal details-overlay">
-            <summary>1/2</summary>
+            <summary>3/6</summary>
             <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
-              <div class="color-fg-danger">&cross; Branch  4 &rightarrow; 5 not taken.</div>
-              <div class="color-taken-branch">&check; Branch  4 &rightarrow; 7 taken 1 time.</div>
+              <div class="color-taken-branch">&check; Branch  4 &rightarrow; 5 taken 1 time.</div>
+              <div class="color-fg-danger">&cross; Branch  4 &rightarrow; 7 not taken.</div>
+              <div class="color-fg-danger">&cross; Branch  6 &rightarrow; 7 not taken.</div>
+              <div class="color-taken-branch">&check; Branch  6 &rightarrow; 8 taken 1 time.</div>
+              <div class="color-fg-danger">&cross; Branch  9 &rightarrow; 10 not taken.</div>
+              <div class="color-taken-branch">&check; Branch  9 &rightarrow; 12 taken 1 time.</div>
             </div>
           </details>
         </td>
         <td class="linecount partialCoveredLine show_partialCoveredLine pr-2 pl-2 color-fg-muted text-right">1</td>
-        <td class="src partialCoveredLine show_partialCoveredLine"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">is_equal</span><span class="p">(</span><span class="n">l2</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">))</span></td>
+        <td class="src partialCoveredLine show_partialCoveredLine"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">isfinite</span><span class="p">(</span><span class="n">l2</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">is_equal</span><span class="p">(</span><span class="n">l2</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">))</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="L136" href="#L136">136</a></td>
@@ -1370,7 +1374,7 @@
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="linecount coveredLine show_coveredLine pr-2 pl-2 color-fg-muted text-right">1</td>
-        <td class="src coveredLine show_coveredLine"><span class="w">        </span><span class="o">*</span><span class="k">this</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">l2</span><span class="p">;</span></td>
+        <td class="src coveredLine show_coveredLine"><span class="w">        </span><span class="o">*</span><span class="k">this</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">sqrt</span><span class="p">(</span><span class="n">l2</span><span class="p">);</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="L142" href="#L142">142</a></td>
@@ -2455,7 +2459,7 @@
         <hr class="block-separator"/>
         <footer class="text-center">
           Created using <a href="http://gcovr.com/en/8.8">GCOVR (Version 8.8)</a>
-          at 2026-11-15 20:19:12+00:00
+          at 2026-11-16 21:13:25+00:00
         </footer>
       </div>
     </div>

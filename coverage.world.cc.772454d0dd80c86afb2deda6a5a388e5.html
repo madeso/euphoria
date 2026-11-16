@@ -2219,7 +2219,7 @@
               <div class="color-fg-danger">&cross; Branch  6 &rightarrow; 7 not taken.</div>
               <div class="color-fg-danger">&cross; Branch  6 &rightarrow; 11 not taken.</div>
               <div class="color-fg-danger">&cross; Branch  8 &rightarrow; 9 not taken.</div>
-              <div class="color-fg-danger">&cross; Branch  8 &rightarrow; 37 not taken.</div>
+              <div class="color-fg-danger">&cross; Branch  8 &rightarrow; 36 not taken.</div>
             </div>
           </details>
         </td>
@@ -2237,7 +2237,7 @@
               <div class="color-fg-danger">&cross; Branch  14 &rightarrow; 15 not taken.</div>
               <div class="color-fg-danger">&cross; Branch  14 &rightarrow; 19 not taken.</div>
               <div class="color-fg-danger">&cross; Branch  16 &rightarrow; 17 not taken.</div>
-              <div class="color-fg-danger">&cross; Branch  16 &rightarrow; 40 not taken.</div>
+              <div class="color-fg-danger">&cross; Branch  16 &rightarrow; 39 not taken.</div>
             </div>
           </details>
         </td>
@@ -2257,8 +2257,8 @@
           <details class="normal details-overlay">
             <summary>0/2</summary>
             <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
-              <div class="color-fg-danger">&cross; Branch  35 &rightarrow; 20 not taken.</div>
-              <div class="color-fg-danger">&cross; Branch  35 &rightarrow; 36 not taken.</div>
+              <div class="color-fg-danger">&cross; Branch  34 &rightarrow; 20 not taken.</div>
+              <div class="color-fg-danger">&cross; Branch  34 &rightarrow; 35 not taken.</div>
             </div>
           </details>
         </td>
@@ -2298,7 +2298,7 @@
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">		</span><span class="n">glBindBuffer</span><span class="p">(</span><span class="n">GL_ARRAY_BUFFER</span><span class="p">,</span><span class="w"> </span><span class="n">instanced</span><span class="p">.</span><span class="n">geom</span><span class="o">-&gt;</span><span class="n">instance_vbo</span><span class="p">);</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">		</span><span class="n">glBindBuffer</span><span class="p">(</span><span class="n">GL_ARRAY_BUFFER</span><span class="p">,</span><span class="w"> </span><span class="n">instanced</span><span class="p">.</span><span class="n">geom</span><span class="o">-&gt;</span><span class="n">instance_vbo</span><span class="p">);</span><span class="w"> </span><span class="c1">// todo(Gustav): move outside of loop</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="L239" href="#L239">239</a></td>
@@ -2333,7 +2333,7 @@
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">		</span><span class="n">glBindVertexArray</span><span class="p">(</span><span class="n">geom</span><span class="o">-&gt;</span><span class="n">vao</span><span class="p">);</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">		</span><span class="n">glBindVertexArray</span><span class="p">(</span><span class="n">geom</span><span class="o">-&gt;</span><span class="n">vao</span><span class="p">);</span><span class="w">  </span><span class="c1">// todo(Gustav): move outside of loop</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="L244" href="#L244">244</a></td>
@@ -2375,7 +2375,7 @@
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="linecount pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">			</span><span class="n">glsizei_from_sizet</span><span class="p">(</span><span class="n">instanced</span><span class="p">.</span><span class="n">world_from_locals</span><span class="p">.</span><span class="n">size</span><span class="p">())</span></td>
+        <td class="src"><span class="w">			</span><span class="n">glsizei_from_sizet</span><span class="p">(</span><span class="n">step_size</span><span class="p">)</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="L250" href="#L250">250</a></td>
@@ -2552,7 +2552,7 @@
         <hr class="block-separator"/>
         <footer class="text-center">
           Created using <a href="http://gcovr.com/en/8.8">GCOVR (Version 8.8)</a>
-          at 2026-11-15 20:19:12+00:00
+          at 2026-11-16 21:13:25+00:00
         </footer>
       </div>
     </div>
