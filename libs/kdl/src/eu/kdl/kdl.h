@@ -23,7 +23,7 @@ enum class Version
 {
     kdl_1,
     kdl_2,
-    any
+    detect_version
 };
 
 template <typename T> concept arithmetic_concept = std::is_arithmetic_v<T>;

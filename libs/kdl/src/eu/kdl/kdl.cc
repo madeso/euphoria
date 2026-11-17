@@ -555,7 +555,7 @@ namespace
 
 DocumentResult parse(std::string_view kdl_text)
 {
-    return parse(kdl_text, Version::any);
+    return parse(kdl_text, Version::detect_version);
 }
 
 DocumentResult parse(std::string_view kdl_text, Version version)
@@ -570,18 +570,9 @@ DocumentResult parse(std::string_view kdl_text, Version version)
     case Version::kdl_2:
         opts = KDL_READ_VERSION_2;
         break;
-    case Version::any:
-        {
-            auto ret = parse(kdl_text, Version::kdl_2);
-            if (ret.document.has_value())
-            {
-                return ret;
-            }
-            else
-            {
-                return parse(kdl_text, Version::kdl_1);
-            }
-        }
+    case Version::detect_version:
+        opts = KDL_DETECT_VERSION;
+        break;
 
     default:
         assert(false && "unhandled case");
