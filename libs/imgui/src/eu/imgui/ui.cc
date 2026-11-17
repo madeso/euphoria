@@ -195,6 +195,11 @@ namespace internal
         }
 
 
+        void imgui_text(const std::string& str)
+        {
+            ImGui::Text("%s", str.c_str());
+        }
+
         void image_tooltip(const render::FrameBuffer& texture_id, const ImVec2 texture_size, const float& region_size, const float& hover_size,
             const ImVec2 mouse_pos, const ImVec2 widget_size, const ImVec2 pos, const ImVec4 border_col, ImguiShaderCache* cache, ImageShader shader)
         {
@@ -846,7 +851,21 @@ namespace internal
             ASSERT(t);
             ImGui::TableNextRow();
             ImGui::TableSetColumnIndex(0);
-            eu::imgui::label(label);
+            
+            // draw label
+            {
+                ImGui::PushStyleColor(ImGuiCol_Text, internal::colors::text_label);
+                ImGui::TextUnformatted(label);
+                const auto used_size = ImGui::GetItemRectSize();
+                const ImVec2 text_size = ImGui::CalcTextSize(label);
+                if (used_size.x < text_size.x ||
+                    used_size.y < text_size.y)
+                {
+                    ImGui::SetTooltip("%s", label);
+                }
+                ImGui::PopStyleColor();
+            }
+
             ImGui::TableSetColumnIndex(1);
         }
 
@@ -860,6 +879,92 @@ namespace internal
             ImGui::PopItemWidth();
             ImGui::PopID();
             return ret;
+        }
+
+
+        void imgui_readonly(const char* label, const std::string& text)
+        {
+            auto temp = text;
+            // ImGuiCol_FrameBg
+            ImGui::PushStyleColor(ImGuiCol_FrameBg, internal::colors::base);
+            ImGui::PushStyleColor(ImGuiCol_Text, internal::colors::text_label);
+            ImGui::InputText(label, &temp, ImGuiInputTextFlags_ReadOnly);
+            ImGui::PopStyleColor(2);
+        }
+
+        void imgui_readonly(const char* label, const v3& v)
+        {
+            auto temp = v;
+            ImGui::PushStyleColor(ImGuiCol_FrameBg, internal::colors::base);
+            ImGui::PushStyleColor(ImGuiCol_Text, internal::colors::text_label);
+            ImGui::InputFloat3(label, temp.get_data_ptr(), "%.3f", ImGuiInputTextFlags_ReadOnly);
+            ImGui::PopStyleColor(2);
+        }
+
+        void imgui_readonly(const char* label, const Ypr& y)
+        {
+            const auto temp = v3{ y.yaw.as_degrees() ,y.pitch.as_degrees(), y.roll.as_degrees() };
+            imgui_readonly(label, temp);
+        }
+
+        bool imgui_edit(const char* label, std::string* str)
+        {
+            return ImGui::InputText(label, str);
+        }
+
+        void imgui_image(const char* name, const render::FrameBuffer& img, ImguiShaderCache* cache, ImageShader shader)
+        {
+            const auto texture_size = ImVec2{ float_from_int(img.size.width), float_from_int(img.size.height) };
+
+            // todo(Gustav): make the arguments widget_size and zoom level AND make them configurable (with scrolling)
+            static float widget_height = 100.0f;
+            static float region_size = 32.0f;
+            static float hover_size = 128.0f;
+            const auto& io = ImGui::GetIO();
+
+            internal::imgui_text(fmt::format("{}: {}x{}", name, texture_size.x, texture_size.y));
+
+            const auto widget_width = (texture_size.x / texture_size.y) * widget_height;
+            const auto widget_size = ImVec2{ widget_width, widget_height };
+
+            const auto pos = ImGui::GetCursorScreenPos();
+            constexpr auto uv_min = ImVec2{ 0.0f, 1.0f };	 // Top-left
+            constexpr auto uv_max = ImVec2{ 1.0f, 0.0f };	 // Lower-right
+            const auto border_col = ImGui::GetStyleColorVec4(ImGuiCol_Border);
+
+            static ImVec2 latest_tooltip;
+            static ImGuiID current_id = 0;
+
+            const constexpr char* const popup_id = "image config popup";
+
+            internal::draw_imgui_image(img, widget_size, uv_min, uv_max, border_col, cache, shader);
+            const auto id = ImGui::GetID(name);
+
+            if (id == current_id && ImGui::BeginPopupContextItem(popup_id))
+            {
+                ImGui::DragFloat("Base", &widget_height, 1.0f);
+                ImGui::DragFloat("Size", &region_size, 0.01f);
+                ImGui::DragFloat("Scale", &hover_size, 1.0f);
+                internal::image_tooltip(img, texture_size, region_size, hover_size, latest_tooltip, widget_size, pos, border_col, cache, shader);
+                if (ImGui::Button("Close"))
+                {
+                    ImGui::CloseCurrentPopup();
+                }
+                ImGui::EndPopup();
+            }
+            ImGui::OpenPopupOnItemClick(popup_id, ImGuiPopupFlags_MouseButtonRight);
+
+            // todo(Gustav): look into SetItemTooltip and BeginItemTooltip from https://github.com/ocornut/imgui/releases/tag/v1.89.7
+            if (ImGui::IsItemHovered())
+            {
+                current_id = id;
+                latest_tooltip = io.MousePos;
+                if (ImGui::BeginTooltip())
+                {
+                    internal::image_tooltip(img, texture_size, region_size, hover_size, io.MousePos, widget_size, pos, border_col, cache, shader);
+                    ImGui::EndTooltip();
+                }
+            }
         }
     }
 }
@@ -1060,23 +1165,6 @@ void setup_colors()
     style.TabBorderSize = 1.0f;
 }
 
-
-void label(const char* label)
-{
-    ImGui::PushStyleColor(ImGuiCol_Text, internal::colors::text_label);
-    ImGui::TextUnformatted(label);
-    const auto used_size = ImGui::GetItemRectSize();
-    const ImVec2 text_size = ImGui::CalcTextSize(label);
-
-    if (used_size.x < text_size.x ||
-        used_size.y < text_size.y )
-    {
-        ImGui::SetTooltip("%s", label);
-    }
-
-    ImGui::PopStyleColor();
-}
-
 bool button(const char* label)
 {
     const ImGuiStyle& style = ImGui::GetStyle();
@@ -1122,97 +1210,6 @@ bool header(const char* label, bool* closeable)
         ? ImGui::CollapsingHeader(label, closeable, flags)
         : ImGui::CollapsingHeader(label, flags);
     return ret;
-}
-
-
-void imgui_text(const std::string& str)
-{
-    ImGui::Text("%s", str.c_str());
-}
-
-void imgui_readonly(const char* label, const std::string& text)
-{
-    auto temp = text;
-    // ImGuiCol_FrameBg
-    ImGui::PushStyleColor(ImGuiCol_FrameBg, internal::colors::base);
-    ImGui::PushStyleColor(ImGuiCol_Text, internal::colors::text_label);
-    ImGui::InputText(label, &temp, ImGuiInputTextFlags_ReadOnly);
-    ImGui::PopStyleColor(2);
-}
-
-void imgui_readonly(const char* label, const v3& v)
-{
-    auto temp = v;
-    ImGui::PushStyleColor(ImGuiCol_FrameBg, internal::colors::base);
-    ImGui::PushStyleColor(ImGuiCol_Text, internal::colors::text_label);
-    ImGui::InputFloat3(label, temp.get_data_ptr(), "%.3f", ImGuiInputTextFlags_ReadOnly);
-    ImGui::PopStyleColor(2);
-}
-
-void imgui_readonly(const char* label, const Ypr& y)
-{
-    const auto temp = v3{ y.yaw.as_degrees() ,y.pitch.as_degrees(), y.roll.as_degrees() };
-    imgui_readonly(label, temp);
-}
-
-bool imgui_edit(const char* label, std::string* str)
-{
-    return ImGui::InputText(label, str);
-}
-
-void imgui_image(const char* name, const render::FrameBuffer& img, ImguiShaderCache* cache, ImageShader shader)
-{
-	const auto texture_size = ImVec2{float_from_int(img.size.width), float_from_int(img.size.height)};
-
-	// todo(Gustav): make the arguments widget_size and zoom level AND make them configurable (with scrolling)
-	static float widget_height = 100.0f;
-	static float region_size = 32.0f;
-	static float hover_size = 128.0f;
-	const auto& io = ImGui::GetIO();
-
-	imgui_text(fmt::format("{}: {}x{}", name, texture_size.x, texture_size.y));
-
-	const auto widget_width = (texture_size.x / texture_size.y) * widget_height;
-	const auto widget_size = ImVec2{widget_width, widget_height};
-
-	const auto pos = ImGui::GetCursorScreenPos();
-	constexpr auto uv_min = ImVec2{0.0f, 1.0f};	 // Top-left
-	constexpr auto uv_max = ImVec2{1.0f, 0.0f};	 // Lower-right
-	const auto border_col = ImGui::GetStyleColorVec4(ImGuiCol_Border);
-
-	static ImVec2 latest_tooltip;
-	static ImGuiID current_id = 0;
-
-	const constexpr char* const popup_id = "image config popup";
-
-    internal::draw_imgui_image(img, widget_size, uv_min, uv_max, border_col, cache, shader);
-	const auto id = ImGui::GetID(name);
-
-	if (id == current_id && ImGui::BeginPopupContextItem(popup_id))
-	{
-		ImGui::DragFloat("Base", &widget_height, 1.0f);
-		ImGui::DragFloat("Size", &region_size, 0.01f);
-		ImGui::DragFloat("Scale", &hover_size, 1.0f);
-        internal::image_tooltip(img, texture_size, region_size, hover_size, latest_tooltip, widget_size, pos, border_col, cache, shader);
-		if (ImGui::Button("Close"))
-		{
-			ImGui::CloseCurrentPopup();
-		}
-		ImGui::EndPopup();
-	}
-	ImGui::OpenPopupOnItemClick(popup_id, ImGuiPopupFlags_MouseButtonRight);
-
-	// todo(Gustav): look into SetItemTooltip and BeginItemTooltip from https://github.com/ocornut/imgui/releases/tag/v1.89.7
-	if (ImGui::IsItemHovered())
-	{
-		current_id = id;
-		latest_tooltip = io.MousePos;
-		if (ImGui::BeginTooltip())
-		{
-            internal::image_tooltip(img, texture_size, region_size, hover_size, io.MousePos, widget_size, pos, border_col, cache, shader);
-			ImGui::EndTooltip();
-		}
-	}
 }
 
 
@@ -1276,7 +1273,7 @@ void PropTable::text(const char* label, const std::string& str) const
 {
     internal::trow(*this, label, [&]
     {
-        eu::imgui::imgui_text(str);
+        internal::imgui_text(str);
         return false;
     });
 }
@@ -1285,7 +1282,7 @@ bool PropTable::edit(const char* label, std::string* str) const
 {
     return internal::trow(*this, label, [&]
     {
-        return eu::imgui::imgui_edit("", str);
+        return internal::imgui_edit("", str);
     });
 }
 
@@ -1302,7 +1299,7 @@ void PropTable::readonly(const char* label, const std::string& text) const
 {
     internal::trow(*this, label, [&]
     {
-        eu::imgui::imgui_readonly("", text);
+        internal::imgui_readonly("", text);
         return false;
     });
 }
@@ -1311,7 +1308,7 @@ void PropTable::readonly(const char* label, const eu::v3& v) const
 {
     internal::trow(*this, label, [&]
     {
-        eu::imgui::imgui_readonly("", v);
+        internal::imgui_readonly("", v);
         return false;
     });
 }
@@ -1320,7 +1317,7 @@ void PropTable::readonly(const char* label, const eu::Ypr& y) const
 {
     internal::trow(*this, label, [&]
     {
-        eu::imgui::imgui_readonly("", y);
+        internal::imgui_readonly("", y);
         return false;
     });
 }
@@ -1329,7 +1326,7 @@ void PropTable::image(const char* label, const render::FrameBuffer& img, ImguiSh
 {
     internal::trow(*this, label, [&]
     {
-        imgui::imgui_image("", img, cache, shader);
+        internal::imgui_image("", img, cache, shader);
         return false;
     });
 }
@@ -1485,7 +1482,7 @@ SCurveGuiState::SCurveGuiState(float x, float y)
 
 bool imgui_s_curve_editor(const char* title, core::SCurve* curve, SCurveGuiState* gui, FlipX flip_x, const ImVec2& requested_widget_size)
 {
-    imgui_text(fmt::format("{} ({} {})", title, curve->slope, curve->threshold));
+    internal::imgui_text(fmt::format("{} ({} {})", title, curve->slope, curve->threshold));
 
     ImGui::InvisibleButton(title, requested_widget_size);
     const auto widget_min = ImGui::GetItemRectMin();

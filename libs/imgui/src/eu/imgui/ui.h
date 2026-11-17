@@ -66,21 +66,10 @@ enum class ImageShader
 
 void setup_colors();
 
-void label(const char* label);
 bool button(const char* label);
 bool centered_button(const char* label);
 
 bool header(const char* label, bool* closeable = nullptr);
-
-void imgui_text(const std::string& str);
-
-bool imgui_edit(const char* label, std::string* str);
-
-void imgui_readonly(const char* label, const std::string& text);
-void imgui_readonly(const char* label, const v3& v);
-void imgui_readonly(const char* label, const Ypr& y);
-
-void imgui_image(const char* name, const render::FrameBuffer& img, ImguiShaderCache* cache, ImageShader shader);
 
 
 struct PropTable
