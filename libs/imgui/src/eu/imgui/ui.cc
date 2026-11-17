@@ -87,6 +87,7 @@ namespace internal
             glCompileShader(vert_handle);
             if (!check_imgui_shader(vert_handle, "vertex shader"))
             {
+                glDeleteShader(vert_handle);
                 return {};
             }
 
@@ -97,6 +98,8 @@ namespace internal
 
             if (!check_imgui_shader(frag_handle, "fragment shader"))
             {
+                glDeleteShader(vert_handle);
+                glDeleteShader(frag_handle);
                 return {};
             }
 
@@ -106,16 +109,18 @@ namespace internal
             glAttachShader(prog.program_handle, vert_handle);
             glAttachShader(prog.program_handle, frag_handle);
             glLinkProgram(prog.program_handle);
-            if (!imgui_check_program(prog.program_handle, "shader program"))
-            {
-                imgui_destroy_shader(&prog);
-                return {};
-            }
-
+            const auto shader_ok = imgui_check_program(prog.program_handle, "shader program");
+            
             glDetachShader(prog.program_handle, vert_handle);
             glDetachShader(prog.program_handle, frag_handle);
             glDeleteShader(vert_handle);
             glDeleteShader(frag_handle);
+
+            if (!shader_ok)
+            {
+                imgui_destroy_shader(&prog);
+                return {};
+            }
 
             prog.texture_attrib = glGetUniformLocation(prog.program_handle, "Texture");
             prog.projection_attrib = glGetUniformLocation(prog.program_handle, "ProjMtx");
