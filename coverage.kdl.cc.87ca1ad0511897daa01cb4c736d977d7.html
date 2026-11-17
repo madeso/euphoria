@@ -41,12 +41,12 @@
     <div class="col-sm-12 col-lg-3 float-left d-flex flex-column text-right flex-justify-end pr-3">
       <div class="d-flex">
         <div class="mr-2">Lines:</div>
-        <div class="mr-2" style="margin: auto;">0 / 318</div>
+        <div class="mr-2" style="margin: auto;">0 / 315</div>
         <div class="Label--minw"><span class="coverage-none IssueLabel color-fg-on-emphasis mr-1">0.0%</span></div>
       </div>
       <div class="d-flex">
         <div class="mr-2">Branches:</div>
-        <div class="mr-2" style="margin: auto;">0 / 165</div>
+        <div class="mr-2" style="margin: auto;">0 / 159</div>
         <div class="Label--minw"><span class="coverage-none IssueLabel color-fg-on-emphasis mr-1">0.0%</span></div>
       </div>
       <div class="d-flex">
@@ -527,7 +527,7 @@
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
   </div>
   <div class="Box-row Box-row--focus-gray py-2 d-flex">
-    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#L598">eu::kdl::parse(std::basic_string_view&lt;char, std::char_traits&lt;char&gt; &gt;, eu::kdl::Version)::{lambda()#1}::operator()() const (libs/kdl/src/eu/kdl/kdl.cc:598)</a>    </div>
+    <div role="gridcell" class="color-fg-muted flex-auto min-width-0 col-md-2"><a href="#L589">eu::kdl::parse(std::basic_string_view&lt;char, std::char_traits&lt;char&gt; &gt;, eu::kdl::Version)::{lambda()#1}::operator()() const (libs/kdl/src/eu/kdl/kdl.cc:589)</a>    </div>
     <div role="gridcell" class="color-fg-muted flex-auto min-width-0 d-flex flex-justify-end flex-wrap flex-items-baseline" data-sort="0">not called</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">0.0%</div>
     <div role="gridcell" class="color-fg-muted d-flex flex-justify-end flex-wrap col-2">-%</div>
@@ -542,7 +542,7 @@
   <div class="Box-header d-flex flex-space-between sticky">
     libs/kdl/src/eu/kdl/kdl.cc
     <div class="toggle-buttons">
-      <button type="button" class="button_toggle_uncoveredLine show_uncoveredLine" value="uncoveredLine" title="Toggle uncovered lines">300 uncovered</button>
+      <button type="button" class="button_toggle_uncoveredLine show_uncoveredLine" value="uncoveredLine" title="Toggle uncovered lines">297 uncovered</button>
     </div>
     <div class="nav">
       <a class="nav prev" href="coverage.mesh.cc.eb2f10801a26ff99f805eaf5e4bcadfc.html"></a>
@@ -4891,7 +4891,7 @@
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">parse</span><span class="p">(</span><span class="n">kdl_text</span><span class="p">,</span><span class="w"> </span><span class="n">Version</span><span class="o">::</span><span class="n">any</span><span class="p">);</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">parse</span><span class="p">(</span><span class="n">kdl_text</span><span class="p">,</span><span class="w"> </span><span class="n">Version</span><span class="o">::</span><span class="n">detect_version</span><span class="p">);</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="L559" href="#L559">559</a></td>
@@ -4944,7 +4944,7 @@
               <div class="color-fg-danger">&cross; Branch  2 &rightarrow; 3 not taken.</div>
               <div class="color-fg-danger">&cross; Branch  2 &rightarrow; 4 not taken.</div>
               <div class="color-fg-danger">&cross; Branch  2 &rightarrow; 5 not taken.</div>
-              <div class="color-fg-danger">&cross; Branch  2 &rightarrow; 14 not taken.</div>
+              <div class="color-fg-danger">&cross; Branch  2 &rightarrow; 6 not taken.</div>
             </div>
           </details>
         </td>
@@ -5005,140 +5005,133 @@
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">Version</span><span class="o">::</span><span class="no">any</span><span class="p">:</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">Version</span><span class="o">::</span><span class="no">detect_version</span><span class="p">:</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="L574" href="#L574">574</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
-        <td class="linecount pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="p">{</span></td>
+        <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">opts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">KDL_DETECT_VERSION</span><span class="p">;</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="L575" href="#L575">575</a></td>
         <td class="text-right src linenos ws-unset">
-          <details class="normal details-overlay">
-            <summary>0/2</summary>
-            <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
-              <div class="color-fg-danger">&cross; Branch  5 &rightarrow; 6 not taken.</div>
-              <div class="color-fg-danger">&cross; Branch  5 &rightarrow; 29 not taken.</div>
-            </div>
-          </details>
         </td>
         <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="k">auto</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parse</span><span class="p">(</span><span class="n">kdl_text</span><span class="p">,</span><span class="w"> </span><span class="n">Version</span><span class="o">::</span><span class="n">kdl_2</span><span class="p">);</span></td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="k">break</span><span class="p">;</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="L576" href="#L576">576</a></td>
-        <td class="text-right src linenos ws-unset">
-          <details class="normal details-overlay">
-            <summary>0/2</summary>
-            <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
-              <div class="color-fg-danger">&cross; Branch  7 &rightarrow; 8 not taken.</div>
-              <div class="color-fg-danger">&cross; Branch  7 &rightarrow; 10 not taken.</div>
-            </div>
-          </details>
-        </td>
-        <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="p">.</span><span class="n">document</span><span class="p">.</span><span class="n">has_value</span><span class="p">())</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="L577" href="#L577">577</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="linecount pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">            </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="L578" href="#L578">578</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="L579" href="#L579">579</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="linecount pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">            </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="L580" href="#L580">580</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="linecount pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">            </span><span class="k">else</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="L581" href="#L581">581</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="linecount pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">            </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="L582" href="#L582">582</a></td>
-        <td class="text-right src linenos ws-unset">
-          <details class="normal details-overlay">
-            <summary>0/2</summary>
-            <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
-              <div class="color-fg-danger">&cross; Branch  10 &rightarrow; 11 not taken.</div>
-              <div class="color-fg-danger">&cross; Branch  10 &rightarrow; 27 not taken.</div>
-            </div>
-          </details>
-        </td>
-        <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">parse</span><span class="p">(</span><span class="n">kdl_text</span><span class="p">,</span><span class="w"> </span><span class="n">Version</span><span class="o">::</span><span class="n">kdl_1</span><span class="p">);</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="L583" href="#L583">583</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="linecount pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">            </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="L584" href="#L584">584</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="L585" href="#L585">585</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="linecount pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="L586" href="#L586">586</a></td>
+        <td class="text-right src linenos"><a class="normal" id="L577" href="#L577">577</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">default</span><span class="o">:</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="L587" href="#L587">587</a></td>
+        <td class="text-right src linenos"><a class="normal" id="L578" href="#L578">578</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">assert</span><span class="p">(</span><span class="nb">false</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="s">&quot;unhandled case&quot;</span><span class="p">);</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="L588" href="#L588">588</a></td>
+        <td class="text-right src linenos"><a class="normal" id="L579" href="#L579">579</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="linecount pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">        </span><span class="k">break</span><span class="p">;</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="L589" href="#L589">589</a></td>
+        <td class="text-right src linenos"><a class="normal" id="L580" href="#L580">580</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="linecount pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="w">    </span><span class="p">}</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="L581" href="#L581">581</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="linecount pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="L582" href="#L582">582</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">kdl_str</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">kdl_text</span><span class="p">.</span><span class="n">data</span><span class="p">()),</span><span class="w"> </span><span class="p">.</span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kdl_text</span><span class="p">.</span><span class="n">size</span><span class="p">()};</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="L583" href="#L583">583</a></td>
+        <td class="text-right src linenos ws-unset">
+          <details class="normal details-overlay">
+            <summary>0/2</summary>
+            <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
+              <div class="color-fg-danger">&cross; Branch  9 &rightarrow; 10 not taken.</div>
+              <div class="color-fg-danger">&cross; Branch  9 &rightarrow; 21 not taken.</div>
+            </div>
+          </details>
+        </td>
+        <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="n">kdl_parser</span><span class="o">*</span><span class="w"> </span><span class="n">parser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kdl_create_string_parser</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="n">opts</span><span class="p">);</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="L584" href="#L584">584</a></td>
+        <td class="text-right src linenos ws-unset">
+          <details class="normal details-overlay">
+            <summary>0/2</summary>
+            <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
+              <div class="color-fg-danger">&cross; Branch  10 &rightarrow; 11 not taken.</div>
+              <div class="color-fg-danger">&cross; Branch  10 &rightarrow; 12 not taken.</div>
+            </div>
+          </details>
+        </td>
+        <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">parser</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="L585" href="#L585">585</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="linecount pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">    </span><span class="p">{</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="L586" href="#L586">586</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">assert</span><span class="p">(</span><span class="nb">false</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="s">&quot;Error initializing the KDL parser&quot;</span><span class="p">);</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="L587" href="#L587">587</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="linecount pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">DocumentResult</span><span class="p">(</span><span class="s">&quot;internal error&quot;</span><span class="p">);</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="L588" href="#L588">588</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="linecount pr-2 pl-2 color-fg-muted text-right"></td>
+        <td class="src"><span class="w">    </span><span class="p">}</span></td>
+      </tr>
+      <tr>
+        <td class="text-right src linenos"><a class="normal" id="L589" href="#L589">589</a></td>
+        <td class="text-right src linenos ws-unset">
+        </td>
+        <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
+        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">defer_parser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Defer</span><span class="p">{[</span><span class="o">&amp;</span><span class="p">]{</span><span class="w"> </span><span class="n">kdl_destroy_parser</span><span class="p">(</span><span class="n">parser</span><span class="p">);</span><span class="w"> </span><span class="p">}};</span></td>
       </tr>
       <tr>
         <td class="text-right src linenos"><a class="normal" id="L590" href="#L590">590</a></td>
@@ -5150,88 +5143,11 @@
       <tr>
         <td class="text-right src linenos"><a class="normal" id="L591" href="#L591">591</a></td>
         <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">kdl_str</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">kdl_text</span><span class="p">.</span><span class="n">data</span><span class="p">()),</span><span class="w"> </span><span class="p">.</span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kdl_text</span><span class="p">.</span><span class="n">size</span><span class="p">()};</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="L592" href="#L592">592</a></td>
-        <td class="text-right src linenos ws-unset">
           <details class="normal details-overlay">
             <summary>0/2</summary>
             <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
-              <div class="color-fg-danger">&cross; Branch  17 &rightarrow; 18 not taken.</div>
-              <div class="color-fg-danger">&cross; Branch  17 &rightarrow; 32 not taken.</div>
-            </div>
-          </details>
-        </td>
-        <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="n">kdl_parser</span><span class="o">*</span><span class="w"> </span><span class="n">parser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kdl_create_string_parser</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="n">opts</span><span class="p">);</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="L593" href="#L593">593</a></td>
-        <td class="text-right src linenos ws-unset">
-          <details class="normal details-overlay">
-            <summary>0/2</summary>
-            <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
-              <div class="color-fg-danger">&cross; Branch  18 &rightarrow; 19 not taken.</div>
-              <div class="color-fg-danger">&cross; Branch  18 &rightarrow; 20 not taken.</div>
-            </div>
-          </details>
-        </td>
-        <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">parser</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="L594" href="#L594">594</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="linecount pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">{</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="L595" href="#L595">595</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">        </span><span class="n">assert</span><span class="p">(</span><span class="nb">false</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="s">&quot;Error initializing the KDL parser&quot;</span><span class="p">);</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="L596" href="#L596">596</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="linecount pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">DocumentResult</span><span class="p">(</span><span class="s">&quot;internal error&quot;</span><span class="p">);</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="L597" href="#L597">597</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="linecount pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"><span class="w">    </span><span class="p">}</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="L598" href="#L598">598</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
-        <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">defer_parser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Defer</span><span class="p">{[</span><span class="o">&amp;</span><span class="p">]{</span><span class="w"> </span><span class="n">kdl_destroy_parser</span><span class="p">(</span><span class="n">parser</span><span class="p">);</span><span class="w"> </span><span class="p">}};</span></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="L599" href="#L599">599</a></td>
-        <td class="text-right src linenos ws-unset">
-        </td>
-        <td class="linecount pr-2 pl-2 color-fg-muted text-right"></td>
-        <td class="src"></td>
-      </tr>
-      <tr>
-        <td class="text-right src linenos"><a class="normal" id="L600" href="#L600">600</a></td>
-        <td class="text-right src linenos ws-unset">
-          <details class="normal details-overlay">
-            <summary>0/2</summary>
-            <div class="text-left position-absolute color-bg-subtle p-3 mt-2" style="z-index: 1;">
-              <div class="color-fg-danger">&cross; Branch  21 &rightarrow; 22 not taken.</div>
-              <div class="color-fg-danger">&cross; Branch  21 &rightarrow; 30 not taken.</div>
+              <div class="color-fg-danger">&cross; Branch  13 &rightarrow; 14 not taken.</div>
+              <div class="color-fg-danger">&cross; Branch  13 &rightarrow; 19 not taken.</div>
             </div>
           </details>
         </td>
@@ -5239,35 +5155,35 @@
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">document_read_from</span><span class="p">(</span><span class="n">parser</span><span class="p">);</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="L601" href="#L601">601</a></td>
+        <td class="text-right src linenos"><a class="normal" id="L592" href="#L592">592</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">doc</span><span class="p">;</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="L602" href="#L602">602</a></td>
+        <td class="text-right src linenos"><a class="normal" id="L593" href="#L593">593</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="linecount uncoveredLine show_uncoveredLine pr-2 pl-2 color-fg-muted text-right">&cross;</td>
         <td class="src uncoveredLine show_uncoveredLine"><span class="p">}</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="L603" href="#L603">603</a></td>
+        <td class="text-right src linenos"><a class="normal" id="L594" href="#L594">594</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="linecount pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="L604" href="#L604">604</a></td>
+        <td class="text-right src linenos"><a class="normal" id="L595" href="#L595">595</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="linecount pr-2 pl-2 color-fg-muted text-right"></td>
         <td class="src"><span class="p">}</span></td>
       </tr>
       <tr>
-        <td class="text-right src linenos"><a class="normal" id="L605" href="#L605">605</a></td>
+        <td class="text-right src linenos"><a class="normal" id="L596" href="#L596">596</a></td>
         <td class="text-right src linenos ws-unset">
         </td>
         <td class="linecount pr-2 pl-2 color-fg-muted text-right"></td>
@@ -5280,7 +5196,7 @@
         <hr class="block-separator"/>
         <footer class="text-center">
           Created using <a href="http://gcovr.com/en/8.8">GCOVR (Version 8.8)</a>
-          at 2026-11-16 21:13:25+00:00
+          at 2026-11-17 16:03:59+00:00
         </footer>
       </div>
     </div>

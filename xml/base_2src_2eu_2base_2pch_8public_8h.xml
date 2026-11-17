@@ -5,7 +5,6 @@
     <includes refid="fmt_2src_2eu_2fmt_2pch_8public_8h" local="yes">eu/fmt/pch.public.h</includes>
     <includes refid="log_8h" local="yes">eu/log/log.h</includes>
     <includes refid="assert_8h" local="yes">eu/assert/assert.h</includes>
-    <includes refid="std_8h" local="yes">eu/base/std.h</includes>
     <includes refid="base_8h" local="yes">eu/base/base.h</includes>
     <includedby refid="base_8h" local="yes">libs/base/src/eu/base/base.h</includedby>
     <includedby refid="core_2src_2eu_2core_2pch_8private_8h" local="yes">libs/core/src/eu/core/pch.private.h</includedby>
@@ -40,9 +39,11 @@
         <childnode refid="17" relation="include">
         </childnode>
       </node>
-      <node id="16">
+      <node id="10">
         <label>eu/base/base.h</label>
         <link refid="base_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
         <childnode refid="17" relation="include">
         </childnode>
         <childnode refid="21" relation="include">
@@ -89,6 +90,8 @@
         </childnode>
         <childnode refid="44" relation="include">
         </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
       </node>
       <node id="25">
         <label>eu/base/cint.h</label>
@@ -106,6 +109,10 @@
         <label>eu/base/cpp.h</label>
         <link refid="cpp_8h"/>
       </node>
+      <node id="45">
+        <label>eu/base/defer.h</label>
+        <link refid="defer_8h"/>
+      </node>
       <node id="27">
         <label>eu/base/feature_flags.h</label>
         <link refid="feature__flags_8h"/>
@@ -115,9 +122,9 @@
         <link refid="guid_8h"/>
         <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="15" relation="include">
+        <childnode refid="16" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
         <childnode refid="19" relation="include">
         </childnode>
@@ -137,7 +144,7 @@
         <link refid="hash_8string_8h"/>
         <childnode refid="19" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
@@ -181,7 +188,7 @@
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
+        <childnode refid="11" relation="include">
         </childnode>
       </node>
       <node id="1">
@@ -194,8 +201,6 @@
         <childnode refid="8" relation="include">
         </childnode>
         <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
         </childnode>
       </node>
       <node id="35">
@@ -236,22 +241,22 @@
         <label>eu/base/size.h</label>
         <link refid="size_8h"/>
       </node>
-      <node id="10">
+      <node id="11">
         <label>eu/base/std.h</label>
         <link refid="std_8h"/>
-        <childnode refid="11" relation="include">
-        </childnode>
         <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="9" relation="include">
+        <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="14" relation="include">
         </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
         <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
         </childnode>
       </node>
       <node id="44">
@@ -306,7 +311,7 @@
         <childnode refid="7" relation="include">
         </childnode>
       </node>
-      <node id="14">
+      <node id="15">
         <label>array</label>
       </node>
       <node id="20">
@@ -324,22 +329,22 @@
       <node id="22">
         <label>iostream</label>
       </node>
-      <node id="15">
+      <node id="16">
         <label>optional</label>
       </node>
-      <node id="11">
+      <node id="12">
         <label>ostream</label>
       </node>
       <node id="43">
         <label>set</label>
       </node>
-      <node id="12">
+      <node id="13">
         <label>sstream</label>
       </node>
       <node id="7">
         <label>string</label>
       </node>
-      <node id="13">
+      <node id="14">
         <label>string_view</label>
       </node>
       <node id="24">

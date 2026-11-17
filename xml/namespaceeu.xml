@@ -13,6 +13,7 @@
     <innerclass refid="structeu_1_1OkLch" prot="public">eu::OkLch</innerclass>
     <innerclass refid="structeu_1_1OkLab" prot="public">eu::OkLab</innerclass>
     <innerclass refid="structeu_1_1Color" prot="public">eu::Color</innerclass>
+    <innerclass refid="structeu_1_1Defer" prot="public">eu::Defer</innerclass>
     <innerclass refid="structeu_1_1Guid" prot="public">eu::Guid</innerclass>
     <innerclass refid="structeu_1_1HshSt" prot="public">eu::HshSt</innerclass>
     <innerclass refid="structeu_1_1Hsh" prot="public">eu::Hsh</innerclass>

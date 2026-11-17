@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="structeu_1_1Defer" kind="struct" language="C++" prot="public">
+    <compoundname>eu::Defer</compoundname>
+    <includes refid="defer_8h" local="no">defer.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeu_1_1Defer_1a0072bd69221ca4c10fee902cf1220147" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T eu::Defer&lt; T &gt;::defer</definition>
+        <argsstring></argsstring>
+        <name>defer</name>
+        <qualifiedname>eu::Defer::defer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/defer.h" line="9" column="7" bodyfile="libs/base/src/eu/base/defer.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeu_1_1Defer_1a6d6f598914a19038f0e6e7695906ace6" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::Defer&lt; T &gt;::Defer</definition>
+        <argsstring>(T t)</argsstring>
+        <name>Defer</name>
+        <qualifiedname>eu::Defer::Defer</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/defer.h" line="10" column="14" bodyfile="libs/base/src/eu/base/defer.h" bodystart="10" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Defer_1accab6f92e5492be446931ec328c2960e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>eu::Defer&lt; T &gt;::~Defer</definition>
+        <argsstring>()</argsstring>
+        <name>~Defer</name>
+        <qualifiedname>eu::Defer::~Defer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/defer.h" line="11" column="5" bodyfile="libs/base/src/eu/base/defer.h" bodystart="11" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Defer_1ac82f8038a5cf8d132ee03b7f1c6cca81" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::Defer&lt; T &gt;::Defer</definition>
+        <argsstring>(const Defer &amp;)=delete</argsstring>
+        <name>Defer</name>
+        <qualifiedname>eu::Defer::Defer</qualifiedname>
+        <param>
+          <type>const Defer &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/defer.h" line="16" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Defer_1a1419fa411ccb9be113f43f4746ec47a1" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>eu::Defer&lt; T &gt;::Defer</definition>
+        <argsstring>(Defer &amp;&amp;)=delete</argsstring>
+        <name>Defer</name>
+        <qualifiedname>eu::Defer::Defer</qualifiedname>
+        <param>
+          <type>Defer &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/defer.h" line="17" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Defer_1abd792e2a7614976fedfda3255f603093" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::Defer&lt; T &gt;::operator=</definition>
+        <argsstring>(const Defer &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>eu::Defer::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="structeu_1_1Defer_1a6d6f598914a19038f0e6e7695906ace6" kindref="member">Defer</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/defer.h" line="18" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="structeu_1_1Defer_1a1e9323063c3429249c99d1487e46999e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::Defer&lt; T &gt;::operator=</definition>
+        <argsstring>(Defer &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>eu::Defer::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structeu_1_1Defer_1a6d6f598914a19038f0e6e7695906ace6" kindref="member">Defer</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/defer.h" line="19" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/base/src/eu/base/defer.h" line="7" column="1" bodyfile="libs/base/src/eu/base/defer.h" bodystart="8" bodyend="20"/>
+    <listofallmembers>
+      <member refid="structeu_1_1Defer_1a6d6f598914a19038f0e6e7695906ace6" prot="public" virt="non-virtual"><scope>eu::Defer</scope><name>Defer</name></member>
+      <member refid="structeu_1_1Defer_1ac82f8038a5cf8d132ee03b7f1c6cca81" prot="public" virt="non-virtual"><scope>eu::Defer</scope><name>Defer</name></member>
+      <member refid="structeu_1_1Defer_1a1419fa411ccb9be113f43f4746ec47a1" prot="public" virt="non-virtual"><scope>eu::Defer</scope><name>Defer</name></member>
+      <member refid="structeu_1_1Defer_1a0072bd69221ca4c10fee902cf1220147" prot="public" virt="non-virtual"><scope>eu::Defer</scope><name>defer</name></member>
+      <member refid="structeu_1_1Defer_1abd792e2a7614976fedfda3255f603093" prot="public" virt="non-virtual"><scope>eu::Defer</scope><name>operator=</name></member>
+      <member refid="structeu_1_1Defer_1a1e9323063c3429249c99d1487e46999e" prot="public" virt="non-virtual"><scope>eu::Defer</scope><name>operator=</name></member>
+      <member refid="structeu_1_1Defer_1accab6f92e5492be446931ec328c2960e" prot="public" virt="non-virtual"><scope>eu::Defer</scope><name>~Defer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

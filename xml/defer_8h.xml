@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="defer_8h" kind="file" language="C++">
+    <compoundname>defer.h</compoundname>
+    <includedby refid="base_8h" local="yes">libs/base/src/eu/base/base.h</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>libs/base/src/eu/base/base.h</label>
+        <link refid="base_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libs/base/src/eu/base/defer.h</label>
+        <link refid="defer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>libs/base/src/eu/base/pch.public.h</label>
+        <link refid="base_2src_2eu_2base_2pch_8public_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>libs/core/src/eu/core/pch.private.h</label>
+        <link refid="core_2src_2eu_2core_2pch_8private_8h"/>
+      </node>
+      <node id="5">
+        <label>libs/imgui/src/eu/imgui/pch.private.h</label>
+        <link refid="imgui_2src_2eu_2imgui_2pch_8private_8h"/>
+      </node>
+      <node id="6">
+        <label>libs/io/src/eu/io/pch.private.h</label>
+        <link refid="io_2src_2eu_2io_2pch_8private_8h"/>
+      </node>
+      <node id="7">
+        <label>libs/mrgui/src/eu/mrgui/pch.private.h</label>
+        <link refid="mrgui_2src_2eu_2mrgui_2pch_8private_8h"/>
+      </node>
+      <node id="8">
+        <label>libs/render/src/eu/render/pch.private.h</label>
+        <link refid="render_2src_2eu_2render_2pch_8private_8h"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structeu_1_1Defer" prot="public">eu::Defer</innerclass>
+    <innernamespace refid="namespaceeu">eu</innernamespace>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="defer_8h_1ad5e9fdd0b153c0136cfa0835cffb1770" prot="public" static="no">
+        <name>EU_JOIN</name>
+        <param><defname>lhs</defname></param>
+        <param><defname>rhs</defname></param>
+        <initializer>lhs ## rhs</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/defer.h" line="24" column="9" bodyfile="libs/base/src/eu/base/defer.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="defer_8h_1a0f9fd5423f66f89755c7513636770268" prot="public" static="no">
+        <name>EU_PASTE</name>
+        <param><defname>lhs</defname></param>
+        <param><defname>rhs</defname></param>
+        <initializer><ref refid="defer_8h_1ad5e9fdd0b153c0136cfa0835cffb1770" kindref="member">EU_JOIN</ref>(lhs, rhs)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/defer.h" line="25" column="9" bodyfile="libs/base/src/eu/base/defer.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="defer_8h_1a92306b76ff8a5d144a8aaa9605bb33c1" prot="public" static="no">
+        <name>EU_DEFER</name>
+        <param><defname>x</defname></param>
+        <initializer>const auto <ref refid="defer_8h_1a0f9fd5423f66f89755c7513636770268" kindref="member">EU_PASTE</ref>(defer_, __LINE__) = <ref refid="structeu_1_1Defer" kindref="compound">::eu::Defer</ref>{[&amp;] {x;}}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/base/src/eu/base/defer.h" line="26" column="9" bodyfile="libs/base/src/eu/base/defer.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/base/src/eu/base/defer.h"/>
+  </compounddef>
+</doxygen>

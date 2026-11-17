@@ -8,6 +8,7 @@
     <innerfile refid="cint_8h">cint.h</innerfile>
     <innerfile refid="colors_8h">colors.h</innerfile>
     <innerfile refid="cpp_8h">cpp.h</innerfile>
+    <innerfile refid="defer_8h">defer.h</innerfile>
     <innerfile refid="feature__flags_8h">feature_flags.h</innerfile>
     <innerfile refid="guid_8h">guid.h</innerfile>
     <innerfile refid="hash_8set_8h">hash.set.h</innerfile>
