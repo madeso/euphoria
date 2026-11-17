@@ -428,14 +428,19 @@ namespace eu
 
     [[nodiscard]]
     m4
-    m4::Create_Perspective(const An& fov, float a, float near, float far)
+    m4::Create_Perspective(const An& fov, float aspect_ratio, float near, float far)
     {
+        ASSERTX(fov > 0_deg && fov < 180_deg, fov);
+        ASSERTX(aspect_ratio > 0.0f, aspect_ratio);
+        ASSERTX(0.0f < near && near < far, near, far);
+
         const float t = 1 / tan(fov / 2);
         const float zm = far - near;
         const float zp = far + near;
+
         return From_Row_Major
         (
-            t / a, 0, 0, 0,
+            t / aspect_ratio, 0, 0, 0,
             0, t, 0, 0,
             0, 0, -zp / zm, (-2 * far * near) / zm,
             0, 0, -1, 0
