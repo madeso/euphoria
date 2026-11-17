@@ -20,6 +20,7 @@ set(app_src
     src/eu/base/rect.cc src/eu/base/rect.h
     src/eu/base/size.cc src/eu/base/size.h
     src/eu/base/memorychunk.cc src/eu/base/memorychunk.h
+    src/eu/base/defer.cc src/eu/base/defer.h
 
     src/eu/base/feature_flags.h
     src/eu/base/cint.h
