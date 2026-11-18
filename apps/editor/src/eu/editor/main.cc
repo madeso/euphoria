@@ -304,6 +304,16 @@ AppState App::iterate()
         }
 
         eu::imgui::centered_button("Add component");
+
+        eu::imgui::button("Revert changes", eu::imgui::ButtonStyle::secondary);
+        ImGui::SameLine();
+        eu::imgui::button("Apply ", eu::imgui::ButtonStyle::primary);
+
+        eu::imgui::button("A", eu::imgui::ButtonStyle::toolbar);
+        ImGui::SameLine();
+        eu::imgui::button("B", eu::imgui::ButtonStyle::toolbar);
+        ImGui::SameLine();
+        eu::imgui::button("C", eu::imgui::ButtonStyle::toolbar);
     }
     ImGui::End();
 

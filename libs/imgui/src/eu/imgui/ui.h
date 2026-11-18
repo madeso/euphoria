@@ -66,8 +66,13 @@ enum class ImageShader
 
 void setup_colors();
 
-bool button(const char* label);
-bool centered_button(const char* label);
+enum class ButtonStyle
+{
+    secondary, primary, toolbar
+};
+
+bool button(const char* label, ButtonStyle style = ButtonStyle::secondary, const std::optional<ImVec2>& button_size = std::nullopt);
+bool centered_button(const char* label, ButtonStyle style = ButtonStyle::secondary, const std::optional<ImVec2>& button_size = std::nullopt);
 
 bool header(const char* label, bool* closeable = nullptr);
 

@@ -300,12 +300,6 @@ namespace internal
             return size;
         }
 
-        // todo(Gustav): remove
-        // ImVec2 calc_button_size(const char* label, const ImVec2& size_arg = ImVec2(0, 0))
-        // {
-        //     return calc_button_size(ImGui::CalcTextSize(label, nullptr, true), size_arg);
-        // }
-
         constexpr float c(int r)
         {
             return static_cast<float>(r) * (1.0f / 255.0f);
@@ -524,9 +518,9 @@ namespace internal
 
         struct ButtonStateStyle
         {
-            ImVec4 background;
+            std::optional<ImVec4> background;
             ImVec4 text;
-            ImVec4 border;
+            std::optional<ImVec4> border;
         };
 
         struct ButtonStyle
@@ -554,7 +548,10 @@ namespace internal
                 (is_hover ? style.hover : style.idle);
 
             // background
-            draw->AddRectFilled(min, max, ImColor{ color.background }, imstyle.ChildRounding);
+            if (const auto& bkg = color.background; bkg.has_value())
+            {
+                draw->AddRectFilled(min, max, ImColor{ *bkg }, imstyle.ChildRounding);
+            }
 
             // label
             {
@@ -565,7 +562,10 @@ namespace internal
             }
 
             // border
-            draw->AddRect(min, max, ImColor{ color.border }, imstyle.ChildRounding);
+            if (const auto& border = color.border; border.has_value())
+            {
+                draw->AddRect(min, max, ImColor{ *border }, imstyle.ChildRounding);
+            }
 
             set_hover_cursor();
 
@@ -657,7 +657,9 @@ namespace internal
                 {
                     styled_button(style, label, button_size);
 
-                    const auto gear = gear_functionality(val, style.active.border);
+                    const auto gear_color = style.active.border.value_or(style.active.text);
+
+                    const auto gear = gear_functionality(val, gear_color);
                     if (gear.changed)
                     {
                         changed = true;
@@ -680,7 +682,10 @@ namespace internal
                     if (dragging || ImGui::IsItemActive() || gear.is_outside)
                     {
                         auto* draw = ImGui::GetWindowDrawList();
-                        draw->AddRect(min, max, ImColor{ style.active.border }, ImGui::GetStyle().ChildRounding);
+                        if (const auto& border = style.active.border; border.has_value())
+                        {
+                            draw->AddRect(min, max, ImColor{ *border }, ImGui::GetStyle().ChildRounding);
+                        }
                     }
 
                     ImGui::PopItemWidth();
@@ -966,6 +971,61 @@ namespace internal
                 }
             }
         }
+
+
+        constexpr ButtonStyle primary_button_style = {
+            .idle = {
+                .background = rgb(132, 204, 22),
+                .text = rgb(9, 9, 11),
+                .border = rgb(163, 230, 53)
+            },
+            .hover = {
+                .background = rgb(163, 230, 53),
+                .text = rgb(9, 9, 11),
+                .border = rgb(190, 242, 100)
+            },
+            .active = {
+                .background = rgb(101, 163, 13),
+                .text = rgb(9, 9, 11),
+                .border = rgb(77, 124, 15)
+            }
+        };
+
+        constexpr ButtonStyle secondary_button_style = {
+            .idle = {
+                .background = rgb(33, 37, 43),
+                .text = rgb(228, 228, 231),
+                .border = rgb(46, 51, 61)
+            },
+            .hover = {
+                .background = rgb(42, 48, 56),
+                .text = rgb(255, 255, 255),
+                .border = rgb(132, 204, 22)
+            },
+            .active = {
+                .background = rgb(31, 45, 24),
+                .text = rgb(163, 230, 53),
+                .border = rgb(132, 204, 22)
+            }
+        };
+
+        constexpr ButtonStyle toolbar_button_style = {
+            .idle = {
+                .background = std::nullopt,
+                .text = rgb(161, 161, 170),
+                .border = std::nullopt
+            },
+            .hover = {
+                .background = rgb(33, 37, 43),
+                .text = rgb(244, 244, 245),
+                .border = rgb(63, 63, 70)
+            },
+            .active = {
+                .background = rgb(25, 36, 22),
+                .text = rgb(190, 242, 100),
+                .border = rgb(101, 163, 13)
+            }
+        };
     }
 }
 
@@ -1165,25 +1225,28 @@ void setup_colors()
     style.TabBorderSize = 1.0f;
 }
 
-bool button(const char* label)
+internal::ButtonStyle colors_from_style(ButtonStyle style)
 {
-    const ImGuiStyle& style = ImGui::GetStyle();
+    switch (style)
+    {
+    case ButtonStyle::secondary:
+        return internal::secondary_button_style;
+    case ButtonStyle::primary:
+        return internal::primary_button_style;
+    case ButtonStyle::toolbar:
+        return internal::toolbar_button_style;
+    default:
+        DIE("Invalid color");
+        return internal::secondary_button_style;
+    }
+}
 
+bool button(const char* label, ButtonStyle style, const std::optional<ImVec2>& button_size)
+{
     ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(10.0f, 7.0f)); // todo(Gustav): make configurable
 
-    const auto clicked = ImGui::Button(label);
-
-    // todo(Gustav): when active, switch text color to lime
-
-    {
-        const auto min = ImGui::GetItemRectMin();
-        const auto max = ImGui::GetItemRectMax();
-
-        auto* draw = ImGui::GetWindowDrawList();
-        draw->AddRect(min, max, ImColor{
-            ImGui::IsItemHovered() ? internal::colors::button_active_border : internal::colors::button_default_border }, style.ChildRounding);
-    }
-
+    const auto clicked = internal::styled_button(colors_from_style(style), label, button_size);
+    
     ImGui::PopStyleVar();
 
     internal::set_hover_cursor();
@@ -1191,7 +1254,7 @@ bool button(const char* label)
     return clicked;
 }
 
-bool centered_button(const char* label)
+bool centered_button(const char* label, ButtonStyle style, const std::optional<ImVec2>& button_size)
 {
     const auto window_width = ImGui::GetContentRegionAvail().x;
     const auto text_width = ImGui::CalcTextSize(label).x;
@@ -1199,7 +1262,7 @@ bool centered_button(const char* label)
     const auto whitespace = window_width - text_width - padding_hor;
     const float x = whitespace * 0.5f;
     ImGui::SetCursorPosX(x);
-    return button(label);
+    return button(label, style, button_size);
 }
 
 
