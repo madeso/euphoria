@@ -1220,7 +1220,7 @@ void setup_colors()
 
     // Rounded corners
     style.WindowRounding = 6.0f;
-    style.ChildRounding = 6.0f;
+    style.ChildRounding = 2.0f;
     style.FrameRounding = 4.0f;
     style.PopupRounding = 4.0f;
     style.ScrollbarRounding = 9.0f;
