@@ -305,7 +305,9 @@ AppState App::iterate()
 
         eu::imgui::centered_button("Add component");
 
-        eu::imgui::button("Revert changes", eu::imgui::ButtonStyle::secondary);
+        eu::imgui::button("Generic action", eu::imgui::ButtonStyle::secondary);
+
+        eu::imgui::button("Revert changes", eu::imgui::ButtonStyle::danger);
         ImGui::SameLine();
         eu::imgui::button("Apply ", eu::imgui::ButtonStyle::primary);
 

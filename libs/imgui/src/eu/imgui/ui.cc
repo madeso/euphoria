@@ -1009,6 +1009,25 @@ namespace internal
             }
         };
 
+        constexpr ButtonStyle danger_button_style = {
+            .idle = {
+                // .background = rgb(25, 28, 33),
+                .background = rgb(11, 14, 19),
+                .text = rgb(148, 163, 184),
+                .border = rgb(46, 51, 61)
+            },
+            .hover = {
+                .background = rgb(38, 41, 48),
+                .text = rgb(251, 191, 36),
+                .border = rgb(245, 158, 11)
+            },
+            .active = {
+                .background = rgb(69, 26, 3),
+                .text = rgb(254, 243, 199),
+                .border = rgb(217, 119, 6)
+            }
+        };
+
         constexpr ButtonStyle toolbar_button_style = {
             .idle = {
                 .background = std::nullopt,
@@ -1233,6 +1252,8 @@ internal::ButtonStyle colors_from_style(ButtonStyle style)
         return internal::secondary_button_style;
     case ButtonStyle::primary:
         return internal::primary_button_style;
+    case ButtonStyle::danger:
+        return internal::danger_button_style;
     case ButtonStyle::toolbar:
         return internal::toolbar_button_style;
     default:

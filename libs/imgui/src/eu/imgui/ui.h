@@ -68,7 +68,7 @@ void setup_colors();
 
 enum class ButtonStyle
 {
-    secondary, primary, toolbar
+    secondary, primary, danger, toolbar
 };
 
 bool button(const char* label, ButtonStyle style = ButtonStyle::secondary, const std::optional<ImVec2>& button_size = std::nullopt);
