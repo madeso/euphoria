@@ -112,6 +112,13 @@
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
+        <enumvalue id="namespaceeu_1_1imgui_1ab7edc553ac09fa362d9c9e11b15240e1ab136ee6c797c1a851260b9c1ab5ff414" prot="public">
+          <name>danger</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
         <enumvalue id="namespaceeu_1_1imgui_1ab7edc553ac09fa362d9c9e11b15240e1af50b3c2aa6125e65df874c95b2df8f9a" prot="public">
           <name>toolbar</name>
           <briefdescription>
