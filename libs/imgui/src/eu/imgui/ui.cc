@@ -516,21 +516,21 @@ namespace internal
             float v_max = 0.0f;
         };
 
-        struct ButtonStateStyle
+        struct ButtonStateColor
         {
             std::optional<ImVec4> background;
             ImVec4 text;
             std::optional<ImVec4> border;
         };
 
-        struct ButtonStyle
+        struct ButtonColor
         {
-            ButtonStateStyle idle;
-            ButtonStateStyle hover;
-            ButtonStateStyle active;
+            ButtonStateColor idle;
+            ButtonStateColor hover;
+            ButtonStateColor active;
         };
 
-        bool styled_button(const ButtonStyle& style, const char* label, const std::optional<ImVec2>& button_size = std::nullopt, bool interactive = true)
+        bool styled_button(const ButtonColor& style, const char* label, const std::optional<ImVec2>& button_size = std::nullopt, bool interactive = true)
         {
             const ImVec2 label_size = ImGui::CalcTextSize(label, nullptr, true);
             const ImVec2 size = button_size.value_or(calc_button_size(label_size));
@@ -622,7 +622,7 @@ namespace internal
             }
             ImGui::PushMultiItemsWidths(3, full_width - 3 * button_size.x - extra_spacing.value_or(0.0f));
 
-            constexpr auto red_style = ButtonStyle
+            constexpr auto red_style = ButtonColor
             {
                 .idle = {
                     .background = rgb(76, 5, 25),
@@ -640,7 +640,7 @@ namespace internal
                     .border = rgb(244, 63, 94)
                 }
             };
-            constexpr auto green_style = ButtonStyle
+            constexpr auto green_style = ButtonColor
             {
                 .idle = {
                     .background = rgb(2, 44, 34),
@@ -658,7 +658,7 @@ namespace internal
                     .border = rgb(158, 233, 57)
                 }
             };
-            constexpr auto blue_style = ButtonStyle
+            constexpr auto blue_style = ButtonColor
             {
                 .idle = {
                     .background = rgb(8, 47, 73),
@@ -677,7 +677,7 @@ namespace internal
                 }
             };
 
-            const auto draw_component = [&drag_function, gear_action, &button_size, reset_value, &changed, &drags](const ButtonStyle& style, const char* label, float* val, const char* id)
+            const auto draw_component = [&drag_function, gear_action, &button_size, reset_value, &changed, &drags](const ButtonColor& style, const char* label, float* val, const char* id)
                 {
                     styled_button(style, label, button_size, gear_action == GearActionStyle::interactive);
 
@@ -1005,7 +1005,7 @@ namespace internal
         }
 
 
-        constexpr ButtonStyle primary_button_style = {
+        constexpr ButtonColor primary_button_style = {
             .idle = {
                 .background = rgb(132, 204, 22),
                 .text = rgb(9, 9, 11),
@@ -1023,7 +1023,7 @@ namespace internal
             }
         };
 
-        constexpr ButtonStyle secondary_button_style = {
+        constexpr ButtonColor secondary_button_style = {
             .idle = {
                 .background = rgb(33, 37, 43),
                 .text = rgb(228, 228, 231),
@@ -1041,7 +1041,7 @@ namespace internal
             }
         };
 
-        constexpr ButtonStyle danger_button_style = {
+        constexpr ButtonColor danger_button_style = {
             .idle = {
                 // .background = rgb(25, 28, 33),
                 .background = rgb(11, 14, 19),
@@ -1060,7 +1060,7 @@ namespace internal
             }
         };
 
-        constexpr ButtonStyle toolbar_button_style = {
+        constexpr ButtonColor toolbar_button_style = {
             .idle = {
                 .background = std::nullopt,
                 .text = rgb(161, 161, 170),
@@ -1077,6 +1077,25 @@ namespace internal
                 .border = rgb(101, 163, 13)
             }
         };
+
+
+        ButtonColor colors_from_style(ButtonStyle style)
+        {
+            switch (style)
+            {
+            case ButtonStyle::secondary:
+                return secondary_button_style;
+            case ButtonStyle::primary:
+                return primary_button_style;
+            case ButtonStyle::danger:
+                return danger_button_style;
+            case ButtonStyle::toolbar:
+                return toolbar_button_style;
+            default:
+                DIE("Invalid color");
+                return secondary_button_style;
+            }
+        }
     }
 }
 
@@ -1276,29 +1295,11 @@ void setup_colors()
     style.TabBorderSize = 1.0f;
 }
 
-internal::ButtonStyle colors_from_style(ButtonStyle style)
-{
-    switch (style)
-    {
-    case ButtonStyle::secondary:
-        return internal::secondary_button_style;
-    case ButtonStyle::primary:
-        return internal::primary_button_style;
-    case ButtonStyle::danger:
-        return internal::danger_button_style;
-    case ButtonStyle::toolbar:
-        return internal::toolbar_button_style;
-    default:
-        DIE("Invalid color");
-        return internal::secondary_button_style;
-    }
-}
-
 bool button(const char* label, ButtonStyle style, const std::optional<ImVec2>& button_size)
 {
     ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(10.0f, 7.0f)); // todo(Gustav): make configurable
 
-    const auto clicked = internal::styled_button(colors_from_style(style), label, button_size);
+    const auto clicked = internal::styled_button(internal::colors_from_style(style), label, button_size);
     
     ImGui::PopStyleVar();
 
