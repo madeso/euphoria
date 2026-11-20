@@ -530,18 +530,18 @@ namespace internal
             ButtonStateStyle active;
         };
 
-        bool styled_button(const ButtonStyle& style, const char* label, const std::optional<ImVec2>& button_size = std::nullopt)
+        bool styled_button(const ButtonStyle& style, const char* label, const std::optional<ImVec2>& button_size = std::nullopt, bool interactive = true)
         {
             const ImVec2 label_size = ImGui::CalcTextSize(label, nullptr, true);
             const ImVec2 size = button_size.value_or(calc_button_size(label_size));
             const auto pos = ImGui::GetCursorScreenPos();
-            const auto ret = ImGui::InvisibleButton(label, size);
+            const auto ret = ImGui::InvisibleButton(label, size) && interactive;
             const auto min = ImGui::GetItemRectMin();
             const auto max = ImGui::GetItemRectMax();
 
             const auto& imstyle = ImGui::GetStyle();
-            const auto is_active = ImGui::IsItemActive();
-            const auto is_hover = ImGui::IsItemHovered();
+            const auto is_active = interactive && ImGui::IsItemActive();
+            const auto is_hover = interactive && ImGui::IsItemHovered();
             auto* draw = ImGui::GetWindowDrawList();
 
             const auto& color = is_active ? style.active :
@@ -567,23 +567,47 @@ namespace internal
                 draw->AddRect(min, max, ImColor{ *border }, imstyle.ChildRounding);
             }
 
-            set_hover_cursor();
+            if (interactive)
+            {
+                set_hover_cursor();
+            }
 
             return ret;
         }
 
-        static ImVec2 calculate_square_button_size()
+        ImVec2 calculate_square_button_size()
         {
             const float line_height = GImGui->FontSize + GImGui->Style.FramePadding.y * 2.0f;
             const ImVec2 button_size = { line_height + 3.0f, line_height };
             return button_size;
         }
 
-        static bool imgui_drag_with_reset(
+        bool drag_float_behaviour(const char* id, float* val, const Drags& drags)
+        {
+            return ImGui::DragFloat(id, val, drags.v_speed, drags.v_min, drags.v_max, "%.2f");
+        }
+
+        bool readonly_float_behaviour(const char* id, float* val, const Drags&)
+        {
+            ImGui::PushStyleColor(ImGuiCol_FrameBg, internal::colors::base);
+            ImGui::PushStyleColor(ImGuiCol_Text, internal::colors::text_label);
+            ImGui::InputFloat(id, val, 0, 0, "%.3f", ImGuiInputTextFlags_ReadOnly);
+            ImGui::PopStyleColor(2);
+            return false;
+        }
+
+        enum class GearActionStyle
+        {
+            interactive, not_interactive
+        };
+
+        template<typename TDragFunction>
+        bool imgui_drag_with_reset(
+            TDragFunction drag_function,
             float* xval, float* yval, float* zval,
             float reset_value, std::optional<float> extra_spacing,
             const char* xlabel, const char* ylabel, const char* zlabel,
-            const Drags& drags = Drags{}
+            const Drags& drags = Drags{}, GearActionStyle gear_action = GearActionStyle::interactive
         )
         {
             bool changed = false;
@@ -653,13 +677,17 @@ namespace internal
                 }
             };
 
-            const auto draw_component = [&button_size, reset_value, &changed, &drags](const ButtonStyle& style, const char* label, float* val, const char* id)
+            const auto draw_component = [&drag_function, gear_action, &button_size, reset_value, &changed, &drags](const ButtonStyle& style, const char* label, float* val, const char* id)
                 {
-                    styled_button(style, label, button_size);
+                    styled_button(style, label, button_size, gear_action == GearActionStyle::interactive);
 
                     const auto gear_color = style.active.border.value_or(style.active.text);
 
-                    const auto gear = gear_functionality(val, gear_color);
+                    const auto gear = gear_action == GearActionStyle::interactive ? gear_functionality(val, gear_color) : GearActivity{
+                        .changed = false,
+                        .is_outside = false,
+                        .was_reset = false
+                    };
                     if (gear.changed)
                     {
                         changed = true;
@@ -672,14 +700,16 @@ namespace internal
                     }
                     const auto min = ImGui::GetItemRectMin();
                     ImGui::SameLine();
-                    const auto dragging = ImGui::DragFloat(id, val, drags.v_speed, drags.v_min, drags.v_max, "%.2f");
+                    const auto dragging = drag_function(id, val, drags);
                     if (dragging)
                     {
                         changed = true;
                     }
                     const auto max = ImGui::GetItemRectMax();
 
-                    if (dragging || ImGui::IsItemActive() || gear.is_outside)
+                    const auto is_active = gear_action == GearActionStyle::interactive ? ImGui::IsItemActive() : false;
+
+                    if (dragging || is_active || gear.is_outside)
                     {
                         auto* draw = ImGui::GetWindowDrawList();
                         if (const auto& border = style.active.border; border.has_value())
@@ -897,19 +927,21 @@ namespace internal
             ImGui::PopStyleColor(2);
         }
 
-        void imgui_readonly(const char* label, const v3& v)
+        void v3_named_readonly(const char* label, const v3& v, const char* x_name, const char* y_name, const char* z_name)
         {
             auto temp = v;
-            ImGui::PushStyleColor(ImGuiCol_FrameBg, internal::colors::base);
-            ImGui::PushStyleColor(ImGuiCol_Text, internal::colors::text_label);
-            ImGui::InputFloat3(label, temp.get_data_ptr(), "%.3f", ImGuiInputTextFlags_ReadOnly);
-            ImGui::PopStyleColor(2);
+            internal::imgui_drag_with_reset(internal::readonly_float_behaviour, &temp.x, &temp.y, &temp.z, 0.0f, std::nullopt, x_name, y_name, z_name, Drags{}, GearActionStyle::not_interactive);
+        }
+
+        void imgui_readonly(const char* label, const v3& v)
+        {
+            v3_named_readonly(label, v, "X", "Y", "Z");
         }
 
         void imgui_readonly(const char* label, const Ypr& y)
         {
             const auto temp = v3{ y.yaw.as_degrees() ,y.pitch.as_degrees(), y.roll.as_degrees() };
-            imgui_readonly(label, temp);
+            v3_named_readonly(label, temp, "Y", "P", "R");
         }
 
         bool imgui_edit(const char* label, std::string* str)
@@ -1431,7 +1463,7 @@ bool PropTable::color(const char* label, Rgb* color) const
         const auto button_size = internal::calculate_square_button_size();
         // todo(Gustav): change so drag is 0-255
         // todo(Gustav): change colors?
-        bool changed = imgui_drag_with_reset(&color->r, &color->g, &color->b, 0.0f, button_size.x,
+        bool changed = imgui_drag_with_reset(internal::drag_float_behaviour, &color->r, &color->g, &color->b, 0.0f, button_size.x,
                                              "R", "G", "B", internal::Drags{ .v_speed = 0.1f, .v_min = 0.0f, .v_max = 1.0f }
         );
         constexpr const char* color_popup = "color-popup";
@@ -1454,7 +1486,7 @@ bool PropTable::drag(const char* label, eu::v3* drag, float reset_value) const
 {
     return internal::trow(*this, label, [&]
     {
-        return internal::imgui_drag_with_reset(&drag->x, &drag->y, &drag->z, reset_value, std::nullopt, "X", "Y", "Z");
+        return internal::imgui_drag_with_reset(internal::drag_float_behaviour, &drag->x, &drag->y, &drag->z, reset_value, std::nullopt, "X", "Y", "Z");
     });
 }
 
@@ -1469,7 +1501,7 @@ bool PropTable::drag(const char* label, eu::Ypr* drag) const
         };
 
         // const auto changed = ImGui::DragFloat3(label, angles, 1.0f, -360.0f, 360.0f);
-        const auto changed = internal::imgui_drag_with_reset(&angles[0], &angles[1], &angles[2], 0.0f, std::nullopt,
+        const auto changed = internal::imgui_drag_with_reset(internal::drag_float_behaviour, &angles[0], &angles[1], &angles[2], 0.0f, std::nullopt,
                                                              "Y", "P", "R", internal::Drags{.v_speed = 1.0f, .v_min = -360.0f, .v_max = 360.0f }
         );
 
@@ -1503,7 +1535,7 @@ bool PropTable::drag(const char* label, eu::Rui* drag) const
 {
     return internal::trow(*this, label, [&]
     {
-        return internal::imgui_drag_with_reset(&drag->right, &drag->up, &drag->in, 0.0f, std::nullopt, "R", "U", "I");
+        return internal::imgui_drag_with_reset(internal::drag_float_behaviour, &drag->right, &drag->up, &drag->in, 0.0f, std::nullopt, "R", "U", "I");
     });
 }
 
