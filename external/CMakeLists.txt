@@ -426,7 +426,7 @@ set(cgltf_src
 add_library(cgltf STATIC
     ${cgltf_src}
 )
-source_group("" FILEs $(cgltf_src))
+source_group("" FILES $(cgltf_src))
 cmake_source_group()
 
 set_target_properties(cgltf PROPERTIES FOLDER "Dependencies")
