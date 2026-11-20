@@ -478,8 +478,6 @@ namespace internal
             constexpr auto transparent = rgb(0, 0, 0, 0.0f);
 
             constexpr ImVec4 text_label = rgb(139, 148, 125);
-            constexpr ImVec4 button_active_border = rgb(158, 233, 5);
-            constexpr ImVec4 button_default_border = rgb(48, 53, 64);
 
             constexpr auto graph_background = rgb(11, 14, 19);
             // constexpr auto graph_major_line = rgb(39, 43, 51);
