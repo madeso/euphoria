@@ -763,7 +763,6 @@ namespace internal
             }
 
             const auto& style = ImGui::GetStyle();
-            const auto id = window->GetID(label);
 
             const auto max_label_width = ImGui::CalcTextSize(format_float(display(max_value)).c_str()).x;
             const auto text = format_float(display(*value));
@@ -772,30 +771,25 @@ namespace internal
             const auto radius = height * 0.3f;
             const auto ring_radius = height * 0.4f;
 
-            const ImVec2 pos = window->DC.CursorPos;
-            const ImRect total(pos, pos + ImVec2(ImGui::CalcItemWidth(), height));
-            const ImRect track_bb(pos, ImVec2(total.Max.x - max_label_width - style.ItemInnerSpacing.x * 2, total.Max.y));
+            // const ImVec2 pos = window->DC.CursorPos;
+            // const ImRect total(pos, pos + ImVec2(ImGui::CalcItemWidth(), height));
+            // const ImRect track_bb(pos, ImVec2(total.Max.x - max_label_width - style.ItemInnerSpacing.x * 2, total.Max.y));
 
             // const auto enabled = ImGui::IsDisabled() == false;
             const auto enabled = true;
 
-            ImGui::ItemSize(total, style.FramePadding.y);
-            if (!ImGui::ItemAdd(total, id))
-            {
-                return false;
-            }
-
-            const bool is_hovering = enabled && ImGui::ItemHoverable(track_bb, id, ImGuiItemFlags_None);
-            if ((is_hovering && ImGui::IsMouseClicked(ImGuiMouseButton_Left)) || GImGui->NavActivateId == id)
-            {
-                ImGui::SetActiveID(id, window);
-                ImGui::SetFocusID(id, window);
-                ImGui::FocusWindow(window);
-            }
+            const auto id = window->GetID(label);
+            ImGui::InvisibleButton(label, ImVec2(ImGui::CalcItemWidth(), height));
+            const auto min_rect = ImGui::GetItemRectMin();
+            const auto max_rect = ImGui::GetItemRectMax();
+            const ImRect total(min_rect, max_rect);
+            const ImRect track_bb(min_rect, ImVec2(total.Max.x - max_label_width - style.ItemInnerSpacing.x * 2, total.Max.y));
+            const auto is_active = ImGui::IsItemActive();
+            const bool is_hovering = ImGui::IsItemHovered();
 
             ImGui::PushStyleVar(ImGuiStyleVar_GrabMinSize, radius * 2.0f);
             ImRect grab;
-            const bool value_was_changed = ImGui::SliderBehavior(track_bb, id, ImGuiDataType_Float, value, &min_value, &max_value, default_format, 0, &grab) && enabled;
+            const bool value_was_changed = ImGui::SliderBehavior(track_bb, id, ImGuiDataType_Float, value, &min_value, &max_value, default_format, 0, &grab);
             ImGui::PopStyleVar();
             if (value_was_changed)
             {
@@ -805,7 +799,6 @@ namespace internal
             ImDrawList* draw = window->DrawList;
             const auto center_y = track_bb.GetCenter().y;
             const auto grab_center = grab.GetCenter().x;
-            const auto is_active = GImGui->ActiveId == id && enabled;
 
             {
                 const auto track_h = ImMax(2.0f, height * 0.2f);
