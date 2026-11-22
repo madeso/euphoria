@@ -92,7 +92,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="60" column="1" bodyfile="libs/imgui/src/eu/imgui/ui.h" bodystart="61" bodyend="65"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="58" column="1" bodyfile="libs/imgui/src/eu/imgui/ui.h" bodystart="59" bodyend="63"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeu_1_1imgui_1ab7edc553ac09fa362d9c9e11b15240e1" prot="public" static="no" strong="yes">
         <type></type>
@@ -132,7 +132,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="69" column="1" bodyfile="libs/imgui/src/eu/imgui/ui.h" bodystart="70" bodyend="72"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="67" column="1" bodyfile="libs/imgui/src/eu/imgui/ui.h" bodystart="68" bodyend="70"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="func">
@@ -194,41 +194,6 @@
         </inbodydescription>
         <location file="libs/imgui/src/eu/imgui/init.h" line="7" column="6" declfile="libs/imgui/src/eu/imgui/init.h" declline="7" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeu_1_1imgui_1a007bf8ba92a640faefde38fa3cca5143" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool eu::imgui::imgui_s_curve_editor</definition>
-        <argsstring>(const char *title, core::SCurve *scurve, SCurveGuiState *gui, FlipX flip_x, const ImVec2 &amp;requested_widget_size=ImVec2{ 100, 100 })</argsstring>
-        <name>imgui_s_curve_editor</name>
-        <qualifiedname>eu::imgui::imgui_s_curve_editor</qualifiedname>
-        <param>
-          <type>const char *</type>
-          <declname>title</declname>
-        </param>
-        <param>
-          <type><ref refid="structeu_1_1core_1_1SCurve" kindref="compound">core::SCurve</ref> *</type>
-          <declname>scurve</declname>
-        </param>
-        <param>
-          <type><ref refid="structeu_1_1imgui_1_1SCurveGuiState" kindref="compound">SCurveGuiState</ref> *</type>
-          <declname>gui</declname>
-        </param>
-        <param>
-          <type><ref refid="namespaceeu_1_1imgui_1a6887d690e8c91852b12a0aef78d2111f" kindref="member">FlipX</ref></type>
-          <declname>flip_x</declname>
-        </param>
-        <param>
-          <type>const ImVec2 &amp;</type>
-          <declname>requested_widget_size</declname>
-          <defval>ImVec2{ 100, 100 }</defval>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="36" column="10" declfile="libs/imgui/src/eu/imgui/ui.h" declline="36" declcolumn="10"/>
-      </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1imgui_1acf8a4e642b869547f693d356fd41dac5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::imgui::setup_colors</definition>
@@ -241,7 +206,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="67" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="67" declcolumn="6"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="65" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="65" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1imgui_1aed434ce1a8e6ff988c484e07ea268ad9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -269,7 +234,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="74" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="74" declcolumn="6"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="72" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="72" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1imgui_1acf2b74165e5994a44d51640ebaad5b78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -297,7 +262,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/imgui/src/eu/imgui/ui.h" line="75" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="75" declcolumn="6"/>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="73" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="73" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeu_1_1imgui_1a2055a379b690b5d98ec2e0196f4cf455" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -320,7 +285,39 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="75" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="75" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1imgui_1a110f850b014b891f6c299d59460e3d34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::imgui::begin_disabled</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>begin_disabled</name>
+        <qualifiedname>eu::imgui::begin_disabled</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
         <location file="libs/imgui/src/eu/imgui/ui.h" line="77" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="77" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1imgui_1aeb59e0910765c5828147565d66ee3e76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::imgui::end_disabled</definition>
+        <argsstring>()</argsstring>
+        <name>end_disabled</name>
+        <qualifiedname>eu::imgui::end_disabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="78" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="78" declcolumn="6"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

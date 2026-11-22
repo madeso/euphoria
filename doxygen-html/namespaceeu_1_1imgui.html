@@ -99,11 +99,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a3fcd3b4f33593d5e59a2c78a1cbcc0ab" id="r_a3fcd3b4f33593d5e59a2c78a1cbcc0ab"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3fcd3b4f33593d5e59a2c78a1cbcc0ab">calculate_app_scale</a> ()</td></tr>
 <tr class="memitem:a427d1b1c25576910f8c887de7fa30e83" id="r_a427d1b1c25576910f8c887de7fa30e83"><td class="memItemLeft" align="right" valign="top">std::pair&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a427d1b1c25576910f8c887de7fa30e83">rescale_window</a> (int width, int height, float app_scale)</td></tr>
 <tr class="memitem:a533ffd5037b3df19cf5cd73ae07ce210" id="r_a533ffd5037b3df19cf5cd73ae07ce210"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a533ffd5037b3df19cf5cd73ae07ce210">setup_scale</a> (float app_scale)</td></tr>
-<tr class="memitem:a007bf8ba92a640faefde38fa3cca5143" id="r_a007bf8ba92a640faefde38fa3cca5143"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a007bf8ba92a640faefde38fa3cca5143">imgui_s_curve_editor</a> (const char *title, <a class="el" href="structeu_1_1core_1_1SCurve.html">core::SCurve</a> *scurve, <a class="el" href="structeu_1_1imgui_1_1SCurveGuiState.html">SCurveGuiState</a> *gui, <a class="el" href="#a6887d690e8c91852b12a0aef78d2111f">FlipX</a> flip_x, const ImVec2 &amp;requested_widget_size=ImVec2{ 100, 100 })</td></tr>
 <tr class="memitem:acf8a4e642b869547f693d356fd41dac5" id="r_acf8a4e642b869547f693d356fd41dac5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf8a4e642b869547f693d356fd41dac5">setup_colors</a> ()</td></tr>
 <tr class="memitem:aed434ce1a8e6ff988c484e07ea268ad9" id="r_aed434ce1a8e6ff988c484e07ea268ad9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed434ce1a8e6ff988c484e07ea268ad9">button</a> (const char *label, <a class="el" href="#ab7edc553ac09fa362d9c9e11b15240e1">ButtonStyle</a> style=<a class="el" href="#ab7edc553ac09fa362d9c9e11b15240e1a1f7ba58706f9d405023da32864d059c8">ButtonStyle::secondary</a>, const std::optional&lt; ImVec2 &gt; &amp;button_size=std::nullopt)</td></tr>
 <tr class="memitem:acf2b74165e5994a44d51640ebaad5b78" id="r_acf2b74165e5994a44d51640ebaad5b78"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf2b74165e5994a44d51640ebaad5b78">centered_button</a> (const char *label, <a class="el" href="#ab7edc553ac09fa362d9c9e11b15240e1">ButtonStyle</a> style=<a class="el" href="#ab7edc553ac09fa362d9c9e11b15240e1a1f7ba58706f9d405023da32864d059c8">ButtonStyle::secondary</a>, const std::optional&lt; ImVec2 &gt; &amp;button_size=std::nullopt)</td></tr>
 <tr class="memitem:a2055a379b690b5d98ec2e0196f4cf455" id="r_a2055a379b690b5d98ec2e0196f4cf455"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2055a379b690b5d98ec2e0196f4cf455">header</a> (const char *label, bool *closeable=nullptr)</td></tr>
+<tr class="memitem:a110f850b014b891f6c299d59460e3d34" id="r_a110f850b014b891f6c299d59460e3d34"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a110f850b014b891f6c299d59460e3d34">begin_disabled</a> (bool enabled)</td></tr>
+<tr class="memitem:aeb59e0910765c5828147565d66ee3e76" id="r_aeb59e0910765c5828147565d66ee3e76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb59e0910765c5828147565d66ee3e76">end_disabled</a> ()</td></tr>
 </table>
 <a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumeration Type Documentation</h2>
 <a id="ab7edc553ac09fa362d9c9e11b15240e1" name="ab7edc553ac09fa362d9c9e11b15240e1"></a>
@@ -132,7 +133,7 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="ab7edc553ac09fa362d9c9e11b15240e1af50b3c2aa6125e65df874c95b2df8f9a" name="ab7edc553ac09fa362d9c9e11b15240e1af50b3c2aa6125e65df874c95b2df8f9a"></a>toolbar&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="imgui_2src_2eu_2imgui_2ui_8h_source.html#l00069">69</a> of file <a class="el" href="imgui_2src_2eu_2imgui_2ui_8h_source.html">ui.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="imgui_2src_2eu_2imgui_2ui_8h_source.html#l00067">67</a> of file <a class="el" href="imgui_2src_2eu_2imgui_2ui_8h_source.html">ui.h</a>.</p>
 
 </div>
 </div>
@@ -189,7 +190,7 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a502392178a28af7e2f21f36456f7ed43ad2b4cce50ba282d161baa6826f0aeab0" name="a502392178a28af7e2f21f36456f7ed43ad2b4cce50ba282d161baa6826f0aeab0"></a>depth_ortho&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="imgui_2src_2eu_2imgui_2ui_8h_source.html#l00060">60</a> of file <a class="el" href="imgui_2src_2eu_2imgui_2ui_8h_source.html">ui.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="imgui_2src_2eu_2imgui_2ui_8h_source.html#l00058">58</a> of file <a class="el" href="imgui_2src_2eu_2imgui_2ui_8h_source.html">ui.h</a>.</p>
 
 </div>
 </div>
@@ -222,6 +223,23 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a110f850b014b891f6c299d59460e3d34" name="a110f850b014b891f6c299d59460e3d34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a110f850b014b891f6c299d59460e3d34">&#9670;&#160;</a></span>begin_disabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void eu::imgui::begin_disabled </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>enabled</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aed434ce1a8e6ff988c484e07ea268ad9" name="aed434ce1a8e6ff988c484e07ea268ad9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aed434ce1a8e6ff988c484e07ea268ad9">&#9670;&#160;</a></span>button()</h2>
 
@@ -291,6 +309,23 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aeb59e0910765c5828147565d66ee3e76" name="aeb59e0910765c5828147565d66ee3e76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb59e0910765c5828147565d66ee3e76">&#9670;&#160;</a></span>end_disabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void eu::imgui::end_disabled </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a2055a379b690b5d98ec2e0196f4cf455" name="a2055a379b690b5d98ec2e0196f4cf455"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2055a379b690b5d98ec2e0196f4cf455">&#9670;&#160;</a></span>header()</h2>
 
@@ -306,42 +341,6 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool *</td>          <td class="paramname"><span class="paramname"><em>closeable</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a007bf8ba92a640faefde38fa3cca5143" name="a007bf8ba92a640faefde38fa3cca5143"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a007bf8ba92a640faefde38fa3cca5143">&#9670;&#160;</a></span>imgui_s_curve_editor()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool eu::imgui::imgui_s_curve_editor </td>
-          <td>(</td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>title</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structeu_1_1core_1_1SCurve.html">core::SCurve</a> *</td>          <td class="paramname"><span class="paramname"><em>scurve</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structeu_1_1imgui_1_1SCurveGuiState.html">SCurveGuiState</a> *</td>          <td class="paramname"><span class="paramname"><em>gui</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="#a6887d690e8c91852b12a0aef78d2111f">FlipX</a></td>          <td class="paramname"><span class="paramname"><em>flip_x</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const ImVec2 &amp;</td>          <td class="paramname"><span class="paramname"><em>requested_widget_size</em></span><span class="paramdefsep"> = </span><span class="paramdefval">ImVec2{&#160;100,&#160;100&#160;}</span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

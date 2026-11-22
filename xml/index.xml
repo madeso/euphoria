@@ -1877,11 +1877,12 @@
     <member refid="namespaceeu_1_1imgui_1a3fcd3b4f33593d5e59a2c78a1cbcc0ab" kind="function"><name>calculate_app_scale</name></member>
     <member refid="namespaceeu_1_1imgui_1a427d1b1c25576910f8c887de7fa30e83" kind="function"><name>rescale_window</name></member>
     <member refid="namespaceeu_1_1imgui_1a533ffd5037b3df19cf5cd73ae07ce210" kind="function"><name>setup_scale</name></member>
-    <member refid="namespaceeu_1_1imgui_1a007bf8ba92a640faefde38fa3cca5143" kind="function"><name>imgui_s_curve_editor</name></member>
     <member refid="namespaceeu_1_1imgui_1acf8a4e642b869547f693d356fd41dac5" kind="function"><name>setup_colors</name></member>
     <member refid="namespaceeu_1_1imgui_1aed434ce1a8e6ff988c484e07ea268ad9" kind="function"><name>button</name></member>
     <member refid="namespaceeu_1_1imgui_1acf2b74165e5994a44d51640ebaad5b78" kind="function"><name>centered_button</name></member>
     <member refid="namespaceeu_1_1imgui_1a2055a379b690b5d98ec2e0196f4cf455" kind="function"><name>header</name></member>
+    <member refid="namespaceeu_1_1imgui_1a110f850b014b891f6c299d59460e3d34" kind="function"><name>begin_disabled</name></member>
+    <member refid="namespaceeu_1_1imgui_1aeb59e0910765c5828147565d66ee3e76" kind="function"><name>end_disabled</name></member>
   </compound>
   <compound refid="namespaceeu_1_1io" kind="namespace"><name>eu::io</name>
     <member refid="namespaceeu_1_1io_1af1eaadaf42c3183baed23e8545e34ed6" kind="function"><name>string_from_file</name></member>
