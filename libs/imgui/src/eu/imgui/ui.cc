@@ -528,7 +528,7 @@ namespace internal
             ButtonStateColor active;
         };
 
-        bool styled_button(const ButtonColor& style, const char* label, const std::optional<ImVec2>& button_size = std::nullopt, bool interactive = true)
+        bool styled_button(const ButtonColor& color, const char* label, const std::optional<ImVec2>& button_size = std::nullopt, bool interactive = true)
         {
             const ImVec2 label_size = ImGui::CalcTextSize(label, nullptr, true);
             const ImVec2 size = button_size.value_or(calc_button_size(label_size));
@@ -537,32 +537,32 @@ namespace internal
             const auto min = ImGui::GetItemRectMin();
             const auto max = ImGui::GetItemRectMax();
 
-            const auto& imstyle = ImGui::GetStyle();
+            const auto& style = ImGui::GetStyle();
             const auto is_active = interactive && ImGui::IsItemActive();
             const auto is_hover = interactive && ImGui::IsItemHovered();
             auto* draw = ImGui::GetWindowDrawList();
 
-            const auto& color = is_active ? style.active :
-                (is_hover ? style.hover : style.idle);
+            const auto& state_color = is_active ? color.active :
+                (is_hover ? color.hover : color.idle);
 
             // background
-            if (const auto& bkg = color.background; bkg.has_value())
+            if (const auto& bkg = state_color.background; bkg.has_value())
             {
-                draw->AddRectFilled(min, max, ImColor{ *bkg }, imstyle.ChildRounding);
+                draw->AddRectFilled(min, max, ImColor{ *bkg }, style.ChildRounding);
             }
 
             // label
             {
                 const auto bb = ImRect{ pos, pos + size };
-                ImGui::PushStyleColor(ImGuiCol_Text, color.text);
-                ImGui::RenderTextClipped(bb.Min + imstyle.FramePadding, bb.Max - imstyle.FramePadding, label, nullptr, &label_size, imstyle.ButtonTextAlign, &bb);
+                ImGui::PushStyleColor(ImGuiCol_Text, state_color.text);
+                ImGui::RenderTextClipped(bb.Min + style.FramePadding, bb.Max - style.FramePadding, label, nullptr, &label_size, style.ButtonTextAlign, &bb);
                 ImGui::PopStyleColor();
             }
 
             // border
-            if (const auto& border = color.border; border.has_value())
+            if (const auto& border = state_color.border; border.has_value())
             {
-                draw->AddRect(min, max, ImColor{ *border }, imstyle.ChildRounding);
+                draw->AddRect(min, max, ImColor{ *border }, style.ChildRounding);
             }
 
             if (interactive)
@@ -776,13 +776,16 @@ namespace internal
             const ImRect total(pos, pos + ImVec2(ImGui::CalcItemWidth(), height));
             const ImRect track_bb(pos, ImVec2(total.Max.x - max_label_width - style.ItemInnerSpacing.x * 2, total.Max.y));
 
+            // const auto enabled = ImGui::IsDisabled() == false;
+            const auto enabled = true;
+
             ImGui::ItemSize(total, style.FramePadding.y);
             if (!ImGui::ItemAdd(total, id))
             {
                 return false;
             }
 
-            const bool is_hovering = ImGui::ItemHoverable(track_bb, id, ImGuiItemFlags_None);
+            const bool is_hovering = enabled && ImGui::ItemHoverable(track_bb, id, ImGuiItemFlags_None);
             if ((is_hovering && ImGui::IsMouseClicked(ImGuiMouseButton_Left)) || GImGui->NavActivateId == id)
             {
                 ImGui::SetActiveID(id, window);
@@ -792,7 +795,7 @@ namespace internal
 
             ImGui::PushStyleVar(ImGuiStyleVar_GrabMinSize, radius * 2.0f);
             ImRect grab;
-            const bool value_was_changed = ImGui::SliderBehavior(track_bb, id, ImGuiDataType_Float, value, &min_value, &max_value, default_format, 0, &grab);
+            const bool value_was_changed = ImGui::SliderBehavior(track_bb, id, ImGuiDataType_Float, value, &min_value, &max_value, default_format, 0, &grab) && enabled;
             ImGui::PopStyleVar();
             if (value_was_changed)
             {
@@ -802,7 +805,7 @@ namespace internal
             ImDrawList* draw = window->DrawList;
             const auto center_y = track_bb.GetCenter().y;
             const auto grab_center = grab.GetCenter().x;
-            const auto is_active = GImGui->ActiveId == id;
+            const auto is_active = GImGui->ActiveId == id && enabled;
 
             {
                 const auto track_h = ImMax(2.0f, height * 0.2f);
@@ -1291,6 +1294,8 @@ void setup_colors()
     style.PopupBorderSize = 1.0f;
     style.FrameBorderSize = 1.0f;
     style.TabBorderSize = 1.0f;
+
+    style.DisabledAlpha = 1.0f;
 }
 
 bool button(const char* label, ButtonStyle style, const std::optional<ImVec2>& button_size)

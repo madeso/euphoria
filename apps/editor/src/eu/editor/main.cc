@@ -206,12 +206,17 @@ void custom_widgets_demo()
 {
     if (auto prop = eu::imgui::PropTable::Begin())
     {
+        static bool enabled = true;
         static std::string text;
         static auto rot = eu::Ypr{ .yaw = eu::no_rotation, .pitch = eu::no_rotation, .roll = eu::no_rotation };
         static auto vec = eu::v3{ 0.1f, 5.0f, 24.0f };
         static float gamma = 2.0f;
         static eu::Rui rui = { .right = 0.0f, .up = 0.0f, .in = 0.0f };
         static eu::m4 mat = eu::m4_identity;
+
+        prop.check("Enabled", &enabled);
+
+        ImGui::BeginDisabled(!enabled);
 
         prop.text("Text", "This is a text");
         prop.edit("Editable", &text);
@@ -227,6 +232,8 @@ void custom_widgets_demo()
 
         prop.transform(mat);
         prop.transform(&mat);
+
+        ImGui::EndDisabled();
     }
 }
 
