@@ -795,9 +795,6 @@ namespace internal
             // const ImRect total(pos, pos + ImVec2(ImGui::CalcItemWidth(), height));
             // const ImRect track_bb(pos, ImVec2(total.Max.x - max_label_width - style.ItemInnerSpacing.x * 2, total.Max.y));
 
-            // const auto enabled = ImGui::IsDisabled() == false;
-            const auto is_enabled = enabled_var();
-
             ImGui::InvisibleButton(label, ImVec2(ImGui::CalcItemWidth(), height));
             const auto id = ImGui::GetItemID();
             const auto min_rect = ImGui::GetItemRectMin();
@@ -806,6 +803,7 @@ namespace internal
             const ImRect track_bb(min_rect, ImVec2(total.Max.x - max_label_width - style.ItemInnerSpacing.x * 2, total.Max.y));
             const auto is_active = ImGui::IsItemActive();
             const bool is_hovering = ImGui::IsItemHovered();
+            const auto is_enabled = enabled_var();
 
             ImGui::PushStyleVar(ImGuiStyleVar_GrabMinSize, radius * 2.0f);
             ImRect grab;
@@ -820,8 +818,9 @@ namespace internal
             const auto center_y = track_bb.GetCenter().y;
             const auto grab_center = grab.GetCenter().x;
 
+            // draw background
             {
-                const auto track_h = ImMax(2.0f, height * 0.2f);
+                const auto track_h = ImMax(2.0f, height * 0.35f);
 
                 const auto left = track_bb.Min.x + radius;
                 const auto right = track_bb.Max.x - radius;
@@ -829,23 +828,46 @@ namespace internal
                 const auto bottom = center_y + track_h * 0.5f;
                 const auto half_circle_rounding = track_h * 0.5f;
 
-                constexpr auto background_color = rgb(11, 14, 19);
-                constexpr auto filled_color = rgb(132, 204, 22);
+                constexpr auto disabled_filled_color = rgb(63, 69, 81);
+                constexpr auto enabled_filled_color = rgb(132, 204, 22);
+                auto filled_color = is_enabled ? enabled_filled_color : disabled_filled_color;
+
+                constexpr auto disabled_background_color = rgb(24, 27, 32);
+                constexpr auto enabled_background_color = rgb(11, 14, 19);
+                auto background_color = is_enabled ? enabled_background_color : disabled_background_color;
 
                 const auto middle = std::max(left, grab_center);
 
                 draw->AddRectFilled({ left, top }, { middle, bottom }, ImColor{ filled_color }, half_circle_rounding);
                 draw->AddRectFilled({ middle, top }, { right, bottom }, ImColor{ background_color }, half_circle_rounding);
+
+                // border around draggable area
+                if (is_active || is_hovering || is_enabled == false)
+                {
+                    constexpr auto disabled_border = rgb(39, 39, 42);
+                    constexpr auto active_border = rgb(158, 233, 57);
+                    constexpr auto hover_border = rgb(72, 109, 21);
+                    auto border_color =
+                        is_active ? active_border :
+                        is_hovering ? hover_border :
+                        disabled_border ;
+                                        
+                    draw->AddRect({ left, top }, { right, bottom }, ImColor{ border_color }, half_circle_rounding);
+                }
             }
 
+            // draw knob
             {
                 constexpr auto default_color = rgb(225, 226, 233);
                 constexpr auto hover_color = rgb(163, 230, 53);
                 constexpr auto active_color = rgb(132, 204, 22);
+                constexpr auto disabled_color = rgb(82, 82, 91);
 
-                const auto grab_color = is_active ? active_color
-                    : is_hovering ? hover_color
-                    : default_color;
+                const auto grab_color =
+                    is_enabled == false ? disabled_color :
+                    is_active ? active_color :
+                    is_hovering ? hover_color :
+                    default_color ;
 
                 const auto center = ImVec2{ grab_center, center_y };
                 draw->AddCircleFilled(center, radius, ImColor{ grab_color });
