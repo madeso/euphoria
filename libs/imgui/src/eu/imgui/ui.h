@@ -33,8 +33,6 @@ namespace eu::imgui
         no, yes
     };
 
-    bool imgui_s_curve_editor(const char* title, core::SCurve* scurve, SCurveGuiState* gui, FlipX flip_x, const ImVec2& requested_widget_size = ImVec2{ 100, 100 });
-
 
 struct ImguiShaderProgram
 {

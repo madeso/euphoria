@@ -474,6 +474,7 @@ namespace internal
             constexpr auto button_active = rgb(31, 45, 24);
             constexpr auto border = rgb(66, 73, 54, 0.3f);
             constexpr auto lime = rgb(158, 233, 57);
+            constexpr auto lime_alt = rgb(170, 230, 60);
             constexpr auto scroll_bg = rgb(16, 20, 24);
             constexpr auto scroll_grab = rgb(63, 69, 81);
             constexpr auto scroll_hover = rgb(39, 43, 51);
@@ -483,7 +484,10 @@ namespace internal
             constexpr auto text_disabled = rgb(113, 113, 122);
             constexpr auto transparent = rgb(0, 0, 0, 0.0f);
 
-            constexpr ImVec4 text_label = rgb(139, 148, 125);
+            constexpr auto text_widget_disabled = rgb(82, 82, 91);
+
+            constexpr ImVec4 text_label_enabled = rgb(139, 148, 125);
+            constexpr ImVec4 text_label_disabled = rgb(113, 113, 122);
 
             constexpr auto graph_background = rgb(11, 14, 19);
             // constexpr auto graph_major_line = rgb(39, 43, 51);
@@ -501,6 +505,9 @@ namespace internal
 
             constexpr auto graph_outline_point = rgb(190, 242, 100);
             constexpr auto graph_outline_point_border = rgb(16, 20, 24);
+
+            constexpr auto graph_disabled_line = rgb(50, 64, 84);
+            constexpr auto graph_disabled_fill = rgb(30, 41, 59);
         }
 
 
@@ -593,13 +600,19 @@ namespace internal
 
         bool drag_float_behaviour(const char* id, float* val, const Drags& drags)
         {
-            return ImGui::DragFloat(id, val, drags.v_speed, drags.v_min, drags.v_max, "%.2f");
+            const auto is_enabled = enabled_var();
+
+            ImGui::PushStyleColor(ImGuiCol_Text, is_enabled ? colors::text : colors::text_widget_disabled);
+            const auto modified = ImGui::DragFloat(id, val, drags.v_speed, drags.v_min, drags.v_max, "%.2f");
+            ImGui::PopStyleColor(1);
+
+            return modified;
         }
 
         bool readonly_float_behaviour(const char* id, float* val, const Drags&)
         {
-            ImGui::PushStyleColor(ImGuiCol_FrameBg, internal::colors::base);
-            ImGui::PushStyleColor(ImGuiCol_Text, internal::colors::text_label);
+            ImGui::PushStyleColor(ImGuiCol_FrameBg, colors::base);
+            ImGui::PushStyleColor(ImGuiCol_Text, enabled_var() ? colors::text_label_enabled : colors::text_label_disabled );
             ImGui::InputFloat(id, val, 0, 0, "%.3f", ImGuiInputTextFlags_ReadOnly);
             ImGui::PopStyleColor(2);
             return false;
@@ -759,6 +772,75 @@ namespace internal
             return changed;
         }
 
+
+        bool imgui_s_curve_editor(const char* title, core::SCurve* curve, SCurveGuiState* gui, FlipX flip_x, const ImVec2& requested_widget_size)
+        {
+            imgui_text(fmt::format("{} ({} {})", title, curve->slope, curve->threshold));
+
+            ImGui::InvisibleButton(title, requested_widget_size);
+            const auto widget_min = ImGui::GetItemRectMin();
+            const auto widget_max = ImGui::GetItemRectMax();
+            const auto widget_size = ImGui::GetItemRectSize();
+            const auto is_active = ImGui::IsItemActive();
+            const auto is_visible = ImGui::IsItemVisible();
+            const auto is_enabled = enabled_var();
+
+            if (is_visible)
+            {
+                const auto new_curve = core::s_curve_from_input(flip_x == FlipX::yes ? 1 - gui->drag.x : gui->drag.x, gui->drag.y);
+                *curve = new_curve;
+            }
+
+            auto& points = gui->point_cache;
+            bool changed = false;
+
+            auto* draw = ImGui::GetWindowDrawList();
+            draw->AddRectFilled(widget_min, widget_max, ImColor{ colors::graph_background });
+
+
+            for (std::size_t point_index = 0; point_index < SCurveGuiState::num_points; point_index += 1)
+            {
+                const float srcx = static_cast<float>(point_index) / static_cast<float>(SCurveGuiState::num_points - 1); // -1 here to include 1.0f when evaluating the curve
+                const float x = flip_x == FlipX::yes ? 1 - srcx : srcx;
+                const float y = core::calculate_s_curve(srcx, curve->slope, curve->threshold);
+                points[point_index] = ImVec2{ x * widget_size.x, (1 - y) * widget_size.y } + widget_min;
+            }
+            draw->AddPolyline(points.data(), int_from_sizet(SCurveGuiState::num_points), ImColor{ is_enabled ? colors::graph_line : colors::graph_disabled_line }, ImDrawFlags_None, 1.0f);
+
+            const auto is_hover = ImGui::IsItemHovered();
+            const auto drag_position = ImVec2{ gui->drag.x * widget_size.x, (1 - gui->drag.y) * widget_size.y } + widget_min;
+
+            const auto drag_radius = is_hover ? 6.0f : 4.0f;
+            constexpr auto drag_hover_step = 4.0f;
+            const auto circle_fill_color =
+                is_enabled == false ? colors::graph_disabled_fill :
+                is_hover ? colors::graph_active_point :
+                colors::graph_outline_point ;
+            const auto circle_border_color =
+                is_enabled == false ? colors::graph_disabled_line :
+                is_hover ? colors::graph_active_point_middle :
+                colors::graph_outline_point_border ;
+            draw->AddCircleFilled(drag_position, drag_radius, ImColor{ circle_fill_color });
+            draw->AddCircle(drag_position, drag_radius, ImColor{ circle_border_color }, 0, is_hover ? drag_hover_step : 1.0f);
+            if (is_hover)
+            {
+                draw->AddCircle(drag_position, drag_radius + drag_hover_step / 2.0f, ImColor{ internal::colors::graph_active_point_border }, 0, 2.0f);
+            }
+
+            if (is_active)
+            {
+                // mouse is down and drag started inside the component
+                const auto mp = ImGui::GetMousePos();
+                const auto n_x = (mp.x - widget_min.x) / widget_size.x;
+                const auto n_y = 1 - ((mp.y - widget_min.y) / widget_size.y);
+                gui->drag.x = std::min(1.0f, std::max(n_x, 0.0f));
+                gui->drag.y = std::min(1.0f, std::max(n_y, 0.0f));
+                changed = true;
+            }
+
+            return changed;
+        }
+
         constexpr const char* default_format = "%.2f";
 
         std::string format_float(float f)
@@ -885,7 +967,7 @@ namespace internal
             }
 
             const auto text_size = ImGui::CalcTextSize(text.c_str());
-            draw->AddText({ total.Max.x - text_size.x, center_y - text_size.y * 0.5f }, IM_COL32(170, 230, 60, 255), text.c_str());
+            draw->AddText({ total.Max.x - text_size.x, center_y - text_size.y * 0.5f }, ImColor{ is_enabled ? colors::lime_alt : colors::text_widget_disabled }, text.c_str());
 
             return value_was_changed;
         }
@@ -925,7 +1007,8 @@ namespace internal
             
             // draw label
             {
-                ImGui::PushStyleColor(ImGuiCol_Text, internal::colors::text_label);
+                const auto is_enabled = enabled_var();
+                ImGui::PushStyleColor(ImGuiCol_Text, is_enabled ? colors::text_label_enabled : colors::text_label_disabled );
                 ImGui::TextUnformatted(label);
                 const auto used_size = ImGui::GetItemRectSize();
                 const ImVec2 text_size = ImGui::CalcTextSize(label);
@@ -957,8 +1040,8 @@ namespace internal
         {
             auto temp = text;
             // ImGuiCol_FrameBg
-            ImGui::PushStyleColor(ImGuiCol_FrameBg, internal::colors::base);
-            ImGui::PushStyleColor(ImGuiCol_Text, internal::colors::text_label);
+            ImGui::PushStyleColor(ImGuiCol_FrameBg, colors::base);
+            ImGui::PushStyleColor(ImGuiCol_Text, enabled_var() ? colors::text_label_enabled : colors::text_label_disabled );
             ImGui::InputText(label, &temp, ImGuiInputTextFlags_ReadOnly);
             ImGui::PopStyleColor(2);
         }
@@ -982,7 +1065,10 @@ namespace internal
 
         bool imgui_edit(const char* label, std::string* str)
         {
-            return ImGui::InputText(label, str);
+            ImGui::PushStyleColor(ImGuiCol_Text, enabled_var() ? colors::text : colors::text_widget_disabled);
+            const auto changed = ImGui::InputText(label, str);
+            ImGui::PopStyleColor(1);
+            return changed;
         }
 
         void imgui_image(const char* name, const render::FrameBuffer& img, ImguiShaderCache* cache, ImageShader shader)
@@ -1262,7 +1348,7 @@ void setup_colors()
     constexpr auto text = internal::colors::text;
     constexpr auto text_disabled = internal::colors::text_disabled;
     constexpr auto transparent = internal::colors::transparent;
-    constexpr auto table_border_strong = internal::colors::text_label;
+    constexpr auto table_border_strong = internal::colors::text_label_enabled;
 
     // Main window and backgrounds
     colors[ImGuiCol_Text] = text;
@@ -1653,7 +1739,7 @@ bool PropTable::scurve(const char* label, eu::core::SCurve* scurve, eu::imgui::S
 {
     return internal::trow(*this, label, [&]
     {
-        return eu::imgui::imgui_s_curve_editor("", scurve, gui, flip_x, requested_widget_size);
+        return internal::imgui_s_curve_editor("", scurve, gui, flip_x, requested_widget_size);
     });
 }
 
@@ -1666,64 +1752,6 @@ SCurveGuiState::SCurveGuiState(float x, float y)
     : drag(x, y)
 {}
 
-bool imgui_s_curve_editor(const char* title, core::SCurve* curve, SCurveGuiState* gui, FlipX flip_x, const ImVec2& requested_widget_size)
-{
-    internal::imgui_text(fmt::format("{} ({} {})", title, curve->slope, curve->threshold));
-
-    ImGui::InvisibleButton(title, requested_widget_size);
-    const auto widget_min = ImGui::GetItemRectMin();
-    const auto widget_max = ImGui::GetItemRectMax();
-    const auto widget_size = ImGui::GetItemRectSize();
-    const auto is_active = ImGui::IsItemActive();
-    const auto is_visible = ImGui::IsItemVisible();
-
-    if (is_visible)
-    {
-        const auto new_curve = core::s_curve_from_input(flip_x == FlipX::yes ? 1 - gui->drag.x : gui->drag.x, gui->drag.y);
-        *curve = new_curve;
-    }
-
-    auto& points = gui->point_cache;
-    bool changed = false;
-
-    auto* draw = ImGui::GetWindowDrawList();
-    draw->AddRectFilled(widget_min, widget_max, ImColor{ internal::colors::graph_background });
-
-
-    for (std::size_t point_index = 0; point_index < SCurveGuiState::num_points; point_index += 1)
-    {
-        const float srcx = static_cast<float>(point_index) / static_cast<float>(SCurveGuiState::num_points - 1); // -1 here to include 1.0f when evaluating the curve
-        const float x = flip_x == FlipX::yes ? 1 - srcx : srcx;
-        const float y = core::calculate_s_curve(srcx, curve->slope, curve->threshold);
-        points[point_index] = ImVec2{ x * widget_size.x, (1 - y) * widget_size.y } + widget_min;
-    }
-    draw->AddPolyline(points.data(), int_from_sizet(SCurveGuiState::num_points), ImColor{internal::colors::graph_line}, ImDrawFlags_None, 1.0f);
-
-    const auto is_hover = ImGui::IsItemHovered();
-    const auto drag_position = ImVec2{ gui->drag.x * widget_size.x, (1 - gui->drag.y) * widget_size.y } + widget_min;
-
-    const auto drag_radius = is_hover ? 6.0f : 4.0f;
-    constexpr auto drag_hover_step = 4.0f;
-    draw->AddCircleFilled(drag_position, drag_radius, ImColor{is_hover ? internal::colors::graph_active_point : internal::colors::graph_outline_point });
-    draw->AddCircle(drag_position, drag_radius, ImColor{ is_hover ? internal::colors::graph_active_point_middle : internal::colors::graph_outline_point_border }, 0, is_hover ? drag_hover_step : 1.0f);
-    if (is_hover)
-    {
-        draw->AddCircle(drag_position, drag_radius + drag_hover_step/2.0f, ImColor{ internal::colors::graph_active_point_border}, 0, 2.0f);
-    }
-
-    if (is_active)
-    {
-        // mouse is down and drag started inside the component
-        const auto mp = ImGui::GetMousePos();
-        const auto n_x = (mp.x - widget_min.x) / widget_size.x;
-        const auto n_y = 1 - ((mp.y - widget_min.y) / widget_size.y);
-        gui->drag.x = std::min(1.0f, std::max(n_x, 0.0f));
-        gui->drag.y = std::min(1.0f, std::max(n_y, 0.0f));
-        changed = true;
-    }
-
-    return changed;
-}
 
 
 
