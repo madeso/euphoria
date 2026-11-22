@@ -24,6 +24,12 @@ namespace internal
         using namespace eu;
         using namespace eu::imgui;
 
+        bool& enabled_var()
+        {
+            static bool enabled = true;
+            return enabled;
+        }
+
         bool check_imgui_shader(GLuint handle, const char* desc)
         {
             GLint status = 0;
@@ -523,6 +529,7 @@ namespace internal
 
         struct ButtonColor
         {
+            ButtonStateColor disabled;
             ButtonStateColor idle;
             ButtonStateColor hover;
             ButtonStateColor active;
@@ -542,8 +549,12 @@ namespace internal
             const auto is_hover = interactive && ImGui::IsItemHovered();
             auto* draw = ImGui::GetWindowDrawList();
 
-            const auto& state_color = is_active ? color.active :
-                (is_hover ? color.hover : color.idle);
+            const auto is_enabled = enabled_var();
+
+            const auto& state_color =
+                is_enabled == false ? color.disabled :
+                is_active ? color.active :
+                is_hover ? color.hover : color.idle;
 
             // background
             if (const auto& bkg = state_color.background; bkg.has_value())
@@ -620,8 +631,15 @@ namespace internal
             }
             ImGui::PushMultiItemsWidths(3, full_width - 3 * button_size.x - extra_spacing.value_or(0.0f));
 
+            constexpr auto disabled_button_style = ButtonStateColor{
+                    .background = rgb(22, 25, 29),
+                    .text = rgb(51, 60, 72),
+                    .border = rgb(29, 32, 39)
+            };
+
             constexpr auto red_style = ButtonColor
             {
+                .disabled = disabled_button_style,
                 .idle = {
                     .background = rgb(76, 5, 25),
                     .text = rgb(251, 113, 133),
@@ -640,6 +658,7 @@ namespace internal
             };
             constexpr auto green_style = ButtonColor
             {
+                .disabled = disabled_button_style,
                 .idle = {
                     .background = rgb(2, 44, 34),
                     .text = rgb(158, 233, 57),
@@ -658,6 +677,7 @@ namespace internal
             };
             constexpr auto blue_style = ButtonColor
             {
+                .disabled = disabled_button_style,
                 .idle = {
                     .background = rgb(8, 47, 73),
                     .text = rgb(56, 189, 248),
@@ -776,10 +796,10 @@ namespace internal
             // const ImRect track_bb(pos, ImVec2(total.Max.x - max_label_width - style.ItemInnerSpacing.x * 2, total.Max.y));
 
             // const auto enabled = ImGui::IsDisabled() == false;
-            const auto enabled = true;
+            const auto is_enabled = enabled_var();
 
-            const auto id = window->GetID(label);
             ImGui::InvisibleButton(label, ImVec2(ImGui::CalcItemWidth(), height));
+            const auto id = ImGui::GetItemID();
             const auto min_rect = ImGui::GetItemRectMin();
             const auto max_rect = ImGui::GetItemRectMax();
             const ImRect total(min_rect, max_rect);
@@ -1000,6 +1020,11 @@ namespace internal
 
 
         constexpr ButtonColor primary_button_style = {
+            .disabled = {
+                .background = rgb(39, 39, 42),
+                .text = rgb(113, 113, 122),
+                .border = rgb(63, 63, 70)
+            },
             .idle = {
                 .background = rgb(132, 204, 22),
                 .text = rgb(9, 9, 11),
@@ -1018,6 +1043,11 @@ namespace internal
         };
 
         constexpr ButtonColor secondary_button_style = {
+            .disabled = {
+                .background = rgb(24, 27, 32),
+                .text = rgb(82, 82, 91),
+                .border = rgb(39, 39, 42)
+            },
             .idle = {
                 .background = rgb(33, 37, 43),
                 .text = rgb(228, 228, 231),
@@ -1036,6 +1066,11 @@ namespace internal
         };
 
         constexpr ButtonColor danger_button_style = {
+            .disabled = {
+                .background = rgb(22, 25, 29),
+                .text = rgb(51, 60, 72),
+                .border = rgb(29, 32, 39)
+            },
             .idle = {
                 // .background = rgb(25, 28, 33),
                 .background = rgb(11, 14, 19),
@@ -1055,6 +1090,11 @@ namespace internal
         };
 
         constexpr ButtonColor toolbar_button_style = {
+            .disabled = {
+                .background = rgb(22, 25, 29),
+                .text = rgb(51, 60, 72),
+                .border = rgb(29, 32, 39)
+            },
             .idle = {
                 .background = std::nullopt,
                 .text = rgb(161, 161, 170),
@@ -1325,6 +1365,17 @@ bool header(const char* label, bool* closeable)
     return ret;
 }
 
+
+void begin_disabled(bool enabled)
+{
+    internal::enabled_var() = enabled;
+    ImGui::BeginDisabled(!enabled);
+}
+void end_disabled()
+{
+    internal::enabled_var() = true;
+    ImGui::EndDisabled();
+}
 
 PropTable::PropTable(PropTable&& r) noexcept
     : started(r.started)

@@ -76,6 +76,8 @@ bool centered_button(const char* label, ButtonStyle style = ButtonStyle::seconda
 
 bool header(const char* label, bool* closeable = nullptr);
 
+void begin_disabled(bool enabled);
+void end_disabled();
 
 struct PropTable
 {
