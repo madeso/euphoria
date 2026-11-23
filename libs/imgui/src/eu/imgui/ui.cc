@@ -824,7 +824,7 @@ namespace internal
             draw->AddCircle(drag_position, drag_radius, ImColor{ circle_border_color }, 0, is_hover ? drag_hover_step : 1.0f);
             if (is_hover)
             {
-                draw->AddCircle(drag_position, drag_radius + drag_hover_step / 2.0f, ImColor{ internal::colors::graph_active_point_border }, 0, 2.0f);
+                draw->AddCircle(drag_position, drag_radius + drag_hover_step / 2.0f, ImColor{ colors::graph_active_point_border }, 0, 2.0f);
             }
 
             if (is_active)
@@ -1046,21 +1046,21 @@ namespace internal
             ImGui::PopStyleColor(2);
         }
 
-        void v3_named_readonly(const char* label, const v3& v, const char* x_name, const char* y_name, const char* z_name)
+        void v3_named_readonly(const v3& v, const char* x_name, const char* y_name, const char* z_name)
         {
             auto temp = v;
-            internal::imgui_drag_with_reset(internal::readonly_float_behaviour, &temp.x, &temp.y, &temp.z, 0.0f, std::nullopt, x_name, y_name, z_name, Drags{}, GearActionStyle::not_interactive);
+            imgui_drag_with_reset(readonly_float_behaviour, &temp.x, &temp.y, &temp.z, 0.0f, std::nullopt, x_name, y_name, z_name, Drags{}, GearActionStyle::not_interactive);
         }
 
-        void imgui_readonly(const char* label, const v3& v)
+        void imgui_readonly(const v3& v)
         {
-            v3_named_readonly(label, v, "X", "Y", "Z");
+            v3_named_readonly(v, "X", "Y", "Z");
         }
 
-        void imgui_readonly(const char* label, const Ypr& y)
+        void imgui_readonly(const Ypr& y)
         {
             const auto temp = v3{ y.yaw.as_degrees() ,y.pitch.as_degrees(), y.roll.as_degrees() };
-            v3_named_readonly(label, temp, "Y", "P", "R");
+            v3_named_readonly(temp, "Y", "P", "R");
         }
 
         bool imgui_edit(const char* label, std::string* str)
@@ -1081,7 +1081,7 @@ namespace internal
             static float hover_size = 128.0f;
             const auto& io = ImGui::GetIO();
 
-            internal::imgui_text(fmt::format("{}: {}x{}", name, texture_size.x, texture_size.y));
+            imgui_text(fmt::format("{}: {}x{}", name, texture_size.x, texture_size.y));
 
             const auto widget_width = (texture_size.x / texture_size.y) * widget_height;
             const auto widget_size = ImVec2{ widget_width, widget_height };
@@ -1096,7 +1096,7 @@ namespace internal
 
             const constexpr char* const popup_id = "image config popup";
 
-            internal::draw_imgui_image(img, widget_size, uv_min, uv_max, border_col, cache, shader);
+            draw_imgui_image(img, widget_size, uv_min, uv_max, border_col, cache, shader);
             const auto id = ImGui::GetID(name);
 
             if (id == current_id && ImGui::BeginPopupContextItem(popup_id))
@@ -1104,7 +1104,7 @@ namespace internal
                 ImGui::DragFloat("Base", &widget_height, 1.0f);
                 ImGui::DragFloat("Size", &region_size, 0.01f);
                 ImGui::DragFloat("Scale", &hover_size, 1.0f);
-                internal::image_tooltip(img, texture_size, region_size, hover_size, latest_tooltip, widget_size, pos, border_col, cache, shader);
+                image_tooltip(img, texture_size, region_size, hover_size, latest_tooltip, widget_size, pos, border_col, cache, shader);
                 if (ImGui::Button("Close"))
                 {
                     ImGui::CloseCurrentPopup();
@@ -1120,7 +1120,7 @@ namespace internal
                 latest_tooltip = io.MousePos;
                 if (ImGui::BeginTooltip())
                 {
-                    internal::image_tooltip(img, texture_size, region_size, hover_size, io.MousePos, widget_size, pos, border_col, cache, shader);
+                    image_tooltip(img, texture_size, region_size, hover_size, io.MousePos, widget_size, pos, border_col, cache, shader);
                     ImGui::EndTooltip();
                 }
             }
@@ -1329,84 +1329,66 @@ void setup_colors()
 
     // initially inspired and based on by Catppuccin Mocha Palette
     // https://github.com/ocornut/imgui/issues/707#issuecomment-3592676777
-    
-    constexpr auto base = internal::colors::base;
-    constexpr auto tab = internal::colors::tab;
-    constexpr auto tab_other = internal::colors::tab_other;
-    constexpr auto edit_bg = internal::colors::edit_bg;
-    constexpr auto button_bg = internal::colors::button_bg;
-    constexpr auto header_bg = internal::colors::header_bg;
-    constexpr auto button_hover = internal::colors::button_hover;
-    constexpr auto button_active = internal::colors::button_active;
-    constexpr auto border = internal::colors::border;
-    constexpr auto lime = internal::colors::lime;
-    constexpr auto scroll_bg = internal::colors::scroll_bg;
-    constexpr auto scroll_grab = internal::colors::scroll_grab;
-    constexpr auto scroll_hover = internal::colors::scroll_hover;
-    constexpr auto scroll_active = internal::colors::scroll_active;
-    constexpr auto text_selected_bg = internal::colors::text_selected_bg;
-    constexpr auto text = internal::colors::text;
-    constexpr auto text_disabled = internal::colors::text_disabled;
-    constexpr auto transparent = internal::colors::transparent;
+
     constexpr auto table_border_strong = internal::colors::text_label_enabled;
 
     // Main window and backgrounds
-    colors[ImGuiCol_Text] = text;
-    colors[ImGuiCol_TextDisabled] = text_disabled;
-    colors[ImGuiCol_WindowBg] = base;                      // Background of normal windows
-    colors[ImGuiCol_ChildBg] = base;                       // Background of child windows
-    colors[ImGuiCol_PopupBg] = base;                   // Background of popups, menus, tooltips windows
-    colors[ImGuiCol_Border] = border;
-    colors[ImGuiCol_BorderShadow] = transparent;
-    colors[ImGuiCol_FrameBg] = edit_bg;                   // Background of checkbox, radio button, plot, slider, text input
-    colors[ImGuiCol_FrameBgHovered] = edit_bg;
-    colors[ImGuiCol_FrameBgActive] = edit_bg;
-    colors[ImGuiCol_TitleBg] = base;                     // Title bar
-    colors[ImGuiCol_TitleBgActive] = base;             // Title bar when focused
-    colors[ImGuiCol_TitleBgCollapsed] = base;            // Title bar when collapsed
-    colors[ImGuiCol_MenuBarBg] = base;
-    colors[ImGuiCol_ScrollbarBg] = scroll_bg;
-    colors[ImGuiCol_ScrollbarGrab] = scroll_grab;
-    colors[ImGuiCol_ScrollbarGrabHovered] = scroll_hover;
-    colors[ImGuiCol_ScrollbarGrabActive] = scroll_active;
-    colors[ImGuiCol_CheckMark] = lime;                    // Checkbox tick and RadioButton circle
-    colors[ImGuiCol_SliderGrab] = scroll_grab;
-    colors[ImGuiCol_SliderGrabActive] = scroll_active;
-    colors[ImGuiCol_Button] = button_bg;
-    colors[ImGuiCol_ButtonHovered] = button_hover;
-    colors[ImGuiCol_ButtonActive] = button_active;
-    colors[ImGuiCol_Header] = header_bg;                    // Header* colors are used for CollapsingHeader, TreeNode, Selectable, MenuItem
-    colors[ImGuiCol_HeaderHovered] = header_bg;
-    colors[ImGuiCol_HeaderActive] = header_bg;
-    colors[ImGuiCol_Separator] = border;
-    colors[ImGuiCol_SeparatorHovered] = border;
-    colors[ImGuiCol_SeparatorActive] = border;
-    colors[ImGuiCol_ResizeGrip] = scroll_grab;                // Resize grip in lower-right and lower-left corners of windows.
-    colors[ImGuiCol_ResizeGripHovered] = scroll_hover;
-    colors[ImGuiCol_ResizeGripActive] = scroll_active;
-    colors[ImGuiCol_InputTextCursor] = text;               // InputText cursor/caret
-    colors[ImGuiCol_TabHovered] = tab;                 // Tab background, when hovered
-    colors[ImGuiCol_Tab] = tab_other;                        // Tab background, when tab-bar is focused & tab is unselected
-    colors[ImGuiCol_TabSelected] = tab;                // Tab background, when tab-bar is focused & tab is selected
-    colors[ImGuiCol_TabSelectedOverline] = lime;        // Tab horizontal overline, when tab-bar is focused & tab is selected
-    colors[ImGuiCol_TabDimmed] = tab;                  // Tab background, when tab-bar is unfocused & tab is unselected
-    colors[ImGuiCol_TabDimmedSelected] = tab;          // Tab background, when tab-bar is unfocused & tab is selected
-    colors[ImGuiCol_TabDimmedSelectedOverline] = lime;  // horizontal overline, when tab-bar is unfocused & tab is selected
+    colors[ImGuiCol_Text] = internal::colors::text;
+    colors[ImGuiCol_TextDisabled] = internal::colors::text_disabled;
+    colors[ImGuiCol_WindowBg] = internal::colors::base;                      // Background of normal windows
+    colors[ImGuiCol_ChildBg] = internal::colors::base;                       // Background of child windows
+    colors[ImGuiCol_PopupBg] = internal::colors::base;                   // Background of popups, menus, tooltips windows
+    colors[ImGuiCol_Border] = internal::colors::border;
+    colors[ImGuiCol_BorderShadow] = internal::colors::transparent;
+    colors[ImGuiCol_FrameBg] = internal::colors::edit_bg;                   // Background of checkbox, radio button, plot, slider, text input
+    colors[ImGuiCol_FrameBgHovered] = internal::colors::edit_bg;
+    colors[ImGuiCol_FrameBgActive] = internal::colors::edit_bg;
+    colors[ImGuiCol_TitleBg] = internal::colors::base;                     // Title bar
+    colors[ImGuiCol_TitleBgActive] = internal::colors::base;             // Title bar when focused
+    colors[ImGuiCol_TitleBgCollapsed] = internal::colors::base;            // Title bar when collapsed
+    colors[ImGuiCol_MenuBarBg] = internal::colors::base;
+    colors[ImGuiCol_ScrollbarBg] = internal::colors::scroll_bg;
+    colors[ImGuiCol_ScrollbarGrab] = internal::colors::scroll_grab;
+    colors[ImGuiCol_ScrollbarGrabHovered] = internal::colors::scroll_hover;
+    colors[ImGuiCol_ScrollbarGrabActive] = internal::colors::scroll_active;
+    colors[ImGuiCol_CheckMark] = internal::colors::lime;                    // Checkbox tick and RadioButton circle
+    colors[ImGuiCol_SliderGrab] = internal::colors::scroll_grab;
+    colors[ImGuiCol_SliderGrabActive] = internal::colors::scroll_active;
+    colors[ImGuiCol_Button] = internal::colors::button_bg;
+    colors[ImGuiCol_ButtonHovered] = internal::colors::button_hover;
+    colors[ImGuiCol_ButtonActive] = internal::colors::button_active;
+    colors[ImGuiCol_Header] = internal::colors::header_bg;                    // Header* colors are used for CollapsingHeader, TreeNode, Selectable, MenuItem
+    colors[ImGuiCol_HeaderHovered] = internal::colors::header_bg;
+    colors[ImGuiCol_HeaderActive] = internal::colors::header_bg;
+    colors[ImGuiCol_Separator] = internal::colors::border;
+    colors[ImGuiCol_SeparatorHovered] = internal::colors::border;
+    colors[ImGuiCol_SeparatorActive] = internal::colors::border;
+    colors[ImGuiCol_ResizeGrip] = internal::colors::scroll_grab;                // Resize grip in lower-right and lower-left corners of windows.
+    colors[ImGuiCol_ResizeGripHovered] = internal::colors::scroll_hover;
+    colors[ImGuiCol_ResizeGripActive] = internal::colors::scroll_active;
+    colors[ImGuiCol_InputTextCursor] = internal::colors::text;               // InputText cursor/caret
+    colors[ImGuiCol_TabHovered] = internal::colors::tab;                 // Tab background, when hovered
+    colors[ImGuiCol_Tab] = internal::colors::tab_other;                        // Tab background, when tab-bar is focused & tab is unselected
+    colors[ImGuiCol_TabSelected] = internal::colors::tab;                // Tab background, when tab-bar is focused & tab is selected
+    colors[ImGuiCol_TabSelectedOverline] = internal::colors::lime;        // Tab horizontal overline, when tab-bar is focused & tab is selected
+    colors[ImGuiCol_TabDimmed] = internal::colors::tab;                  // Tab background, when tab-bar is unfocused & tab is unselected
+    colors[ImGuiCol_TabDimmedSelected] = internal::colors::tab;          // Tab background, when tab-bar is unfocused & tab is selected
+    colors[ImGuiCol_TabDimmedSelectedOverline] = internal::colors::lime;  // horizontal overline, when tab-bar is unfocused & tab is selected
     // colors[ImGuiCol_DockingPreview] = sapphire;
     // colors[ImGuiCol_DockingEmptyBg] = base;
-    colors[ImGuiCol_PlotLines] = lime;
-    colors[ImGuiCol_PlotLinesHovered] = lime;
-    colors[ImGuiCol_PlotHistogram] = lime;
-    colors[ImGuiCol_PlotHistogramHovered] = lime;
-    colors[ImGuiCol_TableHeaderBg] = base;
+    colors[ImGuiCol_PlotLines] = internal::colors::lime;
+    colors[ImGuiCol_PlotLinesHovered] = internal::colors::lime;
+    colors[ImGuiCol_PlotHistogram] = internal::colors::lime;
+    colors[ImGuiCol_PlotHistogramHovered] = internal::colors::lime;
+    colors[ImGuiCol_TableHeaderBg] = internal::colors::base;
     colors[ImGuiCol_TableBorderStrong] = table_border_strong;
-    colors[ImGuiCol_TableBorderLight] = base;
-    colors[ImGuiCol_TableRowBg] = transparent;
+    colors[ImGuiCol_TableBorderLight] = internal::colors::base;
+    colors[ImGuiCol_TableRowBg] = internal::colors::transparent;
     colors[ImGuiCol_TableRowBgAlt] = ImVec4(1.0f, 1.0f, 1.0f, 0.06f);
-    colors[ImGuiCol_TextSelectedBg] = text_selected_bg;
-    colors[ImGuiCol_DragDropTarget] = lime;
-    colors[ImGuiCol_UnsavedMarker] = lime;         // Unsaved Document marker (in window title and tabs)
-    colors[ImGuiCol_NavCursor] = lime;
+    colors[ImGuiCol_TextSelectedBg] = internal::colors::text_selected_bg;
+    colors[ImGuiCol_DragDropTarget] = internal::colors::lime;
+    colors[ImGuiCol_UnsavedMarker] = internal::colors::lime;         // Unsaved Document marker (in window title and tabs)
+    colors[ImGuiCol_NavCursor] = internal::colors::lime;
     colors[ImGuiCol_NavWindowingHighlight] = ImVec4(1.0f, 1.0f, 1.0f, 0.7f);
     colors[ImGuiCol_NavWindowingDimBg] = ImVec4(0.8f, 0.8f, 0.8f, 0.2f);
     colors[ImGuiCol_ModalWindowDimBg] = ImVec4(0.0f, 0.0f, 0.0f, 0.35f);
@@ -1580,7 +1562,7 @@ void PropTable::readonly(const char* label, const eu::v3& v) const
 {
     internal::trow(*this, label, [&]
     {
-        internal::imgui_readonly("", v);
+        internal::imgui_readonly(v);
         return false;
     });
 }
@@ -1589,7 +1571,7 @@ void PropTable::readonly(const char* label, const eu::Ypr& y) const
 {
     internal::trow(*this, label, [&]
     {
-        internal::imgui_readonly("", y);
+        internal::imgui_readonly(y);
         return false;
     });
 }
