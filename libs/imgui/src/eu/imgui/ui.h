@@ -98,18 +98,18 @@ struct PropTable
 
     void display(const char* label, bool b) const;
     void readonly(const char* label, const std::string& text) const;
-    void readonly(const char* label, const eu::v3& v) const;
-    void readonly(const char* label, const eu::Ypr& y) const;
+    void readonly(const char* label, const v3& v) const;
+    void readonly(const char* label, const Ypr& y) const;
     bool color(const char* label, Rgb* color) const;
     bool simple_gamma_slider(const char* label, float* gamma, float curve = 1.5f, float min_gamma = 1.6f, float max_gamma = 2.8f) const;
-    bool drag(const char* label, eu::v3* drag, float reset_value = 0.0f) const;
-    bool drag(const char* label, eu::Ypr* drag) const;
-    bool drag(const char* label, eu::Rui* drag) const;
+    bool drag(const char* label, v3* drag, float reset_value = 0.0f) const;
+    bool drag(const char* label, Ypr* drag) const;
+    bool drag(const char* label, Rui* drag) const;
     bool drag(const char* label, float* drag, float speed = 1.0f) const;
     bool drag(const char* label, int* drag) const;
-    void transform(const eu::m4& m) const;
-    bool transform(eu::m4* m) const;
-    bool scurve(const char* label, eu::core::SCurve* scurve, eu::imgui::SCurveGuiState* gui, eu::imgui::FlipX flip_x, const ImVec2& requested_widget_size = ImVec2{ 100, 100 }) const;
+    void transform(const m4& m) const;
+    bool transform(m4* m) const;
+    bool scurve(const char* label, core::SCurve* scurve, SCurveGuiState* gui, FlipX flip_x, const ImVec2& requested_widget_size = ImVec2{ 100, 100 }) const;
 
     void image(const char* label, const render::FrameBuffer& img, ImguiShaderCache* cache, ImageShader shader) const;
 private:

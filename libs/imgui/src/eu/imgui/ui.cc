@@ -1558,7 +1558,7 @@ void PropTable::readonly(const char* label, const std::string& text) const
     });
 }
 
-void PropTable::readonly(const char* label, const eu::v3& v) const
+void PropTable::readonly(const char* label, const v3& v) const
 {
     internal::trow(*this, label, [&]
     {
@@ -1567,7 +1567,7 @@ void PropTable::readonly(const char* label, const eu::v3& v) const
     });
 }
 
-void PropTable::readonly(const char* label, const eu::Ypr& y) const
+void PropTable::readonly(const char* label, const Ypr& y) const
 {
     internal::trow(*this, label, [&]
     {
@@ -1628,7 +1628,7 @@ bool PropTable::color(const char* label, Rgb* color) const
     });
 }
 
-bool PropTable::drag(const char* label, eu::v3* drag, float reset_value) const
+bool PropTable::drag(const char* label, v3* drag, float reset_value) const
 {
     return internal::trow(*this, label, [&]
     {
@@ -1636,7 +1636,7 @@ bool PropTable::drag(const char* label, eu::v3* drag, float reset_value) const
     });
 }
 
-bool PropTable::drag(const char* label, eu::Ypr* drag) const
+bool PropTable::drag(const char* label, Ypr* drag) const
 {
     return internal::trow(*this, label, [&]
     {
@@ -1677,7 +1677,7 @@ bool PropTable::drag(const char* label, int* drag) const
     });
 }
 
-bool PropTable::drag(const char* label, eu::Rui* drag) const
+bool PropTable::drag(const char* label, Rui* drag) const
 {
     return internal::trow(*this, label, [&]
     {
@@ -1685,18 +1685,18 @@ bool PropTable::drag(const char* label, eu::Rui* drag) const
     });
 }
 
-void PropTable::transform(const eu::m4& m) const
+void PropTable::transform(const m4& m) const
 {
-    const auto t = eu::transform_from_matrix(m);
+    const auto t = transform_from_matrix(m);
 
     readonly("Position", t.position);
-    readonly("Rotation", eu::Ypr::From(t.rotation));
+    readonly("Rotation", Ypr::From(t.rotation));
     readonly("Scale", t.scale);
 }
 
-bool PropTable::transform(eu::m4* m) const
+bool PropTable::transform(m4* m) const
 {
-    auto t = eu::transform_from_matrix(*m);
+    auto t = transform_from_matrix(*m);
 
     ImGui::PushID(m);
 
@@ -1707,11 +1707,11 @@ bool PropTable::transform(eu::m4* m) const
         changed = true;
         *m = matrix_from_transform(t);
     }
-    auto y = eu::Ypr::From(t.rotation);
+    auto y = Ypr::From(t.rotation);
     if (drag("Rotation", &y))
     {
         changed = true;
-        t.rotation = eu::Q::From(y);
+        t.rotation = Q::From(y);
         *m = matrix_from_transform(t);
     }
     if (drag("Scale", &t.scale, 1.0f))
@@ -1725,7 +1725,7 @@ bool PropTable::transform(eu::m4* m) const
     return changed;
 }
 
-bool PropTable::scurve(const char* label, eu::core::SCurve* scurve, eu::imgui::SCurveGuiState* gui, eu::imgui::FlipX flip_x, const ImVec2& requested_widget_size) const
+bool PropTable::scurve(const char* label, core::SCurve* scurve, SCurveGuiState* gui, FlipX flip_x, const ImVec2& requested_widget_size) const
 {
     return internal::trow(*this, label, [&]
     {
