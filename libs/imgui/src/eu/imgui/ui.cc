@@ -1599,11 +1599,19 @@ bool PropTable::color(const char* label, Rgb* color) const
     {
         ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2{ 0, 0 });
         const auto button_size = internal::calculate_square_button_size();
-        // todo(Gustav): change so drag is 0-255
-        // todo(Gustav): change colors?
-        bool changed = imgui_drag_with_reset(internal::drag_float_behaviour, &color->r, &color->g, &color->b, 0.0f, button_size.x,
-                                             "R", "G", "B", internal::Drags{ .v_speed = 0.1f, .v_min = 0.0f, .v_max = 1.0f }
+        constexpr float scale = 255.0f;
+        float r = color->r * scale;
+        float g = color->g * scale;
+        float b = color->b * scale;
+        bool changed = imgui_drag_with_reset(internal::drag_float_behaviour, &r, &g, &b, 0.0f, button_size.x,
+                                             "R", "G", "B", internal::Drags{ .v_speed = 0.1f, .v_min = 0.0f, .v_max = 255.0f }
         );
+        if (changed)
+        {
+            color->r = r / scale;
+            color->g = g / scale;
+            color->b = b / scale;
+        }
         constexpr const char* color_popup = "color-popup";
         if (ImGui::ColorButton("color", ImVec4{color->r, color->g, color->b, 1.0f}))
         {

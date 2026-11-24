@@ -212,6 +212,7 @@ void custom_widgets_demo()
         static float gamma = 2.0f;
         static eu::Rui rui = { .right = 0.0f, .up = 0.0f, .in = 0.0f };
         static eu::m4 mat = eu::m4_identity;
+        static eu::Rgb color = eu::colors::red_vermillion;
 
         prop.text("Text", "This is a text");
         prop.edit("Editable", &text);
@@ -224,6 +225,8 @@ void custom_widgets_demo()
         prop.drag("Drag vec", &vec);
         prop.drag("Drag Rotation", &rot);
         prop.drag("Drag rui", &rui);
+
+        prop.color("Color", &color);
 
         prop.transform(mat);
         prop.transform(&mat);
