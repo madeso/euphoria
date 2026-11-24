@@ -2142,14 +2142,6 @@
   </compound>
   <compound refid="tablelayout_8h" kind="file"><name>tablelayout.h</name>
   </compound>
-  <compound refid="core_2src_2eu_2core_2ui_8h" kind="file"><name>ui.h</name>
-  </compound>
-  <compound refid="imgui_2src_2eu_2imgui_2ui_8h" kind="file"><name>ui.h</name>
-  </compound>
-  <compound refid="core_2src_2eu_2core_2uniform__buffer_8h" kind="file"><name>uniform_buffer.h</name>
-  </compound>
-  <compound refid="render_2src_2eu_2render_2uniform__buffer_8h" kind="file"><name>uniform_buffer.h</name>
-  </compound>
   <compound refid="utf8_8h" kind="file"><name>utf8.h</name>
   </compound>
   <compound refid="vertex__layout_8h" kind="file"><name>vertex_layout.h</name>
@@ -2162,29 +2154,17 @@
     <member refid="vertex__layout_8h_1a0436252b3903cd701da5f3ce6e5cb0dc" kind="function"><name>EU_FMT_ENUM_VAL</name></member>
     <member refid="vertex__layout_8h_1a3b323af2c2fdd34759ecd327e249e071" kind="function"><name>EU_FMT_ENUM_VAL</name></member>
   </compound>
-  <compound refid="imgui_2src_2eu_2imgui_2debug_8h" kind="file"><name>debug.h</name>
-  </compound>
-  <compound refid="render_2src_2eu_2render_2debug_8h" kind="file"><name>debug.h</name>
-  </compound>
   <compound refid="init_8h" kind="file"><name>init.h</name>
+  </compound>
+  <compound refid="core_2src_2eu_2core_2ui_8h" kind="file"><name>ui.h</name>
+  </compound>
+  <compound refid="imgui_2src_2eu_2imgui_2ui_8h" kind="file"><name>ui.h</name>
   </compound>
   <compound refid="file_8h" kind="file"><name>file.h</name>
   </compound>
   <compound refid="core_2src_2eu_2core_2mesh_8h" kind="file"><name>mesh.h</name>
   </compound>
   <compound refid="io_2src_2eu_2io_2mesh_8h" kind="file"><name>mesh.h</name>
-  </compound>
-  <compound refid="base_2src_2eu_2base_2pch_8private_8h" kind="file"><name>pch.private.h</name>
-  </compound>
-  <compound refid="core_2src_2eu_2core_2pch_8private_8h" kind="file"><name>pch.private.h</name>
-  </compound>
-  <compound refid="imgui_2src_2eu_2imgui_2pch_8private_8h" kind="file"><name>pch.private.h</name>
-  </compound>
-  <compound refid="io_2src_2eu_2io_2pch_8private_8h" kind="file"><name>pch.private.h</name>
-  </compound>
-  <compound refid="mrgui_2src_2eu_2mrgui_2pch_8private_8h" kind="file"><name>pch.private.h</name>
-  </compound>
-  <compound refid="render_2src_2eu_2render_2pch_8private_8h" kind="file"><name>pch.private.h</name>
   </compound>
   <compound refid="kdl_8h" kind="file"><name>kdl.h</name>
     <member refid="kdl_8h_1a0871194d96ef3fe9606594bd45be95e0" kind="typedef"><name>kdl_str</name></member>
@@ -2212,6 +2192,10 @@
   </compound>
   <compound refid="constants_8h" kind="file"><name>constants.h</name>
   </compound>
+  <compound refid="imgui_2src_2eu_2imgui_2debug_8h" kind="file"><name>debug.h</name>
+  </compound>
+  <compound refid="render_2src_2eu_2render_2debug_8h" kind="file"><name>debug.h</name>
+  </compound>
   <compound refid="dependency__glad_8h" kind="file"><name>dependency_glad.h</name>
   </compound>
   <compound refid="enable__high__performance__graphics_8h" kind="file"><name>enable_high_performance_graphics.h</name>
@@ -2237,6 +2221,18 @@
     <member refid="opengl__utils_8h_1a3bc128ee3dd125d5880c96123bd94b57" kind="define"><name>SET_DEBUG_LABEL</name></member>
     <member refid="opengl__utils_8h_1a1ad1aec82d9e68a43fd2638eec356cfb" kind="define"><name>SET_DEBUG_LABEL_NAMED</name></member>
     <member refid="opengl__utils_8h_1ad393331531471e5c2b9629a03cb4a3d3" kind="define"><name>SCOPED_DEBUG_GROUP</name></member>
+  </compound>
+  <compound refid="base_2src_2eu_2base_2pch_8private_8h" kind="file"><name>pch.private.h</name>
+  </compound>
+  <compound refid="core_2src_2eu_2core_2pch_8private_8h" kind="file"><name>pch.private.h</name>
+  </compound>
+  <compound refid="imgui_2src_2eu_2imgui_2pch_8private_8h" kind="file"><name>pch.private.h</name>
+  </compound>
+  <compound refid="io_2src_2eu_2io_2pch_8private_8h" kind="file"><name>pch.private.h</name>
+  </compound>
+  <compound refid="mrgui_2src_2eu_2mrgui_2pch_8private_8h" kind="file"><name>pch.private.h</name>
+  </compound>
+  <compound refid="render_2src_2eu_2render_2pch_8private_8h" kind="file"><name>pch.private.h</name>
   </compound>
   <compound refid="postproc_8h" kind="file"><name>postproc.h</name>
   </compound>
@@ -2265,6 +2261,10 @@
   <compound refid="texture_8io_8h" kind="file"><name>texture.io.h</name>
   </compound>
   <compound refid="uniform_8h" kind="file"><name>uniform.h</name>
+  </compound>
+  <compound refid="core_2src_2eu_2core_2uniform__buffer_8h" kind="file"><name>uniform_buffer.h</name>
+  </compound>
+  <compound refid="render_2src_2eu_2render_2uniform__buffer_8h" kind="file"><name>uniform_buffer.h</name>
   </compound>
   <compound refid="world_8h" kind="file"><name>world.h</name>
   </compound>
