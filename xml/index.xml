@@ -975,18 +975,18 @@
     <member refid="structeu_1_1imgui_1_1PropTable_1a9ed0d810d82b3af2fd23451ff584a941" kind="function"><name>edit</name></member>
     <member refid="structeu_1_1imgui_1_1PropTable_1a927c8524dca330ab1ef144298692f0bb" kind="function"><name>display</name></member>
     <member refid="structeu_1_1imgui_1_1PropTable_1ad5f6d921c3ec50b1adbccecdb3ea49ee" kind="function"><name>readonly</name></member>
-    <member refid="structeu_1_1imgui_1_1PropTable_1a364c1553ca9055477f57fa2929dfd048" kind="function"><name>readonly</name></member>
-    <member refid="structeu_1_1imgui_1_1PropTable_1a582723ca08780b5ff07cf749fca4c527" kind="function"><name>readonly</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1a5eec842893e9073733119e2f746db5cf" kind="function"><name>readonly</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1ab373e563e3f660292edb4e9109362a5a" kind="function"><name>readonly</name></member>
     <member refid="structeu_1_1imgui_1_1PropTable_1afe688b594f2138013905ec4c1f02d7be" kind="function"><name>color</name></member>
     <member refid="structeu_1_1imgui_1_1PropTable_1a0cca7a58e3eb30df02fcbbd2b7d6700b" kind="function"><name>simple_gamma_slider</name></member>
-    <member refid="structeu_1_1imgui_1_1PropTable_1aabde8140bc0ddc50179fa80a009d3784" kind="function"><name>drag</name></member>
-    <member refid="structeu_1_1imgui_1_1PropTable_1a75a70f298aebe6066549a6456cfbfe51" kind="function"><name>drag</name></member>
-    <member refid="structeu_1_1imgui_1_1PropTable_1a05cce3d9c67116df29e3505d23acd5a8" kind="function"><name>drag</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1abcba5cbcb9766428df8c04bc4aa8b685" kind="function"><name>drag</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1a53b403aa3db769b02307478649708788" kind="function"><name>drag</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1afead6fc21f4739f29024f53d4ba78fae" kind="function"><name>drag</name></member>
     <member refid="structeu_1_1imgui_1_1PropTable_1a9933267b36726b3e77acd64d28ca5eb9" kind="function"><name>drag</name></member>
     <member refid="structeu_1_1imgui_1_1PropTable_1ac9ed402d06dd68622b63ebbd0197016f" kind="function"><name>drag</name></member>
-    <member refid="structeu_1_1imgui_1_1PropTable_1a45c73e3889697106927100942fdab34b" kind="function"><name>transform</name></member>
-    <member refid="structeu_1_1imgui_1_1PropTable_1a3ec768eb2763438c97615e75b846d8ba" kind="function"><name>transform</name></member>
-    <member refid="structeu_1_1imgui_1_1PropTable_1a64afc147631a7231130d0f5424ca20b1" kind="function"><name>scurve</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1aacce4d7d3a4adeadb9de37c2236eb3fc" kind="function"><name>transform</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1a9edbcaab6e628b2c23cc40d7875e729c" kind="function"><name>transform</name></member>
+    <member refid="structeu_1_1imgui_1_1PropTable_1a0c781ae4db9385a71f8278d2e9600a77" kind="function"><name>scurve</name></member>
     <member refid="structeu_1_1imgui_1_1PropTable_1ae90896c6a81143a33ca4fd45a4598fb0" kind="function"><name>image</name></member>
     <member refid="structeu_1_1imgui_1_1PropTable_1a275a40085aa04e1cc0154348dd207623" kind="function"><name>Begin</name></member>
     <member refid="structeu_1_1imgui_1_1PropTable_1ad021c7d740f63865102d8d8515a23ed2" kind="function"><name>PropTable</name></member>

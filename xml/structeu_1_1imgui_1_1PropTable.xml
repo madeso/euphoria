@@ -279,10 +279,10 @@
         </inbodydescription>
         <location file="libs/imgui/src/eu/imgui/ui.h" line="100" column="10"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a364c1553ca9055477f57fa2929dfd048" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a5eec842893e9073733119e2f746db5cf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::imgui::PropTable::readonly</definition>
-        <argsstring>(const char *label, const eu::v3 &amp;v) const</argsstring>
+        <argsstring>(const char *label, const v3 &amp;v) const</argsstring>
         <name>readonly</name>
         <qualifiedname>eu::imgui::PropTable::readonly</qualifiedname>
         <param>
@@ -290,7 +290,7 @@
           <declname>label</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1v3" kindref="compound">eu::v3</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1v3" kindref="compound">v3</ref> &amp;</type>
           <declname>v</declname>
         </param>
         <briefdescription>
@@ -301,10 +301,10 @@
         </inbodydescription>
         <location file="libs/imgui/src/eu/imgui/ui.h" line="101" column="10"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a582723ca08780b5ff07cf749fca4c527" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1ab373e563e3f660292edb4e9109362a5a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::imgui::PropTable::readonly</definition>
-        <argsstring>(const char *label, const eu::Ypr &amp;y) const</argsstring>
+        <argsstring>(const char *label, const Ypr &amp;y) const</argsstring>
         <name>readonly</name>
         <qualifiedname>eu::imgui::PropTable::readonly</qualifiedname>
         <param>
@@ -312,7 +312,7 @@
           <declname>label</declname>
         </param>
         <param>
-          <type>const <ref refid="structeu_1_1Ypr" kindref="compound">eu::Ypr</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1Ypr" kindref="compound">Ypr</ref> &amp;</type>
           <declname>y</declname>
         </param>
         <briefdescription>
@@ -382,10 +382,10 @@
         </inbodydescription>
         <location file="libs/imgui/src/eu/imgui/ui.h" line="104" column="10"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1aabde8140bc0ddc50179fa80a009d3784" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1abcba5cbcb9766428df8c04bc4aa8b685" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool eu::imgui::PropTable::drag</definition>
-        <argsstring>(const char *label, eu::v3 *drag, float reset_value=0.0f) const</argsstring>
+        <argsstring>(const char *label, v3 *drag, float reset_value=0.0f) const</argsstring>
         <name>drag</name>
         <qualifiedname>eu::imgui::PropTable::drag</qualifiedname>
         <param>
@@ -393,7 +393,7 @@
           <declname>label</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1v3" kindref="compound">eu::v3</ref> *</type>
+          <type><ref refid="structeu_1_1v3" kindref="compound">v3</ref> *</type>
           <declname>drag</declname>
         </param>
         <param>
@@ -409,10 +409,10 @@
         </inbodydescription>
         <location file="libs/imgui/src/eu/imgui/ui.h" line="105" column="10"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a75a70f298aebe6066549a6456cfbfe51" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a53b403aa3db769b02307478649708788" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool eu::imgui::PropTable::drag</definition>
-        <argsstring>(const char *label, eu::Ypr *drag) const</argsstring>
+        <argsstring>(const char *label, Ypr *drag) const</argsstring>
         <name>drag</name>
         <qualifiedname>eu::imgui::PropTable::drag</qualifiedname>
         <param>
@@ -420,7 +420,7 @@
           <declname>label</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1Ypr" kindref="compound">eu::Ypr</ref> *</type>
+          <type><ref refid="structeu_1_1Ypr" kindref="compound">Ypr</ref> *</type>
           <declname>drag</declname>
         </param>
         <briefdescription>
@@ -431,10 +431,10 @@
         </inbodydescription>
         <location file="libs/imgui/src/eu/imgui/ui.h" line="106" column="10"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a05cce3d9c67116df29e3505d23acd5a8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1afead6fc21f4739f29024f53d4ba78fae" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool eu::imgui::PropTable::drag</definition>
-        <argsstring>(const char *label, eu::Rui *drag) const</argsstring>
+        <argsstring>(const char *label, Rui *drag) const</argsstring>
         <name>drag</name>
         <qualifiedname>eu::imgui::PropTable::drag</qualifiedname>
         <param>
@@ -442,7 +442,7 @@
           <declname>label</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1Rui" kindref="compound">eu::Rui</ref> *</type>
+          <type><ref refid="structeu_1_1Rui" kindref="compound">Rui</ref> *</type>
           <declname>drag</declname>
         </param>
         <briefdescription>
@@ -502,14 +502,14 @@
         </inbodydescription>
         <location file="libs/imgui/src/eu/imgui/ui.h" line="109" column="10"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a45c73e3889697106927100942fdab34b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1aacce4d7d3a4adeadb9de37c2236eb3fc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void eu::imgui::PropTable::transform</definition>
-        <argsstring>(const eu::m4 &amp;m) const</argsstring>
+        <argsstring>(const m4 &amp;m) const</argsstring>
         <name>transform</name>
         <qualifiedname>eu::imgui::PropTable::transform</qualifiedname>
         <param>
-          <type>const <ref refid="structeu_1_1m4" kindref="compound">eu::m4</ref> &amp;</type>
+          <type>const <ref refid="structeu_1_1m4" kindref="compound">m4</ref> &amp;</type>
           <declname>m</declname>
         </param>
         <briefdescription>
@@ -520,14 +520,14 @@
         </inbodydescription>
         <location file="libs/imgui/src/eu/imgui/ui.h" line="110" column="10"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a3ec768eb2763438c97615e75b846d8ba" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a9edbcaab6e628b2c23cc40d7875e729c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool eu::imgui::PropTable::transform</definition>
-        <argsstring>(eu::m4 *m) const</argsstring>
+        <argsstring>(m4 *m) const</argsstring>
         <name>transform</name>
         <qualifiedname>eu::imgui::PropTable::transform</qualifiedname>
         <param>
-          <type><ref refid="structeu_1_1m4" kindref="compound">eu::m4</ref> *</type>
+          <type><ref refid="structeu_1_1m4" kindref="compound">m4</ref> *</type>
           <declname>m</declname>
         </param>
         <briefdescription>
@@ -538,10 +538,10 @@
         </inbodydescription>
         <location file="libs/imgui/src/eu/imgui/ui.h" line="111" column="10"/>
       </memberdef>
-      <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a64afc147631a7231130d0f5424ca20b1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeu_1_1imgui_1_1PropTable_1a0c781ae4db9385a71f8278d2e9600a77" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool eu::imgui::PropTable::scurve</definition>
-        <argsstring>(const char *label, eu::core::SCurve *scurve, eu::imgui::SCurveGuiState *gui, eu::imgui::FlipX flip_x, const ImVec2 &amp;requested_widget_size=ImVec2{ 100, 100 }) const</argsstring>
+        <argsstring>(const char *label, core::SCurve *scurve, SCurveGuiState *gui, FlipX flip_x, const ImVec2 &amp;requested_widget_size=ImVec2{ 100, 100 }) const</argsstring>
         <name>scurve</name>
         <qualifiedname>eu::imgui::PropTable::scurve</qualifiedname>
         <param>
@@ -549,15 +549,15 @@
           <declname>label</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1core_1_1SCurve" kindref="compound">eu::core::SCurve</ref> *</type>
+          <type><ref refid="structeu_1_1core_1_1SCurve" kindref="compound">core::SCurve</ref> *</type>
           <declname>scurve</declname>
         </param>
         <param>
-          <type><ref refid="structeu_1_1imgui_1_1SCurveGuiState" kindref="compound">eu::imgui::SCurveGuiState</ref> *</type>
+          <type><ref refid="structeu_1_1imgui_1_1SCurveGuiState" kindref="compound">SCurveGuiState</ref> *</type>
           <declname>gui</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeu_1_1imgui_1a6887d690e8c91852b12a0aef78d2111f" kindref="member">eu::imgui::FlipX</ref></type>
+          <type><ref refid="namespaceeu_1_1imgui_1a6887d690e8c91852b12a0aef78d2111f" kindref="member">FlipX</ref></type>
           <declname>flip_x</declname>
         </param>
         <param>
@@ -669,9 +669,9 @@
       <member refid="structeu_1_1imgui_1_1PropTable_1a51c3c130acde0557610cf718cf920e70" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>check</name></member>
       <member refid="structeu_1_1imgui_1_1PropTable_1afe688b594f2138013905ec4c1f02d7be" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>color</name></member>
       <member refid="structeu_1_1imgui_1_1PropTable_1a927c8524dca330ab1ef144298692f0bb" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>display</name></member>
-      <member refid="structeu_1_1imgui_1_1PropTable_1aabde8140bc0ddc50179fa80a009d3784" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>drag</name></member>
-      <member refid="structeu_1_1imgui_1_1PropTable_1a75a70f298aebe6066549a6456cfbfe51" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>drag</name></member>
-      <member refid="structeu_1_1imgui_1_1PropTable_1a05cce3d9c67116df29e3505d23acd5a8" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>drag</name></member>
+      <member refid="structeu_1_1imgui_1_1PropTable_1abcba5cbcb9766428df8c04bc4aa8b685" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>drag</name></member>
+      <member refid="structeu_1_1imgui_1_1PropTable_1a53b403aa3db769b02307478649708788" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>drag</name></member>
+      <member refid="structeu_1_1imgui_1_1PropTable_1afead6fc21f4739f29024f53d4ba78fae" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>drag</name></member>
       <member refid="structeu_1_1imgui_1_1PropTable_1a9933267b36726b3e77acd64d28ca5eb9" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>drag</name></member>
       <member refid="structeu_1_1imgui_1_1PropTable_1ac9ed402d06dd68622b63ebbd0197016f" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>drag</name></member>
       <member refid="structeu_1_1imgui_1_1PropTable_1a9ed0d810d82b3af2fd23451ff584a941" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>edit</name></member>
@@ -684,16 +684,16 @@
       <member refid="structeu_1_1imgui_1_1PropTable_1ad021c7d740f63865102d8d8515a23ed2" prot="private" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>PropTable</name></member>
       <member refid="structeu_1_1imgui_1_1PropTable_1a253ebfb939c7a5b81c391749ecaebe82" prot="private" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>PropTable</name></member>
       <member refid="structeu_1_1imgui_1_1PropTable_1ad5f6d921c3ec50b1adbccecdb3ea49ee" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>readonly</name></member>
-      <member refid="structeu_1_1imgui_1_1PropTable_1a364c1553ca9055477f57fa2929dfd048" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>readonly</name></member>
-      <member refid="structeu_1_1imgui_1_1PropTable_1a582723ca08780b5ff07cf749fca4c527" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>readonly</name></member>
-      <member refid="structeu_1_1imgui_1_1PropTable_1a64afc147631a7231130d0f5424ca20b1" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>scurve</name></member>
+      <member refid="structeu_1_1imgui_1_1PropTable_1a5eec842893e9073733119e2f746db5cf" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>readonly</name></member>
+      <member refid="structeu_1_1imgui_1_1PropTable_1ab373e563e3f660292edb4e9109362a5a" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>readonly</name></member>
+      <member refid="structeu_1_1imgui_1_1PropTable_1a0c781ae4db9385a71f8278d2e9600a77" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>scurve</name></member>
       <member refid="structeu_1_1imgui_1_1PropTable_1a0cca7a58e3eb30df02fcbbd2b7d6700b" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>simple_gamma_slider</name></member>
       <member refid="structeu_1_1imgui_1_1PropTable_1ab71b4c71f757de2ca3a0671317b38262" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>slider</name></member>
       <member refid="structeu_1_1imgui_1_1PropTable_1a1daf9d4e3fe6b5129fd2377a23ed1aad" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>slider</name></member>
       <member refid="structeu_1_1imgui_1_1PropTable_1a2587752663cce25cc1aa0f80f03d1970" prot="private" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>started</name></member>
       <member refid="structeu_1_1imgui_1_1PropTable_1a532a523a3432878e5ba3a04b72517f0a" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>text</name></member>
-      <member refid="structeu_1_1imgui_1_1PropTable_1a45c73e3889697106927100942fdab34b" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>transform</name></member>
-      <member refid="structeu_1_1imgui_1_1PropTable_1a3ec768eb2763438c97615e75b846d8ba" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>transform</name></member>
+      <member refid="structeu_1_1imgui_1_1PropTable_1aacce4d7d3a4adeadb9de37c2236eb3fc" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>transform</name></member>
+      <member refid="structeu_1_1imgui_1_1PropTable_1a9edbcaab6e628b2c23cc40d7875e729c" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>transform</name></member>
       <member refid="structeu_1_1imgui_1_1PropTable_1a70505695e2093f3367c979ae1823058b" prot="public" virt="non-virtual"><scope>eu::imgui::PropTable</scope><name>~PropTable</name></member>
     </listofallmembers>
   </compounddef>
