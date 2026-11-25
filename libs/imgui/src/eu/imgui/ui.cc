@@ -191,7 +191,7 @@ namespace internal
             // reset shader
             if (shader != ImageShader::none)
             {
-                draw_list->AddCallback(ImDrawCallback_ResetRenderState, nullptr);
+                draw_list->AddCallback(ImGui::GetPlatformIO().DrawCallback_ResetRenderState, nullptr);
             }
         }
 
@@ -295,7 +295,7 @@ namespace internal
             const float a_max = (IM_PI * 2.0f) * (static_cast<float>(num_segments) - 1.0f) / static_cast<float>(num_segments);
             dl_path_arc_to(dl, center, radius - 0.5f, 0.0f, a_max, num_segments - 1, ang);
 
-            dl->PathStroke(col, ImDrawFlags_Closed, thickness);
+            dl->PathStroke(col, thickness, ImDrawFlags_Closed);
         }
 
 
@@ -805,7 +805,7 @@ namespace internal
                 const float y = core::calculate_s_curve(srcx, curve->slope, curve->threshold);
                 points[point_index] = ImVec2{ x * widget_size.x, (1 - y) * widget_size.y } + widget_min;
             }
-            draw->AddPolyline(points.data(), int_from_sizet(SCurveGuiState::num_points), ImColor{ is_enabled ? colors::graph_line : colors::graph_disabled_line }, ImDrawFlags_None, 1.0f);
+            draw->AddPolyline(points.data(), int_from_sizet(SCurveGuiState::num_points), ImColor{ is_enabled ? colors::graph_line : colors::graph_disabled_line }, 1.0f);
 
             const auto is_hover = ImGui::IsItemHovered();
             const auto drag_position = ImVec2{ gui->drag.x * widget_size.x, (1 - gui->drag.y) * widget_size.y } + widget_min;
