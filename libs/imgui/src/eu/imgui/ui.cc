@@ -1461,10 +1461,16 @@ void begin_disabled(bool enabled)
     internal::enabled_var() = enabled;
     ImGui::BeginDisabled(!enabled);
 }
+
 void end_disabled()
 {
     internal::enabled_var() = true;
     ImGui::EndDisabled();
+}
+
+void progress(float percentage)
+{
+    ImGui::ProgressBar(percentage);
 }
 
 PropTable::PropTable(PropTable&& r) noexcept

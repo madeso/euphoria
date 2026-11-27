@@ -77,6 +77,8 @@ bool header(const char* label, bool* closeable = nullptr);
 void begin_disabled(bool enabled);
 void end_disabled();
 
+void progress(float percentage);
+
 struct PropTable
 {
     PropTable(const PropTable&) = delete;

@@ -313,6 +313,8 @@ AppState App::iterate()
             }
         }
 
+        eu::imgui::progress(roughness);
+
         eu::imgui::centered_button("Add component");
 
         eu::imgui::button("Generic action", eu::imgui::ButtonStyle::secondary);
