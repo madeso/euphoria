@@ -1883,6 +1883,7 @@
     <member refid="namespaceeu_1_1imgui_1a2055a379b690b5d98ec2e0196f4cf455" kind="function"><name>header</name></member>
     <member refid="namespaceeu_1_1imgui_1a110f850b014b891f6c299d59460e3d34" kind="function"><name>begin_disabled</name></member>
     <member refid="namespaceeu_1_1imgui_1aeb59e0910765c5828147565d66ee3e76" kind="function"><name>end_disabled</name></member>
+    <member refid="namespaceeu_1_1imgui_1a112768480d0cb40440be11a8ea43b49b" kind="function"><name>progress</name></member>
   </compound>
   <compound refid="namespaceeu_1_1io" kind="namespace"><name>eu::io</name>
     <member refid="namespaceeu_1_1io_1af1eaadaf42c3183baed23e8545e34ed6" kind="function"><name>string_from_file</name></member>

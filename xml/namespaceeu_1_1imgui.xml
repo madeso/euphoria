@@ -319,6 +319,24 @@
         </inbodydescription>
         <location file="libs/imgui/src/eu/imgui/ui.h" line="78" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="78" declcolumn="6"/>
       </memberdef>
+      <memberdef kind="function" id="namespaceeu_1_1imgui_1a112768480d0cb40440be11a8ea43b49b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eu::imgui::progress</definition>
+        <argsstring>(float percentage)</argsstring>
+        <name>progress</name>
+        <qualifiedname>eu::imgui::progress</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>percentage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/imgui/src/eu/imgui/ui.h" line="80" column="6" declfile="libs/imgui/src/eu/imgui/ui.h" declline="80" declcolumn="6"/>
+      </memberdef>
     </sectiondef>
     <briefdescription>
     </briefdescription>
